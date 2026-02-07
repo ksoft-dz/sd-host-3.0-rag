@@ -1,0 +1,48 @@
+Location,Attrib,Register Field Explanation
+15,RO,"Fixed to 0
+The Host Driver shall control error interrupts using the Error Interrupt Status
+Enable register."
+
+14-13,Rsvd,"Reserved"
+
+12,RW,"Re-Tuning Event Status Enable
+
+1  Enabled
+0  Masked"
+
+11,RW,"INT_C Status Enable
+If this bit is set to 0, the Host Controller shall clear the interrupt request to the
+System. The Host Driver may clear this bit before servicing the INT_C and
+may set this bit again after all interrupt requests to INT_C pin are cleared to
+prevent inadvertent interrupts.
+
+1  Enabled
+0  Masked"
+
+10,RW,"INT_B Status Enable
+If this bit is set to 0, the Host Controller shall clear the interrupt request to the
+System. The Host Driver may clear this bit before servicing the INT_B and
+may set this bit again after all interrupt requests to INT_B pin are cleared to
+prevent inadvertent interrupts.
+
+1  Enabled
+0  Masked"
+
+09,RW,"INT_A Status Enable
+If this bit is set to 0, the Host Controller shall clear the interrupt request to the
+System. The Host Driver may clear this bit before servicing the INT_A and
+may set this bit again after all interrupt requests to INT_A pin are cleared to
+prevent inadvertent interrupts.
+
+1  Enabled
+0  Masked"
+
+08,RW,"Card Interrupt Status Enable - If this bit is set to 0, the Host Controller shall clear interrupt request to the System. The Card Interrupt detection is stopped when this bit is cleared and restarted when this bit is set to 1. The Host Driver may clear the Card Interrupt Status Enable before servicing the Card Interrupt and may set this bit again after all interrupt requests from the card are cleared to prevent inadvertent interrupts. 1=Enabled, 0=Masked"
+07,RW,"Card Removal Status Enable - 1=Enabled, 0=Masked"
+06,RW,"Card Insertion Status Enable - 1=Enabled, 0=Masked"
+05,RW,"Buffer Read Ready Status Enable - 1=Enabled, 0=Masked"
+04,RW,"Buffer Write Ready Status Enable - 1=Enabled, 0=Masked"
+03,RW,"DMA Interrupt Status Enable - 1=Enabled, 0=Masked"
+02,RW,"Block Gap Event Status Enable - 1=Enabled, 0=Masked"
+01,RW,"Transfer Complete Status Enable - 1=Enabled, 0=Masked"
+00,RW,"Command Complete Status Enable - 1=Enabled, 0=Masked"

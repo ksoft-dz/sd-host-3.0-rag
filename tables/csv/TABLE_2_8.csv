@@ -1,0 +1,5 @@
+Multi/Single Block Select,Block Count Enable,Block Count,Function
+0,Don't care,Don't care,Single Transfer
+1,0,Don't care,Infinite Transfer
+1,1,Not Zero,Multiple Transfer
+1,1,Zero,Stop Multiple Transfer

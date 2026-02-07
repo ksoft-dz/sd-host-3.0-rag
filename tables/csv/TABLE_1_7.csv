@@ -1,0 +1,5 @@
+Type of Data transfer,Buffer Status,Buffer Interrupt,Complete Interrupt
+Write Transfer (Non DMA),Buffer Write Enable,Buffer Write Ready,Transfer Complete
+Write Transfer (DMA),(Driver ignores),(Driver ignores),Transfer Complete
+Read Transfer (Non DMA),Buffer Read Enable,Buffer Read Ready,Transfer Complete
+Read Transfer (DMA),(Driver ignores),(Driver ignores),Transfer Complete

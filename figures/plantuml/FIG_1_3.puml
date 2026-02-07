@@ -1,0 +1,77 @@
+@startuml
+!define ORANGE #FDB462
+!define LIGHTBLUE #B3E5FC
+
+skinparam rectangle {
+    BackgroundColor<<standard>> ORANGE
+    BackgroundColor<<common>> LIGHTBLUE
+    BorderColor Black
+}
+
+package "Multiple Slot Host Controller" {
+  
+  rectangle "Slot 1" {
+    rectangle "Base Pointer 1" as BP1 {
+      rectangle "00" as S1_00
+      rectangle "Standard\nRegister Set" <<standard>> as S1_Std
+      rectangle "EF" as S1_EF
+      rectangle "F0" as S1_F0
+      rectangle "Common\nRegister Area" <<common>> as S1_Common
+      rectangle "FF" as S1_FF
+    }
+    S1_00 -[hidden]down- S1_Std
+    S1_Std -[hidden]down- S1_EF
+    S1_EF -[hidden]down- S1_F0
+    S1_F0 -[hidden]down- S1_Common
+    S1_Common -[hidden]down- S1_FF
+  }
+
+  rectangle "Slot 2" {
+    rectangle "Base Pointer 2" as BP2 {
+      rectangle "00" as S2_00
+      rectangle "Standard\nRegister Set" <<standard>> as S2_Std
+      rectangle "EF" as S2_EF
+      rectangle "F0" as S2_F0
+      rectangle "Common\nRegister Area" <<common>> as S2_Common
+      rectangle "FF" as S2_FF
+    }
+    S2_00 -[hidden]down- S2_Std
+    S2_Std -[hidden]down- S2_EF
+    S2_EF -[hidden]down- S2_F0
+    S2_F0 -[hidden]down- S2_Common
+    S2_Common -[hidden]down- S2_FF
+  }
+
+  rectangle "......" as dots1
+
+  rectangle "Slot n" {
+    rectangle "Base Pointer n" as BPn {
+      rectangle "00" as Sn_00
+      rectangle "Standard\nRegister Set" <<standard>> as Sn_Std
+      rectangle "EF" as Sn_EF
+      rectangle "F0" as Sn_F0
+      rectangle "Common\nRegister Area" <<common>> as Sn_Common
+      rectangle "FF" as Sn_FF
+    }
+    Sn_00 -[hidden]down- Sn_Std
+    Sn_Std -[hidden]down- Sn_EF
+    Sn_EF -[hidden]down- Sn_F0
+    Sn_F0 -[hidden]down- Sn_Common
+    Sn_Common -[hidden]down- Sn_FF
+  }
+
+  BP1 -[hidden]right- dots1
+  dots1 -[hidden]right- BPn
+  BP1 -[hidden]right- BP2
+  BP2 -[hidden]right- dots1
+
+  note bottom
+    The same register statuses can be read for each common register area.
+  end note
+}
+
+legend top
+  **Figure 1-3 : Register Map for Multiple Slots Controller**
+endlegend
+
+@enduml

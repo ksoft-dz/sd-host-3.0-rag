@@ -1,0 +1,24 @@
+@startuml
+!define RECTANGLE_COLOR #LightBlue
+!define BUFFER_COLOR #FFE4B5
+
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+skinparam defaultTextAlignment center
+
+rectangle "SD Host" as host #LightBlue {
+  rectangle "Buffer" as hostbuffer #FFE4B5
+}
+
+rectangle "SD Card" as card #LightGreen {
+  rectangle "Buffer" as cardbuffer #FFE4B5
+}
+
+host -right-> card : SD Bus
+hostbuffer -right-> cardbuffer
+
+note bottom of card
+**Figure 1-5 : Buffer Size Relation between Host and Card**
+end note
+
+@enduml

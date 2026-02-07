@@ -1,0 +1,91 @@
+Location,Attrib,Register Field Explanation
+15-12,RW1C,"Vendor Specific Error Status
+Additional status bits can be defined in this register by the vendor."
+
+11,Rsvd,"Reserved"
+
+10,RW1C,"Tuning Error
+This bit is set when an unrecoverable error is detected in a tuning circuit
+except during tuning procedure (Occurrence of an error during tuning
+procedure is indicated by Sampling Select). By detecting Tuning Error, Host
+Driver needs to abort a command executing and perform tuning. To reset
+tuning circuit, Sampling Clock shall be set to 0 before executing tuning
+procedure (Refer to Figure 2-29). The Tuning Error is higher priority than the
+other error interrupts generated during data transfer. By detecting Tuning
+Error, the Host Driver should discard data transferred by a current read/write
+command and retry data transfer after the Host Controller retrieved from
+tuning circuit error.
+
+1  Error
+0  No Error"
+
+09,RW1C,"ADMA Error
+This bit is set when the Host Controller detects errors during ADMA based data
+transfer. The state of the ADMA at an error occurrence is saved in the ADMA
+Error Status Register.
+In addition, the Host Controller generates this Interrupt when it detects invalid
+descriptor data (Valid=0) at the ST_FDS state. ADMA Error State in the
+ADMA Error Status indicates that an error occurs in ST_FDS state. The Host
+Driver may find that Valid bit is not set at the error descriptor.
+
+1  Error
+0  No Error"
+
+08,RW1C,"Auto CMD Error
+Auto CMD12 and Auto CMD23 use this error status. This bit is set when
+detecting that one of the bits D00-D04 in Auto CMD Error Status register has
+changed from 0 to 1. In case of Auto CMD12, this bit is set to 1, not only when
+the errors in Auto CMD12 occur but also when Auto CMD12 is not executed
+due to the previous command error.
+
+1  Error
+0  No Error"
+
+07,RW1C,"Current Limit Error
+By setting the SD Bus Power bit in the Power Control register, the Host
+Controller is requested to supply power for the SD Bus. If the Host Controller
+supports the Current Limit function, it can be protected from an illegal card by
+stopping power supply to the card in which case this bit indicates a failure
+status. Reading 1 means the Host Controller is not supplying power to SD card
+due to some failure. Reading 0 means that the Host Controller is supplying
+power and no error has occurred. The Host Controller may require some
+sampling time to detect the current limit. If the Host Controller does not support
+this function, this bit shall always be set to 0.
+
+1  Power fail
+0  No Error"
+
+06,RW1C,"Data End Bit Error
+Occurs either when detecting 0 at the end bit position of read data which uses
+the DAT line or at the end bit position of the CRC Status.
+
+1  Error
+0  No Error"
+
+05,RW1C,"Data CRC Error
+Occurs when detecting CRC error when transferring read data which uses the
+DAT line or when detecting the Write CRC status having a value of other than
+""010"".
+
+1  Error
+0  No Error"
+
+04,RW1C,"Data Timeout Error
+This bit is set when detecting one of following timeout conditions.
+(1) Busy timeout for R1b,R5b type
+(2) Busy timeout after Write CRC status
+(3) Write CRC Status timeout
+(4) Read Data timeout.
+
+1  Time out
+0  No Error"
+
+03,RW1C,"Command Index Error
+This bit is set if a Command Index error occurs in the command response.
+
+1  Error
+0  No Error"
+
+02,RW1C,"Command End Bit Error - This bit is set when detecting that the end bit of a command response is 0. 1=End Bit Error Generated, 0=No Error"
+01,RW1C,"Command CRC Error - Command CRC Error is generated in two cases. If a response is returned and the Command Timeout Error is set to 0 (indicating no timeout), this bit is set to 1 when detecting a CRC error in the command response. The Host Controller detects a CMD line conflict by monitoring the CMD line when a command is issued. If the Host Controller drives the CMD line to 1 level, but detects 0 level on the CMD line at the next SD clock edge, then the Host Controller shall abort the command (Stop driving CMD line) and set this bit to 1. The Command Timeout Error shall also be set to 1 to distinguish CMD line conflict (Refer to Table 2-25). 1=CRC Error Generated, 0=No Error"
+00,RW1C,"Command Timeout Error - This bit is set only if no response is returned within 64 SD clock cycles from the end bit of the command. If the Host Controller detects a CMD line conflict, in which case Command CRC Error shall also be set as shown in Table 2-25, this bit shall be set without waiting for 64 SD clock cycles because the command will be aborted by the Host Controller. 1=Time out, 0=No Error"

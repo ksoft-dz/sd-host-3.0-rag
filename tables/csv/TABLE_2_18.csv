@@ -1,0 +1,61 @@
+Location,Attrib,Register Field Explanation
+07-04,Rsvd,"Reserved"
+
+03,RW,"Interrupt At Block Gap
+This bit is valid only in 4-bit mode of the SDIO card and selects a sample point in
+the interrupt cycle. Setting to 1 enables interrupt detection at the block gap for a
+multiple block transfer. Setting to 0 disables interrupt detection during a multiple
+block transfer. If the SD card cannot signal an interrupt during a multiple block
+transfer, this bit should be set to 0. When the Host Driver detects an SD card
+insertion, it shall set this bit according to the CCCR of the SDIO card.
+
+1  Enabled
+0  Disabled"
+
+02,RW,"Read Wait Control
+The read wait function is optional for SDIO cards. If the card supports read wait,
+set this bit to enable use of the read wait protocol to stop read data using the
+DAT[2] line. Otherwise, the Host Controller has to stop the SD Clock to hold read
+data, which restricts commands generation. When the Host Driver detects an SD
+card insertion, it shall set this bit according to the CCCR of the SDIO card.
+If the card does not support read wait, this bit shall never be set to 1 otherwise DAT line
+conflict may occur. If this bit is set to 0, Suspend/Resume cannot be supported.
+
+1  Enable Read Wait Control
+0  Disable Read Wait Control"
+
+01,RWAC,"Continue Request
+This bit is used to restart a transaction, which was stopped using the Stop At
+Block Gap Request. To cancel stop at the block gap, set Stop At Block Gap
+Request to 0 and set this bit 1 to restart the transfer.
+
+The Host Controller automatically clears this bit in either of the following case:
+(1) In the case of a read transaction, the DAT Line Active changes from 0 to 1
+as a read transaction restarts.
+(2) In the case of a write transaction, the Write Transfer Active changes from 0
+to 1 as the write transaction restarts.
+
+Therefore, it is not necessary for Host Driver to set this bit to 0.
+If Stop At Block Gap Request is set to 1, any write to this bit is ignored.
+
+1  Restart
+0  Not affect"
+
+00,RW,"Stop At Block Gap Request
+This bit is used to stop executing read and write transaction at the next block gap
+for non-DMA, SDMA and ADMA transfers. The Host Driver shall leave this bit set
+to 1 until the Transfer  Complete is set to 1. Clearing both Stop  At  Block  Gap  
+Request and Continue Request shall not cause the transaction to restart. When 
+Host Controller version is 1.00, the Host Driver can set this bit if the card supports 
+Read Wait Control. When Host Controller version is 2.00 or later, the Host Driver 
+can  set  this  bit  regardless  of  the  card  supports  Read  Wait  Control.  The  Host  
+Controller shall stop read transfer by using Read Wait or stopping SD clock. In 
+case of write transfers in which the Host Driver writes data to the Buffer Data Port 
+register, the Host Driver shall set this bit after all block data is written. If this bit is 
+set to 1, the Host Driver shall not write data to Buffer Data Port register. 
+This bit affects Read Transfer Active, Write Transfer Active, DAT Line Active 
+and Command Inhibit (DAT) in the Present State register. 
+Regarding detailed control of bits D01 and D00, refer to Section 3.8 and 3.12.
+
+1,Stop
+0,Transfer"

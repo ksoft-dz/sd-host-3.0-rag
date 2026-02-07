@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Error Interrupt Status Register (Offset 032h)
+
+legend top
+|= D15 |= D14 |= D13 |= D12 |= D11 |= D10 |= D09 |= D08 |= D07 |= D06 |= D05 |= D04 |= D03 |= D02 |= D01 |= D00 |
+|<#LightGray>  |<#LightGray>  |<#LightGray>  |<#LightGray>  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Vendor Specific Error Status |||| Rsvd | Tuning\nError | ADMA\nError | Auto\nCMD12\nError | Current\nlimit\nError | Data\nEnd Bit\nError | Data\nCRC\nError | Data\nTimeout\nError | Command\nIndex\nError | Command\nEnd Bit\nError | Command\nCRC\nError | Command\nTimeout\nError |
+endlegend
+
+|= Location |= Attrib |= Register Field Explanation |
+| 15-12 | RW1C | **Vendor Specific Error Status**\nAdditional status bits can be defined in this register by the vendor. |
+| 11 | Rsvd | **Reserved** |
+| 10 | RW1C | **Tuning Error**\nThis bit is set when an unrecoverable error is detected in a tuning circuit\nexcept during tuning procedure (Occurrence of an error during tuning\nprocedure is indicated by Sampling Select). By detecting Tuning Error, Host\nDriver needs to abort a command executing and perform tuning. To reset\ntuning circuit, Sampling Clock shall be set to 0 before executing tuning\nprocedure (Refer to Figure 2-29). The Tuning Error is higher priority than the\nother error interrupts generated during data transfer. By detecting Tuning\nError, the Host Driver should discard data transferred by a current read/write\ncommand and retry data transfer after the Host Controller retrieved from\ntuning circuit error.\n  1 = Error\n  0 = No Error |
+| 09 | RW1C | **ADMA Error**\nThis bit is set when the Host Controller detects errors during ADMA based data\ntransfer. The state of the ADMA at an error occurrence is saved in the ADMA\nError Status Register.\nIn addition, the Host Controller generates this Interrupt when it detects invalid\ndescriptor data (Valid=0) at the ST_FDS state. **ADMA Error State** in the\nADMA Error Status indicates that an error occurs in ST_FDS state. The Host\nDriver may find that Valid bit is not set at the error descriptor.\n  1 = Error\n  0 = No Error |
+
+@enduml

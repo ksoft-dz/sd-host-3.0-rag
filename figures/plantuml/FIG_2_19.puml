@@ -1,0 +1,41 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Timeout Control Register (Offset 02Eh)\nFigure 2-19 / Table 2-21
+
+map "Register Layout" as reg {
+  D07-D04 => Rsvd (Reserved)
+  D03-D00 => Data Timeout Counter Value
+}
+
+|= Location |= Attrib |= Field |= Description |
+| 07-04 | Rsvd | Reserved | Reserved bits |
+| 03-00 | RW | Data Timeout Counter Value | Determines interval for DAT line timeout detection |
+
+note as N1
+**Data Timeout Counter Value Details:**
+This value determines the interval by which DAT line timeouts are detected.
+For more information about timeout generation, refer to the **Data Timeout Error**
+in the Error Interrupt Status register. Timeout clock frequency will be generated
+by dividing the base clock TMCLK value by this value. When setting this register,
+prevent inadvertent timeout events by clearing the **Data Timeout Error Status**
+**Enable** (in the Error Interrupt Status Enable register)
+end note
+
+|= Binary Value |= Timeout Calculation |
+| 1111b | Reserved |
+| 1110b | TMCLK x 2²⁷ |
+| ... | ... |
+| 0001b | TMCLK x 2¹⁴ |
+| 0000b | TMCLK x 2¹³ |
+
+note as N2
+**Implementation Note:**
+The Physical Layer Specification Version 3.0x defines that SDXC card
+may indicate 500ms busy. Then Host Driver may need to change timeout
+value for SDXC. It is also possible to set more than 500ms timeout
+regardless of card capacities.
+end note
+
+@enduml

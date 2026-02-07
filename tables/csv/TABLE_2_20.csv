@@ -1,0 +1,93 @@
+
+Location,Attrib,Register Field Explanation
+15-08,RW,"SDCLK Frequency Select
+This register is used to select the frequency of SDCLK pin. The definition of this
+field is dependent on the Host Controller Version.
+
+(1) 8-bit Divided Clock Mode
+This mode is supported by the Host Controller Version 1.00 and 2.00. The
+frequency is not programmed directly; rather this register holds the divisor of
+the Base Clock Frequency For SD Clock in the Capabilities register. Only
+the following settings are allowed.
+
+80h  base clock divided by 256
+40h  base clock divided by 128
+20h  base clock divided by 64
+10h  base clock divided by 32
+08h  base clock divided by 16
+04h  base clock divided by 8
+02h  base clock divided by 4
+01h  base clock divided by 2
+00h  Base clock (10MHz-63MHz)
+
+Setting 00h specifies the highest frequency of the SD Clock. When setting
+multiple bits, the most significant bit is used as the divisor but it should not be
+set. The three default divider values can be calculated by the frequency that
+is defined by the Base Clock Frequency For SD Clock in the Capabilities
+register.
+
+400KHz divider value
+25MHz divider value
+50MHz divider value
+
+According to the Physical Layer Specification, the maximum SD Clock
+frequency is 25 MHz in normal speed mode and 50MHz in high speed mode,
+and shall never exceed this limit.
+
+The frequency of SDCLK is set by the following formula:
+
+Clock Frequency = (Base Clock) / divisor
+
+Clock Divider Rule,"Thus, choose the smallest possible divisor which results in a clock frequency
+that is less than or equal to the target frequency.
+For example, if the Base Clock Frequency For SD Clock in the
+Capabilities register has the value 33MHz, and the target frequency is
+25MHz, then choosing the divisor value of 01h will yield 16.5MHz, which is
+the nearest frequency less than or equal to the target. Similarly, to approach
+a clock value of 400KHz, the divisor value of 40h yields the optimal clock
+value of 258KHz."
+
+(2) 10-bit Divided Clock Mode,"Host Controller Version 3.00 supports this mandatory mode instead of the
+8-bit Divided Clock Mode. The length of divider is extended to10 bits and all
+divider values shall be supported."
+
+Divider Value,Meaning
+3FFh,"1/2046 Divided Clock"
+.....,"...................."
+N,"1/2N Divided Clock (Duty 50%)"
+......,"...................."
+002h,"1/4 Divided Clock"
+001h,"1/2 Divided Clock"
+000h,"Base Clock (10MHz-255MHz)"
+
+(3) Programmable Clock Mode,"Host Controller Version 3.00 supports this mode as optional. A non-zero
+value set to Clock Multiplier in the Capabilities register indicates support of
+this clock mode. The multiplier enables the Host System to select a finer
+grain SD clock frequency. It is not necessary to support all frequency
+generation specified by this field because programmable clock generator is
+vendor specific and dependent on the implementation. Therefore, this mode
+is used with Preset Value registers. The Host Controller vendor provides
+possible settings and the Host System vendor sets appropriate values to the
+Preset Value registers."
+
+Multiplier Value,Meaning
+3FFh,"Base Clock * M / 1024"
+....,"...................."
+N - 1,"Base Clock * M / N"
+....,"...................."
+002h,"Base Clock * M / 3"
+001h,"Base Clock * M / 2"
+000h,"Base Clock * M"
+
+Preset Dependency,"This field depends on setting of Preset Value Enable in the Host Control 2
+register.
+If Preset Value Enable = 0, this field is set by Host Driver.
+If the Preset Value Enable = 1, this field is automatically set to a value
+specified in one of Preset Value registers."
+
+07-06,ROC or RW,"Upper Bits of SDCLK Frequency Select - Host Controller Version 1.00 and 2.00 do not support these bits and they are treated as 00b fixed value (ROC). Host Controller Version 3.00 shall support these bits to expand SDCLK Frequency Select to 10-bit. Bit 07-06 is assigned to bit 09-08 of clock divider in SDCLK Frequency Select."
+05,RW or ROC,"Clock Generator Select - Host Controller Version 3.00 supports this bit. This bit is used to select the clock generator mode in SDCLK Frequency Select. If the Programmable Clock Mode is supported (non-zero value is set to Clock Multiplier in the Capabilities register), this bit attribute is RW, and if not supported, this bit attribute is RO and zero is read. This bit depends on the setting of Preset Value Enable in the Host Control 2 register. If the Preset Value Enable = 0, this bit is set by Host Driver. If the Preset Value Enable = 1, this bit is automatically set to a value specified in one of Preset Value registers. 1=Programmable Clock Mode, 0=Divided Clock Mode"
+04-03,,Reserved
+02,RW,"SD Clock Enable - The Host Controller shall stop SDCLK when writing this bit to 0. SDCLK Frequency Select can be changed when this bit is 0. Then, the Host Controller shall maintain the same clock frequency until SDCLK is stopped (Stop at SDCLK=0). If the Card Inserted in the Present State register is cleared, this bit shall be cleared. 1=Enable, 0=Disable"
+01,ROC,"Internal Clock Stable - This bit is set to 1 when SD Clock is stable after writing to Internal Clock Enable in this register to 1. The SD Host Driver shall wait to set SD Clock Enable until this bit is set to 1. Note: This is useful when using PLL for a clock oscillator that requires setup time. 1=Ready, 0=Not Ready"
+00,RW,"Internal Clock Enable - This bit is set to 0 when the Host Driver is not using the Host Controller or the Host Controller awaits a wakeup interrupt. The Host Controller should stop its internal clock to go very low power state. Still, registers shall be able to be read and written. Clock starts to oscillate when this bit is set to 1. When clock oscillation is stable, the Host Controller shall set Internal Clock Stable in this register to 1. This bit shall not affect card detection. 1=Oscillate, 0=Stop"

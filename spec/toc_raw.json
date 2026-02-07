@@ -1,0 +1,4497 @@
+{
+  "headers": [
+    {
+      "section_number": "1",
+      "title": "Overview of the SD Standard Host",
+      "pdf_page": 12,
+      "spec_page": 1
+    },
+    {
+      "section_number": "1.1",
+      "title": "Scope of the Standard SD Host",
+      "pdf_page": 12,
+      "spec_page": 1
+    },
+    {
+      "section_number": "1.2",
+      "title": "Register Map",
+      "pdf_page": 13,
+      "spec_page": 2
+    },
+    {
+      "section_number": "1.3",
+      "title": "Multiple Slot Support",
+      "pdf_page": 14,
+      "spec_page": 3
+    },
+    {
+      "section_number": "1.4",
+      "title": "Supporting DMA",
+      "pdf_page": 14,
+      "spec_page": 3
+    },
+    {
+      "section_number": "1.5",
+      "title": "SD Command Generation",
+      "pdf_page": 15,
+      "spec_page": 4
+    },
+    {
+      "section_number": "1.6",
+      "title": "Suspend and Resume Mechanism",
+      "pdf_page": 15,
+      "spec_page": 4
+    },
+    {
+      "section_number": "1.7",
+      "title": "Buffer Control",
+      "pdf_page": 16,
+      "spec_page": 5
+    },
+    {
+      "section_number": "1.7.1",
+      "title": "Control of Buffer Pointer",
+      "pdf_page": 16,
+      "spec_page": 5
+    },
+    {
+      "section_number": "1.7.2",
+      "title": "Determining Buffer Block Length",
+      "pdf_page": 18,
+      "spec_page": 7
+    },
+    {
+      "section_number": "1.7.3",
+      "title": "Dividing Large Data Transfer",
+      "pdf_page": 18,
+      "spec_page": 7
+    },
+    {
+      "section_number": "1.8",
+      "title": "Relationship between Interrupt Control Registers",
+      "pdf_page": 19,
+      "spec_page": 8
+    },
+    {
+      "section_number": "1.9",
+      "title": "HW Block Diagram and Timing Part",
+      "pdf_page": 21,
+      "spec_page": 10
+    },
+    {
+      "section_number": "1.10",
+      "title": "Power State Definition of SD Host Controller",
+      "pdf_page": 22,
+      "spec_page": 11
+    },
+    {
+      "section_number": "1.11",
+      "title": "Auto CMD12",
+      "pdf_page": 23,
+      "spec_page": 12
+    },
+    {
+      "section_number": "1.12",
+      "title": "Controlling SDCLK",
+      "pdf_page": 24,
+      "spec_page": 13
+    },
+    {
+      "section_number": "1.13",
+      "title": "Advanced DMA",
+      "pdf_page": 25,
+      "spec_page": 14
+    },
+    {
+      "section_number": "1.13.1",
+      "title": "Block Diagram of ADMA2",
+      "pdf_page": 25,
+      "spec_page": 14
+    },
+    {
+      "section_number": "1.13.2",
+      "title": "An Example of ADMA2 Programming",
+      "pdf_page": 26,
+      "spec_page": 15
+    },
+    {
+      "section_number": "1.13.3",
+      "title": "Data Address and Data Length Requirements",
+      "pdf_page": 26,
+      "spec_page": 15
+    },
+    {
+      "section_number": "1.13.4",
+      "title": "Descriptor Table",
+      "pdf_page": 27,
+      "spec_page": 16
+    },
+    {
+      "section_number": "1.13.5",
+      "title": "ADMA2 States",
+      "pdf_page": 28,
+      "spec_page": 17
+    },
+    {
+      "section_number": "1.14",
+      "title": "Test Registers",
+      "pdf_page": 29,
+      "spec_page": 18
+    },
+    {
+      "section_number": "1.15",
+      "title": "Block Count",
+      "pdf_page": 29,
+      "spec_page": 18
+    },
+    {
+      "section_number": "1.16",
+      "title": "Sampling Clock Tuning",
+      "pdf_page": 29,
+      "spec_page": 18
+    },
+    {
+      "section_number": "2",
+      "title": "SD Host Standard Register",
+      "pdf_page": 30,
+      "spec_page": 19
+    },
+    {
+      "section_number": "2.1",
+      "title": "Summary of register set",
+      "pdf_page": 30,
+      "spec_page": 19
+    },
+    {
+      "section_number": "2.1.1",
+      "title": "SD Host Control Register Map",
+      "pdf_page": 30,
+      "spec_page": 19
+    },
+    {
+      "section_number": "2.1.2",
+      "title": "Configuration Register Types",
+      "pdf_page": 31,
+      "spec_page": 20
+    },
+    {
+      "section_number": "2.1.3",
+      "title": "Register Initial Values",
+      "pdf_page": 31,
+      "spec_page": 20
+    },
+    {
+      "section_number": "2.1.4",
+      "title": "Reserved Bits of Register",
+      "pdf_page": 31,
+      "spec_page": 20
+    },
+    {
+      "section_number": "2.2",
+      "title": "SD Host Standard Register",
+      "pdf_page": 32,
+      "spec_page": 21
+    },
+    {
+      "section_number": "2.2.1",
+      "title": "SDMA System Address / Argument 2 Register (Offset 000h)",
+      "pdf_page": 32,
+      "spec_page": 21
+    },
+    {
+      "section_number": "2.2.2",
+      "title": "Block Size Register (Offset 004h)",
+      "pdf_page": 33,
+      "spec_page": 22
+    },
+    {
+      "section_number": "2.2.3",
+      "title": "Block Count Register (Offset 006h)",
+      "pdf_page": 35,
+      "spec_page": 24
+    },
+    {
+      "section_number": "2.2.4",
+      "title": "Argument 1 Register (Offset 008h)",
+      "pdf_page": 36,
+      "spec_page": 25
+    },
+    {
+      "section_number": "2.2.5",
+      "title": "Transfer Mode Register (Offset 00Ch)",
+      "pdf_page": 37,
+      "spec_page": 26
+    },
+    {
+      "section_number": "2.2.6",
+      "title": "Command Register (Offset 00Eh)",
+      "pdf_page": 40,
+      "spec_page": 29
+    },
+    {
+      "section_number": "2.2.7",
+      "title": "Response Register (Offset 010h)",
+      "pdf_page": 42,
+      "spec_page": 31
+    },
+    {
+      "section_number": "2.2.8",
+      "title": "Buffer Data Port Register (Offset 020h)",
+      "pdf_page": 43,
+      "spec_page": 32
+    },
+    {
+      "section_number": "2.2.9",
+      "title": "Present State Register (Offset 024h)",
+      "pdf_page": 44,
+      "spec_page": 33
+    },
+    {
+      "section_number": "2.2.10",
+      "title": "Host Control 1 Register (Offset 028h)",
+      "pdf_page": 51,
+      "spec_page": 40
+    },
+    {
+      "section_number": "2.2.11",
+      "title": "Power Control Register (Offset 029h)",
+      "pdf_page": 53,
+      "spec_page": 42
+    },
+    {
+      "section_number": "2.2.12",
+      "title": "Block Gap Control Register (Offset 02Ah)",
+      "pdf_page": 54,
+      "spec_page": 43
+    },
+    {
+      "section_number": "2.2.13",
+      "title": "Wakeup Control Register (Offset 02Bh)",
+      "pdf_page": 56,
+      "spec_page": 45
+    },
+    {
+      "section_number": "2.2.14",
+      "title": "Clock Control Register (Offset 02Ch)",
+      "pdf_page": 57,
+      "spec_page": 46
+    },
+    {
+      "section_number": "2.2.15",
+      "title": "Timeout Control Register (Offset 02Eh)",
+      "pdf_page": 60,
+      "spec_page": 49
+    },
+    {
+      "section_number": "2.2.16",
+      "title": "Software Reset Register (Offset 02Fh)",
+      "pdf_page": 61,
+      "spec_page": 50
+    },
+    {
+      "section_number": "2.2.17",
+      "title": "Normal Interrupt Status Register (Offset 030h)",
+      "pdf_page": 63,
+      "spec_page": 52
+    },
+    {
+      "section_number": "2.2.18",
+      "title": "Error Interrupt Status Register (Offset 032h)",
+      "pdf_page": 68,
+      "spec_page": 57
+    },
+    {
+      "section_number": "2.2.19",
+      "title": "Normal Interrupt Status Enable Register (Offset 034h)",
+      "pdf_page": 71,
+      "spec_page": 60
+    },
+    {
+      "section_number": "2.2.20",
+      "title": "Error Interrupt Status Enable Register (Offset 036h)",
+      "pdf_page": 73,
+      "spec_page": 62
+    },
+    {
+      "section_number": "2.2.21",
+      "title": "Normal Interrupt Signal Enable Register (Offset 038h)",
+      "pdf_page": 75,
+      "spec_page": 64
+    },
+    {
+      "section_number": "2.2.22",
+      "title": "Error Interrupt Signal Enable Register (Offset 03Ah)",
+      "pdf_page": 77,
+      "spec_page": 66
+    },
+    {
+      "section_number": "2.2.23",
+      "title": "Auto CMD Error Status Register (Offset 03Ch)",
+      "pdf_page": 79,
+      "spec_page": 68
+    },
+    {
+      "section_number": "2.2.24",
+      "title": "Host Control 2 Register (Offset 03Eh)",
+      "pdf_page": 81,
+      "spec_page": 70
+    },
+    {
+      "section_number": "2.2.25",
+      "title": "Capabilities Register (Offset 040h)",
+      "pdf_page": 85,
+      "spec_page": 74
+    },
+    {
+      "section_number": "2.2.26",
+      "title": "Maximum Current Capabilities Register (Offset 048h)",
+      "pdf_page": 91,
+      "spec_page": 80
+    },
+    {
+      "section_number": "2.2.27",
+      "title": "Force Event Register for Auto CMD Error Status (Offset 050h)",
+      "pdf_page": 92,
+      "spec_page": 81
+    },
+    {
+      "section_number": "2.2.28",
+      "title": "Force Event Register for Error Interrupt Status (Offset 052h)",
+      "pdf_page": 93,
+      "spec_page": 82
+    },
+    {
+      "section_number": "2.2.29",
+      "title": "ADMA Error Status Register (Offset 054h)",
+      "pdf_page": 94,
+      "spec_page": 83
+    },
+    {
+      "section_number": "2.2.30",
+      "title": "ADMA System Address Register (Offset 058h)",
+      "pdf_page": 96,
+      "spec_page": 85
+    },
+    {
+      "section_number": "2.2.31",
+      "title": "Preset Value Registers (Offset 06F-060h)",
+      "pdf_page": 97,
+      "spec_page": 86
+    },
+    {
+      "section_number": "2.2.32",
+      "title": "Shared Bus Control Register (Offset 0E0h)",
+      "pdf_page": 99,
+      "spec_page": 88
+    },
+    {
+      "section_number": "2.2.33",
+      "title": "Slot Interrupt Status Register (Offset 0FCh)",
+      "pdf_page": 102,
+      "spec_page": 91
+    },
+    {
+      "section_number": "2.2.34",
+      "title": "Host Controller Version Register (Offset 0FEh)",
+      "pdf_page": 102,
+      "spec_page": 91
+    },
+    {
+      "section_number": "3",
+      "title": "SEQUENCE",
+      "pdf_page": 103,
+      "spec_page": 92
+    },
+    {
+      "section_number": "3.1",
+      "title": "SD Card Detection",
+      "pdf_page": 103,
+      "spec_page": 92
+    },
+    {
+      "section_number": "3.2",
+      "title": "SD Clock Control",
+      "pdf_page": 105,
+      "spec_page": 94
+    },
+    {
+      "section_number": "3.2.1",
+      "title": "SD Clock Supply Sequence",
+      "pdf_page": 105,
+      "spec_page": 94
+    },
+    {
+      "section_number": "3.2.2",
+      "title": "SD Clock Stop Sequence",
+      "pdf_page": 106,
+      "spec_page": 95
+    },
+    {
+      "section_number": "3.2.3",
+      "title": "SD Clock Frequency Change Sequence",
+      "pdf_page": 106,
+      "spec_page": 95
+    },
+    {
+      "section_number": "3.3",
+      "title": "SD Bus Power Control",
+      "pdf_page": 107,
+      "spec_page": 96
+    },
+    {
+      "section_number": "3.4",
+      "title": "Changing Bus Width",
+      "pdf_page": 109,
+      "spec_page": 98
+    },
+    {
+      "section_number": "3.5",
+      "title": "Timeout Setting on DAT Line",
+      "pdf_page": 110,
+      "spec_page": 99
+    },
+    {
+      "section_number": "3.6",
+      "title": "Card Initialization and Identification",
+      "pdf_page": 111,
+      "spec_page": 100
+    },
+    {
+      "section_number": "3.6.1",
+      "title": "Signal Voltage Switch Procedure",
+      "pdf_page": 115,
+      "spec_page": 104
+    },
+    {
+      "section_number": "3.7",
+      "title": "SD Transaction Generation",
+      "pdf_page": 117,
+      "spec_page": 106
+    },
+    {
+      "section_number": "3.7.1",
+      "title": "Transaction Control without Data Transfer Using DAT Line",
+      "pdf_page": 118,
+      "spec_page": 107
+    },
+    {
+      "section_number": "3.7.1.1",
+      "title": "The Sequence to Issue a SD Command",
+      "pdf_page": 118,
+      "spec_page": 107
+    },
+    {
+      "section_number": "3.7.1.2",
+      "title": "The Sequence to Finalize a Command",
+      "pdf_page": 120,
+      "spec_page": 109
+    },
+    {
+      "section_number": "3.7.2",
+      "title": "Transaction Control with Data Transfer Using DAT Line",
+      "pdf_page": 121,
+      "spec_page": 110
+    },
+    {
+      "section_number": "3.7.2.1",
+      "title": "Not using DMA",
+      "pdf_page": 122,
+      "spec_page": 111
+    },
+    {
+      "section_number": "3.7.2.2",
+      "title": "Using SDMA",
+      "pdf_page": 124,
+      "spec_page": 113
+    },
+    {
+      "section_number": "3.7.2.3",
+      "title": "Using ADMA",
+      "pdf_page": 126,
+      "spec_page": 115
+    },
+    {
+      "section_number": "3.8",
+      "title": "Abort Transaction",
+      "pdf_page": 128,
+      "spec_page": 117
+    },
+    {
+      "section_number": "3.8.1",
+      "title": "Asynchronous Abort",
+      "pdf_page": 128,
+      "spec_page": 117
+    },
+    {
+      "section_number": "3.8.2",
+      "title": "Synchronous Abort",
+      "pdf_page": 129,
+      "spec_page": 118
+    },
+    {
+      "section_number": "3.9",
+      "title": "Changing Bus Speed Mode",
+      "pdf_page": 130,
+      "spec_page": 119
+    },
+    {
+      "section_number": "3.10",
+      "title": "Error Recovery",
+      "pdf_page": 132,
+      "spec_page": 121
+    },
+    {
+      "section_number": "3.10.1",
+      "title": "Error Interrupt Recovery",
+      "pdf_page": 134,
+      "spec_page": 123
+    },
+    {
+      "section_number": "3.10.2",
+      "title": "Auto CMD12 Error Recovery",
+      "pdf_page": 137,
+      "spec_page": 126
+    },
+    {
+      "section_number": "3.11",
+      "title": "Wakeup Control (Optional)",
+      "pdf_page": 139,
+      "spec_page": 128
+    },
+    {
+      "section_number": "3.12",
+      "title": "Suspend/Resume (Optional)",
+      "pdf_page": 141,
+      "spec_page": 130
+    },
+    {
+      "section_number": "3.12.1",
+      "title": "Suspend Sequence",
+      "pdf_page": 141,
+      "spec_page": 130
+    },
+    {
+      "section_number": "3.12.2",
+      "title": "Resume Sequence",
+      "pdf_page": 143,
+      "spec_page": 132
+    },
+    {
+      "section_number": "3.12.3",
+      "title": "Read Transaction Wait / Continue Timing",
+      "pdf_page": 144,
+      "spec_page": 133
+    },
+    {
+      "section_number": "3.12.4",
+      "title": "Write Transaction Wait / Continue Timing",
+      "pdf_page": 146,
+      "spec_page": 135
+    },
+    {
+      "section_number": "Appendix_A",
+      "title": "Reference",
+      "pdf_page": 148,
+      "spec_page": 137
+    },
+    {
+      "section_number": "A.1",
+      "title": "Reference",
+      "pdf_page": 148,
+      "spec_page": 137
+    },
+    {
+      "section_number": "Appendix_B",
+      "title": "Special Terms",
+      "pdf_page": 149,
+      "spec_page": 138
+    },
+    {
+      "section_number": "B.1",
+      "title": "Abbreviations and Terms",
+      "pdf_page": 149,
+      "spec_page": 138
+    },
+    {
+      "section_number": "Appendix_C",
+      "title": "PCI Configuration Register",
+      "pdf_page": 150,
+      "spec_page": 139
+    },
+    {
+      "section_number": "C.1",
+      "title": "Register Maps",
+      "pdf_page": 150,
+      "spec_page": 139
+    },
+    {
+      "section_number": "C.2",
+      "title": "SD Controller Configuration Register MAP",
+      "pdf_page": 151,
+      "spec_page": 140
+    },
+    {
+      "section_number": "C.3",
+      "title": "PCI Configuration Register",
+      "pdf_page": 152,
+      "spec_page": 141
+    },
+    {
+      "section_number": "C.3.1",
+      "title": "Class Code Register (Offset 09h)",
+      "pdf_page": 152,
+      "spec_page": 141
+    },
+    {
+      "section_number": "C.3.2",
+      "title": "Base Address Register (Offset 10h)",
+      "pdf_page": 153,
+      "spec_page": 142
+    },
+    {
+      "section_number": "C.3.3",
+      "title": "Slot Information Register (Offset 40h)",
+      "pdf_page": 154,
+      "spec_page": 143
+    },
+    {
+      "section_number": "C.4",
+      "title": "The Relation between Device State, Power and Clock",
+      "pdf_page": 155,
+      "spec_page": 144
+    },
+    {
+      "section_number": "C.5",
+      "title": "Generate PME Interrupt by the Wakeup Events",
+      "pdf_page": 156,
+      "spec_page": 145
+    },
+    {
+      "section_number": "Appendix_D",
+      "title": "Shared Bus Supported Host Controller",
+      "pdf_page": 157,
+      "spec_page": 146
+    }
+  ],
+  "sections": {
+    "1": {
+      "id": "SEC_1",
+      "section_number": "1",
+      "title": "Overview of the SD Standard Host",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_1_1",
+          "SEC_1_2",
+          "SEC_1_3",
+          "SEC_1_4",
+          "SEC_1_5",
+          "SEC_1_6",
+          "SEC_1_7",
+          "SEC_1_8",
+          "SEC_1_9",
+          "SEC_1_10",
+          "SEC_1_11",
+          "SEC_1_12",
+          "SEC_1_13",
+          "SEC_1_14",
+          "SEC_1_15",
+          "SEC_1_16"
+        ]
+      },
+      "source": {
+        "spec_page_start": 1,
+        "spec_page_end": 1,
+        "pdf_page_start": 12,
+        "pdf_page_end": 12
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.1": {
+      "id": "SEC_1_1",
+      "section_number": "1.1",
+      "title": "Scope of the Standard SD Host",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 1,
+        "spec_page_end": 2,
+        "pdf_page_start": 12,
+        "pdf_page_end": 13
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.2": {
+      "id": "SEC_1_2",
+      "section_number": "1.2",
+      "title": "Register Map",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 2,
+        "spec_page_end": 3,
+        "pdf_page_start": 13,
+        "pdf_page_end": 14
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.3": {
+      "id": "SEC_1_3",
+      "section_number": "1.3",
+      "title": "Multiple Slot Support",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 3,
+        "spec_page_end": 3,
+        "pdf_page_start": 14,
+        "pdf_page_end": 14
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.4": {
+      "id": "SEC_1_4",
+      "section_number": "1.4",
+      "title": "Supporting DMA",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 3,
+        "spec_page_end": 4,
+        "pdf_page_start": 14,
+        "pdf_page_end": 15
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.5": {
+      "id": "SEC_1_5",
+      "section_number": "1.5",
+      "title": "SD Command Generation",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 4,
+        "spec_page_end": 4,
+        "pdf_page_start": 15,
+        "pdf_page_end": 15
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.6": {
+      "id": "SEC_1_6",
+      "section_number": "1.6",
+      "title": "Suspend and Resume Mechanism",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 4,
+        "spec_page_end": 5,
+        "pdf_page_start": 15,
+        "pdf_page_end": 16
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.7": {
+      "id": "SEC_1_7",
+      "section_number": "1.7",
+      "title": "Buffer Control",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": [
+          "SEC_1_7_1",
+          "SEC_1_7_2",
+          "SEC_1_7_3"
+        ]
+      },
+      "source": {
+        "spec_page_start": 5,
+        "spec_page_end": 5,
+        "pdf_page_start": 16,
+        "pdf_page_end": 16
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.7.1": {
+      "id": "SEC_1_7_1",
+      "section_number": "1.7.1",
+      "title": "Control of Buffer Pointer",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_7",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 5,
+        "spec_page_end": 7,
+        "pdf_page_start": 16,
+        "pdf_page_end": 18
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.7.2": {
+      "id": "SEC_1_7_2",
+      "section_number": "1.7.2",
+      "title": "Determining Buffer Block Length",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_7",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 7,
+        "spec_page_end": 7,
+        "pdf_page_start": 18,
+        "pdf_page_end": 18
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.7.3": {
+      "id": "SEC_1_7_3",
+      "section_number": "1.7.3",
+      "title": "Dividing Large Data Transfer",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_7",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 7,
+        "spec_page_end": 8,
+        "pdf_page_start": 18,
+        "pdf_page_end": 19
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.8": {
+      "id": "SEC_1_8",
+      "section_number": "1.8",
+      "title": "Relationship between Interrupt Control Registers",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 8,
+        "spec_page_end": 10,
+        "pdf_page_start": 19,
+        "pdf_page_end": 21
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.9": {
+      "id": "SEC_1_9",
+      "section_number": "1.9",
+      "title": "HW Block Diagram and Timing Part",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 10,
+        "spec_page_end": 11,
+        "pdf_page_start": 21,
+        "pdf_page_end": 22
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.10": {
+      "id": "SEC_1_10",
+      "section_number": "1.10",
+      "title": "Power State Definition of SD Host Controller",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 11,
+        "spec_page_end": 12,
+        "pdf_page_start": 22,
+        "pdf_page_end": 23
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.11": {
+      "id": "SEC_1_11",
+      "section_number": "1.11",
+      "title": "Auto CMD12",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 12,
+        "spec_page_end": 13,
+        "pdf_page_start": 23,
+        "pdf_page_end": 24
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.12": {
+      "id": "SEC_1_12",
+      "section_number": "1.12",
+      "title": "Controlling SDCLK",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 13,
+        "spec_page_end": 14,
+        "pdf_page_start": 24,
+        "pdf_page_end": 25
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13": {
+      "id": "SEC_1_13",
+      "section_number": "1.13",
+      "title": "Advanced DMA",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": [
+          "SEC_1_13_1",
+          "SEC_1_13_2",
+          "SEC_1_13_3",
+          "SEC_1_13_4",
+          "SEC_1_13_5"
+        ]
+      },
+      "source": {
+        "spec_page_start": 14,
+        "spec_page_end": 14,
+        "pdf_page_start": 25,
+        "pdf_page_end": 25
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13.1": {
+      "id": "SEC_1_13_1",
+      "section_number": "1.13.1",
+      "title": "Block Diagram of ADMA2",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_13",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 14,
+        "spec_page_end": 15,
+        "pdf_page_start": 25,
+        "pdf_page_end": 26
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13.2": {
+      "id": "SEC_1_13_2",
+      "section_number": "1.13.2",
+      "title": "An Example of ADMA2 Programming",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_13",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 15,
+        "spec_page_end": 15,
+        "pdf_page_start": 26,
+        "pdf_page_end": 26
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13.3": {
+      "id": "SEC_1_13_3",
+      "section_number": "1.13.3",
+      "title": "Data Address and Data Length Requirements",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_13",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 15,
+        "spec_page_end": 16,
+        "pdf_page_start": 26,
+        "pdf_page_end": 27
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13.4": {
+      "id": "SEC_1_13_4",
+      "section_number": "1.13.4",
+      "title": "Descriptor Table",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_13",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 16,
+        "spec_page_end": 17,
+        "pdf_page_start": 27,
+        "pdf_page_end": 28
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.13.5": {
+      "id": "SEC_1_13_5",
+      "section_number": "1.13.5",
+      "title": "ADMA2 States",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_1_13",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 17,
+        "spec_page_end": 18,
+        "pdf_page_start": 28,
+        "pdf_page_end": 29
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.14": {
+      "id": "SEC_1_14",
+      "section_number": "1.14",
+      "title": "Test Registers",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 18,
+        "spec_page_end": 18,
+        "pdf_page_start": 29,
+        "pdf_page_end": 29
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.15": {
+      "id": "SEC_1_15",
+      "section_number": "1.15",
+      "title": "Block Count",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 18,
+        "spec_page_end": 18,
+        "pdf_page_start": 29,
+        "pdf_page_end": 29
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "1.16": {
+      "id": "SEC_1_16",
+      "section_number": "1.16",
+      "title": "Sampling Clock Tuning",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 18,
+        "spec_page_end": 19,
+        "pdf_page_start": 29,
+        "pdf_page_end": 30
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2": {
+      "id": "SEC_2",
+      "section_number": "2",
+      "title": "SD Host Standard Register",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_2_1",
+          "SEC_2_2"
+        ]
+      },
+      "source": {
+        "spec_page_start": 19,
+        "spec_page_end": 19,
+        "pdf_page_start": 30,
+        "pdf_page_end": 30
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.1": {
+      "id": "SEC_2_1",
+      "section_number": "2.1",
+      "title": "Summary of register set",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_2",
+        "children": [
+          "SEC_2_1_1",
+          "SEC_2_1_2",
+          "SEC_2_1_3",
+          "SEC_2_1_4"
+        ]
+      },
+      "source": {
+        "spec_page_start": 19,
+        "spec_page_end": 19,
+        "pdf_page_start": 30,
+        "pdf_page_end": 30
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.1.1": {
+      "id": "SEC_2_1_1",
+      "section_number": "2.1.1",
+      "title": "SD Host Control Register Map",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 19,
+        "spec_page_end": 20,
+        "pdf_page_start": 30,
+        "pdf_page_end": 31
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.1.2": {
+      "id": "SEC_2_1_2",
+      "section_number": "2.1.2",
+      "title": "Configuration Register Types",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 20,
+        "spec_page_end": 20,
+        "pdf_page_start": 31,
+        "pdf_page_end": 31
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.1.3": {
+      "id": "SEC_2_1_3",
+      "section_number": "2.1.3",
+      "title": "Register Initial Values",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 20,
+        "spec_page_end": 20,
+        "pdf_page_start": 31,
+        "pdf_page_end": 31
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.1.4": {
+      "id": "SEC_2_1_4",
+      "section_number": "2.1.4",
+      "title": "Reserved Bits of Register",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 20,
+        "spec_page_end": 21,
+        "pdf_page_start": 31,
+        "pdf_page_end": 32
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2": {
+      "id": "SEC_2_2",
+      "section_number": "2.2",
+      "title": "SD Host Standard Register",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_2",
+        "children": [
+          "SEC_2_2_1",
+          "SEC_2_2_2",
+          "SEC_2_2_3",
+          "SEC_2_2_4",
+          "SEC_2_2_5",
+          "SEC_2_2_6",
+          "SEC_2_2_7",
+          "SEC_2_2_8",
+          "SEC_2_2_9",
+          "SEC_2_2_10",
+          "SEC_2_2_11",
+          "SEC_2_2_12",
+          "SEC_2_2_13",
+          "SEC_2_2_14",
+          "SEC_2_2_15",
+          "SEC_2_2_16",
+          "SEC_2_2_17",
+          "SEC_2_2_18",
+          "SEC_2_2_19",
+          "SEC_2_2_20",
+          "SEC_2_2_21",
+          "SEC_2_2_22",
+          "SEC_2_2_23",
+          "SEC_2_2_24",
+          "SEC_2_2_25",
+          "SEC_2_2_26",
+          "SEC_2_2_27",
+          "SEC_2_2_28",
+          "SEC_2_2_29",
+          "SEC_2_2_30",
+          "SEC_2_2_31",
+          "SEC_2_2_32",
+          "SEC_2_2_33",
+          "SEC_2_2_34"
+        ]
+      },
+      "source": {
+        "spec_page_start": 21,
+        "spec_page_end": 21,
+        "pdf_page_start": 32,
+        "pdf_page_end": 32
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.1": {
+      "id": "SEC_2_2_1",
+      "section_number": "2.2.1",
+      "title": "SDMA System Address / Argument 2 Register (Offset 000h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 21,
+        "spec_page_end": 22,
+        "pdf_page_start": 32,
+        "pdf_page_end": 33
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.2": {
+      "id": "SEC_2_2_2",
+      "section_number": "2.2.2",
+      "title": "Block Size Register (Offset 004h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 22,
+        "spec_page_end": 24,
+        "pdf_page_start": 33,
+        "pdf_page_end": 35
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.3": {
+      "id": "SEC_2_2_3",
+      "section_number": "2.2.3",
+      "title": "Block Count Register (Offset 006h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 24,
+        "spec_page_end": 25,
+        "pdf_page_start": 35,
+        "pdf_page_end": 36
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.4": {
+      "id": "SEC_2_2_4",
+      "section_number": "2.2.4",
+      "title": "Argument 1 Register (Offset 008h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 25,
+        "spec_page_end": 26,
+        "pdf_page_start": 36,
+        "pdf_page_end": 37
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.5": {
+      "id": "SEC_2_2_5",
+      "section_number": "2.2.5",
+      "title": "Transfer Mode Register (Offset 00Ch)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 26,
+        "spec_page_end": 29,
+        "pdf_page_start": 37,
+        "pdf_page_end": 40
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.6": {
+      "id": "SEC_2_2_6",
+      "section_number": "2.2.6",
+      "title": "Command Register (Offset 00Eh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 29,
+        "spec_page_end": 31,
+        "pdf_page_start": 40,
+        "pdf_page_end": 42
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.7": {
+      "id": "SEC_2_2_7",
+      "section_number": "2.2.7",
+      "title": "Response Register (Offset 010h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 31,
+        "spec_page_end": 32,
+        "pdf_page_start": 42,
+        "pdf_page_end": 43
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.8": {
+      "id": "SEC_2_2_8",
+      "section_number": "2.2.8",
+      "title": "Buffer Data Port Register (Offset 020h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 32,
+        "spec_page_end": 33,
+        "pdf_page_start": 43,
+        "pdf_page_end": 44
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.9": {
+      "id": "SEC_2_2_9",
+      "section_number": "2.2.9",
+      "title": "Present State Register (Offset 024h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 33,
+        "spec_page_end": 40,
+        "pdf_page_start": 44,
+        "pdf_page_end": 51
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.10": {
+      "id": "SEC_2_2_10",
+      "section_number": "2.2.10",
+      "title": "Host Control 1 Register (Offset 028h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 40,
+        "spec_page_end": 42,
+        "pdf_page_start": 51,
+        "pdf_page_end": 53
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.11": {
+      "id": "SEC_2_2_11",
+      "section_number": "2.2.11",
+      "title": "Power Control Register (Offset 029h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 42,
+        "spec_page_end": 43,
+        "pdf_page_start": 53,
+        "pdf_page_end": 54
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.12": {
+      "id": "SEC_2_2_12",
+      "section_number": "2.2.12",
+      "title": "Block Gap Control Register (Offset 02Ah)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 43,
+        "spec_page_end": 45,
+        "pdf_page_start": 54,
+        "pdf_page_end": 56
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.13": {
+      "id": "SEC_2_2_13",
+      "section_number": "2.2.13",
+      "title": "Wakeup Control Register (Offset 02Bh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 45,
+        "spec_page_end": 46,
+        "pdf_page_start": 56,
+        "pdf_page_end": 57
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.14": {
+      "id": "SEC_2_2_14",
+      "section_number": "2.2.14",
+      "title": "Clock Control Register (Offset 02Ch)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 46,
+        "spec_page_end": 49,
+        "pdf_page_start": 57,
+        "pdf_page_end": 60
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.15": {
+      "id": "SEC_2_2_15",
+      "section_number": "2.2.15",
+      "title": "Timeout Control Register (Offset 02Eh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 49,
+        "spec_page_end": 50,
+        "pdf_page_start": 60,
+        "pdf_page_end": 61
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.16": {
+      "id": "SEC_2_2_16",
+      "section_number": "2.2.16",
+      "title": "Software Reset Register (Offset 02Fh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 50,
+        "spec_page_end": 52,
+        "pdf_page_start": 61,
+        "pdf_page_end": 63
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.17": {
+      "id": "SEC_2_2_17",
+      "section_number": "2.2.17",
+      "title": "Normal Interrupt Status Register (Offset 030h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 52,
+        "spec_page_end": 57,
+        "pdf_page_start": 63,
+        "pdf_page_end": 68
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.18": {
+      "id": "SEC_2_2_18",
+      "section_number": "2.2.18",
+      "title": "Error Interrupt Status Register (Offset 032h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 57,
+        "spec_page_end": 60,
+        "pdf_page_start": 68,
+        "pdf_page_end": 71
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.19": {
+      "id": "SEC_2_2_19",
+      "section_number": "2.2.19",
+      "title": "Normal Interrupt Status Enable Register (Offset 034h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 60,
+        "spec_page_end": 62,
+        "pdf_page_start": 71,
+        "pdf_page_end": 73
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.20": {
+      "id": "SEC_2_2_20",
+      "section_number": "2.2.20",
+      "title": "Error Interrupt Status Enable Register (Offset 036h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 62,
+        "spec_page_end": 64,
+        "pdf_page_start": 73,
+        "pdf_page_end": 75
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.21": {
+      "id": "SEC_2_2_21",
+      "section_number": "2.2.21",
+      "title": "Normal Interrupt Signal Enable Register (Offset 038h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 64,
+        "spec_page_end": 66,
+        "pdf_page_start": 75,
+        "pdf_page_end": 77
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.22": {
+      "id": "SEC_2_2_22",
+      "section_number": "2.2.22",
+      "title": "Error Interrupt Signal Enable Register (Offset 03Ah)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 66,
+        "spec_page_end": 68,
+        "pdf_page_start": 77,
+        "pdf_page_end": 79
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.23": {
+      "id": "SEC_2_2_23",
+      "section_number": "2.2.23",
+      "title": "Auto CMD Error Status Register (Offset 03Ch)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 68,
+        "spec_page_end": 70,
+        "pdf_page_start": 79,
+        "pdf_page_end": 81
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.24": {
+      "id": "SEC_2_2_24",
+      "section_number": "2.2.24",
+      "title": "Host Control 2 Register (Offset 03Eh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 70,
+        "spec_page_end": 74,
+        "pdf_page_start": 81,
+        "pdf_page_end": 85
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.25": {
+      "id": "SEC_2_2_25",
+      "section_number": "2.2.25",
+      "title": "Capabilities Register (Offset 040h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 74,
+        "spec_page_end": 80,
+        "pdf_page_start": 85,
+        "pdf_page_end": 91
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.26": {
+      "id": "SEC_2_2_26",
+      "section_number": "2.2.26",
+      "title": "Maximum Current Capabilities Register (Offset 048h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 80,
+        "spec_page_end": 81,
+        "pdf_page_start": 91,
+        "pdf_page_end": 92
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.27": {
+      "id": "SEC_2_2_27",
+      "section_number": "2.2.27",
+      "title": "Force Event Register for Auto CMD Error Status (Offset 050h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 81,
+        "spec_page_end": 82,
+        "pdf_page_start": 92,
+        "pdf_page_end": 93
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.28": {
+      "id": "SEC_2_2_28",
+      "section_number": "2.2.28",
+      "title": "Force Event Register for Error Interrupt Status (Offset 052h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 82,
+        "spec_page_end": 83,
+        "pdf_page_start": 93,
+        "pdf_page_end": 94
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.29": {
+      "id": "SEC_2_2_29",
+      "section_number": "2.2.29",
+      "title": "ADMA Error Status Register (Offset 054h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 83,
+        "spec_page_end": 85,
+        "pdf_page_start": 94,
+        "pdf_page_end": 96
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.30": {
+      "id": "SEC_2_2_30",
+      "section_number": "2.2.30",
+      "title": "ADMA System Address Register (Offset 058h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 85,
+        "spec_page_end": 86,
+        "pdf_page_start": 96,
+        "pdf_page_end": 97
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.31": {
+      "id": "SEC_2_2_31",
+      "section_number": "2.2.31",
+      "title": "Preset Value Registers (Offset 06F-060h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 86,
+        "spec_page_end": 88,
+        "pdf_page_start": 97,
+        "pdf_page_end": 99
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.32": {
+      "id": "SEC_2_2_32",
+      "section_number": "2.2.32",
+      "title": "Shared Bus Control Register (Offset 0E0h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 88,
+        "spec_page_end": 91,
+        "pdf_page_start": 99,
+        "pdf_page_end": 102
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.33": {
+      "id": "SEC_2_2_33",
+      "section_number": "2.2.33",
+      "title": "Slot Interrupt Status Register (Offset 0FCh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 91,
+        "spec_page_end": 91,
+        "pdf_page_start": 102,
+        "pdf_page_end": 102
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "2.2.34": {
+      "id": "SEC_2_2_34",
+      "section_number": "2.2.34",
+      "title": "Host Controller Version Register (Offset 0FEh)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_2_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 91,
+        "spec_page_end": 92,
+        "pdf_page_start": 102,
+        "pdf_page_end": 103
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3": {
+      "id": "SEC_3",
+      "section_number": "3",
+      "title": "SEQUENCE",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_3_1",
+          "SEC_3_2",
+          "SEC_3_3",
+          "SEC_3_4",
+          "SEC_3_5",
+          "SEC_3_6",
+          "SEC_3_7",
+          "SEC_3_8",
+          "SEC_3_9",
+          "SEC_3_10",
+          "SEC_3_11",
+          "SEC_3_12"
+        ]
+      },
+      "source": {
+        "spec_page_start": 92,
+        "spec_page_end": 92,
+        "pdf_page_start": 103,
+        "pdf_page_end": 103
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.1": {
+      "id": "SEC_3_1",
+      "section_number": "3.1",
+      "title": "SD Card Detection",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 92,
+        "spec_page_end": 94,
+        "pdf_page_start": 103,
+        "pdf_page_end": 105
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.2": {
+      "id": "SEC_3_2",
+      "section_number": "3.2",
+      "title": "SD Clock Control",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_2_1",
+          "SEC_3_2_2",
+          "SEC_3_2_3"
+        ]
+      },
+      "source": {
+        "spec_page_start": 94,
+        "spec_page_end": 94,
+        "pdf_page_start": 105,
+        "pdf_page_end": 105
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.2.1": {
+      "id": "SEC_3_2_1",
+      "section_number": "3.2.1",
+      "title": "SD Clock Supply Sequence",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 94,
+        "spec_page_end": 95,
+        "pdf_page_start": 105,
+        "pdf_page_end": 106
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.2.2": {
+      "id": "SEC_3_2_2",
+      "section_number": "3.2.2",
+      "title": "SD Clock Stop Sequence",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 95,
+        "spec_page_end": 95,
+        "pdf_page_start": 106,
+        "pdf_page_end": 106
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.2.3": {
+      "id": "SEC_3_2_3",
+      "section_number": "3.2.3",
+      "title": "SD Clock Frequency Change Sequence",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 95,
+        "spec_page_end": 96,
+        "pdf_page_start": 106,
+        "pdf_page_end": 107
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.3": {
+      "id": "SEC_3_3",
+      "section_number": "3.3",
+      "title": "SD Bus Power Control",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 96,
+        "spec_page_end": 98,
+        "pdf_page_start": 107,
+        "pdf_page_end": 109
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.4": {
+      "id": "SEC_3_4",
+      "section_number": "3.4",
+      "title": "Changing Bus Width",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 98,
+        "spec_page_end": 99,
+        "pdf_page_start": 109,
+        "pdf_page_end": 110
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.5": {
+      "id": "SEC_3_5",
+      "section_number": "3.5",
+      "title": "Timeout Setting on DAT Line",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 99,
+        "spec_page_end": 100,
+        "pdf_page_start": 110,
+        "pdf_page_end": 111
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.6": {
+      "id": "SEC_3_6",
+      "section_number": "3.6",
+      "title": "Card Initialization and Identification",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_6_1"
+        ]
+      },
+      "source": {
+        "spec_page_start": 100,
+        "spec_page_end": 104,
+        "pdf_page_start": 111,
+        "pdf_page_end": 115
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.6.1": {
+      "id": "SEC_3_6_1",
+      "section_number": "3.6.1",
+      "title": "Signal Voltage Switch Procedure",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_6",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 104,
+        "spec_page_end": 106,
+        "pdf_page_start": 115,
+        "pdf_page_end": 117
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7": {
+      "id": "SEC_3_7",
+      "section_number": "3.7",
+      "title": "SD Transaction Generation",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_7_1",
+          "SEC_3_7_2"
+        ]
+      },
+      "source": {
+        "spec_page_start": 106,
+        "spec_page_end": 107,
+        "pdf_page_start": 117,
+        "pdf_page_end": 118
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.1": {
+      "id": "SEC_3_7_1",
+      "section_number": "3.7.1",
+      "title": "Transaction Control without Data Transfer Using DAT Line",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_7",
+        "children": [
+          "SEC_3_7_1_1",
+          "SEC_3_7_1_2"
+        ]
+      },
+      "source": {
+        "spec_page_start": 107,
+        "spec_page_end": 107,
+        "pdf_page_start": 118,
+        "pdf_page_end": 118
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.1.1": {
+      "id": "SEC_3_7_1_1",
+      "section_number": "3.7.1.1",
+      "title": "The Sequence to Issue a SD Command",
+      "level": 4,
+      "hierarchy": {
+        "parent": "SEC_3_7_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 107,
+        "spec_page_end": 109,
+        "pdf_page_start": 118,
+        "pdf_page_end": 120
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.1.2": {
+      "id": "SEC_3_7_1_2",
+      "section_number": "3.7.1.2",
+      "title": "The Sequence to Finalize a Command",
+      "level": 4,
+      "hierarchy": {
+        "parent": "SEC_3_7_1",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 109,
+        "spec_page_end": 110,
+        "pdf_page_start": 120,
+        "pdf_page_end": 121
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.2": {
+      "id": "SEC_3_7_2",
+      "section_number": "3.7.2",
+      "title": "Transaction Control with Data Transfer Using DAT Line",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_7",
+        "children": [
+          "SEC_3_7_2_1",
+          "SEC_3_7_2_2",
+          "SEC_3_7_2_3"
+        ]
+      },
+      "source": {
+        "spec_page_start": 110,
+        "spec_page_end": 111,
+        "pdf_page_start": 121,
+        "pdf_page_end": 122
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.2.1": {
+      "id": "SEC_3_7_2_1",
+      "section_number": "3.7.2.1",
+      "title": "Not using DMA",
+      "level": 4,
+      "hierarchy": {
+        "parent": "SEC_3_7_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 111,
+        "spec_page_end": 113,
+        "pdf_page_start": 122,
+        "pdf_page_end": 124
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.2.2": {
+      "id": "SEC_3_7_2_2",
+      "section_number": "3.7.2.2",
+      "title": "Using SDMA",
+      "level": 4,
+      "hierarchy": {
+        "parent": "SEC_3_7_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 113,
+        "spec_page_end": 115,
+        "pdf_page_start": 124,
+        "pdf_page_end": 126
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.7.2.3": {
+      "id": "SEC_3_7_2_3",
+      "section_number": "3.7.2.3",
+      "title": "Using ADMA",
+      "level": 4,
+      "hierarchy": {
+        "parent": "SEC_3_7_2",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 115,
+        "spec_page_end": 117,
+        "pdf_page_start": 126,
+        "pdf_page_end": 128
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.8": {
+      "id": "SEC_3_8",
+      "section_number": "3.8",
+      "title": "Abort Transaction",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_8_1",
+          "SEC_3_8_2"
+        ]
+      },
+      "source": {
+        "spec_page_start": 117,
+        "spec_page_end": 117,
+        "pdf_page_start": 128,
+        "pdf_page_end": 128
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.8.1": {
+      "id": "SEC_3_8_1",
+      "section_number": "3.8.1",
+      "title": "Asynchronous Abort",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_8",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 117,
+        "spec_page_end": 118,
+        "pdf_page_start": 128,
+        "pdf_page_end": 129
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.8.2": {
+      "id": "SEC_3_8_2",
+      "section_number": "3.8.2",
+      "title": "Synchronous Abort",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_8",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 118,
+        "spec_page_end": 119,
+        "pdf_page_start": 129,
+        "pdf_page_end": 130
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.9": {
+      "id": "SEC_3_9",
+      "section_number": "3.9",
+      "title": "Changing Bus Speed Mode",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 119,
+        "spec_page_end": 121,
+        "pdf_page_start": 130,
+        "pdf_page_end": 132
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.10": {
+      "id": "SEC_3_10",
+      "section_number": "3.10",
+      "title": "Error Recovery",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_10_1",
+          "SEC_3_10_2"
+        ]
+      },
+      "source": {
+        "spec_page_start": 121,
+        "spec_page_end": 123,
+        "pdf_page_start": 132,
+        "pdf_page_end": 134
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.10.1": {
+      "id": "SEC_3_10_1",
+      "section_number": "3.10.1",
+      "title": "Error Interrupt Recovery",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_10",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 123,
+        "spec_page_end": 126,
+        "pdf_page_start": 134,
+        "pdf_page_end": 137
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.10.2": {
+      "id": "SEC_3_10_2",
+      "section_number": "3.10.2",
+      "title": "Auto CMD12 Error Recovery",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_10",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 126,
+        "spec_page_end": 128,
+        "pdf_page_start": 137,
+        "pdf_page_end": 139
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.11": {
+      "id": "SEC_3_11",
+      "section_number": "3.11",
+      "title": "Wakeup Control (Optional)",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 128,
+        "spec_page_end": 130,
+        "pdf_page_start": 139,
+        "pdf_page_end": 141
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.12": {
+      "id": "SEC_3_12",
+      "section_number": "3.12",
+      "title": "Suspend/Resume (Optional)",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_3",
+        "children": [
+          "SEC_3_12_1",
+          "SEC_3_12_2",
+          "SEC_3_12_3",
+          "SEC_3_12_4"
+        ]
+      },
+      "source": {
+        "spec_page_start": 130,
+        "spec_page_end": 130,
+        "pdf_page_start": 141,
+        "pdf_page_end": 141
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.12.1": {
+      "id": "SEC_3_12_1",
+      "section_number": "3.12.1",
+      "title": "Suspend Sequence",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_12",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 130,
+        "spec_page_end": 132,
+        "pdf_page_start": 141,
+        "pdf_page_end": 143
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.12.2": {
+      "id": "SEC_3_12_2",
+      "section_number": "3.12.2",
+      "title": "Resume Sequence",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_12",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 132,
+        "spec_page_end": 133,
+        "pdf_page_start": 143,
+        "pdf_page_end": 144
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.12.3": {
+      "id": "SEC_3_12_3",
+      "section_number": "3.12.3",
+      "title": "Read Transaction Wait / Continue Timing",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_12",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 133,
+        "spec_page_end": 135,
+        "pdf_page_start": 144,
+        "pdf_page_end": 146
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "3.12.4": {
+      "id": "SEC_3_12_4",
+      "section_number": "3.12.4",
+      "title": "Write Transaction Wait / Continue Timing",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_3_12",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 135,
+        "spec_page_end": 137,
+        "pdf_page_start": 146,
+        "pdf_page_end": 148
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "Appendix_A": {
+      "id": "SEC_A",
+      "section_number": "Appendix_A",
+      "title": "Reference",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_A_1"
+        ]
+      },
+      "source": {
+        "spec_page_start": 137,
+        "spec_page_end": 137,
+        "pdf_page_start": 148,
+        "pdf_page_end": 148
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "A.1": {
+      "id": "SEC_A_1",
+      "section_number": "A.1",
+      "title": "Reference",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_A",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 137,
+        "spec_page_end": 138,
+        "pdf_page_start": 148,
+        "pdf_page_end": 149
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "Appendix_B": {
+      "id": "SEC_B",
+      "section_number": "Appendix_B",
+      "title": "Special Terms",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_B_1"
+        ]
+      },
+      "source": {
+        "spec_page_start": 138,
+        "spec_page_end": 138,
+        "pdf_page_start": 149,
+        "pdf_page_end": 149
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "B.1": {
+      "id": "SEC_B_1",
+      "section_number": "B.1",
+      "title": "Abbreviations and Terms",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_B",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 138,
+        "spec_page_end": 139,
+        "pdf_page_start": 149,
+        "pdf_page_end": 150
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "Appendix_C": {
+      "id": "SEC_C",
+      "section_number": "Appendix_C",
+      "title": "PCI Configuration Register",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": [
+          "SEC_C_1",
+          "SEC_C_2",
+          "SEC_C_3",
+          "SEC_C_3_1",
+          "SEC_C_3_2",
+          "SEC_C_3_3",
+          "SEC_C_4",
+          "SEC_C_5"
+        ]
+      },
+      "source": {
+        "spec_page_start": 139,
+        "spec_page_end": 139,
+        "pdf_page_start": 150,
+        "pdf_page_end": 150
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.1": {
+      "id": "SEC_C_1",
+      "section_number": "C.1",
+      "title": "Register Maps",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 139,
+        "spec_page_end": 140,
+        "pdf_page_start": 150,
+        "pdf_page_end": 151
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.2": {
+      "id": "SEC_C_2",
+      "section_number": "C.2",
+      "title": "SD Controller Configuration Register MAP",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 140,
+        "spec_page_end": 141,
+        "pdf_page_start": 151,
+        "pdf_page_end": 152
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.3": {
+      "id": "SEC_C_3",
+      "section_number": "C.3",
+      "title": "PCI Configuration Register",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 141,
+        "spec_page_end": 141,
+        "pdf_page_start": 152,
+        "pdf_page_end": 152
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.3.1": {
+      "id": "SEC_C_3_1",
+      "section_number": "C.3.1",
+      "title": "Class Code Register (Offset 09h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 141,
+        "spec_page_end": 142,
+        "pdf_page_start": 152,
+        "pdf_page_end": 153
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.3.2": {
+      "id": "SEC_C_3_2",
+      "section_number": "C.3.2",
+      "title": "Base Address Register (Offset 10h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 142,
+        "spec_page_end": 143,
+        "pdf_page_start": 153,
+        "pdf_page_end": 154
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.3.3": {
+      "id": "SEC_C_3_3",
+      "section_number": "C.3.3",
+      "title": "Slot Information Register (Offset 40h)",
+      "level": 3,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 143,
+        "spec_page_end": 144,
+        "pdf_page_start": 154,
+        "pdf_page_end": 155
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.4": {
+      "id": "SEC_C_4",
+      "section_number": "C.4",
+      "title": "The Relation between Device State, Power and Clock",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 144,
+        "spec_page_end": 145,
+        "pdf_page_start": 155,
+        "pdf_page_end": 156
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "C.5": {
+      "id": "SEC_C_5",
+      "section_number": "C.5",
+      "title": "Generate PME Interrupt by the Wakeup Events",
+      "level": 2,
+      "hierarchy": {
+        "parent": "SEC_C",
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 145,
+        "spec_page_end": 146,
+        "pdf_page_start": 156,
+        "pdf_page_end": 157
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    },
+    "Appendix_D": {
+      "id": "SEC_D",
+      "section_number": "Appendix_D",
+      "title": "Shared Bus Supported Host Controller",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": []
+      },
+      "source": {
+        "spec_page_start": 146,
+        "spec_page_end": 146,
+        "pdf_page_start": 157,
+        "pdf_page_end": 157
+      },
+      "references": {
+        "tables": [],
+        "figures": [],
+        "related": []
+      },
+      "index": {
+        "keywords": [],
+        "technical_terms": []
+      },
+      "abstract": "",
+      "word_count": 0,
+      "chunks": [],
+      "extraction": {
+        "status": "NOT_STARTED",
+        "confidence": 0.0,
+        "validated": false
+      }
+    }
+  }
+}

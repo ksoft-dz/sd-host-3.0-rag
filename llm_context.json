@@ -1,0 +1,174 @@
+{
+  "$schema": "Custom schema for SD Host RAG extraction context",
+  "_documentation": {
+    "purpose": "This file provides hints to the extraction agent about where to find different content types in the PDF",
+    "instructions": [
+      "Fill in the page ranges by reviewing the PDF",
+      "Page numbers are 1-indexed (first page = 1)",
+      "For page ranges, use [start, end] inclusive",
+      "Add any known issues or special cases in known_issues array"
+    ]
+  },
+
+  "spec_info": {
+    "name": "SD Host Controller Simplified Specification",
+    "version": "3.00",
+    "date": "February 2011",
+    "source_file": "source/sd_host_3_00.pdf",
+    "total_pages": 157
+  },
+
+  "section_hints": {
+    "table_of_contents": {
+      "pages": [3, 4],
+      "description": "Table of contents (if present in text form)",
+      "note": "PDF has no embedded ToC, must extract from text"
+    },
+
+    "features_summary": {
+      "pages": [1, 20],
+      "description": "High-level features and introduction",
+      "key_sections": [
+        "1.1 - Overview/Introduction",
+        "1.2 - Features list"
+      ],
+      "TODO": "UPDATE: Review PDF and set accurate page range"
+    },
+
+    "register_map": {
+      "pages": [5, 11],
+      "description": "Register address overview tables - CRITICAL for building register inventory",
+      "tables": [],
+      "note": "These tables list ALL registers with their offsets. Parse this FIRST to know what registers exist.",
+      "TODO": "UPDATE: Find the exact tables (e.g., 'Table 2-1: SD Host Controller Register Map') and list them here"
+    },
+
+    "register_definitions": {
+      "pages": [29, 90],
+      "description": "Detailed register definitions with bit fields",
+      "format": {
+        "section_header": "X.Y.Z Register Name (Offset XXXh)",
+        "bit_layout_figure": "Figure X-Y : Register Name",
+        "field_table": "Table X-Y : Register Name",
+        "table_columns": ["Location", "Attrib", "Register Field", "Explanation"]
+      },
+      "TODO": "UPDATE: Verify exact page range by finding first and last register definition"
+    },
+
+    "programming_sequences": {
+      "pages": [100, 130],
+      "description": "How to program the controller - step by step procedures",
+      "key_topics": [
+        "Initialization sequence",
+        "Data transfer procedures", 
+        "Error recovery procedures",
+        "Power management sequences"
+      ],
+      "chunk_granularity": "per_paragraph",
+      "TODO": "UPDATE: Find sections describing 'how to' procedures"
+    },
+
+    "interrupt_handling": {
+      "pages": [0, 0],
+      "description": "Interrupt status, enable, and handling",
+      "key_registers": [],
+      "TODO": "UPDATE: Find interrupt-related sections"
+    },
+
+    "error_handling": {
+      "pages": [0, 0],
+      "description": "Error conditions, status, and recovery",
+      "chunk_granularity": "per_paragraph",
+      "TODO": "UPDATE: Find error handling sections"
+    },
+
+    "dma_operations": {
+      "pages": [0, 0],
+      "description": "SDMA and ADMA operations",
+      "key_topics": ["SDMA", "ADMA2", "ADMA3", "Descriptor tables"],
+      "TODO": "UPDATE: Find DMA-related sections"
+    },
+
+    "state_machines": {
+      "pages": [],
+      "description": "State diagram figures showing controller behavior",
+      "figures": [],
+      "note": "Refer to figures/figures_page_map.json for figure locations",
+      "TODO": "UPDATE: Identify which figures are state diagrams"
+    },
+
+    "timing_diagrams": {
+      "pages": [],
+      "description": "Timing diagrams for signals and operations",
+      "figures": [],
+      "TODO": "UPDATE: Identify timing diagram figures"
+    },
+
+    "signal_descriptions": {
+      "pages": [0, 0],
+      "description": "Port/signal descriptions and pin definitions",
+      "TODO": "UPDATE: Find signal/port description section if present"
+    }
+  },
+
+  "figures_folder": "figures/",
+  "figures_index": "figures/figures_page_map.json",
+
+  "extraction_patterns": {
+    "register_header": {
+      "pattern": "(?P<section>[\\d.]+)\\s+(?P<name>[\\w\\s]+)Register\\s*\\(Offset\\s+(?P<offset>[0-9A-Fa-f]+)h\\)",
+      "description": "Pattern to find register section headers"
+    },
+    "table_reference": {
+      "pattern": "Table\\s+(\\d+-\\d+)\\s*:\\s*(.+)",
+      "description": "Pattern to find table captions"
+    },
+    "figure_reference": {
+      "pattern": "Figure\\s+(\\d+-\\d+)\\s*:\\s*(.+)",
+      "description": "Pattern to find figure captions"
+    },
+    "section_header": {
+      "pattern": "^(\\d+\\.\\d+(?:\\.\\d+)?)\\s+(.+)$",
+      "description": "Pattern to find section headers"
+    }
+  },
+
+  "known_issues": [
+    {
+      "description": "Figures are vector graphics, extract as fragmented text",
+      "solution": "Use Phase -1 manual figure transcription",
+      "affected_pages": "all figure pages"
+    },
+    {
+      "description": "No embedded PDF ToC",
+      "solution": "Extract section structure from text patterns",
+      "affected_pages": "N/A"
+    }
+  ],
+
+  "extraction_priorities": {
+    "1_critical": [
+      "register_map (for inventory)",
+      "register_definitions (core content)",
+      "state_machines (behavior)"
+    ],
+    "2_important": [
+      "programming_sequences",
+      "interrupt_handling",
+      "error_handling"
+    ],
+    "3_supporting": [
+      "features_summary",
+      "dma_operations",
+      "timing_diagrams",
+      "signal_descriptions"
+    ]
+  },
+
+  "validation_checkpoints": {
+    "after_register_map": "Verify all register names and offsets extracted",
+    "after_register_definitions": "Validate sample of 3-5 registers + all low-confidence",
+    "after_state_machines": "ALWAYS validate all state machines",
+    "after_spec_chunks": "Spot check classification accuracy"
+  }
+}

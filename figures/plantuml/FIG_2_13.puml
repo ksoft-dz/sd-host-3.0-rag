@@ -1,0 +1,116 @@
+@startuml
+title SD Host Controller - Command Inhibit (DAT) and Command Inhibit (CMD) Timing
+
+skinparam defaultFontSize 10
+skinparam backgroundColor white
+
+== Figure 2-11 : Timing of Command Inhibit (DAT) and Command Inhibit (CMD) with Data Transfer ==
+
+robust "CMD line" as CMD1
+robust "DAT line" as DAT1
+binary "D00" as D00_1
+binary "D01" as D01_1
+
+@0
+CMD1 is idle
+DAT1 is idle
+D00_1 is high
+D01_1 is high
+
+@5
+CMD1 is Command
+
+@15
+CMD1 is Response
+
+@25
+CMD1 is idle
+
+@30
+DAT1 is "Write or Read Data"
+
+@50
+DAT1 is "Last Block Data"
+
+@65
+DAT1 is idle
+
+@25
+D00_1 is low
+
+@65
+D00_1 is high
+
+@15
+D01_1 is low
+
+@25
+D01_1 is high
+
+== Figure 2-12 : Timing of Command Inhibit (DAT) for the Case of Response with Busy ==
+
+robust "CMD line" as CMD2
+robust "DAT[0]" as DAT2
+binary "D00" as D00_2
+binary "D01" as D01_2
+
+@70
+CMD2 is idle
+DAT2 is idle
+D00_2 is high
+D01_2 is high
+
+@75
+CMD2 is Command
+
+@85
+CMD2 is Response
+
+@95
+CMD2 is idle
+
+@95
+DAT2 is Busy
+
+@115
+DAT2 is idle
+
+@85
+D00_2 is low
+
+@115
+D00_2 is high
+
+@85
+D01_2 is low
+
+@95
+D01_2 is high
+
+== Figure 2-13 : Timing of Command Inhibit (CMD) for the Case of No Response Command ==
+
+robust "CMD line" as CMD3
+binary "D00" as D00_3
+
+@120
+CMD3 is idle
+D00_3 is high
+
+@125
+CMD3 is Command
+
+@145
+CMD3 is idle
+
+@125
+D00_3 is low
+
+@145
+D00_3 is high
+
+note right of D00_3
+  The Host Controller clears D00
+  if the command is issued successfully.
+end note
+
+@enduml

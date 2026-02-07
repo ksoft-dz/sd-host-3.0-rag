@@ -1,0 +1,39 @@
+@startuml
+skinparam ActivityShape rectangle
+skinparam ConditionShape diamond
+
+title Figure 3-12: Command Complete Sequence
+
+start
+
+:(1);
+:Wait for\nCommand Complete Int|
+
+:(2) Command Complete Int occur;
+:Clr Command Complete status;
+
+:(3);
+:Get Response Data;
+
+:(4);
+if (Command with\nTransfer\nComplete Int?) then (yes)
+  :(5);
+  :Wait for\nTransfer Complete Int|
+  
+  :(6) Transfer Complete Int occur;
+  :Clr Transfer Complete status;
+else (No)
+endif
+
+:(7);
+if (Check\nResponse Data) then (Error)
+  :(9);
+  :Return Status\n(Response Contents Error);
+else (No error)
+  :(8);
+  :Return Status\n(No Error);
+endif
+
+stop
+
+@enduml

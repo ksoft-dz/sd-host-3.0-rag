@@ -1,0 +1,5 @@
+Relation of the commands,Error Status,Comments
+Auto CMD12 only,"CMD_wo_DAT: Unrelated, Auto CMD12: Error","Only Auto CMD12 is issued, therefore Auto CMD12 is failed."
+CMD_wo_DAT before Auto CMD12,"CMD_wo_DAT: No Error, Auto CMD12: Error","CMD_wo_DAT successful, but Auto CMD12 failed."
+CMD_wo_DAT before Auto CMD12,"CMD_wo_DAT: Error, Auto CMD12: Not executed","CMD_wo_DAT is failed, therefore Auto CMD12 could not be issued."
+Auto CMD12 before CMD_wo_DAT,"CMD_wo_DAT: Not executed, Auto CMD12: Error","Auto CMD12 is failed, therefore CMD_wo_DAT could not be issued."

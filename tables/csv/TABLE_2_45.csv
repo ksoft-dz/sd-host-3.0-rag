@@ -1,0 +1,9 @@
+Location,Attrib,Register Field Explanation
+15-08,Rsvd,"Reserved"
+07-00,ROC,"Interrupt Signal For Each Slot.
+Status bits indicate logical OR of Interrupt Signal and Wakeup Signal for each slot (max 8 slots).
+Bit00=Slot1
+Bit01=Slot2
+Bit02=Slot3
+...
+Bit07=Slot8"

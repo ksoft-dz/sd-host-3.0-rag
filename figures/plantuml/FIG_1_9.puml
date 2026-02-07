@@ -1,0 +1,39 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+skinparam ArrowThickness 2
+
+package "An Example Program of Descriptor Table" {
+  rectangle "SD Multiple\nRead Write\nOperation" as operation {
+    component DescriptorTable [
+      <b>Descriptor Table</b>
+      ----
+      |= Address |= Length |= Attributes |
+      | Address 1 | Length 1 | Tran |
+      | Address 2 | Length 2 | Tran |
+      | ...... | ...... | Tran |
+      | Address n | Length n | Tran & End |
+    ]
+  }
+}
+
+package "System Memory Map" {
+  rectangle "Data 2" as data2 #LightGreen
+  rectangle "Empty1" as empty1 #White
+  rectangle "Data 1" as data1 #LightGreen {
+  }
+  rectangle "Empty2" as empty2 #White
+  rectangle "Data n" as datan #LightGreen
+  rectangle "Empty3" as empty3 #White
+}
+
+DescriptorTable -right-> data2 : "Address 2\nLength 2"
+DescriptorTable -right-> data1 : "Address 1\nLength 1"
+DescriptorTable -right-> datan : "Address n\nLength n"
+
+note bottom of DescriptorTable
+  <b>Figure 1-9 : An Example of ADMA2 Data Transfer</b>
+end note
+
+@enduml

@@ -1,0 +1,40 @@
+{
+  "_metadata": {
+    "source_pdf": "source_spec.pdf",
+    "total_pages": 0,
+    "extraction_date": "",
+    "total_figures": 0,
+    "page_offset": 0,
+    "page_offset_note": "Real PDF page = spec_page + page_offset",
+    "transcription_progress": {
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 0,
+      "skipped": 0
+    }
+  },
+  "figures": [
+    {
+      "_comment": "TEMPLATE - Copy and modify for each figure",
+      "id": "FIG_X_Y",
+      "spec_reference": "Figure X-Y",
+      "title": "Figure Title",
+      "spec_page": 1,
+      "spec_page_end": 1,
+      "definition_page": 1,
+      "definition_page_end": 1,
+      "referenced_on_pages": [],
+      "reference_count": 0,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": ""
+    }
+  ]
+}

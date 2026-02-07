@@ -1,0 +1,88 @@
+@startuml
+title Figure 3-22 : Auto CMD12 Error Recovery Sequence
+
+start
+
+:(1) Check\nAuto CMD12 not\nexecuted Status;
+
+if (PCMD?) then (Executed\n(PCMD=0))
+  :(6) Set Software Reset For CMD line (CR);
+  
+  while (Check CR) is (CR=1)
+  endwhile (CR=0)
+  
+  :(8) Issue CMD12;
+  
+  :(9) Check\nReturn Status;
+  
+  if (Error Type?) then (Non-recoverable\nError)
+    :(16) Return Status\n(Non-recoverable Error);
+    stop
+  else (Recoverable Error or No error)
+    :(10) Check CMD_wo_DAT\nnot executed by Auto\nCMD12 Error;
+    
+    if (Executed?) then (Not executed)
+      :(14) Set Software Reset\nFor DAT line (DR);
+      
+      while (Check DR) is (DR=1)
+      endwhile (DR=0)
+      
+      :(20) Return Status\n(D);
+      stop
+    else (Executed)
+      :(11) Set Software Reset\nFor DAT line (DR);
+      
+      while (Check DR) is (DR=1)
+      endwhile (DR=0)
+      
+      :(13) Check\nPCMD;
+      
+      if (PCMD?) then (PCMD=1)
+        :(18) Return Status\n(B);
+        stop
+      else (PCMD=0)
+        :(19) Return Status\n(C);
+        stop
+      endif
+    endif
+  endif
+  
+else (Not executed\n(PCMD=1))
+  :(2) Wait for Error Interrupt Recovery\nfor CMD_wo_DAT;
+  
+  :(3) Check\nReturn Status;
+  
+  if (Error Type?) then (Non-recoverable Error)
+    :(16) Return Status\n(Non-recoverable Error);
+    stop
+  else (Recoverable Error)
+    :(4) Issue CMD12;
+    
+    :(5) Check\nReturn Status;
+    
+    if (Error Type?) then (Non-recoverable\nError)
+      :(16) Return Status\n(Non-recoverable Error);
+      stop
+    elseif (Recoverable Error) then (Recoverable Error)
+      :(11) Set Software Reset\nFor DAT line (DR);
+      
+      while (Check DR) is (DR=1)
+      endwhile (DR=0)
+      
+      :(13) Check\nPCMD;
+      
+      if (PCMD?) then (PCMD=1)
+        :(18) Return Status\n(B);
+        stop
+      else (PCMD=0)
+        :(19) Return Status\n(C);
+        stop
+      endif
+    else (No error)
+      :(17) Return Status\n(A);
+      stop
+    endif
+  endif
+endif
+
+@enduml

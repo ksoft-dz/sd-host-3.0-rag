@@ -1,0 +1,59 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultTextAlignment center
+
+'Title and header
+title Buffer Data Port Register (Offset 020h)
+
+' Register diagram
+rectangle "Buffer Data Port Register" {
+  card register1 [
+    <size:12><b>D31 ──────────────────────────────────────────── D00</b></size>
+    ──────────────────────────────────────────────────
+    <size:11>Buffer Data</size>
+  ]
+}
+
+note bottom of register1
+  **Figure 2-8 : Buffer Data Port Register**
+  
+  Buffer can be accessed through 32-bit <i>Data Port</i> register.
+end note
+
+' Table with register field explanation
+rectangle "Table 2-13 : Buffer Data Port Register" {
+  card table1 [
+    <b>Location | Attrib | Register Field Explanation</b>
+    ═════════════════════════════════════════
+    31-00 | RW | <b>Buffer Data</b>
+          |    | The Host Controller buffer can be accessed 
+          |    | through this 32-bit <i>Data Port</i> register.
+          |    | Refer to Section 1.7
+  ]
+}
+
+register1 -down-> table1
+
+note top
+  <b>©Copyright 2002-2011 SD Association</b>
+  <b>SD Host Controller Simplified Specification Version 3.00</b>
+end note
+
+note left of register1
+  Since the Host Controller may have a multiple block data DAT line transfer
+  executing concurrently with a CMD_wo_DAT command, the Host Controller
+  stores the Auto CMD12 response in the upper bits (REP[127:96]) of the
+  <i>Response</i> register. The CMD_wo_DAT response is stored in REP[31:0].
+  This allows the Host Controller to avoid overwriting the Auto CMD12
+  response with the CMD_wo_DAT and vice versa.
+  
+  While executing Auto CMD23, the response of CMD23 is saved to
+  REP [127:96] and the response of multiple-block read/write command
+  is save to REP [31:0]. The response error of CMD23 is indicated
+  in the <i>Auto CMD Error Status</i> register.
+  
+  When the Host Controller modifies part of the <i>Response</i> register,
+  as shown in the Table 2-12, it shall preserve the unmodified bits.
+end note
+
+@enduml

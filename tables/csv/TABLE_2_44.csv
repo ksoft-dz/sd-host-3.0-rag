@@ -1,0 +1,82 @@
+Location,Attrib,Register Field Explanation
+31,Rsvd,"Reserved"
+
+30-24,RW,"Back-End Power Control
+Each bit of this field controls back-end power supply for an embedded device. Host interface voltage (VDDH) is not controlled by this field. The number of devices supported is specified by Number of Clock Pins and a maximum of 7 devices can be controlled.
+
+D16  Back-end Power Control for Device 1
+D17  Back-end Power Control for Device 2
+D18  Back-end Power Control for Device 3
+D19  Back-end Power Control for Device 4
+D20  Back-end Power Control for Device 5
+D21  Back-end Power Control for Device 6
+D22  Back-end Power Control for Device 7
+
+The function of each bit is defined as follows:
+0  Back-end Power is Off
+1  Back-end Power is Supplied
+
+Back-End power control is effective for embedded memory devices in the Sleep State that support the Sleep command (CMD14) to reduce power consumption and embedded SDIO devices when IOEx is set to 0."
+
+23,Rsvd,"Reserved"
+
+22-20,RW,"Interrupt Pin Select
+Interrupt pin inputs are enabled by this field. Enable of unsupported interrupt pin is meaningless.
+
+000b  Interrupt is detected by Interrupt Cycle
+xx1b  INT_A is Enabled
+x1xb  INT_B is Enabled
+1xxb  INT_C is Enabled"
+
+19,Rsvd,"Reserved"
+
+18-16,RW,"Clock Pin Select
+One of clock pin outputs is selected by this field. Select of unsupported clock pin is meaningless. Refer to Figure 2-38 for the timing of clock outputs.
+
+000b  Clock Pins are Disabled
+001b  CLK[1] is Selected
+010b  CLK[2] is Selected
+...
+111b  CLK[7] is Selected"
+
+15,Rsvd,"Reserved"
+
+14-08,HwInit,"Bus Width Preset
+Shared bus supports mixing of 4-bit and 8-bit bus width devices.
+Each bit of this field specifies the bus width for each embedded device. The number of devices supported is specified by Number of Clock Pins and a maximum of 7 devices are supported.
+This field is effective when multiple devices are connected to a shared bus (Slot Type is set to 10b in the Capabilities register). In the other case, Extended Data Transfer Width in the Host Control 1 register is used to select 8-bit bus width. As use of 1-bit mode is not intended for shared bus, Data Transfer Width in the Host Control 1 register should be set to 1.
+
+D24  Bus Width Preset for Device 1
+D25  Bus Width Preset for Device 2
+D26  Bus Width Preset for Device 3
+D27  Bus Width Preset for Device 4
+D28  Bus Width Preset for Device 5
+D29  Bus Width Preset for Device 6
+D30  Bus Width Preset for Device 7
+
+The function of each bit is defined as follows:
+0  4-bit bus width mode (Data Transfer Width = 1)
+1  8-bit bus width mode"
+
+07-06,Rsvd,"Reserved"
+
+05-04,HwInit,"Number of Interrupt Input Pins
+This field indicates support of interrupt input pins for shared bus system.
+Three asynchronous interrupt pins are defined, INT_A#, INT_B# and INT_C#. Which interrupt pin is used is determined by the system. Each one is driven by open drain and then wired or connection is possible.
+
+00b  Interrupt Input Pin is Not Supported
+01b  INTA is Supported
+10b  INTA and INTB are Supported
+11b  INTA, INTB and INTC are Supported"
+
+03,Rsvd,"Reserved"
+
+02-00,HwInit,Number of Clock Pins,"This field indicates support of clock pins to select one of devices for shared bus system. Up to 7 clock pins can be supported.
+
+Shared bus is supported by specific system. Then Standard Host Driver does not support control of these clock pins.
+
+000b,Shared bus is not supported
+001b,1 SDCLK pin is supported
+010b,2 SDCLK pins are supported
+....,..........................
+111b,7 SDCLK pins are supported"

@@ -1,0 +1,9 @@
+Selected Bus Speed Mode,1.8V Signaling Enable (Host Control 2),High Speed Enable (Host Control 1),UHS-I Mode Selection (Host Control 2)
+Default Speed,0,0,don't care
+High Speed,0,1,don't care
+SDR12,1,don't care,000b
+SDR25,1,don't care,001b
+SDR50,1,don't care,010b
+SDR104,1,don't care,011b
+DDR50,1,don't care,100b
+Reserved,1,don't care,101b-111b

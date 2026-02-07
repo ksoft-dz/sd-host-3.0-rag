@@ -1,0 +1,23 @@
+@startuml
+start
+
+:(1) Get the support voltage of the Host Controller;
+
+:(2) Set SD Bus Voltage Select with supported
+maximum voltage;
+
+:(3) Set SD Bus Power;
+
+:(4) Get OCR Value of SD card;
+
+while (SD Bus Voltage\nchanged?) is (Change)
+  :(6) Clr SD Bus Power;
+  
+  :(7) Set SD Bus Voltage Select;
+  
+  :(8) Set SD Bus Power;
+endwhile (No change)
+
+stop
+
+@enduml

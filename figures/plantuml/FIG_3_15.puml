@@ -1,0 +1,37 @@
+@startuml
+title Figure 3-15: Transaction Control with Data Transfer Using DAT Line Sequence (Using ADMA)
+
+start
+
+:(1)\nCreate Descriptor table;
+
+:(2)\nSet ADMA System Address Reg;
+
+:(3)\nSet Block Size Reg;
+
+:(4)\nSet Block Count Reg;
+
+:(5)\nSet Argument 1 Reg;
+
+:(6)\nSet Transfer Mode Reg;
+
+:(7)\nSet Command Reg;
+
+:(8)\nWait for\nCommand Complete Int;
+
+:(9) Command Complete\nInt occurs\nClr Command Complete status;
+
+:(10)\nGet Response Data;
+
+:(11)\nWait for\nTransfer Complete Int\nand ADMA Error Int;
+
+if ((12)\nCheck\nInterrupt Status) then (Transfer Complete\nInt. occurs)
+  :(13)\nClr Transfer Complete\nInterrupt status;
+  stop
+else (ADMA Error Int. occurs)
+  :(14)\nClr ADMA Error\nInterrupt status;
+  :(15)\nAbort ADMA\nOperation;
+  stop
+endif
+
+@enduml

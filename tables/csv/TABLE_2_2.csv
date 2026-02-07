@@ -1,0 +1,9 @@
+Register Attribute,Description
+RO,"Read-only register: Register bits are read-only and cannot be altered by software or any reset operation. Writes to these bits are ignored."
+ROC,"Read-only status: These bits are initialized to zero at reset. Writes to these bits are ignored."
+RW,"Read-Write register: Register bits are read-write and may be either set or cleared by software to the desired state."
+RW1C,"Read-only status, Write-1-to-clear status: Register bits indicate status when read, a set bit indicating a status event may be cleared by writing a 1. Writing a 0 to RW1C bits has no effect."
+RWAC,"Read-Write, automatic clear register: The Host Driver requests a Host Controller operation by setting the bit. The Host Controllers shall clear the bit automatically when the operation of complete. Writing a 0 to RWAC bits has no effect."
+HwInit,"Hardware Initialized: Register bits are initialized by firmware or hardware mechanisms such as pin strapping or serial EEPROM. Bits are read-only after initialization, and writes to these bits are ignored."
+Rsvd,"Reserved. These bits are initialized to zero, and writes to them are ignored."
+WO,"Write-only register. It is not physically implemented register. Rather, it is an address at which registers can be written."

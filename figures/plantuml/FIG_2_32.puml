@@ -1,0 +1,103 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam defaultTextAlignment center
+skinparam noteTextAlignment left
+
+title Force Event Register for Auto CMD Error Status (Offset 050h)
+
+package "Register Layout" {
+  component "D15-D08" as reserved1 [
+    **Rsvd**
+    ----
+    Reserved
+  ]
+  
+  component "D07" as d07 [
+    **Force Event for**
+    **Command Not Issued by**
+    **Auto CMD12 Error**
+  ]
+  
+  component "D06-D05" as reserved2 [
+    **Rsvd**
+    ----
+    Reserved
+  ]
+  
+  component "D04" as d04 [
+    **Force Event for**
+    **Auto CMD Index Error**
+  ]
+  
+  component "D03" as d03 [
+    **Force Event for**
+    **Auto CMD End Bit Error**
+  ]
+  
+  component "D02" as d02 [
+    **Force Event for**
+    **Auto CMD CRC Error**
+  ]
+  
+  component "D01" as d01 [
+    **Force Event for**
+    **Auto CMD Timeout Error**
+  ]
+  
+  component "D00" as d00 [
+    **Force Event for Auto**
+    **CMD12 not executed**
+  ]
+}
+
+reserved1 -[hidden]right- d07
+d07 -[hidden]right- reserved2
+reserved2 -[hidden]right- d04
+d04 -[hidden]right- d03
+d03 -[hidden]right- d02
+d02 -[hidden]right- d01
+d01 -[hidden]right- d00
+
+note right of d07
+  **Location 07 - WO**
+  Force Event for Command Not Issued By Auto CMD12 Error
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d04
+  **Location 04 - WO**
+  Force Event for Auto CMD Index Error
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d03
+  **Location 03 - WO**
+  Force Event for Auto CMD End Bit Error
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d02
+  **Location 02 - WO**
+  Force Event for Auto CMD CRC Error
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d01
+  **Location 01 - WO**
+  Force Event for Auto CMD Timeout Error
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d00
+  **Location 00 - WO**
+  Force Event for Auto CMD12 Not Executed
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+@enduml

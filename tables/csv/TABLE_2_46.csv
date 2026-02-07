@@ -1,0 +1,6 @@
+Value,Description
+00h,SD Host Specification Version 1.00
+01h,SD Host Specification Version 2.00
+,Including the feature of the ADMA and Test Register
+02h,SD Host Specification Version 3.00
+others,Reserved

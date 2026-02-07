@@ -1,0 +1,26 @@
+@startuml
+skinparam monochrome true
+
+title Normal Interrupt Status Enable Register (Offset 034h)
+
+|= D15 |= D14-D13 |= D12 |= D11 |= D10 |= D09 |= D08 |= D07 |= D06 |= D05 |= D04 |= D03 |= D02 |= D01 |= D00 |
+| Fixed\nto 0 | Rsvd | Re-Tuning Event\nStatus Enable | INT_C Status Enable | INT_B Status Enable | INT_A Status Enable | Card Interrupt Status\nEnable | Card Removal Status\nEnable | Card Insertion Status\nEnable | Buffer Read Ready\nStatus Enable | Buffer Write Ready\nStatus Enable | DMA Interrupt Status\nEnable | Block Gap Event Status\nEnable | Transfer Complete\nStatus Enable | Command Complete\nStatus Enable |
+
+|= Location |= Attrib |= Register Field Explanation |
+| 15 | RO | **Fixed to 0**\nThe Host Driver shall control error interrupts using the Error Interrupt Status Enable register. |
+| 14-13 | Rsvd | **Reserved** |
+| 12 | RW | **Re-Tuning Event Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 11 | RW | **INT_C Status Enable**\nIf this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_C and may set this bit again after all interrupt requests to INT_C pin are cleared to prevent inadvertent interrupts.\n  1 = Enabled\n  0 = Masked |
+| 10 | RW | **INT_B Status Enable**\nIf this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_B and may set this bit again after all interrupt requests to INT_B pin are cleared to prevent inadvertent interrupts.\n  1 = Enabled\n  0 = Masked |
+| 09 | RW | **INT_A Status Enable**\nIf this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_A and may set this bit again after all interrupt requests to INT_A pin are cleared to prevent inadvertent interrupts.\n  1 = Enabled\n  0 = Masked |
+| 08 | RW | **Card Interrupt Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 07 | RW | **Card Removal Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 06 | RW | **Card Insertion Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 05 | RW | **Buffer Read Ready Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 04 | RW | **Buffer Write Ready Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 03 | RW | **DMA Interrupt Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 02 | RW | **Block Gap Event Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 01 | RW | **Transfer Complete Status Enable**\n  1 = Enabled\n  0 = Masked |
+| 00 | RW | **Command Complete Status Enable**\n  1 = Enabled\n  0 = Masked |
+
+@enduml

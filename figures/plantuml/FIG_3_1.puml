@@ -1,0 +1,31 @@
+@startuml
+!define RECTANGLE class
+
+start
+
+:Enable Int or Card Detect;
+note right
+  (1)
+end note
+
+:Card Detect Int occur;
+note right
+  (2)
+end note
+
+:Clr Card Detect Int Status;
+
+if (Check\nCard Inserted) then (Card Inserted is 1b,\nthen recognize as insertion)
+  note left
+    (3)
+  end note
+else (Card Inserted is 0b,\nthen recognize as removal)
+endif
+
+stop
+
+note bottom
+  **Figure 3-2: SD Card Detect Sequence**
+end note
+
+@enduml

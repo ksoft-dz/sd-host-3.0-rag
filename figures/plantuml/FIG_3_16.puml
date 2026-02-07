@@ -1,0 +1,35 @@
+@startuml
+!define RECTANGLE rectangle
+
+skinparam activity {
+  BorderColor Black
+  BackgroundColor White
+  FontSize 11
+  ArrowColor Black
+}
+
+start
+
+:Issue Abort Command;
+note right
+  (1)
+end note
+
+:Set Software Reset For
+DAT line (DR) and CMD line (CR);
+note right
+  (2)
+end note
+
+repeat
+  :Check
+  DR and CR;
+  note right
+    (3)
+  end note
+repeat while (DR=1 or CR=1) is (yes)
+->DR=0 and CR=0;
+
+stop
+
+@enduml

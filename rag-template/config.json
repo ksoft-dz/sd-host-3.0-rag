@@ -1,0 +1,44 @@
+{
+  "project": {
+    "name": "My Specification RAG",
+    "version": "1.0.0",
+    "description": "RAG knowledge base for [your spec name]"
+  },
+  "source": {
+    "pdf_file": "source_spec.pdf",
+    "total_pages": 0,
+    "page_offset": 0,
+    "page_offset_note": "Real PDF page = spec_page + page_offset"
+  },
+  "extraction": {
+    "llm_provider": "anthropic",
+    "model": "claude-sonnet-4-20250514",
+    "chunk_target_words": 200,
+    "chunk_max_words": 250,
+    "max_workers": 4
+  },
+  "paths": {
+    "tables_map": "tables/tables_page_map.json",
+    "figures_map": "figures/figures_page_map.json",
+    "sections": "spec/sections.json",
+    "metadata_output": "metadata/metadata.json"
+  },
+  "node_types": [
+    "TABLE",
+    "FIGURE",
+    "SPEC_CHUNK"
+  ],
+  "relation_types": [
+    "REFERENCES",
+    "CONTAINS",
+    "DESCRIBES",
+    "SEQUENCE_NEXT",
+    "CHILD_OF"
+  ],
+  "coverage_statuses": [
+    "NOT_IMPLEMENTED",
+    "PARTIAL",
+    "IMPLEMENTED",
+    "NOT_APPLICABLE"
+  ]
+}

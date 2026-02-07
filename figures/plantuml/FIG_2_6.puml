@@ -1,0 +1,16 @@
+@startuml
+skinparam monochrome true
+
+title Command Register (Offset 00Eh)
+
+|= Bit Position |= Field Name |= Access |= Description |
+| D15-D14 | Rsvd | Rsvd | Reserved |
+| D13-D08 | Command Index | RW | Command number (CMD0-63, ACMD0-63) per Physical Layer Specification and SDIO Card Specification bits 45-40 |
+| D07-D06 | Command Type | RW | Special command types: 11b=Abort, 10b=Resume, 01b=Suspend, 00b=Normal |
+| D05 | Data Present Select | RW | Data Present Select |
+| D04 | Command Index Check Enable | RW | Command Index Check Enable |
+| D03 | Command CRC Check Enable | RW | Command CRC Check Enable |
+| D02 | Rsvd | Rsvd | Reserved |
+| D01-D00 | Response Type Select | RW | Response Type Select |
+
+@enduml

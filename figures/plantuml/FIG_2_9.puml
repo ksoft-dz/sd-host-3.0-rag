@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+
+title Present State Register (Offset 024h) - 32-bit Read Only
+
+|= Bits |= Field Name |= Access |= Description |
+| 31-25 | Reserved (Rsvd) | RO | Reserved |
+| 24 | CMD Line Signal Level | RO | Used to check the CMD line level to recover from errors, and for debugging |
+| 23-20 | DAT[3:0] Line Signal Level | RO | Used to check the DAT line level to recover from errors, and for debugging. Especially useful in detecting busy signal level from DAT[0]. D23=DAT[3], D22=DAT[2], D21=DAT[1], D20=DAT[0] |
+| 19 | Write Protect Switch Pin Level | RO | Write Protect Switch supported for memory and combo cards. Reflects SDWP# pin. 1=Write enabled (SDWP#=1), 0=Write protected (SDWP#=0) |
+| 18 | Card Detect Pin Level | RO | Reflects inverse value of SDCD# pin. Valid when Card State Stable=1. Not guaranteed due to propagation delay. 1=Card present (SDCD#=0), 0=No card present (SDCD#=1) |
+| 17 | Card State Stable | RO | Card State Stable |
+| 16 | Card Inserted | RO | Card Inserted |
+| 15-12 | Reserved (Rsvd) | RO | Reserved |
+| 11 | Buffer Read Enable | RO | Buffer Read Enable |
+| 10 | Buffer Write Enable | RO | Buffer Write Enable |
+| 9 | Read Transfer Active | RO | Read Transfer Active |
+| 8 | Write Transfer Active | RO | Write Transfer Active |
+| 7-4 | Reserved (Rsvd) | RO | Reserved |
+| 3 | Re-Tuning Request | RO | Re-Tuning Request |
+| 2 | DAT Line Active | RO | DAT Line Active |
+| 1 | Command Inhibit (DAT) | RO | Command Inhibit (DAT) |
+| 0 | Command Inhibit (CMD) | RO | Command Inhibit (CMD) |
+
+@enduml

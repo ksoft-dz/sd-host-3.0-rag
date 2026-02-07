@@ -1,0 +1,50 @@
+@startuml
+skinparam backgroundColor white
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+
+title Transfer Mode Register (Offset 00Ch)
+
+package "Figure 2-5 : Transfer Mode Register" {
+  rectangle Register {
+    component "D15 - D06\n\nRsvd" as D15_D06
+    component "D05\n\nMulti Single Block\nSelect" as D05
+    component "D04\n\nData Transfer\nDirection Select" as D04
+    component "D03 - D02\n\nAuto Command\nEnable" as D03_D02
+    component "D01\n\nBlock Count Enable" as D01
+    component "D00\n\nDMA Enable" as D00
+    
+    D15_D06 -[hidden]right- D05
+    D05 -[hidden]right- D04
+    D04 -[hidden]right- D03_D02
+    D03_D02 -[hidden]right- D01
+    D01 -[hidden]right- D00
+  }
+}
+
+note right of Register
+  **Location | Attrib | Register Field Explanation**
+  ====
+  **15-06 | Rsvd | Reserved**
+  ----
+  **05 | RW | Multi / Single Block Select**
+  This bit is set when issuing multiple-block transfer 
+  commands using DAT line. For any other commands, 
+  this bit shall be set to 0. If this bit is 0, it is not 
+  necessary to set the Block Count register. 
+  (Refer to Table 2-8)
+  
+  1 = Multiple Block
+  0 = Single Block
+  ----
+  **04 | RW | Data Transfer Direction Select**
+  This bit defines the direction of DAT line data transfers. 
+  The bit is set to 1 by the Host Driver to transfer data 
+  from the SD card to the SD Host Controller and it is 
+  set to 0 for all other commands.
+  
+  1 = Read (Card to Host)
+  0 = Write (Host to Card)
+end note
+
+@enduml

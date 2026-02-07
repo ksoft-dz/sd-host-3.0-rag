@@ -1,0 +1,151 @@
+
+Location,Attrib,Register Field Explanation
+09,ROC,"INT_A
+This status is set if INT_A is enabled and INT_A# pin is in low level. Writing
+this bit to 1 does not clear this bit. It is cleared by resetting the INT_A
+interrupt factor. Refer to the Shared Bus Control register.
+
+1  INT_A is detected
+0  No interrupt is detected"
+
+08,ROC,"Card Interrupt
+Writing this bit to 1 does not clear this bit. It is cleared by resetting the SD
+card interrupt factor. In 1-bit mode, the Host Controller shall detect the Card
+Interrupt without SD Clock to support Wakeup. In 4-bit mode, the card
+interrupt signal is sampled during the interrupt cycle, so there are some
+sample delays between the interrupt signal from the SD card and the
+interrupt to the Host System.
+
+When this status has been set and the Host Driver needs to start this
+interrupt service, Card Interrupt Status Enable in the Normal Interrupt
+Status Enable register may be set to 0 in order to clear the card interrupt
+statuses latched in the Host Controller and to stop driving the interrupt
+signal to the Host System. After completion of the card interrupt service (It
+should reset interrupt factors in the SD card and the interrupt signal may
+not be asserted), set Card Interrupt Status Enable to 1 and start sampling
+the interrupt signal again.
+
+Interrupt detected by DAT[1] is supported when there is a card per slot. In
+case of shared bus, interrupt pins are used to detect interrupts. If 000b is
+set to Interrupt Pin Select in the Shared Bus Control register, this status is
+effective. Non-zero value is set to Interrupt Pin Select, INT_A, INT_B or
+INT_C is then used to device interrupts.
+
+1  Generate Card Interrupt
+0  No Card Interrupt"
+
+07,RW1C,"Card Removal
+This status is set if the Card Inserted in the Present State register changes
+from 1 to 0.
+When the Host Driver writes this bit to 1 to clear this status, the status of the
+Card Inserted in the Present State register should be confirmed. Because
+the card detect state may possibly be changed when the Host Driver clear
+this bit and interrupt event may not be generated.
+
+1  Card removed
+0  Card state stable or Debouncing"
+
+06,RW1C,"Card Insertion
+This status is set if the Card Inserted in the Present State register changes
+from 0 to 1.
+When the Host Driver writes this bit to 1 to clear this status, the status of the
+Card Inserted in the Present State register should be confirmed. Because
+the card detect state may possibly be changed when the Host Driver clear
+this bit and interrupt event may not be generated.
+
+1  Card inserted
+0  Card state stable or Debouncing"
+
+05,RW1C,"Buffer Read Ready
+This status is set if the Buffer Read Enable changes from 0 to 1. Refer to
+the Buffer Read Enable in the Present State register.
+While performing tuning procedure (Execute Tuning is set to 1), Buffer
+Read Ready is set to 1 for every CMD19 execution.
+
+1  Ready to read buffer
+0  Not ready to read buffer"
+
+04,RW1C,"Buffer Write Ready
+This status is set if the Buffer Write Enable changes from 0 to 1. Refer to
+the Buffer Write Enable in the Present State register.
+
+1  Ready to write buffer
+0  Not ready to write buffer"
+
+03,RW1C,"DMA Interrupt
+This status is set if the Host Controller detects the Host SDMA Buffer
+boundary during transfer. Refer to the Host SDMA Buffer Boundary in the
+Block Size register.
+Other DMA interrupt factors may be added in the future.
+In case of ADMA, by setting Int field in the descriptor table, Host Controller
+generates this interrupt. Suppose that it is used for debugging.
+This interrupt shall not be generated after the Transfer Complete.
+
+1  DMA Interrupt is generated
+0  No DMA Interrupt"
+
+02,RW1C,"Block Gap Event
+If the Stop At Block Gap Request in the Block Gap Control register is set,
+this bit is set when both a read / write transaction is stopped at a block gap.
+If Stop At Block Gap Request is not set to 1, this bit is not set to 1.
+
+(1) In the case of a Read Transaction
+This bit is set at the falling edge of the DAT Line Active Status (When
+the transaction is stopped at SD Bus timing). The Read Wait shall be
+supported in order to use this function. Refer to Section 3.12.3 about
+the detail timing.
+
+(2) Case of Write Transaction
+This bit is set at the falling edge of Write Transfer Active Status (After
+getting CRC status at SD Bus timing). Refer to Section 3.12.4 for more
+details on the sequence of events.
+
+1  Transaction stopped at block gap
+0  No Block Gap Event"
+
+01,RW1C,"Transfer Complete
+This bit is set when a read / write transfer and a command with busy is
+completed.
+
+(1) In the case of a Read Transaction
+This bit is set at the falling edge of Read Transfer Active Status.
+This interrupt is generated in two cases. The first is when a data
+transfer is completed as specified by data length (After the last data
+has been read to the Host System). The second is when data has
+stopped at the block gap and completed the data transfer by setting
+
+the Stop At Block Gap Request in the Block Gap Control register
+(After valid data has been read to the Host System). Refer to Section
+3.12.3 for more details on the sequence of events.
+
+(2) In the case of a Write Transaction
+This bit is set at the falling edge of the DAT Line Active Status. This
+interrupt is generated in two cases. The first is when the last data is
+written to the SD card as specified by data length and the busy signal
+released. The second is when data transfers are stopped at the block
+gap by setting Stop At Block Gap Request in the Block Gap Control
+register and data transfers completed. (After valid data is written to
+the SD card and the busy signal released). Refer to Section 3.12.4 for
+more details on the sequence of events.
+
+(3) In the case of a command with busy
+This bit is set when busy is de-asserted. Refer to DAT Line Active
+and Command Inhibit (DAT) in the Present State register.
+
+The table below shows that Transfer Complete has higher priority than
+Data Timeout Error. If both bits are set to 1, execution of a command can
+be considered to be completed."
+
+Transfer Complete,Data Timeout Error,Meaning of the status
+0,0,"Interrupted by another factor"
+0,1,"Timeout occur during transfer"
+1,"Don't Care","Command Execution complete"
+
+Bit Value,Description
+1,"Command execution is completed"
+0,"Not complete"
+
+Note,"While performing tuning procedure (Execute Tuning is set to 1), Transfer
+Complete is not set to 1."
+
+00,RW1C,Command Complete,"This bit is set when get the end bit of the command response. Auto CMD12 and Auto CMD23 consist of two responses. Command Complete is not generated by the response of CMD12 or CMD23 but generated by the response of a read/write command. Refer to Command Inhibit (CMD) in the Present State register for how to control this bit. The table below shows that Command Timeout Error has higher priority than Command Complete. If both bits are set to 1, it can be considered that the response was not received correctly. Status combinations: [Command Complete=0, Command Timeout Error=0: Interrupted by another factor] [Command Complete=Don't Care, Command Timeout Error=1: Response not received within 64 SDCLK cycles] [Command Complete=1, Command Timeout Error=0: Response received]. Command Complete values: 1=Command complete, 0=No command complete."

@@ -1,0 +1,68 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam defaultTextAlignment center
+skinparam backgroundColor white
+
+package "Application & Driver Structure" {
+  
+  together {
+    component "Bluetooth\nApplication" as BT_App
+    component "Camera\nApplication" as Cam_App
+    component "GPS\nApplication" as GPS_App
+    component "PHS\nApplication" as PHS_App
+    component "Memory\nApplication" as Mem_App
+  }
+  
+  together {
+    component "Bluetooth\nCard Driver" as BT_Drv #Yellow
+    component "Camera\nCard Driver" as Cam_Drv #Yellow
+    component "GPS\nCard Driver" as GPS_Drv #Yellow
+    component "PHS\nCard Driver" as PHS_Drv #Yellow
+    component "Memory\nCard Driver" as Mem_Drv #Yellow
+  }
+  
+  note right of Mem_Drv
+    **Vendor or OS supplied
+    function drivers**
+  end note
+  
+  component "SD Host Bus Driver" as Bus_Drv #Pink
+  
+  note right of Bus_Drv
+    **OS supplied Bus
+    Driver and Host
+    Controller Driver**
+  end note
+  
+  component "Standard Host Controller Driver" as HC_Drv #Pink
+  
+  package "SD Combo Host Hardware" #LightBlue {
+    component "Register Specification" as RegSpec #Pink
+  }
+  
+  component "SD Card Connector" as Connector
+  
+  BT_App -down-> BT_Drv
+  Cam_App -down-> Cam_Drv
+  GPS_App -down-> GPS_Drv
+  PHS_App -down-> PHS_Drv
+  Mem_App -down-> Mem_Drv
+  
+  BT_Drv -down-> Bus_Drv
+  Cam_Drv -down-> Bus_Drv
+  GPS_Drv -down-> Bus_Drv
+  PHS_Drv -down-> Bus_Drv
+  Mem_Drv -down-> Bus_Drv
+  
+  Bus_Drv -down-> HC_Drv
+  
+  HC_Drv -down-> RegSpec
+  
+  RegSpec -down-> Connector
+}
+
+note bottom of "Application & Driver Structure"
+  **Figure 1-1 : Host Hardware and Driver Architecture**
+end note
+
+@enduml

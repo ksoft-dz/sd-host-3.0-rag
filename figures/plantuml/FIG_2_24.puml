@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+
+title Error Interrupt Status Enable Register (Offset 036h)
+
+|= Bit |= Field Name |= Access |= Description |
+| D15-D12 | Vendor Specific Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D11 | Rsvd | Rsvd | Reserved |
+| D10 | Tuning Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D09 | ADMA Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D08 | Auto CMD Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D07 | Current Limit Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D06 | Data End Bit Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D05 | Data CRC Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D04 | Data Timeout Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D03 | Command Index Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D02 | Command End Bit Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D01 | Command CRC Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+| D00 | Command Timeout Error Status Enable | RW | 1 = Enabled, 0 = Masked |
+
+@enduml

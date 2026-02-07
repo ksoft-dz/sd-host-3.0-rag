@@ -1,0 +1,11 @@
+@startuml
+skinparam monochrome true
+
+title Block Size Register (Offset 004h)
+
+|= Bits |= Field Name |= Access |= Description |
+| D15 | Rsvd | Rsvd | Reserved |
+| D14-D12 | Host SDMA Buffer Boundary | RW | Host SDMA Buffer Boundary |
+| D11-D00 | Transfer Block Size | RW | Transfer Block Size |
+
+@enduml

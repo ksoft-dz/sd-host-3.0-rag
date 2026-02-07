@@ -1,0 +1,52 @@
+{
+  "_metadata": {
+    "source_pdf": "source_spec.pdf",
+    "extraction_date": "",
+    "total_sections": 0,
+    "total_chunks": 0,
+    "toc_source": "extracted_from_text",
+    "page_offset": 0,
+    "chunk_target_words": 200,
+    "chunk_max_words": 250,
+    "abstract_generator": "claude-haiku",
+    "validation_attempts": 3
+  },
+  "sections": {
+    "_comment": "TEMPLATE - Sections keyed by section number",
+    "1": {
+      "id": "SEC_1",
+      "section_number": "1",
+      "title": "Section Title",
+      "level": 1,
+      "hierarchy": {
+        "parent": null,
+        "children": ["SEC_1_1", "SEC_1_2"]
+      },
+      "source": {
+        "spec_page_start": 1,
+        "spec_page_end": 5,
+        "pdf_page_start": 12,
+        "pdf_page_end": 16
+      },
+      "references": {
+        "tables": ["TABLE_1_1"],
+        "figures": ["FIG_1_1"],
+        "related": []
+      },
+      "index": {
+        "keywords": ["keyword1", "keyword2"],
+        "technical_terms": ["TERM1", "TERM2"]
+      },
+      "chunks": [
+        {
+          "id": "SEC_1_C1",
+          "chunk_index": 0,
+          "text": "Raw text content of the chunk...",
+          "abstract": "LLM-generated summary for embedding...",
+          "word_count": 187,
+          "embedding_ready": true
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,133 @@
+
+Location,Attrib,Register Field Explanation
+63-56,Rsvd,"Reserved"
+
+55-48,HwInit,"Clock Multiplier
+This field indicates clock multiplier value of programmable clock generator.
+Refer to Clock Control register.
+Setting 00h means that Host Controller does not support programmable clock generator.
+
+00h  Clock Multiplier is Not Supported
+01h  Clock Multiplier M = 2
+02h  Clock Multiplier M = 3
+.....
+FFh  Clock Multiplier M = 256"
+
+47-46,HwInit,"Re-Tuning Modes
+This field selects re-tuning method and limits the maximum data length.
+
+Bit47-46 | Re-Tuning Mode | Re-Tuning Method                         | Data Length
+00b      | Mode 1         | Timer                                    | 4MB (Max.)
+01b      | Mode 2         | Timer and Re-Tuning Request               | 4MB (Max.)
+10b      | Mode 3         | Auto Re-Tuning (for transfer)
+          |               | Timer and Re-Tuning Request               | Any
+11b      | Reserved
+
+There are two re-tuning timings: Re-Tuning Request controlled by the Host Controller and expiration of a Re-Tuning Timer controlled by the Host"
+
+45,HwInit,"Use Tuning for SDR50
+If this bit is set to 1, this Host Controller requires tuning to operate SDR50.
+(Tuning is always required to operate SDR104.)
+
+1  SDR50 requires tuning
+0  SDR50 does not require tuning"
+
+44,Rsvd,"Reserved"
+
+43-40,HwInit,"Timer Count for Re-Tuning
+This field indicates an initial value of the Re-Tuning Timer for Re-Tuning Mode 1 to 3.
+Setting to 0 disables Re-Tuning Timer.
+
+0h   Re-Tuning Timer disabled
+1h   1 seconds
+2h   2 seconds
+3h   4 seconds
+4h   8 seconds
+.....
+n    2^(n-1) seconds
+.....
+Bh   1024 seconds
+Eh-Ch Reserved
+Fh   Get information from other source"
+
+39,Rsvd,"Reserved"
+
+38,HwInit,"Driver Type D Support
+This bit indicates support of Driver Type D for 1.8 Signaling.
+
+1  Driver Type D is Supported
+0  Driver Type D is Not Supported"
+
+37,HwInit,"Driver Type C Support
+This bit indicates support of Driver Type C for 1.8 Signaling.
+
+1  Driver Type C is Supported
+0  Driver Type C is Not Supported"
+
+36,HwInit,"Driver Type A Support
+This bit indicates support of Driver Type A for 1.8 Signaling.
+
+1  Driver Type A is Supported
+0  Driver Type A is Not Supported"
+
+35,Rsvd,"Reserved"
+
+34,HwInit,"DDR50 Support
+
+1  DDR50 is Supported
+0  DDR50 is Not Supported"
+
+33,HwInit,"SDR104 Support
+SDR104 requires tuning.
+
+1  SDR104 is Supported
+0  SDR104 is Not Supported"
+
+Location,Attrib,Register Field Explanation
+32,HwInit,"SDR50 Support
+If SDR104 is supported, this bit shall be set to 1. Bit 45 indicates whether SDR50 requires tuning or not.
+
+1  SDR50 is Supported
+0  SDR50 is Not Supported"
+
+31-30,HwInit,"Slot Type
+This field indicates usage of a slot by a specific Host System. (A host controller register set is defined per slot.)
+Embedded Slot for One Device (01b) means that only one non-removable device is connected to a SD bus slot.
+Shared Bus Slot (10b) can be set if Host Controller supports Shared Bus Control register.
+
+The Standard Host Driver controls only a removable card or one embedded device connected to a SD bus slot.
+If a slot is configured for shared bus (10b), the Standard Host Driver does not control embedded devices connected to a shared bus.
+Shared bus slot is controlled by a specific host driver developed by a Host System.
+
+00b  Removable Card Slot
+01b  Embedded Slot for One Device
+10b  Shared Bus Slot
+11b  Reserved"
+
+29,HwInit,"Asynchronous Interrupt Support
+Refer to SDIO Specification Version 3.00 about asynchronous interrupt.
+
+1  Asynchronous Interrupt Supported
+0  Asynchronous Interrupt Not Supported"
+
+28,HwInit,"64-bit System Bus Support
+Setting 1 to this bit indicates that the Host Controller supports 64-bit address descriptor mode and is connected to 64-bit address system bus."
+
+27,Rsvd,"Reserved
+Reserved for voltage support"
+
+26,HwInit,"Voltage Support 1.8V
+Embedded system can use 1.8V power supply.
+
+1  1.8V Supported
+0  1.8V Not Supported"
+
+25,HwInit,"Voltage Support 3.0V
+
+1  3.0V Supported
+0  3.0V Not Supported"
+
+24,HwInit,"Voltage Support 3.3V
+
+1  3.3V Supported
+0  3.3V Not Supported"

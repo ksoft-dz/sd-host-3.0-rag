@@ -1,0 +1,80 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam rectangleBackgroundColor LightYellow
+skinparam rectangleBorderColor Black
+skinparam tableBackgroundColor LightGreen
+skinparam tableBorderColor Black
+
+title 32-bit Address Descriptor Table
+
+package "Descriptor Structure" {
+  map "32-bit Address Descriptor" as desc {
+    63..32 => 32-bit Address
+    31..16 => 16-bit Length
+    15..06 => 000000 (Reserved)
+    05 => Act2
+    04 => Act1
+    03 => 0
+    02 => Int
+    01 => End
+    00 => Valid
+  }
+}
+
+rectangle "Attribute Bits" {
+  rectangle "Valid" as valid #LightYellow {
+    Valid=1 indicates this line of descriptor is effective.
+    If Valid=0 generate ADMA Error Interrupt and stop ADMA
+    to prevent runaway.
+  }
+  
+  rectangle "End" as end #LightYellow {
+    End=1 indicates end of descriptor.
+    The Transfer Complete Interrupt is generated
+    when the operation of the descriptor line is completed.
+  }
+  
+  rectangle "Int" as int #LightYellow {
+    INT=1 generates DMA Interrupt when the operation
+    of the descriptor line is completed.
+  }
+}
+
+table "Operation Codes" as optable {
+  |= Act2 |= Act1 |= Symbol |= Comment |= Operation |
+  | 0 | 0 | Nop | No Operation | Do not execute current line and go to next line. |
+  | 0 | 1 | rsv | reserved | (Same as Nop. Do not execute current line and go to next line.) |
+  | 1 | 0 | Tran | Transfer Data | Transfer data of one descriptor line |
+  | 1 | 1 | Link | Link Descriptor | Link to another descriptor |
+}
+
+table "Length Field Values" as lengthtable {
+  |= Length Field |= Value of Length |
+  | 0000h | 65536 bytes |
+  | 0001h | 1 byte |
+  | 0002h | 2 bytes |
+  | ....... | ........ |
+  | FFFFh | 65535 bytes |
+}
+
+note bottom of lengthtable
+  Table 1-11 : ADMA2 Length Field
+end note
+
+note as N1
+  Figure 1-10 : 32-bit Address Descriptor Table
+  
+  One descriptor line consumes 64-bit (8-byte) memory space.
+  Address field shall be set on 32-bit boundary
+  (Lower 2-bit is always set to 0).
+end note
+
+note as N2
+  64-bit Descriptor is removed from the Simplified Specification
+  because 64-bit system supported will be modified by the Host
+  Controller Specification Version 4.00.
+  
+  Table 1-12 : 64-bit Address Descriptor Table (Removed)
+end note
+
+@enduml

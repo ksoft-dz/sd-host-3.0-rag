@@ -1,0 +1,94 @@
+@startuml
+scale 1.5
+
+title Figure 2-11: Timing of Command Inhibit (DAT) and Command Inhibit (CMD) with Data Transfer
+
+concise "CMD line" as CMD1
+concise "DAT line" as DAT1
+concise "D00" as D00_1
+concise "D01" as D01_1
+
+@0
+CMD1 is Idle
+DAT1 is Idle
+D00_1 is Low
+D01_1 is Low
+
+@1
+CMD1 is Command
+
+@2
+CMD1 is Response
+D00_1 is High
+D01_1 is High
+
+@3
+CMD1 is Idle
+DAT1 is "Write or Read\nData"
+
+@4
+DAT1 is "Last Block\nData"
+
+@5
+DAT1 is Idle
+D00_1 is Low
+D01_1 is Low
+
+@enduml
+
+@startuml
+scale 1.5
+
+title Figure 2-12: Timing of Command Inhibit (DAT) for the Case of Response with Busy
+
+concise "CMD line" as CMD2
+concise "DAT[0]" as DAT2
+concise "D00" as D00_2
+concise "D01" as D01_2
+
+@0
+CMD2 is Idle
+DAT2 is High
+D00_2 is Low
+D01_2 is Low
+
+@1
+CMD2 is Command
+D00_2 is High
+D01_2 is High
+
+@2
+CMD2 is Response
+
+@3
+CMD2 is Idle
+DAT2 is Busy
+
+@4
+DAT2 is High
+D00_2 is Low
+D01_2 is Low
+
+@enduml
+
+@startuml
+scale 1.5
+
+title Figure 2-13: Timing of Command Inhibit (CMD) for the Case of No Response Command
+
+concise "CMD line" as CMD3
+concise "D00" as D00_3
+
+@0
+CMD3 is Idle
+D00_3 is High
+
+@1
+CMD3 is Command
+
+@2
+CMD3 is Idle
+D00_3 is Low
+note bottom: The Host Controller clears D00\nif the command is issued successfully.
+
+@enduml

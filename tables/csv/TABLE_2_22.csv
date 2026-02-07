@@ -1,0 +1,34 @@
+Location,Attrib,Register Field Explanation
+07-03,Rsvd,"Reserved"
+
+02,RWAC,"Software Reset For DAT Line
+Only part of data circuit is reset. DMA circuit is also reset.
+
+The following registers and bits are cleared by this bit:
+
+Buffer Data Port register
+Buffer is cleared and initialized
+Present State register
+  Buffer Read Enable
+  Buffer Write Enable
+  Read Transfer Active
+  Write Transfer Active
+  DAT Line Active
+  Command Inhibit (DAT)
+
+Block Gap Control register
+  Continue Request
+  Stop At Block Gap Request
+
+Normal Interrupt Status register
+  Buffer Read Ready
+  Buffer Write Ready
+  DMA Interrupt
+  Block Gap Event
+  Transfer Complete
+
+1  Reset
+0  Work"
+
+01,RWAC,"Software Reset For CMD Line - Only part of command circuit is reset. The following registers and bits are cleared by this bit: Present State register, Command Inhibit (CMD), Normal Interrupt Status register, Command Complete. 1=Reset, 0=Work"
+00,RWAC,"Software Reset For All - This reset affects the entire Host Controller except for the card detection circuit. Register bits of type ROC, RW, RW1C, RWAC are cleared to 0. During its initialization, the Host Driver shall set this bit to 1 to reset the Host Controller. The Host Controller shall reset this bit to 0 when Capabilities registers are valid and the Host Driver can read them. Additional use of Software Reset For All may not affect the value of the Capabilities registers. If this bit is set to 1, the host driver should issue reset command and reinitialize the SD card. 1=Reset, 0=Work"

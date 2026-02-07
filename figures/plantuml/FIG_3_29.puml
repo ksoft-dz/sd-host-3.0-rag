@@ -1,0 +1,120 @@
+@startuml
+title SD Host Controller - Block Gap Request Timing Diagrams
+
+skinparam defaultFontName Monospaced
+skinparam defaultFontSize 11
+
+legend top
+  Figure 3-28: Stop At Block Gap Request is Not Accepted at the Last Block of the Read Transfer
+  Figure 3-29: Continue Read Transfer by Continue Request
+endlegend
+
+|Figure 3-28: Stop At Block Gap Request NOT Accepted at Last Block|
+
+concise "DAT line" as DAT1
+concise "Read Wait" as RW1
+concise "Stop At Block Gap Request (Control)" as SABGR1
+concise "Continue Request (Control)" as CR1
+concise "DAT Line Active (Status)" as DLA1
+concise "Read Transfer Active (Status)" as RTA1
+concise "Block Gap Event (Interrupt)" as BGE1
+concise "Transfer Complete (Interrupt)" as TC1
+
+@0
+DAT1 is "Block N-2"
+RW1 is low
+SABGR1 is low
+CR1 is low
+DLA1 is high
+RTA1 is high
+BGE1 is low
+TC1 is low
+
+@100
+DAT1 is "Block N-1"
+
+@200
+DAT1 is "Last block"
+
+@250
+SABGR1 is high
+note bottom of SABGR1 : Set during last block\n(Request NOT accepted)
+
+@350
+DAT1 is idle
+DLA1 is low
+RTA1 is low
+
+@380
+TC1 is high
+note bottom of TC1 : Transfer Complete generated\n(Block Gap Event NOT generated)
+
+@400
+SABGR1 is low
+note bottom of SABGR1 : Driver clears if\nBlock Gap Event not set
+
+|Figure 3-29: Continue Read Transfer by Continue Request|
+
+concise "DAT line" as DAT2
+concise "Read Wait" as RW2
+concise "Stop At Block Gap Request (Control)" as SABGR2
+concise "Continue Request (Control)" as CR2
+concise "DAT Line Active (Status)" as DLA2
+concise "Read Transfer Active (Status)" as RTA2
+concise "Block Gap Event (Interrupt)" as BGE2
+concise "Transfer Complete (Interrupt)" as TC2
+
+@0
+DAT2 is "Block N"
+RW2 is low
+SABGR2 is high
+CR2 is low
+DLA2 is high
+RTA2 is high
+BGE2 is low
+TC2 is low
+
+@80
+DAT2 is "Gap"
+RW2 is high
+note bottom of RW2 : Read Wait asserted\nduring block gap
+
+@100
+DLA2 is low
+RTA2 is low
+
+@120
+BGE2 is high
+note bottom of BGE2 : Block Gap Event generated
+
+@150
+CR2 is high
+note bottom of CR2 : Continue Request set\n(Stop At Block Gap = 0)
+
+@170
+RW2 is low
+note bottom of RW2 : Read Wait released
+
+@180
+DLA2 is high
+RTA2 is high
+CR2 is low
+note bottom of CR2 : Auto-cleared
+
+@200
+DAT2 is "Block N+1"
+
+@300
+DAT2 is "Last block"
+
+@400
+DAT2 is idle
+DLA2 is low
+note bottom of DLA2 : Clear without\nBlock Gap Event
+
+@420
+RTA2 is low
+TC2 is high
+note bottom of TC2 : Transfer Complete
+
+@enduml

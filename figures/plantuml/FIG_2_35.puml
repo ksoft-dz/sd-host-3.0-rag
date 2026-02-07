@@ -1,0 +1,58 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+
+package "ADMA System Address Register (Offset 058h)" {
+  
+  component "Register Layout" as reg {
+    [D63 ...................... ADMA System Address ...................... D00]
+  }
+  
+  component "Register Details" as details {
+    card "Location: 63-00\nAttribute: RW" as loc
+    card "ADMA System Address" as title {
+      component desc [
+        This register holds byte address of executing command of the Descriptor table.
+        32-bit Address Descriptor uses lower 32-bit of this register. At the start of ADMA,
+        the Host Driver shall set start address of the Descriptor table. The ADMA
+        increments this register address, which points to next line, when every fetching a
+        Descriptor line. When the ADMA Error Interrupt is generated, this register shall hold
+        valid Descriptor address depending on the ADMA state. The Host Driver shall
+        program Descriptor Table on 32-bit boundary and set 32-bit boundary address to
+        this register. ADMA2 ignores lower 2-bit of this register and assumes it to be 00b.
+      ]
+    }
+  }
+  
+  component "32-bit Address ADMA" as addr32 {
+    card "Register Value -> 32-bit System Address" as mapping32 {
+      xxxxxxxx 00000000h -> 00000000h
+      xxxxxxxx 00000004h -> 00000004h
+      xxxxxxxx 00000008h -> 00000008h
+      xxxxxxxx 0000000Ch -> 0000000Ch
+      .....
+      xxxxxxxx FFFFFFCh -> FFFFFFCh
+    }
+  }
+  
+  component "64-bit Address ADMA" as addr64 {
+    card "Register Value -> 64-bit System Address" as mapping64 {
+      00000000 00000000h -> 00000000 00000000h
+      00000000 00000004h -> 00000000 00000004h
+      00000000 00000008h -> 00000000 00000008h
+      00000000 0000000Ch -> 00000000 0000000Ch
+      .....
+      FFFFFFFF FFFFFFCh -> FFFFFFFF FFFFFFCh
+    }
+  }
+}
+
+note bottom of reg
+  Figure 2-35 : ADMA System Address Register
+end note
+
+note bottom of addr64
+  Table 2-40 : ADMA System Address Register
+end note
+
+@enduml

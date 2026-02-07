@@ -1,0 +1,51 @@
+Location,Attrib,Register Field Explanation
+15-12,RW,"Vendor Specific Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+11,Rsvd,"Reserved"
+
+10,RW,"Tuning Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+09,RW,"ADMA Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+08,RW,"Auto CMD Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+07,RW,"Current Limit Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+06,RW,"Data End Bit Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+05,RW,"Data CRC Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+04,RW,"Data Timeout Error Signal Enable
+
+1  Enabled
+0  Masked"
+
+03,RW,Command Index Error Signal Enable
+,,"1 = Enabled, 0 = Masked"
+02,RW,Command End Bit Error Signal Enable
+,,"1 = Enabled, 0 = Masked"
+01,RW,Command CRC Error Signal Enable
+,,"1 = Enabled, 0 = Masked"
+00,RW,Command Timeout Error Signal Enable
+,,"1 = Enabled, 0 = Masked"

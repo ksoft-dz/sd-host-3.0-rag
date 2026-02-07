@@ -1,0 +1,77 @@
+Location,Attrib,Register Field Explanation
+15-06,Rsvd,"Reserved"
+
+05,RW,"Multi / Single Block Select
+This bit is set when issuing multiple-block transfer commands using DAT line.
+For any other commands, this bit shall be set to 0.
+If this bit is 0, it is not necessary to set the Block Count register (Refer to Table 2-8).
+
+1 = Multiple Block
+0 = Single Block"
+
+04,RW,"Data Transfer Direction Select
+This bit defines the direction of DAT line data transfers.
+The bit is set to 1 by the Host Driver to transfer data from the SD card to the SD Host Controller
+and it is set to 0 for all other commands.
+
+1 = Read (Card to Host)
+0 = Write (Host to Card)"
+
+03-02,Rsvd,"Auto CMD Enable
+This field determines use of auto command functions.
+
+00b = Auto Command Disabled
+01b = Auto CMD12 Enable
+10b = Auto CMD23 Enable
+11b = Reserved
+
+There are two methods to stop Multiple-block read and write operation.
+
+(1) Auto CMD12 Enable
+When this field is set to 01b, the Host Controller issues CMD12 automatically
+when last block transfer is completed. Auto CMD12 error is indicated to the Auto CMD Error Status register.
+The Host Driver shall not set this bit if the command does not require CMD12.
+In particular, secure commands defined in the Part 3 File Security specification do not require CMD12.
+
+(2) Auto CMD23 Enable
+When this bit field is set to 10b, the Host Controller issues CMD23 automatically
+before issuing a command as specified in the Command Register.
+The Host Controller Version 3.00 and later shall support this function.
+
+The following conditions are required to use the Auto CMD23:
+- Auto CMD23 Supported (Host Controller Version is 3.00 or later)
+- A memory card that supports CMD23 (SCR[33]=1)
+- If DMA is used, it shall be ADMA
+- Only when CMD18 or CMD25 is issued
+(Note, the Host Controller does not check command index.)
+
+Auto CMD23 can be used with or without ADMA.
+By writing the Command register, the Host Controller issues a CMD23 first and then issues a command
+specified by the Command Index in Command register.
+If response errors of CMD23 are detected, the second command is not issued.
+A CMD23 error is indicated in the Auto CMD Error Status register.
+
+32-bit block count value for CMD23 is set to SDMA System Address / Argument 2 register."
+
+01,RW,"Block Count Enable
+This bit is used to enable the Block Count register, which is only relevant for multiple block transfers.
+When this bit is 0, the Block Count register is disabled, which is useful in executing an infinite transfer.
+(Refer to Table 2-8)
+
+If ADMA2 data transfer is more than 65535 blocks, this bit shall be set to 0.
+In this case, data transfer length is designated by Descriptor Table.
+
+1 = Enable
+0 = Disable"
+
+00,RW,"DMA Enable
+This bit enables DMA functionality as described in section 1.4.
+DMA can be enabled only if it is supported as indicated in the Capabilities register.
+One of the DMA modes can be selected by DMA Select in the Host Control 1 register.
+
+If DMA is not supported, this bit is meaningless and shall always read 0.
+If this bit is set to 1, a DMA operation shall begin when the Host Driver writes
+to the upper byte of Command register (00Fh).
+
+1 = DMA Data transfer
+0 = No data transfer or Non DMA data transfer"

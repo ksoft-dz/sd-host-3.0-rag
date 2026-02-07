@@ -1,0 +1,70 @@
+@startuml
+'SD Host Controller Simplified Specification - Shared Bus Control and Clock Pin Selection
+
+skinparam backgroundColor white
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+
+' Shared Bus Control Register Table
+package "Table 2-44: Shared Bus Control Register" {
+  rectangle "Register" {
+    map "Bits 02-00 | HwInit" {
+      Field => Number of Clock Pins
+      Description1 => This field indicates support of clock pins to select one\nof devices for shared bus system. Up to 7 clock pins can be supported.
+      Description2 => Shared bus is supported by specific system. Then Standard\nHost Driver does not support control of these clock pins.
+    }
+    
+    rectangle "Values" {
+      card "000b : Shared bus is not supported"
+      card "001b : 1 SDCLK pin is supported"
+      card "010b : 2 SDCLK pins are supported"
+      card ".... : .........................."
+      card "111b : 7 SDCLK pins are supported"
+    }
+  }
+}
+
+' Clock Pin Selection Timing Diagram
+rectangle "Figure 2-38: An Example Timing of Selecting Clock Pin" {
+  [Clock Pin Select[02:00]] as CPS
+  component "000b" as V000
+  component "001b" as V001
+  component "010b" as V010
+  component "011b" as V011
+  
+  [CLK[1]] as CLK1
+  [CLK[2]] as CLK2
+  [CLK[3]] as CLK3
+  
+  note right of CPS
+    When Clock Pin Select = 000b: no clocks generated
+    When Clock Pin Select = 001b: CLK[1] active (device 1 selected)
+    When Clock Pin Select = 010b: CLK[2] active (device 2 selected)
+    When Clock Pin Select = 011b: CLK[3] active (device 3 selected)
+  end note
+}
+
+' Implementation Notes
+rectangle "Implementation Notes" {
+  note as N1
+    Lock-Reset pin is defined by eSD Version 2.10 to improve security level
+    for updating boot loader and system codes. The Host System supporting 
+    Lock-Reset needs to consider following points:
+    
+    - Driving Lock-Reset to high during device power off is not allowed
+    - Lock-Rest signal can be driven to high after power is supplied
+    - Host interface voltage (VDDH) should be always supplied
+    - Host System should implement so that VDDH is not controlled by
+      SD Bus Power bit in the Power Control register
+    
+    For eSD:
+    - Sleep mode should be used instead of eSD device power off
+    - Memory voltage VDDF can be off when device is in Sleep State
+    
+    For SDIO:
+    - Embedded SDIO can support back-end function power pin
+    - The back-end function power can be off while IOEx=0
+  end note
+}
+
+@enduml

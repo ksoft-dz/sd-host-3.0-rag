@@ -1,0 +1,54 @@
+@startuml
+skinparam monochrome true
+skinparam defaultTextAlignment center
+
+title ADMA Error Status Register (Offset 054h) and Force Event for Error Interrupt Status Register
+
+' Table 2-38: Force Event for Error Interrupt Status Register
+rectangle "Table 2-38: Force Event for Error Interrupt Status Register" {
+  |= Bit |= Access |= Field Name |= Value |= Description |
+  | 04 | WO | **Force Event for Data Timeout Error** | 1 | Interrupt is generated |
+  | | | | 0 | No Interrupt |
+  | 03 | WO | **Force Event for Command Index Error** | 1 | Interrupt is generated |
+  | | | | 0 | No Interrupt |
+  | 02 | WO | **Force Event for Command End Bit Error** | 1 | Interrupt is generated |
+  | | | | 0 | No Interrupt |
+  | 01 | WO | **Force Event for Command CRC Error** | 1 | Interrupt is generated |
+  | | | | 0 | No Interrupt |
+  | 00 | WO | **Force Event for Command Timeout Error** | 1 | Interrupt is generated |
+  | | | | 0 | No Interrupt |
+}
+
+note as N1
+  **Section 2.2.29 ADMA Error Status Register (Offset 054h)**
+  
+  When **ADMA Error Interrupt** is occurred, the **ADMA Error States** field in this register 
+  holds the ADMA state and the **ADMA System Address Register** holds the address around 
+  the error descriptor. For recovering the error, the Host Driver requires the ADMA state to 
+  identify the error descriptor address as follows:
+  
+  **ST_STOP:** Previous location set in the ADMA System Address register is the 
+              error descriptor address
+  **ST_FDS:**  Current location set in the ADMA System Address register is the 
+              error descriptor address
+  **ST_CADR:** This state is never set because do not generate ADMA error in this state.
+  **ST_TFR:**  Previous location set in the ADMA System Address register is the 
+              error descriptor address
+  
+  In case of write operation, the Host Driver should use ACMD22 to get the number of 
+  written block rather than using this information, since unwritten data may exist in the 
+  Host Controller.
+  
+  The Host Controller generates the **ADMA Error Interrupt** when it detects invalid descriptor 
+  data (Valid=0) at the ST_FDS state. In this case, ADMA Error State indicates that an error 
+  occurs at ST_FDS state. The Host Driver may find that the Valid bit is not set in the error 
+  descriptor.
+end note
+
+' Figure 2-34: ADMA Error Status Register
+rectangle "Figure 2-34: ADMA Error Status Register" {
+  |= D07 |= D06 |= D05 |= D04 |= D03 |= D02 |= D01 |= D00 |
+  |<colsp>4> Rsvd |<colsp>2> ADMA Length\nMismatch Error | ADMA Error States |
+}
+
+@enduml

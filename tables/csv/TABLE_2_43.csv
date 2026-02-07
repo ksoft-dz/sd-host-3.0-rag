@@ -1,0 +1,11 @@
+Location,Attrib,Register Field Explanation
+15-14,HwInit,"Driver Strength Select Value. Supported only for 1.8V signaling. Meaningless for 3.3V.
+11b=Driver Type D selected
+10b=Driver Type C selected
+01b=Driver Type A selected
+00b=Driver Type B selected"
+13-11,Rsvd,"Reserved"
+10,HwInit,"Clock Generator Select Value. Effective when Host Controller supports programmable clock generator.
+1=Programmable Clock Generator
+0=Host Controller Ver2.00 Compatible Clock Generator"
+09-00,HwInit,"SDCLK Frequency Select Value. 10-bit preset value to set SDCLK Frequency Select in Clock Control Register."

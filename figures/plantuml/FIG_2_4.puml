@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Argument 1 Register (Offset 008h)
+
+rectangle "D31                                    Command Argument                                    D00" as reg #white
+
+note bottom of reg
+  **Table 2-6 : Argument 1 Register**
+  
+  | Location | Attrib | Register Field Explanation |
+  | 31-00 | RW | **Command Argument 1** |
+  |  |  | The SD command argument is specified as bit39-8 of Command-Format in the |
+  |  |  | Physical Layer Specification. |
+end note
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+skinparam monochrome true
+
+title Figure 2-25 : Normal Interrupt Signal Enable Register (Offset 038h)
+
+|= Bit |= Field Name |= Attrib |= Value |= Description |
+| D15 | Fixed to 0 | RO | 0 | Fixed to 0. The Host Driver shall control error interrupts using the Error Interrupt Signal Enable register. |
+| D14-D13 | Rsvd | Rsvd | - | Reserved |
+| D12 | Re-Tuning Event Signal Enable | RW | 1 | Enabled |
+| D12 | Re-Tuning Event Signal Enable | RW | 0 | Masked |
+| D11 | INT_C Signal Enable | RW | 1 | Enabled |
+| D11 | INT_C Signal Enable | RW | 0 | Masked |
+| D10 | INT_B Signal Enable | RW | 1 | Enabled |
+| D10 | INT_B Signal Enable | RW | 0 | Masked |
+| D09 | INT_A Signal Enable | RW | 1 | Enabled |
+| D09 | INT_A Signal Enable | RW | 0 | Masked |
+| D08 | Card Interrupt Signal Enable | RW | 1 | Enabled |
+| D08 | Card Interrupt Signal Enable | RW | 0 | Masked |
+| D07 | Card Removal Signal Enable | RW | 1 | Enabled |
+| D07 | Card Removal Signal Enable | RW | 0 | Masked |
+| D06 | Card Insertion Signal Enable | RW | 1 | Enabled |
+| D06 | Card Insertion Signal Enable | RW | 0 | Masked |
+| D05 | Buffer Read Ready Signal Enable | RW | 1 | Enabled |
+| D05 | Buffer Read Ready Signal Enable | RW | 0 | Masked |
+| D04 | Buffer Write Ready Signal Enable | RW | 1 | Enabled |
+| D04 | Buffer Write Ready Signal Enable | RW | 0 | Masked |
+| D03 | DMA Interrupt Signal Enable | RW | 1 | Enabled |
+| D03 | DMA Interrupt Signal Enable | RW | 0 | Masked |
+| D02 | Block Gap Event Signal Enable | RW | 1 | Enabled |
+| D02 | Block Gap Event Signal Enable | RW | 0 | Masked |
+| D01 | Transfer Complete Signal Enable | RW | 1 | Enabled |
+| D01 | Transfer Complete Signal Enable | RW | 0 | Masked |
+| D00 | Command Complete Signal Enable | RW | 1 | Enabled |
+| D00 | Command Complete Signal Enable | RW | 0 | Masked |
+
+@enduml

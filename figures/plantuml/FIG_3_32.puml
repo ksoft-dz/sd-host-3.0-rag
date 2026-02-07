@@ -1,0 +1,118 @@
+@startuml
+skinparam defaultFontName Monospaced
+skinparam defaultFontSize 11
+
+title Figure 3-31 : Stop At Block Gap Request is Not Accepted at the Last Block of the Write Transfer\nFigure 3-32 : Continue Write Transfer by Continue Request
+
+concise "DAT line" as DAT
+binary "Stop At Block Gap Request (Control)" as STOP
+binary "Continue Request (Control)" as CONT
+binary "Write Transfer Active (Status)" as WTA
+binary "DAT Line Active (Status)" as DLA
+binary "Block Gap Event (Interrupt)" as BGE
+binary "Transfer Complete (Interrupt)" as TC
+
+scale 1 as 60 pixels
+
+@0
+DAT is "Block N-2"
+STOP is low
+CONT is low
+WTA is high
+DLA is high
+BGE is low
+TC is low
+
+@3
+DAT is "Gap"
+
+@4
+DAT is "Block N-1"
+
+@7
+DAT is "Gap"
+STOP is high
+
+@8
+DAT is "Last block"
+
+@11
+DAT is "Busy"
+
+@14
+DAT is "Idle"
+STOP is low
+WTA is low
+DLA is low
+TC is high
+
+note bottom of STOP
+  Stop At Block Gap Request set to 1 during last block transfer.
+  Host Controller shall NOT accept and terminates transaction normally.
+  Block Gap Event Interrupt is NOT generated.
+  Driver shall clear Stop At Block Gap Request.
+end note
+
+@16
+DAT is {-}
+
+@18
+DAT is "Block M"
+STOP is low
+CONT is low
+WTA is high
+DLA is high
+BGE is low
+TC is low
+
+@21
+DAT is "Gap"
+STOP is high
+
+@23
+DAT is "Stopped"
+WTA is low
+DLA is low
+BGE is high
+
+@27
+CONT is high
+
+@28
+DAT is "Block M+1"
+CONT is low
+WTA is high
+DLA is high
+BGE is low
+
+@31
+DAT is "Gap"
+
+@33
+DAT is "Last block"
+
+@36
+DAT is "Busy"
+
+@39
+DAT is "Idle"
+WTA is low
+DLA is low
+TC is high
+
+highlight 23 to 27 #LightYellow : Stopped State
+
+note bottom of CONT
+  To restart: set Continue Request to 1
+  (Stop At Block Gap Request shall be set to 0)
+  
+  After accepting Continue Request:
+  (1) Set DAT Line Active and Write Transfer Active Status
+  (2) Continue Request is automatically cleared
+  
+  End of transfer:
+  (1) Clear Write Transfer Active, no Block Gap Event
+  (2) Clear DAT Line Active, generate Transfer Complete
+end note
+
+@enduml

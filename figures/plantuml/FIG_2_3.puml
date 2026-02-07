@@ -1,0 +1,47 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+
+rectangle "Block Count Register (Offset 006h)" {
+  rectangle "D15                                                                                                              D00" as header {
+    rectangle "Blocks Count For Current Transfer" as blockcount
+  }
+}
+
+package "Register Field Details" {
+  card "Location: 15-00\nAttrib: RW" as location
+  
+  card "Blocks Count For Current Transfer" as details {
+    note right
+      **Enabled when:** Block Count Enable = 1 in Transfer Mode register
+      **Valid for:** Multiple block transfers only
+      **Value range:** 1 to maximum block count
+      
+      **Operation:**
+      - Host Driver sets value between 1 and max block count
+      - Host Controller decrements after each block transfer
+      - Stops when count reaches zero
+      - Setting to 0 = no data blocks transferred
+      
+      **Access restrictions:**
+      - Access only when no transaction is executing
+      - Read during transfer may return invalid value
+      - Write operations during transfer are ignored
+      
+      **Suspend/Resume:**
+      - On suspend: read to determine blocks yet to transfer
+      - Before resume: restore previously saved block count
+      
+      **Value Examples:**
+      FFFFh = 65535 blocks
+      ...
+      0002h = 2 blocks
+      0001h = 1 block
+      0000h = Stop Count
+    end note
+  }
+}
+
+location -down-> details
+
+@enduml

@@ -1,0 +1,48 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+title Figure 2-20 : Software Reset Register
+
+map "Software Reset Register (Offset 02Fh)" as reg {
+  D07-D03 => Rsvd
+  D02 => Software Reset For\nDAT Line
+  D01 => Software Reset For\nCMD Line
+  D00 => Software Reset For\nAll
+}
+
+note bottom of reg
+  <b>Register Field Explanation</b>
+  
+  | Location | Attrib | Register Field Explanation |
+  | 07-03 | Rsvd | <b>Reserved</b> |
+  | 02 | RWAC | <b>Software Reset For DAT Line</b> |
+  
+  Only part of data circuit is reset. DMA circuit is also reset.
+  
+  The following registers and bits are cleared by this bit:
+  
+    <i>Buffer Data Port</i> register
+        Buffer is cleared and initialized.
+    <i>Present State</i> register
+        Buffer Read Enable
+        Buffer Write Enable
+        Read Transfer Active
+        Write Transfer Active
+        DAT Line Active
+        Command Inhibit (DAT)
+    <i>Block Gap Control</i> register
+        Continue Request
+        Stop At Block Gap Request
+    <i>Normal Interrupt Status</i> register
+        Buffer Read Ready
+        Buffer Write Ready
+        DMA Interrupt
+        Block Gap Event
+        Transfer Complete
+  
+  | 1 | Reset |
+  | 0 | Work |
+end note
+
+@enduml

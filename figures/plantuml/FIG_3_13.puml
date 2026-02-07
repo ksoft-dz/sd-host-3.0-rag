@@ -1,0 +1,101 @@
+@startuml
+title Transaction Control with Data Transfer Using DAT Line Sequence (Not using DMA)
+
+start
+
+:Set Block Size Reg;
+note right: (1)
+
+:Set Block Count Reg;
+note right: (2)
+
+:Set Argument 1 Reg;
+note right: (3)
+
+:Set Transfer Mode Reg;
+note right: (4)
+
+:Set Command Reg;
+note right: (5)
+
+:Wait for Command Complete Int;
+note right: (6)
+
+repeat
+:Waiting...;
+repeat while (Command Complete Int occur?) is (No)
+->Yes;
+
+:Clr Command Complete status;
+note right: (7)
+
+:Get Response Data;
+note right: (8)
+
+if (Write or read?) then (Write)
+  note right: (9)
+  
+  :Wait for Buffer Write Ready Int;
+  note right: (10)
+  
+  repeat
+  :Waiting...;
+  repeat while (Buffer Write Ready Int occur?) is (No)
+  ->Yes;
+  note right: (11)
+  
+  :Clr Buffer Write Ready status;
+  
+  repeat
+    :Set Block Data;
+    note right: (12)
+  repeat while (More Blocks?) is (Yes)
+  ->No;
+  note right: (13)
+  
+else (Read)
+  note right: (14)
+  
+  :Wait for Buffer Read Ready Int;
+  
+  repeat
+  :Waiting...;
+  repeat while (Buffer Read Ready Int occur?) is (No)
+  ->Yes;
+  note right: (15)
+  
+  :Clr Buffer Read Ready status;
+  
+  repeat
+    :Get Block Data;
+    note right: (16)
+  repeat while (More Blocks?) is (Yes)
+  ->No;
+  note right: (17)
+  
+endif
+
+note right: (18)
+if (Single Block Transfer?\nMulti Block Transfer?\nInfinite Block Transfer?) then (Single or Multi Block Transfer)
+  
+  :Wait for Transfer Complete Int;
+  note right: (19)
+  
+  repeat
+  :Waiting...;
+  repeat while (Transfer Complete Int occur?) is (No)
+  ->Yes;
+  note right: (20)
+  
+  :Clr Transfer Complete status;
+  
+else (Infinite Block Transfer)
+  
+  :Abort Transaction;
+  note right: (21)
+  
+endif
+
+stop
+
+@enduml

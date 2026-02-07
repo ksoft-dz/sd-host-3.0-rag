@@ -1,0 +1,3 @@
+Location,Attrib,Register Field Explanation
+31-00,RW,"Command Argument 1
+The SD command argument is specified as bit39-8 of Command-Format in the Physical Layer Specification."

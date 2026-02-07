@@ -1,0 +1,9 @@
+Byte Enable,BE[3],BE[2],BE[1],BE[0]
+Data Bus,D[31:24],D[23:16],D[15:08],D[07:00]
+Access Type - 4-byte,1,1,1,1
+Access Type - 2-byte,0,0,1,1
+Access Type - 2-byte,1,1,0,0
+Access Type - 1-byte,0,0,0,1
+Access Type - 1-byte,0,0,1,0
+Access Type - 1-byte,0,1,0,0
+Access Type - 1-byte,1,0,0,0

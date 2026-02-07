@@ -1,0 +1,81 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam rectangleBorderColor black
+skinparam rectangleFontSize 10
+
+rectangle "Clock Control Register (Offset 02Ch)" as title {
+  
+  rectangle " " as reg {
+    rectangle "D15" as d15
+    rectangle "D08" as d08
+    rectangle "D07-D06" as d07d06
+    rectangle "D05" as d05
+    rectangle "D04-D03" as d04d03
+    rectangle "D02" as d02
+    rectangle "D01" as d01
+    rectangle "D00" as d00
+  }
+  
+  d15 -[hidden]right- d08
+  d08 -[hidden]right- d07d06
+  d07d06 -[hidden]right- d05
+  d05 -[hidden]right- d04d03
+  d04d03 -[hidden]right- d02
+  d02 -[hidden]right- d01
+  d01 -[hidden]right- d00
+  
+  rectangle "SDCLK Frequency Select" as freq
+  rectangle "Upper Bits of SDCLK\nFrequency Select" as upper
+  rectangle "Clock Generator\nSelect" as clkgen
+  rectangle "Reserved" as res
+  rectangle "SD Clock Enable" as clken
+  rectangle "Internal Clock Stable" as stable
+  rectangle "Internal Clock Enable" as inten
+  
+  freq -up-> d15
+  freq -up-> d08
+  upper -up-> d07d06
+  clkgen -up-> d05
+  res -up-> d04d03
+  clken -up-> d02
+  stable -up-> d01
+  inten -up-> d00
+}
+
+note right of title
+  **Figure 2-18 : Clock Control Register**
+  
+  **Location: 15-08**
+  **Attrib: RW**
+  
+  **SDCLK Frequency Select**
+  This register is used to select the frequency of SDCLK pin.
+  
+  **(1) 8-bit Divided Clock Mode**
+  Supported by Host Controller Version 1.00 and 2.00.
+  
+  **Divisor Values:**
+  • 80h - base clock divided by 256
+  • 40h - base clock divided by 128
+  • 20h - base clock divided by 64
+  • 10h - base clock divided by 32
+  • 08h - base clock divided by 16
+  • 04h - base clock divided by 8
+  • 02h - base clock divided by 4
+  • 01h - base clock divided by 2
+  • 00h - Base clock (10MHz-63MHz)
+  
+  Setting 00h specifies the highest frequency.
+  
+  **Default divider values:**
+  • 400KHz divider value
+  • 25MHz divider value
+  • 50MHz divider value
+  
+  Maximum SD Clock frequency is 25 MHz (normal)
+  and 50MHz (high speed mode).
+  
+  **Clock Frequency = (Base Clock) / divisor**
+end note
+
+@enduml

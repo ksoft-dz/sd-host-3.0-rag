@@ -1,0 +1,24 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+title Host Control 1 Register (Offset 028h)
+
+rectangle "Figure 2-14 : Host Control 1 Register" {
+  rectangle "D07\n───────\nCard Detect\nSignal\nSelection" as D07
+  rectangle "D06\n───────\nCard Detect\nTest Level" as D06
+  rectangle "D05\n───────\nExtended Data\nTransfer Width" as D05
+  rectangle "D04  D03\n───────\nDMA Select" as D04D03
+  rectangle "D02\n───────\nHigh Speed\nEnable" as D02
+  rectangle "D01\n───────\nData Transfer\nWidth" as D01
+  rectangle "D00\n───────\nLED Control" as D00
+}
+
+D07 -right[hidden]- D06
+D06 -right[hidden]- D05
+D05 -right[hidden]- D04D03
+D04D03 -right[hidden]- D02
+D02 -right[hidden]- D01
+D01 -right[hidden]- D00
+
+@enduml

@@ -1,0 +1,47 @@
+@startuml
+start
+
+:Set Stop at Block Gap Request;
+note right
+  (1) Set the **Stop At Block Gap Request**
+  in the Block Gap Control register to 1
+  to stop SD transactions.
+end note
+
+:Wait for\nTransfer Complete Int;
+note right
+  (2) Wait for the **Transfer Complete** Interrupt.
+end note
+
+:Clr Transfer Complete status;
+note right
+  (3) Set the **Transfer Complete** to 1 in the
+  Normal Interrupt Status register to clear this bit.
+end note
+
+:Issue Abort Command;
+note right
+  (4) Issue the Abort Command in accordance
+  with Section 3.7.1
+end note
+
+:Set Software Reset For\nDAT line (DR) and CMD line (CR);
+note right
+  (5) Set both **Software Reset For DAT Line**
+  and **Software Reset For CMD Line** to 1
+  in the Software Reset register to do software reset.
+end note
+
+repeat
+  :Check\nDR and CR;
+  note right
+    (6) Check both **Software Reset For DAT Line**
+    and **Software Reset For CMD Line** in the
+    Software Reset register.
+  end note
+repeat while (DR=1 or CR=1) is (yes)
+-> DR=0 and CR=0;
+
+stop
+
+@enduml

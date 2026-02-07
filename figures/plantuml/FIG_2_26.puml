@@ -1,0 +1,52 @@
+@startuml
+skinparam monochrome true
+
+title Error Interrupt Signal Enable Register (Offset 03Ah)
+
+|= Bit |= Field Name |= Access |= Description |
+| D15-D12 | Vendor Specific Error Signal | RW | Vendor Specific Error Signal Enable |
+| D11 | Rsvd | Rsvd | Reserved |
+| D10 | Tuning Error Signal Enable | RW | Tuning Error Signal Enable |
+| D09 | ADMA Error Signal Enable | RW | ADMA Error Signal Enable |
+| D08 | Auto CMD Error Signal Enable | RW | Auto CMD Error Signal Enable |
+| D07 | Current Limit Error Signal Enable | RW | Current Limit Error Signal Enable |
+| D06 | Data End Bit Error Signal Enable | RW | Data End Bit Error Signal Enable |
+| D05 | Data CRC Error Signal Enable | RW | Data CRC Error Signal Enable |
+| D04 | Data Timeout Error Signal Enable | RW | Data Timeout Error Signal Enable |
+| D03 | Command Index Error Signal Enable | RW | Command Index Error Signal Enable |
+| D02 | Command End Bit Error Signal Enable | RW | Command End Bit Error Signal Enable |
+| D01 | Command CRC Error Signal Enable | RW | Command CRC Error Signal Enable |
+| D00 | Command Timeout Error Signal Enable | RW | Command Timeout Error Signal Enable |
+
+note bottom
+Register Field Explanations:
+
+|= Location |= Attrib |= Field |= Value |= Meaning |
+| 15-12 | RW | Vendor Specific Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 11 | Rsvd | Reserved | - | - |
+| 10 | RW | Tuning Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 09 | RW | ADMA Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 08 | RW | Auto CMD Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 07 | RW | Current Limit Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 06 | RW | Data End Bit Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 05 | RW | Data CRC Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 04 | RW | Data Timeout Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 03 | RW | Command Index Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 02 | RW | Command End Bit Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 01 | RW | Command CRC Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+| 00 | RW | Command Timeout Error Signal Enable | 1 | Enabled |
+| | | | 0 | Masked |
+end note
+
+@enduml

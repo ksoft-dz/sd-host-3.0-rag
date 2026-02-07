@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+
+title Normal Interrupt Status Register (Offset 030h)
+
+|= Bit |= Field Name |= Attrib |= Description |
+| D15 | Error Interrupt | ROC | If any bits in Error Interrupt Status register are set, this bit is set. 1=Error, 0=No Error |
+| D14-D13 | Rsvd | Rsvd | Reserved |
+| D12 | Re-Tuning Event | ROC | Set if Re-Tuning Request in Present State register changes from 0 to 1. 1=Re-Tuning should be performed, 0=Re-Tuning is not required |
+| D11 | INT_C | ROC | Set if INT_C is enabled and INT_C# pin is in low level. 1=INT_C is detected, 0=No interrupt is detected |
+| D10 | INT_B | ROC | Set if INT_B is enabled and INT_B# pin is in low level. 1=INT_B is detected, 0=No interrupt is detected |
+| D09 | INT_A | ROC | INT_A status |
+| D08 | Card Interrupt | ROC | Card Interrupt |
+| D07 | Card Removal | ROC | Card Removal |
+| D06 | Card Insertion | ROC | Card Insertion |
+| D05 | Buffer Read Ready | ROC | Buffer Read Ready |
+| D04 | Buffer Write Ready | ROC | Buffer Write Ready |
+| D03 | DMA Interrupt | ROC | DMA Interrupt |
+| D02 | Block Gap Event | ROC | Block Gap Event |
+| D01 | Transfer Complete | ROC | Transfer Complete |
+| D00 | Command Complete | ROC | Command Complete |
+
+@enduml

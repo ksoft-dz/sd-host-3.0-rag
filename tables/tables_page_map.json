@@ -1,0 +1,1586 @@
+{
+  "_metadata": {
+    "source_pdf": "sd_host_3_00.pdf",
+    "total_pages": 157,
+    "extraction_date": "2026-01-31",
+    "total_tables": 60,
+    "page_offset": 11,
+    "page_offset_note": "Real PDF page = spec_page + page_offset (spec page 1 = PDF page 12)",
+    "conversion_progress": {
+      "not_started": 60,
+      "in_progress": 0,
+      "completed": 0,
+      "incomplete": 0,
+      "failed": 0
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_1_1",
+      "spec_reference": "Table 1-1",
+      "title": "Supported Registers",
+      "spec_page": 2,
+      "definition_page": 13,
+      "referenced_on_pages": [
+        13
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller register support requirements across specification versions 1.00, 2.00, and 3.00 showing mandatory...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_1.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4194
+      }
+    },
+    {
+      "id": "TABLE_1_2",
+      "spec_reference": "Table 1-2",
+      "title": "Registers to Generate SD Command",
+      "spec_page": 4,
+      "definition_page": 15,
+      "referenced_on_pages": [
+        15
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Register settings required for SD command generation across SDMA, ADMA, CPU data transfer, and Non-DAT transfer types.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_2.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3843
+      }
+    },
+    {
+      "id": "TABLE_1_3",
+      "spec_reference": "Table 1-3",
+      "title": "Relations between Address and Byte Enable",
+      "spec_page": 5,
+      "definition_page": 16,
+      "referenced_on_pages": [
+        16
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Mapping between system bus width (8/16/32/64-bit), lower address bits, and byte enable signals for buffer data access.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_3.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3819
+      }
+    },
+    {
+      "id": "TABLE_1_4",
+      "spec_reference": "Table 1-4",
+      "title": "Available Byte Enable Pattern for Buffer Data Port Register",
+      "spec_page": 6,
+      "definition_page": 17,
+      "referenced_on_pages": [
+        17,
+        18
+      ],
+      "reference_count": 3,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller byte enable patterns for Buffer Data Port Register showing valid combinations for 4-byte, 2-byte, ...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_4.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3933
+      }
+    },
+    {
+      "id": "TABLE_1_5",
+      "spec_reference": "Table 1-5",
+      "title": "Interrupt Signal Table",
+      "spec_page": 9,
+      "definition_page": 20,
+      "referenced_on_pages": [
+        20
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller interrupt signal control logic showing conditions for asserting/de-asserting interrupt signals.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_5.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4014
+      }
+    },
+    {
+      "id": "TABLE_1_6",
+      "spec_reference": "Table 1-6",
+      "title": "Wakeup Signal Table",
+      "spec_page": 9,
+      "definition_page": 20,
+      "referenced_on_pages": [
+        20
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Wakeup signal assertion logic table showing enable bit combinations and their effect on wakeup signal output status.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_6.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3853
+      }
+    },
+    {
+      "id": "TABLE_1_7",
+      "spec_reference": "Table 1-7",
+      "title": "Summary of Register Status for Data Transfer",
+      "spec_page": 10,
+      "definition_page": 21,
+      "referenced_on_pages": [
+        21
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller data transfer register status mapping for DMA and non-DMA read/write operations with interrupts.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_7.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3746
+      }
+    },
+    {
+      "id": "TABLE_1_8",
+      "spec_reference": "Table 1-8",
+      "title": "Power State Definition",
+      "spec_page": 11,
+      "definition_page": 22,
+      "referenced_on_pages": [
+        22
+      ],
+      "reference_count": 3,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller power state definitions showing transitions based on card presence, clock, power, and bus status.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_8.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3949
+      }
+    },
+    {
+      "id": "TABLE_1_9",
+      "spec_reference": "Table 1-9",
+      "title": "Relation between Auto CMD12 and CMD_wo_DAT",
+      "spec_page": 12,
+      "definition_page": 23,
+      "referenced_on_pages": [
+        23
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Error status relationships between Auto CMD12 and CMD_wo_DAT commands in SD Host Controller multiple block transfers.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_9.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4021
+      }
+    },
+    {
+      "id": "TABLE_1_10",
+      "spec_reference": "Table 1-10",
+      "title": "Controlling SDCLK by the SD Bus Power and SD Clock Enable",
+      "spec_page": 13,
+      "definition_page": 24,
+      "referenced_on_pages": [
+        24
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller SDCLK signal states based on SD Bus Power and SD Clock Enable register combinations.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_10.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 3,
+        "total_tokens": 12268
+      }
+    },
+    {
+      "id": "TABLE_1_11",
+      "spec_reference": "Table 1-11",
+      "title": "ADMA2 Length Field",
+      "spec_page": 16,
+      "definition_page": 27,
+      "referenced_on_pages": [
+        27
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "ADMA2 length field encoding: 0x0000 means 65536 bytes, while 0x0001–0xFFFF represent 1–65535 bytes.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_11.csv",
+        "validated": true,
+        "validation_notes": "COMPLETED",
+        "attempts": 2,
+        "total_tokens": 3841
+      }
+    },
+    {
+      "id": "TABLE_1_12",
+      "spec_reference": "Table 1-12",
+      "title": "64-bit Address Descriptor Table (Removed)",
+      "spec_page": 16,
+      "definition_page": 27,
+      "referenced_on_pages": [
+        27
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_12.csv",
+        "validated": true,
+        "validation_notes": "COMPLETED",
+        "attempts": 1,
+        "total_tokens": 1759
+      }
+    },
+    {
+      "id": "TABLE_1_13",
+      "spec_reference": "Table 1-13",
+      "title": "ADMA2 States",
+      "spec_page": 17,
+      "definition_page": 28,
+      "referenced_on_pages": [
+        28
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "State machine operations for ADMA2 including Fetch Descriptor, Change Address, Transfer Data, and Stop DMA states.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_13.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4054
+      }
+    },
+    {
+      "id": "TABLE_1_14",
+      "spec_reference": "Table 1-14",
+      "title": "Host Controller Data Transfer Length",
+      "spec_page": 18,
+      "definition_page": 29,
+      "referenced_on_pages": [
+        29
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Table showing how transfer mode selects data length source: block count register for non-ADMA, descriptor total for ADMA.",
+      "conversion": {
+        "status": "FAILED",
+        "file_format": "CSV",
+        "file_name": "TABLE_1_14.csv",
+        "validated": true,
+        "validation_notes": "Error code: 429 - {'type': 'error', 'error': {'type': 'rate_limit_error', 'message': \"This request would exceed your organization's rate limit of 30,000 input tokens per minute (org: f9a0e2a5-46cb-4397-8308-721a0a8e892d, model: claude-sonnet-4-5-20250929). For details, refer to: https://docs.claude.com/en/api/rate-limits. You can see the response headers for current usage. Please reduce the prompt length or the maximum tokens requested, or try again later. You may also contact sales at https://www.anthropic.com/contact-sales to discuss your options for a rate limit increase.\"}, 'request_id': 'req_011CXgRnzmgyV328jdWYMK1k'}",
+        "attempts": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "TABLE_2_1",
+      "spec_reference": "Table 2-1",
+      "title": "SD Host Controller Register Map",
+      "spec_page": 19,
+      "definition_page": 30,
+      "referenced_on_pages": [
+        30
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller register map showing offset addresses and bit assignments for configuration and control registers.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_1.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4824
+      }
+    },
+    {
+      "id": "TABLE_2_2",
+      "spec_reference": "Table 2-2",
+      "title": "Register (and Register Bit-Field) Types",
+      "spec_page": 20,
+      "definition_page": 31,
+      "referenced_on_pages": [
+        31
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller register attribute types defining read/write permissions and initialization behaviors for configur...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_2.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4164
+      }
+    },
+    {
+      "id": "TABLE_2_3",
+      "spec_reference": "Table 2-3",
+      "title": "SDMA System Address / Argument 2 Register",
+      "spec_page": 21,
+      "definition_page": 32,
+      "referenced_on_pages": [
+        32
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Register specification for SDMA System Address/Argument 2 (offset 000h) describing DMA transfer addressing and Auto C...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_3.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4442
+      }
+    },
+    {
+      "id": "TABLE_2_4",
+      "spec_reference": "Table 2-4",
+      "title": "Block Size Register",
+      "spec_page": 23,
+      "definition_page": 34,
+      "referenced_on_pages": [
+        34
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller Transfer Block Size Register specification defining data block sizes from 1 byte to 2048 bytes for...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_4.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4075
+      }
+    },
+    {
+      "id": "TABLE_2_5",
+      "spec_reference": "Table 2-5",
+      "title": "Block Count Register",
+      "spec_page": 24,
+      "definition_page": 35,
+      "referenced_on_pages": [
+        35
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Block Count Register configuration for SD Host Controller specifying transfer block counts from 0 to 65535 blocks.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_5.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 8485
+      }
+    },
+    {
+      "id": "TABLE_2_6",
+      "spec_reference": "Table 2-6",
+      "title": "Argument 1 Register",
+      "spec_page": 25,
+      "definition_page": 36,
+      "referenced_on_pages": [
+        36
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Argument 1 Register specification for SD commands, containing 32-bit command argument field as per Physical Layer spec.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_6.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3643
+      }
+    },
+    {
+      "id": "TABLE_2_7",
+      "spec_reference": "Table 2-7",
+      "title": "Transfer Mode Register",
+      "spec_page": 28,
+      "definition_page": 39,
+      "referenced_on_pages": [
+        39
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Transfer Mode register controls block selection, read/write direction, auto CMD12/23, block count usage, and DMA enable.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_7.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 0
+      }
+    },
+    {
+      "id": "TABLE_2_8",
+      "spec_reference": "Table 2-8",
+      "title": "Determination of Transfer Type",
+      "spec_page": 28,
+      "definition_page": 39,
+      "referenced_on_pages": [
+        37,
+        38,
+        39,
+        123,
+        125,
+        127
+      ],
+      "reference_count": 10,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Table defining how Multi/Single Block Select, Block Count Enable, and Block Count settings determine SD transfer types.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_8.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3642
+      }
+    },
+    {
+      "id": "TABLE_2_9",
+      "spec_reference": "Table 2-9",
+      "title": "Command Register",
+      "spec_page": 30,
+      "definition_page": 41,
+      "referenced_on_pages": [
+        41
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Command Register bit definitions including data present select, index check, CRC check, and response type configuration.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_9.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4382
+      }
+    },
+    {
+      "id": "TABLE_2_10",
+      "spec_reference": "Table 2-10",
+      "title": "Relation between Parameters and the Name of Response Type",
+      "spec_page": 30,
+      "definition_page": 41,
+      "referenced_on_pages": [
+        41
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller command register response type parameters mapping to response names (R1-R7, R1b, R5b).",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_10.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 3,
+        "total_tokens": 12097
+      }
+    },
+    {
+      "id": "TABLE_2_11",
+      "spec_reference": "Table 2-11",
+      "title": "Response Register",
+      "spec_page": 31,
+      "definition_page": 42,
+      "referenced_on_pages": [
+        42
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD card response types mapped to response register bit fields, showing storage locations for different response formats.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_11.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4093
+      }
+    },
+    {
+      "id": "TABLE_2_12",
+      "spec_reference": "Table 2-12",
+      "title": "Response Bit Definition for Each Response Type",
+      "spec_page": 31,
+      "definition_page": 42,
+      "referenced_on_pages": [
+        42,
+        43
+      ],
+      "reference_count": 4,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Maps SD card response types (R1-R6) to their meanings, response field bit ranges, and response register locations.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_12.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4115
+      }
+    },
+    {
+      "id": "TABLE_2_13",
+      "spec_reference": "Table 2-13",
+      "title": "Buffer Data Port Register",
+      "spec_page": 32,
+      "definition_page": 43,
+      "referenced_on_pages": [
+        43
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Buffer Data Port Register definition showing 32-bit read/write access to Host Controller internal buffer via Data Por...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_13.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3638
+      }
+    },
+    {
+      "id": "TABLE_2_14",
+      "spec_reference": "Table 2-14",
+      "title": "Present State Register (Part 1)",
+      "spec_page": 34,
+      "definition_page": 45,
+      "referenced_on_pages": [
+        45
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Present State Register bits 16-17 defining card detection states with debouncing logic and interrupt generation behav...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_14.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 9842
+      }
+    },
+    {
+      "id": "TABLE_2_15",
+      "spec_reference": "Table 2-15",
+      "title": "Present State Register (Part 2)",
+      "spec_page": 38,
+      "definition_page": 49,
+      "referenced_on_pages": [
+        49
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Present State Register bit 00 (ROC) defines Command Inhibit (CMD) flag controlling SD command issuance via CMD line.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_15.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4306
+      }
+    },
+    {
+      "id": "TABLE_2_16",
+      "spec_reference": "Table 2-16",
+      "title": "Host Control 1 Register",
+      "spec_page": 41,
+      "definition_page": 52,
+      "referenced_on_pages": [
+        52
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Host Control 1 Register bit definitions for SD Host Controller including speed mode, data width, and LED control sett...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_16.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 8861
+      }
+    },
+    {
+      "id": "TABLE_2_17",
+      "spec_reference": "Table 2-17",
+      "title": "Power Control Register",
+      "spec_page": 42,
+      "definition_page": 53,
+      "referenced_on_pages": [
+        53
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Power Control Register (029h) defines SD Bus voltage selection (1.8V/3.0V/3.3V) and power control bit for SD card ope...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_17.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 8792
+      }
+    },
+    {
+      "id": "TABLE_2_18",
+      "spec_reference": "Table 2-18",
+      "title": "Block Gap Control Register",
+      "spec_page": 44,
+      "definition_page": 55,
+      "referenced_on_pages": [
+        55
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Block Gap Control Register values: 1=Stop transfer, 0=Continue transfer for SD card data transmission control.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_18.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3551
+      }
+    },
+    {
+      "id": "TABLE_2_19",
+      "spec_reference": "Table 2-19",
+      "title": "Wakeup Control Register",
+      "spec_page": 45,
+      "definition_page": 56,
+      "referenced_on_pages": [
+        56
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Wakeup Control Register (Offset 02Bh) bit definitions for enabling SD card removal, insertion, and interrupt wakeup e...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_19.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4125
+      }
+    },
+    {
+      "id": "TABLE_2_20",
+      "spec_reference": "Table 2-20",
+      "title": "Clock Control Register",
+      "spec_page": 48,
+      "definition_page": 59,
+      "referenced_on_pages": [
+        59
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Clock Control Register specifications defining clock enable, stability, frequency selection, and generator modes.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_20.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4932
+      }
+    },
+    {
+      "id": "TABLE_2_21",
+      "spec_reference": "Table 2-21",
+      "title": "Timeout Control Register",
+      "spec_page": 49,
+      "definition_page": 60,
+      "referenced_on_pages": [
+        60
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Timeout Control register field selecting DAT timeout interval by scaling TMCLK; bits define counter exponent values.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_21.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 3,
+        "total_tokens": 10285
+      }
+    },
+    {
+      "id": "TABLE_2_22",
+      "spec_reference": "Table 2-22",
+      "title": "Software Reset Register",
+      "spec_page": 51,
+      "definition_page": 62,
+      "referenced_on_pages": [
+        62
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Software Reset Register defines two reset control bits: CMD Line reset (bit 01) and full controller reset (bit 00).",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_22.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4082
+      }
+    },
+    {
+      "id": "TABLE_2_23",
+      "spec_reference": "Table 2-23",
+      "title": "Normal Interrupt Status Register",
+      "spec_page": 56,
+      "definition_page": 67,
+      "referenced_on_pages": [
+        67
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller Normal Interrupt Status Register bit 00 (Command Complete) definition with status combinations.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_23.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 3,
+        "total_tokens": 12869
+      }
+    },
+    {
+      "id": "TABLE_2_24",
+      "spec_reference": "Table 2-24",
+      "title": "Error Interrupt Status Register",
+      "spec_page": 59,
+      "definition_page": 70,
+      "referenced_on_pages": [
+        70
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Error Interrupt Status Register defining command response errors including end bit, CRC, timeout, and CMD line confli...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_24.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4251
+      }
+    },
+    {
+      "id": "TABLE_2_25",
+      "spec_reference": "Table 2-25",
+      "title": "The Relation between Command CRC Error and Command Timeout Error",
+      "spec_page": 59,
+      "definition_page": 70,
+      "referenced_on_pages": [
+        70
+      ],
+      "reference_count": 4,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Truth table linking command CRC and timeout error flags to identify SD command response error conditions.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_25.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 3848
+      }
+    },
+    {
+      "id": "TABLE_2_26",
+      "spec_reference": "Table 2-26",
+      "title": "Normal Interrupt Status Enable Register",
+      "spec_page": 61,
+      "definition_page": 72,
+      "referenced_on_pages": [
+        72
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Normal Interrupt Status Enable Register showing bit configurations for enabling/masking various SD card controller in...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_26.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4236
+      }
+    },
+    {
+      "id": "TABLE_2_27",
+      "spec_reference": "Table 2-27",
+      "title": "Error Interrupt Status Enable Register",
+      "spec_page": 63,
+      "definition_page": 74,
+      "referenced_on_pages": [
+        74
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Error Interrupt Status Enable Register configuration showing enable/mask settings for command timeout, CRC, and end b...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_27.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3748
+      }
+    },
+    {
+      "id": "TABLE_2_28",
+      "spec_reference": "Table 2-28",
+      "title": "Normal Interrupt Signal Enable Register",
+      "spec_page": 65,
+      "definition_page": 76,
+      "referenced_on_pages": [
+        76
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller interrupt signal enable register bit definitions showing enable/mask settings for various signals.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_28.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3791
+      }
+    },
+    {
+      "id": "TABLE_2_29",
+      "spec_reference": "Table 2-29",
+      "title": "Error Interrupt Signal Enable Register",
+      "spec_page": 67,
+      "definition_page": 78,
+      "referenced_on_pages": [
+        78
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Error Interrupt Signal Enable Register defines bit positions for enabling/masking command-related error interrupts in...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_29.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3780
+      }
+    },
+    {
+      "id": "TABLE_2_30",
+      "spec_reference": "Table 2-30",
+      "title": "Auto CMD Error Status Register",
+      "spec_page": 69,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        80
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Auto CMD12 execution status register showing whether the command was executed or not executed during memory block tra...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_30.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3868
+      }
+    },
+    {
+      "id": "TABLE_2_31",
+      "spec_reference": "Table 2-31",
+      "title": "The Relation between CRC Error and Timeout Error for Auto CMD",
+      "spec_page": 69,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        80
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Shows error types based on combinations of Auto CMD CRC Error and Auto CMD Timeout Error status bits (4 scenarios).",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_31.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3649
+      }
+    },
+    {
+      "id": "TABLE_2_32",
+      "spec_reference": "Table 2-32",
+      "title": "Host Control 2 Register",
+      "spec_page": 72,
+      "definition_page": 83,
+      "referenced_on_pages": [
+        83
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Host Control 2 Register configuration for SD card voltage signaling (1.8V/3.3V) and UHS-I mode selection with timing ...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_32.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4754
+      }
+    },
+    {
+      "id": "TABLE_2_33",
+      "spec_reference": "Table 2-33",
+      "title": "Capabilities Register (Part 1)",
+      "spec_page": 77,
+      "definition_page": 88,
+      "referenced_on_pages": [
+        88
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Capabilities register fields describing SDR50 support, slot type, async interrupts, 64-bit bus, and voltage levels.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_33.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 6599
+      }
+    },
+    {
+      "id": "TABLE_2_34",
+      "spec_reference": "Table 2-34",
+      "title": "Capabilities Register (Part 2)",
+      "spec_page": 79,
+      "definition_page": 90,
+      "referenced_on_pages": [
+        90
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "SD Host Controller Capabilities Register Part 2 defining base clock frequency, timeout clock settings, and version su...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_34.csv",
+        "validated": true,
+        "validation_notes": "COMPLETED",
+        "attempts": 1,
+        "total_tokens": 4753
+      }
+    },
+    {
+      "id": "TABLE_2_35",
+      "spec_reference": "Table 2-35",
+      "title": "Maximum Current Capabilities Register",
+      "spec_page": 80,
+      "definition_page": 91,
+      "referenced_on_pages": [
+        91
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Maximum Current Capabilities Register bit field definitions showing voltage-specific current support at 1.8V, 3.0V, a...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_35.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3857
+      }
+    },
+    {
+      "id": "TABLE_2_36",
+      "spec_reference": "Table 2-36",
+      "title": "Maximum Current Value Definition",
+      "spec_page": 80,
+      "definition_page": 91,
+      "referenced_on_pages": [
+        91
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Maps register values (0-255) to maximum current capabilities in 4mA increments, from 4mA to 1020mA for SD card voltag...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_36.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3687
+      }
+    },
+    {
+      "id": "TABLE_2_37",
+      "spec_reference": "Table 2-37",
+      "title": "Force Event Register for Auto CMD Error Status",
+      "spec_page": 81,
+      "definition_page": 92,
+      "referenced_on_pages": [
+        92
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Force Event Register for Auto CMD Error Status defining write-only bits to trigger interrupts for various Auto CMD er...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_37.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4017
+      }
+    },
+    {
+      "id": "TABLE_2_38",
+      "spec_reference": "Table 2-38",
+      "title": "Force Event for Error Interrupt Status Register",
+      "spec_page": 83,
+      "definition_page": 94,
+      "referenced_on_pages": [
+        94
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Force Event for Error Interrupt Status Register defines write-only bits to manually trigger various command error int...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_38.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3859
+      }
+    },
+    {
+      "id": "TABLE_2_39",
+      "spec_reference": "Table 2-39",
+      "title": "ADMA Error Status Register",
+      "spec_page": 84,
+      "definition_page": 95,
+      "referenced_on_pages": [
+        95
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "ADMA Error Status Register showing error states, mismatch conditions, and SYS_SDR register contents for SD Host Contr...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_39.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 3,
+        "total_tokens": 13272
+      }
+    },
+    {
+      "id": "TABLE_2_40",
+      "spec_reference": "Table 2-40",
+      "title": "ADMA System Address Register",
+      "spec_page": 85,
+      "definition_page": 96,
+      "referenced_on_pages": [
+        96
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "ADMA System Address Register (Offset 058h) holds physical descriptor addresses for 32-bit and 64-bit ADMA data transf...",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_40.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 4465
+      }
+    },
+    {
+      "id": "TABLE_2_41",
+      "spec_reference": "Table 2-41",
+      "title": "Preset Value Registers",
+      "spec_page": 86,
+      "definition_page": 97,
+      "referenced_on_pages": [
+        97
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Preset Value Registers table showing register offsets (060h-06Eh) with corresponding functions and signal voltages.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_41.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3820
+      }
+    },
+    {
+      "id": "TABLE_2_42",
+      "spec_reference": "Table 2-42",
+      "title": "Preset Value Register Select Condition",
+      "spec_page": 86,
+      "definition_page": 97,
+      "referenced_on_pages": [
+        97
+      ],
+      "reference_count": 2,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Register conditions for selecting different SD card bus speed modes including Default, High Speed, and UHS-I variants.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_42.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3885
+      }
+    },
+    {
+      "id": "TABLE_2_43",
+      "spec_reference": "Table 2-43",
+      "title": "Fields of A Preset Value Register",
+      "spec_page": 87,
+      "definition_page": 98,
+      "referenced_on_pages": [
+        98
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Preset register fields defining driver strength, clock generator type, and SDCLK frequency selection for SD host control.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_43.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 2,
+        "total_tokens": 6134
+      }
+    },
+    {
+      "id": "TABLE_2_44",
+      "spec_reference": "Table 2-44",
+      "title": "Shared Bus Control Register",
+      "spec_page": 90,
+      "definition_page": 101,
+      "referenced_on_pages": [
+        101
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Shared Bus Control Register defining support for 0-7 clock pins in SD Host Controller shared bus systems configuration.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_44.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3802
+      }
+    },
+    {
+      "id": "TABLE_2_45",
+      "spec_reference": "Table 2-45",
+      "title": "Slot Interrupt Status Register",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [
+        102
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Slot Interrupt Status register showing per-slot interrupt/wakeup signals; bits 0–7 map to up to 8 SD slots.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_45.csv",
+        "validated": true,
+        "validation_notes": "The CSV incorrectly restructures the table. The original table has 3 columns (Location, Attrib, Register Field Explanation) with a nested bit-to-slot mapping table embedded within the 07-00 row's explanation. The CSV should either: 1) Keep the nested table as formatted text within the Register Field Explanation cell, or 2) Clearly indicate this is supplementary data. The detailed explanation text about interrupt signals, slots, and Software Reset should be included in the 07-00 row's explanation field.",
+        "attempts": 3,
+        "total_tokens": 12602
+      }
+    },
+    {
+      "id": "TABLE_2_46",
+      "spec_reference": "Table 2-46",
+      "title": "Host Controller Version",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [
+        102
+      ],
+      "reference_count": 1,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "Host Controller specification version codes mapping hexadecimal values to SD Host Specification versions 1.00-3.00.",
+      "conversion": {
+        "status": "COMPLETED",
+        "file_format": "CSV",
+        "file_name": "TABLE_2_46.csv",
+        "validated": true,
+        "validation_notes": "",
+        "attempts": 1,
+        "total_tokens": 3669
+      }
+    }
+  ]
+}

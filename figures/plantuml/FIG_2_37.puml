@@ -1,0 +1,56 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam componentStyle rectangle
+
+title Shared Bus Control Register (Offset 0E0h)
+
+package "Register Layout" {
+  rectangle "D31" as D31
+  rectangle "D30-D24\n\nBack-End Power\nControl" as D30_24 #LightGray
+  rectangle "D23" as D23
+  rectangle "D22-D20\n\nInterrupt Pin Select" as D22_20 #LightGray
+  rectangle "D19" as D19
+  rectangle "D18-D16\n\nClock Pin Select" as D18_16 #LightGray
+  rectangle "D15" as D15
+  rectangle "D14-D08\n\nBus Width Preset" as D14_08 #LightGray
+  rectangle "D07-D06" as D07_06
+  rectangle "D05-D04\n\nNumber of Interrupt\nInput Pins" as D05_04 #LightGray
+  rectangle "D03" as D03
+  rectangle "D02-D00\n\nNumber of Clock Pins" as D02_00 #LightGray
+  
+  D31 -[hidden]right- D30_24
+  D30_24 -[hidden]right- D23
+  D23 -[hidden]right- D22_20
+  D22_20 -[hidden]right- D19
+  D19 -[hidden]right- D18_16
+  D18_16 -[hidden]right- D15
+  D15 -[hidden]right- D14_08
+  D14_08 -[hidden]right- D07_06
+  D07_06 -[hidden]right- D05_04
+  D05_04 -[hidden]right- D03
+  D03 -[hidden]right- D02_00
+}
+
+note bottom of "Register Layout"
+  **Figure 2-37: Shared Bus Control Register**
+end note
+
+rectangle "Field Details" {
+  
+  card "**D31: Reserved (Rsvd)**" as F31
+  
+  card "**D30-24: Back-End Power Control (RW)**\n\nEach bit controls back-end power supply for an embedded device.\nHost interface voltage (VDDH) is not controlled by this field.\nNumber of devices supported is specified by **Number of Clock Pins**\nand a maximum of 7 devices can be controlled.\n\n**Bit Assignments:**\n• D16: Back-end Power Control for Device 1\n• D17: Back-end Power Control for Device 2\n• D18: Back-end Power Control for Device 3\n• D19: Back-end Power Control for Device 4\n• D20: Back-end Power Control for Device 5\n• D21: Back-end Power Control for Device 6\n• D22: Back-end Power Control for Device 7\n\n**Values:**\n• 0: Back-end Power is Off\n• 1: Back-end Power is Supplied\n\nBack-End power control is effective for embedded memory devices in the\nSleep State that support the Sleep command (CMD14) to reduce power\nconsumption and embedded SDIO devices when IOEx is set to 0." as F30_24
+  
+  card "**D23: Reserved (Rsvd)**" as F23
+  
+  card "**D22-20: Interrupt Pin Select (RW)**\n\nInterrupt pin inputs are enabled by this field.\nEnable of unsupported interrupt pin is meaningless.\n\n**Values:**\n• 000b: Interrupt is detected by Interrupt Cycle\n• xx1b: INT_A is Enabled\n• x1xb: INT_B is Enabled\n• 1xxb: INT_C is Enabled" as F22_20
+  
+  card "**D19: Reserved (Rsvd)**" as F19
+}
+
+F31 -[hidden]down- F30_24
+F30_24 -[hidden]down- F23
+F23 -[hidden]down- F22_20
+F22_20 -[hidden]down- F19
+
+@enduml

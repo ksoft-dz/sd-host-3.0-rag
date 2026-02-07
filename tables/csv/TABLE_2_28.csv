@@ -1,0 +1,58 @@
+
+Location,Attrib,Register Field Explanation
+15,RO,"Fixed to 0
+The Host Driver shall control error interrupts using the Error Interrupt Signal
+Enable register."
+
+14-13,Rsvd,"Reserved"
+
+12,RW,"Re-Tuning Event Signal Enable
+
+1  Enabled
+0  Masked"
+
+11,RW,"INT_C Signal Enable
+
+1  Enabled
+0  Masked"
+
+10,RW,"INT_B Signal Enable
+
+1  Enabled
+0  Masked"
+
+09,RW,"INT_A Signal Enable
+
+1  Enabled
+0  Masked"
+
+08,RW,"Card Interrupt Signal Enable
+
+1  Enabled
+0  Masked"
+
+07,RW,"Card Removal Signal Enable
+
+1  Enabled
+0  Masked"
+
+06,RW,"Card Insertion Signal Enable
+
+1  Enabled
+0  Masked"
+
+05,RW,"Buffer Read Ready Signal Enable
+
+1  Enabled
+0  Masked"
+
+04,RW,Buffer Write Ready Signal Enable,1,Enabled
+,,,0,Masked
+03,RW,DMA Interrupt Signal Enable,1,Enabled
+,,,0,Masked
+02,RW,Block Gap Event Signal Enable,1,Enabled
+,,,0,Masked
+01,RW,Transfer Complete Signal Enable,1,Enabled
+,,,0,Masked
+00,RW,Command Complete Signal Enable,1,Enabled
+,,,0,Masked

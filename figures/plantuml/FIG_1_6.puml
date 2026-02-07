@@ -1,0 +1,40 @@
+@startuml
+skinparam componentStyle rectangle
+skinparam backgroundColor white
+skinparam shadowing false
+
+left to right direction
+
+component "Interrupt\nStatus Enable" as ISE #lightgreen
+component "Register" as REG #wheat {
+  [Set] as Set
+  [Reset] as Reset
+}
+component "Interrupt\nSignal Enable" as ISignalE #lightgreen
+component "Wakeup\nEvent Enable" as WakeupE #lightgreen
+
+[Interrupt factor] as IFactor
+[Interrupt clear] as IClear
+[Interrupt Status] as IStatus
+[Interrupt Signal] as ISignal
+[Wakeup Signal] as WSignal
+
+IFactor --> ISE
+ISE --> Set
+IClear --> Reset
+
+Set -right-> IStatus : " "
+Set --> ISignalE : " "
+Set --> WakeupE : " "
+Reset -right-> IStatus : " "
+Reset --> ISignalE : " "
+Reset --> WakeupE : " "
+
+ISignalE --> ISignal
+WakeupE --> WSignal
+
+note bottom of REG
+  **Figure 1-6 : Logical Relation for Interrupt Registers**
+end note
+
+@enduml

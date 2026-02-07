@@ -1,0 +1,45 @@
+@startuml
+title Transaction Control with Data Transfer Using DAT Line Sequence (Using SDMA)
+
+start
+
+:(1) Set System Address Reg;
+
+:(2) Set Block Size Reg;
+
+:(3) Set Block Count Reg;
+
+:(4) Set Argument 1 Reg;
+
+:(5) Set Transfer Mode Reg;
+
+:(6) Set Command Reg;
+
+:(7) Wait for\nCommand Complete Int;
+
+if (Command Complete\nInt occur) then
+  :(8) Clr Command Complete status;
+  
+  :(9) Get Response Data;
+  
+  repeat
+    :(10) Wait for\nTransfer Complete Int\nand DMA Int;
+    
+    :(11) Check\nInterrupt Status;
+    
+    if (DMA Int. occur) then
+      :(12) Clr DMA Interrupt status;
+      
+      :(13) Set System Address Reg;
+    endif
+    
+  repeat while (Transfer Complete\nInt. occur) is (no)
+  ->yes;
+  
+  :(14) Clr Transfer Complete status\nClr DMA Interrupt status;
+  
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,162 @@
+Location,Attrib,Register Field Explanation
+15-12,Rsvd,"Reserved"
+
+11,ROC,"Buffer Read Enable
+This status is used for non-DMA read transfers.
+The Host Controller may implement multiple buffers to transfer data efficiently.
+This read only flag indicates that valid data exists in the host side buffer.
+If this bit is 1, readable data exists in the buffer.
+A change of this bit from 1 to 0 occurs when all the block data is read from the buffer.
+A change of this bit from 0 to 1 occurs when block data is ready in the buffer and generates the Buffer Read Ready interrupt.
+
+1  Read enable
+0  Read disable"
+
+10,ROC,"Buffer Write Enable
+This status is used for non-DMA write transfers.
+The Host Controller can implement multiple buffers to transfer data efficiently.
+This read only flag indicates if space is available for write data.
+If this bit is 1, data can be written to the buffer.
+A change of this bit from 1 to 0 occurs when all the block data is written to the buffer.
+A change of this bit from 0 to 1 occurs when top of block data can be written to the buffer and generates the Buffer Write Ready interrupt.
+The Host Controller should neither set Buffer Write Enable nor generate Buffer Write Ready Interrupt after the last block data is written to the Buffer Data Port Register.
+
+1  Write enable
+0  Write disable"
+
+09,ROC,"Read Transfer Active
+This status is used for detecting completion of a read transfer.
+Refer to Section 3.12.3 for sequence details.
+
+This bit is set to 1 for either of the following conditions:
+(1) After the end bit of the read command.
+(2) When read operation is restarted by writing a 1 to Continue Request in the Block Gap Control register.
+
+This bit is cleared to 0 for either of the following conditions::
+(1) When the last data block as specified by block length is transferred to the System.
+(2) In case of ADMA2, end of read operation is designated by Descriptor Table.
+(3) When all valid data blocks in the Host Controller have been transferred to the System
+and no current block transfers are being sent as a result of the Stop At Block Gap Request being set to 1.
+
+A Transfer Complete interrupt is generated when this bit changes to 0.
+
+1  Transferring data
+0  No valid data"
+08,ROC,"Write Transfer Active
+This status indicates a write transfer is active. If this bit is 0, it means no valid write
+data exists in the Host Controller. Refer to Section 3.12.4 for more details on the
+sequence of events.
+
+This bit is set in either of the following cases:
+(1) After the end bit of the write command.
+(2) When write operation is restarted by writing a 1 to Continue Request in the
+Block Gap Control register.
+
+This bit is cleared in either of the following cases:
+(1) After getting the CRC status of the last data block as specified by the transfer
+count (Single and Multiple) In case of ADMA2, transfer count is designated by
+Descriptor Table.
+(2) After getting the CRC status of any block where data transmission is about to
+be stopped by a Stop At Block Gap Request.
+
+During a write transaction, a Block Gap Event interrupt is generated when this bit
+is changed to 0, as the result of the Stop At Block Gap Request being set. This
+status is useful for the Host Driver in determining non DAT line commands can be
+issued during write busy.
+
+1  Transferring data
+0  No valid data"
+
+07-04,Rsvd,"Reserved"
+
+03,ROC,"Re-Tuning Request
+Host Controller may request Host Driver to execute re-tuning sequence by setting
+this bit when the data window is shifted by temperature drift and a tuned sampling
+point does not have a good margin to receive correct data.
+
+This bit is cleared when a command is issued with setting Execute Tuning in the
+Host Control 2 register.
+
+Changing of this bit from 0 to 1 generates Re-Tuning Event. Refer to Normal
+Interrupt Status registers for more detail.
+
+This bit isn't set to 1 if Sampling Clock Select in the Host Control 2 register is set
+to 0 (using fixed sampling clock). Refer to Re-Tuning Modes in the Capabilities
+register for more detail.
+
+1  Sampling clock needs re-tuning
+0  Fixed or well tuned sampling clock"
+
+02,ROC,"DAT Line Active
+This bit indicates whether one of the DAT line on SD Bus is in use.
+
+(a) In the case of read transactions
+This status indicates whether a read transfer is executing on the SD Bus. Changing
+this value from 1 to 0 generates a Block Gap Event interrupt in the Normal
+Interrupt Status register, as the result of the Stop At Block Gap Request being
+set. Refer to Section 3.12.3 for details on timing.
+
+This bit shall be set in either of the following cases:
+(1) After the end bit of the read command.
+(2) When writing a 1 to Continue Request in the Block Gap Control register to
+restart a read transfer.
+
+This bit shall be cleared in either of the following cases:"
+02,ROC,"DAT Line Active
+This bit indicates whether one of the DAT line on SD Bus is in use.
+
+(a) In the case of read transactions
+This status indicates whether a read transfer is executing on the SD Bus.
+Changing this value from 1 to 0 generates a Block Gap Event interrupt in the Normal Interrupt Status register,
+as the result of the Stop At Block Gap Request being set.
+Refer to Section 3.12.3 for details on timing.
+
+This bit shall be set in either of the following cases:
+(1) When the end bit of the last data block is sent from the SD Bus to the Host Controller.
+In case of ADMA2, the last block is designated by the last transfer of Descriptor Table.
+(2) When a read transfer is stopped at the block gap initiated by a Stop At Block Gap Request.
+
+The Host Controller shall stop read operation at the start of the interrupt cycle of the next block gap
+by driving Read Wait or stopping SD clock.
+If the Read Wait signal is already driven (due to data buffer cannot receive data),
+the Host Controller can continue to stop read operation by driving the Read Wait signal.
+It is necessary to support Read Wait in order to use suspend / resume function.
+
+(b) In the case of write transactions
+This status indicates that a write transfer is executing on the SD Bus.
+Changing this value from 1 to 0 generate a Transfer Complete interrupt in the Normal Interrupt Status register.
+Refer to Section 3.12.4 for sequence details.
+
+This bit shall be set in either of the following cases:
+(1) After the end bit of the write command.
+(2) When writing to 1 to Continue Request in the Block Gap Control register to continue a write transfer.
+
+This bit shall be cleared in either of the following cases:
+(1) When the SD card releases write busy of the last data block.
+If SD card does not drive busy signal for 8 SD Clocks,
+the Host Controller shall consider the card drive ""Not Busy"".
+In case of ADMA2, the last block is designated by the last transfer of Descriptor Table.
+(2) When the SD card releases write busy prior to waiting for write transfer as a result of a Stop At Block Gap Request.
+
+(c) Command with busy
+This status indicates whether a command indicates busy (ex. erase command for memory)
+is executing on the SD Bus.
+This bit is set after the end bit of the command with busy and cleared when busy is de-asserted.
+Changing this bit from 1 to 0 generate a Transfer Complete interrupt in the Normal Interrupt Status register.
+Refer Figure 2-11 to Figure 2-13.
+
+1  DAT Line Active
+0  DAT Line Inactive"
+
+01,ROC,"Command Inhibit (DAT)
+This status bit is generated if either the DAT Line Active or the Read Transfer Active is set to 1.
+If this bit is 0, it indicates the Host Controller can issue the next SD command.
+Commands with busy signal belong to Command Inhibit (DAT) (ex. R1b, R5b type).
+Changing from 1 to 0 generates a Transfer Complete interrupt in the Normal Interrupt Status register.
+
+Note: The SD Host Driver can save registers in the range of 000-00Dh for a suspend transaction
+after this bit has changed from 1 to 0.
+
+1  Cannot issue command which uses the DAT line
+0  Can issue command which uses the DAT line"
+00,ROC,"Command Inhibit (CMD) - If this bit is 0, it indicates the CMD line is not in use and the Host Controller can issue a SD Command using the CMD line. This bit is set immediately after the Command register (00Fh) is written. This bit is cleared when the command response is received. Auto CMD12 and Auto CMD23 consist of two responses. In this case, this bit is not cleared by the response of CMD12 or CMD23 but cleared by the response of a read/write command. Status issuing Auto CMD12 is not read from this bit. So if a command is issued during Auto CMD12 operation, Host Controller shall manage to issue two commands: CMD12 and a command set by Command register. Even if the Command Inhibit (DAT) is set to 1, commands using only the CMD line can be issued if this bit is 0. Changing from 1 to 0 generates a Command Complete Interrupt in the Normal Interrupt Status register. If the Host Controller cannot issue the command because of a command conflict error (Refer to Command CRC Error in Section 2.2.18) or because of Command Not Issued By Auto CMD12 Error (Refer to Section 2.2.23), this bit shall remain 1 and the Command Complete is not set. 1=Cannot issue command, 0=Can issue command using only CMD line"

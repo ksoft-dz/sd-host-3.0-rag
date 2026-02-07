@@ -1,0 +1,80 @@
+@startuml
+scale 1 as 150 pixels
+
+binary "DAT line" as DAT
+binary "Stop At Block Gap Request\n(Control)" as SABGR
+binary "Continue Request\n(Control)" as CR
+binary "Write Transfer Active\n(Status)" as WTA
+binary "DAT Line Active\n(Status)" as DLA
+binary "Block Gap Event\n(Interrupt)" as BGE
+binary "Transfer Complete\n(Interrupt)" as TC
+
+@0
+DAT is high
+SABGR is low
+CR is low
+WTA is high
+DLA is high
+BGE is low
+TC is low
+
+@100
+DAT is low
+note bottom of DAT : Not last block
+
+@150
+SABGR is high
+
+@200
+DAT is high
+
+@300
+DAT is low
+note bottom of DAT : Data block
+
+@400
+DAT is high
+note bottom of DAT : CRC Status
+
+@450
+DAT is low
+note bottom of DAT : Busy
+
+@500
+DAT is high
+
+@550
+WTA is low
+BGE is high
+
+@600
+BGE is low
+DLA is low
+TC is high
+
+@650
+TC is low
+SABGR is low
+
+@700
+
+legend right
+  **Notation of the DAT line for write cycle**
+  |= Phase |= Description |
+  | Data block | Data transmission |
+  | CRC Status | CRC check |
+  | Busy | Card busy state |
+  
+  **Figure 3-30: Wait Write Transfer by Stop At Block Gap Request**
+  
+  **Conditions for accepting Stop At Block Gap Request:**
+  (1) It is at the block gap
+  (2) No valid write data remains in the Host Controller
+  
+  **After accepting Stop At Block Gap Request:**
+  (1) Clear Write Transfer Active, generate Block Gap Event
+  (2) After busy released, clear DAT Line Active, generate Transfer Complete
+  (3) After accepting Transfer Complete, clear Stop At Block Gap Request
+endlegend
+
+@enduml

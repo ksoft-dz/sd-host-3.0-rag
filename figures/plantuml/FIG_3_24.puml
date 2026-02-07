@@ -1,0 +1,33 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam activityShape roundedBox
+
+title Figure 3-24: Wakeup from Standby
+
+start
+
+#white:(1)|
+:Wait for wakeup event;
+
+->Wakeup event occurs;
+
+#white:(2)|
+:Disable each factor;
+
+#white:(3)|
+:Supply SD Clock;
+
+#white:(4)|
+:Changing Bus Width;
+
+stop
+
+legend bottom
+|= Step |= Description |
+| (1) | Wait for wakeup event. |
+| (2) | Set the enable bits of each wakeup event factor to 0 in the //Wakeup Control// register and then clear\nevent statuses in the //Normal Interrupt Status// register. If necessary, set the //Normal Interrupt Signal//\n//Enable// register. |
+| (3) | Set **SD Clock Enable** to 1 in the //Clock Control// register. |
+| (4) | Set the SD Bus width in accordance with Section 3.4. |
+endlegend
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+skinparam defaultTextAlignment center
+skinparam backgroundColor white
+skinparam shadowing false
+
+title SD Clock Stop Sequence
+
+start
+:Set SD Clock Off;
+note right
+  Stop SD clock
+end note
+stop
+
+@enduml

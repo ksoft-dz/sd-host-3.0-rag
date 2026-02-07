@@ -1,0 +1,28 @@
+Location,Attrib,Register Field Explanation
+15,Rsvd,Reserved
+14-12,R/W,"Host SDMA Buffer Boundary.
+The large contiguous memory space may not be available in the virtual memory system. To perform long SDMA transfer, SDMA System Address register shall be updated at every system memory boundary during SDMA transfer.
+These bits specify the size of contiguous buffer in the system memory. The SDMA transfer shall wait at every boundary specified by these fields and the Host Controller generates the DMA Interrupt to request the Host Driver to update the SDMA System Address register.
+At the end of transfer, the Host Controller may issue or may not issue DMA Interrupt. In particular, DMA Interrupt shall not be issued after Transfer Complete Interrupt is issued.
+In case of this register is set to 0 (buffer size = 4K bytes), lower 12-bit of byte address points data in the contiguous buffer and the upper 20-bit points the location of the buffer in the system memory. The SDMA transfer stops when the Host Controller detects carry out of the address from bit 11 to 12.
+These bits shall be supported when the SDMA Support in the Capabilities register is set to 1 and this function is active when the DMA Enable in the Transfer Mode register is set to 1. ADMA does not use this register.
+Encoding :
+000b = 4K bytes (Detects A11 carry out)
+001b = 8K bytes (Detects A12 carry out)
+010b = 16K bytes (Detects A13 carry out)
+011b = 32K bytes (Detects A14 carry out)
+100b = 64K bytes (Detects A15 carry out)
+101b = 128K bytes (Detects A16 carry out)
+110b = 256K bytes (Detects A17 carry out)
+111b = 512K bytes (Detects A18 carry out)"
+11-00,R/W,"Transfer Block Size.
+This register specifies the block size of data transfers for CMD17, CMD18, CMD24, CMD25, and CMD53. Values ranging from 1 up to the maximum buffer size can be set. In case of memory, it shall be set up to 512 bytes (Refer to Implementation Note in Section 1.7.2). It can be accessed only if no transaction is executing (i.e., after a transaction has stopped). Read operations during transfers may return an invalid value, and write operations shall be ignored."
+11-00,R/W,"Encoding examples:
+0800h = 2048 Bytes
+0200h = 512 Bytes
+01FFh = 511 Bytes
+0004h = 4 Bytes
+0003h = 3 Bytes
+0002h = 2 Bytes
+0001h = 1 Byte
+0000h = No data transfer"

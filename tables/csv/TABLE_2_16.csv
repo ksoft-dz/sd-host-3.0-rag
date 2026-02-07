@@ -1,0 +1,50 @@
+Location,Attrib,Register Field Explanation
+07,RW,"Card Detect Signal Selection
+This bit selects source for the card detection.
+
+1  The Card Detect Test Level is selected
+   (for test purpose)
+0  SDCD# is selected (for normal use)
+
+When the source for the card detection is switched, the interrupt should be disabled
+during the switching period by clearing the Interrupt Status/Signal Enable register
+in order to mask unexpected interrupt being caused by the glitch.
+The Interrupt Status/Signal Enable should be disabled during over the period of
+debouncing."
+
+06,RW,"Card Detect Test Level
+This bit is enabled while the Card Detect Signal Selection is set to 1 and it indicates
+card inserted or not.
+
+1  Card Inserted
+0  No Card"
+
+05,RW,"Extended Data Transfer Width
+This bit controls 8-bit bus width mode for embedded device. Support of this function
+is indicated in 8-bit Support for Embedded Device in the Capabilities register.
+If a device supports 8-bit bus mode, this bit may be set to 1.
+If this bit is 0, bus width is controlled by Data Transfer Width in the Host Control 1 register.
+
+This bit is not effective when multiple devices are installed on a bus slot (Slot Type
+is set to 10b in the Capabilities register). In this case, each device bus width is
+controlled by Bus Width Preset field in the Shared Bus Control register.
+
+1  8-bit Bus Width
+0  Bus Width is Selected by Data Transfer Width"
+
+04-03,RW,"DMA Select
+One of supported DMA modes can be selected. The host driver shall check support
+of DMA modes by referring the Capabilities register.
+Use of selected DMA is determined by DMA Enable of the Transfer Mode register.
+
+00  SDMA is selected
+01  Reserved (New assignment is not allowed)
+10  32-bit Address ADMA2 is selected
+11  Reserved (will be modified by Version 4.00)"
+
+02,RW,High Speed Enable,"This bit is optional. Before setting this bit, the Host Driver shall check the High Speed Support in the Capabilities register. If this bit is set to 0 (default), the Host Controller outputs CMD line and DAT lines at the falling edge of the SD Clock (up to 25MHz). If this bit is set to 1, the Host Controller outputs CMD line and DAT lines at the rising edge of the SD Clock (up to 50MHz). If Preset Value Enable in the Host Control 2 register is set to 1, Host Driver needs to clear SD Clock Enable before changing this field to avoid generating clock glitches. After setting this field, the Host Driver sets SD Clock Enable again.",1,High Speed mode
+02,RW,High Speed Enable,,0,Normal Speed mode
+01,RW,Data Transfer Width,"This bit selects the data width of the Host Controller. The Host Driver shall set it to match the data width of the SD card.",1,4-bit mode
+01,RW,Data Transfer Width,,0,1-bit mode
+00,RW,LED Control,"This bit is used to caution the user not to remove the card while the SD card is being accessed. If the software is going to issue multiple SD commands, this bit can be set during all these transactions. It is not necessary to change for each transaction.",1,LED on
+00,RW,LED Control,,0,LED off

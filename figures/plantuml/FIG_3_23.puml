@@ -1,0 +1,25 @@
+@startuml
+start
+
+note right
+  DO NOT need for insertion and
+  removal wakeup
+end note
+
+:(1) Make SD Host Controller 1bit mode;
+
+:(2) Stop SD Clock;
+
+:(3) Enable each factor;
+
+stop
+
+legend bottom
+(1) Set **Data Transfer Width** to 0 in the //Host Control 1// register.
+(2) Set **SD Clock Enable** to 0 in the //Clock Control// register.
+(3) Clear the //Normal Interrupt Status// register and the //Normal Interrupt Signal Enable// register, and
+    then set the enable bits of each wakeup event factor to 1 in the //Wakeup Control// register and set
+    the bits of //Normal Interrupt Status Enable// register to use wakeup.
+endlegend
+
+@enduml

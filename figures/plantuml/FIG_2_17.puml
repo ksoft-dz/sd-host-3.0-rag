@@ -1,0 +1,24 @@
+@startuml
+skinparam monochrome true
+skinparam defaultTextAlignment center
+
+title Wakeup Control Register (Offset 02Bh)
+
+rectangle "Register Diagram" {
+  |= D07 |= D06 |= D05 |= D04 |= D03 |= D02 |= D01 |= D00 |
+  | | | | | Rsvd | Wakeup Event Enable\nOn SD Card Removal | Wakeup Event Enable\nOn SD Card Insertion | Wakeup Event Enable\nOn SD Card Interrupt |
+}
+
+rectangle "Register Field Details" {
+  |= Location |= Attrib |= Register Field Explanation |
+  | 07-03 | Rsvd | **Reserved** |
+  | 02 | RW | **Wakeup Event Enable On SD Card Removal**\nThis bit enables wakeup event via Card Removal assertion in the Normal Interrupt\nStatus register. FN_WUS (Wake Up Support) in CIS does not affect this bit.\n\n1 = Enable\n0 = Disable |
+  | 01 | RW | **Wakeup Event Enable On SD Card Insertion**\nThis bit enables wakeup event via Card Insertion assertion in the Normal Interrupt\nStatus register. FN_WUS (Wake Up Support) in CIS does not affect this bit.\n\n1 = Enable\n0 = Disable |
+  | 00 | RW | **Wakeup Event Enable On Card Interrupt**\nThis bit enables wakeup event via Card Interrupt assertion in the Normal Interrupt\nStatus register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS is set\nto 1.\n\n1 = Enable\n0 = Disable |
+}
+
+note bottom
+  This register is mandatory for the Host Controller, but wakeup functionality depends on the Host\n  Controller system hardware and software. The Host Driver shall maintain voltage on the SD Bus, by\n  setting **SD Bus Power** to 1 in the Power Control register, when wakeup event via Card Interrupt is\n  desired.
+end note
+
+@enduml

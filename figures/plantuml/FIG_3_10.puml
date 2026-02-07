@@ -1,0 +1,49 @@
+@startuml
+!define RECTANGLE rectangle
+
+start
+
+:Start;
+
+if ((1) Check S18A) then (S18A=1)
+  :Voltage Switch (CMD11);
+  
+  if ((3) Response OK?) then (Yes)
+    :(4) SD Clock Enable = 0;
+    
+    if ((5) Check DAT[3:0]) then (0000b)
+      :(6) 1.8V Signal Enable = 1;
+      
+      :(7) Wait 5ms;
+      
+      if ((8) Check 1.8V\nSignal Enable) then (1)
+        :(9) SD Clock Enable = 1;
+        
+        :(10) Wait 1ms;
+        
+        if ((11) Check DAT[3:0]) then (1111b)
+          :End;
+          stop
+        else (Not 1111b)
+          :(12) SD Bus Power = 0;
+          :Stop;
+          stop
+        endif
+      else (0)
+        :Stop;
+        stop
+      endif
+    else (Not 0000b)
+      :Stop;
+      stop
+    endif
+  else (No)
+    :Stop;
+    stop
+  endif
+else (S18A=0)
+  :End;
+  stop
+endif
+
+@enduml

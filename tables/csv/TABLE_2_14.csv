@@ -1,0 +1,36 @@
+Location,Attrib,Register Field Explanation
+31-25,Rsvd,"Reserved"
+
+24,RO,"CMD Line Signal Level
+This status is used to check the CMD line level to recover from errors, and
+for debugging."
+
+23-20,RO,"DAT[3:0] Line Signal Level
+This status is used to check the DAT line level to recover from errors, and for
+debugging. This is especially useful in detecting the busy signal level from
+DAT[0].
+
+D23  DAT[3]
+D22  DAT[2]
+D21  DAT[1]
+D20  DAT[0]"
+
+19,RO,"Write Protect Switch Pin Level
+The Write Protect Switch is supported for memory and combo cards.
+This bit reflects the SDWP# pin.
+
+1  Write enabled (SDWP#=1)
+0  Write protected (SDWP#=0)"
+
+18,RO,"Card Detect Pin Level
+This bit reflects the inverse value of the SDCD# pin. Debouncing is not
+performed on this bit. This bit may be valid when Card State Stable is set to
+1, but it is not guaranteed because of propagation delay. Use of this bit is
+limited to testing since it must be debounced by software.
+
+1  Card present (SDCD#=0)
+0  No card present (SDCD#=1)"
+17,RO,Card State Stable,"This bit is used for testing. If it is 0, the Card Detect Pin Level is not stable. If this bit is set to 1, it means the Card Detect Pin Level is stable. No Card state can be detected by this bit is set to 1 and Card Inserted is set to 0. The Software Reset For All in the Software Reset register shall not affect this bit.",1,No Card or Inserted
+17,RO,Card State Stable,"This bit is used for testing. If it is 0, the Card Detect Pin Level is not stable. If this bit is set to 1, it means the Card Detect Pin Level is stable. No Card state can be detected by this bit is set to 1 and Card Inserted is set to 0. The Software Reset For All in the Software Reset register shall not affect this bit.",0,Reset or Debouncing
+16,RO,Card Inserted,"This bit indicates whether a card has been inserted. The Host Controller shall debounce this signal so that the Host Driver will not need to wait for it to stabilize. Changing from 0 to 1 generates a Card Insertion interrupt in the Normal Interrupt Status register and changing from 1 to 0 generates a Card Removal interrupt in the Normal Interrupt Status register. The Software Reset For All in the Software Reset register shall not affect this bit. If a card is removed while its power is on and its clock is oscillating, the Host Controller shall clear SD Bus Power in the Power Control register (Refer to Section 2.2.11) and SD Clock Enable in the Clock Control register (Refer to Section 2.2.14). When this bit is changed from 1 to 0, the Host Controller shall immediately stop driving CMD and DAT[3:0] (tri-state). In addition, the Host Driver should clear the Host Controller by the Software Reset For All in Software Reset register. The card detect is active regardless of the SD Bus Power.",1,Card Inserted
+16,RO,Card Inserted,"This bit indicates whether a card has been inserted. The Host Controller shall debounce this signal so that the Host Driver will not need to wait for it to stabilize. Changing from 0 to 1 generates a Card Insertion interrupt in the Normal Interrupt Status register and changing from 1 to 0 generates a Card Removal interrupt in the Normal Interrupt Status register. The Software Reset For All in the Software Reset register shall not affect this bit. If a card is removed while its power is on and its clock is oscillating, the Host Controller shall clear SD Bus Power in the Power Control register (Refer to Section 2.2.11) and SD Clock Enable in the Clock Control register (Refer to Section 2.2.14). When this bit is changed from 1 to 0, the Host Controller shall immediately stop driving CMD and DAT[3:0] (tri-state). In addition, the Host Driver should clear the Host Controller by the Software Reset For All in Software Reset register. The card detect is active regardless of the SD Bus Power.",0,Reset or Debouncing or No Card

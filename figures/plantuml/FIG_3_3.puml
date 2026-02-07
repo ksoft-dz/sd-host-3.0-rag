@@ -1,0 +1,14 @@
+@startuml
+start
+:(1) Calculate a divisor for SD clock frequency;
+repeat
+  :(2) Set SDCLK Frequency Select
+  and Internal Clock Enable;
+  :(3) Check
+  Internal Clock Stable;
+repeat while (Internal Clock Stable = 0b?) is (yes)
+->Internal Clock Stable = 1b;
+:(4) Set SD Clock On;
+:Supply SD clock;
+stop
+@enduml

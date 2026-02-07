@@ -1,0 +1,21 @@
+Location,Attrib,Register Field Explanation
+63-00,RW,"ADMA System Address
+This register holds byte address of executing command of the Descriptor table. 32-bit Address Descriptor uses lower 32-bit of this register. At the start of ADMA, the Host Driver shall set start address of the Descriptor table. The ADMA increments this register address, which points to next line, when every fetching a Descriptor line. When the ADMA Error Interrupt is generated, this register shall hold valid Descriptor address depending on the ADMA state. The Host Driver shall program Descriptor Table on 32-bit boundary and set 32-bit boundary address to this register. ADMA2 ignores lower 2-bit of this register and assumes it to be 00b.
+
+32-bit Address ADMA
+Register Value | 32-bit System Address
+xxxxxxxx 00000000h | 00000000h
+xxxxxxxx 00000004h | 00000004h
+xxxxxxxx 00000008h | 00000008h
+xxxxxxxx 0000000Ch | 0000000Ch
+...... | ......
+xxxxxxxx FFFFFFFCh | FFFFFFFCh
+
+64-bit Address ADMA
+Register Value | 64-bit System Address
+00000000 00000000h | 00000000 00000000h
+00000000 00000004h | 00000000 00000004h
+00000000 00000008h | 00000000 00000008h
+00000000 0000000Ch | 00000000 0000000Ch
+...... | ......
+FFFFFFFF FFFFFFFCh | FFFFFFFF FFFFFFFCh"

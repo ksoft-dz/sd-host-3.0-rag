@@ -1,0 +1,46 @@
+{
+  "_metadata": {
+    "source_pdf": "source_spec.pdf",
+    "total_pages": 0,
+    "extraction_date": "",
+    "total_tables": 0,
+    "page_offset": 0,
+    "page_offset_note": "Real PDF page = spec_page + page_offset",
+    "conversion_progress": {
+      "not_started": 0,
+      "in_progress": 0,
+      "completed": 0,
+      "incomplete": 0,
+      "failed": 0
+    }
+  },
+  "tables": [
+    {
+      "_comment": "TEMPLATE - Copy and modify for each table",
+      "id": "TABLE_X_Y",
+      "spec_reference": "Table X-Y",
+      "title": "Table Title",
+      "spec_page": 1,
+      "spec_page_end": 1,
+      "definition_page": 1,
+      "definition_page_end": 1,
+      "referenced_on_pages": [],
+      "reference_count": 0,
+      "columns": [],
+      "nb_lines": 0,
+      "nb_columns": 0,
+      "content": {},
+      "raw_content": "",
+      "abstract": "",
+      "conversion": {
+        "status": "NOT_STARTED",
+        "file_format": "",
+        "file_name": "",
+        "validated": false,
+        "validation_notes": "",
+        "attempts": 0,
+        "total_tokens": 0
+      }
+    }
+  ]
+}

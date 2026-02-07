@@ -1,0 +1,42 @@
+@startuml
+title Figure 3-21: Error Interrupt Recovery Sequence
+
+skinparam ActivityDiamondBackgroundColor white
+skinparam ActivityBackgroundColor white
+
+(*) --> [A] "(10)\nIssue Abort CMD"
+
+"(10)\nIssue Abort CMD" --> "(11)\nCheck\nCommand Inhibit\n(DAT) and (CMD)"
+
+if "Command Inhibit?" then
+  -->[Command Inhibit\n(DAT)=1 or (CMD)=1] "(10)\nIssue Abort CMD"
+else
+  -->[Command Inhibit\n(DAT)=0 and (CMD)=0] "(12)\nCheck Error\nInterrupt Status\nfor Abort CMD"
+endif
+
+"(12)\nCheck Error\nInterrupt Status\nfor Abort CMD" --> if "CMD Line Error?" then
+  -->[One of D03-00 is set,\nnamely CMD Line Error\noccurs] "(16)\nReturn Status\n(Non-recoverable Error)"
+else
+  -->[D03-00 is not set, namely CMD\nLine Error doesn't occur] "(13)\nCheck\nTimeout of\nDAT line"
+endif
+
+"(13)\nCheck\nTimeout of\nDAT line" --> if "DAT line Timeout?" then
+  -->[DAT line Timeout\noccurs] "(16)\nReturn Status\n(Non-recoverable Error)"
+else
+  -->[DAT line Timeout\ndoes not occur] "(14)\nWait for more than\n40 us"
+endif
+
+"(14)\nWait for more than\n40 us" --> "(15)\nCheck\nDAT line"
+
+"(15)\nCheck\nDAT line" --> if "DAT line status?" then
+  -->[One or more DAT line\nis low] "(16)\nReturn Status\n(Non-recoverable Error)"
+else
+  -->[DAT line is high] "(17)\nReturn Status\n(Recoverable Error)"
+endif
+
+"(16)\nReturn Status\n(Non-recoverable Error)" --> "(18)\nEnable Error Interrupt Signal"
+"(17)\nReturn Status\n(Recoverable Error)" --> "(18)\nEnable Error Interrupt Signal"
+
+"(18)\nEnable Error Interrupt Signal" --> (*)
+
+@enduml

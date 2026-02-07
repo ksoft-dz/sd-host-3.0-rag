@@ -1,0 +1,51 @@
+@startuml
+skinparam monochrome true
+skinparam defaultTextAlignment center
+
+title Maximum Current Capabilities Register (Offset 048h)
+
+package "Register Bit Layout" {
+  card "D63 .................................................. D32" as upper
+  note right of upper
+    Rsvd
+  end note
+  
+  card "D31..D24 | D23........D16 | D15........D08 | D07........D00" as lower
+  note right of lower
+    Rsvd | Max Current 1.8V | Max Current 3.0V | Max Current 3.3V
+  end note
+}
+
+@enduml
+
+@startuml
+skinparam monochrome true
+
+title Table 2-35: Maximum Current Capabilities Register
+
+|= Location |= Attrib |= Register Field Explanation |
+| 63-56 | Rsvd | **Reserved** |
+| 55-48 | Rsvd | **Reserved** |
+| 47-40 | Rsvd | **Reserved** |
+| 39-32 | Rsvd | **Reserved** |
+| 31-24 | Rsvd | **Reserved** |
+| 23-16 | HwInit | **Maximum Current for 1.8V** |
+| 15-08 | HwInit | **Maximum Current for 3.0V** |
+| 07-00 | HwInit | **Maximum Current for 3.3V** |
+
+@enduml
+
+@startuml
+skinparam monochrome true
+
+title Table 2-36: Maximum Current Value Definition
+
+|= Register Value |= Current Value |
+| 0 | Get information via another method |
+| 1 | 4mA |
+| 2 | 8mA |
+| 3 | 12mA |
+| ... | ... |
+| 255 | 1020mA |
+
+@enduml

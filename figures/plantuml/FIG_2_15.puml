@@ -1,0 +1,41 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+title Power Control Register (Offset 029h)
+
+rectangle "Register Bit Layout" {
+    rectangle "D07-D04\nRsvd\n(Reserved)" as D07
+    rectangle "D03-D01\nSD Bus Voltage\nSelect" as D03
+    rectangle "D00\nSD Bus\nPower" as D00
+}
+
+D07 -right-> D03
+D03 -right-> D00
+
+rectangle "Register Fields" {
+    rectangle "Bits 07-04: Reserved (Rsvd)" as F1
+    
+    rectangle "Bits 03-01: SD Bus Voltage Select (RW)\n\n111b = 3.3V (Typ.)\n110b = 3.0V (Typ.)\n101b = 1.8V (Typ.)\n100b-000b = Reserved\n\nHost Driver selects voltage level for SD card.\nCheck Voltage Support bits in Capabilities register.\nIf unsupported voltage selected, Host System\nshall not supply SD Bus voltage." as F2
+    
+    rectangle "Bit 00: SD Bus Power (RW)\n\n1 = Power on\n0 = Power off\n\nBefore setting, set SD Bus Voltage Select first.\nIf No Card state detected, bit shall be cleared.\nWhen cleared, stop driving CMD and DAT[3:0]\n(tri-state) and drive SDCLK to low level." as F3
+}
+
+F1 -[hidden]down-> F2
+F2 -[hidden]down-> F3
+
+note bottom
+**Implementation Notes:**
+
+1. Host Driver supplies SD Bus voltage by SD Bus Power,
+   according to SD card OCR and supply voltage capabilities.
+   If unsupported voltage selected, Host Controller may
+   ignore writes and keep value at zero.
+
+2. Host System shall not supply SD Bus power when
+   SD Bus Power is set to 0 and can supply SD Bus power
+   when set to 1 depending on system conditions
+   (ex. Left of the battery).
+end note
+
+@enduml

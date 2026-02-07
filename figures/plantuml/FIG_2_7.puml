@@ -1,0 +1,61 @@
+@startuml
+skinparam backgroundColor white
+skinparam noteBackgroundColor lightgray
+skinparam noteBorderColor black
+skinparam defaultTextAlignment center
+
+title Response Register (Offset 010h)
+
+package "Response Register Structure" {
+  
+  rectangle "Offset 010h" as off010 {
+    card "D31 ... D00" as reg010 #lightgray
+    note right: Command Response 0 – 31
+  }
+  
+  rectangle "Offset 014h" as off014 {
+    card "D31 ... D00" as reg014 #lightgray
+    note right: Command Response 32 – 63
+  }
+  
+  rectangle "Offset 018h" as off018 {
+    card "D31 ... D00" as reg018 #lightgray
+    note right: Command Response 64 – 95
+  }
+  
+  rectangle "Offset 01Ch" as off01C {
+    card "D31 ... D00" as reg01C #lightgray
+    note right: Command Response 96 – 127
+  }
+}
+
+note top of off010
+  **Figure 2-7 : Response Register**
+end note
+
+rectangle "Response Register Field" {
+  card "Location: 127-00\nAttrib: ROC\n\n**Command Response**\n\nThe Table 2-12 describes the mapping of command responses\nfrom the SD Bus to this register for each response type.\nIn the table, R[] refers to a bit range within the response\ndata as transmitted on the SD Bus, REP[] refers to a bit\nrange within the Response register." as field_desc #wheat
+}
+
+off010 -[hidden]down- off014
+off014 -[hidden]down- off018
+off018 -[hidden]down- off01C
+off01C -[hidden]down- field_desc
+
+note bottom of field_desc
+  **Table 2-11 : Response Register**
+  
+  |= Kind of Response |= Meaning of Response |= Response Field |= Response Register |
+  | R1, R1b (normal response) | Card Status | R [39:8] | REP [31:0] |
+  | R1b (Auto CMD12 response) | Card Status for Auto CMD12 | R [39:8] | REP [127:96] |
+  | R1 (Auto CMD23 response) | Card Status for Auto CMD23 | R [39:8] | REP [127:96] |
+  | R2 (CID, CSD register) | CID or CSD reg. incl. | R [127:8] | REP [119:0] |
+  | R3 (OCR register) | OCR register for memory | R [39:8] | REP [31:0] |
+  | R4 (OCR register) | OCR register for I/O etc | R [39:8] | REP [31:0] |
+  | R5,R5b | SDIO response | R [39:8] | REP [31:0] |
+  | R6 (Published RCA response) | New published RCA[31:16] etc | R [39:8] | REP [31:0] |
+  
+  **Table 2-12 : Response Bit Definition for Each Response Type.**
+end note
+
+@enduml

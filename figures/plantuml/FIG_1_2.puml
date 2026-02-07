@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+
+title SD Host Controller Register Map - Standard Register Set
+
+|= Address Range |= Register Name |= Ver 1.00 |= Ver 2.00 |= Ver 3.00 |= Description |
+| 0F-00h | SD Command Generation | Mand. | ← | ← | Parameters to generate SD commands |
+| 1F-10h | Response | Mand. | ← | ← | Response value from the card |
+| 23-20h | Buffer Data Port | Mand. | ← | ← | Data access port to the internal buffer |
+| 2F-24h | Host Control 1 and Others | Mand. | ← | ← | Present State, controls for the SD Bus,\nHost reset and so on |
+| 3D-30h | Interrupt Controls | Mand. | ← | ← | Interrupt statuses and enables |
+| 3F-3Eh | Host Control 2 | N/A | N/A | Mand. | Extension of Host Control Register |
+| 4F-40h | Capabilities | Mand. | ← | ← | Vendor specific host controller support\ninformation |
+| 53-50h | Force Event | N/A | Mand. | Mand. | Test register to generate events by\nsoftware |
+| 5F-54h | ADMA | N/A | Opt. | Mand. | Advanced DMA registers |
+| 6F-60h | Preset Value | N/A | N/A | Mand. | Preset for clock frequency select and\ndriver strength select |
+| E3-E0h | Shared Bus | N/A | N/A | Opt. | Device controls for shared bus system |
+| FF-F0h | Common Area | Mand. | ← | ← | Common information area |
+
+note bottom
+Legend:
+Mand. : Mandatory
+Opt. : Optional
+N/A : Not Available
+← : Same as previous version
+end note
+
+@enduml

@@ -1,0 +1,1779 @@
+{
+  "_metadata": {
+    "source_pdf": "sd_host_3_00.pdf",
+    "total_pages": 157,
+    "extraction_date": "2026-01-31",
+    "total_figures": 83,
+    "page_offset": 11,
+    "page_offset_note": "Real PDF page = spec_page + page_offset (spec page 1 = PDF page 12)",
+    "transcription_progress": {
+      "not_started": 83,
+      "in_progress": 0,
+      "completed": 0,
+      "skipped": 0
+    }
+  },
+  "figures": [
+    {
+      "id": "FIG_1_1",
+      "spec_reference": "Figure 1-1",
+      "title": "Host Hardware and Driver Architecture",
+      "spec_page": 1,
+      "definition_page": 12,
+      "referenced_on_pages": [
+        12
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Layered architecture: applications, card drivers, SD Host Bus Driver, Standard Host Controller Driver, and SD Combo H..."
+    },
+    {
+      "id": "FIG_1_2",
+      "spec_reference": "Figure 1-2",
+      "title": "Classification of the Standard Register Map",
+      "spec_page": 2,
+      "definition_page": 13,
+      "referenced_on_pages": [
+        13
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Standard register map divided into 12 sections: command generation, response, buffer port, host controls, interrupts,..."
+    },
+    {
+      "id": "FIG_1_3",
+      "spec_reference": "Figure 1-3",
+      "title": "Register Map for Multiple Slots Controller",
+      "spec_page": 3,
+      "definition_page": 14,
+      "referenced_on_pages": [
+        14
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Multiple slot host controller architecture with independent Standard Register Sets per slot and shared Common Registe..."
+    },
+    {
+      "id": "FIG_1_4",
+      "spec_reference": "Figure 1-4",
+      "title": "Suspend and Resume Mechanism",
+      "spec_page": 4,
+      "definition_page": 15,
+      "referenced_on_pages": [
+        15,
+        40
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "State machine showing data transfer suspension/resumption via register saving/restoring between command issuance and ..."
+    },
+    {
+      "id": "FIG_1_5",
+      "spec_reference": "Figure 1-5",
+      "title": "Buffer Size Relation between Host and Card",
+      "spec_page": 7,
+      "definition_page": 18,
+      "referenced_on_pages": [
+        18
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Host and SD card buffer connection via SD Bus, illustrating block data transfer relationship for burst mode operations."
+    },
+    {
+      "id": "FIG_1_6",
+      "spec_reference": "Figure 1-6",
+      "title": "Logical Relation for Interrupt Registers",
+      "spec_page": 8,
+      "definition_page": 19,
+      "referenced_on_pages": [
+        19
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Interrupt control flow: status register set by enabled interrupt factors, gating interrupt/wakeup signals via enable ..."
+    },
+    {
+      "id": "FIG_1_7",
+      "spec_reference": "Figure 1-7",
+      "title": "Block Diagram of Host Controller",
+      "spec_page": 10,
+      "definition_page": 21,
+      "referenced_on_pages": [
+        21
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Host controller architecture with System Bus and SD Bus interfaces, DMA engine, buffer module, register set, and CMD/..."
+    },
+    {
+      "id": "FIG_1_8",
+      "spec_reference": "Figure 1-8",
+      "title": "Block Diagram of ADMA2",
+      "spec_page": 14,
+      "definition_page": 25,
+      "referenced_on_pages": [
+        25
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "ADMA2 architecture with System Address Register, descriptor pointer, state machine, linking to system memory descript..."
+    },
+    {
+      "id": "FIG_1_9",
+      "spec_reference": "Figure 1-9",
+      "title": "An Example of ADMA2 Data Transfer",
+      "spec_page": 15,
+      "definition_page": 26,
+      "referenced_on_pages": [
+        26
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "ADMA2 descriptor table structure mapping system memory addresses, data lengths, and transfer attributes to sequential..."
+    },
+    {
+      "id": "FIG_1_10",
+      "spec_reference": "Figure 1-10",
+      "title": "32-bit Address Descriptor Table",
+      "spec_page": 16,
+      "definition_page": 27,
+      "referenced_on_pages": [
+        27
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "32-bit descriptor format with address, length, reserved bits, and attribute flags (Valid, End, Int, Act2, Act1) for A..."
+    },
+    {
+      "id": "FIG_1_11",
+      "spec_reference": "Figure 1-11",
+      "title": "State Diagram of the ADMA2",
+      "spec_page": 17,
+      "definition_page": 28,
+      "referenced_on_pages": [
+        28
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "ADMA2 state machine with four states: Fetch Descriptor, Change Address, Transfer Data, and Stop, showing transitions ..."
+    },
+    {
+      "id": "FIG_2_1",
+      "spec_reference": "Figure 2-1",
+      "title": "SDMA System Address / Argument 2 Register",
+      "spec_page": 21,
+      "definition_page": 32,
+      "referenced_on_pages": [
+        32
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "32-bit register storing system memory address for SDMA transfers or 32-bit block count argument for Auto CMD23 operat..."
+    },
+    {
+      "id": "FIG_2_2",
+      "spec_reference": "Figure 2-2",
+      "title": "Block Size Register",
+      "spec_page": 22,
+      "definition_page": 33,
+      "referenced_on_pages": [
+        33
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Block Size Register (004h) with Host SDMA Buffer Boundary field (bits 14-12) configuring transfer block size from 4KB..."
+    },
+    {
+      "id": "FIG_2_3",
+      "spec_reference": "Figure 2-3",
+      "title": "Block Count Register",
+      "spec_page": 24,
+      "definition_page": 35,
+      "referenced_on_pages": [
+        35
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register specification defining 16-bit block count field (D15-D00) for multi-block transfer configuration and control."
+    },
+    {
+      "id": "FIG_2_4",
+      "spec_reference": "Figure 2-4",
+      "title": "Argument 1 Register",
+      "spec_page": 25,
+      "definition_page": 36,
+      "referenced_on_pages": [
+        36
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "32-bit register (offset 008h) containing SD command argument field as specified in bit39-8 of command format."
+    },
+    {
+      "id": "FIG_2_5",
+      "spec_reference": "Figure 2-5",
+      "title": "Transfer Mode Register",
+      "spec_page": 26,
+      "definition_page": 37,
+      "referenced_on_pages": [
+        37
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register bit fields defining data transfer direction (card-to-host/host-to-card) and block mode (single/multiple) for..."
+    },
+    {
+      "id": "FIG_2_6",
+      "spec_reference": "Figure 2-6",
+      "title": "Command Register",
+      "spec_page": 29,
+      "definition_page": 40,
+      "referenced_on_pages": [
+        40
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout defining command execution control with index, type, inhibit flags, and response type selection bits."
+    },
+    {
+      "id": "FIG_2_7",
+      "spec_reference": "Figure 2-7",
+      "title": "Response Register",
+      "spec_page": 31,
+      "definition_page": 42,
+      "referenced_on_pages": [
+        42
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout mapping SD card command responses (48/136-bit) to 128-bit storage with CRC checking and response type..."
+    },
+    {
+      "id": "FIG_2_8",
+      "spec_reference": "Figure 2-8",
+      "title": "Buffer Data Port Register",
+      "spec_page": 32,
+      "definition_page": 43,
+      "referenced_on_pages": [
+        43
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "32-bit register providing read/write access to internal host controller buffer, interfacing with data port at offset ..."
+    },
+    {
+      "id": "FIG_2_9",
+      "spec_reference": "Figure 2-9",
+      "title": "Present State Register",
+      "spec_page": 33,
+      "definition_page": 44,
+      "referenced_on_pages": [
+        44
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "32-bit read-only register displaying host controller status: CMD/DAT line signals, write protect switch, and card det..."
+    },
+    {
+      "id": "FIG_2_10",
+      "spec_reference": "Figure 2-10",
+      "title": "Card Detect State",
+      "spec_page": 34,
+      "definition_page": 45,
+      "referenced_on_pages": [
+        45
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "State machine for card detection: Reset → Debouncing → Card Inserted/No Card states, triggered by SDCD# signal stabil..."
+    },
+    {
+      "id": "FIG_2_11",
+      "spec_reference": "Figure 2-11",
+      "title": "Timing of Command Inhibit (DAT) and Command Inhibit (CMD) with Data Transfer",
+      "spec_page": 39,
+      "definition_page": 50,
+      "referenced_on_pages": [
+        48,
+        50
+      ],
+      "reference_count": 4,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagrams of CMD and DAT line signals during data transfer, busy response, and no-response command scenarios."
+    },
+    {
+      "id": "FIG_2_12",
+      "spec_reference": "Figure 2-12",
+      "title": "Timing of Command Inhibit (DAT) for the Case of Response with Busy",
+      "spec_page": 39,
+      "definition_page": 50,
+      "referenced_on_pages": [
+        50
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram showing CMD, DAT[0], and data lines during command-response sequence when card signals busy status."
+    },
+    {
+      "id": "FIG_2_13",
+      "spec_reference": "Figure 2-13",
+      "title": "Timing of Command Inhibit (CMD) for the Case of No Response Command",
+      "spec_page": 39,
+      "definition_page": 50,
+      "referenced_on_pages": [
+        48,
+        50
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram: CMD line command pulse, D00 cleared by host controller after successful command issuance, no response..."
+    },
+    {
+      "id": "FIG_2_14",
+      "spec_reference": "Figure 2-14",
+      "title": "Host Control 1 Register",
+      "spec_page": 40,
+      "definition_page": 51,
+      "referenced_on_pages": [
+        51
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout defining card detection, data transfer width, DMA mode selection, speed control, and LED settings via..."
+    },
+    {
+      "id": "FIG_2_15",
+      "spec_reference": "Figure 2-15",
+      "title": "Power Control Register",
+      "spec_page": 42,
+      "definition_page": 53,
+      "referenced_on_pages": [
+        53
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout with SD Bus Power control bit and 3-bit SD Bus Voltage Select field for 1.8V/3.0V/3.3V settings"
+    },
+    {
+      "id": "FIG_2_16",
+      "spec_reference": "Figure 2-16",
+      "title": "Block Gap Control Register",
+      "spec_page": 43,
+      "definition_page": 54,
+      "referenced_on_pages": [
+        54
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout with four control bits: Stop At Block Gap Request, Continue Request, Read Wait Control, and Interrupt..."
+    },
+    {
+      "id": "FIG_2_17",
+      "spec_reference": "Figure 2-17",
+      "title": "Wakeup Control Register",
+      "spec_page": 45,
+      "definition_page": 56,
+      "referenced_on_pages": [
+        56
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout defining three wakeup event enable bits for SD card removal, insertion, and interrupt triggers."
+    },
+    {
+      "id": "FIG_2_18",
+      "spec_reference": "Figure 2-18",
+      "title": "Clock Control Register",
+      "spec_page": 46,
+      "definition_page": 57,
+      "referenced_on_pages": [
+        57
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout for SDCLK frequency control with 8-bit divisor field, clock generator select, and enable bits."
+    },
+    {
+      "id": "FIG_2_19",
+      "spec_reference": "Figure 2-19",
+      "title": "Timeout Control Register",
+      "spec_page": 49,
+      "definition_page": 60,
+      "referenced_on_pages": [
+        60
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout defining Data Timeout Counter Value field (bits 3-0) derived from TMCLK base clock with power-of-2 mu..."
+    },
+    {
+      "id": "FIG_2_20",
+      "spec_reference": "Figure 2-20",
+      "title": "Software Reset Register",
+      "spec_page": 50,
+      "definition_page": 61,
+      "referenced_on_pages": [
+        61
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register with bit field (D02) that triggers software reset pulse for DAT line, clearing buffer, DMA, and status regis..."
+    },
+    {
+      "id": "FIG_2_21",
+      "spec_reference": "Figure 2-21",
+      "title": "Normal Interrupt Status Register",
+      "spec_page": 52,
+      "definition_page": 63,
+      "referenced_on_pages": [
+        63
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "16-bit register layout mapping interrupt status flags including error, re-tuning, INT_C/B, card events, and buffer st..."
+    },
+    {
+      "id": "FIG_2_22",
+      "spec_reference": "Figure 2-22",
+      "title": "Error Interrupt Status Register",
+      "spec_page": 57,
+      "definition_page": 68,
+      "referenced_on_pages": [
+        68
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout with error status bits for tuning, ADMA, current limit, data CRC, and command errors with enable/clea..."
+    },
+    {
+      "id": "FIG_2_23",
+      "spec_reference": "Figure 2-23",
+      "title": "Normal Interrupt Status Enable Register",
+      "spec_page": 60,
+      "definition_page": 71,
+      "referenced_on_pages": [
+        71
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register bit field layout defining enable/mask controls for interrupt status signals including INT_A/B/C, card events..."
+    },
+    {
+      "id": "FIG_2_24",
+      "spec_reference": "Figure 2-24",
+      "title": "Error Interrupt Status Enable Register",
+      "spec_page": 62,
+      "definition_page": 73,
+      "referenced_on_pages": [
+        73
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout with 16 bit fields controlling interrupt enable masks for error conditions including CRC, timeout, an..."
+    },
+    {
+      "id": "FIG_2_25",
+      "spec_reference": "Figure 2-25",
+      "title": "Normal Interrupt Signal Enable Register",
+      "spec_page": 64,
+      "definition_page": 75,
+      "referenced_on_pages": [
+        75
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register with 16 bits controlling interrupt signal enables for card events, buffers, DMA, and internal signals INT_A/..."
+    },
+    {
+      "id": "FIG_2_26",
+      "spec_reference": "Figure 2-26",
+      "title": "Error Interrupt Signal Enable Register",
+      "spec_page": 66,
+      "definition_page": 77,
+      "referenced_on_pages": [
+        77
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout with 16 bit fields controlling interrupt enable signals for errors including CRC, timeout, and ADMA f..."
+    },
+    {
+      "id": "FIG_2_27",
+      "spec_reference": "Figure 2-27",
+      "title": "Auto CMD Error Status Register",
+      "spec_page": 68,
+      "definition_page": 79,
+      "referenced_on_pages": [
+        79
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register with error status bits for Auto CMD12/CMD23: timeout, CRC, end bit, index errors, and command not issued flag."
+    },
+    {
+      "id": "FIG_2_28",
+      "spec_reference": "Figure 2-28",
+      "title": "Host Control 2 Register",
+      "spec_page": 70,
+      "definition_page": 81,
+      "referenced_on_pages": [
+        81
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register bit field layout defining preset value enable, asynchronous interrupt control, and driver strength selection..."
+    },
+    {
+      "id": "FIG_2_29",
+      "spec_reference": "Figure 2-29",
+      "title": "Sampling Clock Tuning Procedure",
+      "spec_page": 73,
+      "definition_page": 84,
+      "referenced_on_pages": [
+        29,
+        68,
+        82,
+        84
+      ],
+      "reference_count": 7,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting tuning procedure with CMD19 execution, buffer checks, and Execute Tuning/Sampling Clock Select va..."
+    },
+    {
+      "id": "FIG_2_30",
+      "spec_reference": "Figure 2-30",
+      "title": "Capabilities Register",
+      "spec_page": 74,
+      "definition_page": 85,
+      "referenced_on_pages": [
+        85
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "64-bit capabilities register layout showing clock multiplier, re-tuning modes, voltage support, and SD/SDIO feature f..."
+    },
+    {
+      "id": "FIG_2_31",
+      "spec_reference": "Figure 2-31",
+      "title": "Maximum Current Capabilities Register",
+      "spec_page": 80,
+      "definition_page": 91,
+      "referenced_on_pages": [
+        91
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register defining maximum current support (4mA steps) at 1.8V, 3.0V, and 3.3V voltages; determines XPC configuration ..."
+    },
+    {
+      "id": "FIG_2_32",
+      "spec_reference": "Figure 2-32",
+      "title": "Force Event Register for Auto CMD Error Status",
+      "spec_page": 81,
+      "definition_page": 92,
+      "referenced_on_pages": [
+        92
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register bit field layout mapping write-only force event triggers to Auto CMD error status interrupt generation flags."
+    },
+    {
+      "id": "FIG_2_33",
+      "spec_reference": "Figure 2-33",
+      "title": "Force Event Register for Error Interrupt Status",
+      "spec_page": 82,
+      "definition_page": 93,
+      "referenced_on_pages": [
+        93
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "16-bit write-only register mapping error interrupt force events to status bits with vendor-specific fields and enable..."
+    },
+    {
+      "id": "FIG_2_34",
+      "spec_reference": "Figure 2-34",
+      "title": "ADMA Error Status Register",
+      "spec_page": 83,
+      "definition_page": 94,
+      "referenced_on_pages": [
+        94
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "ADMA error status register with error state field (D01-D02) and length mismatch error bit (D02), reserved bits D03-D07"
+    },
+    {
+      "id": "FIG_2_35",
+      "spec_reference": "Figure 2-35",
+      "title": "ADMA System Address Register",
+      "spec_page": 85,
+      "definition_page": 96,
+      "referenced_on_pages": [
+        96
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "64-bit register storing physical descriptor address for ADMA transfers, auto-incremented per descriptor fetch on 32-b..."
+    },
+    {
+      "id": "FIG_2_36",
+      "spec_reference": "Figure 2-36",
+      "title": "Fields of A Preset Value Register",
+      "spec_page": 86,
+      "definition_page": 97,
+      "referenced_on_pages": [
+        97
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "16-bit preset value register structure with driver strength select, clock generator select, and SDCLK frequency fields."
+    },
+    {
+      "id": "FIG_2_37",
+      "spec_reference": "Figure 2-37",
+      "title": "Shared Bus Control Register",
+      "spec_page": 88,
+      "definition_page": 99,
+      "referenced_on_pages": [
+        99
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout defining back-end power control bits, interrupt pin select field, and clock pin configuration for sha..."
+    },
+    {
+      "id": "FIG_2_38",
+      "spec_reference": "Figure 2-38",
+      "title": "An Example Timing of Selecting Clock Pin",
+      "spec_page": 90,
+      "definition_page": 101,
+      "referenced_on_pages": [
+        100,
+        101,
+        157
+      ],
+      "reference_count": 4,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram illustrating clock pin selection control: CLK[1-3] activation sequence based on Clock Pin Select regis..."
+    },
+    {
+      "id": "FIG_2_39",
+      "spec_reference": "Figure 2-39",
+      "title": "Slot Interrupt Status Register",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [
+        102
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Register layout showing 8-bit slot interrupt status fields with mapping of bits 00-07 to slots 1-8 for interrupt sign..."
+    },
+    {
+      "id": "FIG_2_40",
+      "spec_reference": "Figure 2-40",
+      "title": "Host Controller Version Register",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [
+        102
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "16-bit register split into vendor version (bits 15-08, reserved) and specification version (bits 07-00, values 00h-02h)."
+    },
+    {
+      "id": "FIG_3_1",
+      "spec_reference": "Figure 3-1",
+      "title": "Double Box Notation",
+      "spec_page": 92,
+      "definition_page": 103,
+      "referenced_on_pages": [
+        103
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD card insertion/removal detection sequence with interrupt enable, status check, and recognition..."
+    },
+    {
+      "id": "FIG_3_2",
+      "spec_reference": "Figure 3-2",
+      "title": "SD Card Detect Sequence",
+      "spec_page": 92,
+      "definition_page": 103,
+      "referenced_on_pages": [
+        103
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD card insertion/removal detection via interrupt enable, status check, and card inserted bit val..."
+    },
+    {
+      "id": "FIG_3_3",
+      "spec_reference": "Figure 3-3",
+      "title": "SD Clock Supply Sequence",
+      "spec_page": 94,
+      "definition_page": 105,
+      "referenced_on_pages": [
+        105
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart detailing clock initialization: divisor calculation, frequency selection, stability verification, and clock..."
+    },
+    {
+      "id": "FIG_3_4",
+      "spec_reference": "Figure 3-4",
+      "title": "SD Clock Stop Sequence",
+      "spec_page": 95,
+      "definition_page": 106,
+      "referenced_on_pages": [
+        106
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD clock stop procedure: set SD Clock Off, stop SD clock, with conditions for DAT/CMD inhibit."
+    },
+    {
+      "id": "FIG_3_5",
+      "spec_reference": "Figure 3-5",
+      "title": "SD Clock Change Sequence",
+      "spec_page": 95,
+      "definition_page": 106,
+      "referenced_on_pages": [
+        103,
+        106
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Two-step flowchart: (1) SD Clock Stop sequence halts clock signal, (2) SD Clock Supply sequence initiates new frequency."
+    },
+    {
+      "id": "FIG_3_6",
+      "spec_reference": "Figure 3-6",
+      "title": "SD Bus Power Control Sequence",
+      "spec_page": 96,
+      "definition_page": 107,
+      "referenced_on_pages": [
+        107
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart detailing voltage detection, SD Bus Voltage Select configuration, power control, and OCR-based voltage chan..."
+    },
+    {
+      "id": "FIG_3_7",
+      "spec_reference": "Figure 3-7",
+      "title": "Change Bus Width Sequence",
+      "spec_page": 98,
+      "definition_page": 109,
+      "referenced_on_pages": [
+        109
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart detailing steps to change SD bus width: disable interrupts, check card type, mask/change bit modes, re-enab..."
+    },
+    {
+      "id": "FIG_3_8",
+      "spec_reference": "Figure 3-8",
+      "title": "Timeout Setting Sequence",
+      "spec_page": 99,
+      "definition_page": 110,
+      "referenced_on_pages": [
+        110
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Two-step flowchart: calculate timeout divisor from clock frequency/unit registers, then set timeout counter value bef..."
+    },
+    {
+      "id": "FIG_3_9",
+      "spec_reference": "Figure 3-9",
+      "title": "Card Initialization and Identification",
+      "spec_page": 101,
+      "definition_page": 112,
+      "referenced_on_pages": [
+        111,
+        112,
+        116
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD card voltage negotiation, OCR validation, initialization sequence, and card type identificatio..."
+    },
+    {
+      "id": "FIG_3_10",
+      "spec_reference": "Figure 3-10",
+      "title": "Signal Voltage Switch Procedure",
+      "spec_page": 104,
+      "definition_page": 115,
+      "referenced_on_pages": [
+        115
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting voltage switching sequence: check S18A, execute CMD11, disable clock, enable 1.8V signal, verify ..."
+    },
+    {
+      "id": "FIG_3_11",
+      "spec_reference": "Figure 3-11",
+      "title": "SD Command Issue Sequence",
+      "spec_page": 107,
+      "definition_page": 118,
+      "referenced_on_pages": [
+        118
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart detailing command issuance steps: CMD/DAT line checks, abort handling, register configuration, and completi..."
+    },
+    {
+      "id": "FIG_3_12",
+      "spec_reference": "Figure 3-12",
+      "title": "Command Complete Sequence",
+      "spec_page": 109,
+      "definition_page": 120,
+      "referenced_on_pages": [
+        118,
+        120
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting command finalization: interrupt wait, status checks, response validation, and error handling with..."
+    },
+    {
+      "id": "FIG_3_13",
+      "spec_reference": "Figure 3-13",
+      "title": "Transaction Control with Data Transfer Using DAT Line Sequence (Not using DMA)",
+      "spec_page": 111,
+      "definition_page": 122,
+      "referenced_on_pages": [
+        121,
+        122
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD card data transfer sequence: register setup, command execution, buffer management, and block t..."
+    },
+    {
+      "id": "FIG_3_14",
+      "spec_reference": "Figure 3-14",
+      "title": "Transaction Control with Data Transfer Using DAT Line Sequence (Using SDMA)",
+      "spec_page": 113,
+      "definition_page": 124,
+      "referenced_on_pages": [
+        121,
+        124
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "SDMA transaction flowchart: register setup sequence, command execution with interrupt polling, and DMA transfer compl..."
+    },
+    {
+      "id": "FIG_3_15",
+      "spec_reference": "Figure 3-15",
+      "title": "Transaction Control with Data Transfer Using DAT Line Sequence (Using ADMA)",
+      "spec_page": 115,
+      "definition_page": 126,
+      "referenced_on_pages": [
+        126
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting ADMA setup steps (1-10), followed by interrupt handling for transfer completion or error conditio..."
+    },
+    {
+      "id": "FIG_3_16",
+      "spec_reference": "Figure 3-16",
+      "title": "Asynchronous Abort Sequence",
+      "spec_page": 117,
+      "definition_page": 128,
+      "referenced_on_pages": [
+        128
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting abort command issuance, software reset of DAT/CMD lines, and polling until reset completion (DR=0..."
+    },
+    {
+      "id": "FIG_3_17",
+      "spec_reference": "Figure 3-17",
+      "title": "Synchronous Abort Sequence",
+      "spec_page": 118,
+      "definition_page": 129,
+      "referenced_on_pages": [
+        129
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart of abort sequence: stop block gap, wait for transfer complete interrupt, issue abort command, verify softwa..."
+    },
+    {
+      "id": "FIG_3_18",
+      "spec_reference": "Figure 3-18",
+      "title": "High Speed Mode Setting for Combo Card",
+      "spec_page": 119,
+      "definition_page": 130,
+      "referenced_on_pages": [
+        130
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting bus speed mode switching sequence using CMD6 command and EHS/BSS[2:0] CCCR register bits for comb..."
+    },
+    {
+      "id": "FIG_3_19",
+      "spec_reference": "Figure 3-19",
+      "title": "Error Report and Recovery",
+      "spec_page": 121,
+      "definition_page": 132,
+      "referenced_on_pages": [
+        132
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "SD Host Controller error handling flow: Error/Normal Interrupt Status registers trigger SD Bus and Function Error Rec..."
+    },
+    {
+      "id": "FIG_3_20",
+      "spec_reference": "Figure 3-20",
+      "title": "Return Status of Auto CMD12 Error Recovery",
+      "spec_page": 122,
+      "definition_page": 133,
+      "referenced_on_pages": [
+        132,
+        133
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Error recovery flowchart showing Auto CMD12 execution paths with error/no-error states and interrupt timing relations..."
+    },
+    {
+      "id": "FIG_3_21",
+      "spec_reference": "Figure 3-21",
+      "title": "Error Interrupt Recovery Sequence",
+      "spec_page": 124,
+      "definition_page": 135,
+      "referenced_on_pages": [
+        134,
+        135
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting abort command issuance, error status checks, DAT line timeout handling, and error classification ..."
+    },
+    {
+      "id": "FIG_3_22",
+      "spec_reference": "Figure 3-22",
+      "title": "Auto CMD12 Error Recovery Sequence",
+      "spec_page": 126,
+      "definition_page": 137,
+      "referenced_on_pages": [
+        137,
+        138
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting error recovery logic for Auto CMD12 with status checks, software reset paths, and return conditions."
+    },
+    {
+      "id": "FIG_3_23",
+      "spec_reference": "Figure 3-23",
+      "title": "Wakeup Control before Standby Mode",
+      "spec_page": 128,
+      "definition_page": 139,
+      "referenced_on_pages": [
+        139
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart for configuring SD host controller wakeup: set 1-bit mode, stop clock, enable wakeup factors before standby."
+    },
+    {
+      "id": "FIG_3_24",
+      "spec_reference": "Figure 3-24",
+      "title": "Wakeup from Standby",
+      "spec_page": 129,
+      "definition_page": 140,
+      "referenced_on_pages": [
+        140
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart detailing wakeup sequence: event detection, factor disabling, clock enabling, and bus width configuration s..."
+    },
+    {
+      "id": "FIG_3_25",
+      "spec_reference": "Figure 3-25",
+      "title": "The Sequence for Suspend",
+      "spec_page": 130,
+      "definition_page": 141,
+      "referenced_on_pages": [
+        103,
+        141
+      ],
+      "reference_count": 3,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting SD card suspend sequence: block gap request, interrupt handling, register save, and bus status ch..."
+    },
+    {
+      "id": "FIG_3_26",
+      "spec_reference": "Figure 3-26",
+      "title": "The Sequence for Resume",
+      "spec_page": 132,
+      "definition_page": 143,
+      "referenced_on_pages": [
+        143
+      ],
+      "reference_count": 2,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Flowchart depicting resume command sequence: register restore, command issue, data flag check, and DAT line software ..."
+    },
+    {
+      "id": "FIG_3_27",
+      "spec_reference": "Figure 3-27",
+      "title": "Wait Read Transfer by Stop At Block Gap Request",
+      "spec_page": 133,
+      "definition_page": 144,
+      "referenced_on_pages": [
+        144
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram of read wait control using Stop At Block Gap Request with DAT line, status, and interrupt signal inter..."
+    },
+    {
+      "id": "FIG_3_28",
+      "spec_reference": "Figure 3-28",
+      "title": "Stop At Block Gap Request is Not Accepted at the Last Block of the Read Transfer",
+      "spec_page": 134,
+      "definition_page": 145,
+      "referenced_on_pages": [
+        145
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram: Stop At Block Gap Request rejected during last block; transfer completes normally without Block Gap E..."
+    },
+    {
+      "id": "FIG_3_29",
+      "spec_reference": "Figure 3-29",
+      "title": "Continue Read Transfer by Continue Request",
+      "spec_page": 134,
+      "definition_page": 145,
+      "referenced_on_pages": [
+        145
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram of Continue Request clearing Stop At Block Gap during read transfer, showing DAT line, control signals..."
+    },
+    {
+      "id": "FIG_3_30",
+      "spec_reference": "Figure 3-30",
+      "title": "Wait Write Transfer by Stop At Block Gap Request",
+      "spec_page": 135,
+      "definition_page": 146,
+      "referenced_on_pages": [
+        146
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram depicting DAT line control signals during write transfer pause at block gap with interrupt sequencing."
+    },
+    {
+      "id": "FIG_3_31",
+      "spec_reference": "Figure 3-31",
+      "title": "Stop At Block Gap Request is Not Accepted at the Last Block of the Write Transfer",
+      "spec_page": 136,
+      "definition_page": 147,
+      "referenced_on_pages": [
+        147
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram: Stop At Block Gap Request rejected during last write block; Transfer Complete interrupt generated wit..."
+    },
+    {
+      "id": "FIG_3_32",
+      "spec_reference": "Figure 3-32",
+      "title": "Continue Write Transfer by Continue Request",
+      "spec_page": 136,
+      "definition_page": 147,
+      "referenced_on_pages": [
+        147
+      ],
+      "reference_count": 1,
+      "content": [],
+      "transcription": {
+        "status": "NOT_STARTED",
+        "text_file": "",
+        "image_file": "",
+        "format": "",
+        "validated": false,
+        "validation_notes": ""
+      },
+      "abstract": "Timing diagram of Continue Request resuming a stopped write transfer, showing DAT line activity, status flags, and in..."
+    }
+  ]
+}

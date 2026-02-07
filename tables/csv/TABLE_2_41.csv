@@ -1,0 +1,9 @@
+Offset,Preset Value Registers,Signal Voltage
+060h,Preset Value for Initialization,3.3V or 1.8V
+062h,Preset Value for Default Speed,3.3V
+064h,Preset Value for High Speed,3.3V
+066h,Preset Value for SDR12,1.8V
+068h,Preset Value for SDR25,1.8V
+06Ah,Preset Value for SDR50,1.8V
+06Ch,Preset Value for SDR104,1.8V
+06Eh,Preset Value for DDR50,1.8V

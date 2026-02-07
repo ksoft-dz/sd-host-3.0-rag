@@ -1,0 +1,78 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Arial
+skinparam defaultFontSize 10
+
+title Host Control 2 Register (Offset 03Eh)
+
+map "Host Control 2 Register" as reg {
+  D15 => Preset Value Enable
+  D14 => Asynchronous Interrupt Enable
+  D13-D08 => Reserved
+  D07 => Sampling Clock Select
+  D06 => Execute Tuning
+  D05-D04 => Driver Strength Select
+  D03 => 1.8V Signaling Enable
+  D02-D00 => UHS Mode Select
+}
+
+note bottom of reg
+  <b>Figure 2-28 : Host Control 2 Register</b>
+end note
+
+package "Register Field Details" {
+  
+  object "Location 15 (RW)" as loc15 {
+    <b>Preset Value Enable</b>
+    --
+    Host Controller Version 3.00 supports this bit.
+    As the operating SDCLK frequency and I/O driver
+    strength depend on the Host System implementation,
+    it is difficult to determine these parameters in
+    the Standard Host Driver. When Preset Value Enable
+    is set, automatic SDCLK frequency generation and
+    driver strength selection is performed without
+    considering system specific conditions.
+    --
+    1 = Automatic Selection by Preset Value are Enabled
+    0 = SDCLK and Driver Strength are controlled by Host Driver
+    --
+    If bit=0: SDCLK Frequency Select, Clock Generator Select
+    in Clock Control register and Driver Strength Select
+    in Host Control 2 register are set by Host Driver.
+    --
+    If bit=1: SDCLK Frequency Select, Clock Generator Select
+    in Clock Control register and Driver Strength Select
+    in Host Control 2 register are set by Host Controller
+    as specified in the Preset Value registers.
+  }
+  
+  object "Location 14 (RW)" as loc14 {
+    <b>Asynchronous Interrupt Enable</b>
+    --
+    This bit can be set to 1 if a card supports
+    asynchronous interrupts and Asynchronous Interrupt
+    Support is set to 1 in the Capabilities register.
+    Asynchronous interrupt is effective when DAT[1]
+    interrupt is used in 4-bit SD mode (and zero is
+    set to Interrupt Pin Select in the Shared Bus
+    Control register). If this bit is set to 1, the
+    Host Driver can stop the SDCLK during asynchronous
+    interrupt period to save power. During this period,
+    the Host Controller continues to deliver the Card
+    Interrupt to the host when it is asserted by the Card.
+    --
+    1 = Enabled
+    0 = Disabled
+  }
+  
+  object "Location 13-08 (Rsvd)" as loc1308 {
+    <b>Reserved</b>
+  }
+  
+}
+
+loc15 -[hidden]down- loc14
+loc14 -[hidden]down- loc1308
+
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+'SD Host Controller Card Detect State Diagram
+
+state "Reset" as Reset
+state "Debouncing" as Debouncing
+state "Card\nInserted" as CardInserted
+state "No Card" as NoCard
+
+[*] --> Reset : Power On
+
+Reset --> Debouncing : Once debouncing\nclock becomes valid
+
+Debouncing --> CardInserted : SDCD#=1\nStable
+Debouncing --> NoCard : SDCD#=0\nStable
+
+CardInserted --> Debouncing
+NoCard --> Debouncing
+
+note right of Reset
+  Host Controller starts in "Reset" 
+  state at power on
+end note
+
+note bottom of Debouncing
+  If card is removed while in 
+  "Card Inserted" state, it will 
+  immediately change to 
+  "Debouncing" state
+end note
+
+@enduml

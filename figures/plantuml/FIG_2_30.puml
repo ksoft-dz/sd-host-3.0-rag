@@ -1,0 +1,54 @@
+@startuml
+skinparam monochrome true
+
+title Capabilities Register (Offset 040h)
+
+note as N1
+**Register Bit Layout (D63-D32)**
+|= D63-D56 |= D55 |= D48 |= D47-D46 |= D45 |= D44 |= D43-D40 |= D39 |= D38 |= D37 |= D36 |= D35 |= D34 |= D33 |= D32 |
+| Rsvd | Clock Multiplier || Re-Tuning Modes | Use Tuning for SDR50 | Rsvd | Timer Count for Re-Tuning | Rsvd | Driver Type D Support | Driver Type C Support | Driver Type A Support | Rsvd | DDR50 Support | SDR104 Support | SDR50 Support |
+end note
+
+note as N2
+**Register Bit Layout (D31-D00)**
+|= D31 |= D30 |= D29 |= D28 |= D27 |= D26 |= D25 |= D24 |= D23 |= D22 |= D21 |= D20 |= D19 |= D18 |= D17-16 |= D15-D08 |= D07 |= D06 |= D05-D00 |
+| Slot Type || Asynchronous Interrupt Support | 64-bit System Bus Support | Rsvd | Voltage Support 1.8V | Voltage Support 3.0V | Voltage Support 3.3V | Suspend/Resume Support | SDMA Support | High Speed Support | Rsvd | ADMA2 Support | 8-bit Support for Embedded Device | Max Block Length | Base Clock Frequency For SD Clock | Timeout Clock Unit | Rsvd | Timeout Clock Frequency |
+end note
+
+note as N3
+**Register Field Explanation Table**
+|= Location |= Attrib |= Register Field Explanation |
+| 63-56 | Rsvd | Reserved |
+| 55-48 | HwInit | Clock Multiplier |
+| 47-46 | HwInit | Re-Tuning Modes |
+end note
+
+note as N4
+**Clock Multiplier (Bits 55-48)**
+This field indicates clock multiplier value of programmable clock generator.
+Refer to Clock Control register. Setting 00h means that Host Controller
+does not support programmable clock generator.
+
+|= Value |= Description |
+| 00h | Clock Multiplier is Not Supported |
+| 01h | Clock Multiplier M = 2 |
+| 02h | Clock Multiplier M = 3 |
+| ... | ... |
+| FFh | Clock Multiplier M = 256 |
+end note
+
+note as N5
+**Re-Tuning Modes (Bits 47-46)**
+This field selects re-tuning method and limits the maximum data length.
+
+|= Bit47-46 |= Re-Tuning Mode |= Re-Tuning Method |= Data Length |
+| 00b | Mode 1 | Timer | 4MB (Max.) |
+| 01b | Mode 2 | Timer and Re-Tuning Request | 4MB (Max.) |
+| 10b | Mode 3 | Auto Re-Tuning (for transfer) Timer and Re-Tuning Request | Any |
+| 11b | Reserved | | |
+
+There are two re-tuning timings: **Re-Tuning Request** controlled by the
+Host Controller and expiration of a Re-Tuning Timer controlled by the Host
+end note
+
+@enduml

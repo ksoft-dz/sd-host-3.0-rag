@@ -1,0 +1,63 @@
+{
+  "metadata_version": "1.0.0",
+  "spec_info": {
+    "name": "Specification Name",
+    "version": "1.0",
+    "date": "",
+    "source_file": "source_spec.pdf",
+    "total_pages": 0
+  },
+  "extraction_info": {
+    "extracted_date": "",
+    "extractor_version": "1.0.0",
+    "sources": {
+      "tables": "tables/tables_page_map.json",
+      "figures": "figures/figures_page_map.json",
+      "sections": "spec/sections.json"
+    },
+    "validation_status": "DRAFT",
+    "statistics": {
+      "total_nodes": 0,
+      "by_type": {
+        "TABLE": 0,
+        "FIGURE": 0,
+        "SPEC_CHUNK": 0
+      },
+      "total_relations": 0
+    }
+  },
+  "nodes": [
+    {
+      "_comment": "TEMPLATE - Nodes from all sources merged here",
+      "id": "NODE_ID",
+      "type": "TABLE|FIGURE|SPEC_CHUNK",
+      "name": "Human-readable name",
+      "description": "LLM-generated abstract/summary",
+      "index_keywords": ["keyword1", "keyword2"],
+      "source": {
+        "page": 1,
+        "pdf_page": 12,
+        "spec_reference": "Table 1-1"
+      },
+      "coverage": {
+        "status": "NOT_IMPLEMENTED",
+        "notes": "",
+        "implemented_in": ""
+      },
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    }
+  ],
+  "relations": [
+    {
+      "_comment": "TEMPLATE - Relations between nodes",
+      "id": "REL_0001",
+      "type": "REFERENCES|CONTAINS|DESCRIBES|SEQUENCE_NEXT|CHILD_OF",
+      "source_node": "SEC_1",
+      "target_node": "FIG_1_1",
+      "description": "Section 1 references Figure 1-1",
+      "bidirectional": false
+    }
+  ]
+}

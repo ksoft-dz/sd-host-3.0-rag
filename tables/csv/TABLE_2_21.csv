@@ -1,0 +1,9 @@
+Location,Attrib,Register Field Explanation
+07-04,Rsvd,"Reserved"
+03-00,RW,"Data Timeout Counter Value.
+Defines interval for DAT line timeout detection by dividing base clock TMCLK.
+1111b=Reserved
+1110b=TMCLK x 2^27
+...
+0001b=TMCLK x 2^14
+0000b=TMCLK x 2^13"

@@ -1,0 +1,46 @@
+@startuml
+title Figure 2-29 : Sampling Clock Tuning Procedure
+
+skinparam backgroundColor white
+skinparam state {
+  BackgroundColor<<start>> LightBlue
+  BackgroundColor<<action>> White
+  BackgroundColor<<decision>> White
+  BackgroundColor<<success>> LightGreen
+  BackgroundColor<<failure>> Pink
+  BackgroundColor<<error>> Plum
+  BackgroundColor<<reset>> LightBlue
+}
+
+state "Tuning Procedure" as TuningProcedure <<start>>
+state "Tuning Error Recovery" as TuningErrorRecovery <<error>>
+
+state "Start of Tuning\nSet Execute Tuning = 1" as StartTuning <<start>>
+state "Reset Tuning Circuit\nSet Sampling Clock Select = 0" as ResetTuning <<reset>>
+
+state "Issue CMD19" as IssueCMD19 <<action>>
+state "Wait until\nBuffer Read Ready" as WaitBuffer <<action>>
+state "Clear Buffer Read Ready" as ClearBuffer <<action>>
+state "Check\nExecute Tuning" as CheckExecuteTuning <<decision>>
+state "Check\nSampling Clock Select" as CheckSamplingClock <<decision>>
+
+state "Tuning Completed" as TuningCompleted <<success>>
+state "Tuning Failed" as TuningFailed <<failure>>
+
+TuningProcedure --> StartTuning
+TuningErrorRecovery --> ResetTuning
+
+StartTuning --> IssueCMD19
+ResetTuning --> IssueCMD19
+
+IssueCMD19 --> WaitBuffer
+WaitBuffer --> ClearBuffer
+ClearBuffer --> CheckExecuteTuning
+
+CheckExecuteTuning --> IssueCMD19 : = 1
+CheckExecuteTuning --> CheckSamplingClock : = 0
+
+CheckSamplingClock --> TuningCompleted : = 1
+CheckSamplingClock --> TuningFailed : = 0
+
+@enduml

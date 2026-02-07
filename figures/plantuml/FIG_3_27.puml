@@ -1,0 +1,52 @@
+@startuml
+title Figure 3-27 : Wait Read Transfer by Stop At Block Gap Request
+
+robust "DAT line" as DAT
+robust "Read Wait" as RW
+robust "Stop At Block Gap Request (Control)" as SABGR
+robust "Continue Request (Control)" as CR
+robust "DAT Line Active (Status)" as DLA
+robust "Read Transfer Active (Status)" as RTA
+concise "Block Gap Event (Interrupt)" as BGE
+concise "Transfer Complete (Interrupt)" as TC
+
+scale 1 as 60 pixels
+
+@0
+DAT is Data
+RW is low
+SABGR is low
+CR is low
+DLA is high
+RTA is high
+BGE is low
+TC is low
+
+@3
+SABGR is high
+
+@5
+DAT is "Not last block"
+
+@7
+RW is high
+
+@12
+DAT is idle
+DLA is low
+
+@14
+BGE is high
+
+@15
+BGE is low
+RTA is low
+
+@16
+TC is high
+
+@17
+TC is low
+SABGR is low
+
+@enduml

@@ -1,0 +1,54 @@
+Location,Attrib,Register Field Explanation
+15-12,RW,"Vendor Specific Error Status Enable
+
+1  Enabled
+0  Masked"
+
+11,Rsvd,"Reserved"
+
+10,RW,"Tuning Error Status Enable
+
+1  Enabled
+0  Masked"
+
+09,RW,"ADMA Error Status Enable
+
+1  Enabled
+0  Masked"
+
+08,RW,"Auto CMD Error Status Enable
+
+1  Enabled
+0  Masked"
+
+07,RW,"Current Limit Error Status Enable
+
+1  Enabled
+0  Masked"
+
+06,RW,"Data End Bit Error Status Enable
+
+1  Enabled
+0  Masked"
+
+05,RW,"Data CRC Error Status Enable
+
+1  Enabled
+0  Masked"
+
+04,RW,"Data Timeout Error Status Enable
+
+1  Enabled
+0  Masked"
+
+03,RW,"Command Index Error Status Enable
+
+1  Enabled
+0  Masked"
+
+02,RW,Command End Bit Error Status Enable,1,Enabled
+,,,0,Masked
+01,RW,Command CRC Error Status Enable,1,Enabled
+,,,0,Masked
+00,RW,Command Timeout Error Status Enable,1,Enabled
+,,,0,Masked

@@ -1,0 +1,9 @@
+Location,Attrib,Register Field Explanation
+63-56,Rsvd,Reserved
+55-48,Rsvd,Reserved
+47-40,Rsvd,Reserved
+39-32,Rsvd,Reserved
+31-24,Rsvd,Reserved
+23-16,HwInit,Maximum Current for 1.8V
+15-08,HwInit,Maximum Current for 3.0V
+07-00,HwInit,Maximum Current for 3.3V

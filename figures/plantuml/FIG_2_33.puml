@@ -1,0 +1,35 @@
+@startuml
+skinparam monochrome true
+
+title Force Event Register for Error Interrupt Status (Offset 052h)
+
+note as N1
+**Register Bit Layout (D15-D00)**
+|= D15-D12 |= D11-D10 |= D09 |= D08 |= D07 |= D06 |= D05 |= D04 |= D03 |= D02 |= D01 |= D00 |
+| Force Event for Vendor Specific Error Status | Rsvd | Force Event for ADMA Error | Force Event for Auto CMD Error | Force Event for Current limit Error | Force Event for Data End Bit Error | Force Event for Data CRC Error | Force Event for Data Timeout Error | Force Event for Command Index Error | Force Event for Command End Bit Error | Force Event for Command CRC Error | Force Event for Command Timeout Error |
+end note
+
+|= Location |= Attrib |= Register Field Explanation |
+| 15-12 | WO | **Force Event for Vendor Specific Error Status**\nAdditional status bits can be defined in this register by the vendor.\n1 = Interrupt is generated\n0 = No Interrupt |
+| 11-10 | Rsvd | **Reserved** |
+| 09 | WO | **Force Event for ADMA Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 08 | WO | **Force Event for Auto CMD Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 07 | WO | **Force Event for Current Limit Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 06 | WO | **Force Event for Data End Bit Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 05 | WO | **Force Event for Data CRC Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 04 | WO | **Force Event for Data Timeout Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 03 | WO | **Force Event for Command Index Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 02 | WO | **Force Event for Command End Bit Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 01 | WO | **Force Event for Command CRC Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+| 00 | WO | **Force Event for Command Timeout Error**\n1 = Interrupt is generated\n0 = No Interrupt |
+
+note as N2
+**Register Behavior:**
+- This is not a physically implemented register
+- Writing to this address is reflected in Error Interrupt Status Register
+- Writing 1: Sets corresponding bit in Error Interrupt Status Register
+- Writing 0: No effect
+- Both Error Interrupt Status Enable and Error Interrupt Signal Enable must be set to generate interrupt
+end note
+
+@enduml
