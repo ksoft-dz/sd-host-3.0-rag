@@ -1,0 +1,37 @@
+@startuml
+start
+
+:Set Power-On Write Protection;
+
+:Set US_PERM_WP_DIS;
+
+:Read USER_WP;
+
+if (Is\nUS_PWR_WP_DI\nS = 0?) then (no)
+  :Return (Power-On\nProtection cannot be set)|
+  stop
+else (yes)
+endif
+
+:Set US_PWR_WP_EN;
+
+:SET_WR_PROT;
+
+if (Response OK?) then (no)
+  :return (Error condition)|
+  stop
+else (yes)
+endif
+
+:SEND_WR_PROTECT_TYPE;
+
+if (Response="10"\n?) then (no)
+  :Return (Power-On Write\nProtection not set)|
+  stop
+else (yes)
+endif
+
+:Return;
+
+stop
+@enduml

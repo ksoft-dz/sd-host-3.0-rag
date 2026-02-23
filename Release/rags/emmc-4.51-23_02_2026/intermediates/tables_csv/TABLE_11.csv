@@ -1,0 +1,5 @@
+I don't see a table titled "Erase command (CMD38) Valid arguments" or "Table 11" in this image. The image shows page 53 of a JEDEC Standard document (No. 84-B451) that contains text about device error handling, write operations, and erase functions (section 6.6.11 Erase), but there is no visible table on this page.
+
+The text discusses erase command functionality and mentions CMD38 in the context of erase operations, but the actual table with valid arguments for the erase command appears to be on a different page.
+
+If you could provide the page that contains the actual table, I would be happy to extract it as CSV format.

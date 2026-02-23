@@ -1,0 +1,6 @@
+Value,Timeout Values
+0x00,No support for high-capacity erase timeout
+0x01,300ms × 1 = 300ms
+0x02,300ms × 2 = 600ms
+:,:
+0xFF,300ms × 255 = 76,500ms

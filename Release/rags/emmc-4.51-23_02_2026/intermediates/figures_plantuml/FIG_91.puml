@@ -1,0 +1,48 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+}
+
+title Heat Removal - Nomenclatures
+
+' Temperature labels on the right side
+note right
+  T<sub>c</sub>: package case temperature
+  T<sub>J</sub>: junction temperature
+  q<sub>JC</sub>: thermal resistance between junction & package case
+end note
+
+' Main package structure
+rectangle "Heat removal path" as HeatPath {
+}
+
+rectangle "Mold compound" as Mold #LightGray {
+    rectangle "Controller*" as Controller #Cyan
+    rectangle "NAND" as NAND #Cyan
+}
+
+rectangle "Die attach material" as DieAttach #Orange
+
+rectangle "substrate" as Substrate #Green
+
+' Solder balls at bottom
+collections "Solder Balls" as Balls #Orange
+
+' Heat flow arrows (shown as red arrows going upward and downward)
+HeatPath -[#red,bold]-> Mold : heat flow
+Mold -[#red,bold]-> Controller
+Controller -[#red,bold]-> NAND
+NAND -[#red,bold]-> DieAttach
+DieAttach -[#red,bold]-> Substrate
+Substrate -[#red,bold]-> Balls
+
+' Temperature measurement points
+note right of Mold
+  T<sub>J</sub>
+end note
+
+note top of HeatPath
+  T<sub>c</sub>
+end note
+
+@enduml

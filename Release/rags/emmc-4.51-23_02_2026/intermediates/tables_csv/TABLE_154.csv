@@ -1,0 +1,5 @@
+Value,Name,Description
+0x00,NO_POWER_NOTIFICATION,"Power off notification is not supported by host, device shall not assume any notification"
+0x01,POWERED_ON,"Host shall notify before powering off the device, and keep power supplies alive and active until then"
+0x02,POWER_OFF_SHORT,"Host is going to power off the device, The device shall respond within GENERIC_CMD_6_TIME."
+0x03,POWER_OFF_LONG,"Host is going to power off the device The device shall respond within POWER_OFF_LONG_TIME."

@@ -1,0 +1,60 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0" as DAT0
+robust "DAT1-7" as DAT1_7
+
+concise "Host Command" as HC
+concise "Card Is Busy" as BUSY
+
+@0
+CMD is {S,T}
+DAT0 is Z
+DAT1_7 is Z
+
+@1
+CMD is Content
+
+@2
+CMD is {CRC,E}
+
+@3
+CMD is Z
+note bottom: N_ST\n→
+
+@4
+CMD is Z
+
+@5
+CMD is Z
+
+@6
+CMD is Z
+
+@7
+CMD is "* * * * * * * * * * * * * * * * * * * *"
+DAT0 is {S,L}
+DAT1_7 is X
+
+@8
+DAT0 is "* * * * * * * * * * * * * * * * * * * * * * *"
+DAT1_7 is "* * * * * * * * * * * * * * * * * * * * * * *"
+
+@9
+CMD is Z
+
+@10
+CMD is Z
+
+@11
+CMD is Z
+
+@12
+CMD is Z
+DAT0 is E
+DAT1_7 is X
+
+@13
+DAT0 is Z
+DAT1_7 is Z
+
+@enduml

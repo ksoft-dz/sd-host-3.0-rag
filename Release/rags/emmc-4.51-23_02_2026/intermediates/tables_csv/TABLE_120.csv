@@ -1,0 +1,8 @@
+Value,Bus Mode
+255–7,Reserved
+6,8 bit data bus (dual data rate)
+5,4 bit data bus (dual data rate)
+4–3,Reserved
+2,8 bit data bus
+1,4 bit data bus
+0,1 bit data bus

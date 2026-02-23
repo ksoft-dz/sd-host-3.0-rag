@@ -1,0 +1,37 @@
+@startuml
+skinparam rectangleRoundCorner 15
+skinparam backgroundColor white
+
+package "MultiMediaCard" {
+    package "Write Protect Group 0" {
+        package "Erase Group 0" {
+            rectangle "Write Block 0" as WB0
+            rectangle "Write Block 1" as WB1
+            rectangle "Write Block 2" as WB2
+            rectangle "Write Block 3" as WB3
+            rectangle "Write Block n" as WBn
+        }
+        
+        package "Erase Group 1" {
+        }
+        
+        package "Erase Group 2" {
+        }
+        
+        package "Erase Group 3" {
+        }
+        
+        package "Erase Group n" {
+        }
+    }
+    
+    package "Write Protect Group 1" {
+    }
+    
+    package "Write Protect Group 2" {
+    }
+    
+    package "Write Protect Group n" {
+    }
+}
+@enduml

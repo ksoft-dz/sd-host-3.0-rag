@@ -1,0 +1,55 @@
+@startuml
+skinparam rectangleBackgroundColor white
+
+' CLK path
+rectangle "Internal card clock" as clk_in
+triangle "CLK Buffer" as clk_buf
+rectangle "CLK\npad" as clk_pad
+
+' DAT path
+rectangle "Drive DAT pin" as drive_dat
+rectangle "DAT out" as dat_out
+triangle "DAT Output Buffer" as dat_out_buf
+rectangle "DAT line in" as dat_line_in
+triangle "DAT Input Buffer" as dat_in_buf
+rectangle "Bus mode" as bus_mode
+rectangle "DAT\npad" as dat_pad
+
+' CMD path
+rectangle "CMD line out" as cmd_line_out
+triangle "CMD Output Buffer" as cmd_out_buf
+rectangle "Drive CMD pin" as drive_cmd
+rectangle "CMD line in" as cmd_line_in
+triangle "CMD Input Buffer" as cmd_in_buf
+rectangle "CMD\npad" as cmd_pad
+
+' Driver Stage Register
+rectangle "Driver Stage\nRegister" as driver_reg
+
+' CLK connections
+clk_in --> clk_buf
+clk_buf --> clk_pad
+
+' DAT connections
+drive_dat --> dat_out_buf
+dat_out --> dat_out_buf
+dat_out_buf --> dat_pad
+dat_pad --> dat_in_buf
+dat_in_buf --> dat_line_in
+bus_mode --> dat_out_buf
+
+' CMD connections
+cmd_line_out --> cmd_out_buf
+cmd_out_buf --> cmd_pad
+drive_cmd --> cmd_pad
+cmd_pad --> cmd_in_buf
+cmd_in_buf --> cmd_line_in
+
+' Driver register connections
+driver_reg --> clk_buf
+driver_reg --> dat_out_buf
+driver_reg --> dat_in_buf
+driver_reg --> cmd_out_buf
+driver_reg --> cmd_in_buf
+
+@enduml

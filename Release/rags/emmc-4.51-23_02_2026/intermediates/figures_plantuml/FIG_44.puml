@@ -1,0 +1,130 @@
+@startuml
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT17
+
+scale 1 as 30 pixels
+
+@0
+CMD is "S"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@1
+CMD is "T"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@2
+CMD is "Content"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@5
+CMD is "CRC"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@6
+CMD is "E"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@7
+CMD is "Z"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@8
+CMD is "Z"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@9
+CMD is "P"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@10
+CMD is "*"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@14
+CMD is "P"
+DAT0 is "S"
+DAT17 is "X"
+
+@15
+CMD is "S"
+DAT0 is "L"
+DAT17 is "X"
+
+@16
+CMD is "T"
+DAT0 is "{-}"
+DAT17 is "{-}"
+
+note bottom of DAT0 : Device is programming
+
+@20
+CMD is "Content"
+
+@24
+CMD is "CRC"
+
+@25
+CMD is "E"
+
+@26
+CMD is "Z"
+DAT0 is "L"
+DAT17 is "X"
+
+@27
+CMD is "Z"
+DAT0 is "E"
+DAT17 is "X"
+
+@28
+CMD is "P"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@29
+CMD is "P"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@30
+CMD is "P"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@31
+CMD is "P"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@32
+CMD is "S"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@33
+CMD is "T"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@34
+CMD is "Content"
+DAT0 is "Z"
+DAT17 is "Z"
+
+highlight 0 to 6 #LightBlue : Host Command
+highlight 9 to 14 #LightBlue : N_CR Cycles
+highlight 14 to 27 #Pink : Device response
+highlight 27 to 31 #LightGray : <N_SB-C>
+highlight 32 to 38 #LightBlue : Host Cmnd
+
+@enduml

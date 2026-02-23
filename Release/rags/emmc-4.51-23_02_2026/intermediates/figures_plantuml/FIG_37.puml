@@ -1,0 +1,121 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0-7" as DAT
+
+@0
+CMD is "S"
+@1
+CMD is "T"
+@2
+CMD is "Content"
+@6
+CMD is "CRC"
+@7
+CMD is "E"
+@8
+CMD is "Z"
+@9
+CMD is "Z"
+@10
+CMD is "P"
+@11
+CMD is "**"
+@13
+CMD is "P"
+@14
+CMD is "S"
+@15
+CMD is "T"
+@16
+CMD is "Content"
+@20
+CMD is "CRC"
+@21
+CMD is "E"
+@22
+CMD is "Z"
+@23
+CMD is "Z"
+@24
+CMD is "P"
+@25
+CMD is "P"
+@26
+CMD is "******"
+@32
+CMD is "P"
+@33
+CMD is "P"
+@34
+CMD is "P"
+@35
+CMD is "P"
+@36
+CMD is "P"
+@37
+CMD is "P"
+
+@0
+DAT is "Z"
+@1
+DAT is "Z"
+@2
+DAT is "Z"
+@3
+DAT is "*****"
+@8
+DAT is "Z"
+@9
+DAT is "Z"
+@10
+DAT is "Z"
+@11
+DAT is "Z"
+@12
+DAT is "P"
+@13
+DAT is "*******"
+@20
+DAT is "P"
+@21
+DAT is "S"
+@22
+DAT is "D"
+@23
+DAT is "D"
+@24
+DAT is "D"
+@25
+DAT is "***"
+@28
+DAT is "*"
+@29
+DAT is "D"
+@30
+DAT is "E"
+@31
+DAT is "P"
+@32
+DAT is "******"
+@38
+DAT is "P"
+@39
+DAT is "S"
+@40
+DAT is "D"
+@41
+DAT is "D"
+@42
+DAT is "D"
+@43
+DAT is "D"
+
+note top of CMD
+  Host Command | N_CR cycles | Response
+end note
+
+note bottom of DAT
+  N_AC cycles | Read Data | N_AC cycles | Read Data
+end note
+
+@enduml

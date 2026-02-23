@@ -1,0 +1,5 @@
+Bit,Access,Field Name,Description
+0,R,HS_CTRL_REL,Host controlled data reliability
+1,R,Reserved,Reserved
+2,R,EN_REL_WR,Enhanced Reliable Write
+7:3,R,Reserved,Reserved

@@ -1,0 +1,5 @@
+Byte,Field Name
+0,Version of Structure - Shall be set to 0x01
+1,RTC_INFO_TYPE
+2-9,SECONDS_PASSED
+10-511,Reserved (shall be set to all '0')

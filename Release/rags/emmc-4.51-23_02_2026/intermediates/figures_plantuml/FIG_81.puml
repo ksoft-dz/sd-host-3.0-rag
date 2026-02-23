@@ -1,0 +1,41 @@
+@startuml
+title Figure 80 — CIM_TRIM
+
+start
+:TRIM;
+
+:ERASE_START;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:ERASE_END;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:ERASE\n(Arg.=0x00000001);
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:SEND_STATUS;
+
+if (More Write Block?) then (yes)
+  -> back to ERASE_START;
+  detach
+else (no)
+  :Return;
+  stop
+endif
+
+@enduml

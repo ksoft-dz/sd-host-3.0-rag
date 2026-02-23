@@ -1,0 +1,55 @@
+@startuml
+skinparam monochrome true
+
+title Figure 27 — Tuning block pattern for 8 bit mode
+
+map "DAT[7] (Row 1)" as DAT7_1 {
+  Byte #1 => F
+  Byte #2 => F
+  Byte #3 => 0
+  Byte #4 => F
+  Byte #5 => F
+  Byte #6 => F
+  Byte #7 => 0
+  Byte #8 => 0
+  Byte #9 => F
+  Byte #10 => F
+  Byte #11 => C
+  Byte #12 => C
+  Byte #13 => C
+  Byte #14 => 3
+  Byte #15 => C
+  Byte #16 => C
+}
+
+map "DAT[6] (Row 1)" as DAT6_1 {
+  Byte #1 => F
+  Byte #2 => F
+  Byte #3 => 0
+  Byte #4 => F
+  Byte #5 => F
+  Byte #6 => F
+  Byte #7 => 0
+  Byte #8 => 0
+  Byte #9 => F
+  Byte #10 => F
+  Byte #11 => C
+  Byte #12 => C
+  Byte #13 => C
+  Byte #14 => 3
+  Byte #15 => C
+  Byte #16 => C
+}
+
+note bottom
+  Pattern continues for bytes #17-#32 with values:
+  C, 3, 3, C, C, C, F, F, F, E, F, F, F, E, E, F
+  
+  Each data line (DAT[7:0]) contains 128 bytes total
+  organized in 4 rows of 32 bytes each.
+  
+  The pattern creates worst-case signal integrity 
+  conditions for tuning calibration.
+end note
+
+@enduml

@@ -1,0 +1,6 @@
+Value,Value definition
+0x00,No support for high-capacity erase-unit size
+0x01,512Kbyte × 1 = 524,288 bytes
+0x02,"512Kbyte × 2 = 1,048,576 bytes"
+:,:
+0xFF,"512Kbyte × 255 = 133,693,440 bytes"

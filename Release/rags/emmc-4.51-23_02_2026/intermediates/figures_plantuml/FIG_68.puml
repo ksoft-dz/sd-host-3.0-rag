@@ -1,0 +1,73 @@
+@startuml
+title Figure 68 — Timing diagram: data input/output in dual data rate mode
+
+clock "CLK" as clk with period 1
+
+concise "Input" as input
+concise "Output" as output
+
+@0
+input is DATA
+output is I
+
+@0.25
+input is DATA
+
+@0.5
+input is DATA
+
+@0.75
+input is DATA
+
+@1
+input is DATA
+
+@1.25
+input is DATA
+
+@1.5
+input is DATA
+
+@1.75
+input is Invalid
+
+@0.1
+output is DATA
+
+@0.6
+output is DATA
+
+@1.1
+output is DATA
+
+note top of clk
+  tPP (clock period)
+end note
+
+note bottom of input
+  tISUddr = Input setup time (DDR)
+  tIHddr = Input hold time (DDR)
+  Data sampled on both edges of clock
+  (not applicable for CMD line)
+end note
+
+note bottom of output
+  tODLYddr(min) = Output delay minimum (DDR)
+  tODLYddr(max) = Output delay maximum (DDR)
+end note
+
+note right of clk
+  min (VIH)
+  max (VIL)
+end note
+
+note right of input
+  min (VIH)
+  max (VIL)
+end note
+
+note right of output
+  min (VOH)
+  max (VOL)
+end note
+@enduml

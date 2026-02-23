@@ -1,0 +1,84 @@
+@startuml
+scale 1 as 50 pixels
+
+clock "CLK" as CLK with period 1
+
+robust "CMD" as CMD
+robust "DAT[0]" as DAT
+
+@0
+CMD is low
+DAT is low
+
+@3
+DAT is "S"
+
+@4
+DAT is "010"
+
+@6
+DAT is "E"
+
+@8
+DAT is low
+
+@10
+DAT is "S"
+
+@11
+DAT is "512bytes\n+CRC"
+
+@14
+DAT is "E"
+
+@16
+DAT is low
+
+@18
+DAT is "S"
+
+@20
+DAT is "512bytes\n+CRC"
+
+@23
+DAT is "E"
+
+@25
+DAT is low
+
+@27
+note bottom of DAT : Boot terminated
+
+@35
+CMD is "CMD1"
+
+@38
+CMD is "RESP"
+
+@41
+CMD is "CMD2"
+
+@44
+CMD is "RESP"
+
+@47
+CMD is "CMD3"
+
+@50
+CMD is "RESP"
+
+@0
+note bottom of DAT
+  50ms
+  max
+  ----
+  1 sec. max
+end note
+
+@35
+note bottom of CMD
+  Min 8 clocks + 48 clocks = 56 clocks required from
+  CMD signal high to next MMC command.
+end note
+
+@enduml

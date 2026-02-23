@@ -1,0 +1,3 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD42,adtc,[31:0] stuff bits.,R1,LOCK_UNLOCK,"Used to set/reset the password or lock/unlock the Device. The size of the data block is set by the SET_BLOCK_LEN command."
+CMD43 … CMD48,Reserved,,,,

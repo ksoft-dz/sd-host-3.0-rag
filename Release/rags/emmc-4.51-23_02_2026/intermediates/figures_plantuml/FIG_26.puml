@@ -1,0 +1,38 @@
+@startuml
+skinparam monochrome true
+
+title Send Tuning Block Command
+
+' Command packet structure
+map "Command Packet" as cmd {
+  S => 0
+  T => 1
+  Index => 010101
+  Reserved => All 0
+  CRC7 => 1111011
+  E => 1
+}
+
+' Timing diagram representation
+concise "CMD" as CMD
+concise "DAT[0-7] in 8bit mode\nDAT[0-3] in 4 bit mode" as DAT
+
+@0
+CMD is CMD21
+@1
+CMD is R1
+@2
+CMD is {-}
+
+@0
+DAT is {-}
+@1
+DAT is {-}
+@2
+DAT is "Data Block"
+
+note bottom of DAT
+  <-- 146 Clk -->
+end note
+
+@enduml

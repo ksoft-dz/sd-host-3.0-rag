@@ -1,0 +1,36 @@
+Command,idle,ready,ident,stby,tran,data,btst,rcv,prg,dis,ina,slp,irq
+Class Independent,,,,,,,,,,,,,
+CRC error,-,-,-,-,-,-,-,-,-,-,-,-,stby
+command not supported,-,-,-,-,-,-,-,-,-,-,-,-,stby
+Class 0,,,,,,,,,,,,,
+CMD0 (arg=0x00000000),idle,idle,idle,idle,idle,idle,idle,idle,idle,idle,-,idle,stby
+CMD0 (arg=0xF0F0F0F0),Pre-idle,Pre-idle,Pre-idle,Pre-idle,Pre-idle,Pre-idle,Pre-idle,Pre-idle,Pre-idle,-,Pre-idle,stby
+CMD1, Device VDD range compatible,ready,-,-,-,-,-,-,-,-,-,-,-,stby
+CMD1, Device is busy,idle,-,-,-,-,-,-,-,-,-,-,-,stby
+CMD1, Device VDD range not compatible,ina,-,-,-,-,-,-,-,-,-,-,-,stby
+CMD2, Device wins bus,-,ident,-,-,-,-,-,-,-,-,-,-,stby
+Class 0 (continued),,,,,,,,,,,,,
+CMD2, Device loses bus,-,ready,-,-,-,-,-,-,-,-,-,-,stby
+CMD3,-,-,stby,-,-,-,-,-,-,-,-,-,stby
+CMD4,-,-,-,stby,-,-,-,-,-,-,-,-,stby
+CMD5,-,-,-,slp,,,,,,,,,stby,stby
+CMD6,-,-,-,-,prg,-,-,-,-,-,-,-,stby
+CMD7, Device is addressed,-,-,-,tran,-,-,-,-,-,prg,-,-,stby
+CMD7, Device is not addressed,-,-,-,-,stby,stby,-,-,dis,-,-,-,stby
+CMD8,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD9,-,-,-,stby,-,-,-,-,-,-,-,-,stby
+CMD10,-,-,-,stby,-,-,-,-,-,-,-,-,stby
+"CMD12, arg[0] = 0",-,-,-,-,-,tran,-,prg,-,-,-,-,stby
+"CMD12, arg[0] = 1",-,-,-,-,-,-,-,-,prg,-,-,-,stby
+"CMD13, arg[0] = 0 or 1",-,-,-,stby,tran,data,btst,rcv,prg,dis,-,-,stby
+CMD14,-,-,-,-,-,-,tran,-,-,-,-,-,stby
+CMD15,-,-,-,ina,ina,ina,ina,ina,ina,ina,-,-,stby
+CMD19,-,-,-,-,btst,-,-,-,-,-,-,-,stby
+Class 1,,,,,,,,,,,,,
+CMD11 (obsolete),-,-,-,-,-,-,-,-,-,-,-,-,-
+Class 2,,,,,,,,,,,,,
+CMD16,-,-,-,-,tran,-,-,-,-,-,-,-,stby
+CMD17,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD18,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD21,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD23,-,-,-,-,tran,-,-,-,-,-,-,-,stby

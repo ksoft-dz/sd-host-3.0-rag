@@ -1,0 +1,2 @@
+Bit[15:8],Bit[7],Bit[6:0]
+reserved,Write Counter Status,Operation Result

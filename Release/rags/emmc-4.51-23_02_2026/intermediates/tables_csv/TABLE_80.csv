@@ -1,0 +1,4 @@
+ECC,type,Maximum number of correctable bits per block
+0,None (default),none
+1,"BCH (542, 512)",3
+2–3,reserved,—

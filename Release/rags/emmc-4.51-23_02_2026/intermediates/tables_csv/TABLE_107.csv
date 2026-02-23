@@ -1,0 +1,7 @@
+Value,Timeout Values
+0x00,Not defined
+0x01,100ns × 21 = 200ns
+0x02,100ns × 22 = 400ns
+:,:
+0x17,100ns × 223 = 838.86ms
+0x18–0xFF,Reserved

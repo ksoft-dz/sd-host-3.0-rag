@@ -1,0 +1,7 @@
+Cache On,Packed Commands,Context ID,Data Tag,Reliable Write,Partitions (all),Forced programming
+Ok,Ok,,,,,
+Ok,"Ok, in header (1)",Ok,,,,
+Ok,"Ok, in header (1)",Not valid,Ok,,,
+"If Reliable Write bit is set, cache is bypassed","Ok, in header (1)","Reliable Write bit is ignored if a Context is open",Ok,Ok,,
+"No caching on Boot and RPMB Partitions",Ok,Ok,"Data tag is valid on default memory type only",Ok,Ok,
+"If Force programming bit is set, cache is bypassed (2)","Ok, in header (1)",Ok,Ok,"If Reliable Write bit is set, Forced Programming bit is ignored",Ok,Ok

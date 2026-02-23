@@ -1,0 +1,3 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD20,,,Obsolete,Obsolete,The response to CMD20 will be undefined.
+CMD22,Reserved,,,,

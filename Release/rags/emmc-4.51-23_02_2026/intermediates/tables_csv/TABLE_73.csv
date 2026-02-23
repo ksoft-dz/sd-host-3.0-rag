@@ -1,0 +1,9 @@
+READ_BL_LEN,Block length,Remark
+0,2^0= 1 Byte,
+1,2^1= 2 Bytes,
+...,, 
+11,2^11= 2048 Bytes,
+12,2^12= 4096 Bytes,
+13,2^13= 8192 Bytes,
+14,2^14= 16 kBytes,
+15,2^15= Extension,New register TBD to EXT_CSD

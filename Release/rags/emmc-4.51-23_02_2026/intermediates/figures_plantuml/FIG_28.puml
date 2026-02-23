@@ -1,0 +1,49 @@
+@startuml
+skinparam monochrome true
+
+title Tuning block on DAT[7:0]/DAT[3:0] in 8bit/4bit bus width
+
+map "DAT[0]" as DAT0 {
+  S => 1|1|0|1|1|1|0|0|1|1|0|0|0|1|0|0|...|E946h|E
+}
+
+map "DAT[1]" as DAT1 {
+  S => 1|1|0|1|1|1|0|0|1|1|0|0|0|1|0|0|...|8D06h|E
+}
+
+map "DAT[2]" as DAT2 {
+  S => 1|1|0|1|1|1|0|0|1|1|1|1|1|0|1|1|...|A2E5h|E
+}
+
+map "DAT[3]" as DAT3 {
+  S => 1|1|0|1|1|1|0|0|1|1|1|1|1|0|1|1|...|C59Fh|E
+}
+
+map "DAT[4]" as DAT4 {
+  S => 1|1|0|1|1|1|0|0|1|1|0|0|0|1|0|0|...|E946h|E
+}
+
+map "DAT[5]" as DAT5 {
+  S => 1|1|0|1|1|1|0|0|1|1|0|0|0|1|0|0|...|8D06h|E
+}
+
+map "DAT[6]" as DAT6 {
+  S => 1|1|0|1|1|1|0|0|1|1|1|1|1|0|1|1|...|A2E5h|E
+}
+
+map "DAT[7]" as DAT7 {
+  S => 1|1|0|1|1|1|0|0|1|1|1|1|1|0|1|1|...|C59Fh|E
+}
+
+note as N1
+  **Tuning Pattern**
+  
+  DAT[7:0] combined view:
+  |Byte #1|Byte #2|Byte #3|...|
+  |F|F|0|F|F|F|0|0|F|F|C|C|C|3|C|C|
+  |F|F|0|F|F|F|0|0|F|F|C|C|C|3|C|C|
+  
+  CRC16 Value for each line shown on right
+end note
+
+@enduml

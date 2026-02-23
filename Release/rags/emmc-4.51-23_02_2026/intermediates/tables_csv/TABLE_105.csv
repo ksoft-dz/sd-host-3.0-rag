@@ -1,0 +1,7 @@
+Value,Value definition
+0x00,No support for high-capacity write protect group size
+0x01,1 high-capacity erase unit size
+0x02,2 high-capacity erase unit size
+0x03,3 high-capacity erase unit size
+:,:
+0xFF,255 high-capacity erase unit size

@@ -1,0 +1,5 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD55,ac,"[31:16] RCA [15:0] stuff bits",R1,APP_CMD,"Indicates to the Device that the next command is an application specific command rather than a standard command"
+CMD56,adtc,"[31:1] stuff bits. [0]: RD/WR1",R1,GEN_CMD,"Used either to transfer a data block to the Device or to get a data block from the Device for general purpose / application specific commands. The size of the data block shall be set by the SET_BLOCK_LEN command."
+CMD57 … CMD59,reserved,,,,
+CMD60 … CMD63,reserved for manufacturer,,,,

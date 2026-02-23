@@ -1,0 +1,40 @@
+@startuml
+hide empty description
+
+state "card identification mode" as card_id
+state "data transfer mode" as data_transfer {
+    state "Stand-by State\n(stby)" as stby
+    state "Wait-IRQ State\n(irq)" as irq
+}
+
+state "Interrupt mode" as interrupt_mode
+
+[*] --> card_id
+card_id --> card_id : CMD3
+card_id --> card_id : CMD15
+
+card_id --> data_transfer : from all states except\nSleep state (slp) in\ndata-transfer mode
+
+note right of card_id : CMD0 with arg = 0x00000000\nor arg = 0xF0F0F0F0
+note right of card_id : RESET signal
+
+data_transfer --> card_id : from all states in\ndata-transfer mode
+data_transfer --> data_transfer : from all states except\n(ina)
+
+stby --> stby : CMD4,\n9,10,39
+stby --> irq : CMD40
+
+irq --> stby : '0' sent
+note right of irq : No IRQ from this card, start bit\ndetected on bus.
+
+irq --> irq : Card IRQ event occurred, send response
+
+note bottom of irq : IRQ from this card.\nIf host sends simultaneously it looses\nalready after second bit of response.
+
+state "CMD13" as cmd13
+cmd13 : no state transition\nin data-transfer-mode
+
+data_transfer -[dashed]-> interrupt_mode
+interrupt_mode -[dashed]-> data_transfer : Data transfer mode
+
+@enduml

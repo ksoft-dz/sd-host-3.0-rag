@@ -1,0 +1,7 @@
+Bit,Access,Field Name,Description
+16,R,CID,"Device Identification number, an individual number for identification."
+2,R,RCA,"Relative Device Address, is the Device system address, dynamically assigned by the host during initialization."
+2,R,DSR,"Driver Stage Register, to configure the Device's output drivers."
+16,R,CSD,"Device Specific Data, information about the Device operation conditions."
+4,R,OCR,"Operation Conditions Register. Used by a special broadcast command to identify the voltage type of the Device."
+512,R,EXT_CSD,"Extended Device Specific Data. Contains information about the Device capabilities and selected modes. Introduced in standard v4.0"

@@ -1,0 +1,3 @@
+Parameter,Symbol,Min.,Typ.,Max.,Units,Remark
+Rise/Fall Time,"TR0, TF0",0.40,0.88,1.32,ns,"CL =15pF, Note1"
+Ratio of fall time to rise time,RFR,0.7,1.0,1.4,-,"RFR = TF0 / TR0 , Note2, 3"

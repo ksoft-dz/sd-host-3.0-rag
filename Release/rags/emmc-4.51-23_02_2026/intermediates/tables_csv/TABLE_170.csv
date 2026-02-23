@@ -1,0 +1,4 @@
+Symbol,Min.,Max.,Unit,Remark
+tPERIOD,5,-,ns,"200MHz (Max.), between rising edges"
+"tTLH, tTHL",-,0.2· tPERIOD,ns,"tTLH, tTHL < 1ns (max.) at 200MHz, CBGA=12pF, The absolute maximum value of tTLH, tTHL is 10ns regardless of clock frequency."
+Duty Cycle,30,70,%,

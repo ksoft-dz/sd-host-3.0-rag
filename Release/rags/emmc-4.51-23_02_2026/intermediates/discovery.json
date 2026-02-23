@@ -1,0 +1,5397 @@
+{
+  "pdf_structure": {
+    "pdf_file": "JESD84-B451.pdf",
+    "total_pages": 264,
+    "page_offset": 22,
+    "total_spec_pages": 242,
+    "detected_features": {
+      "tables": {
+        "found": true,
+        "count": 177,
+        "toc_pages": [
+          16,
+          17,
+          18,
+          19
+        ]
+      },
+      "figures": {
+        "found": true,
+        "count": 87,
+        "toc_pages": [
+          14,
+          15
+        ]
+      },
+      "sections": {
+        "found": true,
+        "count": 324,
+        "toc_pages": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      }
+    },
+    "page_offset_validation": {
+      "first_spec_page_text_preview": "JEDEC Standard No. 84-B451 \nPage 1 \n \n \n \nEMBEDDED MULTIMEDIA CARD (e•MMC), ELECTRICAL STANDARD 4.51 \n \n(From JEDEC Board ballot JCB-12-17, formulated under the cognizance of the JC-64.1 Subcommittee ",
+      "looks_like_content_start": false
+    }
+  },
+  "toc": {
+    "sections": [
+      {
+        "section_number": "1",
+        "title": "Scope",
+        "spec_page": 1,
+        "pdf_page": 23,
+        "depth": 1
+      },
+      {
+        "section_number": "2",
+        "title": "Normative reference",
+        "spec_page": 1,
+        "pdf_page": 23,
+        "depth": 1
+      },
+      {
+        "section_number": "3",
+        "title": "Terms and definitions",
+        "spec_page": 1,
+        "pdf_page": 23,
+        "depth": 1
+      },
+      {
+        "section_number": "4",
+        "title": "System Features",
+        "spec_page": 5,
+        "pdf_page": 27,
+        "depth": 1
+      },
+      {
+        "section_number": "5",
+        "title": "e•MMC Device and System",
+        "spec_page": 7,
+        "pdf_page": 29,
+        "depth": 1
+      },
+      {
+        "section_number": "5.1",
+        "title": "e•MMC System Overview",
+        "spec_page": 7,
+        "pdf_page": 29,
+        "depth": 2
+      },
+      {
+        "section_number": "5.2",
+        "title": "Memory Addressing",
+        "spec_page": 7,
+        "pdf_page": 29,
+        "depth": 2
+      },
+      {
+        "section_number": "5.3",
+        "title": "e•MMC Device Overview",
+        "spec_page": 8,
+        "pdf_page": 30,
+        "depth": 2
+      },
+      {
+        "section_number": "5.3.1",
+        "title": "Bus Protocol",
+        "spec_page": 9,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "5.4",
+        "title": "Bus Speed Modes",
+        "spec_page": 15,
+        "pdf_page": 37,
+        "depth": 2
+      },
+      {
+        "section_number": "5.4.1",
+        "title": "HS200 Bus Speed Mode",
+        "spec_page": 15,
+        "pdf_page": 37,
+        "depth": 3
+      },
+      {
+        "section_number": "5.4.2",
+        "title": "HS200 System Block Diagram",
+        "spec_page": 15,
+        "pdf_page": 37,
+        "depth": 3
+      },
+      {
+        "section_number": "5.4.3",
+        "title": "Adjustable Sampling Host",
+        "spec_page": 16,
+        "pdf_page": 38,
+        "depth": 3
+      },
+      {
+        "section_number": "6",
+        "title": "e•MMC functional description",
+        "spec_page": 17,
+        "pdf_page": 39,
+        "depth": 1
+      },
+      {
+        "section_number": "6.1",
+        "title": "e•MMC Overview",
+        "spec_page": 17,
+        "pdf_page": 39,
+        "depth": 2
+      },
+      {
+        "section_number": "6.2",
+        "title": "Partition Management",
+        "spec_page": 18,
+        "pdf_page": 40,
+        "depth": 2
+      },
+      {
+        "section_number": "6.2.1",
+        "title": "General",
+        "spec_page": 18,
+        "pdf_page": 40,
+        "depth": 3
+      },
+      {
+        "section_number": "6.2.2",
+        "title": "Command restrictions",
+        "spec_page": 20,
+        "pdf_page": 42,
+        "depth": 3
+      },
+      {
+        "section_number": "6.2.3",
+        "title": "Extended Partitions Attribute",
+        "spec_page": 20,
+        "pdf_page": 42,
+        "depth": 3
+      },
+      {
+        "section_number": "6.2.4",
+        "title": "Configure partitions",
+        "spec_page": 20,
+        "pdf_page": 42,
+        "depth": 3
+      },
+      {
+        "section_number": "6.2.5",
+        "title": "Access partitions",
+        "spec_page": 23,
+        "pdf_page": 45,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3",
+        "title": "Boot operation mode",
+        "spec_page": 24,
+        "pdf_page": 46,
+        "depth": 2
+      },
+      {
+        "section_number": "6.3.1",
+        "title": "Device reset to Pre-idle state",
+        "spec_page": 24,
+        "pdf_page": 46,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.2",
+        "title": "Boot partition",
+        "spec_page": 25,
+        "pdf_page": 47,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.3",
+        "title": "Boot operation",
+        "spec_page": 26,
+        "pdf_page": 48,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.4",
+        "title": "Alternative boot operation",
+        "spec_page": 28,
+        "pdf_page": 50,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.5",
+        "title": "Access to boot partition",
+        "spec_page": 31,
+        "pdf_page": 53,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.6",
+        "title": "Boot bus width and data access configuration",
+        "spec_page": 32,
+        "pdf_page": 54,
+        "depth": 3
+      },
+      {
+        "section_number": "6.3.7",
+        "title": "Boot Partition Write Protection",
+        "spec_page": 32,
+        "pdf_page": 54,
+        "depth": 3
+      },
+      {
+        "section_number": "6.4",
+        "title": "Device identification mode",
+        "spec_page": 34,
+        "pdf_page": 56,
+        "depth": 2
+      },
+      {
+        "section_number": "6.4.1",
+        "title": "Device reset",
+        "spec_page": 34,
+        "pdf_page": 56,
+        "depth": 3
+      },
+      {
+        "section_number": "6.4.2",
+        "title": "Access mode validation (higher than 2GB of densities)",
+        "spec_page": 35,
+        "pdf_page": 57,
+        "depth": 3
+      },
+      {
+        "section_number": "6.4.3",
+        "title": "From busy to ready",
+        "spec_page": 36,
+        "pdf_page": 58,
+        "depth": 3
+      },
+      {
+        "section_number": "6.4.4",
+        "title": "Device identification process",
+        "spec_page": 36,
+        "pdf_page": 58,
+        "depth": 3
+      },
+      {
+        "section_number": "6.5",
+        "title": "Interrupt mode",
+        "spec_page": 37,
+        "pdf_page": 59,
+        "depth": 2
+      },
+      {
+        "section_number": "6.6",
+        "title": "Data transfer mode",
+        "spec_page": 39,
+        "pdf_page": 61,
+        "depth": 2
+      },
+      {
+        "section_number": "6.6.1",
+        "title": "Command sets and extended settings",
+        "spec_page": 41,
+        "pdf_page": 63,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.2",
+        "title": "High-speed modes selection",
+        "spec_page": 42,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.3",
+        "title": "“High-speed” mode selection",
+        "spec_page": 42,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.4",
+        "title": "“HS200” timing mode selection",
+        "spec_page": 42,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.5",
+        "title": "Power class selection",
+        "spec_page": 44,
+        "pdf_page": 66,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.6",
+        "title": "Bus testing procedure",
+        "spec_page": 44,
+        "pdf_page": 66,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.7",
+        "title": "Bus Sampling Tuning Concept",
+        "spec_page": 46,
+        "pdf_page": 68,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.7.1",
+        "title": "Sampling Tuning Sequence for HS200",
+        "spec_page": 47,
+        "pdf_page": 69,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.8",
+        "title": "Bus width selection",
+        "spec_page": 49,
+        "pdf_page": 71,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.9",
+        "title": "Data read",
+        "spec_page": 49,
+        "pdf_page": 71,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.9.1",
+        "title": "Block read",
+        "spec_page": 49,
+        "pdf_page": 71,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.10",
+        "title": "Data write",
+        "spec_page": 51,
+        "pdf_page": 73,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.10.1",
+        "title": "Block write",
+        "spec_page": 51,
+        "pdf_page": 73,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.11",
+        "title": "Erase",
+        "spec_page": 53,
+        "pdf_page": 75,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.12",
+        "title": "TRIM",
+        "spec_page": 55,
+        "pdf_page": 77,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.13",
+        "title": "Sanitize",
+        "spec_page": 56,
+        "pdf_page": 78,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.14",
+        "title": "Discard",
+        "spec_page": 57,
+        "pdf_page": 79,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.15",
+        "title": "Secure Erase",
+        "spec_page": 58,
+        "pdf_page": 80,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.16",
+        "title": "Secure Trim",
+        "spec_page": 59,
+        "pdf_page": 81,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.17",
+        "title": "Write protect management",
+        "spec_page": 60,
+        "pdf_page": 82,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.18",
+        "title": "Extended Security Protocols Pass Through Commands",
+        "spec_page": 62,
+        "pdf_page": 84,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.18.1",
+        "title": "PROTOCOL_RD - CMD53",
+        "spec_page": 62,
+        "pdf_page": 84,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.18.2",
+        "title": "PROTOCOL_WR - CMD54",
+        "spec_page": 62,
+        "pdf_page": 84,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.18.3",
+        "title": "Security Protocol Type",
+        "spec_page": 62,
+        "pdf_page": 84,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.18.4",
+        "title": "Security Protocol Information",
+        "spec_page": 63,
+        "pdf_page": 85,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.18.5",
+        "title": "Error handling",
+        "spec_page": 63,
+        "pdf_page": 85,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.19",
+        "title": "Device lock/unlock operation",
+        "spec_page": 63,
+        "pdf_page": 85,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.20",
+        "title": "Application-specific commands",
+        "spec_page": 67,
+        "pdf_page": 89,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.21",
+        "title": "Sleep (CMD5)",
+        "spec_page": 67,
+        "pdf_page": 89,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.22",
+        "title": "Replay Protected Memory Block",
+        "spec_page": 68,
+        "pdf_page": 90,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.22.1",
+        "title": "The Data Frame for Replay Protected Memory Block Access",
+        "spec_page": 68,
+        "pdf_page": 90,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.22.2",
+        "title": "Memory Map of the Replay Protected Memory Block",
+        "spec_page": 71,
+        "pdf_page": 93,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.22.3",
+        "title": "Message Authentication Code Calculation",
+        "spec_page": 71,
+        "pdf_page": 93,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.22.4",
+        "title": "Accesses to the Replay Protected Memory Block",
+        "spec_page": 72,
+        "pdf_page": 94,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.23",
+        "title": "Dual Data Rate mode selection",
+        "spec_page": 78,
+        "pdf_page": 100,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.24",
+        "title": "Dual Data Rate mode operation",
+        "spec_page": 78,
+        "pdf_page": 100,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.25",
+        "title": "Background Operations",
+        "spec_page": 79,
+        "pdf_page": 101,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.26",
+        "title": "High Priority Interrupt (HPI)",
+        "spec_page": 79,
+        "pdf_page": 101,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.27",
+        "title": "Context Management",
+        "spec_page": 81,
+        "pdf_page": 103,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.27.1",
+        "title": "Context configuration",
+        "spec_page": 81,
+        "pdf_page": 103,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.27.2",
+        "title": "Context direction",
+        "spec_page": 82,
+        "pdf_page": 104,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.27.3",
+        "title": "Large-Unit",
+        "spec_page": 82,
+        "pdf_page": 104,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.27.4",
+        "title": "Context Writing Interruption",
+        "spec_page": 82,
+        "pdf_page": 104,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.27.5",
+        "title": "Large-Unit Multipliers",
+        "spec_page": 83,
+        "pdf_page": 105,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.28",
+        "title": "Data Tag Mechanism",
+        "spec_page": 84,
+        "pdf_page": 106,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.29",
+        "title": "Packed Commands",
+        "spec_page": 84,
+        "pdf_page": 106,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.29.1",
+        "title": "Packed Command Header",
+        "spec_page": 85,
+        "pdf_page": 107,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.29.2",
+        "title": "Packed Commands Error Handling",
+        "spec_page": 86,
+        "pdf_page": 108,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.30",
+        "title": "Exception Events",
+        "spec_page": 87,
+        "pdf_page": 109,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.31",
+        "title": "Cache",
+        "spec_page": 87,
+        "pdf_page": 109,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.32",
+        "title": "Features cross matrix",
+        "spec_page": 89,
+        "pdf_page": 111,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.33",
+        "title": "Dynamic Capacity Management",
+        "spec_page": 91,
+        "pdf_page": 113,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.34",
+        "title": "Large sector size",
+        "spec_page": 92,
+        "pdf_page": 114,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.34.1",
+        "title": "Disabling emulation mode",
+        "spec_page": 94,
+        "pdf_page": 116,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.34.2",
+        "title": "Native 4KB sector behavior",
+        "spec_page": 95,
+        "pdf_page": 117,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.35",
+        "title": "Real Time Clock Information",
+        "spec_page": 96,
+        "pdf_page": 118,
+        "depth": 3
+      },
+      {
+        "section_number": "6.6.35.1",
+        "title": "Periodic Wake-up",
+        "spec_page": 97,
+        "pdf_page": 119,
+        "depth": 4
+      },
+      {
+        "section_number": "6.6.36",
+        "title": "Power Off Notification",
+        "spec_page": 97,
+        "pdf_page": 119,
+        "depth": 3
+      },
+      {
+        "section_number": "6.7",
+        "title": "Clock control",
+        "spec_page": 97,
+        "pdf_page": 119,
+        "depth": 2
+      },
+      {
+        "section_number": "6.8",
+        "title": "Error conditions",
+        "spec_page": 98,
+        "pdf_page": 120,
+        "depth": 2
+      },
+      {
+        "section_number": "6.8.1",
+        "title": "CRC and illegal command",
+        "spec_page": 98,
+        "pdf_page": 120,
+        "depth": 3
+      },
+      {
+        "section_number": "6.8.2",
+        "title": "Time-out conditions",
+        "spec_page": 98,
+        "pdf_page": 120,
+        "depth": 3
+      },
+      {
+        "section_number": "6.8.3",
+        "title": "Read ahead in  multiple block read operation",
+        "spec_page": 99,
+        "pdf_page": 121,
+        "depth": 3
+      },
+      {
+        "section_number": "6.9",
+        "title": "Minimum performance",
+        "spec_page": 99,
+        "pdf_page": 121,
+        "depth": 2
+      },
+      {
+        "section_number": "6.9.1",
+        "title": "Speed class definition",
+        "spec_page": 99,
+        "pdf_page": 121,
+        "depth": 3
+      },
+      {
+        "section_number": "6.9.2",
+        "title": "Measurement of the performance",
+        "spec_page": 100,
+        "pdf_page": 122,
+        "depth": 3
+      },
+      {
+        "section_number": "6.10",
+        "title": "Commands",
+        "spec_page": 101,
+        "pdf_page": 123,
+        "depth": 2
+      },
+      {
+        "section_number": "6.10.1",
+        "title": "Command types",
+        "spec_page": 101,
+        "pdf_page": 123,
+        "depth": 3
+      },
+      {
+        "section_number": "6.10.2",
+        "title": "Command format",
+        "spec_page": 101,
+        "pdf_page": 123,
+        "depth": 3
+      },
+      {
+        "section_number": "6.10.3",
+        "title": "Command classes",
+        "spec_page": 101,
+        "pdf_page": 123,
+        "depth": 3
+      },
+      {
+        "section_number": "6.10.4",
+        "title": "Detailed command description",
+        "spec_page": 102,
+        "pdf_page": 124,
+        "depth": 3
+      },
+      {
+        "section_number": "6.11",
+        "title": "Device state transition table",
+        "spec_page": 109,
+        "pdf_page": 131,
+        "depth": 2
+      },
+      {
+        "section_number": "6.12",
+        "title": "Responses",
+        "spec_page": 111,
+        "pdf_page": 133,
+        "depth": 2
+      },
+      {
+        "section_number": "6.13",
+        "title": "Device status",
+        "spec_page": 112,
+        "pdf_page": 134,
+        "depth": 2
+      },
+      {
+        "section_number": "6.14",
+        "title": "Memory array partitioning",
+        "spec_page": 116,
+        "pdf_page": 138,
+        "depth": 2
+      },
+      {
+        "section_number": "6.15",
+        "title": "Timings",
+        "spec_page": 118,
+        "pdf_page": 140,
+        "depth": 2
+      },
+      {
+        "section_number": "6.15.1",
+        "title": "Command and response",
+        "spec_page": 118,
+        "pdf_page": 140,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.2",
+        "title": "Data read",
+        "spec_page": 120,
+        "pdf_page": 142,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.3",
+        "title": "Data write",
+        "spec_page": 121,
+        "pdf_page": 143,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.4",
+        "title": "Bus test procedure timing",
+        "spec_page": 124,
+        "pdf_page": 146,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.5",
+        "title": "Boot operation",
+        "spec_page": 125,
+        "pdf_page": 147,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.6",
+        "title": "Alternative boot operation",
+        "spec_page": 126,
+        "pdf_page": 148,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.7",
+        "title": "Timing Values",
+        "spec_page": 127,
+        "pdf_page": 149,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.8",
+        "title": "Timing changes in HS200 mode",
+        "spec_page": 128,
+        "pdf_page": 150,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.8.1",
+        "title": "Timing values",
+        "spec_page": 128,
+        "pdf_page": 150,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.8.2",
+        "title": "Read Block Gap",
+        "spec_page": 128,
+        "pdf_page": 150,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.8.3",
+        "title": "CMD12 Timing Modification in Write Operation",
+        "spec_page": 129,
+        "pdf_page": 151,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.8.4",
+        "title": "CMD12 Timing Modification in Read Operation",
+        "spec_page": 130,
+        "pdf_page": 152,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.8.5",
+        "title": "R1B Timing",
+        "spec_page": 130,
+        "pdf_page": 152,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.8.6",
+        "title": "Reselecting a Busy Device",
+        "spec_page": 130,
+        "pdf_page": 152,
+        "depth": 4
+      },
+      {
+        "section_number": "6.15.9",
+        "title": "H/W Reset Operation",
+        "spec_page": 131,
+        "pdf_page": 153,
+        "depth": 3
+      },
+      {
+        "section_number": "6.15.10",
+        "title": "Noise filtering timing for H/W Reset",
+        "spec_page": 131,
+        "pdf_page": 153,
+        "depth": 3
+      },
+      {
+        "section_number": "7",
+        "title": "Device Registers",
+        "spec_page": 132,
+        "pdf_page": 154,
+        "depth": 1
+      },
+      {
+        "section_number": "7.1",
+        "title": "OCR register",
+        "spec_page": 132,
+        "pdf_page": 154,
+        "depth": 2
+      },
+      {
+        "section_number": "7.2",
+        "title": "CID register",
+        "spec_page": 132,
+        "pdf_page": 154,
+        "depth": 2
+      },
+      {
+        "section_number": "7.2.1",
+        "title": "MID [127:120]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.2",
+        "title": "CBX [113:112]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.3",
+        "title": "OID [111:104]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.4",
+        "title": "PNM [103:56]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.5",
+        "title": "PRV [55:48]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.6",
+        "title": "PSN [47:16]",
+        "spec_page": 133,
+        "pdf_page": 155,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.7",
+        "title": "MDT [15:8]",
+        "spec_page": 134,
+        "pdf_page": 156,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.8",
+        "title": "CRC [7:1]",
+        "spec_page": 134,
+        "pdf_page": 156,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3",
+        "title": "CSD register",
+        "spec_page": 135,
+        "pdf_page": 157,
+        "depth": 2
+      },
+      {
+        "section_number": "7.3.1",
+        "title": "CSD_STRUCTURE [127:126]",
+        "spec_page": 137,
+        "pdf_page": 159,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.2",
+        "title": "SPEC_VERS [125:122]",
+        "spec_page": 137,
+        "pdf_page": 159,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.3",
+        "title": "TAAC [119:112]",
+        "spec_page": 137,
+        "pdf_page": 159,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.4",
+        "title": "NSAC [111:104]",
+        "spec_page": 137,
+        "pdf_page": 159,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.5",
+        "title": "TRAN_SPEED [103:96]",
+        "spec_page": 138,
+        "pdf_page": 160,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.6",
+        "title": "CCC [95:84]",
+        "spec_page": 138,
+        "pdf_page": 160,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.7",
+        "title": "READ_BL_LEN [83:80]",
+        "spec_page": 138,
+        "pdf_page": 160,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.8",
+        "title": "READ_BL_PARTIAL [79]",
+        "spec_page": 139,
+        "pdf_page": 161,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.9",
+        "title": "DSR_IMP [76]",
+        "spec_page": 139,
+        "pdf_page": 161,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.10",
+        "title": "C_SIZE [73:62]",
+        "spec_page": 140,
+        "pdf_page": 162,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.11",
+        "title": "VDD_R_CURR_MIN [61:59] and  VDD_W_CURR_MIN [55:53]",
+        "spec_page": 140,
+        "pdf_page": 162,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.12",
+        "title": "VDD_R_CURR_MAX [58:56] and VDD_W_CURR_MAX [52:50]",
+        "spec_page": 140,
+        "pdf_page": 162,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.13",
+        "title": "C_SIZE_MULT [49:47]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.14",
+        "title": "ERASE_GRP_SIZE [46:42]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.15",
+        "title": "ERASE_GRP_MULT [41:37]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.16",
+        "title": "WP_GRP_SIZE [36:32]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.17",
+        "title": "WP_GRP_ENABLE [31]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.18",
+        "title": "DEFAULT_ECC [30:29]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.19",
+        "title": "R2W_FACTOR [28:26]",
+        "spec_page": 141,
+        "pdf_page": 163,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.20",
+        "title": "WRITE_BL_LEN [25:22]",
+        "spec_page": 142,
+        "pdf_page": 164,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.21",
+        "title": "WRITE_BL_PARTIAL[21]",
+        "spec_page": 142,
+        "pdf_page": 164,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.22",
+        "title": "CONTENT_PROT_APP [16]",
+        "spec_page": 142,
+        "pdf_page": 164,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.23",
+        "title": "FILE_FORMAT_GRP [15]",
+        "spec_page": 142,
+        "pdf_page": 164,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.24",
+        "title": "COPY [14]",
+        "spec_page": 142,
+        "pdf_page": 164,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.25",
+        "title": "PERM_WRITE_PROTECT [13]",
+        "spec_page": 143,
+        "pdf_page": 165,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.26",
+        "title": "TMP_WRITE_PROTECT [12]",
+        "spec_page": 143,
+        "pdf_page": 165,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.27",
+        "title": "FILE_FORMAT [11:10]",
+        "spec_page": 143,
+        "pdf_page": 165,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.28",
+        "title": "ECC [9:8]",
+        "spec_page": 143,
+        "pdf_page": 165,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.29",
+        "title": "CRC [7:1]",
+        "spec_page": 143,
+        "pdf_page": 165,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4",
+        "title": "Extended CSD register",
+        "spec_page": 145,
+        "pdf_page": 167,
+        "depth": 2
+      },
+      {
+        "section_number": "7.4.1",
+        "title": "EXT_SECURITY_ERR [505]",
+        "spec_page": 150,
+        "pdf_page": 172,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.2",
+        "title": "S_CMD_SET [504]",
+        "spec_page": 150,
+        "pdf_page": 172,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.3",
+        "title": "HPI_FEATURES [503]",
+        "spec_page": 150,
+        "pdf_page": 172,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.4",
+        "title": "BKOPS_SUPPORT [502]",
+        "spec_page": 151,
+        "pdf_page": 173,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.5",
+        "title": "MAX_PACKED_READS [501]",
+        "spec_page": 151,
+        "pdf_page": 173,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.6",
+        "title": "MAX_PACKED_WRITES [500]",
+        "spec_page": 151,
+        "pdf_page": 173,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.7",
+        "title": "DATA_TAG_SUPPORT [499]",
+        "spec_page": 151,
+        "pdf_page": 173,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.8",
+        "title": "TAG_UNIT_SIZE [498]",
+        "spec_page": 151,
+        "pdf_page": 173,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.9",
+        "title": "TAG_RES_SIZE [497]",
+        "spec_page": 152,
+        "pdf_page": 174,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.10",
+        "title": "CONTEXT_CAPABILITIES [496]",
+        "spec_page": 152,
+        "pdf_page": 174,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.11",
+        "title": "LARGE_UNIT_SIZE_M1 [495]",
+        "spec_page": 152,
+        "pdf_page": 174,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.12",
+        "title": "EXT_SUPPORT [494]",
+        "spec_page": 152,
+        "pdf_page": 174,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.13",
+        "title": "CACHE_SIZE [252:249]",
+        "spec_page": 152,
+        "pdf_page": 174,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.14",
+        "title": "GENERIC_CMD6_TIME [248]",
+        "spec_page": 153,
+        "pdf_page": 175,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.15",
+        "title": "POWER_OFF_LONG_TIME [247]",
+        "spec_page": 153,
+        "pdf_page": 175,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.16",
+        "title": "BKOPS_STATUS [246]",
+        "spec_page": 154,
+        "pdf_page": 176,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.17",
+        "title": "CORRECTLY_PRG_SECTORS_NUM [245:242]",
+        "spec_page": 154,
+        "pdf_page": 176,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.18",
+        "title": "INI_TIMEOUT_PA [241]",
+        "spec_page": 154,
+        "pdf_page": 176,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.19",
+        "title": "TRIM_MULT [232]",
+        "spec_page": 155,
+        "pdf_page": 177,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.20",
+        "title": "SEC_FEATURE_SUPPORT [231]",
+        "spec_page": 155,
+        "pdf_page": 177,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.21",
+        "title": "SEC_ERASE_MULT [230]",
+        "spec_page": 156,
+        "pdf_page": 178,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.22",
+        "title": "SEC_TRIM_MULT [229]",
+        "spec_page": 156,
+        "pdf_page": 178,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.23",
+        "title": "BOOT_INFO [228]",
+        "spec_page": 156,
+        "pdf_page": 178,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.24",
+        "title": "BOOT_SIZE_MULT [226]",
+        "spec_page": 157,
+        "pdf_page": 179,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.25",
+        "title": "ACC_SIZE [225]",
+        "spec_page": 157,
+        "pdf_page": 179,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.26",
+        "title": "HC_ERASE_GRP_SIZE [224]",
+        "spec_page": 158,
+        "pdf_page": 180,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.27",
+        "title": "ERASE_TIMEOUT_MULT [223]",
+        "spec_page": 158,
+        "pdf_page": 180,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.28",
+        "title": "REL_WR_SEC_C [222]",
+        "spec_page": 158,
+        "pdf_page": 180,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.29",
+        "title": "HC_WP_GRP_SIZE [221]",
+        "spec_page": 159,
+        "pdf_page": 181,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.30",
+        "title": "S_C_VCC[220] and S_C_VCCQ[219]",
+        "spec_page": 159,
+        "pdf_page": 181,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.31",
+        "title": "S_A_TIMEOUT [217]",
+        "spec_page": 159,
+        "pdf_page": 181,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.32",
+        "title": "SEC_COUNT [215:212]",
+        "spec_page": 160,
+        "pdf_page": 182,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.33",
+        "title": "MIN_PERF_a_b_ff [210/:205] and MIN_PERF_DDR_a_b_ff [235:234]",
+        "spec_page": 160,
+        "pdf_page": 182,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.34",
+        "title": "PWR_CL_ff_vvv [203:200] and PWR_CL_DDR_ff_vvv [239:238]",
+        "spec_page": 161,
+        "pdf_page": 183,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.35",
+        "title": "PARTITION_SWITCH_TIME [199]",
+        "spec_page": 162,
+        "pdf_page": 184,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.36",
+        "title": "OUT_OF_INTERRUPT_TIME [198]",
+        "spec_page": 162,
+        "pdf_page": 184,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.37",
+        "title": "DRIVER_STRENGTH [197]",
+        "spec_page": 163,
+        "pdf_page": 185,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.38",
+        "title": "DEVICE_TYPE [196]",
+        "spec_page": 163,
+        "pdf_page": 185,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.39",
+        "title": "CSD_STRUCTURE [194]",
+        "spec_page": 163,
+        "pdf_page": 185,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.40",
+        "title": "EXT_CSD_REV [192]",
+        "spec_page": 163,
+        "pdf_page": 185,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.41",
+        "title": "CMD_SET [191]",
+        "spec_page": 164,
+        "pdf_page": 186,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.42",
+        "title": "CMD_SET_REV [189]",
+        "spec_page": 164,
+        "pdf_page": 186,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.43",
+        "title": "POWER_CLASS [187]",
+        "spec_page": 164,
+        "pdf_page": 186,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.44",
+        "title": "HS_TIMING [185]",
+        "spec_page": 165,
+        "pdf_page": 187,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.45",
+        "title": "BUS_WIDTH [183]",
+        "spec_page": 165,
+        "pdf_page": 187,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.46",
+        "title": "ERASED_MEM_CONT [181]",
+        "spec_page": 166,
+        "pdf_page": 188,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.47",
+        "title": "PARTITION_CONFIG (before BOOT_CONFIG) [179]",
+        "spec_page": 166,
+        "pdf_page": 188,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.48",
+        "title": "BOOT_CONFIG_PROT[178]",
+        "spec_page": 167,
+        "pdf_page": 189,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.49",
+        "title": "BOOT_BUS_CONDITIONS [177]",
+        "spec_page": 167,
+        "pdf_page": 189,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.50",
+        "title": "ERASE_GROUP_DEF [175]",
+        "spec_page": 169,
+        "pdf_page": 191,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.51",
+        "title": "BOOT_WP_STATUS [174]",
+        "spec_page": 169,
+        "pdf_page": 191,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.52",
+        "title": "BOOT_WP [173]",
+        "spec_page": 169,
+        "pdf_page": 191,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.53",
+        "title": "USER_WP [171]",
+        "spec_page": 171,
+        "pdf_page": 193,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.54",
+        "title": "FW_CONFIG [169]",
+        "spec_page": 172,
+        "pdf_page": 194,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.55",
+        "title": "RPMB_SIZE_MULT [168]",
+        "spec_page": 172,
+        "pdf_page": 194,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.56",
+        "title": "WR_REL_SET [167]",
+        "spec_page": 173,
+        "pdf_page": 195,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.57",
+        "title": "WR_REL_PARAM [166]",
+        "spec_page": 174,
+        "pdf_page": 196,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.58",
+        "title": "SANITIZE_START[165]",
+        "spec_page": 174,
+        "pdf_page": 196,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.59",
+        "title": "BKOPS_START [164]",
+        "spec_page": 174,
+        "pdf_page": 196,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.60",
+        "title": "BKOPS_EN [163]",
+        "spec_page": 174,
+        "pdf_page": 196,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.61",
+        "title": "RST_n_FUNCTION [162]",
+        "spec_page": 175,
+        "pdf_page": 197,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.62",
+        "title": "HPI_MGMT [161]",
+        "spec_page": 175,
+        "pdf_page": 197,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.63",
+        "title": "PARTITIONING_SUPPORT [160]",
+        "spec_page": 176,
+        "pdf_page": 198,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.64",
+        "title": "MAX_ENH_SIZE_MULT [159:157]",
+        "spec_page": 176,
+        "pdf_page": 198,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.65",
+        "title": "PARTITIONS_ATTRIBUTE [156]",
+        "spec_page": 177,
+        "pdf_page": 199,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.66",
+        "title": "PARTITION_SETTING_COMPLETED [155]",
+        "spec_page": 177,
+        "pdf_page": 199,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.67",
+        "title": "GP_SIZE_MULT_GP0 - GP_SIZE_MULT_GP3 [154:143]",
+        "spec_page": 178,
+        "pdf_page": 200,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.68",
+        "title": "ENH_SIZE_MULT [142:140]",
+        "spec_page": 179,
+        "pdf_page": 201,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.69",
+        "title": "ENH_START_ADDR [139:136]",
+        "spec_page": 179,
+        "pdf_page": 201,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.70",
+        "title": "SEC_BAD_BLK_MGMNT [134]",
+        "spec_page": 179,
+        "pdf_page": 201,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.71",
+        "title": "TCASE_SUPPORT [132]",
+        "spec_page": 180,
+        "pdf_page": 202,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.72",
+        "title": "PERIODIC_WAKEUP [131]",
+        "spec_page": 180,
+        "pdf_page": 202,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.73",
+        "title": "PROGRAM_CID_CSD_DDR_SUPPORT [130]",
+        "spec_page": 180,
+        "pdf_page": 202,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.74",
+        "title": "NATIVE_SECTOR_SIZE [63]",
+        "spec_page": 181,
+        "pdf_page": 203,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.75",
+        "title": "USE_NATIVE_SECTOR [62]",
+        "spec_page": 181,
+        "pdf_page": 203,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.76",
+        "title": "DATA_SECTOR_SIZE [61]",
+        "spec_page": 181,
+        "pdf_page": 203,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.77",
+        "title": "INI_TIMEOUT_EMU [60]",
+        "spec_page": 181,
+        "pdf_page": 203,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.78",
+        "title": "CLASS_6_CTRL[59]",
+        "spec_page": 182,
+        "pdf_page": 204,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.79",
+        "title": "DYNCAP_NEEDED [58]",
+        "spec_page": 182,
+        "pdf_page": 204,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.80",
+        "title": "EXCEPTION_EVENTS_CTRL [57:56]",
+        "spec_page": 182,
+        "pdf_page": 204,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.81",
+        "title": "EXCEPTION_EVENTS_STATUS [55:54]",
+        "spec_page": 182,
+        "pdf_page": 204,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.82",
+        "title": "EXT_PARTITIONS_ATTRIBUTE [53:52]",
+        "spec_page": 183,
+        "pdf_page": 205,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.83",
+        "title": "CONTEXT_CONF [51:37]",
+        "spec_page": 184,
+        "pdf_page": 206,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.84",
+        "title": "PACKED_COMMAND_STATUS [36]",
+        "spec_page": 184,
+        "pdf_page": 206,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.85",
+        "title": "PACKED_FAILURE_INDEX [35]",
+        "spec_page": 185,
+        "pdf_page": 207,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.86",
+        "title": "POWER_OFF_NOTIFICATION [34]",
+        "spec_page": 185,
+        "pdf_page": 207,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.87",
+        "title": "CACHE_CTRL [33]",
+        "spec_page": 185,
+        "pdf_page": 207,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.88",
+        "title": "FLUSH_CACHE [32]",
+        "spec_page": 185,
+        "pdf_page": 207,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4.89",
+        "title": "VENDOR_SPECIFIC_FIELD [127:64]",
+        "spec_page": 186,
+        "pdf_page": 208,
+        "depth": 3
+      },
+      {
+        "section_number": "7.5",
+        "title": "RCA register",
+        "spec_page": 186,
+        "pdf_page": 208,
+        "depth": 2
+      },
+      {
+        "section_number": "7.6",
+        "title": "DSR register",
+        "spec_page": 186,
+        "pdf_page": 208,
+        "depth": 2
+      },
+      {
+        "section_number": "8",
+        "title": "Error protection",
+        "spec_page": 186,
+        "pdf_page": 208,
+        "depth": 1
+      },
+      {
+        "section_number": "8.1",
+        "title": "Error correction codes (ECC)",
+        "spec_page": 186,
+        "pdf_page": 208,
+        "depth": 2
+      },
+      {
+        "section_number": "8.2",
+        "title": "Cyclic redundancy codes (CRC)",
+        "spec_page": 187,
+        "pdf_page": 209,
+        "depth": 2
+      },
+      {
+        "section_number": "8.2.1",
+        "title": "CRC7",
+        "spec_page": 187,
+        "pdf_page": 209,
+        "depth": 3
+      },
+      {
+        "section_number": "8.2.2",
+        "title": "CRC16",
+        "spec_page": 187,
+        "pdf_page": 209,
+        "depth": 3
+      },
+      {
+        "section_number": "9",
+        "title": "e•MMC mechanical standard",
+        "spec_page": 188,
+        "pdf_page": 210,
+        "depth": 1
+      },
+      {
+        "section_number": "10",
+        "title": "The e•MMC bus",
+        "spec_page": 189,
+        "pdf_page": 211,
+        "depth": 1
+      },
+      {
+        "section_number": "10.1",
+        "title": "Power-up",
+        "spec_page": 190,
+        "pdf_page": 212,
+        "depth": 2
+      },
+      {
+        "section_number": "10.1.1",
+        "title": "e•MMC power-up",
+        "spec_page": 192,
+        "pdf_page": 214,
+        "depth": 3
+      },
+      {
+        "section_number": "10.1.2",
+        "title": "e•MMC power-up guidelines",
+        "spec_page": 192,
+        "pdf_page": 214,
+        "depth": 3
+      },
+      {
+        "section_number": "10.1.3",
+        "title": "e•MMC power cycling",
+        "spec_page": 193,
+        "pdf_page": 215,
+        "depth": 3
+      },
+      {
+        "section_number": "10.2",
+        "title": "Programmable Device output driver",
+        "spec_page": 194,
+        "pdf_page": 216,
+        "depth": 2
+      },
+      {
+        "section_number": "10.3",
+        "title": "Bus operating conditions",
+        "spec_page": 196,
+        "pdf_page": 218,
+        "depth": 2
+      },
+      {
+        "section_number": "10.3.1",
+        "title": "Power supply: e•MMC",
+        "spec_page": 196,
+        "pdf_page": 218,
+        "depth": 3
+      },
+      {
+        "section_number": "10.3.2",
+        "title": "Power supply: e2•MMC",
+        "spec_page": 197,
+        "pdf_page": 219,
+        "depth": 3
+      },
+      {
+        "section_number": "10.3.3",
+        "title": "Power supply Voltages",
+        "spec_page": 198,
+        "pdf_page": 220,
+        "depth": 3
+      },
+      {
+        "section_number": "10.3.4",
+        "title": "Bus signal line load",
+        "spec_page": 199,
+        "pdf_page": 221,
+        "depth": 3
+      },
+      {
+        "section_number": "10.4",
+        "title": "Bus signal levels",
+        "spec_page": 200,
+        "pdf_page": 222,
+        "depth": 2
+      },
+      {
+        "section_number": "10.4.1",
+        "title": "Open-drain mode bus signal level",
+        "spec_page": 200,
+        "pdf_page": 222,
+        "depth": 3
+      },
+      {
+        "section_number": "10.4.2",
+        "title": "Push-pull mode bus signal level— e•MMC",
+        "spec_page": 200,
+        "pdf_page": 222,
+        "depth": 3
+      },
+      {
+        "section_number": "10.4.3",
+        "title": "Bus Operating Conditions for HS200",
+        "spec_page": 201,
+        "pdf_page": 223,
+        "depth": 3
+      },
+      {
+        "section_number": "10.4.4",
+        "title": "Device Output Driver Requirements for HS200",
+        "spec_page": 201,
+        "pdf_page": 223,
+        "depth": 3
+      },
+      {
+        "section_number": "10.4.4.1",
+        "title": "Driver Types Definition",
+        "spec_page": 201,
+        "pdf_page": 223,
+        "depth": 4
+      },
+      {
+        "section_number": "10.4.4.2",
+        "title": "Driver Type-0  AC Characteristics",
+        "spec_page": 202,
+        "pdf_page": 224,
+        "depth": 4
+      },
+      {
+        "section_number": "10.4.4.3",
+        "title": "Driver Type-0 Test Circuit",
+        "spec_page": 203,
+        "pdf_page": 225,
+        "depth": 4
+      },
+      {
+        "section_number": "10.4.4.4",
+        "title": "Driver Type Selection",
+        "spec_page": 203,
+        "pdf_page": 225,
+        "depth": 4
+      },
+      {
+        "section_number": "10.5",
+        "title": "Bus timing",
+        "spec_page": 203,
+        "pdf_page": 225,
+        "depth": 2
+      },
+      {
+        "section_number": "10.5.1",
+        "title": "Device interface timings",
+        "spec_page": 204,
+        "pdf_page": 226,
+        "depth": 3
+      },
+      {
+        "section_number": "10.6",
+        "title": "Bus timing for DAT signals during 2x data rate operation",
+        "spec_page": 206,
+        "pdf_page": 228,
+        "depth": 2
+      },
+      {
+        "section_number": "10.6.1",
+        "title": "Dual data rate interface timings",
+        "spec_page": 207,
+        "pdf_page": 229,
+        "depth": 3
+      },
+      {
+        "section_number": "10.7",
+        "title": "Bus Timing Specification in HS200 mode",
+        "spec_page": 207,
+        "pdf_page": 229,
+        "depth": 2
+      },
+      {
+        "section_number": "10.7.1",
+        "title": "HS200 Clock Timing",
+        "spec_page": 207,
+        "pdf_page": 229,
+        "depth": 3
+      },
+      {
+        "section_number": "10.7.2",
+        "title": "HS200 Device Input Timing",
+        "spec_page": 208,
+        "pdf_page": 230,
+        "depth": 3
+      },
+      {
+        "section_number": "10.7.3",
+        "title": "HS200 Device Output Timing",
+        "spec_page": 209,
+        "pdf_page": 231,
+        "depth": 3
+      },
+      {
+        "section_number": "10.8",
+        "title": "Temperature Conditions",
+        "spec_page": 210,
+        "pdf_page": 232,
+        "depth": 2
+      },
+      {
+        "section_number": "11",
+        "title": "e•MMC standard compliance",
+        "spec_page": 211,
+        "pdf_page": 233,
+        "depth": 1
+      },
+      {
+        "section_number": "Annex A",
+        "title": "Application Notes",
+        "spec_page": 214,
+        "pdf_page": 236,
+        "depth": 1
+      },
+      {
+        "section_number": "A.1",
+        "title": "Device Payload block length and ECC types handling",
+        "spec_page": 214,
+        "pdf_page": 236,
+        "depth": 2
+      },
+      {
+        "section_number": "A.2",
+        "title": "Description of method for storing passwords on the Device",
+        "spec_page": 215,
+        "pdf_page": 237,
+        "depth": 2
+      },
+      {
+        "section_number": "A.3",
+        "title": "e•MMC macro commands",
+        "spec_page": 216,
+        "pdf_page": 238,
+        "depth": 2
+      },
+      {
+        "section_number": "A.4",
+        "title": "Host interface timing",
+        "spec_page": 227,
+        "pdf_page": 249,
+        "depth": 2
+      },
+      {
+        "section_number": "A.5",
+        "title": "Handling of passwords",
+        "spec_page": 227,
+        "pdf_page": 249,
+        "depth": 2
+      },
+      {
+        "section_number": "A.5.1",
+        "title": "Changing the password",
+        "spec_page": 227,
+        "pdf_page": 249,
+        "depth": 3
+      },
+      {
+        "section_number": "A.5.2",
+        "title": "Removal of the password",
+        "spec_page": 228,
+        "pdf_page": 250,
+        "depth": 3
+      },
+      {
+        "section_number": "A.6",
+        "title": "High-speed e•MMC bus functions",
+        "spec_page": 228,
+        "pdf_page": 250,
+        "depth": 2
+      },
+      {
+        "section_number": "A.6.1",
+        "title": "Bus initialization",
+        "spec_page": 228,
+        "pdf_page": 250,
+        "depth": 3
+      },
+      {
+        "section_number": "A.6.2",
+        "title": "Switching to high-speed mode",
+        "spec_page": 229,
+        "pdf_page": 251,
+        "depth": 3
+      },
+      {
+        "section_number": "A.6.3",
+        "title": "Changing the data bus width",
+        "spec_page": 229,
+        "pdf_page": 251,
+        "depth": 3
+      },
+      {
+        "section_number": "A.7",
+        "title": "Erase-unit size selection flow",
+        "spec_page": 232,
+        "pdf_page": 254,
+        "depth": 2
+      },
+      {
+        "section_number": "A.8",
+        "title": "HPI background and one of possible solutions",
+        "spec_page": 233,
+        "pdf_page": 255,
+        "depth": 2
+      },
+      {
+        "section_number": "A.8.1",
+        "title": "Background - issues with HPI",
+        "spec_page": 233,
+        "pdf_page": 255,
+        "depth": 3
+      },
+      {
+        "section_number": "A.8.2",
+        "title": "One of possible solutions",
+        "spec_page": 233,
+        "pdf_page": 255,
+        "depth": 3
+      },
+      {
+        "section_number": "A.9",
+        "title": "Stop transmission timing",
+        "spec_page": 233,
+        "pdf_page": 255,
+        "depth": 2
+      },
+      {
+        "section_number": "A.10",
+        "title": "Temperature Conditions per Power Classes (Tcase controlled)",
+        "spec_page": 235,
+        "pdf_page": 257,
+        "depth": 2
+      },
+      {
+        "section_number": "A.11",
+        "title": "Handling write protection for each boot area individually",
+        "spec_page": 236,
+        "pdf_page": 258,
+        "depth": 2
+      },
+      {
+        "section_number": "Annex B",
+        "title": "Changes between system specification versions",
+        "spec_page": 238,
+        "pdf_page": 260,
+        "depth": 1
+      },
+      {
+        "section_number": "B.1",
+        "title": "Version 4.1, the first version of this standard",
+        "spec_page": 238,
+        "pdf_page": 260,
+        "depth": 2
+      },
+      {
+        "section_number": "B.2",
+        "title": "Changes from version 4.1 to 4.2",
+        "spec_page": 238,
+        "pdf_page": 260,
+        "depth": 2
+      },
+      {
+        "section_number": "B.3",
+        "title": "Changes from version 4.2 to 4.3",
+        "spec_page": 238,
+        "pdf_page": 260,
+        "depth": 2
+      },
+      {
+        "section_number": "B.4",
+        "title": "Changes from version 4.3 to 4.4",
+        "spec_page": 239,
+        "pdf_page": 261,
+        "depth": 2
+      },
+      {
+        "section_number": "B.5",
+        "title": "Changes from version 4.4 to 4.41",
+        "spec_page": 239,
+        "pdf_page": 261,
+        "depth": 2
+      },
+      {
+        "section_number": "B.6",
+        "title": "Changes from version 4.41 to 4.5",
+        "spec_page": 240,
+        "pdf_page": 262,
+        "depth": 2
+      },
+      {
+        "section_number": "B.7",
+        "title": "Changes from version 4.5 to 4.51",
+        "spec_page": 240,
+        "pdf_page": 262,
+        "depth": 2
+      }
+    ],
+    "tables": [
+      {
+        "id": "TABLE_1",
+        "spec_reference": "Table 1",
+        "title": "e•MMC Voltage Modes",
+        "spec_page": 5,
+        "definition_page": 27,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_2",
+        "spec_reference": "Table 2",
+        "title": "e•MMC interface",
+        "spec_page": 8,
+        "definition_page": 30,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_3",
+        "spec_reference": "Table 3",
+        "title": "e•MMC registers",
+        "spec_page": 9,
+        "definition_page": 31,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4",
+        "spec_reference": "Table 4",
+        "title": "Bus Speed Modes",
+        "spec_page": 15,
+        "definition_page": 37,
+        "referenced_on_pages": [
+          42
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5",
+        "spec_reference": "Table 5",
+        "title": "Bus modes overview",
+        "spec_page": 18,
+        "definition_page": 40,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6",
+        "spec_reference": "Table 6",
+        "title": "EXT_CSD access mode",
+        "spec_page": 41,
+        "definition_page": 63,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7",
+        "spec_reference": "Table 7",
+        "title": "Bus testing pattern",
+        "spec_page": 44,
+        "definition_page": 66,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_8",
+        "spec_reference": "Table 8",
+        "title": "1-bit bus testing pattern",
+        "spec_page": 45,
+        "definition_page": 67,
+        "referenced_on_pages": [
+          44
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_9",
+        "spec_reference": "Table 9",
+        "title": "4-bit bus testing pattern",
+        "spec_page": 45,
+        "definition_page": 67,
+        "referenced_on_pages": [
+          44
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_10",
+        "spec_reference": "Table 10",
+        "title": "8-bit bus testing pattern",
+        "spec_page": 45,
+        "definition_page": 67,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_11",
+        "spec_reference": "Table 11",
+        "title": "Erase command (CMD38) Valid arguments",
+        "spec_page": 55,
+        "definition_page": 77,
+        "referenced_on_pages": [
+          54,
+          58,
+          59,
+          107
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_12",
+        "spec_reference": "Table 12",
+        "title": "Erase command (CMD38) Valid arguments",
+        "spec_page": 58,
+        "definition_page": 80,
+        "referenced_on_pages": [
+          60,
+          61,
+          107
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_13",
+        "spec_reference": "Table 13",
+        "title": "Write Protection Hierarchy (when disable bits are clear)",
+        "spec_page": 61,
+        "definition_page": 83,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_14",
+        "spec_reference": "Table 14",
+        "title": "Write Protection Types (when disable bits are clear)",
+        "spec_page": 61,
+        "definition_page": 83,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_15",
+        "spec_reference": "Table 15",
+        "title": "Security Protocol Information",
+        "spec_page": 63,
+        "definition_page": 85,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16",
+        "spec_reference": "Table 16",
+        "title": "Lock Device data structure",
+        "spec_page": 64,
+        "definition_page": 86,
+        "referenced_on_pages": [
+          186
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_17",
+        "spec_reference": "Table 17",
+        "title": "Data Frame Files for RPMB",
+        "spec_page": 68,
+        "definition_page": 90,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_18",
+        "spec_reference": "Table 18",
+        "title": "RPMB Request/Response Message Types",
+        "spec_page": 69,
+        "definition_page": 91,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_19",
+        "spec_reference": "Table 19",
+        "title": "RPMB Operation Results data structure",
+        "spec_page": 69,
+        "definition_page": 91,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_20",
+        "spec_reference": "Table 20",
+        "title": "RPMB Operation Results",
+        "spec_page": 70,
+        "definition_page": 92,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_21",
+        "spec_reference": "Table 21",
+        "title": "MAC Example",
+        "spec_page": 72,
+        "definition_page": 94,
+        "referenced_on_pages": [
+          71
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_22",
+        "spec_reference": "Table 22",
+        "title": "Authentication Key Data Packet",
+        "spec_page": 73,
+        "definition_page": 95,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_23",
+        "spec_reference": "Table 23",
+        "title": "Result Register Read Request Packet",
+        "spec_page": 73,
+        "definition_page": 95,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_24",
+        "spec_reference": "Table 24",
+        "title": "Response for Key Programming Result Request",
+        "spec_page": 74,
+        "definition_page": 96,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_25",
+        "spec_reference": "Table 25",
+        "title": "Counter Read Request Packet",
+        "spec_page": 74,
+        "definition_page": 96,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_26",
+        "spec_reference": "Table 26",
+        "title": "Counter Value Response",
+        "spec_page": 75,
+        "definition_page": 97,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_27",
+        "spec_reference": "Table 27",
+        "title": "Program Data Packet",
+        "spec_page": 75,
+        "definition_page": 97,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_28",
+        "spec_reference": "Table 28",
+        "title": "Result Register Read Request Packet",
+        "spec_page": 76,
+        "definition_page": 98,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_29",
+        "spec_reference": "Table 29",
+        "title": "Response for Data Programming Result Request",
+        "spec_page": 76,
+        "definition_page": 98,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_30",
+        "spec_reference": "Table 30",
+        "title": "Data Read Request Initiation Packet",
+        "spec_page": 77,
+        "definition_page": 99,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_31",
+        "spec_reference": "Table 31",
+        "title": "Read Data Packet",
+        "spec_page": 77,
+        "definition_page": 99,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_32",
+        "spec_reference": "Table 32",
+        "title": "Interruptible commands",
+        "spec_page": 80,
+        "definition_page": 102,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_33",
+        "spec_reference": "Table 33",
+        "title": "Packed Command Structure",
+        "spec_page": 86,
+        "definition_page": 108,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_34",
+        "spec_reference": "Table 34",
+        "title": "Features Cross Reference Table",
+        "spec_page": 90,
+        "definition_page": 112,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_35",
+        "spec_reference": "Table 35",
+        "title": "eMMC internal sizes and related Units / Granularities",
+        "spec_page": 93,
+        "definition_page": 115,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_36",
+        "spec_reference": "Table 36",
+        "title": "Admitted Data Sector Size, Address Mode and Reliable Write granularity",
+        "spec_page": 95,
+        "definition_page": 117,
+        "referenced_on_pages": [
+          92
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_37",
+        "spec_reference": "Table 37",
+        "title": "Real Time Clock Information Block Format",
+        "spec_page": 96,
+        "definition_page": 118,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_38",
+        "spec_reference": "Table 38",
+        "title": "RTC_INFO_TYPE Field Description",
+        "spec_page": 96,
+        "definition_page": 118,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_39",
+        "spec_reference": "Table 39",
+        "title": "Command Format",
+        "spec_page": 101,
+        "definition_page": 123,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_40",
+        "spec_reference": "Table 40",
+        "title": "Supported Device command classes (0–56)",
+        "spec_page": 102,
+        "definition_page": 124,
+        "referenced_on_pages": [
+          101,
+          138
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_41",
+        "spec_reference": "Table 41",
+        "title": "Basic commands (class 0 and class 1)",
+        "spec_page": 103,
+        "definition_page": 125,
+        "referenced_on_pages": [
+          17
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_42",
+        "spec_reference": "Table 42",
+        "title": "Block-oriented read commands (class 2)",
+        "spec_page": 104,
+        "definition_page": 126,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_43",
+        "spec_reference": "Table 43",
+        "title": "Class 3 commands",
+        "spec_page": 104,
+        "definition_page": 126,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_44",
+        "spec_reference": "Table 44",
+        "title": "Block-oriented write commands (class 4)",
+        "spec_page": 105,
+        "definition_page": 127,
+        "referenced_on_pages": [
+          89
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_45",
+        "spec_reference": "Table 45",
+        "title": "Block-oriented write protection commands (class 6)",
+        "spec_page": 106,
+        "definition_page": 128,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_46",
+        "spec_reference": "Table 46",
+        "title": "Erase commands (class 5)",
+        "spec_page": 107,
+        "definition_page": 129,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_47",
+        "spec_reference": "Table 47",
+        "title": "I/O mode commands (class 9)",
+        "spec_page": 107,
+        "definition_page": 129,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_48",
+        "spec_reference": "Table 48",
+        "title": "Lock Device commands (class 7)",
+        "spec_page": 108,
+        "definition_page": 130,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_49",
+        "spec_reference": "Table 49",
+        "title": "Application-specific commands (class 8)",
+        "spec_page": 108,
+        "definition_page": 130,
+        "referenced_on_pages": [
+          17,
+          101
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_50",
+        "spec_reference": "Table 50",
+        "title": "Security Protocols (class 10)",
+        "spec_page": 108,
+        "definition_page": 130,
+        "referenced_on_pages": [
+          62
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_51",
+        "spec_reference": "Table 51",
+        "title": "Device state transitions",
+        "spec_page": 109,
+        "definition_page": 131,
+        "referenced_on_pages": [
+          17,
+          80,
+          98
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_52",
+        "spec_reference": "Table 52",
+        "title": "R1 response",
+        "spec_page": 111,
+        "definition_page": 133,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_53",
+        "spec_reference": "Table 53",
+        "title": "R2 response",
+        "spec_page": 111,
+        "definition_page": 133,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_54",
+        "spec_reference": "Table 54",
+        "title": "R3 Response",
+        "spec_page": 111,
+        "definition_page": 133,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_55",
+        "spec_reference": "Table 55",
+        "title": "R4 response",
+        "spec_page": 112,
+        "definition_page": 134,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_56",
+        "spec_reference": "Table 56",
+        "title": "R5 response",
+        "spec_page": 112,
+        "definition_page": 134,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57",
+        "spec_reference": "Table 57",
+        "title": "Device status",
+        "spec_page": 113,
+        "definition_page": 135,
+        "referenced_on_pages": [
+          112
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_58",
+        "spec_reference": "Table 58",
+        "title": "Device Status field/command - cross reference",
+        "spec_page": 115,
+        "definition_page": 137,
+        "referenced_on_pages": [
+          212
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_59",
+        "spec_reference": "Table 59",
+        "title": "Response 1 Status Bit Valid",
+        "spec_page": 116,
+        "definition_page": 138,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_60",
+        "spec_reference": "Table 60",
+        "title": "Timing Parameters",
+        "spec_page": 127,
+        "definition_page": 149,
+        "referenced_on_pages": [
+          118,
+          128,
+          137
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_61",
+        "spec_reference": "Table 61",
+        "title": "Timing Parameters for HS200 mode",
+        "spec_page": 128,
+        "definition_page": 150,
+        "referenced_on_pages": [
+          134
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_62",
+        "spec_reference": "Table 62",
+        "title": "H/W reset timing parameters",
+        "spec_page": 131,
+        "definition_page": 153,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_63",
+        "spec_reference": "Table 63",
+        "title": "OCR register definitions",
+        "spec_page": 132,
+        "definition_page": 154,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_64",
+        "spec_reference": "Table 64",
+        "title": "CID Fields",
+        "spec_page": 133,
+        "definition_page": 155,
+        "referenced_on_pages": [
+          132
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_65",
+        "spec_reference": "Table 65",
+        "title": "Device Types",
+        "spec_page": 133,
+        "definition_page": 155,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_67",
+        "spec_reference": "Table 67",
+        "title": "CSD Fields",
+        "spec_page": 136,
+        "definition_page": 158,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_68",
+        "spec_reference": "Table 68",
+        "title": "CSD register structure",
+        "spec_page": 137,
+        "definition_page": 159,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_69",
+        "spec_reference": "Table 69",
+        "title": "System specification version",
+        "spec_page": 137,
+        "definition_page": 159,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_70",
+        "spec_reference": "Table 70",
+        "title": "TAAC access-time definition",
+        "spec_page": 137,
+        "definition_page": 159,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_71",
+        "spec_reference": "Table 71",
+        "title": "Maximum bus clock frequency definition",
+        "spec_page": 138,
+        "definition_page": 160,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_72",
+        "spec_reference": "Table 72",
+        "title": "Supported Device command classes",
+        "spec_page": 138,
+        "definition_page": 160,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_73",
+        "spec_reference": "Table 73",
+        "title": "Data block length",
+        "spec_page": 138,
+        "definition_page": 160,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_74",
+        "spec_reference": "Table 74",
+        "title": "DSR implementation code table",
+        "spec_page": 139,
+        "definition_page": 161,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_75",
+        "spec_reference": "Table 75",
+        "title": "VDD (min) current consumption",
+        "spec_page": 140,
+        "definition_page": 162,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_76",
+        "spec_reference": "Table 76",
+        "title": "VDD (max) current consumption",
+        "spec_page": 140,
+        "definition_page": 162,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_77",
+        "spec_reference": "Table 77",
+        "title": "Multiplier factor for device size",
+        "spec_page": 141,
+        "definition_page": 163,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_78",
+        "spec_reference": "Table 78",
+        "title": "R2W_FACTOR",
+        "spec_page": 142,
+        "definition_page": 164,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_79",
+        "spec_reference": "Table 79",
+        "title": "File formats",
+        "spec_page": 143,
+        "definition_page": 165,
+        "referenced_on_pages": [
+          142
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_80",
+        "spec_reference": "Table 80",
+        "title": "ECC type",
+        "spec_page": 143,
+        "definition_page": 165,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_81",
+        "spec_reference": "Table 81",
+        "title": "CSD field command classes",
+        "spec_page": 144,
+        "definition_page": 166,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_82",
+        "spec_reference": "Table 82",
+        "title": "Extended CSD",
+        "spec_page": 146,
+        "definition_page": 168,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_83",
+        "spec_reference": "Table 83",
+        "title": "EXT_SECURITY_ERR byte description",
+        "spec_page": 150,
+        "definition_page": 172,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_84",
+        "spec_reference": "Table 84",
+        "title": "Device-supported command sets",
+        "spec_page": 150,
+        "definition_page": 172,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_85",
+        "spec_reference": "Table 85",
+        "title": "HPI features",
+        "spec_page": 150,
+        "definition_page": 172,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_86",
+        "spec_reference": "Table 86",
+        "title": "Background operations support",
+        "spec_page": 151,
+        "definition_page": 173,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_87",
+        "spec_reference": "Table 87",
+        "title": "Context Management Context Capabilities",
+        "spec_page": 152,
+        "definition_page": 174,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_88",
+        "spec_reference": "Table 88",
+        "title": "Extended CSD Register Support",
+        "spec_page": 152,
+        "definition_page": 174,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_89",
+        "spec_reference": "Table 89",
+        "title": "Generic Switch Timeout Definition",
+        "spec_page": 153,
+        "definition_page": 175,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_90",
+        "spec_reference": "Table 90",
+        "title": "Power off long switch timeout definition",
+        "spec_page": 153,
+        "definition_page": 175,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_91",
+        "spec_reference": "Table 91",
+        "title": "Background operations status",
+        "spec_page": 154,
+        "definition_page": 176,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_92",
+        "spec_reference": "Table 92",
+        "title": "Correctly programmed sectors number",
+        "spec_page": 154,
+        "definition_page": 176,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_93",
+        "spec_reference": "Table 93",
+        "title": "Initialization Time out value",
+        "spec_page": 154,
+        "definition_page": 176,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_94",
+        "spec_reference": "Table 94",
+        "title": "TRIM/DISCARD Time out value",
+        "spec_page": 155,
+        "definition_page": 177,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_95",
+        "spec_reference": "Table 95",
+        "title": "SEC Feature Support",
+        "spec_page": 155,
+        "definition_page": 177,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_96",
+        "spec_reference": "Table 96",
+        "title": "Secure Erase time-out value",
+        "spec_page": 156,
+        "definition_page": 178,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_97",
+        "spec_reference": "Table 97",
+        "title": "Secure Erase time-out value",
+        "spec_page": 156,
+        "definition_page": 178,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_98",
+        "spec_reference": "Table 98",
+        "title": "Boot information",
+        "spec_page": 156,
+        "definition_page": 178,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_99",
+        "spec_reference": "Table 99",
+        "title": "Boot partition size",
+        "spec_page": 157,
+        "definition_page": 179,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_100",
+        "spec_reference": "Table 100",
+        "title": "Access size",
+        "spec_page": 157,
+        "definition_page": 179,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_101",
+        "spec_reference": "Table 101",
+        "title": "Superpage size",
+        "spec_page": 157,
+        "definition_page": 179,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_102",
+        "spec_reference": "Table 102",
+        "title": "Erase-unit size",
+        "spec_page": 158,
+        "definition_page": 180,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_103",
+        "spec_reference": "Table 103",
+        "title": "Erase timeout values",
+        "spec_page": 158,
+        "definition_page": 180,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_104",
+        "spec_reference": "Table 104",
+        "title": "Reliable write sector count",
+        "spec_page": 158,
+        "definition_page": 180,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_105",
+        "spec_reference": "Table 105",
+        "title": "Write protect group size",
+        "spec_page": 159,
+        "definition_page": 181,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_106",
+        "spec_reference": "Table 106",
+        "title": "S_C_VCC, S_C_VCCQ Sleep Current",
+        "spec_page": 159,
+        "definition_page": 181,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_107",
+        "spec_reference": "Table 107",
+        "title": "Sleep/awake timeout values",
+        "spec_page": 159,
+        "definition_page": 181,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_108",
+        "spec_reference": "Table 108",
+        "title": "R/W access performance values",
+        "spec_page": 160,
+        "definition_page": 182,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_109",
+        "spec_reference": "Table 109",
+        "title": "Power classes",
+        "spec_page": 161,
+        "definition_page": 183,
+        "referenced_on_pages": [
+          164
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_110",
+        "spec_reference": "Table 110",
+        "title": "Partition switch timeout definition",
+        "spec_page": 162,
+        "definition_page": 184,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_111",
+        "spec_reference": "Table 111",
+        "title": "Out-of-interrupt timeout definition",
+        "spec_page": 162,
+        "definition_page": 184,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_112",
+        "spec_reference": "Table 112",
+        "title": "Supported Driver Strengths",
+        "spec_page": 163,
+        "definition_page": 185,
+        "referenced_on_pages": [
+          180,
+          185
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_113",
+        "spec_reference": "Table 113",
+        "title": "Device types",
+        "spec_page": 163,
+        "definition_page": 185,
+        "referenced_on_pages": [
+          78,
+          185
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_114",
+        "spec_reference": "Table 114",
+        "title": "CSD register structure",
+        "spec_page": 163,
+        "definition_page": 185,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_115",
+        "spec_reference": "Table 115",
+        "title": "Extended CSD revisions",
+        "spec_page": 164,
+        "definition_page": 186,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_116",
+        "spec_reference": "Table 116",
+        "title": "Standard MMC command set revisions",
+        "spec_page": 164,
+        "definition_page": 186,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_117",
+        "spec_reference": "Table 117",
+        "title": "Power class codes",
+        "spec_page": 164,
+        "definition_page": 186,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_118",
+        "spec_reference": "Table 118",
+        "title": "HS_TIMING (timing and driver strength)",
+        "spec_page": 165,
+        "definition_page": 187,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_119",
+        "spec_reference": "Table 119",
+        "title": "HS_TIMING values",
+        "spec_page": 165,
+        "definition_page": 187,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_120",
+        "spec_reference": "Table 120",
+        "title": "Bus mode values",
+        "spec_page": 165,
+        "definition_page": 187,
+        "referenced_on_pages": [
+          78
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_121",
+        "spec_reference": "Table 121",
+        "title": "Erased memory content values",
+        "spec_page": 166,
+        "definition_page": 188,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_122",
+        "spec_reference": "Table 122",
+        "title": "Boot configuration bytes",
+        "spec_page": 166,
+        "definition_page": 188,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_123",
+        "spec_reference": "Table 123",
+        "title": "Boot config protection",
+        "spec_page": 167,
+        "definition_page": 189,
+        "referenced_on_pages": [
+          78
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_124",
+        "spec_reference": "Table 124",
+        "title": "Boot bus configuration",
+        "spec_page": 167,
+        "definition_page": 189,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_125",
+        "spec_reference": "Table 125",
+        "title": "Bus Width and Timing Mode Transition",
+        "spec_page": 168,
+        "definition_page": 190,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_126",
+        "spec_reference": "Table 126",
+        "title": "ERASE_GROUP_DEF",
+        "spec_page": 169,
+        "definition_page": 191,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_127",
+        "spec_reference": "Table 127",
+        "title": "BOOT area Partitions write protection",
+        "spec_page": 169,
+        "definition_page": 191,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_128",
+        "spec_reference": "Table 128",
+        "title": "User area write protection",
+        "spec_page": 171,
+        "definition_page": 193,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_129",
+        "spec_reference": "Table 129",
+        "title": "FW Update Disable",
+        "spec_page": 172,
+        "definition_page": 194,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_130",
+        "spec_reference": "Table 130",
+        "title": "RPMB Partition Size",
+        "spec_page": 172,
+        "definition_page": 194,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_131",
+        "spec_reference": "Table 131",
+        "title": "Write reliability setting",
+        "spec_page": 173,
+        "definition_page": 195,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_132",
+        "spec_reference": "Table 132",
+        "title": "Write reliability parameter register",
+        "spec_page": 174,
+        "definition_page": 196,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_133",
+        "spec_reference": "Table 133",
+        "title": "Background operations enable",
+        "spec_page": 174,
+        "definition_page": 196,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_134",
+        "spec_reference": "Table 134",
+        "title": "H/W reset function",
+        "spec_page": 175,
+        "definition_page": 197,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_135",
+        "spec_reference": "Table 135",
+        "title": "HPI management",
+        "spec_page": 175,
+        "definition_page": 197,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_136",
+        "spec_reference": "Table 136",
+        "title": "Partitioning Support",
+        "spec_page": 176,
+        "definition_page": 198,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_137",
+        "spec_reference": "Table 137",
+        "title": "Max. Enhanced Area Size",
+        "spec_page": 176,
+        "definition_page": 198,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_138",
+        "spec_reference": "Table 138",
+        "title": "Partitions Attribute",
+        "spec_page": 177,
+        "definition_page": 199,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_139",
+        "spec_reference": "Table 139",
+        "title": "Partition Setting",
+        "spec_page": 177,
+        "definition_page": 199,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_140",
+        "spec_reference": "Table 140",
+        "title": "General Purpose Partition Size",
+        "spec_page": 178,
+        "definition_page": 200,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_141",
+        "spec_reference": "Table 141",
+        "title": "Enhanced User Data Area Size",
+        "spec_page": 179,
+        "definition_page": 201,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_142",
+        "spec_reference": "Table 142",
+        "title": "Enhanced User Data Start Address",
+        "spec_page": 179,
+        "definition_page": 201,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_143",
+        "spec_reference": "Table 143",
+        "title": "Secure Bad Block management",
+        "spec_page": 179,
+        "definition_page": 201,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_144",
+        "spec_reference": "Table 144",
+        "title": "Initialization Time out value",
+        "spec_page": 181,
+        "definition_page": 203,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_145",
+        "spec_reference": "Table 145",
+        "title": "Class 6 usage",
+        "spec_page": 182,
+        "definition_page": 204,
+        "referenced_on_pages": [
+          91
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_146",
+        "spec_reference": "Table 146",
+        "title": "EXCEPTION_EVENTS_CTRL[56]",
+        "spec_page": 182,
+        "definition_page": 204,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_147",
+        "spec_reference": "Table 147",
+        "title": "EXCEPTION_EVENTS_CTRL[57]",
+        "spec_page": 182,
+        "definition_page": 204,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_148",
+        "spec_reference": "Table 148",
+        "title": "EXCEPTION_EVENTS_STATUS[54]",
+        "spec_page": 182,
+        "definition_page": 204,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_149",
+        "spec_reference": "Table 149",
+        "title": "EXCEPTION_EVENT_STATUS[55]",
+        "spec_page": 183,
+        "definition_page": 205,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_150",
+        "spec_reference": "Table 150",
+        "title": "First Byte EXT_PARTITIONS_ATTRIBUTE[52]",
+        "spec_page": 183,
+        "definition_page": 205,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_151",
+        "spec_reference": "Table 151",
+        "title": "Second Byte EXT_PARTITIONS_ATTRIBUTE[53]",
+        "spec_page": 183,
+        "definition_page": 205,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_152",
+        "spec_reference": "Table 152",
+        "title": "CONTEXT_CONF configuration format",
+        "spec_page": 184,
+        "definition_page": 206,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_153",
+        "spec_reference": "Table 153",
+        "title": "Packed Command Status Register",
+        "spec_page": 184,
+        "definition_page": 206,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_154",
+        "spec_reference": "Table 154",
+        "title": "Valid POWER_OFF_NOTIFICATION values",
+        "spec_page": 185,
+        "definition_page": 207,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_155",
+        "spec_reference": "Table 155",
+        "title": "Error correction codes",
+        "spec_page": 186,
+        "definition_page": 208,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_156",
+        "spec_reference": "Table 156",
+        "title": "DSR register content",
+        "spec_page": 194,
+        "definition_page": 216,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_157",
+        "spec_reference": "Table 157",
+        "title": "General operating conditions",
+        "spec_page": 196,
+        "definition_page": 218,
+        "referenced_on_pages": [
+          42
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_158",
+        "spec_reference": "Table 158",
+        "title": "e•MMC power supply voltage",
+        "spec_page": 198,
+        "definition_page": 220,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_159",
+        "spec_reference": "Table 159",
+        "title": "e•MMC voltage combinations",
+        "spec_page": 198,
+        "definition_page": 220,
+        "referenced_on_pages": [
+          5
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_160",
+        "spec_reference": "Table 160",
+        "title": "Capacitance",
+        "spec_page": 199,
+        "definition_page": 221,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_161",
+        "spec_reference": "Table 161",
+        "title": "Open-drain bus signal level",
+        "spec_page": 200,
+        "definition_page": 222,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_162",
+        "spec_reference": "Table 162",
+        "title": "Push-pull signal level—high-voltage e•MMC",
+        "spec_page": 200,
+        "definition_page": 222,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_163",
+        "spec_reference": "Table 163",
+        "title": "Push-pull signal level—1.70 -1.95 VCCQ voltage Range",
+        "spec_page": 201,
+        "definition_page": 223,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_164",
+        "spec_reference": "Table 164",
+        "title": "Push-pull signal level—1.1V-1.3V VCCQ range e•MMC",
+        "spec_page": 201,
+        "definition_page": 223,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_165",
+        "spec_reference": "Table 165",
+        "title": "I/O driver strength types",
+        "spec_page": 202,
+        "definition_page": 224,
+        "referenced_on_pages": [
+          163,
+          201
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_166",
+        "spec_reference": "Table 166",
+        "title": "Driver Type-0  AC Characteristics",
+        "spec_page": 202,
+        "definition_page": 224,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_167",
+        "spec_reference": "Table 167",
+        "title": "High-speed Device interface timing",
+        "spec_page": 204,
+        "definition_page": 226,
+        "referenced_on_pages": [
+          227
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_168",
+        "spec_reference": "Table 168",
+        "title": "Backward-compatible Device interface timing",
+        "spec_page": 205,
+        "definition_page": 227,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_169",
+        "spec_reference": "Table 169",
+        "title": "High-speed dual rate interface timing",
+        "spec_page": 207,
+        "definition_page": 229,
+        "referenced_on_pages": [
+          26
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_170",
+        "spec_reference": "Table 170",
+        "title": "HS200 Clock signal timing",
+        "spec_page": 208,
+        "definition_page": 230,
+        "referenced_on_pages": [
+          207
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_171",
+        "spec_reference": "Table 171",
+        "title": "HS200 Device input timing",
+        "spec_page": 208,
+        "definition_page": 230,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_172",
+        "spec_reference": "Table 172",
+        "title": "Output timing",
+        "spec_page": 209,
+        "definition_page": 231,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_173",
+        "spec_reference": "Table 173",
+        "title": "e•MMC host requirements for Device classes",
+        "spec_page": 212,
+        "definition_page": 234,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_174",
+        "spec_reference": "Table 174",
+        "title": "New Features List for device type",
+        "spec_page": 213,
+        "definition_page": 235,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_175",
+        "spec_reference": "Table 175",
+        "title": "Macro commands",
+        "spec_page": 216,
+        "definition_page": 238,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_176",
+        "spec_reference": "Table 176",
+        "title": "Forward-compatible host interface timing",
+        "spec_page": 227,
+        "definition_page": 249,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_177",
+        "spec_reference": "Table 177",
+        "title": "XNOR values",
+        "spec_page": 231,
+        "definition_page": 253,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_178",
+        "spec_reference": "Table 178",
+        "title": "Package Case Temp (Tc) per current consumption",
+        "spec_page": 236,
+        "definition_page": 258,
+        "referenced_on_pages": [
+          180,
+          235
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      }
+    ],
+    "figures": [
+      {
+        "id": "FIG_1",
+        "spec_reference": "Figure 1",
+        "title": "e•MMC System Overview",
+        "spec_page": 7,
+        "definition_page": 29,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_2",
+        "spec_reference": "Figure 2",
+        "title": "Multiple-block read operation",
+        "spec_page": 10,
+        "definition_page": 32,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3",
+        "spec_reference": "Figure 3",
+        "title": "(Multiple) Block write operation",
+        "spec_page": 10,
+        "definition_page": 32,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4",
+        "spec_reference": "Figure 4",
+        "title": "No response” and “no data” operations",
+        "spec_page": 10,
+        "definition_page": 32,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5",
+        "spec_reference": "Figure 5",
+        "title": "Command token format",
+        "spec_page": 11,
+        "definition_page": 33,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_6",
+        "spec_reference": "Figure 6",
+        "title": "Response token format",
+        "spec_page": 11,
+        "definition_page": 33,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7",
+        "spec_reference": "Figure 7",
+        "title": "Data packet format for SDR",
+        "spec_page": 12,
+        "definition_page": 34,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_8",
+        "spec_reference": "Figure 8",
+        "title": "Data packet format for DDR",
+        "spec_page": 13,
+        "definition_page": 35,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_9",
+        "spec_reference": "Figure 9",
+        "title": "CRC Status and Boot Acknowledge pattern for DDR",
+        "spec_page": 14,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_10",
+        "spec_reference": "Figure 10",
+        "title": "Host and Device block diagram",
+        "spec_page": 16,
+        "definition_page": 38,
+        "referenced_on_pages": [
+          15
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_11",
+        "spec_reference": "Figure 11",
+        "title": "e•MMC memory organization at time zero",
+        "spec_page": 18,
+        "definition_page": 40,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_12",
+        "spec_reference": "Figure 12",
+        "title": "Example of partitions and user data area configuration",
+        "spec_page": 19,
+        "definition_page": 41,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_13",
+        "spec_reference": "Figure 13",
+        "title": "Flow Chart for General Purpose Partitions & Enhanced User Data Area parameter setting\n \n 22\nFigure 14 — WP condition transition due to H/W reset assertion",
+        "spec_page": 24,
+        "definition_page": 46,
+        "referenced_on_pages": [
+          22,
+          23
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_15",
+        "spec_reference": "Figure 15",
+        "title": "RST_n signal at the power up period",
+        "spec_page": 25,
+        "definition_page": 47,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_16",
+        "spec_reference": "Figure 16",
+        "title": "Memory partition",
+        "spec_page": 26,
+        "definition_page": 48,
+        "referenced_on_pages": [
+          25
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_17",
+        "spec_reference": "Figure 17",
+        "title": "e•MMC state diagram (boot mode)",
+        "spec_page": 27,
+        "definition_page": 49,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_18",
+        "spec_reference": "Figure 18",
+        "title": "e•MMC state diagram (alternative boot mode)",
+        "spec_page": 29,
+        "definition_page": 51,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_19",
+        "spec_reference": "Figure 19",
+        "title": "e•MMC state diagram (boot mode)",
+        "spec_page": 30,
+        "definition_page": 52,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_20",
+        "spec_reference": "Figure 20",
+        "title": "Clarification of RESET_BOOT_BUS_CONDITIONS behavior when CMD0 is issued in \nIDLE",
+        "spec_page": 31,
+        "definition_page": 53,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_21",
+        "spec_reference": "Figure 21",
+        "title": "Setting Ext CSD BOOT_WP[173]",
+        "spec_page": 33,
+        "definition_page": 55,
+        "referenced_on_pages": [
+          32
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_23",
+        "spec_reference": "Figure 23",
+        "title": "e•MMC state transition diagram, interrupt mode",
+        "spec_page": 38,
+        "definition_page": 60,
+        "referenced_on_pages": [
+          37
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_24",
+        "spec_reference": "Figure 24",
+        "title": "e•MMC state diagram (data transfer mode)",
+        "spec_page": 39,
+        "definition_page": 61,
+        "referenced_on_pages": [
+          17,
+          40,
+          98
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_25",
+        "spec_reference": "Figure 25",
+        "title": "HS200 Selection flow diagram",
+        "spec_page": 43,
+        "definition_page": 65,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_26",
+        "spec_reference": "Figure 26",
+        "title": "Send Tuning Command",
+        "spec_page": 47,
+        "definition_page": 69,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_27",
+        "spec_reference": "Figure 27",
+        "title": "Tuning block pattern for 8 bit mode",
+        "spec_page": 48,
+        "definition_page": 70,
+        "referenced_on_pages": [
+          47
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_28",
+        "spec_reference": "Figure 28",
+        "title": "Tuning block on DAT[7:0]/DAT[3:0] in 8bit/4bit bus width",
+        "spec_page": 49,
+        "definition_page": 71,
+        "referenced_on_pages": [
+          48
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_29",
+        "spec_reference": "Figure 29",
+        "title": "Memory array partitioning",
+        "spec_page": 117,
+        "definition_page": 139,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_30",
+        "spec_reference": "Figure 30",
+        "title": "Identification timing (Device identification mode)",
+        "spec_page": 118,
+        "definition_page": 140,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_31",
+        "spec_reference": "Figure 31",
+        "title": "SET_RCA timing (Device identification mode)",
+        "spec_page": 118,
+        "definition_page": 140,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_32",
+        "spec_reference": "Figure 32",
+        "title": "Command response timing (data transfer mode)",
+        "spec_page": 119,
+        "definition_page": 141,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_33",
+        "spec_reference": "Figure 33",
+        "title": "R1b response timing",
+        "spec_page": 119,
+        "definition_page": 141,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_34",
+        "spec_reference": "Figure 34",
+        "title": "Timing response end to next command start (data transfer mode)",
+        "spec_page": 119,
+        "definition_page": 141,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_35",
+        "spec_reference": "Figure 35",
+        "title": "Timing of command sequences (all modes)",
+        "spec_page": 119,
+        "definition_page": 141,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_36",
+        "spec_reference": "Figure 36",
+        "title": "Single-block read timing",
+        "spec_page": 120,
+        "definition_page": 142,
+        "referenced_on_pages": [
+          49
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_37",
+        "spec_reference": "Figure 37",
+        "title": "Multiple-block read timing",
+        "spec_page": 121,
+        "definition_page": 143,
+        "referenced_on_pages": [
+          49,
+          120
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_38",
+        "spec_reference": "Figure 38",
+        "title": "Stop command timing (CMD12, data transfer mode)",
+        "spec_page": 121,
+        "definition_page": 143,
+        "referenced_on_pages": [
+          120
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_39",
+        "spec_reference": "Figure 39",
+        "title": "Block write command timing",
+        "spec_page": 122,
+        "definition_page": 144,
+        "referenced_on_pages": [
+          121
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_40",
+        "spec_reference": "Figure 40",
+        "title": "Multiple-block write timing",
+        "spec_page": 122,
+        "definition_page": 144,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_41",
+        "spec_reference": "Figure 41",
+        "title": "Stop transmission during data transfer from the host",
+        "spec_page": 122,
+        "definition_page": 144,
+        "referenced_on_pages": [
+          49,
+          127
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_42",
+        "spec_reference": "Figure 42",
+        "title": "Stop transmission during CRC status transfer from the Device",
+        "spec_page": 123,
+        "definition_page": 145,
+        "referenced_on_pages": [
+          127,
+          234
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_43",
+        "spec_reference": "Figure 43",
+        "title": "Stop transmission after last data block; Device is busy programming",
+        "spec_page": 123,
+        "definition_page": 145,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_44",
+        "spec_reference": "Figure 44",
+        "title": "Stop transmission after last data block; Device becomes busy",
+        "spec_page": 123,
+        "definition_page": 145,
+        "referenced_on_pages": [
+          122,
+          124,
+          127,
+          130
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_45",
+        "spec_reference": "Figure 45",
+        "title": "Bus test procedure timing",
+        "spec_page": 124,
+        "definition_page": 146,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_46",
+        "spec_reference": "Figure 46",
+        "title": "Boot operation, termination between consecutive data blocks",
+        "spec_page": 125,
+        "definition_page": 147,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_47",
+        "spec_reference": "Figure 47",
+        "title": "Boot operation, termination during transfer",
+        "spec_page": 125,
+        "definition_page": 147,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_48",
+        "spec_reference": "Figure 48",
+        "title": "Bus mode change timing (push-pull to open-drain)",
+        "spec_page": 125,
+        "definition_page": 147,
+        "referenced_on_pages": [
+          126
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_49",
+        "spec_reference": "Figure 49",
+        "title": "Alternative boot operation, termination between consecutive data blocks",
+        "spec_page": 126,
+        "definition_page": 148,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_50",
+        "spec_reference": "Figure 50",
+        "title": "Alternative boot operation, termination during transfer",
+        "spec_page": 126,
+        "definition_page": 148,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_52",
+        "spec_reference": "Figure 52",
+        "title": "Border Timing of CMD12 in Write Operation",
+        "spec_page": 129,
+        "definition_page": 151,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_51",
+        "spec_reference": "Figure 51",
+        "title": "Clock Stop Timing at Block Gap in Read Operation",
+        "spec_page": 129,
+        "definition_page": 151,
+        "referenced_on_pages": [
+          128
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_53",
+        "spec_reference": "Figure 53",
+        "title": "Border Timing of CMD12 in Read Operation",
+        "spec_page": 130,
+        "definition_page": 152,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_54",
+        "spec_reference": "Figure 54",
+        "title": "H/W reset waveform",
+        "spec_page": 131,
+        "definition_page": 153,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_55",
+        "spec_reference": "Figure 55",
+        "title": "Noise filtering timing for H/W reset",
+        "spec_page": 131,
+        "definition_page": 153,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_56",
+        "spec_reference": "Figure 56",
+        "title": "CRC7 generator/checker",
+        "spec_page": 187,
+        "definition_page": 209,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57",
+        "spec_reference": "Figure 57",
+        "title": "CRC16 generator/checker",
+        "spec_page": 188,
+        "definition_page": 210,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_58",
+        "spec_reference": "Figure 58",
+        "title": "Bus circuitry diagram",
+        "spec_page": 189,
+        "definition_page": 211,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_59",
+        "spec_reference": "Figure 59",
+        "title": "Power-up diagram",
+        "spec_page": 190,
+        "definition_page": 212,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_60",
+        "spec_reference": "Figure 60",
+        "title": "e•MMC power-up diagram",
+        "spec_page": 192,
+        "definition_page": 214,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_61",
+        "spec_reference": "Figure 61",
+        "title": "The e•MMC power cycle",
+        "spec_page": 194,
+        "definition_page": 216,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_62",
+        "spec_reference": "Figure 62",
+        "title": "e•MMC bus driver",
+        "spec_page": 195,
+        "definition_page": 217,
+        "referenced_on_pages": [
+          194
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_63",
+        "spec_reference": "Figure 63",
+        "title": "e•MMC internal power diagram (as an example)",
+        "spec_page": 196,
+        "definition_page": 218,
+        "referenced_on_pages": [
+          197
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_64",
+        "spec_reference": "Figure 64",
+        "title": "e2•MMC internal power diagram (as an example)",
+        "spec_page": 197,
+        "definition_page": 219,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_65",
+        "spec_reference": "Figure 65",
+        "title": "Bus signal levels",
+        "spec_page": 200,
+        "definition_page": 222,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_66",
+        "spec_reference": "Figure 66",
+        "title": "Outputs test circuit for rise/fall time measurement",
+        "spec_page": 203,
+        "definition_page": 225,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_67",
+        "spec_reference": "Figure 67",
+        "title": "Timing diagram: data input/output",
+        "spec_page": 203,
+        "definition_page": 225,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_68",
+        "spec_reference": "Figure 68",
+        "title": "Timing diagram: data input/output in dual data rate mode",
+        "spec_page": 206,
+        "definition_page": 228,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_69",
+        "spec_reference": "Figure 69",
+        "title": "HS200 Clock signal timing",
+        "spec_page": 207,
+        "definition_page": 229,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_70",
+        "spec_reference": "Figure 70",
+        "title": "HS200 Device input timing",
+        "spec_page": 208,
+        "definition_page": 230,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_71",
+        "spec_reference": "Figure 71",
+        "title": "HS200 Device output timing",
+        "spec_page": 209,
+        "definition_page": 231,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_73",
+        "spec_reference": "Figure 73",
+        "title": "Legend for command-sequence flow charts",
+        "spec_page": 217,
+        "definition_page": 239,
+        "referenced_on_pages": [
+          216,
+          218
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_74",
+        "spec_reference": "Figure 74",
+        "title": "SEND_OP_COND command flow chart",
+        "spec_page": 218,
+        "definition_page": 240,
+        "referenced_on_pages": [
+          219
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_75",
+        "spec_reference": "Figure 75",
+        "title": "CIM_SINGLE_DEVICE_ACQ",
+        "spec_page": 219,
+        "definition_page": 241,
+        "referenced_on_pages": [
+          220
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_76",
+        "spec_reference": "Figure 76",
+        "title": "CIM_SETUP_DEVICE",
+        "spec_page": 220,
+        "definition_page": 242,
+        "referenced_on_pages": [
+          221
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_77",
+        "spec_reference": "Figure 77",
+        "title": "CIM_READ_BLOCK",
+        "spec_page": 221,
+        "definition_page": 243,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_78",
+        "spec_reference": "Figure 78",
+        "title": "CIM_READ_MBLOCK",
+        "spec_page": 221,
+        "definition_page": 243,
+        "referenced_on_pages": [
+          222
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_79",
+        "spec_reference": "Figure 79",
+        "title": "CIM_WRITE_MBLOCK",
+        "spec_page": 222,
+        "definition_page": 244,
+        "referenced_on_pages": [
+          223
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_80",
+        "spec_reference": "Figure 80",
+        "title": "CIM_ERASE_GROUP",
+        "spec_page": 223,
+        "definition_page": 245,
+        "referenced_on_pages": [
+          224
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_81",
+        "spec_reference": "Figure 81",
+        "title": "CIM_TRIM",
+        "spec_page": 224,
+        "definition_page": 246,
+        "referenced_on_pages": [
+          225
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_82",
+        "spec_reference": "Figure 82",
+        "title": "CIM_US_PWR_WP",
+        "spec_page": 225,
+        "definition_page": 247,
+        "referenced_on_pages": [
+          226
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_83",
+        "spec_reference": "Figure 83",
+        "title": "CIM_US_PERM_WP",
+        "spec_page": 226,
+        "definition_page": 248,
+        "referenced_on_pages": [
+          230
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_84",
+        "spec_reference": "Figure 84",
+        "title": "Bus testing for eight data lines",
+        "spec_page": 230,
+        "definition_page": 252,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_85",
+        "spec_reference": "Figure 85",
+        "title": "Bus testing for four data lines",
+        "spec_page": 230,
+        "definition_page": 252,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_86",
+        "spec_reference": "Figure 86",
+        "title": "Bus testing for one data line",
+        "spec_page": 230,
+        "definition_page": 252,
+        "referenced_on_pages": [
+          232
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_87",
+        "spec_reference": "Figure 87",
+        "title": "Erase-unit size selection flow",
+        "spec_page": 232,
+        "definition_page": 254,
+        "referenced_on_pages": [
+          234
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_88",
+        "spec_reference": "Figure 88",
+        "title": "Stop transmission just before CRC status transfer from the device",
+        "spec_page": 234,
+        "definition_page": 256,
+        "referenced_on_pages": [
+          233
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_89",
+        "spec_reference": "Figure 89",
+        "title": "Stop transmission during CRC status transfer from the device",
+        "spec_page": 234,
+        "definition_page": 256,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_90",
+        "spec_reference": "Figure 90",
+        "title": "Stop transmission during CRC status transfer from the device",
+        "spec_page": 234,
+        "definition_page": 256,
+        "referenced_on_pages": [
+          235
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_91",
+        "spec_reference": "Figure 91",
+        "title": "Heat Removal - Nomenclatures",
+        "spec_page": 235,
+        "definition_page": 257,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      }
+    ]
+  },
+  "generated_at": "2026-02-23T01:45:59Z"
+}

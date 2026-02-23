@@ -1,0 +1,7 @@
+Value,Superpage Size
+0x0,Not defined
+0x1,512 × 1 = 512 bytes
+0x2,512 × 2 = 1K bytes
+:,:
+0x8,512 × 128 = 64K bytes
+0x9–0xF,Reserved

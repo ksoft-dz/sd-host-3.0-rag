@@ -1,0 +1,70 @@
+@startuml
+skinparam defaultTextAlignment center
+
+title Figure 60 — e•MMC power-up diagram
+
+scale 1.0
+
+' Define the timing diagram using a different approach
+rectangle "Supply voltage" as header {
+}
+
+note as VoltageGraph
+  |= Voltage Level |= Description |
+  | Vcc max | Upper limit for memory field |
+  | Vcc min | Lower limit for memory field working voltage range |
+  | VccQ max | Upper limit for card logic |
+  | VccQ min | Lower limit for card logic working voltage range |
+  | 0.5V | Reference level |
+end note
+
+rectangle "Power-up Sequence Timeline" {
+  
+  together {
+    rectangle "Vcc Power up time" as VccTime
+    rectangle "VccQ Power up time" as VccQTime
+  }
+  
+  rectangle "Initialization\ndelay:\nThe longest of: 1msec,\n74 clock cycles, the supply ramp-up\ntime, or the boot operation period." as InitDelay
+  
+  rectangle "Initialization\nsequence" as InitSeq
+  
+  rectangle "First CMD1 to card ready" as FirstCMD1 {
+    rectangle "CMD1" as CMD1_1
+    rectangle "CMD1" as CMD1_2
+    rectangle "CMD1" as CMD1_3
+    rectangle "CMD1" as CMD1_4
+  }
+}
+
+note right of FirstCMD1
+  Optional repetitions of CMD1
+  until the card responds with
+  busy bit set.
+end note
+
+note as Ncc
+  Ncc between each CMD1
+end note
+
+' Annotations for voltage ranges
+note as MemRange
+  Memory field
+  working
+  voltage range
+end note
+
+note as CardLogic
+  Card logic working
+  voltage range
+end note
+
+VccTime -right-> InitDelay
+VccQTime -right-> InitDelay
+InitDelay -right-> InitSeq
+InitSeq -right-> CMD1_1
+CMD1_1 -right-> CMD1_2 : Ncc
+CMD1_2 -right-> CMD1_3 : Ncc
+CMD1_3 -right-> CMD1_4 : Ncc
+
+@enduml

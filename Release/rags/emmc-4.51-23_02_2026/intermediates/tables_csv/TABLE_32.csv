@@ -1,0 +1,12 @@
+CMD Index,Name,Is interruptible?
+CMD24,WRITE_BLOCK,Yes
+CMD25,WRITE_MULTIPLE_BLOCK,Yes
+CMD38,ERASE,Yes
+CMD6,"SWITCH, byte BKOPS_START, any value",Yes
+CMD6,"SWITCH, byte SANITIZE_START, any value",Yes
+CMD6,"SWITCH, byte POWER_OFF_NOTIFICATION, value POWER_OFF_LONG",Yes
+CMD6,"SWITCH, byte POWER_OFF_NOTIFICATION, other values",No
+CMD6,CACHE_CTRL when used for turning the cache OFF,Yes
+CMD6,FLUSH_CACHE,Yes
+CMD6,"SWITCH, other bytes, any value",No
+All others,,No

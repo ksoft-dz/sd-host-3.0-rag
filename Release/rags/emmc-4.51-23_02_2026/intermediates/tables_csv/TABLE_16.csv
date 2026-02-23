@@ -1,0 +1,6 @@
+Byte #,Bit 7,Bit 6,Bit 5,Bit 4,Bit 3,Bit 2,Bit 1,Bit 0
+0,Reserved,,,,,ERASE,LOCK_UNLOCK,CLR_PWD,SET_PWD
+1,PWD_LEN,,,,,,,
+2,Password data,,,,,,,
+...,,,,,,,
+PWD_LEN +1,,,,,,,

@@ -1,0 +1,5 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD16,ac,[31:0] block length,R1,SET_BLOCKLEN,"Sets the block length (in bytes) for all following block commands (read and write). Default block length is specified in the CSD."
+CMD17,adtc,[31:0] data address1,R1,READ_SINGLE_BLOCK,Reads a block of the size selected by the SET_BLOCKLEN command.2
+CMD18,adtc,[31:0] data address1,R1,READ_MULTIPLE_BLOCK,"Continuously transfers data blocks from Device to host until interrupted by a stop command, or the requested number of data blocks is transmitted If sent as part of a packed read command, the argument shall contain the first read data address in the pack (address of first individual read command inside the pack). (See Section 6.6.27.1)"
+CMD21,adtc,[31:0] stuff bits,R1,SEND_TUNING_BLOCK,"128 clocks of tuning pattern (64byte in 4 bit mode or 128byte in 8 bit mode) is sent for HS200 optimal sampling point detection"

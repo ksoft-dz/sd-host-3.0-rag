@@ -1,0 +1,38 @@
+@startuml
+skinparam defaultFontName Monospaced
+
+robust "VCC" as VCC
+robust "VCCQ" as VCCQ
+robust "RST_n" as RST_n
+
+@0
+VCC is low
+VCCQ is low
+RST_n is low
+
+@100
+VCC is {-}
+note bottom of VCC : (1)
+
+@150
+VCC is high
+VCCQ is {-}
+note bottom of VCCQ : (2)
+
+@200
+VCCQ is high
+note bottom of VCCQ : (3)
+
+@250
+RST_n is {-}
+
+@300
+RST_n is high
+note bottom of RST_n : (4)
+
+@400
+VCC is high
+VCCQ is high
+RST_n is high
+
+@enduml

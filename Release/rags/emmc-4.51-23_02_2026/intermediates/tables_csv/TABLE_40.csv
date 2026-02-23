@@ -1,0 +1,13 @@
+Device Command Class (CCC),Class Description,CMD0,CMD1,CMD2,CMD3,CMD4,CMD5,CMD6,CMD7,CMD8,CMD9,CMD10,CMD11,CMD12,CMD13,CMD14,CMD15,CMD16,CMD17,CMD18,CMD19,CMD20,CMD21,CMD23,CMD24
+class 0,basic,+,+,+,+,+,+,+,+,+,+,+,,+,+,+,+,,,,,+,
+class 1,obsolete,,,,,,,,,,,,,,,,,,,,,,,,
+class 2,block read,,,,,,,,,,,,,,,,,+,+,+,,,,,+
+class 3,obsolete,,,,,,,,,,,,,,,,,,,,,,,,
+class 4,block write,,,,,,,,,,,,,,,,,+,,,,,,+,+
+class 5,erase,,,,,,,,,,,,,,,,,,,,,,,,
+class 6,write protection,,,,,,,,,,,,,,,,,,,,,,,,
+class 7,lock Device,,,,,,,,,,,,,,,,,+,,,,,,,
+class 8,Application-specific,,,,,,,,,,,,,,,,,,,,,,,,
+class 9,I/O mode,,,,,,,,,,,,,,,,,,,,,,,,
+class 10,Security Protocols,,,,,,,,,,,,,,,,,,,,,,,,
+class 11,reserved,,,,,,,,,,,,,,,,,,,,,,,,

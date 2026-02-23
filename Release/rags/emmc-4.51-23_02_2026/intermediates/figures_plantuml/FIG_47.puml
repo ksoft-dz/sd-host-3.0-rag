@@ -1,0 +1,104 @@
+@startuml
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT1_7
+
+scale 1 as 60 pixels
+
+@0
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@1
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@2
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@3
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@4
+CMD is "S"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@5
+CMD is "***"
+DAT0 is "***"
+DAT1_7 is "***"
+
+@7
+DAT0 is "Z|S|0|1|0|E|P"
+DAT1_7 is "Z|X"
+
+@9
+DAT0 is "***"
+DAT1_7 is "***"
+
+@11
+DAT0 is "P|S"
+DAT1_7 is "P|S"
+
+@12
+DAT0 is "{Data + CRC}"
+DAT1_7 is "{Data + CRC}"
+
+@16
+DAT0 is "E|P"
+DAT1_7 is "E|P"
+
+@17
+DAT0 is "***"
+DAT1_7 is "***"
+
+@19
+DAT0 is "P|S"
+DAT1_7 is "P|S"
+
+@20
+DAT0 is "{Data}"
+DAT1_7 is "{Data}"
+
+@24
+DAT0 is "E|Z"
+DAT1_7 is "E|Z"
+
+@25
+DAT0 is "**"
+DAT1_7 is "**"
+
+@26
+CMD is "L|E|Z|Z|Z"
+DAT0 is "Z|Z|Z|Z|Z"
+DAT1_7 is "Z|Z|Z|Z|Z"
+
+@29
+CMD is "**"
+
+@30
+CMD is "Z|S|T"
+
+@32
+CMD is "{CMD1}"
+DAT0 is "****"
+DAT1_7 is "****"
+
+note top of CMD : Boot request recognized
+note top of CMD @26 : Boot request\ncomplete
+
+note bottom of DAT0 @0 : t_BA
+note bottom of DAT0 @2 : t_BD
+note bottom of DAT0 @17 : N_AC
+note bottom of DAT0 @25 : N_ST
+note bottom of DAT0 @26 : N_CD
+
+note top of DAT1_7 @7 : Optional
+@enduml

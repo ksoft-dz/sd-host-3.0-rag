@@ -1,0 +1,16 @@
+Parameter,Symbol,Min,Max.,Unit,Remark
+Clock CLK(1),,,,, 
+Clock frequency Data Transfer Mode (PP)(2),fPP,0,52(3),MHz,CL ≤ 30 pF Tolerance: +100KHz
+Clock frequency Identification Mode (OD),fOD,0,400,kHz,Tolerance: +20KHz
+Clock high time,tWH,6.5,,ns,CL ≤ 30 pF
+Clock low time,tWL,6.5,,ns,CL ≤ 30 pF
+Clock rise time(4),tTLH,,3,ns,CL ≤ 30 pF
+Clock fall time,tTHL,,3,ns,CL ≤ 30 pF
+Inputs CMD, DAT (referenced to CLK),,,,,
+Input set-up time,tISU,3,,ns,CL ≤ 30 pF
+Input hold time,tIH,3,,ns,CL ≤ 30 pF
+Outputs CMD, DAT (referenced to CLK),,,,,
+Output delay time during data transfer,tODLY,,13.7,ns,CL ≤ 30 pF
+Output hold time,tOH,2.5,,ns,CL ≤ 30 pF
+Signal rise time(5),tRISE,,3,ns,CL ≤ 30 pF
+Signal fall time,tFALL,,3,ns,CL ≤ 30 pF

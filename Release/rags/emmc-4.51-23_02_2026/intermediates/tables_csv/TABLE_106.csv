@@ -1,0 +1,7 @@
+Value,Value definition
+0x00,Not defined
+0x01,1µA × 21 = 2µA
+0x02,1µA × 22 = 4µA
+:,:
+0x0D,1µA × 213 = 8.192mA
+0x0E–0xFF,Reserved

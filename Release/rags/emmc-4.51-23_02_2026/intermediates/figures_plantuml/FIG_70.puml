@@ -1,0 +1,46 @@
+@startuml
+title Figure 70 — HS200 Device input timing
+
+clock "CLOCK INPUT" as CLK with period 1
+
+binary "CMD.DAT[7:0] INPUT" as CMD
+
+@0
+CLK is high
+CMD is low
+
+@0.2
+CLK is low
+
+@0.5
+CLK is high
+
+@0.7
+CLK is low
+
+@1
+CLK is high
+
+concise "Voltage Levels" as V
+
+@0
+V is "VSS"
+
+@0.3
+V is "VIL"
+
+@0.45
+V is "VIH"
+
+@0.55
+V is "VIH"
+
+@0.7
+V is "VIL"
+
+@1
+V is "VSS"
+
+highlight 0.45 to 0.55 #LightGreen : VALID\nWINDOW
+
+@enduml

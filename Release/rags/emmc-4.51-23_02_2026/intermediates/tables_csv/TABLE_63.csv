@@ -1,0 +1,8 @@
+Bit,Access,Field Name,Description
+[6:0],R,Reserved,000 0000b (High Voltage MultimediaCard) / 00 00000b (Dual voltage MultiMediaCard and e•MMC)
+[7],R,1.70-1.95V,0b (High Voltage MultimediaCard) / 1b (Dual voltage MultiMediaCard and e•MMC)
+[14:8],R,2.0-2.6V,000 0000b (High Voltage MultimediaCard) / 000 0000b (Dual voltage MultiMediaCard and e•MMC)
+[23:15],R,2.7-3.6V,1 1111 1111b (High Voltage MultimediaCard) / 1 1111 1111b (Dual voltage MultiMediaCard and e•MMC)
+[28:24],R,Reserved,000 0000b (High Voltage MultimediaCard) / 000 0000b (Dual voltage MultiMediaCard and e•MMC)
+[30:29],R,Access mode,"00b (byte mode) 10b (sector mode) (High Voltage MultimediaCard) / 00b (byte mode) 10b (sector mode) (Dual voltage MultiMediaCard and e•MMC)"
+[31],R,Card power up status bit (busy),This bit is set to LOW if the Device has not finished the power up routine

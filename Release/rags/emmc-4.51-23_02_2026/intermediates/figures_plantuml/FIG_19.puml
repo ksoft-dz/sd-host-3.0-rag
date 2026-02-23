@@ -1,0 +1,61 @@
+@startuml
+skinparam state {
+  BackgroundColor<<blue>> LightBlue
+}
+
+[*] --> PowerOn
+
+state "Power On" as PowerOn
+
+PowerOn --> PreIdleState
+
+state "Pre-Idle State\n(idle)" as PreIdleState <<blue>>
+
+PreIdleState --> PreIdleState : Hardware Reset\nor\nCMD0 with\nArg = 0xF0F0F0F0
+
+note right of PreIdleState : From all states except\ninactive
+
+PreIdleState --> PrebootState : BOOT_PARTITION_ENABLE = 1
+
+state "Pre-boot state\n(preboot)" as PrebootState <<blue>>
+
+PreIdleState --> BootSequenceFail : Boot sequence fail\nor\nBOOT_PARTITION_ENABLE = 0
+
+state "Boot sequence fail\nor\nBOOT_PARTITION_ENABLE = 0" as BootSequenceFail
+
+PrebootState --> BootState : Original Boot Mode: CMD line for 74 or more clock cycles\nOr\nAlternate Boot Mode: CMD0 with arg=0xFFFFFFFA
+
+PrebootState --> PrebootState : CMD line low for less\nthan 74 clock cycles
+
+state "Boot state\n(boot)" as BootState <<blue>>
+
+BootState --> IdleState : Original Boot Mode: CMD line high\nOr\nAlternate Boot Mode*: CMD0 with arg=0x00000000
+
+note right of BootState : Note: when device is in alternate\nboot and all the data has been read\nfrom the boot partition, the device\nshould automatically go to idle\nstate, but hosts are still required to\nissue CMD0 with arg=0x00000000
+
+state "Idle State\n(idle)" as IdleState <<blue>>
+
+state "Boot Mode" as BootMode {
+}
+
+BootSequenceFail --> IdleState
+
+IdleState --> IdleState : Default Bus Conditions\nSDR, x1
+
+note left of IdleState : Default Bus Conditions\nSDR, x1
+
+note left of IdleState : Boot Bus Conditions\nRetained if\nRESET_BOOT_BUS_\nCONDITIONS is set to\nretain
+
+state "Card-Identification Mode" as CardIdMode {
+  IdleState --> CMD0
+  CMD0 --> InactiveState
+  state "Inactive State\n(ina)" as InactiveState <<blue>>
+  InactiveState --> CMD15
+  state "CMD15" as CMD15
+}
+
+IdleState --> CMD1
+
+note right of CMD0 : From all States except\n(ina)
+
+@enduml

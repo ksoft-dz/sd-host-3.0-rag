@@ -1,0 +1,58 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0" as DAT0
+robust "DAT1-7" as DAT1_7
+
+concise "Direction" as Dir
+
+@0
+Dir is "from host\nto card"
+CMD is command
+
+@1
+Dir is "from card\nto host"
+CMD is response
+
+@2
+Dir is "from host\nto card"
+CMD is {-}
+
+@3
+DAT0 is "data block"
+DAT1_7 is "data block"
+
+@4
+DAT0 is crc
+DAT1_7 is crc
+
+@5
+Dir is "busy from\ncard to host"
+DAT0 is busy
+DAT1_7 is xxxx
+
+@6
+DAT0 is {-}
+DAT1_7 is {-}
+
+@7
+Dir is "from host\nto card"
+DAT0 is "data block"
+DAT1_7 is "data block"
+
+@8
+DAT0 is crc
+DAT1_7 is crc
+
+@9
+DAT0 is busy
+DAT1_7 is xxxx
+
+@10
+Dir is "stop command\nstops data transfer"
+CMD is command
+
+@11
+Dir is "from card\nto host"
+CMD is response
+
+@enduml

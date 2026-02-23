@@ -1,0 +1,14 @@
+Bits,Identifier,Type,Det Mode,Value,Description,Clear Cond
+31,"ADDRESS_OUT_OF_RANGE",E,R,"""0"" = no error ""1"" = error","The command's address argument was out of the allowed range for this Device.",B
+31,"ADDRESS_OUT_OF_RANGE",E,X,,"A multiple block operation is (although started in a valid address) attempting to read or write beyond the Device capacity.",B
+30,"ADDRESS_MISALIGN",E,R,"""0"" = no error ""1"" = error","The command's address argument (in accordance with the currently set block length) positions the first data block misaligned to the Device physical blocks.",B
+30,"ADDRESS_MISALIGN",E,X,,"A multiple block read/write operation (although started with a valid address/block length combination) is attempting to read or write a data block which does not align with the physical blocks of the Device.",B
+29,"BLOCK_LEN_ERROR",E,R,"""0"" = no error ""1"" = error","Either the argument of a SET_BLOCKLEN command exceeds the maximum value allowed for the Device, or the previously defined block length is illegal for the current command (e.g. the host issues a write command, the current block length is smaller than the Device's maximum and write partial blocks is not allowed).",B
+28,"ERASE_SEQ_ERROR",E,R,"""0"" = no error ""1"" = error","An error in the sequence of erase commands occurred.",B
+27,ERASE_PARAM,E,X,"""0"" = no error ""1"" = error","An invalid selection of erase groups for erase occurred.",B
+26,WP_VIOLATION,E,X,"""0"" = no error ""1"" = error","Attempt to program a write protected block",B
+25,"DEVICE_IS_LOCKED",S,R,"""0"" = Device unlocked ""1"" = Device locked","When set, signals that the Device is locked by the host",A
+24,"LOCK_UNLOCK_FAILED",E,X,"""0"" = no error ""1"" = error","Set when a sequence or password error has been detected in lock/unlock Device command",B
+23,COM_CRC_ERROR,E,R,"""0"" = no error ""1"" = error","The CRC check of the command failed.",B
+22,"ILLEGAL_COMMAND",E,R,"""0"" = no error ""1"" = error","Command not legal for the Device state",B
+21,"DEVICE_ECC_FAILED",E,X,"""0"" = success ""1"" = failure","Device internal ECC was applied but failed to correct the data.",B

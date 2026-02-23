@@ -1,0 +1,1325 @@
+{
+  "_metadata": {
+    "source": "Embedded Multimedia Card (e•MMC) Electrical Standard",
+    "extraction_date": "2026-02-23T02:37:45Z",
+    "total_figures": 88,
+    "transcribed": 88,
+    "failed": 0,
+    "llm_stats": {
+      "total_calls": 88,
+      "total_input_tokens": 152915,
+      "total_output_tokens": 45478,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "figures": [
+    {
+      "id": "FIG_1",
+      "spec_reference": "Figure 1",
+      "title": "e•MMC System Overview",
+      "spec_page": 7,
+      "definition_page": 29,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the e•MMC system architecture with a Host containing a Host Controller communicating via Clock, CMD, and Data signals to an e•MMC Device Controller containing a Device Controller and Memory Array, with color coding indicating which components are specified by the e•MMC standard versus out of scope."
+    },
+    {
+      "id": "FIG_2",
+      "spec_reference": "Figure 2",
+      "title": "Multiple-block read operation",
+      "spec_page": 10,
+      "definition_page": 32,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_2.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 2 illustrates the timing sequence for multiple-block read operations showing the CMD line carrying command/response exchanges while DAT0-7 lines transfer consecutive data blocks with CRC, terminated by a stop command."
+    },
+    {
+      "id": "FIG_3",
+      "spec_reference": "Figure 3",
+      "title": "(Multiple) Block write operation",
+      "spec_page": 10,
+      "definition_page": 32,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the multiple block write operation protocol showing command/response sequences on CMD line and data block transfers with CRC and busy signaling on DAT0 and DAT1-7 lines, including the stop command that terminates the data transfer."
+    },
+    {
+      "id": "FIG_4",
+      "spec_reference": "Figure 4",
+      "title": "No response” and “no data” operations",
+      "spec_page": 10,
+      "definition_page": 32,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_4.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 4 illustrates two types of SD card operations: one where the host sends a command without expecting a response, and another where a command-response exchange occurs on the CMD line but no data is transferred on the DAT0-7 lines."
+    },
+    {
+      "id": "FIG_5",
+      "spec_reference": "Figure 5",
+      "title": "Command token format",
+      "spec_page": 11,
+      "definition_page": 33,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_5.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 5 shows the command token format structure consisting of a start bit ('0'), transmitter bit ('1' for host command), content field with command/address information protected by 7-bit CRC, CRC field, and end bit ('1'), totaling 48 bits."
+    },
+    {
+      "id": "FIG_6",
+      "spec_reference": "Figure 6",
+      "title": "Response token format",
+      "spec_page": 11,
+      "definition_page": 33,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_6.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the two response token formats used in SD card communication: a 48-bit format for R1, R3, R4, and R5 responses containing mirrored command/status information, and a 136-bit format for R2 responses containing CID or CSD register data, both with start bit '0', end bit '1', and CRC protection."
+    },
+    {
+      "id": "FIG_7",
+      "spec_reference": "Figure 7",
+      "title": "Data packet format for SDR",
+      "spec_page": 12,
+      "definition_page": 34,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_7.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the SDR (Single Data Rate) data packet format for 1-bit, 4-bit, and 8-bit bus widths, showing how data bits are distributed across DAT lines with start bit (0), data bytes (LSB to MSB), CRC, and end bit (1)."
+    },
+    {
+      "id": "FIG_8",
+      "spec_reference": "Figure 8",
+      "title": "Data packet format for DDR",
+      "spec_page": 13,
+      "definition_page": 35,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_8.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the DDR (Double Data Rate) data packet format for both 4-bit (DAT3-DAT0) and 8-bit (DAT7-DAT0) bus configurations, showing the timing relationship between clock, start bit, data bits transmitted on odd/even clock edges, CRC bits, and end bit."
+    },
+    {
+      "id": "FIG_9",
+      "spec_reference": "Figure 9",
+      "title": "CRC Status and Boot Acknowledge pattern for DDR",
+      "spec_page": 14,
+      "definition_page": 36,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_9.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the DDR CRC status and boot acknowledge patterns, with positive CRC token '010' and negative CRC token '101', where data bits are valid on rising clock edges and 'X' indicates undefined states."
+    },
+    {
+      "id": "FIG_10",
+      "spec_reference": "Figure 10",
+      "title": "Host and Device block diagram",
+      "spec_page": 16,
+      "definition_page": 38,
+      "referenced_on_pages": [
+        15
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_10.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram illustrates the bidirectional data interface between a Host and Device, showing clock generation, input/output circuits with buffer stages, adjustable sampling point on the host side, and flash memory on the device side connected via CLOCK and DAT[7:0]/DAT[3:0] signal lines."
+    },
+    {
+      "id": "FIG_11",
+      "spec_reference": "Figure 11",
+      "title": "e•MMC memory organization at time zero",
+      "spec_page": 18,
+      "definition_page": 40,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_11.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the initial eMMC memory organization at time zero, consisting of three partitions on the left (Boot Area Partition1, Boot Area Partition2, and RPMB Partition) each starting at address 0x00000000 with sizes as multiples of 128KB, alongside the User Data Area spanning from address 0x00000000 to Card size - 1."
+    },
+    {
+      "id": "FIG_12",
+      "spec_reference": "Figure 12",
+      "title": "Example of partitions and user data area configuration",
+      "spec_page": 19,
+      "definition_page": 41,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_12.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the memory partition configuration of an eMMC device, showing Boot Area Partitions, RPMB Area Partition, User Data Area with an optional Enhanced User Data Area segment, and four General Purpose Area Partitions with their addressing and size constraints."
+    },
+    {
+      "id": "FIG_13",
+      "spec_reference": "Figure 13",
+      "title": "Flow Chart for General Purpose Partitions & Enhanced User Data Area parameter setting\n \n 22\nFigure 14 — WP condition transition due to H/W reset assertion",
+      "spec_page": 24,
+      "definition_page": 46,
+      "referenced_on_pages": [
+        22,
+        23
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_13.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This diagram shows how write protection (WP) conditions for different memory groups transition when a hardware reset is asserted, with Power-on Period WP (group B) becoming unprotected while Permanent WP, Temporary WP, and Unprotected groups maintain their states."
+    },
+    {
+      "id": "FIG_15",
+      "spec_reference": "Figure 15",
+      "title": "RST_n signal at the power up period",
+      "spec_page": 25,
+      "definition_page": 47,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_15.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the power-up sequence relationship between VCC, VCCQ, and RST_n signals, illustrating four distinct phases where the supply voltages ramp up before the reset signal is deasserted."
+    },
+    {
+      "id": "FIG_16",
+      "spec_reference": "Figure 16",
+      "title": "Memory partition",
+      "spec_page": 26,
+      "definition_page": 48,
+      "referenced_on_pages": [
+        25
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_16.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram illustrates the eMMC memory partition layout showing two boot area partitions (partition 1 and partition 2) each starting at address 0x00000000 with configurable maximum boot partition size, alongside a separate user area also starting at address 0x00000000."
+    },
+    {
+      "id": "FIG_17",
+      "spec_reference": "Figure 17",
+      "title": "e•MMC state diagram (boot mode)",
+      "spec_page": 27,
+      "definition_page": 49,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_17.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the eMMC boot mode operation showing the CLK, CMD, and DAT[0] signal sequences including boot acknowledge pattern \"010\", 512-byte data blocks with CRC, boot termination, and subsequent CMD1/CMD2/CMD3 command-response sequences with timing constraints."
+    },
+    {
+      "id": "FIG_18",
+      "spec_reference": "Figure 18",
+      "title": "e•MMC state diagram (alternative boot mode)",
+      "spec_page": 29,
+      "definition_page": 51,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_18.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the e•MMC alternative boot mode sequence showing the CLK, CMD, and DAT[0] signal relationships during boot initialization, including the minimum 74 clock cycles after power stability, CMD0 boot command, data transfer blocks with CRC, and subsequent CMD1/CMD2/CMD3 command-response sequences."
+    },
+    {
+      "id": "FIG_19",
+      "spec_reference": "Figure 19",
+      "title": "e•MMC state diagram (boot mode)",
+      "spec_page": 30,
+      "definition_page": 52,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_19.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This state diagram illustrates the e•MMC boot mode operation flow, showing transitions from power-on through pre-idle, pre-boot, boot, and idle states, with conditions for original and alternate boot modes, and paths to card-identification mode or inactive state."
+    },
+    {
+      "id": "FIG_20",
+      "spec_reference": "Figure 20",
+      "title": "Clarification of RESET_BOOT_BUS_CONDITIONS behavior when CMD0 is issued in \nIDLE",
+      "spec_page": 31,
+      "definition_page": 53,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_20.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This state diagram illustrates the RESET_BOOT_BUS_CONDITIONS behavior during CMD0 issuance in IDLE state, showing transitions from boot state through data reading to idle state, with conditions for when bus conditions are retained or reset to x1 SDR mode."
+    },
+    {
+      "id": "FIG_21",
+      "spec_reference": "Figure 21",
+      "title": "Setting Ext CSD BOOT_WP[173]",
+      "spec_page": 33,
+      "definition_page": 55,
+      "referenced_on_pages": [
+        32
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_21.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the procedure for configuring the Extended CSD BOOT_WP[173] register to enable or disable permanent write protection for boot areas 1 and/or 2 in an eMMC device."
+    },
+    {
+      "id": "FIG_23",
+      "spec_reference": "Figure 23",
+      "title": "e•MMC state transition diagram, interrupt mode",
+      "spec_page": 38,
+      "definition_page": 60,
+      "referenced_on_pages": [
+        37
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_23.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This state transition diagram shows the e•MMC interrupt mode operation, illustrating how the device transitions between card identification mode, stand-by state, and wait-IRQ state using commands CMD40, CMD3, CMD15, and various reset conditions."
+    },
+    {
+      "id": "FIG_24",
+      "spec_reference": "Figure 24",
+      "title": "e•MMC state diagram (data transfer mode)",
+      "spec_page": 39,
+      "definition_page": 61,
+      "referenced_on_pages": [
+        17,
+        40,
+        98
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_24.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This state diagram shows the e•MMC data transfer mode states and transitions, including Stand-by, Transfer, Sending-data, Receive-data, Programming, Sleep, Wait-IRQ, Disconnect, and Bus test states, with their associated command triggers for state transitions."
+    },
+    {
+      "id": "FIG_25",
+      "spec_reference": "Figure 25",
+      "title": "HS200 Selection flow diagram",
+      "spec_page": 43,
+      "definition_page": 65,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_25.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the HS200 high-speed mode selection process for eMMC devices, including device selection, voltage verification, capability checking, bus width configuration, driver strength setting, and tuning procedure execution."
+    },
+    {
+      "id": "FIG_26",
+      "spec_reference": "Figure 26",
+      "title": "Send Tuning Command",
+      "spec_page": 47,
+      "definition_page": 69,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_26.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the CMD21 Send Tuning Command timing sequence showing the command packet format, R1 response, and the 128-bit tuning block data pattern transmitted after 146 clock cycles for HS200 mode sampling calibration."
+    },
+    {
+      "id": "FIG_27",
+      "spec_reference": "Figure 27",
+      "title": "Tuning block pattern for 8 bit mode",
+      "spec_page": 48,
+      "definition_page": 70,
+      "referenced_on_pages": [
+        47
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_27.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the tuning block pattern data values for 8-bit mode operation, displaying hexadecimal byte values (F, 0, C, 3, B, 7, D, E) arranged across data lines DAT[7:0] for bytes #1 through #128, designed to create worst-case signal integrity conditions for host/device tuning calibration."
+    },
+    {
+      "id": "FIG_28",
+      "spec_reference": "Figure 28",
+      "title": "Tuning block on DAT[7:0]/DAT[3:0] in 8bit/4bit bus width",
+      "spec_page": 49,
+      "definition_page": 71,
+      "referenced_on_pages": [
+        48
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_28.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the tuning block pattern transmitted on DAT[7:0] and DAT[3:0] data lines in 8-bit and 4-bit bus width modes, displaying the bit-level tuning sequence with start bit (S), data pattern, end bit (E), and corresponding CRC16 values for each line."
+    },
+    {
+      "id": "FIG_29",
+      "spec_reference": "Figure 29",
+      "title": "Memory array partitioning",
+      "spec_page": 117,
+      "definition_page": 139,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_29.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the hierarchical memory array partitioning structure of a MultiMediaCard, showing how write blocks are organized into erase groups, which are then grouped into write protect groups."
+    },
+    {
+      "id": "FIG_30",
+      "spec_reference": "Figure 30",
+      "title": "Identification timing (Device identification mode)",
+      "spec_page": 118,
+      "definition_page": 140,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_30.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the device identification mode command/response sequence where a host command (S, T, Content, CRC, E, Z) is followed by N_ID clock cycles of delay, after which the device responds with CID or OCR content (S, T, Content) terminated by three Z bits."
+    },
+    {
+      "id": "FIG_31",
+      "spec_reference": "Figure 31",
+      "title": "SET_RCA timing (Device identification mode)",
+      "spec_page": 118,
+      "definition_page": 140,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_31.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the SET_RCA (CMD 3) command and response timing in device identification mode, illustrating the host command structure (S, T, Content, CRC, E, Z) followed by N_CR clock cycles delay, and then the device response with the same frame structure including CRC and end bits."
+    },
+    {
+      "id": "FIG_32",
+      "spec_reference": "Figure 32",
+      "title": "Command response timing (data transfer mode)",
+      "spec_page": 119,
+      "definition_page": 141,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_32.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the command response timing in data transfer mode, illustrating the sequence of Host Command (S, T, Content, CRC, E) followed by Z bits and P bits during N_CR cycles, then the Device Response (P, S, T, Content, CRC, E) with trailing Z bits on the CMD line."
+    },
+    {
+      "id": "FIG_33",
+      "spec_reference": "Figure 33",
+      "title": "R1b response timing",
+      "spec_page": 119,
+      "definition_page": 141,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_33.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 33 shows the R1b response timing where the CMD line transmits a host command followed by a busy period, during which DAT0 indicates card busy status with DAT1-7 lines being irrelevant (driven by device but values not relevant)."
+    },
+    {
+      "id": "FIG_34",
+      "spec_reference": "Figure 34",
+      "title": "Timing response end to next command start (data transfer mode)",
+      "spec_page": 119,
+      "definition_page": 141,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_34.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 34 shows the timing relationship between the end of a device response and the start of the next host command in data transfer mode, with N_RC clock cycles required between the response end bit and the next command start bit."
+    },
+    {
+      "id": "FIG_35",
+      "spec_reference": "Figure 35",
+      "title": "Timing of command sequences (all modes)",
+      "spec_page": 119,
+      "definition_page": 141,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_35.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the command sequence timing for all modes, where consecutive host commands on the CMD line are separated by at least N_CC clock cycles (shown as Z and *** periods) between the end of one command and the start of the next."
+    },
+    {
+      "id": "FIG_36",
+      "spec_reference": "Figure 36",
+      "title": "Single-block read timing",
+      "spec_page": 120,
+      "definition_page": 142,
+      "referenced_on_pages": [
+        49
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_36.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the single-block read operation showing the CMD line carrying the host command (with Start, Transmission, Content, CRC, End bits) followed by N_CR cycles delay and device response, while the DAT0-7 lines show N_AC cycles delay before transmitting the read data block with Start bit, Data, and CRC."
+    },
+    {
+      "id": "FIG_37",
+      "spec_reference": "Figure 37",
+      "title": "Multiple-block read timing",
+      "spec_page": 121,
+      "definition_page": 143,
+      "referenced_on_pages": [
+        49,
+        120
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_37.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the multiple-block read operation sequence with CMD line carrying host command and response phases, while DAT0-7 lines carry read data blocks separated by N_AC cycle delays."
+    },
+    {
+      "id": "FIG_38",
+      "spec_reference": "Figure 38",
+      "title": "Stop command timing (CMD12, data transfer mode)",
+      "spec_page": 121,
+      "definition_page": 143,
+      "referenced_on_pages": [
+        120
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_38.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop command (CMD12) sequence during data transfer mode, illustrating the host command phase, N_CR and N_ST cycle delays, valid read data on DAT0-7 lines, and the subsequent response phase."
+    },
+    {
+      "id": "FIG_39",
+      "spec_reference": "Figure 39",
+      "title": "Block write command timing",
+      "spec_page": 122,
+      "definition_page": 144,
+      "referenced_on_pages": [
+        121
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_39.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the block write command sequence for an HS200 device, illustrating the relationship between CMD line signals and DAT0/DAT[7:1] data lines including write data, CRC transmission, CRC status response, and device busy indication periods."
+    },
+    {
+      "id": "FIG_40",
+      "spec_reference": "Figure 40",
+      "title": "Multiple-block write timing",
+      "spec_page": 122,
+      "definition_page": 144,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_40.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows multiple-block write operation where the device receives continuous data blocks on DAT0 and DAT1-7 lines, with CRC status responses and busy signaling between blocks, until terminated by a stop transmission command."
+    },
+    {
+      "id": "FIG_41",
+      "spec_reference": "Figure 41",
+      "title": "Stop transmission during data transfer from the host",
+      "spec_page": 122,
+      "definition_page": 144,
+      "referenced_on_pages": [
+        49,
+        127
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_41.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop transmission command (CMD12) sequence during data transfer from host to device, illustrating the CMD line carrying host command and device response, while DAT0 shows the busy signal during device programming and DAT1-7 shows the data line states."
+    },
+    {
+      "id": "FIG_42",
+      "spec_reference": "Figure 42",
+      "title": "Stop transmission during CRC status transfer from the Device",
+      "spec_page": 123,
+      "definition_page": 145,
+      "referenced_on_pages": [
+        127,
+        234
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_42.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop transmission sequence during CRC status transfer from the device, where the host interrupts the device's CRC status response on the CMD line while data lines show the device transitioning to busy state during programming."
+    },
+    {
+      "id": "FIG_43",
+      "spec_reference": "Figure 43",
+      "title": "Stop transmission after last data block; Device is busy programming",
+      "spec_page": 123,
+      "definition_page": 145,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_43.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop transmission sequence after the last data block when the device is busy programming, illustrating the CMD, DAT0, and DAT1-7 signal transitions including host command, NCR cycles, device response with busy indication, and subsequent host command phases."
+    },
+    {
+      "id": "FIG_44",
+      "spec_reference": "Figure 44",
+      "title": "Stop transmission after last data block; Device becomes busy",
+      "spec_page": 123,
+      "definition_page": 145,
+      "referenced_on_pages": [
+        122,
+        124,
+        127,
+        130
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_44.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the stop transmission scenario after the last data block where the device transitions to busy state, showing the CMD line with host command, NCR cycles, device response with CRC, and subsequent host command, while DAT0 and DAT1-7 lines show the device programming period indicated by busy signaling."
+    },
+    {
+      "id": "FIG_45",
+      "spec_reference": "Figure 45",
+      "title": "Bus test procedure timing",
+      "spec_page": 124,
+      "definition_page": 146,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_45.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the bus test procedure sequence for eMMC devices, illustrating the command/response flow (CMD19/RSP19, CMD14/RSP14, CMD6/RSP6) and corresponding data patterns on DAT0-DAT7 lines with timing intervals NWR, NRC, and NAC between transactions."
+    },
+    {
+      "id": "FIG_46",
+      "spec_reference": "Figure 46",
+      "title": "Boot operation, termination between consecutive data blocks",
+      "spec_page": 125,
+      "definition_page": 147,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_46.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the boot operation sequence with termination occurring between consecutive data blocks, illustrating CMD, DAT0, and DAT1-7 signal transitions from boot request recognition through data+CRC transfers to boot request completion."
+    },
+    {
+      "id": "FIG_47",
+      "spec_reference": "Figure 47",
+      "title": "Boot operation, termination during transfer",
+      "spec_page": 125,
+      "definition_page": 147,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_47.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the boot operation sequence when termination occurs during data transfer, depicting CMD and DAT0-7 signal transitions from boot request recognition through data blocks to boot request completion with associated timing parameters."
+    },
+    {
+      "id": "FIG_48",
+      "spec_reference": "Figure 48",
+      "title": "Bus mode change timing (push-pull to open-drain)",
+      "spec_page": 125,
+      "definition_page": 147,
+      "referenced_on_pages": [
+        126
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_48.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the bus mode change sequence from push-pull to open-drain mode after boot operation completes, with CMD and DAT0-7 lines transitioning through high-impedance (Z) states at clock frequencies of 400 kHz or less."
+    },
+    {
+      "id": "FIG_49",
+      "spec_reference": "Figure 49",
+      "title": "Alternative boot operation, termination between consecutive data blocks",
+      "spec_page": 126,
+      "definition_page": 148,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_49.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the alternative boot operation sequence for an eMMC device, illustrating the termination process between consecutive data blocks with CMD, DAT0, and DAT1-7 signal lines showing command frames, data packets with CRC, and the boot request completion sequence."
+    },
+    {
+      "id": "FIG_50",
+      "spec_reference": "Figure 50",
+      "title": "Alternative boot operation, termination during transfer",
+      "spec_page": 126,
+      "definition_page": 148,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_50.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the alternative boot operation sequence with termination occurring during a data transfer, where CMD0 (with argument 0xFFFFFFFA) initiates the boot and CMD1 completes the boot request while data blocks are still being transferred on DAT0 and DAT1-7 lines."
+    },
+    {
+      "id": "FIG_52",
+      "spec_reference": "Figure 52",
+      "title": "Border Timing of CMD12 in Write Operation",
+      "spec_page": 129,
+      "definition_page": 151,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_52.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the border timing requirement for CMD12 (STOP_TRANSMISSION) in write operations, where the end bit of CMD12 must arrive after the end bit of the device's CRC Status Response to ensure the last data block is written successfully."
+    },
+    {
+      "id": "FIG_51",
+      "spec_reference": "Figure 51",
+      "title": "Clock Stop Timing at Block Gap in Read Operation",
+      "spec_page": 129,
+      "definition_page": 151,
+      "referenced_on_pages": [
+        128
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_51.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the clock stop behavior during a block gap in read operations, illustrating that the clock can be stopped for a minimum of 8 clock cycles (N_AC) between the end bit of one data block and the start bit of the next, with tPH timing parameters shown for data hold times."
+    },
+    {
+      "id": "FIG_53",
+      "spec_reference": "Figure 53",
+      "title": "Border Timing of CMD12 in Read Operation",
+      "spec_page": 130,
+      "definition_page": 152,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_53.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the border timing relationship between CMD12 stop command and data block transmission during a read operation, illustrating left-most and right-most CMD12 arrival cases relative to the last data block with minimum NAC gap of 8 clocks."
+    },
+    {
+      "id": "FIG_54",
+      "spec_reference": "Figure 54",
+      "title": "H/W reset waveform",
+      "spec_page": 131,
+      "definition_page": 153,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_54.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the hardware reset waveform for a memory device, illustrating the RST_n signal timing parameters (tRSTW pulse width, tRSCA reset-to-command time, and tRSTH high period) relative to the CLK signal, where the device triggers an internal reset sequence on the rising edge of RST_n."
+    },
+    {
+      "id": "FIG_55",
+      "spec_reference": "Figure 55",
+      "title": "Noise filtering timing for H/W reset",
+      "spec_page": 131,
+      "definition_page": 153,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_55.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates that the device must filter out RST_n pulses of 5ns or less duration (both positive and negative glitches) for noise immunity, and must not detect the rising edges of such short pulses as valid reset triggers."
+    },
+    {
+      "id": "FIG_56",
+      "spec_reference": "Figure 56",
+      "title": "CRC7 generator/checker",
+      "spec_page": 187,
+      "definition_page": 209,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_56.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows a 7-bit Linear Feedback Shift Register (LFSR) circuit implementing the CRC7 generator/checker with polynomial G(x) = x^7 + x^3 + 1, featuring XOR gates at the input and at the x^3 tap position for feedback."
+    },
+    {
+      "id": "FIG_57",
+      "spec_reference": "Figure 57",
+      "title": "CRC16 generator/checker",
+      "spec_page": 188,
+      "definition_page": 210,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_57.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows a 16-bit Linear Feedback Shift Register (LFSR) implementation of a CRC16 generator/checker circuit using the CCITT polynomial, with XOR gates at the input and at tap positions for feedback."
+    },
+    {
+      "id": "FIG_58",
+      "spec_reference": "Figure 58",
+      "title": "Bus circuitry diagram",
+      "spec_page": 189,
+      "definition_page": 211,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_58.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the e•MMC bus circuitry diagram illustrating the connection between Host and Device with pull-up resistors (R_DAT, R_OD, R_CMD) for the Data, CMD, and Clock lines, along with decoupling capacitors (C1, C2, C3) for signal integrity."
+    },
+    {
+      "id": "FIG_59",
+      "spec_reference": "Figure 59",
+      "title": "Power-up diagram",
+      "spec_page": 190,
+      "definition_page": 212,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_59.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This diagram illustrates the eMMC power-up sequence showing supply voltage ramping from 0.5V through VDD min to the working voltage range, along with the initialization timing including power-up time, supply ramp-up time, and the CMD1 repetition sequence until the card becomes ready."
+    },
+    {
+      "id": "FIG_60",
+      "spec_reference": "Figure 60",
+      "title": "e•MMC power-up diagram",
+      "spec_page": 192,
+      "definition_page": 214,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_60.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This diagram illustrates the e•MMC power-up sequence showing the voltage ramp-up timing for Vcc and VccQ supplies, followed by an initialization delay period and the CMD1 command repetition sequence until the card becomes ready."
+    },
+    {
+      "id": "FIG_61",
+      "spec_reference": "Figure 61",
+      "title": "The e•MMC power cycle",
+      "spec_page": 194,
+      "definition_page": 216,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_61.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the e•MMC power cycle showing VCC and VCCQ supply voltage behavior during power-up, normal operation, optional sleep mode, and power-down phases, with regions where command input is prohibited during voltage transitions."
+    },
+    {
+      "id": "FIG_62",
+      "spec_reference": "Figure 62",
+      "title": "e•MMC bus driver",
+      "spec_page": 195,
+      "definition_page": 217,
+      "referenced_on_pages": [
+        194
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_62.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the e•MMC bus driver architecture with separate signal paths for CLK, DAT, and CMD lines, each containing output/input buffers with transistor switches controlled by a Driver Stage Register for configurable switching speed and drive strength."
+    },
+    {
+      "id": "FIG_63",
+      "spec_reference": "Figure 63",
+      "title": "e•MMC internal power diagram (as an example)",
+      "spec_page": 196,
+      "definition_page": 218,
+      "referenced_on_pages": [
+        197
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_63.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram illustrates the internal power architecture of an e•MMC device, showing how VCC powers the memory, VCCQ powers the controller and MMC interface, and how the core regulator, logic block, and I/O blocks interconnect between external signals and the memory array."
+    },
+    {
+      "id": "FIG_64",
+      "spec_reference": "Figure 64",
+      "title": "e2•MMC internal power diagram (as an example)",
+      "spec_page": 197,
+      "definition_page": 219,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_64.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram illustrates the internal power architecture of an e²•MMC device, showing the relationships between power supply inputs (VCC, VCCQ, internal voltage nodes), the MMC I/O block, core regulator, core logic, NAND I/O block, cache, and memory components."
+    },
+    {
+      "id": "FIG_65",
+      "spec_reference": "Figure 65",
+      "title": "Bus signal levels",
+      "spec_page": 200,
+      "definition_page": 222,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_65.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing/voltage level diagram illustrates the bus signal voltage thresholds showing the relationship between input and output high/low levels (V_OH, V_OL, V_IH, V_IL) relative to supply rails V_DD and V_SS, with an undefined region between the input thresholds."
+    },
+    {
+      "id": "FIG_66",
+      "spec_reference": "Figure 66",
+      "title": "Outputs test circuit for rise/fall time measurement",
+      "spec_page": 203,
+      "definition_page": 225,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_66.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 66 shows a test circuit for measuring driver output rise/fall times, consisting of a 0.5MHz stimulus signal driving a Driver block with output connected to a lumped capacitive load (C_L) at the measurement location."
+    },
+    {
+      "id": "FIG_67",
+      "spec_reference": "Figure 67",
+      "title": "Timing diagram: data input/output",
+      "spec_page": 203,
+      "definition_page": 225,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_67.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the relationship between clock (CLK), input data, and output data signals, showing setup times (tISU, tOSU), hold times (tIH, tOH), output delay (tODLY), clock period (tPP), and pulse widths (tWH, tWL) with data sampled on the rising clock edge."
+    },
+    {
+      "id": "FIG_68",
+      "spec_reference": "Figure 68",
+      "title": "Timing diagram: data input/output in dual data rate mode",
+      "spec_page": 206,
+      "definition_page": 228,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_68.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram illustrates the data input/output timing relationships for DAT[7:0] signals in dual data rate (DDR) mode, showing that data is sampled on both rising and falling clock edges with associated setup times (tISUddr), hold times (tIHddr), and output delays (tODLYddr)."
+    },
+    {
+      "id": "FIG_69",
+      "spec_reference": "Figure 69",
+      "title": "HS200 Clock signal timing",
+      "spec_page": 207,
+      "definition_page": 229,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_69.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the HS200 mode clock signal waveform with voltage levels (VCCQ, VIH, VT, VIL, VSS) and timing parameters (tTLH for rise time, tTHL for fall time, and tPERIOD for clock period)."
+    },
+    {
+      "id": "FIG_70",
+      "spec_reference": "Figure 70",
+      "title": "HS200 Device input timing",
+      "spec_page": 208,
+      "definition_page": 230,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_70.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the HS200 device input timing requirements for clock and CMD.DAT[7:0] signals, illustrating the setup time (tISU) and hold time (tIH) relationships relative to the clock input threshold voltage (VT), with valid data window indicated between VIH and VIL levels."
+    },
+    {
+      "id": "FIG_71",
+      "spec_reference": "Figure 71",
+      "title": "HS200 Device output timing",
+      "spec_page": 209,
+      "definition_page": 231,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_71.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the HS200 device output timing relationship between the clock input and CMD.DAT[7:0] output signals, illustrating the output phase delay (tPH), valid data window (tVW), and clock period (tPERIOD) parameters."
+    },
+    {
+      "id": "FIG_73",
+      "spec_reference": "Figure 73",
+      "title": "Legend for command-sequence flow charts",
+      "spec_page": 217,
+      "definition_page": 239,
+      "referenced_on_pages": [
+        216,
+        218
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_73.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure provides a legend explaining the symbols used in command-sequence flow charts for MultiMediaCard operations, including entry/exit points, bus commands, conditional branches, optional steps, host activities, and parallel execution notation."
+    },
+    {
+      "id": "FIG_74",
+      "spec_reference": "Figure 74",
+      "title": "SEND_OP_COND command flow chart",
+      "spec_page": 218,
+      "definition_page": 240,
+      "referenced_on_pages": [
+        219
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_74.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the SEND_OP_COND command sequence for eMMC card initialization, showing the process of querying operating conditions, handling busy cards with delays, sending CID to all cards with timeout handling, setting relative addresses, reading CSD registers, and finally setting the DSR."
+    },
+    {
+      "id": "FIG_75",
+      "spec_reference": "Figure 75",
+      "title": "CIM_SINGLE_DEVICE_ACQ",
+      "spec_page": 219,
+      "definition_page": 241,
+      "referenced_on_pages": [
+        220
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_75.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_SINGLE_DEVICE_ACQ procedure for acquiring a single device on the bus, showing the simplified initialization sequence that skips the identification loop since only one device is present."
+    },
+    {
+      "id": "FIG_76",
+      "spec_reference": "Figure 76",
+      "title": "CIM_SETUP_DEVICE",
+      "spec_page": 220,
+      "definition_page": 242,
+      "referenced_on_pages": [
+        221
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_76.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_SETUP_DEVICE procedure which establishes a connection with a device by issuing GO_TRANSFER_STATE command and, if the card is ready, retrieving device-specific data via SEND_CSD command."
+    },
+    {
+      "id": "FIG_77",
+      "spec_reference": "Figure 77",
+      "title": "CIM_READ_BLOCK",
+      "spec_page": 221,
+      "definition_page": 243,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_77.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_READ_MBLOCK procedure which sequentially reads multiple data blocks from a device by first setting the block length with SET_BLOCKLEN command and then transferring data via READ_MULTIPLE_BLOCK command."
+    },
+    {
+      "id": "FIG_78",
+      "spec_reference": "Figure 78",
+      "title": "CIM_READ_MBLOCK",
+      "spec_page": 221,
+      "definition_page": 243,
+      "referenced_on_pages": [
+        222
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_78.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart shows the CIM_READ_MBLOCK procedure which sequentially reads multiple data blocks from a device by first setting the block length with SET_BLOCKLEN command and then transferring data via READ_MULTIPLE_BLOCK command."
+    },
+    {
+      "id": "FIG_79",
+      "spec_reference": "Figure 79",
+      "title": "CIM_WRITE_MBLOCK",
+      "spec_page": 222,
+      "definition_page": 244,
+      "referenced_on_pages": [
+        223
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_79.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_WRITE_MBLOCK sequence for writing multiple data blocks, showing the initialization with SET_BLLEN, followed by MULTIPLE_BLOCK_WRITE command, then a loop that writes data blocks while checking CRC and optionally polling device status via SEND_STATUS, terminated by a STOP command."
+    },
+    {
+      "id": "FIG_80",
+      "spec_reference": "Figure 80",
+      "title": "CIM_ERASE_GROUP",
+      "spec_page": 223,
+      "definition_page": 245,
+      "referenced_on_pages": [
+        224
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_80.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_ERASE_GROUP procedure which sequentially executes ERASE_START, ERASE_END, and ERASE commands with response validation at each step, followed by a SEND_STATUS command before returning."
+    },
+    {
+      "id": "FIG_81",
+      "spec_reference": "Figure 81",
+      "title": "CIM_TRIM",
+      "spec_page": 224,
+      "definition_page": 246,
+      "referenced_on_pages": [
+        225
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_81.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_TRIM procedure which uses ERASE_START and ERASE_END commands to select write blocks, followed by an ERASE command with argument 0x00000001, with error checking at each step and looping capability for multiple write blocks."
+    },
+    {
+      "id": "FIG_82",
+      "spec_reference": "Figure 82",
+      "title": "CIM_US_PWR_WP",
+      "spec_page": 225,
+      "definition_page": 247,
+      "referenced_on_pages": [
+        226
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_82.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_US_PWR_WP sequence for setting Power-On write protection on a write protection group, including checks for permanent write protection status and verification of the protection setting through CMD28 and CMD31 commands."
+    },
+    {
+      "id": "FIG_83",
+      "spec_reference": "Figure 83",
+      "title": "CIM_US_PERM_WP",
+      "spec_page": 226,
+      "definition_page": 248,
+      "referenced_on_pages": [
+        230
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_83.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the CIM_US_PERM_WP procedure for setting permanent write protection on a user area, including checks for protection disable status and verification of successful protection application."
+    },
+    {
+      "id": "FIG_84",
+      "spec_reference": "Figure 84",
+      "title": "Bus testing for eight data lines",
+      "spec_page": 230,
+      "definition_page": 252,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_84.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 84 shows the bus testing pattern for four data lines (DAT0-DAT3), with a start bit of 0, LSB value of 0x5A, test pattern bytes of 0x00, optional CRC16, and end bit of 1 on each line."
+    },
+    {
+      "id": "FIG_85",
+      "spec_reference": "Figure 85",
+      "title": "Bus testing for four data lines",
+      "spec_page": 230,
+      "definition_page": 252,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_85.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 85 shows the bus testing pattern for a single data line (DAT0) configuration, with a start bit of 0, test pattern byte 0x80 followed by zeros, optional CRC16, and end bit of 1."
+    },
+    {
+      "id": "FIG_86",
+      "spec_reference": "Figure 86",
+      "title": "Bus testing for one data line",
+      "spec_page": 230,
+      "definition_page": 252,
+      "referenced_on_pages": [
+        232
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_86.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "Figure 85 shows the bus testing pattern for a single data line (DAT0) configuration, with a start bit of 0, LSB value 0x80, followed by zeros for the test pattern, optional CRC16, and end bit of 1."
+    },
+    {
+      "id": "FIG_87",
+      "spec_reference": "Figure 87",
+      "title": "Erase-unit size selection flow",
+      "spec_page": 232,
+      "definition_page": 254,
+      "referenced_on_pages": [
+        234
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_87.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the erase-unit size selection process for MMC devices, showing how a v4.3 host determines whether to use legacy or larger erase-unit sizes based on Extended CSD register values."
+    },
+    {
+      "id": "FIG_88",
+      "spec_reference": "Figure 88",
+      "title": "Stop transmission just before CRC status transfer from the device",
+      "spec_page": 234,
+      "definition_page": 256,
+      "referenced_on_pages": [
+        233
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_88.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop transmission sequence during CRC status transfer from the device, illustrating the CMD, DAT0, and DAT1-7 signal transitions including host command, NCR cycles, CRC status, and device response phases with busy indication during programming."
+    },
+    {
+      "id": "FIG_89",
+      "spec_reference": "Figure 89",
+      "title": "Stop transmission during CRC status transfer from the device",
+      "spec_page": 234,
+      "definition_page": 256,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_89.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows the stop transmission sequence during CRC status transfer from the device, illustrating CMD, DAT0, and DAT1-7 signal behavior where the received data block is considered complete and the device will program it."
+    },
+    {
+      "id": "FIG_90",
+      "spec_reference": "Figure 90",
+      "title": "Stop transmission during CRC status transfer from the device",
+      "spec_page": 234,
+      "definition_page": 256,
+      "referenced_on_pages": [
+        235
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_90.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This timing diagram shows stop transmission during CRC status transfer from the device, where the received data block is considered complete and the device will program it, illustrating CMD, DAT0, and DAT1-7 signal sequences including host command, CRC status, Ncr cycles, and device response phases."
+    },
+    {
+      "id": "FIG_91",
+      "spec_reference": "Figure 91",
+      "title": "Heat Removal - Nomenclatures",
+      "spec_page": 235,
+      "definition_page": 257,
+      "referenced_on_pages": [],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_91.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure illustrates the cross-sectional view of an eMMC package showing the heat removal path from the internal components (NAND and Controller) through the mold compound, die attach material, substrate, and solder balls, with nomenclature defining package case temperature (Tc), junction temperature (TJ), and thermal resistance (qJC)."
+    }
+  ]
+}

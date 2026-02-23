@@ -1,0 +1,13 @@
+Parameter,Symbol,Min,Max.,Unit,Remark
+Clock CLK1,,,,, 
+Clock frequency Data Transfer Mode (PP),fPP,0,20,MHz,Cl <= 30 pF
+Clock frequency Identification Mode (OD),fOD,0,400,kHz,
+Clock low time,tWL,10,,ns,Cl <= 30 pF
+Clock rise time2,tTLH,,10,ns,Cl <= 30 pF
+Clock fall time,tTHL,,10,ns,Cl <= 30 pF
+Inputs CMD. DAT (referenced to CLK),,,,, 
+Input set-up time,tISU,4.8,,ns,Cl <= 30 pF
+Input hold time,tIH,4.4,,ns,Cl <= 30 pF
+Outputs CMD. DAT (referenced to CLK),,,,, 
+Output set-up time,tOSU,5,,ns,Cl <= 30 pF
+Output hold time,tOH,5,,ns,Cl <= 30 pF

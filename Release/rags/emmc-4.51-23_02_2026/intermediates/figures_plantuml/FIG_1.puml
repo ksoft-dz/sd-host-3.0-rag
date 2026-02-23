@@ -1,0 +1,32 @@
+@startuml
+skinparam rectangleBackgroundColor White
+skinparam componentBackgroundColor LightBlue
+
+rectangle "Host" {
+    rectangle "Host\nController" as HC #LightBlue
+}
+
+rectangle "e•MMC Device Controller" {
+    rectangle "Device\nController" as DC #LightBlue
+    rectangle "Memory\nArray" as MA #White
+    
+    DC <-right-> MA : "  ...  "
+}
+
+HC -right-> DC : "Clock, CMD, Data"
+
+note bottom of Host
+    Reset
+    ----
+    VCC, VCCQ,
+    VSS, VSSQ
+end note
+
+legend right
+    |= Color |= Meaning |
+    |<#LightBlue> | Specified by e•MMC Standard |
+    |<#LightGray> | Implied by e•MMC Standard, but out of scope |
+    |<#White> | Out of Scope |
+endlegend
+
+@enduml

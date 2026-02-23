@@ -1,0 +1,35 @@
+@startuml
+skinparam monochrome false
+
+title Figure 85 — Bus testing for one data line
+
+map "Bus Test Pattern (1 data line)" as bustest {
+}
+
+rectangle "Data Line" {
+    together {
+        rectangle "DAT0" as dat0
+    }
+}
+
+rectangle "Bit Sequence" as bits {
+    rectangle "Start\n0" as start #lightgreen
+    rectangle "1\n(0x80)" as b0 #lightyellow
+    rectangle "0" as b1 #lightyellow
+    rectangle "0" as b2 #lightyellow
+    rectangle "Test Pattern\n0" as b3 #lightyellow
+    rectangle "0" as b4 #lightyellow
+    rectangle "0" as b5 #lightyellow
+    rectangle "0" as b6 #lightyellow
+    rectangle "0" as b7 #lightyellow
+    rectangle "Optional\nCRC16" as crc #white
+    rectangle "End\n1" as endbit #lightpink
+}
+
+note bottom of bits
+  LSB = 0x80
+  Test Pattern = all zeros
+  MSB = 0x00
+end note
+
+@enduml

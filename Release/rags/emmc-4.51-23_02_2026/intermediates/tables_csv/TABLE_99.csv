@@ -1,0 +1,7 @@
+Value,Boot Size Mult
+0x00,No boot partition available / Boot mode not supported
+0x01,1 × 128Kbytes = 128Kbytes
+0x02,2 × 128Kbytes = 256Kbytes
+:,:
+0xFE,254 × 128Kbytes = 32512Kbytes
+0xFF,255 × 128Kbytes = 32640Kbytes

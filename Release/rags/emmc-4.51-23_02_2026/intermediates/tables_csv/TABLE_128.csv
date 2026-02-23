@@ -1,0 +1,16 @@
+Bit,Field Name,Access,Value,Description
+Bit[7],B_SEC_WP_SEL,R/W/C_P,0x0,"B_PERM_WP_EN(bit2) and B_PWR_WP_EN (bit 0) apply to both boot partitions and B_PERM_WP_SEC_SEL (bit 3) and B_PWR_WP_SEC_SEL (bit 1) have no impact"
+Bit[7],B_SEC_WP_SEL,R/W/C_P,0x1,"B_PERM_WP_EN(bit2) and B_PWR_WP_EN (bit 0) apply to only boot partition selected by B_PERM_WP_SEC_SEL (bit 3) and B_PWR_WP_SEC_SEL (bit 1) respectively"
+Bit[6],B_PWR_WP_DIS,R/W/C_P,0x0,Master is permitted to set B_PWR_WP_EN(bit 0)
+Bit[6],B_PWR_WP_DIS,R/W/C_P,0x1,Disable the use of B_PWR_WP_EN(bit 0). This bit must be zero if PWR_WP_EN is set
+Bit[5],Reserved,-,-,Reserved
+Bit[4],B_PERM_WP_DIS,R/W,0x0,Master is permitted to set B_PERM_WP_EN(bit 2)
+Bit[4],B_PERM_WP_DIS,R/W,0x1,"Permanently disable the use of B_PERM_WP_EN(bit 2). This bit must be zero if B_PERM_WP_EN is set. This bit has no impact on the setting of CSD[13]"
+Bit[3],B_PERM_WP_SEC_SEL,R/W/C_P,0x0,"B_PERM_WP_EN(Bit 2) applies to boot Area1 only, if B_SEC_WP_SEL (bit 7 is set)"
+Bit[3],B_PERM_WP_SEC_SEL,R/W/C_P,0x1,"B_PERM_WP_EN(Bit 2) applies to boot Area2 only, if B_SEC_WP_SEL (bit 7 is set)"
+Bit[2],B_PERM_WP_EN,R/W,0x0,Boot region is not permanently write protected
+Bit[2],B_PERM_WP_EN,R/W,0x1,"Boot region is permanently write protected. This bit must be zero if B_PERM_WP_DIS is set. When read, this bit only indicates if permanent protection has been set specifically for a boot region. How permanent protection has been applied depends on the setting of bits 7 and 3. To verify boot region protection read BOOT_WP_STATUS[174]. This bit may be zero if the whole device is permanently protected using CSD[13]"
+Bit[1],B_PWR_WP_SEC_SEL,R/W/C_P,0x0,"B_PWR_WP_EN(Bit 0) applies to boot Area1 only, if B_SEC_WP_SEL (bit 7 is set)"
+Bit[1],B_PWR_WP_SEC_SEL,R/W/C_P,0x1,"B_PWR_WP_EN(Bit 0) applies to boot Area2 only, if B_SEC_WP_SEL (bit 7 is set)"
+Bit[0],B_PWR_WP_EN,R/W/C_P,0x0,Boot region is not power-on write protected
+Bit[0],B_PWR_WP_EN,R/W/C_P,0x1,"Enable Power-On Period write protection to the boot area. This bit must be zero if B_PWR_WP_DIS (bit 6) is set. When read, this bit only indicates if power on protection has been set specifically for a boot region. How power on protection has been applied depends on the setting of bits 7 and 1. To verify boot region protection read BOOT_WP_STATUS[174]"

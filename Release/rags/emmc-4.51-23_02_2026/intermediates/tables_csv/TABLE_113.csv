@@ -1,0 +1,8 @@
+Bit,Device Type
+7:6,Reserved
+5,HS200 Single Data Rate e•MMC @ 200 MHz - 1.2V I/O
+4,HS200 Single Data Rate e•MMC @ 200 MHz - 1.8V I/O
+3,High-Speed Dual Data Rate e•MMC @ 52MHz - 1.2V I/O
+2,High-Speed Dual Data Rate e•MMC @ 52MHz - 1.8V or 3V I/O
+1,High-Speed e•MMC @ 52MHz - at rated device voltage(s)
+0,High-Speed e•MMC @ 26MHz - at rated device voltage(s)

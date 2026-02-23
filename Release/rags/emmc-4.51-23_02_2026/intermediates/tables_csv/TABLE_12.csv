@@ -1,0 +1,5 @@
+Bit,Argument,Arguments
+31,Secure Request,"'1' - Secure form of the command must be performed. '0' - Default in Secure Erase command is performed"
+15,Force Garbage Collection,"'1' -- CMD35 & 36 are ignored. Erase is performed on previously identified write blocks. '0' - Command uses the erase groups identified by CMD35&36"
+1,Discard Enable,"'1' – Discard write blocks identified by CMD35 & 36. '0' – Execute an erase. NOTE: Bit[0] is also required to be set to 0x1 (in addition to bit[1] being set to 0x1) for the Discard write blocks operation"
+0,Identify Write Blocks for Erase (or TRIM Enable),"'1' -- Mark write block identified by CMD35&36 for erase (bit 31 set) or execute Trim operation (bit 31 cleared). Bit[0] shall be set to 0x1 for the Discard write blocks operation. '0' - Execute an erase."

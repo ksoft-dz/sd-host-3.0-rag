@@ -1,0 +1,7 @@
+Name,Field,Bit,Type
+Write Data Reliability (user Area),WR_DATA_REL_USR,0,"R (if HS_CTRL_REL =0) R/W (if HS_CTRL_REL =1)"
+Write Data Reliability Partition 1,WR_DATA_REL_1,1,"R (if HS_CTRL_REL =0) R/W (if HS_CTRL_REL =1)"
+Write Data Reliability Partition 2,WR_DATA_REL_2,2,"R (if HS_CTRL_REL =0) R/W (if HS_CTRL_REL =1)"
+Write Data Reliability Partition 3,WR_DATA_REL_3,3,"R (if HS_CTRL_REL =0) R/W (if HS_CTRL_REL =1)"
+Write Data Reliability Partition 4,WR_DATA_REL_4,4,"R (if HS_CTRL_REL =0) R/W (if HS_CTRL_REL =1)"
+Reserved,,7:5,

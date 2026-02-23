@@ -1,0 +1,9 @@
+I notice this image shows a table from page 148 of JEDEC Standard No. 84-B451, but this appears to be a general register/field description table, not the "EXT_SECURITY_ERR byte description" table (Table 83) you're looking for.
+
+The table shown contains various partition and boot configuration fields like PARTITION_CONFIG, BOOT_CONFIG_PROT, BOOT_BUS_CONDITIONS, etc.
+
+If you need me to extract the table that IS shown in this image, I can do that. Otherwise, the EXT_SECURITY_ERR byte description table would be on a different page of this document.
+
+Would you like me to:
+1. Extract the table that is actually shown in this image, or
+2. Confirm you need a different page containing Table 83 (EXT_SECURITY_ERR byte description)?

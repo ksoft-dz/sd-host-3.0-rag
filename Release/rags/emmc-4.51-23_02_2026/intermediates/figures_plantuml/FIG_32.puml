@@ -1,0 +1,45 @@
+@startuml
+robust "CMD" as CMD
+
+@0
+CMD is {S}
+@1
+CMD is {T}
+@2
+CMD is {Content}
+@6
+CMD is {CRC}
+@7
+CMD is {E}
+@8
+CMD is {Z}
+@9
+CMD is {Z}
+@10
+CMD is {P}
+@11
+CMD is {*}
+@12
+CMD is {*}
+@13
+CMD is {*}
+@14
+CMD is {P}
+@15
+CMD is {S}
+@16
+CMD is {T}
+@17
+CMD is {Content}
+@21
+CMD is {CRC}
+@22
+CMD is {E}
+@23
+CMD is {Z}
+@24
+CMD is {Z}
+@25
+CMD is {Z}
+
+@enduml

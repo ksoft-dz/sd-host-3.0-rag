@@ -1,0 +1,20 @@
+Parameter,Symbol,Min,Max.,Unit,Remark
+Input CLK(1),,,,,,
+Clock duty cycle,,45,55,%,Includes jitter, phase noise
+Clock rise time,tTLH,,3,ns,CL≤ 30pF
+Clock fall time,tTHL,,3,ns,CL≤ 30pF
+Input CMD (referenced to CLK-SDR mode),,,,,,
+Input set-up time,tISUddr,3,,ns,CL ≤ 20 pF
+Input hold time,tIHddr,3,,ns,CL ≤ 20 pF
+Output CMD (referenced to CLK-SDR mode),,,,,,
+Output delay time during data transfer,tODLY,,13.7,ns,CL ≤ 20 pF
+Output hold time,tOH,2.5,,ns,CL ≤ 20 pF
+Signal rise time,tRISE,,3,ns,CL ≤ 20 pF
+Signal fall time,tFALL,,3,ns,CL ≤ 20 pF
+Input DAT (referenced to CLK-DDR mode),,,,,,
+Input set-up time,tISUddr,2.5,,ns,CL ≤ 20 pF
+Input hold time,tIHddr,2.5,,ns,CL ≤ 20 pF
+Output DAT (referenced to CLK-DDR mode),,,,,,
+Output delay time during data transfer,tODLYddr,1.5,7,ns,CL ≤ 20 pF
+Signal rise time (DAT0-7)(2),tRISE,,2,ns,CL ≤ 20 pF
+Signal fall time (DAT0-7),tFALL,,2,ns,CL ≤ 20 pF

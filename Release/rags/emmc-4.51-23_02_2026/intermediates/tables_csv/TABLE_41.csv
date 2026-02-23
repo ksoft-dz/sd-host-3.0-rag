@@ -1,0 +1,20 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD0,bc,"[31:0] 00000000",__,GO_IDLE_STATE,Resets the Device to idle state
+,bc,"[31:0] F0F0F0F0",__,GO_PRE_IDLE_STATE,Resets the Device to pre-idle state
+,__,"[31:0]FFFFFFFA",__,BOOT_INITIATION,Initiate alternative boot operation
+CMD1,bcr,"[31:0] OCR with-out busy",R3,SEND_OP_COND,"Asks the Device, in idle state, to send its Operating Conditions Register contents in the response on the CMD line."
+CMD2,bcr,"[31:0] stuff bits",R2,ALL_SEND_CID,Asks the Device to send its CID number on the CMD line
+CMD3,ac,"[31:16] RCA [15:0] stuff bits",R1,SET_RELATIVE_ADDR,Assigns relative address to the Device
+CMD4,bc,"[31:16] DSR [15:0] stuff bits",-,SET_DSR,Programs the DSR of the Device
+CMD5,ac,"[31:16] RCA [15]Sleep/Awake [14:0] stuff bits",R1b,SLEEP_AWAKE,Toggles the Device between Sleep state and Standby state. (See Section 6.6.21).
+CMD6,ac,"[31:26] Set to 0 [25:24] Access [23:16] Index [15:8] Value [7:3] Set to 0 [2:0] Cmd Set",R1b,SWITCH,Switches the mode of operation of the selected Device or modifies the EXT_CSD registers. (See Section 6.6.1)
+CMD7,ac,"[31:16] RCA [15:0] stuff bits",R1/R1b1,SELECT/DESELECT_CARD,"Command toggles a device between the standby and transfer states or between the programming and disconnect states. In both cases the Device is selected by its own relative address and gets deselected by any other address; address 0 deselects the Device."
+CMD8,adtc,"[31:0] stuff bits",R1,SEND_EXT_CSD,The Device sends its EXT_CSD register as a block of data.
+CMD9,ac,"[31:16] RCA [15:0] stuff bits",R2,SEND_CSD,Addressed Device sends its Device-specific data (CSD) on the CMD line.
+CMD10,ac,"[31:16] RCA [15:0] stuff bits",R2,SEND_CID,Addressed Device sends its Device identification (CID) on CMD the line.
+CMD11,,,obsolete,The response to CMD11 will be undefined.
+CMD12,ac,"[31:16] RCA3 [15:1] stuff bits [0] HPI",R1/R1b4,STOP_TRANSMISSION,"Forces the Device to stop transmission. If HPI flag is set the device shall interrupt its internal operations in a well defined timing."
+CMD13,ac,"[31:16] RCA [15:1] stuff bits [0] HPI",R1,SEND_STATUS,"Addressed Device sends its status register. If HPI flag is set the device shall interrupt its internal operations in a well defined timing."
+CMD14,adtc,"[31:0] stuff bits",R1,BUSTEST_R,A host reads the reversed bus testing data pattern from a Device.
+CMD15,ac,"[31:16] RCA [15:0] stuff bits",–,GO_INACTIVE_STATE,Sets the Device to inactive state
+CMD19,adtc,"[31:0] stuff bits",R1,BUSTEST_W,A host sends the bus test data pattern to a Device.

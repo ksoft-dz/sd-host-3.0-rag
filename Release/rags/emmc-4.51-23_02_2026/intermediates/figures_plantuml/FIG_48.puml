@@ -1,0 +1,62 @@
+@startuml
+title Figure 48 — Bus mode change timing (push-pull to open-drain)
+
+note "Boot operation complete" as N1
+note "Clock = ≤ 400 kHz" as N2
+
+concise "CMD" as CMD
+concise "DAT0-7" as DAT
+
+@0
+CMD is "L"
+DAT is "Data"
+
+@1
+CMD is "E"
+DAT is "E"
+
+@2
+CMD is "Z"
+DAT is "Z"
+
+@3
+CMD is "Z"
+DAT is "**"
+
+@4
+CMD is "Z"
+DAT is "Z"
+
+@5
+CMD is "**"
+DAT is "Z"
+
+@6
+CMD is "Z"
+DAT is "**"
+
+@7
+CMD is "Z"
+DAT is "Z"
+
+@8
+CMD is "**"
+DAT is "Z"
+
+@9
+CMD is "Z"
+DAT is "Z"
+
+@10
+CMD is "S"
+DAT is "****"
+
+@11
+CMD is "T"
+
+@12
+CMD is "CMD1"
+
+note bottom of DAT : N_SC
+
+@enduml

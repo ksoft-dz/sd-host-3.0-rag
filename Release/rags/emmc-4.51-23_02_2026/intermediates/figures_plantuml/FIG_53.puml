@@ -1,0 +1,44 @@
+@startuml
+scale 1 as 50 pixels
+
+binary "CMD (Left-\nMost case)" as CMD_LEFT
+binary "CMD (Right-\nMost case)" as CMD_RIGHT
+concise "DAT" as DAT
+
+@0
+CMD_LEFT is CMD12
+CMD_RIGHT is {-}
+DAT is "Last Read Data Block"
+
+@2
+CMD_LEFT is E
+
+@3
+CMD_LEFT is {-}
+CMD_RIGHT is CMD12
+
+@4
+CMD_RIGHT is CMD12
+
+@8
+CMD_RIGHT is E
+
+@9
+CMD_RIGHT is {-}
+
+@4
+DAT is CRC
+
+@5
+DAT is E
+
+@6
+DAT is "NAC (min 8 clks)"
+
+@11
+DAT is S
+
+@12
+DAT is "Next Block"
+
+@enduml

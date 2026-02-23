@@ -1,0 +1,16 @@
+Name,Type,Description
+CLK,I,Clock
+DAT0,I/O/PP,Data
+DAT1,I/O/PP,Data
+DAT2,I/O/PP,Data
+DAT3,I/O/PP,Data
+DAT4,I/O/PP,Data
+DAT5,I/O/PP,Data
+DAT6,I/O/PP,Data
+DAT7,I/O/PP,Data
+CMD,I/O/PP/OD,Command/Response
+RST_n,I,Hardware reset
+VCC,S,Supply voltage for Core
+VCCQ,S,Supply voltage for I/O
+VSS,S,Supply voltage ground for Core
+VSSQ,S,Supply voltage ground for I/O

@@ -1,0 +1,130 @@
+@startuml
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT1-7
+
+scale 1 as 30 pixels
+
+@0
+CMD is "S"
+DAT0 is "L"
+DAT1-7 is "X"
+
+@1
+CMD is "T"
+DAT0 is "L"
+DAT1-7 is "X"
+
+@2
+CMD is "Content"
+
+@5
+CMD is "CRC"
+
+@6
+CMD is "E"
+
+@7
+CMD is "Z"
+
+@8
+CMD is "Z"
+
+@9
+CMD is "P"
+
+@10
+CMD is "*"
+
+@11
+CMD is "*"
+
+@12
+CMD is "*"
+
+@13
+CMD is "P"
+
+@14
+CMD is "S"
+
+@15
+CMD is "T"
+
+@16
+CMD is "content"
+
+@20
+CMD is "CRC"
+
+@21
+CMD is "E"
+
+@22
+CMD is "Z"
+
+@23
+CMD is "Z"
+
+@24
+CMD is "P"
+
+@25
+CMD is "P"
+
+@26
+CMD is "P"
+
+@27
+CMD is "P"
+
+@28
+CMD is "S"
+
+@29
+CMD is "T"
+
+@30
+CMD is "Content"
+
+note top of CMD : Host Command | NCR Cycles | Device Response | Host Cmnd
+
+note bottom of DAT0 : Busy (Card is programming)
+
+@0
+DAT0 is {-}
+DAT1-7 is {-}
+
+@26
+DAT0 is "L"
+DAT1-7 is "X"
+
+@27
+DAT0 is "E"
+DAT1-7 is "X"
+
+@28
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@29
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@30
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@31
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@32
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@33
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@enduml

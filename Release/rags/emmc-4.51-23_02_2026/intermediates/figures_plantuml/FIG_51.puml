@@ -1,0 +1,58 @@
+@startuml
+scale 1 as 50 pixels
+
+binary "CLK" as CLK
+concise "DAT[7:0]" as DAT
+
+@0
+CLK is high
+
+@1
+CLK is low
+
+@2
+CLK is high
+
+@3
+CLK is low
+
+@4
+CLK is high
+
+@5
+CLK is low
+
+@6
+CLK is high
+
+@7
+CLK is low
+note top of CLK : Clock\nStopped
+
+@8
+CLK is high
+
+@9
+CLK is low
+
+@10
+CLK is high
+
+@11
+CLK is low
+
+@0
+DAT is "tPH" #LightGray
+
+@3
+DAT is "End Bit" #White
+
+@9
+DAT is "tPH" #LightGray
+
+@10
+DAT is "Start Bit" #White
+
+highlight 3 to 8 #Pink;line:Red : N<sub>AC</sub> min is 8 clocks
+
+@enduml

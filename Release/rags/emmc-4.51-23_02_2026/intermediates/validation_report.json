@@ -1,0 +1,70 @@
+{
+  "_metadata": {
+    "validation_date": "2026-02-23T04:48:57Z",
+    "total_issues": 10,
+    "errors": 0,
+    "warnings": 10
+  },
+  "issues": [
+    {
+      "node_id": "REG_002_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Manufacturer ID' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Device/BGA' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'OEM/Application ID' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Product name' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F5",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Product revision' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F6",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Product serial number' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F7",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'Manufacturing date' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F8",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CRC7 checksum' has empty access type"
+    },
+    {
+      "node_id": "REG_002_F9",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'not used; always '1'' has empty access type"
+    },
+    {
+      "node_id": "TABLE_33",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    }
+  ]
+}

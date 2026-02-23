@@ -1,0 +1,6 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD32 … CMD34,Reserved. These command indexes cannot be used in order to maintain backwards compatibility with older versions of e•MMCs,,,,
+CMD35,ac,"[31:0] data address1,2",R1,ERASE_GROUP_START,Sets the address of the first erase group within a range to be selected for erase
+CMD36,ac,"[31:0] data address1,2",R1,ERASE_GROUP_END,Sets the address of the last erase group within a continuous range to be selected for erase
+CMD37,Reserved. This command index cannot be used in order to maintain backwards compatibility with older versions of e•MMCs,,,,
+CMD38,ac,"[31] Secure request4 [30:16] set to 0 [15] Force Garbage Collect request4 [14:2] set to 0 [1] Discard Enable [0] Identify Write Blocks for Erase (or TRIM Enable)",R1b,ERASE,"Erases all previously selected write blocks according to argument bits3. When all argument bits are zero CMD38 will perform an erase on erase group(s). When Bit 0 = 1 and Bit 1=0 then CMD38 will perform a TRIM on the sector(s). When Bit 0 =1 and Bit 1=1 then CMD38 will perform a DISCARD on the sector(s). To maintain backward compatibility the device must not report an error if bits 31 and 15 are set. The device behavior when these are set is undefined. All other argument settings should trigger an ERROR."

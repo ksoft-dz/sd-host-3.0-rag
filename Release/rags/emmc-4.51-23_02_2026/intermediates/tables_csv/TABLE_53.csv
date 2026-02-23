@@ -1,0 +1,37 @@
+Command,idle,ready,ident,stby,tran,data,btst,rcv,prg,dis,ina,slp,irq
+Class 3,,,,,,,,,,,,
+CMD20 (obsolete),-,-,-,-,-,-,-,-,-,-,-,-,-
+Class 4,,,,,,,,,,,,
+CMD16,,,,,see class 2,,,,,,,,
+CMD23,,,,,see class 2,,,,,,,,
+CMD24,-,-,-,-,rcv,-,-,-,rcv1,-,-,-,stby
+CMD25,-,-,-,-,rcv,-,-,-,rcv2,-,-,-,stby
+CMD26,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+CMD27,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+CMD29,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+Class 6,,,,,,,,,,,,
+CMD28,-,-,-,-,prg,-,-,-,-,-,-,-,stby
+CMD29,-,-,-,-,prg,-,-,-,-,-,-,-,stby
+Class 6 (continued),,,,,,,,,,,,
+CMD30,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD31,-,-,-,-,data,-,-,-,-,-,-,-,stby
+Class 5,,,,,,,,,,,,
+CMD35,-,-,-,-,tran,-,-,-,-,-,-,-,stby
+CMD36,-,-,-,-,tran,-,-,-,-,-,-,-,stby
+CMD38,-,-,-,-,prg,-,-,-,-,-,-,-,stby
+Class 7,,,,,,,,,,,,
+CMD16,,,,,see class 2,,,,,,,,
+CMD42,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+Class 8,,,,,,,,,,,,
+CMD55,-,-,-,stby,tran,data,btst,rcv,prg,dis,-,-,irq
+CMD56; RD/WR = 0,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+CMD56; RD/WR = 1,-,-,-,-,data,-,-,-,-,-,-,-,stby
+Class 9,,,,,,,,,,,,
+CMD39,-,-,-,stby,-,-,-,-,-,-,-,-,stby
+CMD40,-,-,-,irq,-,-,-,-,-,-,-,-,stby
+Class 10,,,,,,,,,,,,
+CMD53,-,-,-,-,data,-,-,-,-,-,-,-,stby
+CMD54,-,-,-,-,rcv,-,-,-,-,-,-,-,stby
+Class 11,,,,,,,,,,,,
+"CMD41; CMD43...CMD52, CMD57...CMD59",Reserved,,,,,,,,,,,
+CMD60...CMD63,Reserved for Manufacturer,,,,,,,,,,,

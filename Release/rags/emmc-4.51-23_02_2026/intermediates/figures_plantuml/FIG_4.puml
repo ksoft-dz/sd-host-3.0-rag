@@ -1,0 +1,40 @@
+@startuml
+robust "CMD" as CMD
+concise "DAT0-7" as DAT
+
+scale 1 as 100 pixels
+
+@0
+CMD is idle
+
+@50
+CMD is command
+note top of CMD : from\nhost\nto card(s)
+
+@150
+CMD is idle
+
+@250
+CMD is command
+note top of CMD : from\nhost\nto card
+
+@350
+CMD is response
+note top of CMD : from\ncard\nto host
+
+@450
+CMD is idle
+
+@0
+DAT is idle
+
+@50
+DAT is idle
+
+@450
+DAT is idle
+
+note bottom of CMD : operation (no response)
+note bottom of DAT : operation (no data)
+
+@enduml

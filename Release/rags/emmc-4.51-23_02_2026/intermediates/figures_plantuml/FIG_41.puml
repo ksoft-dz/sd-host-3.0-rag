@@ -1,0 +1,159 @@
+@startuml
+scale 1 as 150 pixels
+
+binary "CMD" as CMD
+binary "DAT0" as DAT0
+binary "DAT 1-7" as DAT17
+
+@0
+CMD is {S}
+@1
+CMD is {T}
+@2
+CMD is {Content}
+@5
+CMD is {CRC}
+@6
+CMD is {E}
+@7
+CMD is {Z}
+@8
+CMD is {Z}
+@9
+CMD is {P}
+@10
+CMD is {P}
+@11
+CMD is {P}
+@12
+CMD is {*}
+@13
+CMD is {*}
+@14
+CMD is {*}
+@15
+CMD is {*}
+@16
+CMD is {*}
+@17
+CMD is {*}
+@18
+CMD is {P}
+@19
+CMD is {S}
+@20
+CMD is {T}
+@21
+CMD is {Content}
+@24
+CMD is {CRC}
+@25
+CMD is {E}
+@26
+CMD is {Z}
+@27
+CMD is {Z}
+@28
+CMD is {P}
+@29
+CMD is {P}
+@30
+CMD is {S}
+@31
+CMD is {T}
+@32
+CMD is {Content}
+
+@0
+DAT0 is {D}
+@1
+DAT0 is {D}
+@2
+DAT0 is {D}
+@3
+DAT0 is {D}
+@4
+DAT0 is {D}
+@5
+DAT0 is {D}
+@6
+DAT0 is {D}
+@7
+DAT0 is {D}
+@8
+DAT0 is {D}
+@9
+DAT0 is {E}
+@10
+DAT0 is {Z}
+@11
+DAT0 is {Z}
+@12
+DAT0 is {S}
+@13
+DAT0 is {L}
+@14
+DAT0 is {*}
+@27
+DAT0 is {L}
+@28
+DAT0 is {E}
+@29
+DAT0 is {Z}
+@30
+DAT0 is {Z}
+@31
+DAT0 is {Z}
+@32
+DAT0 is {Z}
+@33
+DAT0 is {Z}
+@34
+DAT0 is {Z}
+
+@0
+DAT17 is {D}
+@1
+DAT17 is {D}
+@2
+DAT17 is {D}
+@3
+DAT17 is {D}
+@4
+DAT17 is {D}
+@5
+DAT17 is {D}
+@6
+DAT17 is {D}
+@7
+DAT17 is {D}
+@8
+DAT17 is {D}
+@9
+DAT17 is {E}
+@10
+DAT17 is {Z}
+@11
+DAT17 is {Z}
+@12
+DAT17 is {X}
+@13
+DAT17 is {X}
+@27
+DAT17 is {X}
+@28
+DAT17 is {X}
+@29
+DAT17 is {Z}
+@30
+DAT17 is {Z}
+@31
+DAT17 is {Z}
+@32
+DAT17 is {Z}
+@33
+DAT17 is {Z}
+@34
+DAT17 is {Z}
+
+@enduml

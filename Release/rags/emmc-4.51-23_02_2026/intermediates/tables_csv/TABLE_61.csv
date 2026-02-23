@@ -1,0 +1,7 @@
+Parameter,Min.,Max.,Unit
+NAC,8,-,clock cycles
+NCRC,2,8,clock cycles
+NST,2,4,clock cycles
+NSB-A,4,6,clock cycles
+NSB-B,4,6,clock cycles
+NSB-C,2,4,clock cycles

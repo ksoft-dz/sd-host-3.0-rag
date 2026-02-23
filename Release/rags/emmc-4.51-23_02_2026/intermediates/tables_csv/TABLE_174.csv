@@ -1,0 +1,28 @@
+Function,e•MMC,e^MMC
+Boot,Mandatory,Mandatory
+RPMB,Mandatory,Mandatory
+Reset Pin,Mandatory,Mandatory
+Write Protection (including Perm & Temp),Mandatory,Mandatory
+1.2 V I/O,Optional,Optional
+Dual Data Rate timing,Optional,Optional
+HS200,Optional,Optional
+Multi Partitioning,Mandatory,Mandatory
+Secure Erase/Secure Trim,Optional,Optional
+Trim,Mandatory,Mandatory
+High Priority Interrupt,Mandatory,Mandatory
+Background Operation,Mandatory,Mandatory
+Enhance Reliable Write,Mandatory,Mandatory
+Discard Command,Mandatory,Mandatory
+Security Features,Mandatory,Mandatory
+Partition types,Mandatory,Mandatory
+Context ID,Mandatory,Mandatory
+Data Tag,Mandatory,Mandatory
+Packed commands,Mandatory,Mandatory
+Real Time Clock,Mandatory,Mandatory
+Dynamic Device Capacity,Mandatory,Mandatory
+Power Off Notification,Mandatory,Mandatory
+Thermal Spec,Mandatory,Mandatory
+Minimum Sector Size = 4 KB (>256GB),Optional,Optional
+Minimum Sector Size = 4KB (>256GB),Mandatory,Mandatory
+Cache,Optional,Mandatory
+Extended Security Protocols,Optional,Optional

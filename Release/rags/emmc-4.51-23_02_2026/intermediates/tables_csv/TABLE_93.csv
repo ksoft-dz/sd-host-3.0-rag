@@ -1,0 +1,5 @@
+Value,Timeout Value
+0x00,Not defined
+0x01,100ms × 1 = 100 ms
+..,...
+0xFF,100ms × 255 = 25500 ms

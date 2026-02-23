@@ -1,0 +1,7 @@
+Value,Value definition
+0x00,No RPMB partition available.
+0x01,1 x 128Kbyte = 128Kbytes
+0x02,2 x 128Kbyte = 256Kbytes
+:,:
+0x80,128x128Kbyte = 16384Kbytes
+0x81-0xFF,Reserved

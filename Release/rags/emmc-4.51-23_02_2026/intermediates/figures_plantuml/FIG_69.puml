@@ -1,0 +1,33 @@
+@startuml
+title Figure 69 — HS200 Clock signal timing
+
+analog "CLOCK INPUT" as CLK
+
+@0
+CLK is VSS
+
+@10
+CLK is VIL
+
+@20
+CLK is VT
+
+@30
+CLK is VIH
+
+@50
+CLK is VCCQ
+
+@70
+CLK is VIH
+
+@80
+CLK is VT
+
+@90
+CLK is VIL
+
+@100
+CLK is VSS
+
+@enduml

@@ -1,0 +1,74 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultTextAlignment center
+
+rectangle "CRC16 Generator/Checker" {
+    
+    ' Input with XOR
+    node "data in" as datain
+    circle "⊕" as xor_in
+    
+    ' Shift register stages (16 bits)
+    rectangle "D" as d0
+    rectangle "D" as d1
+    rectangle "D" as d2
+    rectangle "D" as d3
+    rectangle "D" as d4
+    rectangle "D" as d5
+    rectangle "D" as d6
+    circle "⊕" as xor1
+    rectangle "D" as d7
+    rectangle "D" as d8
+    rectangle "D" as d9
+    rectangle "D" as d10
+    rectangle "D" as d11
+    rectangle "D" as d12
+    rectangle "D" as d13
+    rectangle "D" as d14
+    circle "⊕" as xor2
+    rectangle "D" as d15
+    rectangle "D" as d16
+    rectangle "D" as d17
+    rectangle "D" as d18
+    
+    node "data out" as dataout
+    
+    ' Main shift register chain
+    datain --> xor_in
+    xor_in --> d0
+    d0 --> d1
+    d1 --> d2
+    d2 --> d3
+    d3 --> d4
+    d4 --> d5
+    d5 --> d6
+    d6 --> xor1
+    xor1 --> d7
+    d7 --> d8
+    d8 --> d9
+    d9 --> d10
+    d10 --> d11
+    d11 --> d12
+    d12 --> d13
+    d13 --> d14
+    d14 --> xor2
+    xor2 --> d15
+    d15 --> d16
+    d16 --> d17
+    d17 --> d18
+    d18 --> dataout
+    
+    ' Feedback path from output back to XOR gates
+    d18 -[hidden]-> xor_in
+    d18 -[hidden]-> xor1
+    d18 -[hidden]-> xor2
+}
+
+note bottom
+  Feedback from last stage connects to:
+  - Input XOR gate
+  - XOR gate after bit 5
+  - XOR gate after bit 12
+end note
+
+@enduml

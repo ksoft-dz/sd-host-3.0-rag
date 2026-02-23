@@ -1,0 +1,4 @@
+Symbol,Min.,Max.,Unit,Remark
+tHS1,0,2,UI,"Device output momentary phase from CLK input to CMD or DAT lines output. Does not include a long term temperature drift."
+ΔTHS1,"-350 (ΔT=-20 deg.C)","+1550 (ΔT=90 deg.C)",ps,"Delay variation due to temperature change after tuning. Total allowable shift of output valid window (TVW) from last system Tuning procedure. ΔTHS1 is 2600ps for ΔT from -25 deg.C to 125 deg.C during operation."
+tSW,0.575,-,UI,"tSW=2.88ns at 200MHz. Using test circuit in Figure 72 including skew among CMD and DAT lines created by the Device. Host path may add Signal Integrity induced noise, skews, etc. Expected TVW at Host input is larger than 0.475UI."

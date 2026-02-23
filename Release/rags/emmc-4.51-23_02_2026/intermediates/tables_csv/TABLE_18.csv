@@ -1,0 +1,12 @@
+Message Type,Description
+Request Message Types,
+0x0001,Authentication key programming request
+0x0002,Reading of the Write Counter value -request
+0x0003,Authenticated data write request
+0x0004,Authenticated data read request
+0x0005*,Result read request
+Response Message Types,
+0x0100,Authentication key programming response
+0x0200,Reading of the Write Counter value -response
+0x0300,Authenticated data write response
+0x0400,Authenticated data read response

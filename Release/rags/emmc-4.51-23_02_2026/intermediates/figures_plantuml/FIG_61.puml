@@ -1,0 +1,47 @@
+@startuml
+skinparam defaultFontName Arial
+
+title Figure 61 — The e•MMC power cycle
+
+concise "VCC" as VCC
+concise "VCCQ" as VCCQ
+
+scale 1 as 100 pixels
+
+@0
+VCC is "Low"
+VCCQ is "Low"
+
+@100
+VCC is "Rising"
+VCCQ is "Rising"
+
+@200
+VCC is "VCC (MIN)"
+VCCQ is "VCCQ (MIN)"
+
+@250
+VCC is "Above VCC (MIN)"
+VCCQ is "Above VCCQ (MIN)"
+
+@400
+VCC is "Sleep Mode"
+VCCQ is "Sleep Mode"
+
+@500
+VCC is "Above VCC (MIN)"
+VCCQ is "Above VCCQ (MIN)"
+
+@700
+VCC is "Falling"
+VCCQ is "Falling"
+
+@800
+VCC is "Low"
+VCCQ is "Low"
+
+note bottom of VCC
+  Command input prohibited | Sleep mode | Command input prohibited
+end note
+
+@enduml

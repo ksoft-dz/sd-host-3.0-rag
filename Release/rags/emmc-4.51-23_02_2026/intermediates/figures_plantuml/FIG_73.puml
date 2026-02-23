@@ -1,0 +1,27 @@
+@startuml
+title Figure 72 — Legend for command-sequence flow charts
+
+legend
+|= Symbol |= Meaning |
+| <img:rounded_rectangle> | Sequence entry/exit point |
+| <img:rectangle> | MultiMediaCard BUS Command |
+| <img:diamond_horizontal> | False exit of condition |
+| <img:diamond_vertical> | True exit of condition |
+| <img:dashed_rectangle> | Optional steps in sequence |
+| <img:ellipse> | Host Activity |
+| <img:parallel_box> | Parallel activities in the host (executed simultaneously) |
+endlegend
+
+note as N1
+**Symbol Definitions:**
+
+(  Return  ) : Sequence entry/exit point
+[SEND_OP_COND] : MultiMediaCard BUS Command
+<time-out?> --> : False exit of condition (horizontal arrow)
+<card count = 0?> with down arrow : True exit of condition
+[SEND_OP_COND] dashed : Optional steps in sequence
+(Read data stream) ellipse : Host Activity
+|SEND_STATUS|Read data stream| : Parallel activities (left and right sequences executed simultaneously)
+end note
+
+@enduml

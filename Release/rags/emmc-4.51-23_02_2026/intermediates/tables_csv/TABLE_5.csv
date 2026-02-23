@@ -1,0 +1,14 @@
+I notice that this page (Page 17 from JEDEC Standard No. 84-B451) discusses the e•MMC functional description and e•MMC Overview, but it does not contain the actual "Bus modes overview" table (Table 5). 
+
+The page mentions that a table showing dependencies between bus modes, operation modes, and device states will follow ("The following table shows the dependencies between bus modes..."), but the table itself is not visible on this page - it appears to be on a subsequent page.
+
+The page contains descriptive text about five operation modes:
+- Boot mode
+- Device identification mode
+- Interrupt mode
+- Data transfer mode
+- Inactive mode
+
+To extract Table 5 "Bus modes overview," I would need the page that actually contains that table.
+
+ABSTRACT: This page contains introductory text about e•MMC operation modes but does not include the actual "Bus modes overview" table, which appears on a different page.

@@ -1,0 +1,5 @@
+Mode Name,Data Rate,IO Voltage,Bus Width,Frequency,Max Data Transfer (implies x8 bus width)
+Backwards Compatibility with legacy MMC card,Single,3/1.8/1.2V,"1, 4, 8",0-26MHz,26MB/s
+High Speed SDR,Single,3/1.8/1.2V,"4, 8",0-52MHz,52MB/s
+High Speed DDR,Dual,3/1.8/1.2V,"4, 8",0-52MHz,104MB/s
+HS200,Single,1.8/1.2V,"4, 8",0-200MHz,200MB/s

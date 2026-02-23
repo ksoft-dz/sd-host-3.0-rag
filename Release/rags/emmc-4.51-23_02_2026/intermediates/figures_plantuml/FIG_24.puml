@@ -1,0 +1,63 @@
+@startuml
+title e•MMC State Diagram (Data Transfer Mode)
+
+state "Card identification mode" as card_id {
+  state "CMD3" as cmd3_id
+  state "CMD15" as cmd15_id
+}
+
+note right of card_id : CMD0 with arg = 0x00000000\nor arg = 0xF0F0F0F0
+
+state "RESET signal" as reset
+
+state "Data transfer mode" as data_transfer {
+  state "Wait-IRQ State\n(irq)" as irq
+  state "Sleep State\n(slp)" as slp
+  state "Stand-by State\n(stby)" as stby
+  state "Disconnect\nState (dis)" as dis
+  state "Programming\nState (prg)" as prg
+  state "Sending-data\nState (data)" as data
+  state "Transfer\nState (tran)" as tran
+  state "Receive-data\nState (rcv)" as rcv
+  state "Bus test\nState (btst)" as btst
+}
+
+card_id --> data_transfer : from all states except\nSleep state (slp) in\ndata-transfer mode
+data_transfer --> card_id : from all states in\ndata-transfer mode
+reset --> card_id : from all states except\n(ina)
+
+irq --> slp : CMD40
+stby --> slp : CMD5
+slp --> stby : CMD5
+
+note on link : CMD13 & CMD55\nno state transition\nin data-transfer-mode
+
+stby --> irq : Any start bit\ndetected on\nthe bus
+
+stby --> tran : CMD7
+tran --> stby : CMD7
+
+stby --> dis : CMD4\n9,10,39
+dis --> stby : CMD6,\n28, 29, 38\n"operation\ncomplete"
+
+dis --> prg : CMD7
+prg --> dis : CMD7
+
+tran --> data : CMD11, 17, 18\n21, 30, 53, 56(r)
+data --> tran : CMD12,\n"operation\ncomplete"
+
+tran --> rcv : CMD20, 24, 25, 26\n27, 42, 54, 56(w)
+rcv --> prg : CMD24,\n25
+
+tran --> btst : CMD19
+btst --> tran : CMD14
+
+prg --> tran : CMD12 or\n"transfer end"
+
+rcv --> tran : CMD16,\n23,35,36
+
+note bottom of prg : High Priority Interrupt\n(CMD12/CMD13)
+
+note "Interrupt mode" as int_note
+int_note .. irq
+@enduml

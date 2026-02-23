@@ -1,0 +1,48 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam componentBackgroundColor #FFE4B5
+
+' Power rails at top
+rectangle "VCC" as VCC_rail #white
+rectangle "VCCQ" as VCCQ_rail #white
+
+' Left side inputs
+rectangle "RESET" as RESET
+rectangle "VDDi" as VDDi
+rectangle "CReg" as CReg
+rectangle "CLK" as CLK
+rectangle "CMD" as CMD
+rectangle "DAT[7:0]" as DAT
+
+' MMC Controller block
+rectangle "MMC Controller" as MMC_CTRL #FFE4B5 {
+    rectangle "MMC I/O Block" as MMC_IO #FFDEAD
+    rectangle "Core Regulator\n(Required for 3.3V VCCQ)" as CORE_REG #FFDEAD
+    rectangle "Core\nLogic\nBlock" as CORE_LOGIC #FFDEAD
+    rectangle "NAND I/O Block" as NAND_IO #FFDEAD
+}
+
+' Memory block
+rectangle "Memory" as MEMORY #D3D3D3
+
+' Connections
+VCC_rail -down-> MEMORY
+VCCQ_rail -down-> MMC_CTRL
+VCCQ_rail -down-> MEMORY
+
+RESET -right-> MMC_IO
+VDDi -right-> CORE_REG
+CReg -up-> VDDi
+CLK -right-> MMC_IO
+CMD -right-> MMC_IO
+DAT -right-> MMC_IO
+
+MMC_IO -right-> CORE_REG
+CORE_REG -down-> CORE_LOGIC
+MMC_IO -down-> CORE_LOGIC
+CORE_LOGIC -right-> NAND_IO
+
+NAND_IO -right-> MEMORY : Data Bus
+NAND_IO -right-> MEMORY : Control Signals
+
+@enduml

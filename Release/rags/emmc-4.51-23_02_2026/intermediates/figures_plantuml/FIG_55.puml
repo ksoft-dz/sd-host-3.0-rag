@@ -1,0 +1,41 @@
+@startuml
+title Figure 55 — Noise filtering timing for H/W reset
+
+note top of RST_n1 : Device must filter out 5ns or less pulse width for noise immunity
+
+concise "RST_n" as RST_n1
+concise "RST_n" as RST_n2
+
+@0
+RST_n1 is low
+RST_n2 is low
+
+@10
+RST_n1 is high
+
+@15
+RST_n1 is low
+note bottom of RST_n1 : 5ns or less
+
+@17
+RST_n1 is high
+
+@60
+RST_n1 is high
+
+@10
+RST_n2 is high
+
+@25
+RST_n2 is low
+note bottom of RST_n2 : 5ns or less
+
+@27
+RST_n2 is high
+
+@60
+RST_n2 is high
+
+note bottom of RST_n2 : Device must not detect these rising edge
+
+@enduml

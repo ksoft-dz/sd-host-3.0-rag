@@ -1,0 +1,5 @@
+Parameter,Symbol,Min,Max.,Unit,Conditions
+Output HIGH voltage,VOH,0.75*VCCQ,,V,IOH = -2mA
+Output LOW voltage,VOL,,0.25*VCCQ,V,IOL = 2mA
+Input HIGH voltage,VIH,0.65 * VCCQ,VCCQ + 0.3,V,
+Input LOW voltage,VIL,VSS - 0.3,0.35 * VCCQ,V,

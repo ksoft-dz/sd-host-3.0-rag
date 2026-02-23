@@ -1,0 +1,33 @@
+@startuml
+skinparam defaultFontName Monospaced
+
+title Figure 71 — HS200 Device output timing
+
+clock "CLOCK\nINPUT" as CLK with period 2 pulse 1
+
+note top of CLK
+  VCCQ
+  ----
+  VT
+  ----
+  VSS
+end note
+
+analog "CMD.DAT[7:0]\nOUTPUT" as DATA
+
+@0
+CLK is high
+
+@1
+CLK is low
+
+@2
+CLK is high
+
+@3
+CLK is low
+
+@4
+CLK is high
+
+@enduml

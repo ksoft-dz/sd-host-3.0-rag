@@ -1,0 +1,9 @@
+Bit,Access,Field Name,Description
+7,R,Reserved,Reserved
+6,R,Reserved,Reserved
+5,R,Reserved,Reserved
+4,R,Reserved,Reserved
+3,R,Reserved,Reserved
+2,R,reserved,reserved
+1,R,Indexed Error,"If the error is a result of one of the individual commands inside the packed command, its index is reported in PACKED_FAILURE_INDEX [35] and 'Indexed Error' bit (bit 1) is set as well."
+0,R,Error,"In case any error occurs during a packed command, the 'Error' bit (bit 0) shall be set."

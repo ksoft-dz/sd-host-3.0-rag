@@ -1,0 +1,4 @@
+Bit,Access,Field Name,Description
+7-2,R,Reserved,Reserved
+1,R,Non-persistent,Non-persistent extended partition attribute support
+0,R,System code,System code extended partition attribute support

@@ -1,0 +1,16 @@
+Symbol,Min,Max,Unit
+NAC,2,10 * (TAAC * FOP + 100 * NSAC)^1,Clock cycles
+NCC,8,-,Clock cycles
+NCD,56,-,Clock cycles
+NCP,74,-,Clock cycles
+NCR,2,64,Clock cycles
+NID,5,5,Clock cycles
+NRC,8,-,Clock cycles
+NSC,8,-,Clock cycles
+NST,2,2,Clock cycles
+NWR,2,-,Clock cycles
+NSB-A(2),4,4,Clock cycles
+NSB-B(2),4,4,Clock cycles
+NSB-C(2),2,2,Clock cycles
+tBA,-,50,ms
+tBD,-,1,s

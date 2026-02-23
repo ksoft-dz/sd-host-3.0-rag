@@ -1,0 +1,16 @@
+Parameter,Definition,Unit 512 B Native Sector,Unit 4 KB Native Sector Emulation,Unit 4 KB Native Sector Disable Emulation,Granularity 512 B Native Sector,Granularity 4 KB Native Sector Emulation,Granularity 4 KB Native Sector Disable Emulation
+"Device Capacity ≤ 2GB","BLOCKNR · BLOCK_LEN",512B,512B,512B,4KB,4KB,4KB
+"Device Capacity > 2GB",SEC_COUNT ·512B,512B,512B,512B,4KB,4KB,4KB
+"Erase Group Size","(ERASE_GRP_SIZE+ 1) · (ERASE_GRP_MULT + 1)",512B,512B,512B,4KB,4KB,4KB
+"Write Protect Group Size",WP_GRP_SIZE,Erase group,Erase group,Erase group,Erase Group,Erase Group,Erase Group
+"High Capacity Erase Size","HC_ERASE_GRP_SIZE · 512KB",512KB,512KB,512KB,512 KB,512KB,512KB
+"High Capacity Write Protect size","HC_ERASE_GRP_SIZE · HC_WP_GRP_SIZE · 512KB",512KB,512KB,512KB,512KB,512KB,512KB
+Super page size,"2^(SUPER_PAGE_SIZE-1) · 512B",512B,512B,512B,512B,4KB,4KB
+"Boot partition size","BOOT_SIZE_MULT· 128KB",128KB,128KB,128KB,128KB,128KB,128KB
+"RPMB partitionsize","RPMB_SIZE_MULT· 128KB",128KB,128KB,128KB,128KB,128KB,128KB
+Tag Unit Size,"2^TAG_UNIT_SIZE · Sector Size",512B,512B,4KB,512B,512B,4KB
+"Tag Resource Size","((N· TAG_UNIT_SIZE)· 2^TAG_RES_SIZE)/2^10",Tag Unit Size,Tag Unit Size,Tag Unit Size,Tag Unit Size,Tag Unit Size,Tag Unit Size
+Large Unit size,"1MB · (LARGE_UNIT_SIZE_M1 + 1)",1MB,1MB,1MB,1MB,1MB,1MB
+Cache size,CACHE_SIZE·1Kb,1Kb,1Kb,1Kb,1Kb,32Kb (=4KB),32Kb (=4KB)
+"Reliable Write Sector size",REL_WR_SEC_C,512B,512B,512B,512B,4KB,4KB
+"Max Enhanced area size","MAX_ENH_SIZE_MULT·H C_WP_GRP_SIZE·HC_ERA SE_GRP_SIZE·512KB",512 KB,512KB,512KB,512KB,512KB,512KB

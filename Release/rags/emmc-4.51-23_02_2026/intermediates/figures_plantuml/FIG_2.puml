@@ -1,0 +1,50 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0-7" as DAT
+
+@0
+CMD is idle
+DAT is idle
+
+@1
+CMD is "command" #LightBlue
+note top of CMD : from\nhost\nto card
+
+@2
+CMD is "response" #LightGreen
+note top of CMD : from\ncard\nto host
+
+@3
+CMD is idle
+DAT is "data block" #LightGreen
+
+@4
+DAT is "crc" #LightGreen
+note top of DAT : data from card\nto host
+
+@5
+DAT is idle
+
+@6
+DAT is "data block" #LightGreen
+
+@7
+DAT is "crc" #LightGreen
+
+@8
+DAT is idle
+
+@9
+DAT is "data block" #LightGreen
+CMD is "command" #LightBlue
+note top of CMD : stop command\nstops data transfer
+
+@10
+DAT is "crc" #LightGreen
+CMD is "response" #LightGreen
+
+@11
+CMD is idle
+DAT is idle
+
+@enduml

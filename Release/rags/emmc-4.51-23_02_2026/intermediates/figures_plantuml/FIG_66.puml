@@ -1,0 +1,28 @@
+@startuml
+skinparam rectangleBorderColor black
+skinparam componentBorderColor black
+
+rectangle "Stimulus\n~0.5MHz" as stim
+rectangle "Driver" as driver
+
+stim --> driver : "⎍"
+
+rectangle "Meas. Location" as meas {
+}
+
+driver --> meas
+
+rectangle "C_L" as cap
+
+meas --> cap
+cap --> [ground]
+
+note bottom of cap
+  NOTE 1: C_L is total equivalent lumped capacitance for each Driver.
+  NOTE 2: C_L incorporates device die load, device package load and 
+          equivalent lumped load external to the device.
+  NOTE 3: In distributed transmission lines only part of the line 
+          capacitance considered as load for the Driver.
+end note
+
+@enduml

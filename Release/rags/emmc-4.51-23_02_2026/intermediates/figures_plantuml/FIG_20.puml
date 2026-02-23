@@ -1,0 +1,54 @@
+@startuml
+skinparam state {
+  BackgroundColor White
+  BorderColor Black
+}
+
+state "Boot state\n(boot)" as Boot
+state "Host reads all the data\nfrom the boot ~~sector~~\npartition" as ReadData
+state "Idle State\n(idle)" as Idle
+
+[*] --> Boot
+Boot --> ReadData
+ReadData --> Idle
+
+Idle --> Idle : CMD0
+Idle --> [*] : CMD1
+
+note left of Idle
+  Boot Bus Conditions
+  Retained if
+  RESET_BOOT_BUS_
+  CONDITIONS is set to
+  retain
+end note
+
+note right of Boot
+  **Special Case:** If host uses alternate boot mode and
+  the device automatically moves to Idle state
+  because the transfer of the entire content of the
+  boot partition has been completed, then the first
+  subsequent CMD0 with arg=0x00000000 issued by
+  the host shall not reset the bus conditions if retain is
+  set.
+end note
+
+note right of Idle
+  **Other cases:**
+  - If host uses original boot mode, CMD0 with arg=
+  0x00000000 shall reset the bus condition to x1 SDR
+  mode.
+  
+  - If host uses alternate boot mode and the device
+  automatically moves to Idle state because the host
+  reads the entire boot partition, any CMD0 with arg=
+  0x00000000, following the first subsequent CMD0
+  with arg=0x00000000, shall reset the bus condition
+  to x1 SDR mode even if retain is set.
+  
+  - If host issues CMD0 with other arguments than
+  arg=0x00000000, the bus condition shall be reset to
+  x1 SDR mode.
+end note
+
+@enduml

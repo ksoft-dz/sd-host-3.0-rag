@@ -1,0 +1,9 @@
+I've examined the image carefully, but I don't see a table titled "Write Protection Types (when disable bits are clear)" or "Table 14" on this page. 
+
+This page (Page 60 of JEDEC Standard No. 84-B451) contains:
+- Text about 'non erase' commands and Secure Trim operations
+- Section 6.6.17 "Write protect management" with bullet points describing write protection mechanisms
+
+The page consists entirely of prose text and bullet points, with no tables present. The table you're looking for may be on a different page of this document.
+
+If you have another page that contains Table 14, please share that image and I'll be happy to extract it for you.

@@ -1,0 +1,17 @@
+Bits,Identifier,Type,Det Mode,Value,Description,Clear Cond
+20,CC_ERROR,E,R,"""0"" = no error ""1"" = error","(Undefined by the standard) A Device error occurred, which is not related to the host command.",B
+19,ERROR,E,X,"""0"" = no error ""1"" = error","(Undefined by the standard) A generic Device error related to the (and detected during) execution of the last host command (e.g. read or write failures).",B
+18,obsolete,,,,"Hosts should ignore this bit",
+17,obsolete,,,,"Hosts should ignore this bit",
+16,CID/CSD_OVERWRITE,E,X,"""0"" = no error ""1"" = error","Can be either one of the following errors: - The CID register has been already written and cannot be overwritten - The read only section of the CSD does not match the Device content. - An attempt to reverse the copy (set as original) or permanent WP (unprotected) bits was made.",B
+15,WP_ERASE_SKIP,E,X,"""0"" = not protected ""1"" = protected","Only partial address space was erased due to existing write protected blocks.",B
+14,,,,,Reserved, must be set to 0,
+13,ERASE_RESET,E,R,"""0"" = cleared ""1"" = set","An erase sequence was cleared before executing because an out of erase sequence command was received (commands other than CMD35, CMD36, CMD38 or CMD13",B
+12:9,CURRENT_STATE,S,R,"0 = Idle 1 = Ready 2 = Ident 3 = Stby 4 = Tran 5 = Data 6 = Rcv 7 = Prg 8 = Dis 9 = Btst 10 = Slp 11–15 = reserved","The state of the Device when receiving the command. If the command execution causes a state change, it will be visible to the host in the response on the next command. The four bits are interpreted as a binary number between 0 and 15. As there is no way to obtain state information in boot mode, boot-mode states are not shown in this table.",A
+8,READY_FOR_DATA,S,R,"""0"" = not ready ""1"" = ready","Corresponds to buffer empty signaling on the bus",A
+7,SWITCH_ERROR,E,X,"""0"" = no error ""1"" = switch error","If set, the Device did not switch to the expected mode as requested by the SWITCH command",B
+6,EXCEPTION_EVENT,S,R,"""0"" = no event ""1"" = an exception event has occurred","If set, one of the exception bits in field EXCEPTION_EVENTS_STATUS was set to indicate some exception has occurred. Host should check that field to discover which exception has occurred to understand what further actions are needed in order to clear this bit.",A
+5,APP_CMD,S,R,"""0"" = Disabled ""1"" = Enabled","The Device will expect ACMD, or indication that the command has been interpreted as ACMD",A
+4,,,,,"Reserved",
+3:2,,,,,"Reserved for Application Specific commands",
+1:0,,,,,"Reserved for Manufacturer Test Mode",

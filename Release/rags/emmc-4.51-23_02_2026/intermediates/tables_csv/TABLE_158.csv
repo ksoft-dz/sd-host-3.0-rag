@@ -1,0 +1,12 @@
+Parameter,Symbol,Min,Max,Unit,Remarks
+Supply voltage (NAND),Vcc,2.7,3.6,V,
+Supply voltage (I/O),VccQ,1.7,1.95,V,
+Supply voltage (I/O),VccQ,2.7,3.6,V,
+Supply voltage (I/O),VccQ,1.70,1.95,V,
+Supply voltage (cache) (e²•MMC),D-VDD,1.1,1.3,V,
+Supply voltage (cache) (e²•MMC),D-VDD,1.7,"1,9",V,
+Supply voltage (cache IO) (e²•MMC),D-VDDQ,1.7,1.9,V,
+Supply voltage (cache IO) (e²•MMC),D-VDDQ,1.14,1.3,V,
+Supply power-up for 3.3V,tPRUH,,35,ms,
+Supply power-up for 1.8V,tPRUL,,25,ms,
+Supply power-up for 1.2V,tPRUV,,20,ms,

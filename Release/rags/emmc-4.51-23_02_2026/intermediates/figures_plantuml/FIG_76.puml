@@ -1,0 +1,13 @@
+@startuml
+start
+:setup card connection;
+:GO_TRANSFER_STATE;
+if (card ready?) then (no)
+  :return;
+  stop
+else (yes)
+  :SEND_CSD;
+  :return;
+  stop
+endif
+@enduml

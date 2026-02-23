@@ -1,0 +1,8 @@
+Max DDR4 current (mA),750,200,200,180,300,400,400
+Pkg. Case Temp Tc (°C),,,,,,,
+"*4x14* @ 1.05V(VDD, VDDQ)",95,95,95,95,95,95,95
+"*4x14* @ 1.1V(VDD, VDDQ)",90,95,95,95,95,95,95
+"*5x14* @ 1.05V(VDD, VDDQ)",95,95,95,95,95,95,95
+"*5x14* @ 1.1V(VDD, VDDQ)",90,95,95,95,95,95,95
+Small package (single/dual die) @1.05V,95,95,95,95,95,95,95
+Small package (single/dual die) @1.1V,90,95,95,95,95,95,95

@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome false
+
+title Figure 84 — Bus testing for four data lines
+
+map "Bus Test Pattern (4 data lines)" as bustest {
+}
+
+note as N1
+|= Line |= Start |= LSB |=  |=  |= Test Pattern |=  |=  |= MSB |= Optional |= End |
+| DAT3 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | CRC16 | 1 |
+| DAT2 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | CRC16 | 1 |
+| DAT1 | 0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | CRC16 | 1 |
+| DAT0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | CRC16 | 1 |
+|  |  | 0x5A |  | 0x00 |  | 0x00 |  | MSB 0x00 |  |  |
+end note
+
+@enduml

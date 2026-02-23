@@ -1,0 +1,29 @@
+@startuml
+skinparam rectangleBackgroundColor White
+skinparam defaultTextAlignment center
+
+rectangle "Boot Area Partition1" as BAP1 {
+}
+note left of BAP1 : 0x00000000
+
+rectangle "Boot Area Partition2" as BAP2 {
+}
+note left of BAP2 : 0x00000000
+
+rectangle "RPMB Partition" as RPMB {
+}
+note left of RPMB : 0x00000000
+
+rectangle "User Data Area" as UDA #LightGray {
+  note top : 0x00000000
+  note bottom : Card size - 1
+}
+
+BAP1 -[hidden]down- BAP2
+BAP2 -[hidden]down- RPMB
+
+BAP1 -right-> UDA : Size as multiple of\n128KB
+BAP2 -right-> UDA
+RPMB -right-> UDA
+
+@enduml

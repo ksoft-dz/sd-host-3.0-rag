@@ -1,0 +1,10 @@
+@startuml
+robust "Device Rsp" as DeviceRsp
+robust "CMD" as CMD
+robust "DAT0" as DAT0
+robust "DAT1-7" as DAT17
+
+@0
+DeviceRsp is ""
+
+@enduml

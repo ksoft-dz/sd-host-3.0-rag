@@ -1,0 +1,57 @@
+@startuml
+robust "CMD" as CMD
+
+@0
+CMD is {S}
+
+@1
+CMD is {T}
+
+@2
+CMD is {Content}
+
+@6
+CMD is {CRC}
+
+@7
+CMD is {E}
+
+@8
+CMD is {Z}
+
+@9
+CMD is {*}
+
+@10
+CMD is {*}
+
+@11
+CMD is {*}
+
+@12
+CMD is {Z}
+
+@13
+CMD is {S}
+
+@14
+CMD is {T}
+
+@15
+CMD is {Content}
+
+@19
+CMD is {CRC}
+
+@20
+CMD is {E}
+
+@21
+CMD is {Z}
+
+@22
+CMD is {Z}
+
+note top of CMD : <-- Response --> | <-- N_RC cycles --> | <-- Host Command -->
+
+@enduml

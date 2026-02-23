@@ -1,0 +1,15 @@
+Byte Number,Value
+0,Reserved
+1,Reserved
+2,Reserved
+3,Reserved
+4,Reserved
+5,Reserved
+6,List length (MSB)
+7,List length (LSB)
+8,Supported security protocols list
+…,
+M,
+M+1,Padding
+…,Padding
+N,Padding

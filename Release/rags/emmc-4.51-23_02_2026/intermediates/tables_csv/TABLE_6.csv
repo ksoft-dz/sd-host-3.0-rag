@@ -1,0 +1,9 @@
+I don't see a table titled "EXT_CSD access mode" or "Table 6" in this image. The page appears to be from JEDEC Standard No. 84-B451, Page 40, and contains primarily text describing Device states (Stand-by State, Disconnect State, Programming State) and bullet points about data transfer modes and command behaviors.
+
+This page contains explanatory text about:
+- Device behavior in Stand-by State with CMD7
+- Device behavior in Disconnect State
+- Data communication in Data Transfer Mode
+- Various bullet points about data read/write commands, block operations, and programming states
+
+There is no visible table on this page to extract. The table you're looking for may be on a different page of the document.

@@ -1,0 +1,8 @@
+Parameter,Symbol,Min,Max.,Unit,Remark
+Peak voltage on all lines,,-0.5,VCCQ + 0.5,V,
+All Inputs,,,,,
+Input Leakage Current (before initialization sequence and/or the internal pull up resistors connected),,-100,100,μA,
+Input Leakage Current (after initialization sequence and the internal pull up resistors disconnected),,-2,2,μA,
+All Outputs,,,,,
+Output Leakage Current (before initialization sequence),,-100,100,μA,
+Output Leakage Current (after initialization sequence),,-2,2,μA,

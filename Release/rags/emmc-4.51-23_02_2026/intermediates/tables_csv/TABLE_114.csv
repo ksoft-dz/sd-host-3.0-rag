@@ -1,0 +1,5 @@
+Bit,Access,Field Name,Description
+0,R,CSD_STRUCTURE,CSD version No. 1.0 - Allocated by MMCA
+1,R,CSD_STRUCTURE,CSD version No. 1.1 - Allocated by MMCA
+2,R,CSD_STRUCTURE,CSD version No. 1.2 - Version 4.1-4.2-4.3-4.41-4.5-4.51
+3-255,R,CSD_STRUCTURE,Reserved for future use

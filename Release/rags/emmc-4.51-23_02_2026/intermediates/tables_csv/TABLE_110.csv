@@ -1,0 +1,6 @@
+Value,Timeout value definition
+0x00,Not defined
+0x01,10ms x 1 = 10ms
+0x02,10ms x 2 = 20ms
+..,...
+0xFF,10ms x 255 = 2550ms

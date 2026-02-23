@@ -1,0 +1,31 @@
+@startuml
+title CIM_US_PERM_WP
+
+start
+:Set Permanent Write Protection;
+:Read USER_WP;
+
+if (Is\nUS_PERM_WP_DIS\n= 0?) then (no)
+  :Return (Permanent\nProtection cannot be set)|
+  stop
+else (yes)
+  :Set US_PERM_WP_EN;
+  :SET_WR_PROT;
+  
+  if (Response OK?) then (no)
+    :return (Error condition)|
+    stop
+  else (yes)
+    :SEND_WR_PROTECT_TYPE;
+    
+    if (Response="11"?) then (no)
+      :Return (Permanent Write\nProtection not set)|
+      stop
+    else (yes)
+      :Return;
+      stop
+    endif
+  endif
+endif
+
+@enduml

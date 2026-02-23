@@ -1,0 +1,34 @@
+@startuml
+skinparam defaultFontName Monospaced
+
+title End bit of STOP_TRANSMISSION (CMD12)\narrives after End bit of device CRC Response
+
+concise "CMD" as CMD
+concise "DAT[0]" as DAT
+
+@0
+CMD is "S"
+DAT is "Write Data"
+
+@1
+CMD is "STOP_TRANSMISSION (CMD12)"
+DAT is "CRC"
+
+@2
+DAT is "E"
+
+@3
+DAT is {-}
+note bottom of DAT : N_CRC
+
+@4
+DAT is "S"
+
+@5
+DAT is "CRC Status Response"
+
+@6
+DAT is "E"
+CMD is "E"
+
+@enduml

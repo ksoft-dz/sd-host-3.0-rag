@@ -1,0 +1,34 @@
+@startuml
+start
+
+:update acquisition;
+
+:SEND_OP_COND (Query Mode- OCR argument set to 0);
+
+:SEND_OP_COND (Set Range);
+
+if (Card busy?) then (yes)
+  :delay;
+  -> loop back;
+  detach
+else (no)
+endif
+
+:ALL_SEND_CID;
+
+if (time out?) then (yes)
+  :return (error condition);
+  stop
+else (no)
+endif
+
+:SET_RELATIVE_ADDR;
+
+:SEND_CSD;
+
+:SET_DSR;
+
+:return;
+
+stop
+@enduml

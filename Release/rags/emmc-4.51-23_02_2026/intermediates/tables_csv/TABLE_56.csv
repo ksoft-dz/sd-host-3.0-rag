@@ -1,0 +1,4 @@
+Bit position,47,46,[45:40],[39:8] Argument field,[39:8] Argument field,[7:1],0
+Width (bits),1,1,6,16,16,7,1
+Value,"0","0","10100 0",x,x,x,"1"
+Description,Start bit,Transmission bit,CMD4 0,"RCA [31:16] of winning Device or of the host","[15:0] Not defined. May be used for IRQ data",CRC 7,End bit

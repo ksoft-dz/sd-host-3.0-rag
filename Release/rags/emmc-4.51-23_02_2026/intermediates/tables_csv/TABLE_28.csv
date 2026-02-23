@@ -1,0 +1,13 @@
+Bit,Access,Field Name,Description
+Start 1bit,R,Start,1bit
+"Stuff Bytes 196Byte [511:316]",R,Stuff Bytes,"196Byte 0x0000..."
+"Key/(MAC) 32Byte (256b) [315:284]",R,Key/(MAC),32Byte (256b) 0x00
+"Data 256Byte [283:28]",R,Data,256Byte 0x00
+"Nonce 16Byte [27:12]",R,Nonce,16Byte 0x00
+"Write Counter 4Byte [11:8]",R,Write Counter,4Byte 0x00
+"Address 2Byte [7:6]",R,Address,2Byte 0x00
+"Block Count 2Byte [5:4]",R,Block Count,2Byte 0x00
+"Result 2Byte [3:2]",R,Result,2Byte 0x00
+"Req/Resp 2Byte [1:0]",R,Req/Resp,2Byte 0x0005
+"CRC 16 2Byte",R,CRC 16,2Byte
+End 1bit,R,End,1b

@@ -1,0 +1,71 @@
+@startuml
+scale 1 as 150 pixels
+
+binary "CLK" as CLK
+concise "CMD" as CMD
+concise "DAT[0]" as DAT
+
+@0
+CLK is high
+
+@0
+CMD is "CMD0¹"
+
+@15
+CMD is {-}
+
+@35
+CMD is "CMD0/Reset"
+
+@45
+CMD is "CMD1"
+
+@50
+CMD is "RESP"
+
+@55
+CMD is "CMD2"
+
+@60
+CMD is "RESP"
+
+@65
+CMD is "CMD3"
+
+@70
+CMD is "RESP"
+
+@0
+DAT is {-}
+
+@10
+DAT is "S"
+
+@12
+DAT is "010"
+
+@18
+DAT is "E"
+
+@25
+DAT is "S"
+
+@27
+DAT is "512bytes\n+ CRC"
+
+@35
+DAT is "E"
+
+@40
+DAT is "S"
+
+@42
+DAT is "512bytes\n+ CRC"
+
+@50
+DAT is "E"
+
+@55
+DAT is {-}
+
+@enduml

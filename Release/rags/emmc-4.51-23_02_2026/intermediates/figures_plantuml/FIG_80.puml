@@ -1,0 +1,36 @@
+@startuml
+start
+
+:erase_group;
+
+:ERASE_START;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:ERASE_END;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:ERASE;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:SEND_STATUS;
+
+:return;
+
+stop
+
+@enduml

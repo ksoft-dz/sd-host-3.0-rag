@@ -1,0 +1,4 @@
+Value,Value definition
+0x00,Write Protect (Default)
+0x01,Dynamic Capacity
+0x02-0xFF,Reserved

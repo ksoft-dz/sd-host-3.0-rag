@@ -1,0 +1,49 @@
+@startuml
+skinparam componentStyle rectangle
+
+' Power supply at top
+rectangle "Device" as DevicePower {
+}
+
+' Pull-up resistors
+rectangle "R_DAT" as RDAT
+rectangle "R_OD" as ROD
+rectangle "R_CMD" as RCMD
+
+' Host side
+rectangle "Host" as Host
+
+' Device side
+rectangle "Device" as Device
+
+' Bus lines
+Host -right-> Device : "Data [7:0]"
+Host -right-> Device : "CMD"
+Host -right-> Device : "Clock"
+
+' Capacitors at bottom
+rectangle "C1" as C1
+rectangle "C2" as C2
+rectangle "C3" as C3
+
+' Connection notes
+note as N1
+  R_DAT connects to Data lines
+  R_OD connects to Host (switchable)
+  R_CMD connects to CMD line
+  C1, C2, C3 are decoupling capacitors
+end note
+
+' Showing the pull-up structure
+DevicePower -down- RDAT
+DevicePower -down- ROD
+DevicePower -down- RCMD
+
+RDAT -down- Host
+ROD -down- Host
+RCMD -down- Host
+
+C1 -down-[hidden] C2
+C2 -down-[hidden] C3
+
+@enduml

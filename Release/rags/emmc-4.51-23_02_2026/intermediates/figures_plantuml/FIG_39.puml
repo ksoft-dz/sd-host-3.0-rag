@@ -1,0 +1,140 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0" as DAT0
+robust "DAT[7:1]" as DAT7
+
+scale 1 as 50 pixels
+
+@0
+CMD is "E"
+DAT0 is "Z"
+DAT7 is "Z"
+
+@1
+CMD is "Z"
+
+@2
+CMD is "Z"
+
+@3
+CMD is "P"
+
+@4
+CMD is "*"
+
+@5
+CMD is "P"
+
+@6
+CMD is "S"
+
+@7
+CMD is "T"
+
+@8
+CMD is "Content"
+
+@12
+CMD is "CRC"
+
+@14
+CMD is "E"
+
+@15
+CMD is "Z"
+
+@16
+CMD is "Z"
+
+@17
+CMD is "P"
+
+@18
+CMD is "*"
+
+note top of CMD : Host cmd-->|<-- N_CR -->|<-Device response >
+
+@20
+DAT0 is "Z"
+DAT7 is "Z"
+
+@22
+DAT0 is "Z"
+DAT7 is "Z"
+
+@24
+DAT0 is "P"
+DAT7 is "P"
+
+@25
+DAT0 is "*"
+DAT7 is "*"
+
+@26
+DAT0 is "P"
+DAT7 is "P"
+
+@27
+DAT0 is "S"
+DAT7 is "S"
+
+@28
+DAT0 is "Content"
+DAT7 is "Content"
+
+@32
+DAT0 is "CRC"
+DAT7 is "CRC"
+
+@34
+DAT0 is "E"
+DAT7 is "E"
+
+@35
+DAT0 is "Z"
+DAT7 is "Z"
+
+@36
+DAT0 is "Z"
+DAT7 is "Z"
+
+@37
+DAT0 is "P*P"
+DAT7 is "P*P"
+
+@38
+DAT0 is "S"
+DAT7 is "X"
+
+@39
+DAT0 is "Status"
+DAT7 is "*"
+
+@42
+DAT0 is "E"
+
+@43
+DAT0 is "S"
+
+@44
+DAT0 is "L"
+
+@45
+DAT0 is "*"
+
+@46
+DAT0 is "L"
+
+@47
+DAT0 is "E"
+
+@48
+DAT0 is "Z"
+DAT7 is "X"
+
+@49
+DAT7 is "Z"
+
+note bottom of DAT0 : <-N_WR->|<--- Write data --->|<-N_CRC->|<-CRC status->|<- Busy ->
+
+@enduml

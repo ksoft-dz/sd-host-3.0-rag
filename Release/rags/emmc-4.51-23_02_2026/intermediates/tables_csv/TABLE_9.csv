@@ -1,0 +1,9 @@
+Data line,Data pattern sent by the host,Reversed pattern sent by the Device,Notes
+DAT0,"0, 10xxxxxxxxx, [CRC16], 1","0, 01000000, [CRC16], 1",Start bit defines beginning of pattern
+DAT1,"0, 01xxxxxxxxx, [CRC16], 1","0, 10000000, [CRC16], 1",
+DAT2,"0, 10xxxxxxxxx, [CRC16], 1","0, 01000000, [CRC16], 1",
+DAT3,"0, 01xxxxxxxxx, [CRC16], 1","0, 10000000, [CRC16], 1",
+DAT4,,"0, 00000000, [CRC16], 1",No data pattern sent
+DAT5,,"0, 00000000, [CRC16], 1",No data pattern sent
+DAT6,,"0, 00000000, [CRC16], 1",No data pattern sent
+DAT7,,"0, 00000000, [CRC16], 1",No data pattern sent

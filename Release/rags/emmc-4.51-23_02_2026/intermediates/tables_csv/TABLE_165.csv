@@ -1,0 +1,5 @@
+Driver Type Values,HS200 Support,Nominal Impedance,Approximated driving capability compared to Type-0,Remark
+0x0,Mandatory,50 Ω,x1,Default Driver Type. Supports up to 200MHz operation.
+0x1,Optional,33 Ω,x1.5,Supports up to 200MHz operation.
+0x2,Optional,66 Ω,x0.75,The weakest driver that supports up to 200MHz operation.
+0x3,Optional,100 Ω,x0.5,"For low noise and low EMI systems. Maximal operating frequency is decided by Host design."

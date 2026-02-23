@@ -1,0 +1,66 @@
+@startuml
+skinparam rectangleBackgroundColor #FFCC66
+skinparam componentBackgroundColor #FFCC66
+
+' Power supply inputs on left
+together {
+    portin "VCC" as VCC
+    portin "VCCQ" as VCCQ
+    portin "RST_n" as RST
+    portin "Vddi\nCreg" as Vddi
+    portin "CLK" as CLK
+    portin "CMD" as CMD
+    portin "DAT[7:0]" as DAT
+    portin "Vddi2\nCreg2" as Vddi2
+    portin "Vddi3\nCreg3" as Vddi3
+    portin "D-VDDQ" as DVDDQ
+    portin "D-VDD" as DVDD
+}
+
+rectangle "MMC I/O Block" as MMC_IO {
+}
+
+rectangle "Core Regulator\n(Required for VCCQ = 3.3V)" as CoreReg
+
+rectangle "Core Logic Block" as CoreLogic
+
+rectangle "Internal Voltage\nNode 2" as IntVolt2
+
+rectangle "Internal Voltage\nNode 3" as IntVolt3
+
+rectangle "NAND I/O Block" as NAND_IO {
+}
+
+rectangle "Cache" as Cache
+
+rectangle "Memory" as Memory #LightGray {
+}
+
+' Connections
+VCC --> CoreReg
+VCCQ --> CoreReg
+RST --> CoreReg
+
+CLK --> MMC_IO
+CMD --> MMC_IO
+DAT --> MMC_IO
+Vddi --> MMC_IO
+
+MMC_IO --> CoreLogic : "Data Bus"
+CoreReg --> CoreLogic
+CoreLogic --> NAND_IO
+IntVolt2 --> NAND_IO
+IntVolt3 --> NAND_IO
+
+Vddi2 --> IntVolt2
+Vddi3 --> IntVolt3
+
+NAND_IO --> Memory : "Control Signals"
+NAND_IO --> Memory : "Data Bus"
+
+MMC_IO --> Cache : "Data Bus"
+CoreLogic --> Cache : "Control Signals"
+DVDDQ --> Cache
+DVDD --> Cache
+
+@enduml

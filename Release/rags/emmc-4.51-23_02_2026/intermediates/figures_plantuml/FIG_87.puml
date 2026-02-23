@@ -1,0 +1,59 @@
+@startuml
+start
+
+:Power-up;
+
+:Initialize;
+
+:Read CSD
+ERASE_GRP_SIZE
+ERASE_GRP_MULT
+R2W_FACTOR;
+
+:Calculate
+Erase-Unit Size;
+
+:Calculate
+Erase Timeout;
+
+if (4.3 Host?) then (Yes)
+  :Read Extended CSD
+  HC_ERASE_GRP_SIZE
+  ERASE_TIMEOUT_MULT;
+  
+  if (HC_ERASE_GRP_\nSIZE = 0X00) then (Yes)
+    :Complete:
+    Use Legacy
+    Erase-Unit Size;
+    stop
+  else (No)
+    if (ERASE_TIMEOUT_\nMULT = 0X00) then (Yes)
+      :Complete:
+      Use Legacy
+      Erase-Unit Size;
+      stop
+    else (No)
+      :Calculate
+      Erase-Unit Size;
+      
+      :Calculate
+      Erase Timeout;
+      
+      :Enable Larger Erase Unit
+      (Write ENABLE bit in
+      Extended CSD);
+      
+      :Complete:
+      Use Larger
+      Erase-Unit Size;
+      stop
+    endif
+  endif
+else (No)
+  :Complete:
+  Use Legacy
+  Erase-Unit Size;
+  stop
+endif
+
+@enduml

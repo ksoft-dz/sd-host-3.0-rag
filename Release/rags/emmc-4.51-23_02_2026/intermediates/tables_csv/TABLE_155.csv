@@ -1,0 +1,9 @@
+Parameter,Value
+Code type,"Shortened BCH (542,512) code"
+Payload block length,512 bit
+Redundancy,5.5%
+Number of correctable errors in a block,3
+Codec complexity (error correction in HW),Encoding + decoding: 5k gates
+Decoding latency (HW @ 20MHz),< 30 microSec
+"Codec gate count (error detection in HW, error correction in SW-only if block erroneous)","Encoding + error detection: ~ 1k gates Error correction: ~ 20 SW instructions/each bit of the erroneous block"
+Codec complexity (SW only),"Encoding: ~ 6 instructions/bit Error detection: ~ 8 instructions/bit Error correction: ~ 20 instructions/each bit of erroneous block"

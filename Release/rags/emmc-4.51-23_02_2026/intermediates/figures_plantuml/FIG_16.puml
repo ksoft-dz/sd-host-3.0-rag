@@ -1,0 +1,41 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultFontSize 12
+
+together {
+    rectangle "BOOT area\npartition 1" as boot1 #90EE90 {
+    }
+    
+    rectangle "BOOT area\npartition 2" as boot2 #90EE90 {
+    }
+}
+
+rectangle "User area" as user #90EE90 {
+}
+
+note left of boot1
+  0x00000000
+end note
+
+note left of boot2
+  0x00000000
+end note
+
+note top of user
+  0x00000000
+end note
+
+note left of boot1
+  Maximum boot
+  partition size
+end note
+
+note left of boot2
+  Maximum boot
+  partition size
+end note
+
+' Layout positioning
+boot1 -[hidden]down- boot2
+boot1 -[hidden]right- user
+@enduml

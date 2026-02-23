@@ -1,0 +1,4 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD50 -52,Reserved,,,,
+CMD53,adtc,"[16:31] Security Protocol Specific [15:8] Security Protocol [7:0] reserved",R1,PROTOCOL_RD,"Continuously transfers data blocks from device to host. Number of data blocks shall be defined by a preceding CMD23. Data Transfer may be interrupted by a STOP_TRANSMISSION command, This command is not supported if sent as a packed command. Block size is always 512bytes."
+CMD54,adtc,"[16:31] Security Protocol Specific [15:8] Security Protocol [7:0] reserved",R1,PROTOCOL_WR,"Continuously transfers data blocks from host to device. Number of data blocks shall be defined by a preceding CMD23. Data Transfer may be interrupted by a STOP_TRANSMISSION command, This command is not supported if sent as a packed command. Block size is always 512bytes."

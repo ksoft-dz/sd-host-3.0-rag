@@ -1,0 +1,14 @@
+@startuml
+title Figure 77 — CIM_READ_MBLOCK
+
+start
+:read multiple block]
+
+:SET_BLOCKLEN|
+
+:READ_MULTIPLE_BLOCK|
+
+:return]
+stop
+
+@enduml

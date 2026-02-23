@@ -1,0 +1,103 @@
+@startuml
+scale 1 as 150 pixels
+
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT17
+
+@0
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@1
+CMD is "CMD0¹" #LightBlue
+DAT0 is "****"
+DAT1_7 is "****"
+
+@2
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@3
+CMD is "***"
+DAT0 is "***"
+DAT1_7 is "***"
+
+@4
+DAT0 is "Z|S|0|1|0|E|P" #Pink
+DAT1_7 is "Z|X" #Pink
+
+@5
+DAT0 is "***"
+DAT1_7 is "***"
+
+@6
+DAT0 is "X|P" #Pink
+DAT1_7 is "X|P" #Pink
+
+@7
+DAT0 is "***"
+DAT1_7 is "***"
+
+@8
+DAT0 is "P|S" #Pink
+DAT1_7 is "P|S" #Pink
+
+@9
+DAT0 is "Data + CRC"
+DAT1_7 is "Data + CRC"
+
+@10
+DAT0 is "E|P" #Pink
+DAT1_7 is "E|P" #Pink
+
+@11
+DAT0 is "***"
+DAT1_7 is "***"
+
+@12
+DAT0 is "P|S" #Pink
+DAT1_7 is "P|S" #Pink
+
+@13
+DAT0 is "Data + CRC"
+DAT1_7 is "Data + CRC"
+
+@14
+DAT0 is "E|P|P|P" #Pink
+DAT1_7 is "E|P|P|P" #Pink
+
+@15
+CMD is "CMD0" #LightBlue
+DAT0 is "Z|Z|Z|Z"
+DAT1_7 is "Z|Z|Z|Z"
+
+@16
+CMD is "Z|Z|Z|Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@17
+CMD is "S|T" #LightBlue
+
+@18
+CMD is "CMD1" #LightBlue
+
+@19
+DAT0 is "****"
+DAT1_7 is "****"
+
+note bottom of DAT0
+  t_BA: Boot acknowledge timing
+  t_BD: Boot data timing
+  N_AC: Data block interval
+  N_ST: Status timing (Note 2)
+end note
+
+note top of CMD
+  Boot request
+  complete
+end note
+@enduml

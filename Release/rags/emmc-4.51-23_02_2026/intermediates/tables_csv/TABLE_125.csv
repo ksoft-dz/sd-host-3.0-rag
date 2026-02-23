@@ -1,0 +1,6 @@
+RESET_BOOT_BUS_CONDITIONS bit,Event,BUS_WIDTH, HS_TIMING
+1,"Power cycle or hardware reset, entering boot mode","BOOT_BUS_WIDTH, BOOT_MODE"
+1,"Power cycle or hardware reset, skipping boot mode","x1, SDR (backward compatibility)"
+1,"CMD0, exiting boot mode","BOOT_BUS_WIDTH, BOOT_MODE"
+1,"CMD0, anywhere but when exiting boot mode","x1, SDR (backward compatibility)"
+0,"Any power cycle, hardware reset or CMD0","x1, SDR (backward compatibility)"

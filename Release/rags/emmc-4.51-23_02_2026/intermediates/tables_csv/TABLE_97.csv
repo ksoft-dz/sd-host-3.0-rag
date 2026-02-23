@@ -1,0 +1,5 @@
+Value,Timeout Value
+0x00,Not defined
+0x01,300ms × ERASE_TIMEOUT_MULT x 1
+..,...
+0xFF,300ms × ERASE_TIMEOUT_MULT x 255

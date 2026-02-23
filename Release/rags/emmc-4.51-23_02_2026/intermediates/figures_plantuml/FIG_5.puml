@@ -1,0 +1,40 @@
+@startuml
+skinparam monochrome false
+
+map "Command Token Format" as cmd {
+  total length => 48 bits
+}
+
+rectangle "Command Token (48 bits total)" {
+  together {
+    rectangle "0" as start #Pink [
+      Start bit:
+      always '0'
+    ]
+    rectangle "1" as txbit #Pink [
+      Transmitter bit:
+      '1' = host command
+    ]
+    rectangle "Content" as content #Pink [
+      Command content: command and address
+      information or parameter,
+      protected by 7 bit CRC checksum
+    ]
+    rectangle "CRC" as crc #Pink
+    rectangle "1" as endbit #Pink [
+      End bit:
+      always '1'
+    ]
+  }
+}
+
+start -right-> txbit
+txbit -right-> content
+content -right-> crc
+crc -right-> endbit
+
+note bottom of content
+  total length=48 bits
+end note
+
+@enduml

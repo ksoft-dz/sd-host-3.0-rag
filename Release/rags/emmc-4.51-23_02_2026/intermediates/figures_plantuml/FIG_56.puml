@@ -1,0 +1,43 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultFontSize 11
+
+rectangle "CRC7 Generator/Checker" {
+    
+    ' Input data line
+    label "data in" as din
+    
+    ' Shift register stages (7 flip-flops for CRC7)
+    rectangle "D\nFF" as ff0 #white
+    rectangle "D\nFF" as ff1 #white
+    rectangle "D\nFF" as ff2 #white
+    rectangle "D\nFF" as ff3 #white
+    rectangle "D\nFF" as ff4 #white
+    rectangle "D\nFF" as ff5 #white
+    rectangle "D\nFF" as ff6 #white
+    
+    ' XOR gates
+    circle "⊕" as xor1
+    circle "⊕" as xor2
+    
+    ' Output
+    label "data out" as dout
+    
+    ' Connections - shift register chain
+    ff0 -right-> ff1
+    ff1 -right-> ff2
+    ff2 -right-> xor2
+    xor2 -right-> ff3
+    ff3 -right-> ff4
+    ff4 -right-> ff5
+    ff5 -right-> ff6
+    ff6 -right-> dout
+    
+    ' Feedback path
+    din --> xor1
+    ff6 -down-> xor1 : feedback
+    xor1 -right-> ff0
+    xor1 ..> xor2 : feedback tap
+}
+
+@enduml

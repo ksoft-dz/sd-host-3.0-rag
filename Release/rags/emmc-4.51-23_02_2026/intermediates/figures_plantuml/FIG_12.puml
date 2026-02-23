@@ -1,0 +1,59 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultTextAlignment center
+
+' Boot Area Partition section
+package "Boot Area Partition" as BAP {
+    rectangle "Boot Area Partition1\n0x00000000" as BP1 {
+        rectangle " " as BP1_content #LightGray
+    }
+    rectangle "Boot Area Partition2\n0x00000000" as BP2 {
+        rectangle " " as BP2_content #LightGray
+    }
+}
+
+note right of BAP : Size as multiple of\n128KB
+
+' RPMB Area Partition section
+package "RPMB Area Partition" as RPMB {
+    rectangle "RPMB Area Partition\n0x00000000" as RPMB_content {
+        rectangle " " as RPMB_inner #LightGray
+    }
+}
+
+' User Data Area section
+rectangle "User Data Area" as UDA {
+    rectangle "0x00000000" as UDA_top #LightGray
+    note right : Start Address
+    rectangle "Enhanced User\nData Area" as EUDA #White
+    note left : Multiple of WPG\nSize
+    rectangle " " as UDA_bottom #LightGray
+    note bottom : Card size - 1
+}
+
+' General Purpose Area Partitions
+package "General Purpose Area Partitions" as GPAP {
+    rectangle "Partition 1\n0x00000000" as P1 {
+        rectangle " " as P1_top #LightGray
+        rectangle " " as P1_bottom #LightGray
+        note left : WPG Size
+    }
+    rectangle "Partition 2" as P2 {
+        rectangle " " as P2_content #LightGray
+    }
+    rectangle "Partition 3" as P3 {
+        rectangle " " as P3_content #LightGray
+    }
+    rectangle "Partition 4" as P4 {
+        rectangle " " as P4_content #LightGray
+    }
+}
+
+' Legend
+legend bottom
+    |= Color |= Description |
+    | <#LightGray> | Default Storage media |
+    | <#White> | Enhanced Storage media |
+endlegend
+
+@enduml

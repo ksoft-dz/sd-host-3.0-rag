@@ -1,0 +1,38 @@
+@startuml
+start
+
+:update acquisition;
+
+:SEND_OP_COND (Query Mode- OCR argument set to 0);
+
+:SEND_OP_COND (Set Range);
+
+while (Busy card?) is (yes)
+  :delay;
+endwhile (no)
+
+:ALL_SEND_CID;
+
+note right: Host repetition until time out
+
+if (time out?) then (yes)
+  if (card count = 0?) then (yes)
+    :return;
+    stop
+  else (no)
+  endif
+else (no)
+endif
+
+:SET_RELATIVE_ADDR;
+
+while (Last CSD read?) is (no)
+  :SEND_CSD;
+endwhile (yes)
+
+:SET_DSR;
+
+:return;
+
+stop
+@enduml

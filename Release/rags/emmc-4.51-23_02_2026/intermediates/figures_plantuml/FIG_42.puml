@@ -1,0 +1,116 @@
+@startuml
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT17
+
+scale 1 as 30 pixels
+
+@0
+CMD is "S"
+DAT0 is "Data+CRC"
+DAT17 is "Data+CRC"
+
+@1
+CMD is "T"
+
+@2
+CMD is "Content"
+
+@5
+CMD is "CRC"
+
+@6
+CMD is "E"
+DAT0 is "E"
+DAT17 is "E"
+
+@7
+CMD is "Z"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@8
+CMD is "Z"
+DAT0 is "Z"
+DAT17 is "Z"
+
+@9
+CMD is "P"
+DAT0 is "S"
+DAT17 is "X"
+
+@10
+CMD is "P*****P"
+DAT0 is "CRC"
+DAT17 is "*"
+
+@15
+CMD is "S"
+DAT0 is "E"
+DAT17 is "*"
+
+@16
+CMD is "T"
+DAT0 is "Z"
+DAT1-7 is "X"
+
+@17
+CMD is "Content"
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@20
+CMD is "CRC"
+DAT0 is "S"
+DAT1-7 is "Z"
+
+@21
+CMD is "E"
+DAT0 is "L"
+DAT1-7 is "X"
+
+@22
+CMD is "Z"
+DAT0 is "{-}"
+DAT1-7 is "{-}"
+
+@28
+CMD is "Z"
+
+@29
+CMD is "P"
+DAT0 is "E"
+DAT1-7 is "X"
+
+@30
+CMD is "P"
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@31
+CMD is "S"
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@32
+CMD is "T"
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+@33
+CMD is "Content"
+DAT0 is "Z"
+DAT1-7 is "Z"
+
+note bottom of CMD
+  Host Command | N_CR Cycles | Device response | Host Cmnd
+end note
+
+note bottom of DAT0
+  Data block | Status CR | N_SB-A | Busy (Device is programming)
+end note
+
+note as N1
+  Note 1: The Device CRC status response is interrupted by the host
+end note
+@enduml

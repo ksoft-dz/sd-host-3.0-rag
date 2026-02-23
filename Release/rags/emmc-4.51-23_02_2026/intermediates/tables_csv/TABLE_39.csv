@@ -1,0 +1,16 @@
+I don't see a table titled "Command Format" or "Table 39" in this image. The page shown (Page 99 from JEDEC Standard No. 84-B451) contains text content about:
+
+- Write operations
+- R2W_FACTOR field
+- Erase / Secure Erase
+- TRIM/DISCARD/Secure TRIM
+- Force erase
+- High-Priority Interrupt (HPI)
+- Partition Switch
+- Read ahead in multiple block read operation
+- Minimum performance
+- Speed class definition
+
+This appears to be a descriptive text section of the specification rather than a command format table. The Command Format table (Table 39) would likely be on a different page of this document.
+
+If you have another page that contains the actual Command Format table, please share that image and I'll be happy to extract the CSV data from it.

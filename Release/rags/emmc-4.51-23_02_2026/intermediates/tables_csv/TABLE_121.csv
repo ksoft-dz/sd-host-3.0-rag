@@ -1,0 +1,4 @@
+Value,Erased Memory Content
+255–2,Reserved
+1,"Erased memory range shall be '1'"
+0,"Erased memory range shall be '0'"

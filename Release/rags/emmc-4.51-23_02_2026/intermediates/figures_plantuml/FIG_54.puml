@@ -1,0 +1,39 @@
+@startuml
+title Figure 54 — H/W reset waveform
+
+clock "CLK" as clk with period 1
+
+robust "RST_n" as rst
+
+@0
+rst is low
+
+@2
+rst is high
+note bottom of rst : *1
+
+@3
+rst is low
+
+@7
+rst is high
+
+@0 <-> @3 : tRSTW
+
+@3 <-> @12 : tRSCA
+
+@7 <-> @12 : tRSTH
+
+note bottom of rst
+  Device starts a reset sequence
+  at the RST_n rising edge
+end note
+
+note right
+  Host can issue boot
+  initiation or CMD1
+  ----
+  Do not care
+end note
+
+@enduml

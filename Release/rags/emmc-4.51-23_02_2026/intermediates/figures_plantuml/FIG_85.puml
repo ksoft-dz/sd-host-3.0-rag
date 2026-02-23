@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome false
+
+title Figure 85 — Bus testing for one data line
+
+map "Bus Test Pattern - 1 Data Line" as bustest {
+}
+
+note as N1
+|= Line |= Start |= Bit 7 |= Bit 6 |= Bit 5 |= Bit 4 |= Bit 3 |= Bit 2 |= Bit 1 |= Bit 0 |= Optional |= End |
+| DAT0 | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | CRC16 | 1 |
+|  |  | 0x80 |<|<| Test Pattern |>|>|>|  |  |  |
+end note
+
+note as N2
+**Byte Values:**
+- Start bit: 0
+- LSB: 0x80 (binary: 10000000)
+- Test Pattern: all zeros
+- Optional: CRC16
+- End bit: 1
+end note
+
+N1 -[hidden]- N2
+@enduml

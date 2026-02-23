@@ -1,0 +1,51 @@
+@startuml
+title Figure 9 — CRC Status and Boot Acknowledge pattern for DDR
+
+note as N1
+**Positive CRC status token ('010')/Boot acknowledge pattern:**
+end note
+
+concise "CLK" as CLK1
+concise "DAT" as DAT1
+
+@0
+CLK1 is low
+DAT1 is "0\n(start)"
+
+@1
+CLK1 is high
+DAT1 is "X"
+
+@2
+CLK1 is low
+DAT1 is "0"
+
+@3
+CLK1 is high
+DAT1 is "X"
+
+@4
+CLK1 is low
+DAT1 is "1"
+
+@5
+CLK1 is high
+DAT1 is "X"
+
+@6
+CLK1 is low
+DAT1 is "0"
+
+@7
+CLK1 is high
+DAT1 is "X"
+
+@8
+CLK1 is low
+DAT1 is "1\n(end)"
+
+@9
+CLK1 is high
+DAT1 is "X"
+
+@enduml

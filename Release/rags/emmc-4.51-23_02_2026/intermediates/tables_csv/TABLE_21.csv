@@ -1,0 +1,12 @@
+I don't see a table titled "MAC Example" or "Table 21" in this image. The page (JEDEC Standard No. 84-B451, Page 71) contains text describing:
+
+1. **Section 6.6.22.2** - Memory Map of the Replay Protected Memory Block, which describes:
+   - Authentication Key (32B, Write once)
+   - Write Counter (4B, Read only)
+   - Data (128kB min, Read/Write)
+
+2. **Section 6.6.22.3** - Message Authentication Code Calculation, which explains how MAC is calculated using HMAC SHA-256
+
+The text at the bottom mentions "See Table 21 for an illustration," but Table 21 itself is not shown on this page - it appears to be on a subsequent page.
+
+If you have the next page of the document that contains Table 21, I would be happy to extract that table for you.

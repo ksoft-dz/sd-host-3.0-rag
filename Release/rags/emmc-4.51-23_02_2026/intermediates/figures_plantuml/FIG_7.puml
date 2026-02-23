@@ -1,0 +1,55 @@
+@startuml
+skinparam monochrome false
+skinparam defaultFontSize 10
+
+title Figure 7 — Data packet format for SDR
+
+note right
+  End bit, always '1'
+  sent when transfer is
+  interrupted by a CMD
+end note
+
+package "1 Bit bus (only DAT0 used)" {
+  rectangle "Block Data" {
+    rectangle "DAT0" as dat0_1bit {
+      rectangle "Start bit\nalways '0'" as start1 #pink
+      rectangle "b7|b6|...|b1|b0" as lsbyte1
+      note bottom: LSByte
+      rectangle "..." as dots1
+      rectangle "b7|b6|...|b1|b0" as msbyte1
+      note bottom: MSByte
+      rectangle "CRC" as crc1 #violet
+      rectangle "1" as end1 #pink
+    }
+  }
+  note bottom of dat0_1bit: block length * 8
+}
+
+package "4 Bits bus (DAT3-DAT0 used)" {
+  note "LSByte (High nibble)" as n4h
+  note "MSByte (Low nibble)" as n4l
+  
+  rectangle "DAT3: |0|b7|b3|...|b7|b3|CRC|1|" as dat3_4bit
+  rectangle "DAT2: |0|b6|b2|...|b6|b2|CRC|1|" as dat2_4bit
+  rectangle "DAT1: |0|b5|b1|...|b5|b1|CRC|1|" as dat1_4bit
+  rectangle "DAT0: |0|b4|b0|...|b4|b0|CRC|1|" as dat0_4bit
+  note bottom: block length * 2
+}
+
+package "8 Bits bus (DAT7-DAT0 used)" {
+  note "LSByte" as n8l
+  note "MSByte" as n8m
+  
+  rectangle "DAT7: |0|b7|...|b7|b7|CRC|1|" as dat7_8bit
+  rectangle "DAT6: |0|b6|...|b6|b6|CRC|1|" as dat6_8bit
+  rectangle "DAT5: |0|b5|...|b5|b5|CRC|1|" as dat5_8bit
+  rectangle "DAT4: |0|b4|...|b4|b4|CRC|1|" as dat4_8bit
+  rectangle "DAT3: |0|b3|...|b3|b3|CRC|1|" as dat3_8bit
+  rectangle "DAT2: |0|b2|...|b2|b2|CRC|1|" as dat2_8bit
+  rectangle "DAT1: |0|b1|...|b1|b1|CRC|1|" as dat1_8bit
+  rectangle "DAT0: |0|b0|...|b0|b0|CRC|1|" as dat0_8bit
+  note bottom: block length
+}
+
+@enduml

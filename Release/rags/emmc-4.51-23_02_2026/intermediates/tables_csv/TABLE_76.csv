@@ -1,0 +1,2 @@
+VDD_R_CURR_MAX VDD_W_CURR_MAX,Code for current consumption @ VDD
+2:0,"0 = 1mA; 1 = 5mA; 2 = 10mA; 3 = 25mA; 4 = 35mA; 5 = 45mA; 6 = 80mA; 7 = 200mA"

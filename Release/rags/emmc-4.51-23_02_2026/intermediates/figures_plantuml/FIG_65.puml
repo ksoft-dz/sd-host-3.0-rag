@@ -1,0 +1,38 @@
+@startuml
+skinparam defaultFontName Arial
+
+title Figure 65 — Bus signal levels
+
+rectangle diagram {
+    note as voltageAxis
+    V
+    |
+    |
+    |
+    |
+    |
+    end note
+}
+
+rectangle "Voltage Levels" as levels {
+    together {
+        rectangle "V_DD" as vdd
+        rectangle "V_OH" as voh
+        rectangle "V_IH" as vih
+        rectangle "V_IL" as vil
+        rectangle "V_OL" as vol
+        rectangle "V_SS" as vss
+    }
+}
+
+note right of voh : output\nhigh level
+note left of voh : input\nhigh level
+
+note right of vol : output\nlow level
+note left of vol : input\nlow level
+
+note as undefined
+undefined
+end note
+
+@enduml

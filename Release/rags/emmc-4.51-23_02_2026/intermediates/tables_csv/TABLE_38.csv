@@ -1,0 +1,5 @@
+Value,Name,Description
+0x01,Absolute time,"SECONDS_PASSED is the number of seconds that passed from January 1st, year 0 till the current time, in UTC format."
+0x02,Set-base for relative time,"SECONDS_PASSED is ignored, and the time of sending the SET_TIME command with this parameter is set as a reference point."
+0x03,Relative time,"SECONDS_PASSED is the number of seconds that passed since the most recent call to SET_TIME with the parameter RTC_INFO_TYPE(set to 0x02."
+0x04-0xFF,Reserved,Reserved, not allowed

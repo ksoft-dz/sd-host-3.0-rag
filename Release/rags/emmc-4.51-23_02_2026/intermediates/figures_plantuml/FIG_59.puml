@@ -1,0 +1,59 @@
+@startuml
+skinparam defaultTextAlignment center
+
+title Figure 59 — Power-up diagram
+
+' Timing diagram representation using activity/notes
+scale 1
+
+rectangle "Supply Voltage vs Time" {
+    note as VoltageGraph
+    **Supply voltage**
+    ═══════════════════════════════════════════
+    
+    VDD max ─────────────────────────────────────
+                                    ┌───────────┐
+    Bus master supply voltage       │Memory field│
+    - - - - - - - - - - - ┌────────┤  working   │
+                         │Card logic│voltage range│
+                         │ working │           │
+                         │voltage  │           │
+    VDD min ─────────────│ range   │           │
+              /          └─────────┴───────────┘
+             /
+    0.5Vi ──/─────────────────────────────────────
+            │                                    time →
+    end note
+}
+
+rectangle "Timing Sequence" {
+    |Power up time| Supply ramp up time |    | First CMD1 to card ready |
+}
+
+rectangle "Command Sequence" as cmdseq {
+    rectangle "Initialization sequence" as init
+    rectangle "CMD1" as cmd1a
+    rectangle "CMD1" as cmd1b
+    rectangle "CMD1" as cmd1c
+    rectangle "CMD2" as cmd2
+    
+    init --> cmd1a
+    cmd1a --> cmd1b : Ncc
+    cmd1b --> cmd1c : Ncc
+    cmd1c --> cmd2 : Ncc
+}
+
+note bottom of cmdseq
+  **Optional repetitions of CMD1**
+  **until the card responds with**
+  **busy bit set.**
+end note
+
+note as InitDelay
+  **Initialization delay:**
+  The longest of: 1msec,
+  74 clock cycles, the supply ramp-up
+  time, or the boot operation period.
+end note
+
+@enduml

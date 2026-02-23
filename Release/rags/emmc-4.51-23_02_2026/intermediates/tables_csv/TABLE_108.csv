@@ -1,0 +1,33 @@
+Value,Performance
+Single Data Rate mode,
+0x00,For Devices not reaching the 2.4MB/s value
+0x08,Class A: 2.4MB/s and is the next allowed value (16x150kB/s)
+0x0A,Class B: 3.0MB/s and is the next allowed value (20x150kB/s)
+0x0F,Class C: 4.5MB/s and is the next allowed value (30x150kB/s)
+0x14,Class D: 6.0MB/s and is the next allowed value (40x150kB/s)
+0x1E,Class E: 9.0MB/s and is the next allowed value (60x150kB/s)
+0x28,Class F: Equals 12.0MB/s and is the next allowed value (80x150kB/s)
+0x32,Class G: Equals 15.0MB/s and is the next allowed value (100x150kB/s)
+0x3C,Class H: Equals 18.0MB/s and is the next allowed value (120x150kB/s)
+0x46,"Class J: Equals 21.0MB/s and is the next allowed value (140x150kB/s) This is also the highest class which any mobile e•MMC Device is needed to support in mid bus category operation mode (26MHz with 8bit data bus or 52MHz with 4bit data bus). A Device supporting any higher class than this have to support this Class (in mid category bus operation mode) and Class E also (in low category bus operation mode)"
+0x50,Class K: Equals 24.0MB/s and is the next allowed value (160x150kB/s)
+0x64,Class M: Equals 30.0MB/s and is the next allowed value (200x150kB/s)
+0x78,Class O: Equals 36.0MB/s and is the next allowed value (240x150kB/s)
+0x8C,Class R: Equals 42.0MB/s and is the next allowed value (280x150kB/s)
+0xA0,Class T: Equals 48.0MB/s and is the last defined value (320x150kB/s)
+Dual Data Rate mode,
+0x00,For Devices not reaching the 4.8MB/s value
+0x08,Class A: Equals 4.8MB/s and is the next allowed value (16x300kB/s)
+0x0A,Class B: Equals 6.0MB/s and is the next allowed value (20x300kB/s)
+0x0F,Class C: Equals 9.0MB/s and is the next allowed value (30x300kB/s)
+0x14,Class D: Equals 12.0MB/s and is the next allowed value (40x300kB/s)
+0x1E,Class E: Equals 18.0MB/s and is the last defined value (60x300kB/s)
+0x28,Class F: Equals 24.0MB/s and is the next allowed value (80x300kB/s)
+0x32,Class G: Equals 30.0MB/s and is the next allowed value (100x300kB/s)
+0x3C,Class H: Equals 36.0MB/s and is the next allowed value (120x300kB/s)
+0x46,Class J: Equals 42.0MB/s and is the last defined value (140x300kB/s)
+0x50,Class K: Equals 48.0MB/s and is the next allowed value (160x300kB/s)
+0x64,Class M: Equals 60.0MB/s and is the next allowed value (200x300kB/s)
+0x78,Class O: Equals 72.0MB/s and is the next allowed value (24 0x300kB/s)
+0x8C,Class R: Equals 84.0MB/s and is the next allowed value (280x300kB/s)
+0xA0,Class T: Equals 96.0MB/s and is the last defined value (320x300kB/s)

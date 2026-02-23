@@ -1,0 +1,70 @@
+@startuml
+scale 1 as 150 pixels
+
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1" as DAT1
+concise "DAT2" as DAT2
+concise "DAT3" as DAT3
+concise "DAT4-7" as DAT47
+
+@0
+CMD is "CMD19"
+DAT0 is "ZZ********ZZZ"
+DAT1 is "ZZ********ZZZ"
+DAT2 is "ZZ********ZZZ"
+DAT3 is "ZZ********ZZZ"
+DAT47 is "ZZ********ZZZ"
+
+@1
+CMD is "RSP19"
+DAT0 is {-}
+DAT1 is {-}
+DAT2 is {-}
+DAT3 is {-}
+DAT47 is {-}
+
+@2
+CMD is {-}
+DAT0 is "S|10|XXX|E"
+DAT1 is "S|01|XXX|E"
+DAT2 is "S|10|XXX|E"
+DAT3 is "S|01|XXX|E"
+DAT47 is "ZZ***ZZZ"
+
+@3
+CMD is "CMD14"
+DAT0 is "ZZ********ZZZ"
+DAT1 is "ZZ********ZZZ"
+DAT2 is "ZZ********ZZZ"
+DAT3 is "ZZ********ZZZ"
+DAT47 is "ZZ********ZZZ"
+
+@4
+CMD is "RSP14"
+DAT0 is {-}
+DAT1 is {-}
+DAT2 is {-}
+DAT3 is {-}
+DAT47 is {-}
+
+@5
+CMD is {-}
+DAT0 is "S|01|000000|CRC16|E"
+DAT1 is "S|10|000000|CRC16|E"
+DAT2 is "S|01|000000|CRC16|E"
+DAT3 is "S|10|000000|CRC16|E"
+DAT47 is "S|00|000000|CRC16|E"
+
+@6
+CMD is "CMD6"
+DAT0 is "ZZ********ZZZ"
+DAT1 is "ZZ********ZZZ"
+DAT2 is "ZZ********ZZZ"
+DAT3 is "ZZ********ZZZ"
+DAT47 is "ZZ********ZZZ"
+
+@7
+CMD is "RSP6"
+
+@enduml

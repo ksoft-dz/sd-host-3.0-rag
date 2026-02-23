@@ -1,0 +1,412 @@
+# ==============================================================================
+# RAG V2 — Spec Configuration
+# ==============================================================================
+# Embedded Multimedia Card (e•MMC), Electrical Standard 4.51 (JESD84-B451)
+# ==============================================================================
+
+# ==============================================================================
+# SPEC IDENTITY
+# ==============================================================================
+spec:
+  name: "Embedded Multimedia Card (e•MMC) Electrical Standard"
+  version: "4.51"
+  pdf_file: "JESD84-B451.pdf"
+  page_offset: 22          # spec_page + page_offset = pdf_page (1-indexed)
+  total_spec_pages: 240    # Last numbered spec page
+
+# ==============================================================================
+# TABLE OF CONTENTS — PDF page indices (0-indexed) where each TOC lives
+# ==============================================================================
+toc:
+  sections:
+    pages: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]   # PDF pages 5-14 (0-indexed: 4-13)
+    # eMMC TOC: section number on own line, then title + dots + page on next
+    pattern: "^(\\d+(?:\\.\\d+)*|[A-Z]\\.\\d+(?:\\.\\d+)*|Annex\\s+[A-Z])\\.?\\s*\\n(.+?)\\s*\\.{3,}\\s*(\\d+)"
+  tables:
+    pages: [16, 17, 18, 19]  # PDF pages 17-20 (0-indexed: 16-19)
+    # eMMC: "Table N — Title\n ..dots.. page" (single sequential numbering)
+    pattern: "Table\\s+(\\d+)\\s*[—–]\\s*(.+?)\\n\\s*\\n?\\s*\\.{3,}\\s*(\\d+)"
+    id_format: "TABLE_{seq}"
+  figures:
+    pages: [14, 15]           # PDF pages 15-16 (0-indexed: 14-15)
+    # eMMC: "Figure N — Title\n ..dots.. page" (single sequential numbering)
+    pattern: "Figure\\s+(\\d+)\\s*[—–]\\s*(.+?)\\n\\s*\\n?\\s*\\.{3,}\\s*(\\d+)"
+    id_format: "FIG_{seq}"
+
+# ==============================================================================
+# NODE TYPES
+# ==============================================================================
+node_types:
+  TABLE:
+    enabled: true
+    id_format: "TABLE_{seq}"
+    classification_rules:
+      - pattern: "register.*(field|bit)"
+        type: "REGISTER_FIELDS"
+      - pattern: "register"
+        type: "REGISTER_MAP"
+      - pattern: "command|CMD"
+        type: "COMMAND_TABLE"
+      - pattern: "signal|pin"
+        type: "SIGNAL_LIST"
+      - pattern: "timing"
+        type: "TIMING"
+      - pattern: "status|state"
+        type: "STATUS_TABLE"
+      - pattern: ".*"
+        type: "OTHER"
+
+  FIGURE:
+    enabled: true
+    id_format: "FIG_{seq}"
+    classification_rules:
+      - pattern: "state|machine|transition"
+        type: "STATE_DIAGRAM"
+      - pattern: "timing|waveform"
+        type: "TIMING_DIAGRAM"
+      - pattern: "register.*(bit|field|layout)"
+        type: "REGISTER_LAYOUT"
+      - pattern: "flow|sequence|initialization"
+        type: "FLOWCHART"
+      - pattern: "block|architecture|diagram"
+        type: "BLOCK_DIAGRAM"
+      - pattern: "format|token|packet"
+        type: "FORMAT_DIAGRAM"
+      - pattern: ".*"
+        type: "OTHER"
+
+  SPEC_CHUNK:
+    enabled: true
+    id_format: "CHUNK_{section}_{idx}"
+
+  REGISTER:
+    enabled: true
+    id_format: "REG_{name}"
+
+  REG_CLASS:
+    enabled: true
+    id_format: "REGCLASS_{name}"
+
+  FEATURE:
+    enabled: true
+    id_format: "F_{name}"
+
+  HD_SEQUENCE:
+    enabled: true
+    id_format: "HD_{name}"
+
+# ==============================================================================
+# CHUNKING PARAMETERS
+# ==============================================================================
+chunking:
+  target_words: 200
+  max_words: 250
+  overlap_words: 20
+
+# ==============================================================================
+# LLM CONFIGURATION
+# ==============================================================================
+llm:
+  default_model: "opus"
+  models:
+    haiku: "claude-haiku-4-5-20251001"
+    sonnet: "claude-sonnet-4-5-20250929"
+    opus: "claude-opus-4-5-20251101"
+  rate_limit_delay: 1.5
+  max_retries: 3
+  max_workers: 4
+
+# ==============================================================================
+# DOMAIN: REGISTERS (eMMC Device Registers — not memory-mapped)
+# ==============================================================================
+domain:
+  registers:
+    enabled: true
+    # Register classes (logical groupings)
+    classes:
+      - id: "REGCLASS_OPER_COND"
+        name: "Operating Conditions"
+        address_start: "001h"
+        address_end: "001h"
+      - id: "REGCLASS_CARD_ID"
+        name: "Card Identification"
+        address_start: "002h"
+        address_end: "002h"
+      - id: "REGCLASS_CARD_SPECIFIC"
+        name: "Card Specific Data"
+        address_start: "004h"
+        address_end: "004h"
+      - id: "REGCLASS_EXT_CSD"
+        name: "Extended CSD"
+        address_start: "005h"
+        address_end: "005h"
+      - id: "REGCLASS_CONFIG"
+        name: "Driver Stage Configuration"
+        address_start: "006h"
+        address_end: "006h"
+
+    # Device register definitions (using pseudo-offsets for pipeline compatibility)
+    register_offsets:
+      "001h": { section: "7.1",   name: "OCR Register",              table: "TABLE_63" }
+      "002h": { section: "7.2",   name: "CID Register",              table: "TABLE_64" }
+      "004h": { section: "7.3",   name: "CSD Register Structure",    table: "TABLE_68" }
+      "005h": { section: "7.4",   name: "Extended CSD Register",     table: "TABLE_82" }
+      "006h": { section: "7.5",   name: "DSR Register",              table: "TABLE_156" }
+
+    # Tables to EXCLUDE from register field auto-detection
+    exclude_tables:
+      - "TABLE_3"      # e•MMC registers overview (summary)
+      - "TABLE_6"      # EXT_CSD access mode (operational)
+      - "TABLE_23"     # Result Register Read Request Packet (RPMB)
+      - "TABLE_28"     # Result Register Read Request Packet (RPMB)
+      - "TABLE_39"     # Command Format
+      - "TABLE_40"     # Supported Device command classes
+      - "TABLE_51"     # Device state transitions
+      - "TABLE_52"     # R1 response
+      - "TABLE_53"     # R2 response
+      - "TABLE_54"     # R3 response
+      - "TABLE_55"     # R4 response
+      - "TABLE_56"     # R5 response
+      - "TABLE_57"     # Device Status
+      - "TABLE_58"     # Status field/command cross reference
+      - "TABLE_72"     # Supported Device command classes (CSD)
+      - "TABLE_81"     # CSD field command classes
+      - "TABLE_88"     # Extended CSD Register Support
+      - "TABLE_114"    # CSD register structure (duplicate/version)
+      - "TABLE_115"    # Extended CSD revisions
+      - "TABLE_116"    # Standard MMC command set revisions
+      - "TABLE_132"    # Write reliability parameter register
+      - "TABLE_153"    # Packed Command Status Register
+      - "TABLE_175"    # Macro commands
+
+# ==============================================================================
+# DOMAIN: FEATURES
+# ==============================================================================
+  features:
+    enabled: true
+    definitions:
+      # --- CARD INITIALIZATION & IDENTIFICATION (§6.4) ---
+      - { id: "F_DEVICE_RESET",       name: "Device Reset",                       groups: ["initialization"],             priority: "P0", parent: null }
+      - { id: "F_DEVICE_INIT",        name: "Device Initialization Process",      groups: ["initialization"],             priority: "P0", parent: null }
+      - { id: "F_DEVICE_IDENT",       name: "Device Identification Process",      groups: ["initialization"],             priority: "P0", parent: "F_DEVICE_INIT" }
+      - { id: "F_OP_COND_VALID",      name: "Operating Condition Validation",     groups: ["initialization"],             priority: "P0", parent: "F_DEVICE_INIT" }
+
+      # --- BUS & SPEED MODES (§5.4, §6.6.3-6.6.4) ---
+      - { id: "F_BUS_PROTOCOL",       name: "e•MMC Bus Protocol",                 groups: ["bus"],                        priority: "P0", parent: null }
+      - { id: "F_SPEED_MODES",        name: "Bus Speed Mode Support",             groups: ["speed_modes"],                priority: "P0", parent: null }
+      - { id: "F_BACKWARD_COMPAT",    name: "Backwards Compatibility Mode",       groups: ["speed_modes"],                priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_HIGH_SPEED",         name: "High Speed Mode",                    groups: ["speed_modes"],                priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_HS200",              name: "HS200 Bus Speed Mode",               groups: ["speed_modes"],                priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_DDR",                name: "Dual Data Rate Mode",                groups: ["speed_modes"],                priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_BUS_WIDTH",          name: "Bus Width Selection (1/4/8-bit)",    groups: ["bus"],                        priority: "P0", parent: "F_BUS_PROTOCOL" }
+      - { id: "F_BUS_TESTING",        name: "Bus Testing Procedure",              groups: ["bus"],                        priority: "P1", parent: "F_BUS_PROTOCOL" }
+
+      # --- DATA TRANSFER (§6.6) ---
+      - { id: "F_DATA_TRANSFER",      name: "Data Transfer Mode",                 groups: ["data_transfer"],              priority: "P0", parent: null }
+      - { id: "F_DATA_READ",          name: "Data Read",                          groups: ["data_transfer"],              priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_DATA_WRITE",         name: "Data Write",                         groups: ["data_transfer"],              priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_RELIABLE_WRITE",     name: "Reliable Write",                     groups: ["data_transfer"],              priority: "P1", parent: "F_DATA_TRANSFER" }
+      - { id: "F_PACKED_CMD",         name: "Packed Commands",                    groups: ["data_transfer"],              priority: "P1", parent: "F_DATA_TRANSFER" }
+
+      # --- ERASE (§6.6.14-6.6.18) ---
+      - { id: "F_ERASE",              name: "Erase Operations",                   groups: ["erase"],                      priority: "P0", parent: null }
+      - { id: "F_TRIM",               name: "Trim Operation",                     groups: ["erase"],                      priority: "P1", parent: "F_ERASE" }
+      - { id: "F_SECURE_ERASE",       name: "Secure Erase",                       groups: ["erase", "security"],          priority: "P1", parent: "F_ERASE" }
+      - { id: "F_SECURE_TRIM",        name: "Secure Trim",                        groups: ["erase", "security"],          priority: "P1", parent: "F_ERASE" }
+      - { id: "F_SANITIZE",           name: "Sanitize Operation",                 groups: ["erase", "security"],          priority: "P1", parent: "F_ERASE" }
+
+      # --- WRITE PROTECTION (§6.6.11-6.6.13) ---
+      - { id: "F_WRITE_PROTECT",      name: "Write Protection Management",        groups: ["write_protect"],              priority: "P1", parent: null }
+
+      # --- BOOT (§6.11-6.12) ---
+      - { id: "F_BOOT_MODE",          name: "Boot Operation",                     groups: ["boot"],                       priority: "P0", parent: null }
+      - { id: "F_ALT_BOOT",           name: "Alternative Boot Operation",         groups: ["boot"],                       priority: "P1", parent: "F_BOOT_MODE" }
+
+      # --- PARTITIONING (§6.6.8-6.6.10) ---
+      - { id: "F_PARTITIONING",       name: "Partitioning",                       groups: ["partitioning"],               priority: "P0", parent: null }
+      - { id: "F_BOOT_PARTITION",     name: "Boot Area Partitions",               groups: ["partitioning", "boot"],       priority: "P0", parent: "F_PARTITIONING" }
+      - { id: "F_GP_PARTITION",       name: "General Purpose Partitions",         groups: ["partitioning"],               priority: "P1", parent: "F_PARTITIONING" }
+      - { id: "F_ENH_AREA",           name: "Enhanced User Data Area",            groups: ["partitioning"],               priority: "P1", parent: "F_PARTITIONING" }
+
+      # --- RPMB (§6.6.22) ---
+      - { id: "F_RPMB",               name: "Replay Protected Memory Block",      groups: ["security", "rpmb"],           priority: "P1", parent: null }
+
+      # --- INTERRUPT & HPI (§6.5, §6.6.20) ---
+      - { id: "F_INTERRUPT_MODE",     name: "Interrupt Mode",                     groups: ["interrupt"],                  priority: "P1", parent: null }
+      - { id: "F_HPI",                name: "High Priority Interrupt",            groups: ["interrupt", "hpi"],           priority: "P1", parent: null }
+
+      # --- BACKGROUND OPS (§6.6.25) ---
+      - { id: "F_BKOPS",              name: "Background Operations",              groups: ["background_ops"],             priority: "P1", parent: null }
+
+      # --- POWER MANAGEMENT (§6.6.26-6.6.27, §6.13-6.14) ---
+      - { id: "F_POWER_MGMT",         name: "Power Management",                   groups: ["power"],                      priority: "P0", parent: null }
+      - { id: "F_POWER_OFF_NOTIFY",   name: "Power Off Notification",             groups: ["power"],                      priority: "P1", parent: "F_POWER_MGMT" }
+      - { id: "F_SLEEP_AWAKE",        name: "Sleep/Awake",                        groups: ["power"],                      priority: "P1", parent: "F_POWER_MGMT" }
+      - { id: "F_HW_RESET",           name: "H/W Reset",                          groups: ["power", "initialization"],    priority: "P0", parent: "F_POWER_MGMT" }
+
+      # --- CACHE (§6.6.29) ---
+      - { id: "F_CACHE",              name: "Cache",                              groups: ["cache"],                      priority: "P1", parent: null }
+
+      # --- CONTEXT MANAGEMENT (§6.6.30) ---
+      - { id: "F_CONTEXT_MGMT",       name: "Context Management",                 groups: ["context"],                    priority: "P2", parent: null }
+
+      # --- DATA TAGGING (§6.6.31) ---
+      - { id: "F_DATA_TAG",           name: "Data Tagging",                        groups: ["data_tag"],                   priority: "P2", parent: null }
+
+      # --- LOCK/UNLOCK (§6.6.19) ---
+      - { id: "F_LOCK_UNLOCK",        name: "Device Lock/Unlock",                 groups: ["security"],                   priority: "P1", parent: null }
+
+      # --- COMMANDS (§6.10) ---
+      - { id: "F_CMD_ENGINE",         name: "Command Engine",                     groups: ["command"],                    priority: "P0", parent: null }
+      - { id: "F_BASIC_CMD",          name: "Basic Commands (Class 0/1)",         groups: ["command"],                    priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_READ_CMD",           name: "Block Read Commands (Class 2)",      groups: ["command", "data_transfer"],   priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_WRITE_CMD",          name: "Block Write Commands (Class 4)",     groups: ["command", "data_transfer"],   priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_ERASE_CMD",          name: "Erase Commands (Class 5)",           groups: ["command"],                    priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_IO_CMD",             name: "I/O Mode Commands (Class 9)",        groups: ["command"],                    priority: "P2", parent: "F_CMD_ENGINE" }
+      - { id: "F_LOCK_CMD",           name: "Lock Device Commands (Class 7)",     groups: ["command", "security"],        priority: "P1", parent: "F_CMD_ENGINE" }
+      - { id: "F_APP_CMD",            name: "Application-Specific Commands (Class 8)", groups: ["command"],               priority: "P1", parent: "F_CMD_ENGINE" }
+      - { id: "F_SECURITY_CMD",       name: "Security Protocols (Class 10)",      groups: ["command", "security"],        priority: "P2", parent: "F_CMD_ENGINE" }
+
+      # --- REGISTERS (§7) ---
+      - { id: "F_OCR_REGISTER",       name: "OCR Register",                       groups: ["registers"],                  priority: "P0", parent: null }
+      - { id: "F_CID_REGISTER",       name: "CID Register",                       groups: ["registers"],                  priority: "P0", parent: null }
+      - { id: "F_CSD_REGISTER",       name: "CSD Register",                       groups: ["registers"],                  priority: "P0", parent: null }
+      - { id: "F_EXT_CSD_REGISTER",   name: "Extended CSD Register",              groups: ["registers"],                  priority: "P0", parent: null }
+      - { id: "F_RCA_REGISTER",       name: "RCA Register",                       groups: ["registers"],                  priority: "P0", parent: null }
+      - { id: "F_DSR_REGISTER",       name: "DSR Register",                       groups: ["registers"],                  priority: "P2", parent: null }
+
+      # --- ERROR HANDLING (§6.8) ---
+      - { id: "F_ERROR_HANDLING",     name: "Error Handling",                     groups: ["error"],                      priority: "P0", parent: null }
+
+      # --- SPEED CLASS (§6.9) ---
+      - { id: "F_SPEED_CLASS",        name: "Speed Class / Performance",          groups: ["speed_class"],                priority: "P1", parent: null }
+
+      # --- ELECTRICAL (§10) ---
+      - { id: "F_ELECTRICAL",         name: "Electrical Interface",               groups: ["electrical"],                 priority: "P0", parent: null }
+
+    # HD sequence definitions (Host Driver sequences from the spec)
+    hd_sequences:
+      - { id: "HDS_DEVICE_INIT",          name: "Device Initialization Sequence",          groups: ["initialization", "host_driver_sequence"],         primary_section: "6.4" }
+      - { id: "HDS_BOOT_OP",              name: "Boot Operation Sequence",                 groups: ["boot", "host_driver_sequence"],                   primary_section: "6.11" }
+      - { id: "HDS_ALT_BOOT",             name: "Alternative Boot Operation Sequence",     groups: ["boot", "host_driver_sequence"],                   primary_section: "6.12" }
+      - { id: "HDS_DATA_READ",            name: "Data Read Sequence",                      groups: ["data_transfer", "host_driver_sequence"],          primary_section: "6.6.6" }
+      - { id: "HDS_DATA_WRITE",           name: "Data Write Sequence",                     groups: ["data_transfer", "host_driver_sequence"],          primary_section: "6.6.7" }
+      - { id: "HDS_ERASE",                name: "Erase Sequence",                          groups: ["erase", "host_driver_sequence"],                  primary_section: "6.6.14" }
+      - { id: "HDS_RPMB_ACCESS",          name: "RPMB Access Sequence",                    groups: ["security", "rpmb", "host_driver_sequence"],       primary_section: "6.6.22" }
+      - { id: "HDS_PARTITION_SWITCH",      name: "Partition Switch Sequence",               groups: ["partitioning", "host_driver_sequence"],           primary_section: "6.6.8" }
+      - { id: "HDS_SPEED_MODE_CHANGE",     name: "Speed Mode Change Sequence",             groups: ["speed_modes", "host_driver_sequence"],            primary_section: "6.6.3" }
+      - { id: "HDS_POWER_OFF_NOTIFY",      name: "Power Off Notification Sequence",        groups: ["power", "host_driver_sequence"],                  primary_section: "6.6.26" }
+      - { id: "HDS_SLEEP_AWAKE",           name: "Sleep/Awake Sequence",                   groups: ["power", "host_driver_sequence"],                  primary_section: "6.13" }
+
+# ==============================================================================
+# RELATION TYPES
+# ==============================================================================
+relation_types:
+  - { type: "REFERENCES",          description: "Node mentions table/figure" }
+  - { type: "CHILD_OF",            description: "Section hierarchy" }
+  - { type: "DEFINED_BY",          description: "Register fields from table" }
+  - { type: "VISUALIZED_BY",       description: "Register layout in figure" }
+  - { type: "DESCRIBES",           description: "Resource documents register" }
+  - { type: "BELONGS_TO",          description: "Register in functional class" }
+  - { type: "DEFINED_IN",          description: "Register defined in table" }
+  - { type: "PART_OF",             description: "Sub-feature belongs to parent" }
+  - { type: "USES_FEATURE",        description: "Sequence depends on feature" }
+  - { type: "HIGHLY_RELATED_TO",   description: "Strong cross-feature relation" }
+  - { type: "SLIGHTLY_RELATED_TO", description: "Weak cross-feature relation" }
+
+# ==============================================================================
+# EXTRACTION — Table & figure extraction behaviour
+# ==============================================================================
+extraction:
+  tables:
+    multi_page:
+      enabled: true
+      max_pages_before: 2
+      max_pages_after: 4      # Extended CSD table spans many pages
+
+    hints:
+      - name: "register_fields"
+        match_title: "register"
+        expected_columns:
+          - { role: "bit_range",   names: ["Bit", "Location", "Bit Position", "CSD-slice", "Field", "Bits", "Width"] }
+          - { role: "access",      names: ["Access", "Attrib", "Type", "R/W", "Cell Type"] }
+          - { role: "field_name",  names: ["Field Name", "Signal Name", "Name", "Field", "Mnemonic"] }
+          - { role: "description", names: ["Description", "Function", "Explanation", "Value", "Definition"] }
+        instruction: |
+          This is a device register field table from the eMMC specification.
+          Extract it with EXACTLY these 4 CSV columns:
+            Bit,Access,Field Name,Description
+          Rules:
+          - "Bit" = bit range or CSD-slice (e.g. "31-16", "07", "[127:126]", "[505]")
+          - "Access" = access type abbreviation (e.g. "R", "R/W", "W") — if not present, use "R"
+          - "Field Name" = ONLY the short field name, NOT the full description
+          - "Description" = the full description text
+          If the original table merges field name and description into one column,
+          split them: the first line is the field name, the rest is the description.
+
+      - name: "ext_csd_table"
+        match_title: "Extended CSD"
+        expected_columns:
+          - { role: "field_name",  names: ["Name", "Field"] }
+          - { role: "ext_field",   names: ["Field", "Mnemonic"] }
+          - { role: "size",        names: ["Size", "Size (Bytes)"] }
+          - { role: "access",      names: ["Cell Type", "Access", "Type"] }
+          - { role: "bit_range",   names: ["CSD-slice", "Slice"] }
+        instruction: |
+          This is the Extended CSD register table for eMMC.
+          Extract ALL rows faithfully as CSV with these columns:
+            Name,Field,Size (Bytes),Cell Type,CSD-slice
+          Preserve the field names exactly (e.g. EXT_SECURITY_ERR, S_CMD_SET).
+          The CSD-slice column contains byte addresses like [505], [504], [252:249].
+          "Cell Type" is R (read), W (write), R/W (read-write), or W/E (write once).
+
+      - name: "command_table"
+        match_title: "command"
+        expected_columns:
+          - { role: "cmd_index",   names: ["CMD", "Index", "Cmd Index", "Command"] }
+          - { role: "type",        names: ["Type", "Resp", "Response Type"] }
+          - { role: "argument",    names: ["Argument", "Parameter"] }
+          - { role: "description", names: ["Abbreviation", "Description", "Command Description", "Name"] }
+        instruction: |
+          This is an eMMC command table. Extract all commands faithfully as CSV.
+          Preserve CMD index numbers (e.g. CMD0, CMD1, CMD2).
+          Include all columns from the original table.
+
+  figures:
+    multi_page:
+      enabled: false
+      max_pages_before: 1
+      max_pages_after: 1
+
+# ==============================================================================
+# VALIDATION
+# ==============================================================================
+validation:
+  enabled: true
+  model: "haiku"
+  checks:
+    registers:
+      enabled: true
+      rules:
+        - check: "field_name_length"
+          max_chars: 80
+        - check: "missing_bits"
+          severity: "warning"
+        - check: "missing_access"
+          severity: "warning"
+        - check: "zero_fields"
+          severity: "error"
+    tables:
+      enabled: true
+      rules:
+        - check: "empty_csv"
+          severity: "error"
+        - check: "single_row"
+          severity: "warning"
+    figures:
+      enabled: true
+      rules:
+        - check: "empty_plantuml"
+          severity: "error"
+        - check: "no_startuml"
+          severity: "warning"

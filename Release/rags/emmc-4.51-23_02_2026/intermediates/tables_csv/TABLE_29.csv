@@ -1,0 +1,4 @@
+Start,Stuff Bytes,Key/ (MAC),Data,Nonce,Write Counter,Address,Block Count,Result,Req/ Resp,CRC16,End
+1bit,196Byte,32Byte (256b),256Byte,16Byte,4Byte,2Byte,2Byte,2Byte,2Byte,2Byte,1bit
+,[511:316],[315:284],[283:28],[27:12],[11:8],[7:6],[5:4],[3:2],[1:0],,
+0b,0x0000...,,0x00,0x00,,,0x00,,0x0300,,1b

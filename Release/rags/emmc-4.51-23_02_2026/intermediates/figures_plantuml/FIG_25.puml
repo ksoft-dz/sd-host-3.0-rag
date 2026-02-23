@@ -1,0 +1,73 @@
+@startuml
+start
+
+:Regular
+initialization done;
+
+:Select the device
+(CMD7);
+
+:Make sure device
+is unlocked (1)
+(CMD42);
+
+if (Host<->Device\n1.8V or 1.2V\nIOs?) then (Yes)
+  :Read
+  CARD_TYPE
+  (CMD8);
+  
+  if (Device\nsupports\nHS200?) then (Yes)
+    :Set desired bus
+    width (4 or 8)
+    (CMD6)(2);
+    
+    :Host may read
+    Driver Strength
+    (CMD8);
+    
+    :Set HS200 bit
+    and Driver
+    Strength value in
+    HS_TIMING
+    (CMD6);
+    
+    repeat
+      :Device Busy?;
+    repeat while (Busy) is (Busy)
+    ->Not Busy;
+    
+    if (Device reports\nNo Error?\n(CMD13)) then (Yes)
+      :Host may change
+      frequency to
+      <= 200MHz;
+      
+      :Host may invoke
+      Tuning Command
+      (CMD21);
+      
+      repeat
+        if (Tuning process\ncompleted?) then (Yes)
+          :HS200 mode
+          selection
+          completed;
+          stop
+        else (No)
+        endif
+      repeat while () is (No)
+    else (No)
+      :Cannot switch to
+      HS200;
+      stop
+    endif
+  else (No)
+    :Cannot switch to
+    HS200;
+    stop
+  endif
+else (No)
+  :Cannot switch to
+  HS200;
+  stop
+endif
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml
+title Figure 8 — Data packet format for DDR
+
+note as N1
+**4 Bits bus DDR (DAT3-DAT0 used):**
+end note
+
+map "4-bit DDR Data Packet" as fourbit {
+  CLK => |_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|
+  Header => LSByte(High nibble) | LSByte+1(High nibble) | MSByte-1(Low nibble) | MSByte(Low nibble)
+  DAT3 => 0(start) | X | b7(odd) | b7(even) | ... | b3(odd) | b3(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT2 => 0(start) | X | b6(odd) | b6(even) | ... | b2(odd) | b2(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT1 => 0(start) | X | b5(odd) | b5(even) | ... | b1(odd) | b1(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT0 => 0(start) | X | b4(odd) | b4(even) | ... | b0(odd) | b0(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  Regions => |---- Blocklength ----| |---- CRC ----|
+}
+
+note as N2
+**8 Bits bus DDR (DAT7-DAT0 used):**
+end note
+
+map "8-bit DDR Data Packet" as eightbit {
+  CLK => |_|-|_|-|_|-|_|-|_|-|_|-|_|-|_|
+  Header => LSByte | LSByte+1 | MSByte-1 | MSByte
+  DAT7 => 0(start) | X | b7(odd) | b7(even) | ... | b7(odd) | b7(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT6 => 0(start) | X | b6(odd) | b6(even) | ... | b6(odd) | b6(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT5 => 0(start) | X | b5(odd) | b5(even) | ... | b5(odd) | b5(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT4 => 0(start) | X | b4(odd) | b4(even) | ... | b4(odd) | b4(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT3 => 0(start) | X | b3(odd) | b3(even) | ... | b3(odd) | b3(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT2 => 0(start) | X | b2(odd) | b2(even) | ... | b2(odd) | b2(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT1 => 0(start) | X | b1(odd) | b1(even) | ... | b1(odd) | b1(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  DAT0 => 0(start) | X | b0(odd) | b0(even) | ... | b0(odd) | b0(even) | b15(CRC odd) | ... | b0(CRC odd) | b0(CRC even) | 1(end) | X
+  Regions => |---- Blocklength/2 ----| |---- CRC ----|
+}
+
+note as N3
+Notice that bytes data are not interleaved but CRC are interleaved
+Start and end bits are only valid on the rising edge. ("x": undefined)
+end note
+@enduml

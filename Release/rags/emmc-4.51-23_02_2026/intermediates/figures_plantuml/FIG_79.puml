@@ -1,0 +1,44 @@
+@startuml
+start
+
+:write multiple block;
+
+:SET_BLLEN;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+:MULTIPLE_BLOCL_WRITE;
+
+if (Response OK?) then (no)
+  :return (Error condition);
+  stop
+else (yes)
+endif
+
+partition "Data Transfer Loop" {
+  repeat
+    fork
+      :SEND_STATUS;
+      if (Data OK?) then (yes)
+      else (no)
+      endif
+    fork again
+      :Write data block;
+      if (CRC OK?) then (yes)
+      else (no)
+      endif
+    end fork
+  repeat while (End of data?) is (no)
+  -> yes;
+}
+
+:STOP;
+
+:return;
+
+stop
+@enduml

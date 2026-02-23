@@ -1,0 +1,27 @@
+@startuml
+skinparam rectangle {
+    BorderColor black
+}
+
+title Figure 14 — WP condition transition due to H/W reset assertion
+
+rectangle "Before H/W reset is asserted" as before {
+    rectangle "WP group A\n(Permanent WP)" as A1
+    rectangle "WP group B\n(Power-on Period WP)" as B1
+    rectangle "WP group C\n(Temporary WP)" as C1
+    rectangle "WP group D\n(Unprotected)" as D1
+}
+
+rectangle "After H/W reset is asserted" as after {
+    rectangle "WP group A\n(Permanent WP)" as A2
+    rectangle "WP group B\n**(Unprotected)**" as B2
+    rectangle "WP group C\n(Temporary WP)" as C2
+    rectangle "WP group D\n(Unprotected)" as D2
+}
+
+A1 -right-> A2
+B1 -right-> B2
+C1 -right-> C2
+D1 -right-> D2
+
+@enduml

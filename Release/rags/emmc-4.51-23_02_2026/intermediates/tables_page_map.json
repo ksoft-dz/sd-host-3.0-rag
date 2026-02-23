@@ -1,0 +1,3535 @@
+{
+  "_metadata": {
+    "source": "Embedded Multimedia Card (e•MMC) Electrical Standard",
+    "extraction_date": "2026-02-23T04:35:31Z",
+    "total_tables": 177,
+    "converted": 177,
+    "failed": 0,
+    "multi_page_tables": 42,
+    "hint_applied_count": 33,
+    "llm_stats": {
+      "total_calls": 1,
+      "total_input_tokens": 790,
+      "total_output_tokens": 103,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_1",
+      "spec_reference": "Table 1",
+      "title": "e•MMC Voltage Modes",
+      "spec_page": 5,
+      "definition_page": 27,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          25,
+          26,
+          27,
+          28
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_2",
+      "spec_reference": "Table 2",
+      "title": "e•MMC interface",
+      "spec_page": 8,
+      "definition_page": 30,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          30
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the e•MMC interface signals including clock, data lines (DAT0-DAT7), command, reset, and power supply pins with their respective input/output types and descriptions."
+    },
+    {
+      "id": "TABLE_3",
+      "spec_reference": "Table 3",
+      "title": "e•MMC registers",
+      "spec_page": 9,
+      "definition_page": 31,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          31
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table lists the eMMC device registers including CID, RCA, DSR, CSD, OCR, and EXT_CSD with their widths in bytes, descriptions, and implementation requirements (Mandatory or Optional)."
+    },
+    {
+      "id": "TABLE_4",
+      "spec_reference": "Table 4",
+      "title": "Bus Speed Modes",
+      "spec_page": 15,
+      "definition_page": 37,
+      "referenced_on_pages": [
+        42
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          37
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table summarizes the e•MMC bus speed modes, showing the relationship between mode name, data rate type, IO voltage levels, supported bus widths, operating frequencies, and maximum data transfer rates ranging from 26MB/s to 200MB/s."
+    },
+    {
+      "id": "TABLE_5",
+      "spec_reference": "Table 5",
+      "title": "Bus modes overview",
+      "spec_page": 18,
+      "definition_page": 40,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          39,
+          40
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This page contains introductory text about e•MMC operation modes but does not include the actual \"Bus modes overview\" table, which appears on a different page."
+    },
+    {
+      "id": "TABLE_6",
+      "spec_reference": "Table 6",
+      "title": "EXT_CSD access mode",
+      "spec_page": 41,
+      "definition_page": 63,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          62,
+          63,
+          64
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_7",
+      "spec_reference": "Table 7",
+      "title": "Bus testing pattern",
+      "spec_page": 44,
+      "definition_page": 66,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          66
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 7 defines the bus testing pattern format used in CMD19 and CMD14 commands, specifying a start bit of 0, a data pattern of \"1 0 x x x x … x x\", and an end bit of 1 for detecting functional pins on the bus."
+    },
+    {
+      "id": "TABLE_8",
+      "spec_reference": "Table 8",
+      "title": "1-bit bus testing pattern",
+      "spec_page": 45,
+      "definition_page": 67,
+      "referenced_on_pages": [
+        44
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_8.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          67,
+          68
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 8 defines the 1-bit bus testing pattern showing that only DAT0 carries the data pattern from host while DAT1-DAT7 have no data pattern sent, with the device returning reversed patterns on all lines."
+    },
+    {
+      "id": "TABLE_9",
+      "spec_reference": "Table 9",
+      "title": "4-bit bus testing pattern",
+      "spec_page": 45,
+      "definition_page": 67,
+      "referenced_on_pages": [
+        44
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_9.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          67,
+          68
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 9 defines the 4-bit bus testing pattern showing the data patterns sent by the host on DAT0-DAT3 lines and the corresponding reversed patterns sent by the device, with DAT4-DAT7 having no data pattern sent."
+    },
+    {
+      "id": "TABLE_10",
+      "spec_reference": "Table 10",
+      "title": "8-bit bus testing pattern",
+      "spec_page": 45,
+      "definition_page": 67,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_10.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          67,
+          68
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the 8-bit bus testing pattern showing data patterns sent by the host and corresponding reversed patterns sent by the device for each of the eight data lines (DAT0-DAT7), with DAT0 marking the start bit that defines the beginning of the pattern."
+    },
+    {
+      "id": "TABLE_11",
+      "spec_reference": "Table 11",
+      "title": "Erase command (CMD38) Valid arguments",
+      "spec_page": 55,
+      "definition_page": 77,
+      "referenced_on_pages": [
+        54,
+        58,
+        59,
+        107
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_11.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          75,
+          76,
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_12",
+      "spec_reference": "Table 12",
+      "title": "Erase command (CMD38) Valid arguments",
+      "spec_page": 58,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        60,
+        61,
+        107
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_12.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          80
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 12 defines the valid argument bits (31, 15, 1, and 0) for the eMMC Erase command (CMD38), specifying options for secure erase, force garbage collection, discard enable, and TRIM enable operations."
+    },
+    {
+      "id": "TABLE_13",
+      "spec_reference": "Table 13",
+      "title": "Write Protection Hierarchy (when disable bits are clear)",
+      "spec_page": 61,
+      "definition_page": 83,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_13.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          82,
+          83
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_14",
+      "spec_reference": "Table 14",
+      "title": "Write Protection Types (when disable bits are clear)",
+      "spec_page": 61,
+      "definition_page": 83,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_14.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          82,
+          83
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_15",
+      "spec_reference": "Table 15",
+      "title": "Security Protocol Information",
+      "spec_page": 63,
+      "definition_page": 85,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_15.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          85
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 15 defines the byte structure of the Security Protocol Information response returned by a device when PROTOCOL_RD (CMD53) is received with Security protocol value 00h, including reserved bytes, list length fields, supported protocols list, and padding bytes."
+    },
+    {
+      "id": "TABLE_16",
+      "spec_reference": "Table 16",
+      "title": "Lock Device data structure",
+      "spec_page": 64,
+      "definition_page": 86,
+      "referenced_on_pages": [
+        186
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          86,
+          87,
+          88
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the Lock Device data structure for CMD42, specifying the byte layout including control bits (ERASE, LOCK_UNLOCK, CLR_PWD, SET_PWD), password length field, and password data bytes."
+    },
+    {
+      "id": "TABLE_17",
+      "spec_reference": "Table 17",
+      "title": "Data Frame Files for RPMB",
+      "spec_page": 68,
+      "definition_page": 90,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_17.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          90
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the data frame structure for accessing the Replay Protected Memory Block (RPMB), showing field sizes and bit positions for components including authentication key, data, nonce, write counter, address, and CRC16."
+    },
+    {
+      "id": "TABLE_18",
+      "spec_reference": "Table 18",
+      "title": "RPMB Request/Response Message Types",
+      "spec_page": 69,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_18.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the hexadecimal message type codes for RPMB (Replay Protected Memory Block) request and response operations, including authentication key programming, write counter reading, and authenticated data read/write functions."
+    },
+    {
+      "id": "TABLE_19",
+      "spec_reference": "Table 19",
+      "title": "RPMB Operation Results data structure",
+      "spec_page": 69,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_19.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 19 defines the RPMB Operation Results data structure, showing the bit field allocation for reserved bits, write counter status, and operation result within a 16-bit response format."
+    },
+    {
+      "id": "TABLE_20",
+      "spec_reference": "Table 20",
+      "title": "RPMB Operation Results",
+      "spec_page": 70,
+      "definition_page": 92,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_20.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          92,
+          93
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the RPMB (Replay Protected Memory Block) operation result codes ranging from 0x0000 to 0x0007, indicating various success and failure conditions including authentication, counter, address, read/write failures."
+    },
+    {
+      "id": "TABLE_21",
+      "spec_reference": "Table 21",
+      "title": "MAC Example",
+      "spec_page": 72,
+      "definition_page": 94,
+      "referenced_on_pages": [
+        71
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_21.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          93,
+          94
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_22",
+      "spec_reference": "Table 22",
+      "title": "Authentication Key Data Packet",
+      "spec_page": 73,
+      "definition_page": 95,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_22.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          95
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 22 defines the Authentication Key Data Packet structure for e•MMC programming, specifying field sizes and bit positions for components including start bit, stuff bytes, key/MAC, data, nonce, write counter, address, block count, result, request/response, CRC, and end bit."
+    },
+    {
+      "id": "TABLE_23",
+      "spec_reference": "Table 23",
+      "title": "Result Register Read Request Packet",
+      "spec_page": 73,
+      "definition_page": 95,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_23.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          95
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 23 defines the Result Register Read Request Packet structure for eMMC, showing a 512-byte packet format with request type value 0x0005 to initiate a result register read request."
+    },
+    {
+      "id": "TABLE_24",
+      "spec_reference": "Table 24",
+      "title": "Response for Key Programming Result Request",
+      "spec_page": 74,
+      "definition_page": 96,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_24.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          96
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 24 defines the response packet structure for a Key Programming Result Request, specifying field sizes and bit positions for components including stuff bytes, key/MAC, data, nonce, write counter, address, block count, result, request/response, and CRC16 fields."
+    },
+    {
+      "id": "TABLE_25",
+      "spec_reference": "Table 25",
+      "title": "Counter Read Request Packet",
+      "spec_page": 74,
+      "definition_page": 96,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_25.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          96
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 25 defines the structure of the Counter Read Request Packet, a 512-byte data packet containing fields for key/MAC, data, nonce, write counter, address, block count, result, and request/response information with request type value 0x0002 for counter value read initiation."
+    },
+    {
+      "id": "TABLE_26",
+      "spec_reference": "Table 26",
+      "title": "Counter Value Response",
+      "spec_page": 75,
+      "definition_page": 97,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_26.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          97
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the structure and byte positions of the Counter Value Response packet format used in e•MMC communication, including fields for authentication (MAC), data, nonce, write counter, address, block count, result, and CRC."
+    },
+    {
+      "id": "TABLE_27",
+      "spec_reference": "Table 27",
+      "title": "Program Data Packet",
+      "spec_page": 75,
+      "definition_page": 97,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_27.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          97
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 27 defines the Program Data Packet structure for authenticated data write operations to the Replay Protected Memory Block (RPMB), specifying field sizes and bit positions for components including data, nonce, write counter, address, block count, result, and CRC16."
+    },
+    {
+      "id": "TABLE_28",
+      "spec_reference": "Table 28",
+      "title": "Result Register Read Request Packet",
+      "spec_page": 76,
+      "definition_page": 98,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_28.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          98
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 28 defines the Result Register Read Request Packet structure for eMMC Replay Protected Memory Block operations, showing a 512-byte packet format with fields for authentication (MAC), data, nonce, write counter, address, block count, result, and request type (0x0005)."
+    },
+    {
+      "id": "TABLE_29",
+      "spec_reference": "Table 29",
+      "title": "Response for Data Programming Result Request",
+      "spec_page": 76,
+      "definition_page": 98,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_29.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          98
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the packet structure for the response to a data programming result request, showing field sizes and byte positions for components including start bit, stuff bytes, key/MAC, data, nonce, write counter, address, block count, result, request/response, CRC16, and end bit."
+    },
+    {
+      "id": "TABLE_30",
+      "spec_reference": "Table 30",
+      "title": "Data Read Request Initiation Packet",
+      "spec_page": 77,
+      "definition_page": 99,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_30.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          99
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 30 defines the structure of the Data Read Request Initiation Packet for authenticated data read operations, specifying field sizes and bit positions for components including start bit, stuff bytes, key/MAC, data, nonce, write counter, address, block count, result, request/response, CRC16, and end bit."
+    },
+    {
+      "id": "TABLE_31",
+      "spec_reference": "Table 31",
+      "title": "Read Data Packet",
+      "spec_page": 77,
+      "definition_page": 99,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_31.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          99
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 31 defines the Read Data Packet structure for authenticated data read operations in e•MMC, specifying field sizes and byte positions for components including start bit, stuff bytes, key/MAC, data, nonce, write counter, address, block count, result, request/response, CRC16, and end bit."
+    },
+    {
+      "id": "TABLE_32",
+      "spec_reference": "Table 32",
+      "title": "Interruptible commands",
+      "spec_page": 80,
+      "definition_page": 102,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_32.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          102
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 32 defines which eMMC commands can be interrupted by the High Priority Interrupt (HPI) mechanism, with write, erase, and certain SWITCH commands being interruptible while most other commands are not."
+    },
+    {
+      "id": "TABLE_33",
+      "spec_reference": "Table 33",
+      "title": "Packed Command Structure",
+      "spec_page": 86,
+      "definition_page": 108,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_33.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          107,
+          108
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This page contains descriptive text about the Packed Command Header structure for eMMC but does not include a formatted table with CMD, Type, Argument, and Abbreviation columns."
+    },
+    {
+      "id": "TABLE_34",
+      "spec_reference": "Table 34",
+      "title": "Features Cross Reference Table",
+      "spec_page": 90,
+      "definition_page": 112,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_34.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          112
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table shows the cross-reference relationships between various eMMC features including Cache On, Packed Commands, Context ID, Data Tag, Reliable Write, Partitions, and Forced Programming, indicating their compatibility and behavioral interactions."
+    },
+    {
+      "id": "TABLE_35",
+      "spec_reference": "Table 35",
+      "title": "eMMC internal sizes and related Units / Granularities",
+      "spec_page": 93,
+      "definition_page": 115,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_35.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          115,
+          116
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the internal size parameters and their associated units and granularities for eMMC devices, covering various configurations including 512B native sector and 4KB native sector modes with emulation enabled or disabled."
+    },
+    {
+      "id": "TABLE_36",
+      "spec_reference": "Table 36",
+      "title": "Admitted Data Sector Size, Address Mode and Reliable Write granularity",
+      "spec_page": 95,
+      "definition_page": 117,
+      "referenced_on_pages": [
+        92
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_36.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          116,
+          117
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the admitted data sector size units and granularity for general purpose partition size and enhanced user data area size parameters across different native sector configurations (512B and 4KB) with emulation modes."
+    },
+    {
+      "id": "TABLE_37",
+      "spec_reference": "Table 37",
+      "title": "Real Time Clock Information Block Format",
+      "spec_page": 96,
+      "definition_page": 118,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_37.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          118,
+          119,
+          120,
+          121,
+          122
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the 512-byte Real Time Clock Information Block format used to report time information, containing fields for structure version, RTC info type, seconds passed, and reserved bytes."
+    },
+    {
+      "id": "TABLE_38",
+      "spec_reference": "Table 38",
+      "title": "RTC_INFO_TYPE Field Description",
+      "spec_page": 96,
+      "definition_page": 118,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_38.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          118,
+          119,
+          120,
+          121,
+          122
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the RTC_INFO_TYPE field values used to specify different time formats including absolute UTC time, relative time base setting, and relative time measurement in the Real Time Clock Information command."
+    },
+    {
+      "id": "TABLE_39",
+      "spec_reference": "Table 39",
+      "title": "Command Format",
+      "spec_page": 101,
+      "definition_page": 123,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_39.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          121,
+          122,
+          123
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_40",
+      "spec_reference": "Table 40",
+      "title": "Supported Device command classes (0–56)",
+      "spec_page": 102,
+      "definition_page": 124,
+      "referenced_on_pages": [
+        101,
+        138
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_40.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          124
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the mapping between eMMC Device Command Classes (CCC 0-11) and their supported commands (CMD0-CMD56), indicating which commands are mandatory or supported for each class including basic, block read/write, erase, write protection, lock device, application-specific, I/O mode, and security protocol operations."
+    },
+    {
+      "id": "TABLE_41",
+      "spec_reference": "Table 41",
+      "title": "Basic commands (class 0 and class 1)",
+      "spec_page": 103,
+      "definition_page": 125,
+      "referenced_on_pages": [
+        17
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_41.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          125
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the basic eMMC commands (class 0 and class 1) including command index, type, argument format, response type, abbreviation, and functional description for fundamental device operations such as initialization, identification, and state transitions."
+    },
+    {
+      "id": "TABLE_42",
+      "spec_reference": "Table 42",
+      "title": "Block-oriented read commands (class 2)",
+      "spec_page": 104,
+      "definition_page": 126,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_42.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          126
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 42 defines the eMMC block-oriented read commands (class 2), including CMD16 for setting block length, CMD17 and CMD18 for single and multiple block reads, and CMD21 for HS200 tuning pattern transmission."
+    },
+    {
+      "id": "TABLE_43",
+      "spec_reference": "Table 43",
+      "title": "Class 3 commands",
+      "spec_page": 104,
+      "definition_page": 126,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_43.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          126
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 43 defines Class 3 commands for eMMC, showing CMD20 as obsolete with undefined response and CMD22 as reserved."
+    },
+    {
+      "id": "TABLE_44",
+      "spec_reference": "Table 44",
+      "title": "Block-oriented write commands (class 4)",
+      "spec_page": 105,
+      "definition_page": 127,
+      "referenced_on_pages": [
+        89
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_44.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          127
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the block-oriented write commands (class 4) for eMMC devices, including SET_BLOCK_COUNT, WRITE_BLOCK, WRITE_MULTIPLE_BLOCK, and PROGRAM_CID commands with their arguments, response types, and functional descriptions."
+    },
+    {
+      "id": "TABLE_45",
+      "spec_reference": "Table 45",
+      "title": "Block-oriented write protection commands (class 6)",
+      "spec_page": 106,
+      "definition_page": 128,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_45.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          128
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the eMMC Class 6 block-oriented write protection commands (CMD28-CMD31) for setting, clearing, and querying write protection status on addressed groups, with behavior varying based on the CLASS_6_CTRL register setting."
+    },
+    {
+      "id": "TABLE_46",
+      "spec_reference": "Table 46",
+      "title": "Erase commands (class 5)",
+      "spec_page": 107,
+      "definition_page": 129,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_46.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          129
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 46 defines eMMC erase commands (class 5) including CMD35 for setting erase group start address, CMD36 for setting erase group end address, and CMD38 for executing erase/TRIM/DISCARD operations on selected write blocks."
+    },
+    {
+      "id": "TABLE_47",
+      "spec_reference": "Table 47",
+      "title": "I/O mode commands (class 9)",
+      "spec_page": 107,
+      "definition_page": 129,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_47.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          129
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 47 defines I/O mode commands (class 9) for eMMC devices, including CMD39 (FAST_IO) for reading/writing 8-bit register data, CMD40 (GO_IRQ_STATE) for setting interrupt mode, and CMD41 which is reserved."
+    },
+    {
+      "id": "TABLE_48",
+      "spec_reference": "Table 48",
+      "title": "Lock Device commands (class 7)",
+      "spec_page": 108,
+      "definition_page": 130,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_48.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          130
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 48 defines the Lock Device commands (class 7) for eMMC, containing CMD42 (LOCK_UNLOCK) for password and device lock operations, with CMD43 through CMD48 reserved."
+    },
+    {
+      "id": "TABLE_49",
+      "spec_reference": "Table 49",
+      "title": "Application-specific commands (class 8)",
+      "spec_page": 108,
+      "definition_page": 130,
+      "referenced_on_pages": [
+        17,
+        101
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_49.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          130
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 49 defines eMMC application-specific commands (class 8), including CMD55 (APP_CMD) for indicating application-specific command sequences and CMD56 (GEN_CMD) for general purpose data block transfers."
+    },
+    {
+      "id": "TABLE_50",
+      "spec_reference": "Table 50",
+      "title": "Security Protocols (class 10)",
+      "spec_page": 108,
+      "definition_page": 130,
+      "referenced_on_pages": [
+        62
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_50.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          130
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 50 defines the Security Protocols (class 10) commands CMD50-54 for eMMC devices, including reserved commands and PROTOCOL_RD/PROTOCOL_WR commands for secure data block transfers between host and device."
+    },
+    {
+      "id": "TABLE_51",
+      "spec_reference": "Table 51",
+      "title": "Device state transitions",
+      "spec_page": 109,
+      "definition_page": 131,
+      "referenced_on_pages": [
+        17,
+        80,
+        98
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_51.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          131,
+          132
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the device state transitions for various commands (CMD0-CMD23) in dependency of the received command, showing how the device moves between states such as idle, ready, standby, transfer, data, and others."
+    },
+    {
+      "id": "TABLE_52",
+      "spec_reference": "Table 52",
+      "title": "R1 response",
+      "spec_page": 111,
+      "definition_page": 133,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_52.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          132,
+          133
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the R1 response behavior for various eMMC commands across different device states (idle, ready, ident, stby, tran, data, btst, rcv, prg, dis, ina, slp, irq), showing valid state transitions and responses for each command class."
+    },
+    {
+      "id": "TABLE_53",
+      "spec_reference": "Table 53",
+      "title": "R2 response",
+      "spec_page": 111,
+      "definition_page": 133,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_53.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          132,
+          133
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the R2 response behavior for various eMMC command classes, showing the current state transitions and resulting states (idle, ready, ident, stby, tran, data, btst, rcv, prg, dis, ina, slp, irq) for each command."
+    },
+    {
+      "id": "TABLE_54",
+      "spec_reference": "Table 54",
+      "title": "R3 Response",
+      "spec_page": 111,
+      "definition_page": 133,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_54.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          132,
+          133
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the R3 response behavior for various eMMC commands across different device states (idle, ready, ident, standby, transfer, data, btst, receive, programming, disconnect, inactive, sleep, and interrupt)."
+    },
+    {
+      "id": "TABLE_55",
+      "spec_reference": "Table 55",
+      "title": "R4 response",
+      "spec_page": 112,
+      "definition_page": 134,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_55.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          134
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 55 defines the R4 response format for CMD39, a 48-bit response containing fields for RCA, status, register address, register contents, and CRC."
+    },
+    {
+      "id": "TABLE_56",
+      "spec_reference": "Table 56",
+      "title": "R5 response",
+      "spec_page": 112,
+      "definition_page": 134,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_56.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          134
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 56 defines the R5 response format for interrupt requests, which is 48 bits in length and includes fields for start bit, transmission bit, command index, RCA/argument data, CRC, and end bit."
+    },
+    {
+      "id": "TABLE_57",
+      "spec_reference": "Table 57",
+      "title": "Device status",
+      "spec_page": 113,
+      "definition_page": 135,
+      "referenced_on_pages": [
+        112
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          135,
+          136
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 57 defines device status bits including their identifiers, types, detection modes, values, descriptions, and clear conditions for various error and status flags in a memory device."
+    },
+    {
+      "id": "TABLE_58",
+      "spec_reference": "Table 58",
+      "title": "Device Status field/command - cross reference",
+      "spec_page": 115,
+      "definition_page": 137,
+      "referenced_on_pages": [
+        212
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_58.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          136,
+          137
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table provides a cross-reference between Device Status register bit fields and their associated commands, including field identifiers, types, detection modes, values, descriptions, and clear conditions for eMMC devices."
+    },
+    {
+      "id": "TABLE_59",
+      "spec_reference": "Table 59",
+      "title": "Response 1 Status Bit Valid",
+      "spec_page": 116,
+      "definition_page": 138,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_59.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          138
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines which status bits in Response 1 format are valid for different command classes (1-10) in an e•MMC device, with \"ALWAYS\" indicating bits that are always valid regardless of command class."
+    },
+    {
+      "id": "TABLE_60",
+      "spec_reference": "Table 60",
+      "title": "Timing Parameters",
+      "spec_page": 127,
+      "definition_page": 149,
+      "referenced_on_pages": [
+        118,
+        128,
+        137
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_60.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          149
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the timing parameters for MMC operations, specifying minimum and maximum values in clock cycles (or time units) for various timing symbols including access times, command/response delays, and bus turnaround times."
+    },
+    {
+      "id": "TABLE_61",
+      "spec_reference": "Table 61",
+      "title": "Timing Parameters for HS200 mode",
+      "spec_page": 128,
+      "definition_page": 150,
+      "referenced_on_pages": [
+        134
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_61.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          150
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 61 defines the timing parameters for HS200 mode operation, specifying minimum and maximum clock cycle values for parameters including NAC, NCRC, NST, and various NSB variants."
+    },
+    {
+      "id": "TABLE_62",
+      "spec_reference": "Table 62",
+      "title": "H/W reset timing parameters",
+      "spec_page": 131,
+      "definition_page": 153,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_62.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          153
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the hardware reset timing parameters for RST_n signal, including minimum pulse width, reset-to-command time, and high period interval time measured in microseconds."
+    },
+    {
+      "id": "TABLE_63",
+      "spec_reference": "Table 63",
+      "title": "OCR register definitions",
+      "spec_page": 132,
+      "definition_page": 154,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_63.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          154
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The OCR register is a 32-bit register that defines the VDD voltage profile, access mode (byte or sector), and power-up status for eMMC and MultiMediaCard devices."
+    },
+    {
+      "id": "TABLE_64",
+      "spec_reference": "Table 64",
+      "title": "CID Fields",
+      "spec_page": 133,
+      "definition_page": 155,
+      "referenced_on_pages": [
+        132
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_64.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          155,
+          156,
+          157
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the CID (Card Identification) register fields for an eMMC device, including manufacturer ID, product name, serial number, and manufacturing date with their bit positions and widths."
+    },
+    {
+      "id": "TABLE_65",
+      "spec_reference": "Table 65",
+      "title": "Device Types",
+      "spec_page": 133,
+      "definition_page": 155,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_65.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          155,
+          156,
+          157
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 65 defines the four device types for eMMC devices based on the CBX field bits [113:112], distinguishing between removable devices, discrete embedded BGA, POP (Package on Package), and reserved configurations."
+    },
+    {
+      "id": "TABLE_67",
+      "spec_reference": "Table 67",
+      "title": "CSD Fields",
+      "spec_page": 136,
+      "definition_page": 158,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_67.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          156,
+          157,
+          158
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the valid MDT (Manufacturing Date) \"y\" field values and their corresponding year mappings for eMMC devices, with extended year ranges available for devices with EXT_CSD_REV greater than 4."
+    },
+    {
+      "id": "TABLE_68",
+      "spec_reference": "Table 68",
+      "title": "CSD register structure",
+      "spec_page": 137,
+      "definition_page": 159,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_68.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          159
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 68 defines the CSD_STRUCTURE field values (bits [127:126]) which indicate the CSD structure version supported by the eMMC device, ranging from version 1.0 to versions encoded in the EXT_CSD register."
+    },
+    {
+      "id": "TABLE_69",
+      "spec_reference": "Table 69",
+      "title": "System specification version",
+      "spec_page": 137,
+      "definition_page": 159,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_69.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          159
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 69 defines the SPEC_VERS field values (0-15) that indicate which e•MMC System Specification version is supported by the device, with values 0-3 allocated by MMCA, value 4 corresponding to versions 4.1-4.2-4.3, and values 5-15 reserved."
+    },
+    {
+      "id": "TABLE_70",
+      "spec_reference": "Table 70",
+      "title": "TAAC access-time definition",
+      "spec_page": 137,
+      "definition_page": 159,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_70.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          159
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 70 defines the TAAC (asynchronous data access time) bit field encoding, specifying time unit values in bits 2:0 and multiplier factors in bits 6:3 used to calculate the data access time."
+    },
+    {
+      "id": "TABLE_71",
+      "spec_reference": "Table 71",
+      "title": "Maximum bus clock frequency definition",
+      "spec_page": 138,
+      "definition_page": 160,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_71.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          160
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the TRAN_SPEED register bit fields for encoding the maximum bus clock frequency, including frequency unit codes (bits 2:0) and multiplier factor values (bits 6:3) used to calculate the transfer speed."
+    },
+    {
+      "id": "TABLE_72",
+      "spec_reference": "Table 72",
+      "title": "Supported Device command classes",
+      "spec_page": 138,
+      "definition_page": 160,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_72.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          160
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 72 defines the mapping between CCC (Command Class Code) bit positions (0-11) and their corresponding supported device command classes (class 0 through class 11) for eMMC devices."
+    },
+    {
+      "id": "TABLE_73",
+      "spec_reference": "Table 73",
+      "title": "Data block length",
+      "spec_page": 138,
+      "definition_page": 160,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_73.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          160
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 73 defines the data block length values for READ_BL_LEN register, mapping values 0-15 to corresponding block sizes from 1 byte (2^0) up to an extension mode (2^15) that references the EXT_CSD register."
+    },
+    {
+      "id": "TABLE_74",
+      "spec_reference": "Table 74",
+      "title": "DSR implementation code table",
+      "spec_page": 139,
+      "definition_page": 161,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_74.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          161
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the DSR_IMP bit values indicating whether a Driver Stage Register (DSR) is implemented on the device, with 0 meaning not implemented and 1 meaning implemented."
+    },
+    {
+      "id": "TABLE_75",
+      "spec_reference": "Table 75",
+      "title": "VDD (min) current consumption",
+      "spec_page": 140,
+      "definition_page": 162,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_75.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          162
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 75 defines the encoding for VDD_R_CURR_MIN and VDD_W_CURR_MIN register fields (bits 2:0) that specify maximum read and write current consumption values at minimum power supply voltage, ranging from 0.5mA to 100mA."
+    },
+    {
+      "id": "TABLE_76",
+      "spec_reference": "Table 76",
+      "title": "VDD (max) current consumption",
+      "spec_page": 140,
+      "definition_page": 162,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_76.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          162
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 76 defines the encoding for VDD_R_CURR_MAX and VDD_W_CURR_MAX fields (bits 2:0) that specify maximum read and write current consumption values at maximal power supply VDD, ranging from 1mA to 200mA."
+    },
+    {
+      "id": "TABLE_77",
+      "spec_reference": "Table 77",
+      "title": "Multiplier factor for device size",
+      "spec_page": 141,
+      "definition_page": 163,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_77.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          163
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 77 defines the multiplier factor (MULT) for device size calculation, mapping C_SIZE_MULT values 0-7 to corresponding powers of 2 ranging from 4 to 512."
+    },
+    {
+      "id": "TABLE_78",
+      "spec_reference": "Table 78",
+      "title": "R2W_FACTOR",
+      "spec_page": 142,
+      "definition_page": 164,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_78.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          164
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 78 defines the R2W_FACTOR values (0-7) and their corresponding multiples of read access time, which determine the write speed relative to read speed for memory devices."
+    },
+    {
+      "id": "TABLE_79",
+      "spec_reference": "Table 79",
+      "title": "File formats",
+      "spec_page": 143,
+      "definition_page": 165,
+      "referenced_on_pages": [
+        142
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_79.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          165
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 79 defines the FILE_FORMAT field values that indicate the file format on the device, including hard disk-like, DOS FAT, Universal File Format, and reserved configurations."
+    },
+    {
+      "id": "TABLE_80",
+      "spec_reference": "Table 80",
+      "title": "ECC type",
+      "spec_page": 143,
+      "definition_page": 165,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_80.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          165
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 80 defines the ECC (Error Correction Code) types used for storing data on the device, specifying the ECC code values, their corresponding types (None, BCH, or reserved), and the maximum number of correctable bits per block."
+    },
+    {
+      "id": "TABLE_81",
+      "spec_reference": "Table 81",
+      "title": "CSD field command classes",
+      "spec_page": 144,
+      "definition_page": 166,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_81.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          166,
+          167
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table maps CSD (Card Specific Data) register fields to their supported command classes (0-10) in eMMC devices, where a \"+\" indicates the field is applicable to that command class."
+    },
+    {
+      "id": "TABLE_82",
+      "spec_reference": "Table 82",
+      "title": "Extended CSD",
+      "spec_page": 146,
+      "definition_page": 168,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_82.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          167,
+          168,
+          169,
+          170,
+          171
+        ],
+        "multi_page": true,
+        "hint_applied": "ext_csd_table"
+      },
+      "abstract": "This page contains the introductory text and legend for the Extended CSD register section (7.4), explaining the cell type definitions (R, W, R/W, W/E, R/W/C_P, R/W/E, W/E_P) but does not contain the actual Extended CSD table data with register fields."
+    },
+    {
+      "id": "TABLE_83",
+      "spec_reference": "Table 83",
+      "title": "EXT_SECURITY_ERR byte description",
+      "spec_page": 150,
+      "definition_page": 172,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_83.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          170,
+          171,
+          172
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_84",
+      "spec_reference": "Table 84",
+      "title": "Device-supported command sets",
+      "spec_page": 150,
+      "definition_page": 172,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_84.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          170,
+          171,
+          172
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the Extended CSD register fields for eMMC device configuration, including partition settings, boot configuration, write protection, and various device management parameters with their corresponding field names, sizes, access types, and CSD-slice locations."
+    },
+    {
+      "id": "TABLE_85",
+      "spec_reference": "Table 85",
+      "title": "HPI features",
+      "spec_page": 150,
+      "definition_page": 172,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_85.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          170,
+          171,
+          172
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table lists HPI (Host Performance Improvement) features for eMMC devices, including partition configuration, boot protection, write reliability settings, background operations control, and partitioning parameters with their corresponding field names, sizes, cell types, and CSD-slice locations."
+    },
+    {
+      "id": "TABLE_86",
+      "spec_reference": "Table 86",
+      "title": "Background operations support",
+      "spec_page": 151,
+      "definition_page": 173,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_86.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          173
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 86 defines the bit field structure for the BKOPS_SUPPORT register, where bits 7-1 are reserved and bit 0 indicates whether background operations are supported by the device."
+    },
+    {
+      "id": "TABLE_87",
+      "spec_reference": "Table 87",
+      "title": "Context Management Context Capabilities",
+      "spec_page": 152,
+      "definition_page": 174,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_87.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          174
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 87 defines the bit allocation for context management capabilities, with Bit 7 reserved, Bits 6-3 for LARGE_UNIT_MAX_MULTIPLIER_M1, and Bits 2-0 for MAX_CONTEXT_ID."
+    },
+    {
+      "id": "TABLE_88",
+      "spec_reference": "Table 88",
+      "title": "Extended CSD Register Support",
+      "spec_page": 152,
+      "definition_page": 174,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_88.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          174
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 88 defines the Extended CSD Register Support field at byte [494], indicating which extended partition attribute types (system code and non-persistent) are supported by the eMMC device."
+    },
+    {
+      "id": "TABLE_89",
+      "spec_reference": "Table 89",
+      "title": "Generic Switch Timeout Definition",
+      "spec_page": 153,
+      "definition_page": 175,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_89.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          175
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 89 defines the generic switch timeout values for CMD6 commands, where the timeout is calculated as 10ms multiplied by the hexadecimal value (0x01-0xFF), ranging from 10ms to 2550ms."
+    },
+    {
+      "id": "TABLE_90",
+      "spec_reference": "Table 90",
+      "title": "Power off long switch timeout definition",
+      "spec_page": 153,
+      "definition_page": 175,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_90.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          175
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 90 defines the power off long switch timeout values ranging from 0x00 (not defined) to 0xFF (2550 ms), with each increment representing 10 milliseconds multiplied by the hexadecimal value."
+    },
+    {
+      "id": "TABLE_91",
+      "spec_reference": "Table 91",
+      "title": "Background operations status",
+      "spec_page": 154,
+      "definition_page": 176,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_91.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          176
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 91 defines the bit field layout for the BKOPS_STATUS register, where bits 7-2 are reserved and bits 1-0 indicate the OUTSTANDING status level for background operations urgency."
+    },
+    {
+      "id": "TABLE_92",
+      "spec_reference": "Table 92",
+      "title": "Correctly programmed sectors number",
+      "spec_page": 154,
+      "definition_page": 176,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_92.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          176
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 92 maps EXT_CSD register byte positions [242-245] to the four components (NUM_0 through NUM_3) that comprise the CORRECTLY_PRG_SECTORS_NUM field indicating successfully programmed sectors from the last WRITE_MULTIPLE_BLOCK command."
+    },
+    {
+      "id": "TABLE_93",
+      "spec_reference": "Table 93",
+      "title": "Initialization Time out value",
+      "spec_page": 154,
+      "definition_page": 176,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_93.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          176
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 93 defines the initialization timeout values for eMMC devices, where the timeout ranges from undefined (0x00) to a maximum of 25500 ms (0xFF) calculated as multiples of 100ms."
+    },
+    {
+      "id": "TABLE_94",
+      "spec_reference": "Table 94",
+      "title": "TRIM/DISCARD Time out value",
+      "spec_page": 155,
+      "definition_page": 177,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_94.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          177
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the TRIM/DISCARD timeout values where the timeout is calculated by multiplying 300ms by the register value (TRIM_MULT), ranging from undefined at 0x00 to 76500ms at 0xFF."
+    },
+    {
+      "id": "TABLE_95",
+      "spec_reference": "Table 95",
+      "title": "SEC Feature Support",
+      "spec_page": 155,
+      "definition_page": 177,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_95.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          177
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 95 defines the SEC Feature Support register bit fields that indicate which secure data management features are supported on the device, including sanitize operations, secure/insecure trim, and automatic erase operations on retired defective portions."
+    },
+    {
+      "id": "TABLE_96",
+      "spec_reference": "Table 96",
+      "title": "Secure Erase time-out value",
+      "spec_page": 156,
+      "definition_page": 178,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_96.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          178
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 96 defines the Secure Erase time-out values where 0x00 is undefined and values 0x01 through 0xFF represent timeout calculations based on 300ms multiplied by ERASE_TIMEOUT_MULT and the corresponding multiplier (1-255)."
+    },
+    {
+      "id": "TABLE_97",
+      "spec_reference": "Table 97",
+      "title": "Secure Erase time-out value",
+      "spec_page": 156,
+      "definition_page": 178,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_97.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          178
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 97 defines the Secure Erase time-out values where 0x00 is undefined and values 0x01 through 0xFF represent timeout calculations based on 300ms multiplied by ERASE_TIMEOUT_MULT and the corresponding multiplier (1-255)."
+    },
+    {
+      "id": "TABLE_98",
+      "spec_reference": "Table 98",
+      "title": "Boot information",
+      "spec_page": 156,
+      "definition_page": 178,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_98.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          178
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 98 defines the BOOT_INFO register bit fields indicating device support for high speed timing, dual data rate, and alternative boot modes during boot operations."
+    },
+    {
+      "id": "TABLE_99",
+      "spec_reference": "Table 99",
+      "title": "Boot partition size",
+      "spec_page": 157,
+      "definition_page": 179,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_99.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          179
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the BOOT_SIZE_MULT register values and their corresponding boot partition sizes, calculated as multiples of 128Kbytes, ranging from no boot partition (0x00) to a maximum of 32640Kbytes (0xFF)."
+    },
+    {
+      "id": "TABLE_100",
+      "spec_reference": "Table 100",
+      "title": "Access size",
+      "spec_page": 157,
+      "definition_page": 179,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_100.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          179
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 100 defines the ACC_SIZE register bit layout, showing bits 7-4 as reserved and bits 3-0 designated for SUPER_PAGE_SIZE configuration."
+    },
+    {
+      "id": "TABLE_101",
+      "spec_reference": "Table 101",
+      "title": "Superpage size",
+      "spec_page": 157,
+      "definition_page": 179,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_101.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          179
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 101 defines the superpage size values for the SUPER_PAGE_SIZE register field, mapping hexadecimal values 0x0 through 0xF to corresponding memory page sizes ranging from 512 bytes to 64K bytes, with some values reserved."
+    },
+    {
+      "id": "TABLE_102",
+      "spec_reference": "Table 102",
+      "title": "Erase-unit size",
+      "spec_page": 158,
+      "definition_page": 180,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_102.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          180
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 102 defines the erase-unit size values for high-capacity memory, where the HC_ERASE_GRP_SIZE register value (0x00-0xFF) determines the erase unit size calculated as 512Kbyte multiplied by the register value."
+    },
+    {
+      "id": "TABLE_103",
+      "spec_reference": "Table 103",
+      "title": "Erase timeout values",
+      "spec_page": 158,
+      "definition_page": 180,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_103.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          180
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 103 defines the ERASE_TIMEOUT_MULT register values and their corresponding timeout durations for high-capacity erase operations, ranging from no support (0x00) to 76,500ms (0xFF) in 300ms increments."
+    },
+    {
+      "id": "TABLE_104",
+      "spec_reference": "Table 104",
+      "title": "Reliable write sector count",
+      "spec_page": 158,
+      "definition_page": 180,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_104.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          180
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 104 defines the Reliable Write Sector Count register (REL_WR_SEC_C) as a 1-byte read-only field that shall be set to 1 with no impact on reliable write operation."
+    },
+    {
+      "id": "TABLE_105",
+      "spec_reference": "Table 105",
+      "title": "Write protect group size",
+      "spec_page": 159,
+      "definition_page": 181,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_105.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          181
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 105 defines the HC_WP_GRP_SIZE register values (0x00-0xFF) that specify the write protect group size for high-capacity memory, ranging from no support to 255 high-capacity erase unit sizes."
+    },
+    {
+      "id": "TABLE_106",
+      "spec_reference": "Table 106",
+      "title": "S_C_VCC, S_C_VCCQ Sleep Current",
+      "spec_page": 159,
+      "definition_page": 181,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_106.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          181
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 106 defines the S_C_VCC and S_C_VCCQ register values for specifying maximum VCC current consumption during Sleep state, with values calculated using the formula 1µA × 2^X where X is the register value."
+    },
+    {
+      "id": "TABLE_107",
+      "spec_reference": "Table 107",
+      "title": "Sleep/awake timeout values",
+      "spec_page": 159,
+      "definition_page": 181,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_107.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          181
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 107 defines the sleep/awake timeout values for the S_A_TIMEOUT register, mapping hexadecimal values (0x00 to 0x17) to calculated timeout durations based on the formula 100ns × 2^n, with values 0x18–0xFF reserved."
+    },
+    {
+      "id": "TABLE_108",
+      "spec_reference": "Table 108",
+      "title": "R/W access performance values",
+      "spec_page": 160,
+      "definition_page": 182,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_108.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          182
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 108 defines the R/W access performance values for eMMC devices, mapping hexadecimal register values to performance classes ranging from Class A through Class T for both Single Data Rate mode (2.4MB/s to 48.0MB/s) and Dual Data Rate mode (4.8MB/s to 96.0MB/s)."
+    },
+    {
+      "id": "TABLE_109",
+      "spec_reference": "Table 109",
+      "title": "Power classes",
+      "spec_page": 161,
+      "definition_page": 183,
+      "referenced_on_pages": [
+        164
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_109.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          183
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 109 defines power classes for eMMC devices, specifying maximum RMS and peak current consumption values (0-15) for both 3.6V high voltage and 1.95V dual voltage device configurations."
+    },
+    {
+      "id": "TABLE_110",
+      "spec_reference": "Table 110",
+      "title": "Partition switch timeout definition",
+      "spec_page": 162,
+      "definition_page": 184,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_110.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          184
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 110 defines the partition switch timeout values for the SWITCH command (CMD6), where hexadecimal values from 0x00 to 0xFF correspond to timeout periods ranging from undefined to 2550ms in 10-millisecond increments."
+    },
+    {
+      "id": "TABLE_111",
+      "spec_reference": "Table 111",
+      "title": "Out-of-interrupt timeout definition",
+      "spec_page": 162,
+      "definition_page": 184,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_111.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          184
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 111 defines the out-of-interrupt timeout values for closing a command interrupted by HPI, with values ranging from 0x00 (not defined) to 0xFF (2550ms) in units of 10-milliseconds."
+    },
+    {
+      "id": "TABLE_112",
+      "spec_reference": "Table 112",
+      "title": "Supported Driver Strengths",
+      "spec_page": 163,
+      "definition_page": 185,
+      "referenced_on_pages": [
+        180,
+        185
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_112.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          185
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 112 defines the bit mapping for the DRIVER_STRENGTH register field, showing that bits 7-4 are reserved while bits 3-0 indicate support for driver strength Types 0-3."
+    },
+    {
+      "id": "TABLE_113",
+      "spec_reference": "Table 113",
+      "title": "Device types",
+      "spec_page": 163,
+      "definition_page": 185,
+      "referenced_on_pages": [
+        78,
+        185
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_113.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          185
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 113 defines the DEVICE_TYPE field bit assignments that specify various e•MMC device operating modes including different speed grades (HS200, High-Speed Dual Data Rate, High-Speed) and voltage levels (1.2V, 1.8V, 3V)."
+    },
+    {
+      "id": "TABLE_114",
+      "spec_reference": "Table 114",
+      "title": "CSD register structure",
+      "spec_page": 163,
+      "definition_page": 185,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_114.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          185
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 114 defines the CSD register structure field values mapping CSD_STRUCTURE codes (0-255) to their corresponding CSD version numbers and valid system specification versions."
+    },
+    {
+      "id": "TABLE_115",
+      "spec_reference": "Table 115",
+      "title": "Extended CSD revisions",
+      "spec_page": 164,
+      "definition_page": 186,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_115.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          186
+        ],
+        "multi_page": false,
+        "hint_applied": "ext_csd_table"
+      },
+      "abstract": "Table 115 defines the Extended CSD revision codes (EXT_CSD_REV field) that indicate which version of the MMC specification (v4.0 through v4.51) the device's Extended CSD register conforms to."
+    },
+    {
+      "id": "TABLE_116",
+      "spec_reference": "Table 116",
+      "title": "Standard MMC command set revisions",
+      "spec_page": 164,
+      "definition_page": 186,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_116.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          186
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 116 defines the Standard MMC command set revisions, mapping code values to MMC revision levels where code 0 corresponds to v4.0 and codes 255-1 are reserved."
+    },
+    {
+      "id": "TABLE_117",
+      "spec_reference": "Table 117",
+      "title": "Power class codes",
+      "spec_page": 164,
+      "definition_page": 186,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_117.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          186
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 117 defines the power class codes bit field structure, with bits [7:4] reserved and bits [3:0] containing the device power class code reference."
+    },
+    {
+      "id": "TABLE_118",
+      "spec_reference": "Table 118",
+      "title": "HS_TIMING (timing and driver strength)",
+      "spec_page": 165,
+      "definition_page": 187,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_118.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          187
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 118 defines the bit allocation for the HS_TIMING register byte, where bits 7-4 represent Selected Driver Strength and bits 3-0 represent the Timing Interface setting."
+    },
+    {
+      "id": "TABLE_119",
+      "spec_reference": "Table 119",
+      "title": "HS_TIMING values",
+      "spec_page": 165,
+      "definition_page": 187,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_119.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          187
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 119 defines the HS_TIMING field values (0x0, 0x1, 0x2) that select between backwards compatibility, High Speed, and HS200 timing interfaces for the device."
+    },
+    {
+      "id": "TABLE_120",
+      "spec_reference": "Table 120",
+      "title": "Bus mode values",
+      "spec_page": 165,
+      "definition_page": 187,
+      "referenced_on_pages": [
+        78
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_120.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          187
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 120 defines the BUS_WIDTH register values (0-255) that specify the data bus width configuration, including 1-bit, 4-bit, and 8-bit modes with optional dual data rate support."
+    },
+    {
+      "id": "TABLE_121",
+      "spec_reference": "Table 121",
+      "title": "Erased memory content values",
+      "spec_page": 166,
+      "definition_page": 188,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_121.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          188
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 121 defines the ERASED_MEM_CONT register values that specify whether explicitly erased memory ranges contain all 1s, all 0s, or are reserved values."
+    },
+    {
+      "id": "TABLE_122",
+      "spec_reference": "Table 122",
+      "title": "Boot configuration bytes",
+      "spec_page": 166,
+      "definition_page": 188,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_122.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          188
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 122 defines the boot configuration byte register layout for PARTITION_CONFIG, showing bit assignments for BOOT_ACK (bit 6), BOOT_PARTITION_ENABLE (bits 5:3), and PARTITION_ACCESS (bits 2:0) fields."
+    },
+    {
+      "id": "TABLE_123",
+      "spec_reference": "Table 123",
+      "title": "Boot config protection",
+      "spec_page": 167,
+      "definition_page": 189,
+      "referenced_on_pages": [
+        78
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_123.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          189
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 123 defines the boot configuration protection register (BOOT_CONFIG_PROT[178]) bit assignments, showing reserved bits and two protection fields: PERM_BOOT_CONFIG_PROT (permanent) and PWR_BOOT_CONFIG_PROT (power cycle clearable)."
+    },
+    {
+      "id": "TABLE_124",
+      "spec_reference": "Table 124",
+      "title": "Boot bus configuration",
+      "spec_page": 167,
+      "definition_page": 189,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_124.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          189
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 124 defines the boot bus configuration register [177] bit fields including reserved bits, BOOT_MODE, RESET_BOOT_BUS_CONDITIONS, and BOOT_BUS_WIDTH for controlling bus width during boot operation."
+    },
+    {
+      "id": "TABLE_125",
+      "spec_reference": "Table 125",
+      "title": "Bus Width and Timing Mode Transition",
+      "spec_page": 168,
+      "definition_page": 190,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_125.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          190
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines how the BUS_WIDTH and HS_TIMING register values are set based on the RESET_BOOT_BUS_CONDITIONS bit setting and various system events such as power cycles, hardware resets, and CMD0 commands."
+    },
+    {
+      "id": "TABLE_126",
+      "spec_reference": "Table 126",
+      "title": "ERASE_GROUP_DEF",
+      "spec_page": 169,
+      "definition_page": 191,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_126.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          191,
+          192
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 126 defines the ERASE_GROUP_DEF register structure where bits 7:1 are reserved and bit 0 (ENABLE) controls whether to use old or high-capacity erase group size and write protect group size definitions."
+    },
+    {
+      "id": "TABLE_127",
+      "spec_reference": "Table 127",
+      "title": "BOOT area Partitions write protection",
+      "spec_page": 169,
+      "definition_page": 191,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_127.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          191,
+          192
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the bit fields for the BOOT_WP register (byte 173) that controls boot area partition write protection settings including permanent and power-on write protection enable/disable options."
+    },
+    {
+      "id": "TABLE_128",
+      "spec_reference": "Table 128",
+      "title": "User area write protection",
+      "spec_page": 171,
+      "definition_page": 193,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_128.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          192,
+          193
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the bit fields for the User area write protection register, specifying boot partition write protection controls including permanent and power-on period protection options with sector selection capabilities."
+    },
+    {
+      "id": "TABLE_129",
+      "spec_reference": "Table 129",
+      "title": "FW Update Disable",
+      "spec_page": 172,
+      "definition_page": 194,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_129.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          194
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 129 defines the FW Update Disable register (FW_CONFIG [169]) bit layout, where Bit 0 controls whether firmware updates are enabled (0x0) or permanently disabled (0x1), and Bits 7:1 are reserved."
+    },
+    {
+      "id": "TABLE_130",
+      "spec_reference": "Table 130",
+      "title": "RPMB Partition Size",
+      "spec_page": 172,
+      "definition_page": 194,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_130.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          194
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 130 defines the RPMB partition size values where the size is calculated as 128kB multiplied by the RPMB_SIZE_MULT register value, with a maximum supported size of 16 MB."
+    },
+    {
+      "id": "TABLE_131",
+      "spec_reference": "Table 131",
+      "title": "Write reliability setting",
+      "spec_page": 173,
+      "definition_page": 195,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_131.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          195
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the write reliability setting register (WR_REL_SET) bit fields for configuring data protection during power failure for the user area and four general purpose partitions in an eMMC device."
+    },
+    {
+      "id": "TABLE_132",
+      "spec_reference": "Table 132",
+      "title": "Write reliability parameter register",
+      "spec_page": 174,
+      "definition_page": 196,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_132.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          196
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 132 defines the write reliability parameter register fields for eMMC 4.51 devices, including bits for host controlled data reliability (HS_CTRL_REL) and enhanced reliable write (EN_REL_WR) support."
+    },
+    {
+      "id": "TABLE_133",
+      "spec_reference": "Table 133",
+      "title": "Background operations enable",
+      "spec_page": 174,
+      "definition_page": 196,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_133.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          196
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 133 defines the bit layout for the Background operations enable register (BKOPS_EN), where bits 7:1 are reserved and bit 0 (ENABLE) indicates whether the host will periodically write to BKOPS_START to manually start background operations."
+    },
+    {
+      "id": "TABLE_134",
+      "spec_reference": "Table 134",
+      "title": "H/W reset function",
+      "spec_page": 175,
+      "definition_page": 197,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_134.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          197
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 134 defines the H/W reset function register bit layout, where bits 7:2 are reserved and bits 1:0 contain the RST_n_ENABLE field for controlling the hardware reset signal enable state."
+    },
+    {
+      "id": "TABLE_135",
+      "spec_reference": "Table 135",
+      "title": "HPI management",
+      "spec_page": 175,
+      "definition_page": 197,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_135.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          197
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 135 defines the HPI management register bit layout, where bits 7:1 are reserved and bit 0 (HPI_EN) controls activation of the HPI (High Priority Interrupt) mechanism by the host."
+    },
+    {
+      "id": "TABLE_136",
+      "spec_reference": "Table 136",
+      "title": "Partitioning Support",
+      "spec_page": 176,
+      "definition_page": 198,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_136.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          198
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 136 defines the bit fields of the PARTITIONING_SUPPORT register [160], which indicates device support for extended partitions attribute, enhanced technological features, and partitioning features in eMMC 4.51 devices."
+    },
+    {
+      "id": "TABLE_137",
+      "spec_reference": "Table 137",
+      "title": "Max. Enhanced Area Size",
+      "spec_page": 176,
+      "definition_page": 198,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_137.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          198
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 137 defines the bit layout for the MAX_ENH_SIZE_MULT register (bytes 159:157), which specifies the maximum amount of memory area that can have the enhanced attribute, with each row representing one of the three bytes spanning all 8 bits."
+    },
+    {
+      "id": "TABLE_138",
+      "spec_reference": "Table 138",
+      "title": "Partitions Attribute",
+      "spec_page": 177,
+      "definition_page": 199,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_138.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          199
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 138 defines the Partitions Attribute register bits (byte 156) that control enhanced attribute settings for general purpose partitions 1-4 and the user data area."
+    },
+    {
+      "id": "TABLE_139",
+      "spec_reference": "Table 139",
+      "title": "Partition Setting",
+      "spec_page": 177,
+      "definition_page": 199,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_139.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          199
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 139 defines the Partition Setting register bit layout where bits 7-1 are reserved and bit 0 indicates the PARTITION_SETTING_COMPLETED status flag."
+    },
+    {
+      "id": "TABLE_140",
+      "spec_reference": "Table 140",
+      "title": "General Purpose Partition Size",
+      "spec_page": 178,
+      "definition_page": 200,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_140.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          200
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 140 defines the bit layout for the General Purpose Partition Size register, showing three 8-bit fields (GP_SIZE_MULT_X_2, GP_SIZE_MULT_X_1, and GP_SIZE_MULT_X_0) that together specify the size multiplier for general purpose partitions in eMMC devices."
+    },
+    {
+      "id": "TABLE_141",
+      "spec_reference": "Table 141",
+      "title": "Enhanced User Data Area Size",
+      "spec_page": 179,
+      "definition_page": 201,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_141.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          201
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 141 defines the bit layout for the Enhanced User Data Area Size register (ENH_SIZE_MULT) spanning bytes 142:140, which contains three multiplier values used to calculate the enhanced user data area size for High Capacity Write Protect Groups."
+    },
+    {
+      "id": "TABLE_142",
+      "spec_reference": "Table 142",
+      "title": "Enhanced User Data Start Address",
+      "spec_page": 179,
+      "definition_page": 201,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_142.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          201
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 142 defines the bit layout for the Enhanced User Data Start Address register (ENH_START_ADDR), which consists of four bytes (ENH_START_ADDR_0 through ENH_START_ADDR_3) specifying the starting address of the Enhanced User Data Area segment."
+    },
+    {
+      "id": "TABLE_143",
+      "spec_reference": "Table 143",
+      "title": "Secure Bad Block management",
+      "spec_page": 179,
+      "definition_page": 201,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_143.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          201
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 143 defines the Secure Bad Block management register bit layout, where bits 7:1 are reserved and bit 0 (SEC_BAD_BLK) controls whether data must be erased from defective memory array regions before retirement."
+    },
+    {
+      "id": "TABLE_144",
+      "spec_reference": "Table 144",
+      "title": "Initialization Time out value",
+      "spec_page": 181,
+      "definition_page": 203,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_144.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          203
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 144 defines the initialization timeout values for 512B emulation mode, where the timeout is calculated as 100ms multiplied by the register value (0x01 to 0xFF), ranging from 100ms to 25500ms."
+    },
+    {
+      "id": "TABLE_145",
+      "spec_reference": "Table 145",
+      "title": "Class 6 usage",
+      "spec_page": 182,
+      "definition_page": 204,
+      "referenced_on_pages": [
+        91
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_145.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          204
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 145 defines the Class 6 command set usage values, where 0x00 enables Write Protect mode (default), 0x01 enables Dynamic Capacity functionality, and values 0x02-0xFF are reserved."
+    },
+    {
+      "id": "TABLE_146",
+      "spec_reference": "Table 146",
+      "title": "EXCEPTION_EVENTS_CTRL[56]",
+      "spec_page": 182,
+      "definition_page": 204,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_146.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          204
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 146 defines the bit assignments for EXCEPTION_EVENTS_CTRL[56] register, which controls enabling of various exception event bits including extended security, packed event, syspool event, and dynamic capacity event notifications."
+    },
+    {
+      "id": "TABLE_147",
+      "spec_reference": "Table 147",
+      "title": "EXCEPTION_EVENTS_CTRL[57]",
+      "spec_page": 182,
+      "definition_page": 204,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_147.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          204
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 147 defines the EXCEPTION_EVENTS_CTRL[57] register bits 15-8, all of which are reserved."
+    },
+    {
+      "id": "TABLE_148",
+      "spec_reference": "Table 148",
+      "title": "EXCEPTION_EVENTS_STATUS[54]",
+      "spec_page": 182,
+      "definition_page": 204,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_148.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          204
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 148 defines the bit assignments for EXCEPTION_EVENTS_STATUS[54], which reports the status of specific exception events including urgent background operations, dynamic capacity needs, system pool exhaustion, packed failure, and extended security failure."
+    },
+    {
+      "id": "TABLE_149",
+      "spec_reference": "Table 149",
+      "title": "EXCEPTION_EVENT_STATUS[55]",
+      "spec_page": 183,
+      "definition_page": 205,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_149.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          205
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 149 defines the bit layout for EXCEPTION_EVENT_STATUS register byte 55 (bits 15-8), with all bits marked as Reserved."
+    },
+    {
+      "id": "TABLE_150",
+      "spec_reference": "Table 150",
+      "title": "First Byte EXT_PARTITIONS_ATTRIBUTE[52]",
+      "spec_page": 183,
+      "definition_page": 205,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_150.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          205
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 150 defines the first byte of EXT_PARTITIONS_ATTRIBUTE[52], showing the bit allocation for extended attributes EXT_2 (bits 7-4) and EXT_1 (bits 3-0) for general purpose partitions."
+    },
+    {
+      "id": "TABLE_151",
+      "spec_reference": "Table 151",
+      "title": "Second Byte EXT_PARTITIONS_ATTRIBUTE[53]",
+      "spec_page": 183,
+      "definition_page": 205,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_151.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          205
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 151 defines the second byte of EXT_PARTITIONS_ATTRIBUTE[53], showing bit assignments for extended attributes of general purpose partitions 3 and 4 (EXT_3 and EXT_4)."
+    },
+    {
+      "id": "TABLE_152",
+      "spec_reference": "Table 152",
+      "title": "CONTEXT_CONF configuration format",
+      "spec_page": 184,
+      "definition_page": 206,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_152.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          206
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 152 defines the 8-bit CONTEXT_CONF configuration format register, which controls reliability mode, large unit multiplier, large unit context settings, and configuration direction/activation for context operations."
+    },
+    {
+      "id": "TABLE_153",
+      "spec_reference": "Table 153",
+      "title": "Packed Command Status Register",
+      "spec_page": 184,
+      "definition_page": 206,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_153.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          206
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Packed Command Status Register reports the status of the last packed command, indicating whether an error occurred and if the error was indexed to a specific command within the packed sequence."
+    },
+    {
+      "id": "TABLE_154",
+      "spec_reference": "Table 154",
+      "title": "Valid POWER_OFF_NOTIFICATION values",
+      "spec_page": 185,
+      "definition_page": 207,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_154.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          207
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the valid values for the POWER_OFF_NOTIFICATION field, which allows the host to notify the device before power-off with different timing requirements ranging from no notification to short or long response windows."
+    },
+    {
+      "id": "TABLE_155",
+      "spec_reference": "Table 155",
+      "title": "Error correction codes",
+      "spec_page": 186,
+      "definition_page": 208,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_155.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          208
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the parameters and values for the shortened BCH (542,512) error correction code used in e•MMC devices, including payload length, redundancy, correctable errors, and codec complexity for both hardware and software implementations."
+    },
+    {
+      "id": "TABLE_156",
+      "spec_reference": "Table 156",
+      "title": "DSR register content",
+      "spec_page": 194,
+      "definition_page": 216,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_156.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          215,
+          216
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The requested table \"DSR register content\" (Table 156) is not present on this page, which contains only text about eMMC boot initiation and power cycling procedures."
+    },
+    {
+      "id": "TABLE_157",
+      "spec_reference": "Table 157",
+      "title": "General operating conditions",
+      "spec_page": 196,
+      "definition_page": 218,
+      "referenced_on_pages": [
+        42
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_157.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          218
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 157 specifies general operating conditions for e•MMC bus interfaces, including peak voltage limits and input/output leakage current specifications before and after initialization sequences."
+    },
+    {
+      "id": "TABLE_158",
+      "spec_reference": "Table 158",
+      "title": "e•MMC power supply voltage",
+      "spec_page": 198,
+      "definition_page": 220,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_158.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          220
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the power supply voltage ranges and power-up timing parameters for e•MMC devices, including NAND supply (Vcc), I/O supply (VccQ), and cache supply voltages (D-VDD, D-VDDQ)."
+    },
+    {
+      "id": "TABLE_159",
+      "spec_reference": "Table 159",
+      "title": "e•MMC voltage combinations",
+      "spec_page": 198,
+      "definition_page": 220,
+      "referenced_on_pages": [
+        5
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_159.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          220
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 159 defines the valid voltage combinations between Vcc and VCCQ supply rails for e•MMC devices, indicating which pairings are valid or not valid, with a note that the 3.3V VCCQ range is not supported in HS200 devices."
+    },
+    {
+      "id": "TABLE_160",
+      "spec_reference": "Table 160",
+      "title": "Capacitance",
+      "spec_page": 199,
+      "definition_page": 221,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_160.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          221
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 160 specifies capacitance parameters for e•MMC bus signal lines, including pull-up resistances, bus capacitance limits, and decoupling capacitor requirements for voltage regulators."
+    },
+    {
+      "id": "TABLE_161",
+      "spec_reference": "Table 161",
+      "title": "Open-drain bus signal level",
+      "spec_page": 200,
+      "definition_page": 222,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_161.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          222
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 161 specifies the open-drain mode bus signal levels for output HIGH voltage (minimum VDD - 0.2V) and output LOW voltage (maximum 0.3V at 2mA load current)."
+    },
+    {
+      "id": "TABLE_162",
+      "spec_reference": "Table 162",
+      "title": "Push-pull signal level—high-voltage e•MMC",
+      "spec_page": 200,
+      "definition_page": 222,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_162.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          222
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 162 specifies the push-pull signal level voltage thresholds for high-voltage e•MMC devices operating in the 2.7V-3.6V VCCQ range compatible with JESD8C.01."
+    },
+    {
+      "id": "TABLE_163",
+      "spec_reference": "Table 163",
+      "title": "Push-pull signal level—1.70 -1.95 VCCQ voltage Range",
+      "spec_page": 201,
+      "definition_page": 223,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_163.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          223
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 163 defines the push-pull signal voltage levels for input and output HIGH/LOW parameters in the 1.70V to 1.95V VCCQ voltage range for eMMC devices."
+    },
+    {
+      "id": "TABLE_164",
+      "spec_reference": "Table 164",
+      "title": "Push-pull signal level—1.1V-1.3V VCCQ range e•MMC",
+      "spec_page": 201,
+      "definition_page": 223,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_164.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          223
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 164 defines the push-pull signal voltage levels for e•MMC devices operating in the 1.1V-1.3V VCCQ range, specifying minimum and maximum values for output HIGH/LOW and input HIGH/LOW voltages."
+    },
+    {
+      "id": "TABLE_165",
+      "spec_reference": "Table 165",
+      "title": "I/O driver strength types",
+      "spec_page": 202,
+      "definition_page": 224,
+      "referenced_on_pages": [
+        163,
+        201
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_165.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          224
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines four I/O driver strength types (0x0 through 0x3) for HS200 devices, specifying their nominal impedance values ranging from 33Ω to 100Ω and their relative driving capabilities compared to the default Type-0 driver."
+    },
+    {
+      "id": "TABLE_166",
+      "spec_reference": "Table 166",
+      "title": "Driver Type-0  AC Characteristics",
+      "spec_page": 202,
+      "definition_page": 224,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_166.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          224
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 166 specifies the AC characteristics for Driver Type-0 in HS200 devices, including rise/fall time parameters ranging from 0.40 to 1.32 ns and the ratio of fall time to rise time ranging from 0.7 to 1.4."
+    },
+    {
+      "id": "TABLE_167",
+      "spec_reference": "Table 167",
+      "title": "High-speed Device interface timing",
+      "spec_page": 204,
+      "definition_page": 226,
+      "referenced_on_pages": [
+        227
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_167.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          226
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the high-speed device interface timing parameters for e•MMC devices operating at up to 52 MHz clock frequency, including clock characteristics, input setup/hold times, and output delay/rise/fall times with associated load capacitance conditions."
+    },
+    {
+      "id": "TABLE_168",
+      "spec_reference": "Table 168",
+      "title": "Backward-compatible Device interface timing",
+      "spec_page": 205,
+      "definition_page": 227,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_168.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          227
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the backward-compatible device interface timing parameters for clock and data signals in eMMC devices, including clock frequency limits, setup/hold times, and rise/fall times with associated load capacitance conditions."
+    },
+    {
+      "id": "TABLE_169",
+      "spec_reference": "Table 169",
+      "title": "High-speed dual rate interface timing",
+      "spec_page": 207,
+      "definition_page": 229,
+      "referenced_on_pages": [
+        26
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_169.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          229
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the high-speed dual data rate interface timing parameters for input CLK, CMD, and DAT signals in both SDR and DDR modes, including setup times, hold times, rise/fall times, and output delays with associated load capacitance conditions."
+    },
+    {
+      "id": "TABLE_170",
+      "spec_reference": "Table 170",
+      "title": "HS200 Clock signal timing",
+      "spec_page": 208,
+      "definition_page": 230,
+      "referenced_on_pages": [
+        207
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_170.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          230
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the HS200 clock signal timing parameters including period, rise/fall times, and duty cycle requirements for 200MHz maximum operation."
+    },
+    {
+      "id": "TABLE_171",
+      "spec_reference": "Table 171",
+      "title": "HS200 Device input timing",
+      "spec_page": 208,
+      "definition_page": 230,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_171.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          230
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 171 specifies the HS200 device input timing parameters including setup time (tISU) and hold time (tIH) with their minimum values in nanoseconds for BGA capacitance between 5pF and 12pF."
+    },
+    {
+      "id": "TABLE_172",
+      "spec_reference": "Table 172",
+      "title": "Output timing",
+      "spec_page": 209,
+      "definition_page": 231,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_172.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          231,
+          232,
+          233
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the HS200 device output timing parameters including output phase delay, temperature-induced delay variation, and signal window specifications for CMD and DAT lines."
+    },
+    {
+      "id": "TABLE_173",
+      "spec_reference": "Table 173",
+      "title": "e•MMC host requirements for Device classes",
+      "spec_page": 212,
+      "definition_page": 234,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_173.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          232,
+          233,
+          234
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This page contains a Temperature Conditions table specifying operating (-25°C to +85°C) and storage (-40°C to +85°C) ambient temperature ranges, not the requested \"e•MMC host requirements for Device classes\" table."
+    },
+    {
+      "id": "TABLE_174",
+      "spec_reference": "Table 174",
+      "title": "New Features List for device type",
+      "spec_page": 213,
+      "definition_page": 235,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_174.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          235,
+          236,
+          237
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mandatory and optional features for e•MMC and e^MMC device types, covering functions such as boot, security, data rate timing, partitioning, and various operational capabilities."
+    },
+    {
+      "id": "TABLE_175",
+      "spec_reference": "Table 175",
+      "title": "Macro commands",
+      "spec_page": 216,
+      "definition_page": 238,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_175.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          236,
+          237,
+          238
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_176",
+      "spec_reference": "Table 176",
+      "title": "Forward-compatible host interface timing",
+      "spec_page": 227,
+      "definition_page": 249,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_176.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          249,
+          250,
+          251
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the forward-compatible host interface timing parameters for eMMC devices operating at clock frequencies up to 20MHz in data transfer mode, including clock timing, input setup/hold times, and output setup/hold times referenced to CLK."
+    },
+    {
+      "id": "TABLE_177",
+      "spec_reference": "Table 177",
+      "title": "XNOR values",
+      "spec_page": 231,
+      "definition_page": 253,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_177.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          253
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table shows the XNOR (exclusive NOR) logic gate truth table with inputs A and B and their corresponding output values."
+    },
+    {
+      "id": "TABLE_178",
+      "spec_reference": "Table 178",
+      "title": "Package Case Temp (Tc) per current consumption",
+      "spec_page": 236,
+      "definition_page": 258,
+      "referenced_on_pages": [
+        180,
+        235
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_178.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          258,
+          259,
+          260,
+          261,
+          262
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies the maximum allowable package case temperature (Tc) in degrees Celsius for DDR4 memory devices across different package types and voltage configurations, based on varying current consumption levels from 180mA to 750mA."
+    }
+  ]
+}

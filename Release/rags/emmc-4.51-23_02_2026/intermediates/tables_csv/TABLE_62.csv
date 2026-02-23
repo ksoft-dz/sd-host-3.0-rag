@@ -1,0 +1,4 @@
+Symbol,Comment,Min,Max,Unit
+tRSTW,RST_n pulse width,1,,[us]
+tRSCA,RST_n to Command time,200¹,,[us]
+tRSTH,RST_n high period (interval time),1,,[us]

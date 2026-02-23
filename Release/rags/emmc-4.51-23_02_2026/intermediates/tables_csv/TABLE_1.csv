@@ -1,0 +1,23 @@
+I don't see a table titled "e•MMC Voltage Modes" or "Table 1" in this image. The image shows page 3 of a JEDEC Standard document (No. 84-B451) which contains only "Terms and definitions (cont'd)" - a glossary section with definitions for terms like:
+
+- open-drain
+- payload
+- push-pull
+- RCA
+- Reset
+- ROM
+- RPMB
+- SAN
+- Secure Purge
+- stuff bit
+- TAAC
+- three-state driver
+- token
+- TRIM
+- Tuning Process
+- UI
+- UTC
+
+This page does not contain the voltage modes table you're looking for. That table is likely on a different page of the document.
+
+If you have access to other pages from this specification, the "e•MMC Voltage Modes" table would typically be found in an earlier section covering electrical specifications.

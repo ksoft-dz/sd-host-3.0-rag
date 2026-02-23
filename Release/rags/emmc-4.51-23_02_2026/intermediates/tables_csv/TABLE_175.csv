@@ -1,0 +1,16 @@
+I don't see a table titled "Macro commands" or "Table 175" in this image. 
+
+The image shows page 214 from JEDEC Standard No. 84-B451, which contains:
+
+- **Section A: Annex A Application Notes**
+- **Section A.1: Device Payload block length and ECC types handling**
+
+This section contains explanatory text about CSD register entries concerning payload block length, specifically discussing:
+- Block length type
+- External ECC
+
+The text explains how block length entry depends on Device memory field architecture and discusses the relationship between block length and external ECC type settings.
+
+There is no table present on this page - it appears to be purely explanatory text content.
+
+If you're looking for the "Macro commands" table (Table 175), it may be located on a different page of this document.

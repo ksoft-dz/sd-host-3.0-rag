@@ -1,0 +1,42 @@
+@startuml
+start
+
+:Power Up;
+
+:Write contents to boot area
+1 and/or 2;
+
+if (Do the contents in boot area 1 and/or 2\nneed to be permanently protected?) then (No)
+  :Disable Permanent Protection
+  By setting
+  B_PERM_WP_DIS (bit 4) to 1
+  and B_PERM_WP_EN (bit 2) to
+  0;
+  :Power Cycle Device;
+  stop
+else (Yes)
+  switch (Which Boot Area Requires\nPermanent Protection?)
+  case (Boot Area 1)
+    :Write the Value
+    0b10x001xx to
+    BOOT_WP, which will
+    permanently protect
+    Boot Area 1;
+  case (Boot Area 2)
+    :Write the Value
+    0b10x011xx to
+    BOOT_WP, which will
+    permanently protect
+    Boot Area 2;
+  case (Both Area 1\nand 2)
+    :Write the Value
+    0b00x0x1xx to
+    BOOT_WP, which will
+    permanently protect
+    Boot Area 1 and 2;
+  endswitch
+  :Power Cycle Device;
+  stop
+endif
+
+@enduml

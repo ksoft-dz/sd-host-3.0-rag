@@ -1,0 +1,3 @@
+Parameter,Symbol,Min,Max.,Unit,Conditions
+Output HIGH voltage,VOH,VDD - 0.2,,V,Note 1)
+Output LOW voltage,VOL,,0.3,V,IOL = 2 mA

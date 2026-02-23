@@ -1,0 +1,4 @@
+Bit position,47,46,[45:40],16,1,7,8,[7:1],0
+Width (bits),1,1,6,16,1,7,8,7,1
+Value,"0","0","100111",x,x,x,x,x,"1"
+Description,Start bit,Transmission bit,CMD39,RCA [31:16],Status [15],Register address [14:8],Read register contents [7:0],CRC7,End bit

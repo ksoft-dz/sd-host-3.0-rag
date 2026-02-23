@@ -1,0 +1,67 @@
+@startuml
+scale 1 as 150 pixels
+
+concise "CMD" as CMD
+concise "DAT0-7" as DAT
+
+@0
+CMD is "S"
+@1
+CMD is "T"
+@2
+CMD is "Content"
+@6
+CMD is "CRC"
+@8
+CMD is "E"
+@9
+CMD is "Z"
+@10
+CMD is "Z"
+@11
+CMD is "P"
+@12
+CMD is "***"
+@15
+CMD is "P"
+@16
+CMD is "S"
+@17
+CMD is "T"
+@18
+CMD is "Content"
+@22
+CMD is "CRC"
+@24
+CMD is "E"
+
+@0
+DAT is "D"
+@1
+DAT is "D"
+@2
+DAT is "D"
+@3
+DAT is "********"
+@8
+DAT is "D"
+@9
+DAT is "D"
+@10
+DAT is "D"
+@11
+DAT is "E"
+@12
+DAT is "Z"
+@13
+DAT is "Z"
+@14
+DAT is "*********************"
+
+highlight 0 to 8 #LightPink : Host Command
+highlight 11 to 15 #white : N_CR cycles
+highlight 15 to 25 #LightGray : Response
+highlight 0 to 11 #LightPink : Valid Read data
+highlight 9 to 12 #white : N_ST
+
+@enduml

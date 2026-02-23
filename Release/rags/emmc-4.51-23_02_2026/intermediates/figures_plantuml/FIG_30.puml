@@ -1,0 +1,52 @@
+@startuml
+robust "CMD" as CMD
+
+@0
+CMD is {S}
+
+@1
+CMD is {T}
+
+@2
+CMD is {Content}
+
+@6
+CMD is {CRC}
+
+@9
+CMD is {E}
+
+@10
+CMD is {Z}
+
+@11
+CMD is {* * *}
+
+@14
+CMD is {Z}
+
+@15
+CMD is {S}
+
+@16
+CMD is {T}
+
+@17
+CMD is {Content}
+
+@25
+CMD is {Z}
+
+@26
+CMD is {Z}
+
+@27
+CMD is {Z}
+
+note top of CMD
+  |<#white>     | Host Command |
+  |<#pink>     | N<sub>ID</sub> cycles |
+  |<#lightblue>     | CID or OCR |
+end note
+
+@enduml

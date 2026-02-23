@@ -1,0 +1,40 @@
+@startuml
+robust "CMD" as CMD
+
+@0
+CMD is "S"
+@1
+CMD is "T"
+@2
+CMD is "Content"
+@6
+CMD is "CRC"
+@7
+CMD is "E"
+@8
+CMD is "Z"
+@9
+CMD is "***"
+@12
+CMD is "Z"
+@13
+CMD is "S"
+@14
+CMD is "T"
+@15
+CMD is "Content"
+@19
+CMD is "CRC"
+@20
+CMD is "E"
+@21
+CMD is "Z"
+@22
+CMD is "Z"
+
+note top of CMD : "←── Host Command ──→|←─N_CC cycles─→|←── Host Command ──→"
+
+highlight 0 to 8 #LightBlue : Host Command
+highlight 9 to 11 #White : N_CC cycles
+highlight 12 to 22 #LightBlue : Host Command
+@enduml

@@ -1,0 +1,7 @@
+Bit,Access,Field Name,Description
+[15:12],R,tswitch-on max,Maximum output driver switch-on time code
+[11:10],R,Reserved,Reserved bits
+[9:8],R,tswitch-on min,Minimum output driver switch-on time code
+[7:5],R,ipeak min,Minimum output driver current peak code
+[4:3],R,Reserved,Reserved bits
+[2:0],R,Ipeak max,Maximum output driver current peak code

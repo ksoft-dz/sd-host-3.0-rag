@@ -1,0 +1,11 @@
+Parameter,Symbol,Min,Typ,Max,Unit,Remark
+Pull-up resistance for CMD,RCMD,4.7,,100^(1),Kohm,to prevent bus floating
+Pull-up resistance for DAT0–7,RDAT,10,,100^(1),Kohm,to prevent bus floating
+Internal pull up resistance DAT1–DAT7,Rint,10,,150,kohm,to prevent unconnected lines floating
+Bus signal line capacitance,CL,,,30,pF,Single Device
+Single Device capacitance,CBGA,,,12,pF,
+Maximum signal line inductance,,,,16,nH,fPF ≤ 52 MHz
+VDDi capacitor value,CREG^(2),0.1,,,uF,to stabilize regulator output to controller core logics
+VDDi2 capacitor value (e²•MMC),CREG2,1,,,uF,To stabilize internal regulated voltage
+VDDi3 capacitor value (e²•MMC),CREG3,1,,,uF,To stabilize internal regulated voltage
+VccQ decoupling capacitor,CH1,1,,,uF,"(3), (4), (5)"

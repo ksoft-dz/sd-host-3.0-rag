@@ -1,0 +1,47 @@
+@startuml
+skinparam rectangleBackgroundColor #FFFF99
+skinparam componentBackgroundColor #90EE90
+
+rectangle "Host" as host {
+    rectangle "Clock Generator" as clkgen #D3D3D3
+    
+    rectangle "Output Circuit" as host_out #FFCC99
+    rectangle "Input Circuit" as host_in #FFCC99
+    rectangle "Adjustable\nSampling\nPoint" as adj_sample #FFCC99
+    
+    component " " as host_buf1 #D8BFD8
+    component " " as host_buf2 #D8BFD8
+    component " " as host_buf3 #D8BFD8
+    component " " as host_buf4 #D8BFD8
+}
+
+rectangle "Device" as device {
+    rectangle "Flash\nMemory" as flash #FF6347
+    
+    rectangle "Input Circuit" as dev_in #FFCC99
+    rectangle "Output Circuit" as dev_out #FFCC99
+    
+    component " " as dev_buf1 #90EE90
+    component " " as dev_buf2 #90EE90
+    component " " as dev_buf3 #90EE90
+    component " " as dev_buf4 #90EE90
+}
+
+clkgen -right-> host_buf1
+host_buf1 -right-> dev_buf1 : CLOCK
+dev_buf1 -right-> dev_in
+
+host_out -right-> host_buf2
+host_buf2 -right-> dev_buf2 : DAT[7:0] / DAT[3:0]
+dev_buf2 -right-> dev_in
+
+dev_out -left-> dev_buf3
+dev_buf3 -left-> host_buf3
+host_buf3 -left-> host_in
+
+host_in -down-> adj_sample
+adj_sample -up-> host_buf4
+
+dev_in -right-> flash
+flash -left-> dev_out
+@enduml

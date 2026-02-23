@@ -1,0 +1,4 @@
+CMD INDEX,Type,Argument,Resp,Abbreviation,Command Description
+CMD39,ac,"[31:16] RCA [15:15] register write flag [14:8] register address [7:0] register data",R4,FAST_IO,"Used to write and read 8 bit (register) data fields. The command addresses a Device and a register and provides the data for writing if the write flag is set. The R4 response contains data read from the addressed register if the write flag is cleared to 0. This command accesses application dependent registers which are not defined in the e•MMC standard."
+CMD40,bcr,[31:0] stuff bits,R5,GO_IRQ_STATE,Sets the system into interrupt mode
+CMD41,Reserved,,,,

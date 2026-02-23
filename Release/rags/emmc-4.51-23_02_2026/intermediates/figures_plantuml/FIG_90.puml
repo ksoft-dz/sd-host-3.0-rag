@@ -1,0 +1,153 @@
+@startuml
+scale 1 as 150 pixels
+
+concise "CMD" as CMD
+concise "DAT0" as DAT0
+concise "DAT1-7" as DAT17
+
+@0
+CMD is P
+@1
+CMD is P
+@2
+CMD is P
+@3
+CMD is S
+@4
+CMD is T
+@5
+CMD is Content
+@8
+CMD is CRC
+@10
+CMD is E
+@11
+CMD is Z
+@12
+CMD is Z
+@13
+CMD is P
+@14
+CMD is "P***P"
+@16
+CMD is S
+@17
+CMD is T
+@18
+CMD is Content
+@21
+CMD is CRC
+@23
+CMD is E
+@24
+CMD is Z
+@25
+CMD is Z
+@26
+CMD is P
+@27
+CMD is P
+@28
+CMD is P
+@29
+CMD is P
+@30
+CMD is P
+
+@0
+DAT0 is D
+@1
+DAT0 is D
+@2
+DAT0 is D
+@3
+DAT0 is D
+@4
+DAT0 is CRC
+@6
+DAT0 is E
+@7
+DAT0 is Z
+@8
+DAT0 is Z
+@9
+DAT0 is S
+@10
+DAT0 is C
+@11
+DAT0 is C
+@12
+DAT0 is C
+@13
+DAT0 is E
+@14
+DAT0 is Z
+@15
+DAT0 is Z
+@16
+DAT0 is S
+@17
+DAT0 is L
+@18
+DAT0 is {-}
+@26
+DAT0 is E
+@27
+DAT0 is Z
+@28
+DAT0 is Z
+@29
+DAT0 is Z
+
+@0
+DAT1-7 is D
+@1
+DAT1-7 is D
+@2
+DAT1-7 is D
+@3
+DAT1-7 is D
+@4
+DAT1-7 is CRC
+@6
+DAT1-7 is E
+@7
+DAT1-7 is Z
+@8
+DAT1-7 is Z
+@9
+DAT1-7 is X
+@10
+DAT1-7 is X
+@11
+DAT1-7 is X
+@12
+DAT1-7 is X
+@13
+DAT1-7 is X
+@14
+DAT1-7 is Z
+@15
+DAT1-7 is Z
+@16
+DAT1-7 is X
+@17
+DAT1-7 is X
+@18
+DAT1-7 is {-}
+@26
+DAT1-7 is X
+@27
+DAT1-7 is Z
+@28
+DAT1-7 is Z
+@29
+DAT1-7 is Z
+
+note top of CMD : Host Command
+note top of CMD @13 : Ncr Cycles
+note top of CMD @16 : Device Response
+
+note bottom of DAT0 @9 : CRC status
+note bottom of DAT0 @18 : Busy(Device is programming)
+@enduml
