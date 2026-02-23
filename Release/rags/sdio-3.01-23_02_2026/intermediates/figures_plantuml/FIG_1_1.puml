@@ -1,0 +1,18 @@
+@startuml
+I notice this image does not contain a figure or diagram to transcribe. This appears to be page 12 of the SDIO Simplified Specification Version 3.00, which contains only text content listing:
+
+1. Features including:
+   - Removable and Plug and play (PnP) support
+   - Multiple Form Factors (Standard-Size SDIO, miniSDIO, microSDIO)
+   - A card per slot connection
+
+2. Section 1.2.3 "Embedded SDIO Device Features" listing:
+   - Supply Voltage range: 2.7-3.6V or 1.7-1.95V
+   - Non removable device
+   - Any form factor and any pin layout
+   - Shared Bus connection is possible
+
+There is a watermark reading "SD Association" diagonally across the page, but no actual figure labeled "Figure 1-1" is present on this page.
+
+If you're looking for "Figure 1-1 SDIO Related Specifications," it may be located on a different page of the document.
+@enduml

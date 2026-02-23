@@ -1,0 +1,55 @@
+@startuml
+skinparam componentStyle rectangle
+
+package "Application & Driver Structure" {
+  rectangle "Bluetooth\nApplication" as BT_App #lightgreen
+  rectangle "Camera\nApplication" as Cam_App #lightgreen
+  rectangle "GPS\nApplication" as GPS_App #lightgreen
+  rectangle "PHS\nApplication" as PHS_App #lightgreen
+  rectangle "Memory\nApplication" as Mem_App #lightgreen
+  
+  rectangle "Bluetooth\nCard Driver" as BT_Drv #yellow
+  rectangle "Camera\nCard Driver" as Cam_Drv #yellow
+  rectangle "GPS\nCard Driver" as GPS_Drv #yellow
+  rectangle "PHS\nCard Driver" as PHS_Drv #yellow
+  rectangle "Memory\nCard Driver" as Mem_Drv #yellow
+  
+  note right of Mem_Drv
+    Vendor or OS supplied
+    function drivers
+  end note
+  
+  rectangle "SD Host Bus Driver" as Bus_Drv #pink
+  
+  note right of Bus_Drv
+    OS supplied Bus
+    Driver and Host
+    Controller Driver
+  end note
+  
+  rectangle "Standard Host Controller Driver" as HC_Drv #pink
+  
+  package "SD Combo Host Hardware" #lightblue {
+    rectangle "Register Specification" as RegSpec #white
+  }
+  
+  rectangle "SD Card Connector" as Connector
+}
+
+BT_App --> BT_Drv
+Cam_App --> Cam_Drv
+GPS_App --> GPS_Drv
+PHS_App --> PHS_Drv
+Mem_App --> Mem_Drv
+
+BT_Drv --> Bus_Drv
+Cam_Drv --> Bus_Drv
+GPS_Drv --> Bus_Drv
+PHS_Drv --> Bus_Drv
+Mem_Drv --> Bus_Drv
+
+Bus_Drv --> HC_Drv
+HC_Drv --> RegSpec
+RegSpec --> Connector
+
+@enduml

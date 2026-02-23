@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+title Figure 1842. Power control register (POWERCONTROL)\nOffset: 0x0029\nAccess: Read/Write
+
+map "Register Layout" as reg {
+  Bit 7 => SD_BUS_POWER
+  Bit 6 => 
+  Bit 5 => 
+  Bit 4 => PWRCTRL_SDBUSVOLTAGE
+  Bit 3 => 
+  Bit 2 => 
+  Bit 1 => 
+  Bit 0 => 
+}
+
+note bottom of reg
+  |= Bit |= Field |= R/W |= Reset |
+  | 7 | SD_BUS_POWER | R/W | 0 |
+  | 6:4 | PWRCTRL_SDBUSVOLTAGE | R/W | 0 |
+  | 3:0 | (part of PWRCTRL_SDBUSVOLTAGE) | R/W | 0 |
+  
+  R row: 0 | 0 | 0 | 0 | PWRCTRL_SDBUSVOLTAGE | SD_BUS_POWER
+  W row: 0 | 0 | 0 | 0 | PWRCTRL_SDBUSVOLTAGE | SD_BUS_POWER
+  Reset:  0 | 0 | 0 | 0 | 0 | 0 | 0 | 0
+end note
+
+@enduml

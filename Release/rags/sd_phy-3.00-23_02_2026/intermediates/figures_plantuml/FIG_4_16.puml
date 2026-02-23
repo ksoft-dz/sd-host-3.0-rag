@@ -1,0 +1,25 @@
+@startuml
+skinparam backgroundColor white
+
+title Figure 4-16: Three Performance Curves
+
+legend right
+  Three performance curves
+  intersect at (1,0)
+endlegend
+
+note as N1
+  Performance (Y-axis)
+  |
+  6MB/sec |
+  |        \  <color:red>Performance Curve 6</color>
+  4MB/sec |   \
+  |          \  <color:green>Performance Curve 4</color>
+  2MB/sec |     \  <color:blue>Performance Curve 2</color>
+  |           \
+  Class0 |______\________________
+  0              1              r
+                 Ratio of Used RU (X-axis)
+end note
+
+@enduml

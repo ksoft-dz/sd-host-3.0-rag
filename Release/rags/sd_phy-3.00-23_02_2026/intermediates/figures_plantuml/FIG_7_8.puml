@@ -1,0 +1,38 @@
+@startuml
+robust "DataIn" as DI
+robust "DataOut" as DO
+
+@0
+DI is idle
+DO is idle
+
+@10
+DI is command
+note top of DI : from\nhost\nto card
+
+@40
+DI is idle
+DO is response
+note top of DO : from\ncard\nto host
+
+@80
+DO is idle
+
+@120
+DI is command
+note top of DI : from\nhost\nto card
+
+@150
+DI is idle
+
+@180
+DO is response
+note top of DO : from\ncard\nto host
+
+@210
+DO is busy
+
+@240
+DO is idle
+
+@enduml

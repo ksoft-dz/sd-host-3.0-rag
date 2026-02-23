@@ -1,0 +1,12 @@
+Bit,Access,Field Name,Description
+15-00,RW,Blocks Count For Current Transfer,"This register is enabled when Block Count Enable in the Transfer Mode register is set to 1 and is valid only for multiple block transfers. The Host Driver shall set this register to a value between 1 and the maximum block count. The Host Controller decrements the block count after each block transfer and stops when the count reaches zero. Setting the block count to 0 results in no data blocks is transferred.
+
+This register should be accessed only when no transaction is executing (i.e., after transactions are stopped). During data transfer, read operations on this register may return an invalid value and write operations are ignored.
+
+When a suspend command is completed, the number of blocks yet to be transferred can be determined by reading this register. Before issuing a resume command, the Host Driver shall restore the previously saved block count.
+
+FFFFh = 65535 blocks
+...
+0002h = 2 blocks
+0001h = 1 block
+0000h = Stop Count"

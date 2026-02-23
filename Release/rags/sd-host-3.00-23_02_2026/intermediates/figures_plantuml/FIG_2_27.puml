@@ -1,0 +1,50 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Auto CMD Error Status Register (Offset 03Ch)" <<register>> {
+    |15|14|13|12|11|10|09|08|07|06|05|04|03|02|01|00|
+    
+    rectangle "D15-D08: Rsvd" as rsvd1
+    rectangle "D07: Command Not Issued by Auto CMD12 Error" as d07
+    rectangle "D06-D05: Rsvd" as rsvd2
+    rectangle "D04: Auto CMD Index Error" as d04
+    rectangle "D03: Auto CMD End Bit Error" as d03
+    rectangle "D02: Auto CMD CRC Error" as d02
+    rectangle "D01: Auto CMD Timeout Error" as d01
+    rectangle "D00: Auto CMD12 not executed" as d00
+}
+
+note right of d07
+  ROC: Command Not Issued By Auto CMD12 Error
+  1 = Not Issued
+  0 = No error
+end note
+
+note right of d04
+  ROC: Auto CMD Index Error
+  1 = Error
+  0 = No error
+end note
+
+note right of d03
+  ROC: Auto CMD End Bit Error
+  1 = End Bit Error Generated
+  0 = No error
+end note
+
+note right of d02
+  ROC: Auto CMD CRC Error
+  1 = CRC Error Generated
+  0 = No error
+end note
+
+note right of d01
+  ROC: Auto CMD Timeout Error
+  1 = Time out
+  0 = No error
+end note
+
+@enduml

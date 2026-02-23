@@ -1,0 +1,9 @@
+Location,Addr Mode,Size,Description
+00,PNP,Byte,"Reserved (set to 0)
+This field is reserved and must be set to 0. The Host Driver will set the register before issuing a Resume command. The Host Driver shall save the state of this register when the Sele
+ctive Suspend bit is set or a Suspend command is sent, restore it before issuing a Resume c
+ommand, and restore it before issuing a Selective Resume command. See Host Driver register s
+ave/restore requirements in Section 4.2.2.1, Host Driver Save/Restore Requirements, and the
+Present State register in 0."
+04,PNP,Byte,"Read Transfer Size (Data Bytes)
+This field defines the number of data bytes to be transferred during a read transfer. The size of the data transfer is equal to the value in this field times the Max Packet Size. This field is set to 1 by the Host Driver for all read transfers. The data size for the read transfer is set to the Max Packet Size set in the all output commands."

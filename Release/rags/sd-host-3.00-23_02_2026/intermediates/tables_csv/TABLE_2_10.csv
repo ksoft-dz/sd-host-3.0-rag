@@ -1,0 +1,5 @@
+Bit Value,Command Type,Response Type Name
+11b,Abort,CMD12, CMD52 for writing "I/O Abort" in CCCR
+10b,Resume,CMD52 for writing "Function Select" in CCCR
+01b,Suspend,CMD52 for writing "Bus Suspend" in CCCR
+00b,Normal,Other commands

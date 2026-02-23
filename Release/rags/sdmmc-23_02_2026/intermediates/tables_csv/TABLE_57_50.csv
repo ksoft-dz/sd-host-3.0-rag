@@ -1,0 +1,12 @@
+Field,Description
+"16:31 DMADEBUGBUS","DMA_CTRL debug bus
+hostintf_blocknextcmd - Command Complete indication from CMDCTRL module is set, the next command indication should be blocked
+hostintf_abortcmdmode - When the Abort command is issued, the flag is set
+hostintf_rdxferactive - This is set from the time the command Last Bit is issued or Block Gap Continue to the time the last block of data is sent to host
+hostintf_enddataxfer - It is set when the end Data Transfer Complete Indications from the PIO/SDMA and ADMA2 state machines
+hostintf_stopatblkgap - For write transfer, it is set from the PIO/SDMA and ADMA2 state machines. For read transfer, RegSet is used to generate Stop at BlkGap
+hostwrdat_state - The WriteData state machine transfers the data to host interface
+hostrddat_state - The ReadData state machine receives the data from host interface
+hosttrans_state[1:0] - Host transfer state machine
+adma2_state[3:0] - ADMA2 state machine
+piosdma_state[2:0] - PIO/SDMA state machine"

@@ -1,0 +1,9 @@
+I was unable to find a table titled "R6 response to CMD3" or "Table 4-3" on this page. 
+
+The page shows two tables from the SDIO Simplified Specification:
+1. **Table 4-1: Supported SD Memory Commands** - showing SD Memory commands (CMD0, CMD11, CMD19) and their SDIO equivalents
+2. An untitled table in section 4.2.2 showing **Unsupported SD Memory Commands** - listing commands like CMD0, CMD12, CMD16, CMD2, CMD4, CMD9 and their SDIO equivalents
+
+Neither of these tables relates to "R6 response to CMD3."
+
+The table you're looking for may be on a different page of this document. Could you please provide the correct page image containing the "R6 response to CMD3" table?

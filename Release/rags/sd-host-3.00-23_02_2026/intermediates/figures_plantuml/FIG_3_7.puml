@@ -1,0 +1,30 @@
+@startuml
+start
+:(1) Disable Card Interrupt in Host;
+:(2) SD Memory
+Only Card?;
+if (SD Memory Only Card?) then (Yes)
+  :(6) SD Memory
+  Only Card?;
+  if (SD Memory Only Card?) then (Yes)
+    stop
+  else (No)
+    :(7) Enable Card Interrupt in Card;
+    :(8) Enable Card Interrupt in Host;
+    stop
+  endif
+else (No)
+  :(3) Mask Card Interrupt in Card;
+  :(4) Change bit mode for Card;
+  :(5) Change bit mode for Host;
+  :(6) SD Memory
+  Only Card?;
+  if (SD Memory Only Card?) then (Yes)
+    stop
+  else (No)
+    :(7) Enable Card Interrupt in Card;
+    :(8) Enable Card Interrupt in Host;
+    stop
+  endif
+endif
+@enduml

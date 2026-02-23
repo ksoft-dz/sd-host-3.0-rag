@@ -1,0 +1,34 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+title Error interrupt status register (ERRORINTRSTS)\nOffset: 0x0032 | Access: Read/Write
+
+map Register {
+  15 => ERRORINTRSTS_CMDTIMEOUTERROR
+  14 => ERRORINTRSTS_CMDCRCERROR
+  13 => ERRORINTRSTS_CMDENDBITERROR
+  12 => ERRORINTRSTS_CMDINDEXERROR
+  11 => ERRORINTRSTS_DATATIMEOUTERROR
+  10 => ERRORINTRSTS_DATACRCERROR
+  9 => ERRORINTRSTS_DATAENDBITERROR
+  8 => 0
+  7 => ERRORINTRSTS_AUTOCMDERROR
+  6 => ERRORINTRSTS_ADMAERROR
+  5 => 0
+  4 => 0
+  3 => ERRORINTRSTS_HOSTERROR
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom
+  R (Read): Bits 0-2=0, Bit 3=ERRORINTRSTS_HOSTERROR, Bits 4-5=0,
+            Bit 6=ERRORINTRSTS_ADMAERROR, Bit 7=ERRORINTRSTS_AUTOCMDERROR,
+            Bit 8=0, Bits 9-15=various error status bits
+  W (Write): Bit 3=w1c, Bits 6-7=w1c, Bits 9-15=w1c
+  Reset: All bits = 0
+end note
+
+@enduml

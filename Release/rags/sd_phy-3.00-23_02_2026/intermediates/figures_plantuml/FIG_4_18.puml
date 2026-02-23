@@ -1,0 +1,27 @@
+@startuml
+skinparam backgroundColor white
+
+title Erase Timeout [Sec] vs Number of AU Erased
+
+rectangle "Graph" {
+  note as N1
+    Y-axis: Erase Timeout [Sec]
+    - T_ERASE (top)
+    - T_OFFSET → 2
+    - Values: 3, 2, 1, 0
+    
+    X-axis: N_ERASE (Number of AU Erased)
+    - Values: 0, 1, 2, 3 ...
+    
+    Line B: Linear relationship starting from
+    point (0, T_OFFSET=2) going up diagonally
+    to the right, reaching T_ERASE at some
+    N_ERASE value
+    
+    The line shows erase timeout increases
+    linearly with number of AUs erased,
+    with a base offset of 2 seconds
+  end note
+}
+
+@enduml

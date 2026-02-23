@@ -1,0 +1,4 @@
+Bit,Access,Field Name,Description
+23-16,HwInit,Maximum Current for 1.8V,Maximum current capability for 1.8V voltage level. This register measures current in 4mA steps.
+15-08,HwInit,Maximum Current for 3.0V,Maximum current capability for 3.0V voltage level. This register measures current in 4mA steps.
+07-00,HwInit,Maximum Current for 3.3V,Maximum current capability for 3.3V voltage level. This register measures current in 4mA steps.

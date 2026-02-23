@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+scale 1.5
+
+map "Physical Block\n(per CSD)" as blocks {
+  0 => 0123456789
+  1 => 0123456789
+  2 => 0123456789
+  3 => 0123456789
+  4 => 0123456789
+  5 => 0123456789
+  6 => 0123456789
+}
+
+note as N1
+  **Host Erase Address Range**
+  |<-------- from block 0, position 5 to block 4, position 0 -------->|
+  
+  **Erase Area**
+  |<============ from block 0 start to block 6 end ============>|
+  
+  **Erase Unit Size**
+  Each block represents one SECTOR_SIZE unit
+  |<->|<->|<->|<->|<->|<->|<->|
+end note
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+rectangle "Command Register (Offset 00Eh)" {
+  
+  package "Bit Layout" {
+    rectangle "D15-D14\nRsvd" as D15_14
+    rectangle "D13-D08\nCommand Index" as D13_08
+    rectangle "D07-D06\nCommand\nType" as D07_06
+    rectangle "D05\nData Present Select" as D05
+    rectangle "D04\nCommand Index\nCheck Enable" as D04
+    rectangle "D03\nCommand CRC\nCheck Enable" as D03
+    rectangle "D02\nRsvd" as D02
+    rectangle "D01-D00\nResponse\nType Select" as D01_00
+    
+    D15_14 -right- D13_08
+    D13_08 -right- D07_06
+    D07_06 -right- D05
+    D05 -right- D04
+    D04 -right- D03
+    D03 -right- D02
+    D02 -right- D01_00
+  }
+  
+  note bottom
+    **Field Descriptions:**
+    • D15-D14: Reserved
+    • D13-D08: Command Index (CMD0-63, ACMD0-63)
+    • D07-D06: Command Type
+      - 00b: Normal
+      - 01b: Suspend (CMD52 for "Bus Suspend")
+      - 10b: Resume (CMD52 for "Function Select")
+      - 11b: Abort (CMD12, CMD52 for "I/O Abort")
+    • D05: Data Present Select
+    • D04: Command Index Check Enable
+    • D03: Command CRC Check Enable
+    • D02: Reserved
+    • D01-D00: Response Type Select
+  end note
+}
+@enduml

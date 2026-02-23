@@ -1,0 +1,15 @@
+@startuml
+I don't see a figure labeled "Figure 3-8" or any diagram showing a "Re-Initialization Flow for I/O Controller" on this page. This page (page 25) contains only text content from the SDIO Simplified Specification Version 3.00, covering sections 3.4 through 3.4.4 about initialization considerations for Combo Cards.
+
+The page discusses:
+- CMD5 responses for SDIO cards
+- Special initialization considerations for Combo Cards (SDIO plus SD Memory)
+- Re-initializing both I/O and Memory (section 3.4.1)
+- Using a Combo Card as SDIO only or SD Memory only (section 3.4.2)
+- Acceptable commands after initialization (section 3.4.3)
+- Recommendations for RCA after Reset (section 3.4.4 - header only)
+
+The text references "Figure 3-2" in sections 3.4.1 and 3.4.2, but Figure 3-8 is not present on this page. It may be located on a different page of the specification.
+
+If you have another page containing Figure 3-8, please share it and I'll be happy to transcribe it to PlantUML.
+@enduml

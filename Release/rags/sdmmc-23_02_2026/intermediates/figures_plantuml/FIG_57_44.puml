@@ -1,0 +1,62 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1873. Debug status 4 register (DBG_STA4)
+
+note right of map
+  Offset: 0x022C
+  Access: Read
+end note
+
+map "DBG_STA4 (bits 0-15)" as upper {
+  15 => 0
+  14 => 0
+  13 => 0
+  12 => 0
+  11 => 0
+  10 => 0
+  9 => 0
+  8 => 0
+  7 => 0
+  6 => 0
+  5 => 0
+  4 => 0
+  3 => 0
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+map "DBG_STA4 (bits 16-31)" as lower {
+  31 => 0
+  30 => 0
+  29 => 0
+  28 => 0
+  27 => RXDDEBUGBUS0
+  26 => RXDDEBUGBUS0
+  25 => RXDDEBUGBUS0
+  24 => RXDDEBUGBUS0
+  23 => 0
+  22 => 0
+  21 => 0
+  20 => 0
+  19 => 0
+  18 => 0
+  17 => 0
+  16 => 0
+}
+
+note bottom of upper
+  R: All bits read as 0
+  W: (not writable)
+  Reset: All bits = 0
+end note
+
+note bottom of lower
+  Bits 31:24 - RXDDEBUGBUS0
+  Bits 23:16 - Reserved (0)
+  Reset: All bits = 0
+end note
+
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+start
+:(1) Calculate a divisor for detecting timeout;
+:(2) Set timeout detection timer;
+stop
+@enduml

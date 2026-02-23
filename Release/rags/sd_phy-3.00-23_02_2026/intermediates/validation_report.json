@@ -1,0 +1,46 @@
+{
+  "_metadata": {
+    "validation_date": "2026-02-22T17:14:54Z",
+    "total_issues": 6,
+    "errors": 4,
+    "warnings": 2
+  },
+  "issues": [
+    {
+      "node_id": "REG_001",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_002",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_004",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_005",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "TABLE_5_1",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_5_18",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    }
+  ]
+}

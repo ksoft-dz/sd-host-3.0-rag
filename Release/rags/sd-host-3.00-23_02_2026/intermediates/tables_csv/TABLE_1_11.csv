@@ -1,0 +1,6 @@
+Length Field,Value of Length
+0000h,65536 bytes
+0001h,1 byte
+0002h,2 bytes
+.......,........
+FFFFh,65535 bytes

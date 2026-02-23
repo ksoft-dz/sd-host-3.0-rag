@@ -1,0 +1,37 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Embedded SDIO" as ESDIO {
+}
+
+' Left side - Basic SD Bus IF
+rectangle "Basic\nSD Bus IF" as BasicIF
+
+' Interface signals on left
+BasicIF -right-> ESDIO : CLK
+BasicIF -right-> ESDIO : CMD
+BasicIF -right-> ESDIO : DAT[3:0]
+BasicIF -right-> ESDIO : VDDH
+BasicIF -right-> ESDIO : GND
+
+' Right side - Back-End Function Power pins
+rectangle "Back-End Function\nPower pins" as BackEnd
+
+ESDIO -right-> BackEnd : BP1
+ESDIO -right-> BackEnd : BP2
+ESDIO -right-> BackEnd : :\n:\nBP7
+
+' Bottom - Optional Data Lines
+rectangle "Optional\nData Lines" as OptData
+
+OptData -up-> ESDIO : DAT[7:4]
+
+' Bottom right - Interrupt pin
+rectangle "Interrupt pin\n(Open drain)" as IntPin
+
+ESDIO -right-> IntPin : INT#
+
+@enduml

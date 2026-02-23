@@ -1,0 +1,5 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD55,ac,"[31:16] RCA [15:0] stuff bits",R1,APP_CMD,"Indicates to the card that the next command is an application specific command rather than a standard command"
+CMD56,adtc,"[31:1] stuff bits. [0]: RD/WR",R1,GEN_CMD,"Used either to transfer a data block to the card or to get a data block from the card for general purpose/application specific commands. In case of a SDSC Card, block length is set by the SET_BLOCK_LEN command. In case of SDHC and SDXC Cards, block length is fixed to 512 bytes. The host sets RD/WR=1 for reading data from the card and sets to 0 for writing data to the card."
+CMD58-59,reserved,,,,
+CMD60-63,reserved for manufacturer,,,,

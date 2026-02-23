@@ -1,0 +1,62 @@
+@startuml
+hide empty description
+
+[*] --> IdleState : Power on
+
+state "Idle State\n(idle)" as IdleState
+state "Inactive\nState(ina)" as InactiveState
+state "Ready State\n(ready)" as ReadyState
+state "Identification\nState(ident)" as IdentState
+state "Stand-by State\n(stby)" as StandbyState
+state "SPI Operation\nMode" as SPIMode
+
+IdleState --> IdleState : CMD0\nfrom all states except (ina)
+IdleState --> SPIMode : CMD0 +\nCS Asserted\n("0")
+
+IdleState --> IdleState : CMD8\nIt is mandatory for the host compliant\nto Physical Spec Version 2.00\nto send CMD8 before ACMD41
+
+IdleState --> InactiveState : If card cannot operate under supplied voltage,\ncard doesn't respond and return to 'Idle State'
+
+IdleState --> ReadyState : ACMD41
+IdleState --> InactiveState : ACMD41\ncards with non compatible\nvoltage range
+
+note left of IdleState
+  card returns busy (*1) or
+  host omitted voltage range
+end note
+
+ReadyState --> InactiveState : cards with non compatible\nvoltage range
+
+ReadyState --> ReadyState : CMD11\ncard executes Voltage\nSwitch Sequence.\nWhether it can be executed\nis determined in ACMD41.
+
+ReadyState --> IdentState : CMD2
+
+note left of ReadyState
+  No Response
+  (Non valid command)
+  Must be a
+  MultiMediaCard
+  --
+  Start MultiMediaCard
+  initialization process
+  starting at CMD1
+end note
+
+IdentState --> StandbyState : CMD3\nCard responds with\nnew RCA
+
+note left of IdentState : card-identification-mode
+
+== data-transfer-mode ==
+
+StandbyState --> StandbyState : CMD3\nCard responds with\nnew RCA
+StandbyState --> StandbyState : CMD15\nfrom all states in\ndata-transfer-mode
+
+note bottom
+  (*1) Note : Card returns busy when
+    - Card executes internal initialization process
+    - Card is High or Extended capacity SD Memory Card and host doesn't support
+      High or Extended capacity
+      This means that CMD8 is mandatory to initialize High capacity SD Memory Card.
+end note
+
+@enduml

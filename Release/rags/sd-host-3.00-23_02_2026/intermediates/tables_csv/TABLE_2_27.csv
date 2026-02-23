@@ -1,0 +1,10 @@
+Bit,Access,Field Name,Description
+15-12,RW,Vendor Specific Error Status Enable,"1 Enabled, 0 Masked"
+11,RW,Tuning Error Status Enable,"1 Enabled, 0 Masked"
+09,RW,ADMA Error Status Enable,"1 Enabled, 0 Masked"
+08,RW,Auto CMD12 Error Status Enable,"1 Enabled, 0 Masked"
+07,RW,Current Limit Error Status Enable,"1 Enabled, 0 Masked"
+06,RW,Data End Bit Error Status Enable,"1 Enabled, 0 Masked"
+05,RW,Data CRC Error Status Enable,"1 Enabled, 0 Masked"
+04,RW,Data Timeout Error Status Enable,"1 Enabled, 0 Masked"
+03,RW,Command Index Error Status Enable,"1 Enabled, 0 Masked"

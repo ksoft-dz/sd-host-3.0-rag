@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title WAKEUPCONTROL Register (Offset: 0x002B, Access: Read/Write)
+
+map "WAKEUPCONTROL" as reg {
+  Bit 7 => WAKEUP_EN_CARD_INTERRUPT
+  Bit 6 => WAKEUP_EN_CARD_INSERTION
+  Bit 5 => WAKEUP_EN_CARD_REMOVAL
+  Bit 4 => 0
+  Bit 3 => 0
+  Bit 2 => 0
+  Bit 1 => 0
+  Bit 0 => 0
+}
+
+note bottom of reg
+  Reset Value: 0x00 (all bits = 0)
+  
+  R (Read):  Bits [4:0] = 0, Bits [7:5] show current enable status
+  W (Write): Bits [4:0] = 0, Bits [7:5] configurable
+end note
+
+@enduml

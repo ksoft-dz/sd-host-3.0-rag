@@ -1,0 +1,2 @@
+Field,Description
+0:15 COMMAND_RESPONSE,"Command response R[ ] refers to a bit range within the response data as transmitted on the SDMMC bus, REP[ ] refers to a bit range within the Response register. Note: These bits are read only bits and initialized to zero at reset."

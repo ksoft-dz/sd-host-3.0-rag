@@ -1,0 +1,4 @@
+UHS_SPEED_GRADE,Value Definition
+0h,Less than 10MB/sec
+1h,10MB/sec and above
+2h – Fh,Reserved

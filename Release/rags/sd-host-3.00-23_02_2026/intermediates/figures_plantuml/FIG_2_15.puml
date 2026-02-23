@@ -1,0 +1,36 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Power Control Register (Offset 029h)" {
+    map RegisterLayout {
+        D07 => 
+        D06 => 
+        D05 => 
+        D04 => Rsvd
+        D03 => SD Bus Voltage
+        D02 => Select
+        D01 => 
+        D00 => SD Bus Power
+    }
+}
+
+note right of RegisterLayout
+  **Bit Fields:**
+  
+  **D07-D04: Rsvd (Reserved)**
+  
+  **D03-D01: SD Bus Voltage Select (RW)**
+  - 111b = 3.3V (Typ.)
+  - 110b = 3.0V (Typ.)
+  - 101b = 1.8V (Typ.)
+  - 100b-000b = Reserved
+  
+  **D00: SD Bus Power (RW)**
+  - 1 = Power on
+  - 0 = Power off
+end note
+
+@enduml

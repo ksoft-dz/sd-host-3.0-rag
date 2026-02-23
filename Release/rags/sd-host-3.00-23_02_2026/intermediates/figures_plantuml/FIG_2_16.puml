@@ -1,0 +1,51 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Block Gap Control Register (Offset 02Ah)" <<register>> {
+    rectangle "D07-D04: Rsvd" as D7_4
+    rectangle "D03: Interrupt At Block Gap" as D3
+    rectangle "D02: Read Wait Control" as D2
+    rectangle "D01: Continue Request" as D1
+    rectangle "D00: Stop At Block Gap Request" as D0
+}
+
+note right of D7_4
+  Reserved bits
+end note
+
+note right of D3
+  RW - Valid only in 4-bit mode
+  1 = Enabled
+  0 = Disabled
+  Enables interrupt detection at block gap
+  for multiple block transfer
+end note
+
+note right of D2
+  RW - Read Wait Control
+  1 = Enable Read Wait Control
+  0 = Disable Read Wait Control
+  Optional for SDIO cards
+  Uses DAT line to stop SD Clock
+end note
+
+note right of D1
+  RWAC - Continue Request
+  1 = Restart
+  0 = Not affect
+  Restarts transaction stopped by
+  Stop At Block Gap Request
+  Auto-cleared by controller
+end note
+
+note right of D0
+  RW - Stop At Block Gap Request
+  Stops read/write transaction at
+  next block gap for non-DMA,
+  SDMA and ADMA transfers
+end note
+
+@enduml

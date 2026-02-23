@@ -1,0 +1,42 @@
+@startuml
+hide empty description
+
+state "card identification\nmode" as card_id {
+}
+
+state "data transfer\nmode" as data_transfer {
+  state "Stand-by State\n(stby)" as stby
+  state "Transfer\nState (tran)" as tran
+  state "Sending-data\nState (data)" as data
+  state "Receive-data\nState (rcv)" as rcv
+  state "Programming\nState (prg)" as prg
+  state "Disconnect\nState (dis)" as dis
+}
+
+card_id --> card_id : CMD3
+card_id --> card_id : CMD15
+card_id --> stby : CMD0
+
+data_transfer --> card_id : from all states in\ndata-transfer-mode
+
+stby --> stby : CMD13, CMD55\nno state transition\nin data-transfer-mode
+stby --> tran : CMD7
+stby --> stby : CMD4,9,10,3
+
+tran --> stby : CMD7
+tran --> data : CMD6,17,18,19,30,56(r)\nACMD13,22,51
+tran --> rcv : CMD16,23,32,33\nACMD6,42\nACMD23
+tran --> rcv : CMD24,25,26,27,42,56(w)
+tran --> prg : CMD20, 28,29,38
+
+data --> tran : CMD12,\n"operation\ncomplete"
+
+rcv --> prg : CMD12 or\n"transfer end"
+
+prg --> tran : "operation\ncomplete"
+prg --> dis : CMD7
+
+dis --> prg : CMD7
+dis --> stby : "operation\ncomplete"
+
+@enduml

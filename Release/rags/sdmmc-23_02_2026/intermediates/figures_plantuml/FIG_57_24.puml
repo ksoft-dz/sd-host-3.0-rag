@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1853. Error interrupt signal enable register (ERRORINTRSIGENA)\nOffset: 0x003A | Access: Read/Write
+
+map "ERRORINTRSIGENA" as reg {
+  15 => ERRORINTRSIG_ENABLEREGBIT0
+  14 => ERRORINTRSIG_ENABLEREGBIT1
+  13 => ERRORINTRSIG_ENABLEREGBIT2
+  12 => ERRORINTRSIG_ENABLEREGBIT3
+  11 => ERRORINTRSIG_ENABLEREGBIT4
+  10 => ERRORINTRSIG_ENABLEREGBIT5
+  9 => ERRORINTRSIG_ENABLEREGBIT6
+  8 => ERRORINTRSIG_ENABLEREGBIT7
+  7 => ERRORINTRSIG_ENABLEREGBIT8
+  6 => ERRORINTRSIG_ENABLEREGBIT9
+  5 => ERRORINTRSIG_ENABLEREGBIT10
+  4 => 0
+  3 => ERRORINTRSIG_ENABLEREGBIT12
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom of reg
+  R: 0 | 0 | 0 | ERRORINTRSIG_ENABLEREGBIT12 | 0 | ... | ERRORINTRSIG_ENABLEREGBIT0
+  W: (same fields writable)
+  Reset: All bits = 0
+end note
+
+@enduml

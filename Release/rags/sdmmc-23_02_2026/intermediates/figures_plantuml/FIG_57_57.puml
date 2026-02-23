@@ -1,0 +1,78 @@
+@startuml
+concise "CMD" as CMD
+concise "DAT0-7" as DAT
+
+scale 1 as 60 pixels
+
+@0
+CMD is "Z"
+DAT is "Z"
+
+@1
+CMD is "CMD0" #pink
+DAT is "Z"
+
+@2
+CMD is "Z"
+DAT is "***"
+
+@3
+CMD is {-}
+DAT is "Z|S|0|1|0|E|P" #lightblue
+
+@4
+CMD is "***"
+DAT is "***"
+
+@5
+CMD is {-}
+DAT is "P|S|512 bytes + CRC|E|P" #lightblue
+
+@6
+CMD is {-}
+DAT is "***"
+
+@7
+CMD is {-}
+DAT is "P|S" #lightblue
+
+@8
+CMD is "CMD0" #pink
+DAT is "Data"
+
+@9
+CMD is "Z|Z|Z"
+DAT is "E|Z" #lightblue
+
+@10
+CMD is "**"
+DAT is "**"
+
+@11
+CMD is "Z"
+DAT is "Z|Z|Z|Z|Z"
+
+@12
+CMD is "S|T" #lightblue
+DAT is "****"
+
+@13
+CMD is "CMD1" #pink
+DAT is {-}
+
+note bottom of DAT
+  ←tBA→ Optional
+  ←NAC→
+  tBD
+end note
+
+note top of CMD
+  Boot operation
+  complete
+end note
+
+note bottom of DAT
+  NST Note 2
+end note
+
+@enduml

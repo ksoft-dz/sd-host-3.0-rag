@@ -1,0 +1,10 @@
+Name,Field,Width,CID-slice
+Manufacturer ID,MID,8,[127:120]
+OEM/Application ID,OID,16,[119:104]
+Product name,PNM,40,[103:64]
+Product revision,PRV,8,[63:56]
+Product serial number,PSN,32,[55:24]
+reserved,--,4,[23:20]
+Manufacturing date,MDT,12,[19:8]
+CRC7 checksum,CRC,7,[7:1]
+"not used, always 1",-,1,[0:0]

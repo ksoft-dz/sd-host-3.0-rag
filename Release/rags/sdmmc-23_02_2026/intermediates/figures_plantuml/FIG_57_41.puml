@@ -1,0 +1,62 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1870. Debug status 1 register (DBG_STA1)
+
+note top of map
+Offset: 0x0220
+Access: Read
+end note
+
+map "Bits 31:16" as upper {
+  31 => 0
+  30 => 0
+  29 => 0
+  28 => 0
+  27 => 0
+  26 => 0
+  25 => 0
+  24 => 0
+  23 => 0
+  22 => 0
+  21 => 0
+  20 => 0
+  19 => 0
+  18 => 0
+  17 => 0
+  16 => 0
+}
+
+map "Bits 15:0" as lower {
+  15 => 0
+  14 => 0
+  13 => 0
+  12 => 0
+  11 => 0
+  10 => 0
+  9 => 0
+  8 => 0
+  7 => 0
+  6 => 0
+  5 => 0
+  4 => 0
+  3 => 0
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom of upper
+DMADEBUGBUS [31:16]
+R: Read only
+Reset: 0x0000
+end note
+
+note bottom of lower
+DMADEBUGBUS [15:0]
+R: Read only
+Reset: 0x0000
+end note
+
+@enduml

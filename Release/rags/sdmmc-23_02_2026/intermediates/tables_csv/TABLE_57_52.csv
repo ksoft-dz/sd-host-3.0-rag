@@ -1,0 +1,13 @@
+Field,Description
+16:31 TXDDEBUGBUS,"TXD_CTRL debug bus
+txdfsm_enatimeoutchk - Enable data timeout check
+txdfsm_stopsdmmccardclk - Stop SDMMC card clock
+txdfsm_xmitstatus[2:0] - Transmit status {ENDBIT err, CRC error, timeout error}
+txdfsm_xmitstsvld - Transmit status valid indication
+txdfsm_rcvcrcsts - Receive CRC status indication to RXCRC state machine
+txdfsm_readeob - Read EOB
+txdfsm_readbuffer - Read buffer
+txdfsm_sdmmcdataena - SDMMC data enable
+txdfsm_wrxferactive - Wr transfer active indication
+txdfsm_datalineactive - Data line active indication
+txdfsm_state[3:0] - Transmit data state machine"

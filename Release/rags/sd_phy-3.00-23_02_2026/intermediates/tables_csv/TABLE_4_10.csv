@@ -1,0 +1,19 @@
+Arg. Slice,[23:20],[19:16],[15:12],[11:8],[7:4],[3:0]
+Group No.,6,5,4,3,2,1
+Function name,reserved,reserved,Current Limit,Driver Strength,Command system,Access mode*1
+0x0,Default*2,Default*2,Default*2 200mA,Default*2 Type B,Default*2,Default*2 / SDR12
+0x1,Reserved,Reserved,400mA,Type A,For eC,High-Speed / SDR25
+0x2,Reserved,Reserved,600mA,Type C,Reserved,SDR50
+0x3,Reserved,Reserved,800mA,Type D,OTP,SDR104
+0x4,Reserved,Reserved,Reserved,Reserved,ASSD,DDR50
+0x5,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0x6,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0x7,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0x8,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0x9,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0xA,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0xB,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0xC,Reserved,Reserved,Reserved,Reserved,(eSD),Reserved
+0xD,Reserved,Reserved,Reserved,Reserved,Reserved,Reserved
+0xE,Reserved,Reserved,Reserved,Reserved,Vendor specific,Reserved
+0xF,No Influence,No Influence,No Influence,No Influence,No Influence,No Influence

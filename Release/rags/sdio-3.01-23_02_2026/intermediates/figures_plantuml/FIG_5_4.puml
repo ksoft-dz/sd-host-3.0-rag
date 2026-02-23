@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+
+map "IO_RW_DIRECT Response in SPI Mode" as response {
+  Bit 7 => 0 (Start Bit - always 0)
+  Bit 6 => 1 = parameter error
+  Bit 5 => RFU (always 0)
+  Bit 4 => 1 = Function number error
+  Bit 3 => 1 = COM CRC error
+  Bit 2 => 1 = illegal command
+  Bit 1 => RFU (always 0)
+  Bit 0 => 1 = in idle state
+}
+
+note bottom of response
+  Followed by R/W Data (8 Bits)
+end note
+
+@enduml

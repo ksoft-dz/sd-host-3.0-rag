@@ -1,0 +1,52 @@
+@startuml
+skinparam monochrome true
+
+title Figure 1832. SDMA System address / Argument 2 register (SDMASYSADDR)\nOffset: 0x0000 | Access: Read/Write
+
+map "Upper Half (bits 0-15)" as upper {
+    15 => SDMA_SYSADDRESS
+    14 => SDMA_SYSADDRESS
+    13 => SDMA_SYSADDRESS
+    12 => SDMA_SYSADDRESS
+    11 => SDMA_SYSADDRESS
+    10 => SDMA_SYSADDRESS
+    9 => SDMA_SYSADDRESS
+    8 => SDMA_SYSADDRESS
+    7 => SDMA_SYSADDRESS
+    6 => SDMA_SYSADDRESS
+    5 => SDMA_SYSADDRESS
+    4 => SDMA_SYSADDRESS
+    3 => SDMA_SYSADDRESS
+    2 => SDMA_SYSADDRESS
+    1 => SDMA_SYSADDRESS
+    0 => SDMA_SYSADDRESS
+}
+
+note bottom of upper
+  Reset: 0x0000
+end note
+
+map "Lower Half (bits 16-31)" as lower {
+    31 => SDMA_SYSADDRESS
+    30 => SDMA_SYSADDRESS
+    29 => SDMA_SYSADDRESS
+    28 => SDMA_SYSADDRESS
+    27 => SDMA_SYSADDRESS
+    26 => SDMA_SYSADDRESS
+    25 => SDMA_SYSADDRESS
+    24 => SDMA_SYSADDRESS
+    23 => SDMA_SYSADDRESS
+    22 => SDMA_SYSADDRESS
+    21 => SDMA_SYSADDRESS
+    20 => SDMA_SYSADDRESS
+    19 => SDMA_SYSADDRESS
+    18 => SDMA_SYSADDRESS
+    17 => SDMA_SYSADDRESS
+    16 => SDMA_SYSADDRESS
+}
+
+note bottom of lower
+  Reset: 0x0000
+end note
+
+@enduml

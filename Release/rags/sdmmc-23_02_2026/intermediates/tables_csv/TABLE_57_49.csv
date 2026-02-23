@@ -1,0 +1,2 @@
+Field,Description
+"30:31 FEEDBACKCLK_SEL","Selects feedback clock from the sources of loopback. 00 Loopback from output of SDMMC HC IP (delayed SDMMC Tx clock is provided as loopback clock) 01 OPEN 10 OPEN 11 Loopback from external SDMMC device pin connected on SDMMC_FDBCK_CLK IO PAD"

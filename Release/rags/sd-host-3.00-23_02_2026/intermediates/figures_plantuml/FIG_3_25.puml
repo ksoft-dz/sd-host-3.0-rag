@@ -1,0 +1,56 @@
+@startuml
+start
+
+:(1) Set Stop at Block Gap Request;
+
+:(2) Wait for Int;
+
+note right
+  Block Gap Event Int doesn't occur
+  and Transfer Complete Int occur
+end note
+
+if (Block Gap Event Int occur?) then (yes)
+  :(3) Clr Block Gap Event status;
+  
+  :(4) Wait for Transfer Complete Int;
+  
+  :(5) Issue Suspend Command;
+  
+  if ((6) Check Bus Status (BS)) then (BS=1)
+    :(10) Check Bus Request (BR);
+    if (BR=0) then (yes)
+    else (BR=1)
+      :(11) Issue the command to cancel Suspend Command;
+      
+      if ((12) Check Bus Status (BS)) then (BS=0)
+      else (BS=1)
+        :(13) Clr Transfer Complete status;
+        :(14) Set Continue Request\nClr Stop at Block Gap Request;
+        stop
+      endif
+    endif
+  else (BS=0)
+    :(7) Save Register (000-00Dh);
+    :(8) Clr Transfer Complete status;
+    :(9) Clr Stop at Block Gap Request;
+    stop
+  endif
+else (no)
+  :(10) Check Bus Request (BR);
+  if (BR=0) then (yes)
+  else (BR=1)
+    :(11) Issue the command to cancel Suspend Command;
+    
+    if ((12) Check Bus Status (BS)) then (BS=0)
+    else (BS=1)
+      :(13) Clr Transfer Complete status;
+      :(14) Set Continue Request\nClr Stop at Block Gap Request;
+      stop
+    endif
+  endif
+endif
+
+stop
+
+@enduml

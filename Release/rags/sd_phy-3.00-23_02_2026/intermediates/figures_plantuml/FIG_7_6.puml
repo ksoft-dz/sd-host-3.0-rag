@@ -1,0 +1,51 @@
+@startuml
+skinparam defaultTextAlignment center
+
+concise "DataIn" as DI
+concise "DataOut" as DO
+
+@0
+DI is idle
+
+@100
+DI is command
+note top of DI: from\nhost\nto card
+
+@200
+DI is idle
+
+@300
+DI is "data block"
+note top of DI: Start\nBlock\nToken
+
+@350
+note top of DI: data from\nhost\nto card
+
+@500
+DI is idle
+
+@700
+DI is command
+note top of DI: new command\nfrom host
+
+@0
+DO is idle
+
+@150
+DO is response
+note top of DO: from\ncard\nto host
+
+@250
+DO is idle
+
+@450
+DO is data_response
+note top of DO: Data\nresponse and\nbusy from\ncard
+
+@520
+DO is busy
+
+@600
+DO is idle
+
+@enduml

@@ -1,0 +1,10 @@
+I don't see a table titled "Supported SD Memory Commands" or "Table 4-1" in this image. 
+
+The image shows page 27 of the "SDIO Simplified Specification Version 3.00" document, which contains:
+
+1. A paragraph about Figure 3-9 and RCA values for Combo card memory controller re-initialization
+2. Section 3.4.5 "Enabling CRC in SPI Combo Card" with explanatory text about CMD59 and CRC synchronization
+
+There is no table present on this page - it appears to be a text-only page with documentation content. The table you're looking for may be on a different page of the document.
+
+If you have another page image that contains the "Supported SD Memory Commands" table, please share that and I'll be happy to extract it for you.

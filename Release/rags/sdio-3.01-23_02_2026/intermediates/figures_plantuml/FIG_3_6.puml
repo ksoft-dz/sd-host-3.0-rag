@@ -1,0 +1,20 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+map "IO_SEND_OP_COND Command (CMD5)" as cmd5 {
+  S (1 bit) => Start bit, Always 0
+  D (1 bit) => Direction, Always 1 (host to card)
+  Command Index (6 bits) => 000101b (CMD5)
+  Stuff Bits (7 bits) => Not used, set to 0
+  S18R (1 bit) => Switching to 1.8V Request
+  I/O OCR (24 bits) => Operation Conditions Register
+  CRC7 (7 bits) => 7 bits of CRC data
+  E (1 bit) => End bit, always 1
+}
+
+note bottom of cmd5
+  Total: 48 bits
+  Bit positions: S[1] D[1] Index[6] Stuff[7] S18R[1] OCR[24] CRC7[7] E[1]
+end note
+@enduml

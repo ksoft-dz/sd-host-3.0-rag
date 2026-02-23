@@ -1,0 +1,42 @@
+@startuml
+start
+
+:(1) Set System Address Reg;
+:(2) Set Block Size Reg;
+:(3) Set Block Count Reg;
+:(4) Set Argument 1 Reg;
+:(5) Set Transfer Mode Reg;
+:(6) Set Command Reg;
+
+:(7) Wait for
+Command Complete Int;
+
+note right
+  Command Complete
+  Int occur
+end note
+
+:(8) Clr Command Complete status;
+:(9) Get Response Data;
+
+repeat
+  :(10) Wait for
+  Transfer Complete Int
+  and DMA Int;
+  
+  :(11) Check
+  Interrupt Status;
+  
+  if (Transfer Complete Int. occur?) then (yes)
+    :(14) Clr Transfer Complete status
+    Clr DMA Interrupt status;
+    stop
+  else (no)
+    if (DMA Int. occur?) then (yes)
+      :(12) Clr DMA Interrupt status;
+      :(13) Set System Address Reg;
+    endif
+  endif
+repeat while (continue?)
+
+@enduml

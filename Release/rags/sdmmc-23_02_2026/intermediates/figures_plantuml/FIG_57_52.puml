@@ -1,0 +1,187 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0" as DAT0
+robust "DAT1-7" as DAT1_7
+
+concise "Device Rsp→" as DevRsp
+
+@0
+CMD is "E"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@1
+CMD is "Z"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@2
+CMD is "Z"
+DAT0 is "P"
+DAT1_7 is "P"
+
+@3
+CMD is "P"
+DAT0 is "*"
+DAT1_7 is "*"
+
+@4
+CMD is {-}
+DAT0 is "P"
+DAT1_7 is "P"
+
+@5
+CMD is {-}
+DAT0 is "S"
+DAT1_7 is "S"
+
+@6
+CMD is {-}
+DAT0 is "Data + CRC"
+DAT1_7 is "Data + CRC"
+
+@7
+CMD is {-}
+DAT0 is "E"
+DAT1_7 is "E"
+
+@8
+CMD is "P"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@9
+CMD is "P"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@10
+CMD is "P"
+DAT0 is "S"
+DAT1_7 is "X"
+
+@11
+CMD is "P"
+DAT0 is "Status"
+DAT1_7 is "*"
+
+@12
+CMD is "P"
+DAT0 is "E"
+DAT1_7 is "*"
+
+@13
+CMD is {-}
+DAT0 is "Z"
+DAT1_7 is "*"
+
+@14
+CMD is {-}
+DAT0 is "P"
+DAT1_7 is "Z"
+
+@15
+CMD is {-}
+DAT0 is "*"
+DAT1_7 is "P"
+
+@16
+CMD is {-}
+DAT0 is "P"
+DAT1_7 is "*"
+
+@17
+CMD is {-}
+DAT0 is "S"
+DAT1_7 is "P"
+
+@18
+CMD is {-}
+DAT0 is "Data + CRC"
+DAT1_7 is "Data + CRC"
+
+@19
+CMD is {-}
+DAT0 is "E"
+DAT1_7 is "E"
+
+@20
+CMD is {-}
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@21
+CMD is {-}
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@22
+CMD is "P"
+DAT0 is "S"
+DAT1_7 is {-}
+
+@23
+CMD is "P"
+DAT0 is "Status"
+DAT1_7 is {-}
+
+@24
+CMD is "P"
+DAT0 is "E"
+DAT1_7 is {-}
+
+@25
+CMD is "P"
+DAT0 is "S"
+DAT1_7 is {-}
+
+@26
+CMD is "P"
+DAT0 is "L"
+DAT1_7 is {-}
+
+@27
+CMD is "P"
+DAT0 is "*"
+DAT1_7 is {-}
+
+@28
+CMD is "P"
+DAT0 is "L"
+DAT1_7 is {-}
+
+@29
+CMD is "P"
+DAT0 is "E"
+DAT1_7 is {-}
+
+@30
+CMD is "P"
+DAT0 is "Z"
+DAT1_7 is "Z"
+
+@31
+CMD is "P"
+DAT0 is "P"
+DAT1_7 is "P"
+
+@32
+CMD is "P"
+DAT0 is "*"
+DAT1_7 is "*"
+
+@33
+CMD is "P"
+DAT0 is "P"
+DAT1_7 is "P"
+
+highlight 3 to 7 #pink : Write data→
+highlight 8 to 10 #lightblue : ←NWR→
+highlight 10 to 13 #yellow : ←CRC status→
+highlight 13 to 17 #lightblue : ←NWR→
+highlight 17 to 21 #pink : ←Write data→
+highlight 22 to 26 #yellow : ←CRC status→
+highlight 26 to 30 #lightgray : ←Busy→
+highlight 30 to 33 #lightblue : ←NWR→
+
+@enduml

@@ -1,0 +1,5 @@
+State Name,Operation
+ST_FDS (Fetch Descriptor),ADMA2 fetches a descriptor line and set parameters in internal registers. Next go to ST_CADR state.
+ST_CADR (Change Address),"Link operation loads another Descriptor address to ADMA System Address register. In other operations, ADMA System Address register is incremented to point next descriptor line. If End=0, go to ST_TFR state. ADMA2 shall not be stopped at this state even if some errors occur."
+ST_TFR (Transfer Data),"Data transfer of one descriptor line is executed between system memory and SD card. If data transfer continues (End=0) go to ST_FDS state. If data transfer completes, go to ST_STOP state."
+ST_STOP (Stop DMA),"ADMA2 stays in this state in following cases: (1) After Power on reset or software reset. (2) All descriptor data transfers are completed If a new ADMA2 operation is started by writing Command register, go to ST_FDS state."

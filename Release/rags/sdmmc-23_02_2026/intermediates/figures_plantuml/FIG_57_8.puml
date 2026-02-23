@@ -1,0 +1,18 @@
+@startuml
+skinparam monochrome true
+
+map "COMMAND Register (0x000E)" as reg {
+  15:14 => COMMAND_RESPONSETYPE
+  13 => 0 (Reserved)
+  12 => COMMAND_CRCCHKENA
+  11 => COMMAND_INDEXCHKENA
+  10:9 => COMMAND_DATAPRESENT
+  8 => COMMAND_CMDTYPE
+  7:0 => COMMAND_CMDINDEX
+}
+
+note bottom of reg
+  Access: Read/Write
+  Reset: 0x0000
+end note
+@enduml

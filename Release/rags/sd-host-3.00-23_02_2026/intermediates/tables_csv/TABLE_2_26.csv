@@ -1,0 +1,5 @@
+Bit,Access,Field Name,Description
+15,RW1C,Fixed Error Interrupt Status Enable,Fixed to 0. The host Driver shall not error signals using the Error Interrupt Status Enable register.
+11,RW,INT_C Status Enable,If this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_C and may set this bit again after all interrupt requests to INT_C pin are cleared to prevent inadvertent interrupts.
+10,RW,INT_B Status Enable,If this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_B and may set this bit again after all interrupt requests to INT_B pin are cleared to prevent inadvertent interrupts.
+09,RW,INT_A Status Enable,If this bit is set to 0, the Host Controller shall clear the interrupt request to the System. The Host Driver may clear this bit before servicing the INT_A and may set this bit again after all interrupt requests to INT_A pin are cleared to prevent inadvertent interrupts.

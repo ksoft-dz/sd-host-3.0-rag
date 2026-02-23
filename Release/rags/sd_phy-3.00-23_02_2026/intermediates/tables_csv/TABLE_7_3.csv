@@ -1,0 +1,21 @@
+CMD INDEX,SPI Mode,Argument,Resp,Abbreviation,Command Description
+CMD0,Yes,"[31:12]Reserved bits, [11:8]supply voltage(VHS), [7:0]check pattern",R7,SEND_IF_COND,"Sends SD Memory Card interface condition that includes host supply voltage information and asks the accessed card whether card can operate in supplied voltage range. Reserved bits shall be set to '0'."
+CMD9,Yes,[31:0] stuff bits,R1,SEND_CSD,Asks the selected card to send its card-specific data (CSD).
+CMD10,Yes,[31:0] stuff bits,R1,SEND_CID,Asks the selected card to send its card identification (CID)
+CMD11,No,,,,
+CMD12,Yes,[31:0] stuff bits,R1b,STOP_TRANSMISSION,Forces the card to stop transmission in Multiple Block Read Operation
+CMD13,Yes,[31:0] stuff bits,R2,SEND_STATUS,Asks the selected card to send its status register.
+CMD14,reserved,,,,,
+CMD15,No,,,,
+CMD16,Yes,[31:0] block length,R1,SET_BLOCKLEN,"In case of SDSC Card, block length is set by this command. In case of SDHC and SDXC Cards, block length of the memory access commands are fixed to 512 bytes. The length of LOCK_UNLOCK command is set by this command regardless of card capacity."
+CMD17,Yes,"[31:0] data address12",R1,READ_SINGLE_BLOCK,Reads a block of the size selected by the SET_BLOCKLEN command.
+CMD18,Yes,"[31:0] data address12",R1,READ_MULTIPLE_BLOCK,"Continuously transfers data blocks from card to host until interrupted by a STOP_TRANSMISSION command."
+CMD19,reserved,,,,,
+CMD20,No,,,,
+CMD21,reserved,,,,,
+CMD22,reserved,,,,,
+CMD23,reserved,,,,,
+CMD24,Yes,"[31:0] data address12",R1,WRITE_BLOCK,Writes a block of the size selected by the SET_BLOCKLEN command.
+CMD25,Yes,"[31:0] data address12",R1,WRITE_MULTIPLE_BLOCK,"Continuously writes blocks of data until 'Stop Tran' token is sent (instead 'Start Block')."
+CMD26,No,,,,
+CMD27,Yes,[31:0] stuff bits,R1,PROGRAM_CSD,Programming of the programmable bits of the CSD.

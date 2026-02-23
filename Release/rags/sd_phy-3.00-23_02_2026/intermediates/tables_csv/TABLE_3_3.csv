@@ -1,0 +1,5 @@
+Card type,HOST-SDR-FD (SDR fixed-delay),HOST-SDR-VD (SDR variable-delay),HOST-DDR (DDR)
+UHS50 card microSD,SDR50 ≤ 100MHz,SDR50 ≤ 100MHz + tuning,DDR50 ≤ 50MHz
+UHS104 card microSD,SDR50 ≤ 100MHz,SDR104 ≤ 208MHz + tuning,DDR50 ≤ 50MHz
+UHS50 card Full-size SD,SDR50 ≤ 100MHz,SDR50 ≤ 100MHz + tuning,Optional
+UHS104 card Full-size SD,SDR50 ≤ 100MHz,SDR104 ≤ 208MHz + tuning,Optional

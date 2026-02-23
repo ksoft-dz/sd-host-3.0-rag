@@ -1,0 +1,3 @@
+Field,Description
+0:31,Buffer data
+PIOBUFRDATA,The host controller buffer can be accessed through this 32-bit Data port register.

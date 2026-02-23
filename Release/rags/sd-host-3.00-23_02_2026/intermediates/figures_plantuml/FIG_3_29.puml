@@ -1,0 +1,49 @@
+@startuml
+concise "DAT line" as DAT
+concise "Read Wait" as RW
+concise "Stop At Block Gap Request (Control)" as SABGR
+concise "Continue Request (Control)" as CR
+concise "DAT Line Active (Status)" as DLA
+concise "Read Transfer Active (Status)" as RTA
+concise "Block Gap Event (Interrupt)" as BGE
+concise "Transfer Complete (Interrupt)" as TC
+
+@0
+DAT is idle
+RW is low
+SABGR is low
+CR is low
+DLA is low
+RTA is low
+BGE is low
+TC is low
+
+@10
+DAT is "Last block"
+RW is high
+
+@20
+SABGR is high
+
+@30
+CR is high
+SABGR is low
+
+@40
+DLA is high
+RW is low
+
+@50
+RTA is high
+
+@100
+DLA is low
+RTA is low
+
+@110
+TC is high
+
+@120
+TC is low
+
+@enduml

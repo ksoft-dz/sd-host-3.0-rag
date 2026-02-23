@@ -1,0 +1,42 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Clock Control Register (Offset 02Ch)" {
+    rectangle "D15-D08" as d15_08 #LightGray
+    rectangle "D07-D06\nUpper Bits of SDCLK\nFrequency Select" as d07_06
+    rectangle "D05\nClock Generator\nSelect" as d05
+    rectangle "D04-D03\nReserved" as d04_03
+    rectangle "D02\nSD Clock Enable" as d02
+    rectangle "D01\nInternal Clock Stable" as d01
+    rectangle "D00\nInternal Clock Enable" as d00
+    
+    d15_08 -right- d07_06
+    d07_06 -right- d05
+    d05 -right- d04_03
+    d04_03 -right- d02
+    d02 -right- d01
+    d01 -right- d00
+}
+
+note bottom
+  **SDCLK Frequency Select (D15-D08, D07-D06)**
+  Location: 15-08, Attrib: RW
+  
+  **8-bit Divided Clock Mode:**
+  - 80h: base clock divided by 256
+  - 40h: base clock divided by 128
+  - 20h: base clock divided by 64
+  - 10h: base clock divided by 32
+  - 08h: base clock divided by 16
+  - 04h: base clock divided by 8
+  - 02h: base clock divided by 4
+  - 01h: base clock divided by 2
+  - 00h: Base clock (10MHz-63MHz)
+  
+  Clock Frequency = (Base Clock) / divisor
+end note
+
+@enduml

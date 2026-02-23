@@ -1,0 +1,8 @@
+I notice this page does not contain the "CSD Register Structure" table (Table 5-3). This page appears to be page 94 of the SD Physical Layer Simplified Specification and only contains descriptive text about two CID register fields:
+
+- **MDT** (Manufacturing Date) - describing the 12-bit field with year and month encoding
+- **CRC** - describing the 7-bit CRC7 checksum
+
+There is no table structure on this page to extract. The CSD Register Structure table would be located on a different page of the specification document.
+
+If you need the CSD Register Structure table extracted, please provide the page image that contains that specific table.

@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1845. Clock control register (CLOCKCONTROL)\nOffset: 0x002C | Access: Read/Write
+
+map "CLOCKCONTROL Register (16-bit)" as reg {
+  15 => CLKCTRL_INTCLKENA
+  14 => CLKGEN_INTCLKSTABLE
+  13 => CLKCTRL_SDMMCCLKENA
+  12 => Reserved (0)
+  11 => Reserved (0)
+  10 => Reserved (0)
+  9 => UPPERBITS
+  8 => CLKCTRL_SDMMCCLKFREQSEL_
+  7:0 => CLKCTRL_SDMMCCLKFREQSEL
+}
+
+note bottom of reg
+  **Reset Values:** All bits = 0
+  
+  **Bit Fields:**
+  |= Bits |= Field |= R/W |= Reset |
+  | 15 | CLKCTRL_INTCLKENA | R/W | 0 |
+  | 14 | CLKGEN_INTCLKSTABLE | R/W | 0 |
+  | 13 | CLKCTRL_SDMMCCLKENA | R/W | 0 |
+  | 12:10 | Reserved | R | 0 |
+  | 9:8 | CLKCTRL_SDMMCCLKFREQSEL_UPPERBITS | R/W | 0 |
+  | 7:0 | CLKCTRL_SDMMCCLKFREQSEL | R/W | 0 |
+end note
+
+@enduml

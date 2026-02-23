@@ -1,0 +1,10 @@
+@startuml
+skinparam backgroundColor white
+
+title Erase Timeout [Sec]
+
+rectangle diagram {
+    
+}
+
+@enduml

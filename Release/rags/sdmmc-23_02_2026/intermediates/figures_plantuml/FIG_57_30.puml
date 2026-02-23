@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+hide empty description
+
+map "MAXCURRENTCAP63_32 (Offset: 0x004C)" as reg {
+  Access => Read
+}
+
+rectangle "Bits 31:16" as upper {
+  rectangle "31|30|29|28|27|26|25|24|23|22|21|20|19|18|17|16" as upper_bits
+  rectangle "R: 0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0" as upper_r
+  rectangle "W: " as upper_w
+  rectangle "Reset: 0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0" as upper_reset
+}
+
+rectangle "Bits 15:0" as lower {
+  rectangle "15|14|13|12|11|10|9|8|7|6|5|4|3|2|1|0" as lower_bits
+  rectangle "R: 0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0" as lower_r
+  rectangle "W: " as lower_w
+  rectangle "Reset: 0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0" as lower_reset
+}
+
+note bottom
+  Field [0:31]: Reserved
+end note
+
+@enduml

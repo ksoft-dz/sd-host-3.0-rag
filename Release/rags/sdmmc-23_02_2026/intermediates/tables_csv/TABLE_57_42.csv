@@ -1,0 +1,5 @@
+Field,Description
+0:7,Vendor version number
+SDHC_VENVERNUM,The vendor version number is set to 0x10 (1.0)
+8:15,Specification version number
+SPECIFICATION VERSIONNUMBER,"The host controller version number is set to 0x02 (Host specification version 3.00)."

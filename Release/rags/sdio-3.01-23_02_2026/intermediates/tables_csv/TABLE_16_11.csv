@@ -1,0 +1,10 @@
+I notice that the image shows page 77 of the SDIO specification, but it does not contain "Table 16-11: TPLFE_CSA_PROPERTY Definition". 
+
+The page shows:
+1. A small table at the top with register addresses (1Ch-1Dh through 2Ah-2Bh)
+2. "Table 16-8: TPLFID_FUNCTION Tuple for Function 1-7 (High Power Tuple)"
+3. A field definition table with entries like TPLFE_FUNCTION_INFO, TPLFE_STD_IO_REV, TPLFE_CARD_PSN, etc.
+
+The TPLFE_CSA_PROPERTY field is mentioned in this table with a description stating "This byte contains flags identifying properties of this function's CSA. The bits are defined in Table 16-11." However, Table 16-11 itself is not shown on this page - it would be on a subsequent page.
+
+If you need the field definition table that IS visible on this page, I can extract that instead. Otherwise, please provide the page containing Table 16-11 for extraction.

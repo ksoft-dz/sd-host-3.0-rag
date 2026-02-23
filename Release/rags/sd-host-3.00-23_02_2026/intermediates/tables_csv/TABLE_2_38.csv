@@ -1,0 +1,8 @@
+Bit,Access,Field Name,Description
+15-12,WO,Force Event for Vendor Specific Error Status,Additional status bits can be defined in the register by the vendor. 1 = Interrupt is generated; 0 = No Interrupt
+11-10,Rsvd,Reserved,
+09,WO,Force Event for ADMA Error,1 = Interrupt is generated; 0 = No Interrupt
+08,WO,Force Event for Auto CMD Error,1 = Interrupt is generated; 0 = No Interrupt
+07,WO,Force Event for Current Limit Error,1 = Interrupt is generated; 0 = No Interrupt
+06,WO,Force Event for Data End Bit Error,1 = Interrupt is generated; 0 = No Interrupt
+05,WO,Force Event for Data CRC Error,1 = Interrupt is generated; 0 = No Interrupt

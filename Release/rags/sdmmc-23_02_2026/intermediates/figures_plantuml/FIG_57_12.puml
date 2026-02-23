@@ -1,0 +1,24 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName monospace
+
+title Host control 1 register (HOSTCONTROL1)\nOffset: 0x0028 | Access: Read/Write
+
+map "HOSTCONTROL1 (8-bit)" as reg {
+    7 => 0
+    6 => HOSTCTRL1_DATAWIDTH
+    5 => HOSTCTRL1_HIGHSPEEDEN_A
+    4 => (reserved)
+    3 => HOSTCTRL1_DMASELECT
+    2 => HOSTCTRL1_EXTDATAWIDTH
+    1 => HOSTCTRL1_CDTESTLEVEL
+    0 => HOSTCTRL1_CDSIGSELECT
+}
+
+note bottom of reg
+  **Read (R):** All fields readable
+  **Write (W):** All fields writable
+  **Reset:** 0x00 (all bits = 0)
+end note
+
+@enduml

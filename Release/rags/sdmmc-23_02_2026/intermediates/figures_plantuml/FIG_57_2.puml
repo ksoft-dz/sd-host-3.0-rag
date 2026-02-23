@@ -1,0 +1,49 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<controller>> LightGray
+    BackgroundColor<<device>> LightGreen
+}
+
+rectangle "SDMMC Host Controller" as controller <<controller>> {
+    
+}
+
+rectangle "SD/MMC\nDevice/\nCardSlot" as device <<device>>
+
+' Clock path A - direct
+rectangle "A" as pathA #Yellow
+
+' Multiplexer for rxclk_in
+rectangle "rxclk_in" as mux {
+    rectangle "00" as m00
+    rectangle "01" as m01
+    rectangle "10" as m10
+    rectangle "11" as m11
+}
+
+' Clock path B - feedback
+circle "B" as pathB #LightBlue
+
+' Pads
+rectangle "SDMMC_CLK PAD" as clk_pad
+rectangle "SDMMC_FBCLK PAD" as fbclk_pad
+
+' Connections
+controller --> pathA : sdmmccard_clk
+pathA --> clk_pad
+clk_pad --> device
+
+controller --> mux
+mux --> pathB
+pathB --> fbclk_pad
+fbclk_pad <--> device
+
+note bottom
+  eMMC_FB_CLK_SEL :
+  feedbackClk_sel[1:0]
+  
+  → Path **A** : Default Speed mode upto 12MHz is supported.
+  → Path **B** : High Speed, Default Speed modes upto 50MHz are supported.
+end note
+
+@enduml

@@ -1,0 +1,10 @@
+I don't see a table titled "Table 16-6" or "TPLFID_FUNCTION Tuple for Function 0 (Common)" in this image. 
+
+The image shows page 74 of the SDIO Simplified Specification Version 3.00, which contains:
+
+1. **Table 16-3: CISTPL_MANFID: Manufacturer Identification Tuple** - A table showing byte definitions for manufacturer identification
+2. **Table 16-4: CISTPL_FUNCID Tuple** - A table showing byte definitions for function identification
+
+Neither of these matches the requested "TPLFID_FUNCTION Tuple for Function 0 (Common)" table. This table likely appears on a different page of the specification document.
+
+Would you like me to extract one of the tables that are actually present on this page instead?

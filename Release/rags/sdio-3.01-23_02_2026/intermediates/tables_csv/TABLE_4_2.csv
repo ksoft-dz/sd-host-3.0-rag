@@ -1,0 +1,7 @@
+SD Memory Command,SDIO Command,Comment
+CMD0,"CMD52 (write to I/O reset in CCCR)","The reset command (CMD0) is only used for memory or the memory portion of Combo cards. An I/O only card or the I/O portion of a combo card is not reset with CMD0 but reset with I/O Reset (by writing 1 to the RES bit (bit 3 of address 6 in the CCCR) by CMD52). I/O Reset is invoked after the response of CMD52."
+CMD12,"CMD52 (write to I/O abort)","In order to abort a block transfer of data, SD memory cards use CMD12. In order to abort an I/O transaction, use CMD52 to write to the abort register in the CCCR (bits 2:0 of register 6). Refer to Section 4.8 for details."
+CMD16,"CMD52 (write to I/O Block Length)","CMD16 sets the block length for SD memory. In order to set the block length for each I/O function, use CMD52 to write the block length in the FBR"
+CMD2,NONE,The CID register does not exist in an SDIO only card
+CMD4,NONE,The DSR register does not exist in an SDIO only card
+CMD9,NONE,The CSD register does not exist in an SDIO only card

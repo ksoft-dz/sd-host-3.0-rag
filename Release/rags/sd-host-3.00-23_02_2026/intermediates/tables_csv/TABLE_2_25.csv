@@ -1,0 +1,11 @@
+I don't see a table titled "The Relation between Command CRC Error and Command Timeout Error" or "Table 2-25" in the provided image. 
+
+The image shows page 57 from what appears to be an SD Association specification document (©Copyright 2002-2011 SD Association), and it contains:
+
+1. Section 2.2.16 titled "Error Interrupt Status Register (Offset 0x32)"
+2. Figure 2-27: Error Interrupt Status Register (a register diagram)
+3. A table showing Error Interrupt Status Register bits with columns for Bit, RW/C, Name, Number Specific Error Status, and Additional notes
+
+The visible table in the image is about the Error Interrupt Status Register, not about the relation between Command CRC Error and Command Timeout Error. The table I can see has entries for bits 15-0 with various error status indicators.
+
+If you're looking for Table 2-25 specifically, it may be on a different page of the document. Could you provide the page that contains that specific table?

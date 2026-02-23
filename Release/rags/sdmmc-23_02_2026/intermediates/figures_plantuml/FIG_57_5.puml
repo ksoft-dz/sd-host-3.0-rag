@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1834. Block count register (BLOCKCOUNT)\nOffset: 0x0006    Access: Read/Write
+
+map "BLOCKCOUNT Register (32-bit)" as reg {
+}
+
+note bottom of reg
+|= Bit |= 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+|  R   |>|>|>|>|>|>|>|>|>|>|>|>|>|>|>| XFER_BLOCKCOUNT |
+|  W   |>|>|>|>|>|>|>|>|>|>|>|>|>|>|>| XFER_BLOCKCOUNT |
+| Reset| 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+end note
+
+@enduml

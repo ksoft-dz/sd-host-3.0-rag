@@ -1,0 +1,27 @@
+@startuml
+!define RECTANGLE class
+
+skinparam rectangle {
+    BackgroundColor lightgray
+    BorderColor black
+}
+
+rectangle "Preset Value Register (16 bits)" as PVR {
+    rectangle "D15-D14\nDriver Strength\nSelect Value" as D15_D14
+    rectangle "D13\nReserved" as D13
+    rectangle "D11\nReserved" as D11
+    rectangle "D10\nClock Generator\nSelect Value" as D10
+    rectangle "D09-D00\nSDCLK Frequency\nSelect Value" as D09_D00
+}
+
+D15_D14 -right- D13
+D13 -right- D11
+D11 -right- D10
+D10 -right- D09_D00
+
+note bottom of PVR
+  Bit fields define preset configuration values
+  for bus speed modes and driver settings
+end note
+
+@enduml

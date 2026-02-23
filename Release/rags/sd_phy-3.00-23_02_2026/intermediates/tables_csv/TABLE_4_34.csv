@@ -1,0 +1,4 @@
+Bit position,47,46,[45:40],[39:20],[19:16],[15:8],[7:1],0
+Width (bits),1,1,6,20,4,8,7,1
+Value,'0','0','001000','00000h',x,x,x,'1'
+Description,Start bit,Transmission bit,Command index,Reserved bits,Voltage accepted,"Echo-back of check pattern",CRC7,End bit

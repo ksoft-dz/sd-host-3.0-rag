@@ -1,0 +1,450 @@
+# ==============================================================================
+# RAG V2 — Spec Configuration
+# ==============================================================================
+# This file replaces ALL hardcoded values from v1 extraction scripts.
+# One config per project. Everything the pipeline needs to know about the spec.
+# ==============================================================================
+
+# ==============================================================================
+# SPEC IDENTITY
+# ==============================================================================
+spec:
+  name: "SD Host Controller Simplified Specification"
+  version: "3.00"
+  pdf_file: "source/sd_host_3_00.pdf"
+  page_offset: 11          # spec_page + page_offset = pdf_page (1-indexed)
+  total_spec_pages: 141     # Last numbered spec page
+
+# ==============================================================================
+# TABLE OF CONTENTS — PDF page indices (0-indexed) where each TOC lives
+# ==============================================================================
+toc:
+  sections:
+    pages: [3, 4, 5, 6]    # PDF pages 4-7 (0-indexed: 3-6)
+    pattern: "^(\\d+(?:\\.\\d+)*)\\s+(.+?)\\s*\\.{3,}\\s*(\\d+)"
+  tables:
+    pages: [9, 10]          # PDF pages 10-11 (0-indexed: 9-10)
+    pattern: "Table\\s+(\\d+)[-.](\\d+)\\s*:\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "TABLE_{chapter}_{seq}"
+  figures:
+    pages: [7, 8]           # PDF pages 8-9 (0-indexed: 7-8)
+    pattern: "Figure\\s+(\\d+)[-.](\\d+)\\s*:\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "FIG_{chapter}_{seq}"
+
+# ==============================================================================
+# NODE TYPES — Same 7 types as SD Host v1
+# ==============================================================================
+node_types:
+  TABLE:
+    enabled: true
+    id_format: "TABLE_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "register.*(field|bit)"
+        type: "REGISTER_FIELDS"
+      - pattern: "register"
+        type: "REGISTER_MAP"
+      - pattern: "signal|port"
+        type: "SIGNAL_LIST"
+      - pattern: "timing"
+        type: "TIMING"
+      - pattern: ".*"
+        type: "OTHER"
+
+  FIGURE:
+    enabled: true
+    id_format: "FIG_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "state|machine|transition"
+        type: "STATE_DIAGRAM"
+      - pattern: "timing|waveform"
+        type: "TIMING_DIAGRAM"
+      - pattern: "register.*(bit|field|layout)"
+        type: "REGISTER_LAYOUT"
+      - pattern: "flow|sequence"
+        type: "FLOWCHART"
+      - pattern: "block|architecture|diagram"
+        type: "BLOCK_DIAGRAM"
+      - pattern: ".*"
+        type: "OTHER"
+
+  SPEC_CHUNK:
+    enabled: true
+    id_format: "CHUNK_{section}_{idx}"
+
+  REGISTER:
+    enabled: true
+    id_format: "REG_{offset}"
+
+  REG_CLASS:
+    enabled: true
+    id_format: "REGCLASS_{name}"
+
+  FEATURE:
+    enabled: true
+    id_format: "F_{name}"
+
+  HD_SEQUENCE:
+    enabled: true
+    id_format: "HD_{name}"
+
+# ==============================================================================
+# CHUNKING PARAMETERS
+# ==============================================================================
+chunking:
+  target_words: 200
+  max_words: 250
+  overlap_words: 20
+
+# ==============================================================================
+# LLM CONFIGURATION
+# ==============================================================================
+llm:
+  default_model: "sonnet"
+  models:
+    haiku: "claude-haiku-4-5-20251001"
+    sonnet: "claude-sonnet-4-5-20250929"
+    opus: "claude-opus-4-5-20251101"
+  rate_limit_delay: 1.5
+  max_retries: 3
+  max_workers: 4
+
+# ==============================================================================
+# DOMAIN: REGISTERS
+# ==============================================================================
+domain:
+  registers:
+    enabled: true
+    # Register classes from FIG_1_2 (address map) + TABLE_1_1 (version support)
+    classes:
+      - id: "REGCLASS_CMD_GEN"
+        name: "SD Command Generation"
+        address_start: "000h"
+        address_end: "00Fh"
+        table_1_1_name: "SD command generation"
+      - id: "REGCLASS_RESPONSE"
+        name: "Response"
+        address_start: "010h"
+        address_end: "01Fh"
+        table_1_1_name: "Response"
+      - id: "REGCLASS_BUFFER"
+        name: "Buffer Data Port"
+        address_start: "020h"
+        address_end: "023h"
+        table_1_1_name: "Buffer Data port"
+      - id: "REGCLASS_HOST_CTRL1"
+        name: "Host Control 1 and Others"
+        address_start: "024h"
+        address_end: "02Fh"
+        table_1_1_name: "Host control 1 and Others"
+      - id: "REGCLASS_INTERRUPT"
+        name: "Interrupt Controls"
+        address_start: "030h"
+        address_end: "03Dh"
+        table_1_1_name: "Interrupt controls"
+      - id: "REGCLASS_HOST_CTRL2"
+        name: "Host Control 2"
+        address_start: "03Eh"
+        address_end: "03Fh"
+        table_1_1_name: "Host Control 2"
+      - id: "REGCLASS_CAPABILITIES"
+        name: "Capabilities"
+        address_start: "040h"
+        address_end: "04Fh"
+        table_1_1_name: "Capabilities"
+      - id: "REGCLASS_FORCE_EVENT"
+        name: "Force Event"
+        address_start: "050h"
+        address_end: "053h"
+        table_1_1_name: "Force Event"
+      - id: "REGCLASS_ADMA"
+        name: "ADMA"
+        address_start: "054h"
+        address_end: "05Fh"
+        table_1_1_name: "ADMA"
+      - id: "REGCLASS_PRESET"
+        name: "Preset Value"
+        address_start: "060h"
+        address_end: "06Fh"
+        table_1_1_name: "Preset Value"
+      - id: "REGCLASS_SHARED_BUS"
+        name: "Shared Bus"
+        address_start: "0E0h"
+        address_end: "0E3h"
+        table_1_1_name: "Shared Bus"
+      - id: "REGCLASS_COMMON"
+        name: "Common Area"
+        address_start: "0F0h"
+        address_end: "0FFh"
+        table_1_1_name: "Common area"
+
+    # Register offset → section/name mapping
+    register_offsets:
+      "000h": { section: "2.2.1",  name: "SDMA System Address / Argument 2 Register" }
+      "004h": { section: "2.2.2",  name: "Block Size Register" }
+      "006h": { section: "2.2.3",  name: "Block Count Register" }
+      "008h": { section: "2.2.4",  name: "Argument 1 Register" }
+      "00Ch": { section: "2.2.5",  name: "Transfer Mode Register" }
+      "00Eh": { section: "2.2.6",  name: "Command Register" }
+      "010h": { section: "2.2.7",  name: "Response Register", table: "TABLE_2_11" }
+      "020h": { section: "2.2.8",  name: "Buffer Data Port Register" }
+      "024h": { section: "2.2.9",  name: "Present State Register" }
+      "028h": { section: "2.2.10", name: "Host Control 1 Register" }
+      "029h": { section: "2.2.11", name: "Power Control Register" }
+      "02Ah": { section: "2.2.12", name: "Block Gap Control Register" }
+      "02Bh": { section: "2.2.13", name: "Wakeup Control Register" }
+      "02Ch": { section: "2.2.14", name: "Clock Control Register" }
+      "02Eh": { section: "2.2.15", name: "Timeout Control Register" }
+      "02Fh": { section: "2.2.16", name: "Software Reset Register" }
+      "030h": { section: "2.2.17", name: "Normal Interrupt Status Register" }
+      "032h": { section: "2.2.18", name: "Error Interrupt Status Register" }
+      "034h": { section: "2.2.19", name: "Normal Interrupt Status Enable Register" }
+      "036h": { section: "2.2.20", name: "Error Interrupt Status Enable Register" }
+      "038h": { section: "2.2.21", name: "Normal Interrupt Signal Enable Register" }
+      "03Ah": { section: "2.2.22", name: "Error Interrupt Signal Enable Register" }
+      "03Ch": { section: "2.2.23", name: "Auto CMD Error Status Register" }
+      "03Eh": { section: "2.2.24", name: "Host Control 2 Register" }
+      "040h": { section: "2.2.25", name: "Capabilities Register" }
+      "048h": { section: "2.2.26", name: "Maximum Current Capabilities Register" }
+      "050h": { section: "2.2.27", name: "Force Event Register for Auto CMD Error Status", table: "TABLE_2_37" }
+      "052h": { section: "2.2.28", name: "Force Event Register for Error Interrupt Status" }
+      "054h": { section: "2.2.29", name: "ADMA Error Status Register" }
+      "058h": { section: "2.2.30", name: "ADMA System Address Register" }
+      "060h": { section: "2.2.31", name: "Preset Value Registers", table: "TABLE_2_43" }
+      "0E0h": { section: "2.2.32", name: "Shared Bus Control Register" }
+      "0F0h": { section: "2.2.33", name: "Slot Interrupt Status Register" }
+      "0FEh": { section: "2.2.34", name: "Host Controller Version Register", table: "TABLE_2_46" }
+
+    # Tables to EXCLUDE from register field extraction
+    exclude_tables:
+      - "TABLE_1_1"    # Supported Registers summary
+      - "TABLE_1_2"    # Registers to Generate SD Command (summary)
+      - "TABLE_1_3"    # Response Register content mapping
+      - "TABLE_1_4"    # Available Byte Enable Pattern
+      - "TABLE_1_5"    # Host Control Registers summary
+      - "TABLE_1_6"    # Host Control Registers (cont)
+      - "TABLE_1_7"    # Summary of Register Status
+      - "TABLE_1_8"    # Summary for Data Transfer
+      - "TABLE_1_9"    # Data Line Active summary
+      - "TABLE_1_10"   # Auto CMD status
+      - "TABLE_1_11"   # Auto CMD fields
+      - "TABLE_1_13"   # PCI config registers
+      - "TABLE_1_14"   # PCI stuff
+      - "TABLE_2_1"    # Register map layout
+      - "TABLE_2_2"    # Available Byte Enable Pattern
+      - "TABLE_2_8"    # Multi/Single Block function table
+      - "TABLE_2_10"   # Response Type mapping
+      - "TABLE_2_11"   # Response Register mapping
+      - "TABLE_2_12"   # Response Register mapping (duplicate)
+      - "TABLE_2_25"   # CMD CRC/Timeout error table
+      - "TABLE_2_31"   # Auto CMD error table
+      - "TABLE_2_36"   # Current value conversion
+      - "TABLE_2_41"   # Preset Value offset mapping
+      - "TABLE_2_42"   # Bus Speed Mode selection
+      - "TABLE_2_46"   # Host Controller Version values
+
+# ==============================================================================
+# DOMAIN: FEATURES
+# ==============================================================================
+  features:
+    enabled: true
+    # Feature definitions: [id, name, groups[], priority, parent_id]
+    definitions:
+      # --- REGISTER INFRASTRUCTURE (§2.1) ---
+      - { id: "F_REG_FILE",           name: "Register File",                    groups: ["register_infrastructure"], priority: "P1", parent: null }
+      - { id: "F_REG_ACCESS_TYPES",   name: "Register Access Types",            groups: ["register_infrastructure"], priority: "P1", parent: "F_REG_FILE" }
+      - { id: "F_REG_INIT_VALUES",    name: "Register Initial Values",          groups: ["register_infrastructure"], priority: "P1", parent: "F_REG_FILE" }
+      - { id: "F_REG_RESERVED_BITS",  name: "Reserved Bits Handling",           groups: ["register_infrastructure"], priority: "P1", parent: "F_REG_FILE" }
+
+      # --- COMMAND ENGINE (§1.5, §3.7.1) ---
+      - { id: "F_CMD_ENGINE",         name: "Command Engine",                   groups: ["command"],                 priority: "P0", parent: null }
+      - { id: "F_CMD_ISSUANCE",       name: "Command Issuance",                 groups: ["command"],                 priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_CMD_FINALIZATION",    name: "Command Finalization",             groups: ["command"],                 priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_CMD_INHIBIT",        name: "Command Inhibit",                  groups: ["command"],                 priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_RESPONSE",           name: "Response Handling",                groups: ["command", "response"],     priority: "P0", parent: "F_CMD_ENGINE" }
+
+      # --- DATA TRANSFER (§1.4, §1.7, §1.13, §3.7.2) ---
+      - { id: "F_DATA_TRANSFER",      name: "Data Transfer",                    groups: ["data_transfer"],           priority: "P0", parent: null }
+      - { id: "F_BUFFER",             name: "Buffer Data Port",                 groups: ["buffer", "data_transfer"], priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_PIO",                name: "Programmed I/O",                   groups: ["pio", "data_transfer"],    priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_SDMA",               name: "Single DMA",                       groups: ["sdma", "dma", "data_transfer"], priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ADMA2",              name: "Advanced DMA 2",                   groups: ["adma2", "dma", "data_transfer"], priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ADMA2_DESC",         name: "ADMA2 Descriptor Table",           groups: ["adma2"],                   priority: "P0", parent: "F_ADMA2" }
+      - { id: "F_ADMA2_STATES",       name: "ADMA2 State Machine",             groups: ["adma2"],                   priority: "P0", parent: "F_ADMA2" }
+      - { id: "F_BLOCK_SIZE_COUNT",   name: "Block Size and Count",             groups: ["data_transfer"],           priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_LARGE_DATA_DIV",     name: "Large Data Transfer Division",     groups: ["data_transfer"],           priority: "P1", parent: "F_DATA_TRANSFER" }
+
+      # --- AUTO CMD (§1.11) ---
+      - { id: "F_AUTO_CMD",           name: "Auto CMD Mechanism",               groups: ["auto_cmd"],                priority: "P0", parent: null }
+      - { id: "F_AUTO_CMD12",         name: "Auto CMD12",                       groups: ["auto_cmd"],                priority: "P0", parent: "F_AUTO_CMD" }
+      - { id: "F_AUTO_CMD23",         name: "Auto CMD23",                       groups: ["auto_cmd"],                priority: "P0", parent: "F_AUTO_CMD" }
+
+      # --- INTERRUPT SYSTEM (§1.8, §2.2.17–2.2.22) ---
+      - { id: "F_INTERRUPT",          name: "Interrupt System",                 groups: ["interrupt"],               priority: "P0", parent: null }
+      - { id: "F_INT_NORMAL_STATUS",  name: "Normal Interrupt Status",          groups: ["interrupt"],               priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_INT_ERROR_STATUS",   name: "Error Interrupt Status",           groups: ["interrupt", "error_handling"], priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_INT_STATUS_ENABLE",  name: "Interrupt Status Enable",          groups: ["interrupt"],               priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_INT_SIGNAL_ENABLE",  name: "Interrupt Signal Enable",          groups: ["interrupt"],               priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_AUTO_CMD_ERR_STATUS", name: "Auto CMD Error Status",           groups: ["interrupt", "auto_cmd", "error_handling"], priority: "P0", parent: "F_INTERRUPT" }
+
+      # --- CLOCK SYSTEM (§1.12, §3.2) ---
+      - { id: "F_CLOCK",              name: "Clock System",                     groups: ["clock"],                   priority: "P0", parent: null }
+      - { id: "F_CLK_SUPPLY",         name: "Internal Clock and SDCLK Supply",  groups: ["clock"],                   priority: "P0", parent: "F_CLOCK" }
+      - { id: "F_CLK_STOP",           name: "Clock Stop Mechanism",             groups: ["clock"],                   priority: "P0", parent: "F_CLOCK" }
+      - { id: "F_CLK_FREQ_CHANGE",    name: "Clock Frequency Change",           groups: ["clock"],                   priority: "P0", parent: "F_CLOCK" }
+      - { id: "F_DUAL_CLOCK_DOMAIN",  name: "Dual Clock Domain",               groups: ["clock"],                   priority: "P1", parent: "F_CLOCK" }
+      - { id: "F_SAMPLING_TUNING",    name: "Sampling Clock Tuning",            groups: ["clock", "speed_modes"],    priority: "P2", parent: "F_CLOCK" }
+
+      # --- POWER CONTROL (§3.3) ---
+      - { id: "F_POWER",              name: "Power Control",                    groups: ["power"],                   priority: "P0", parent: null }
+      - { id: "F_BUS_POWER_VOLTAGE",  name: "Bus Power and Voltage Select",    groups: ["power"],                   priority: "P0", parent: "F_POWER" }
+      - { id: "F_POWER_STATES",       name: "Power States D0-D3",              groups: ["power"],                   priority: "P1", parent: "F_POWER" }
+      - { id: "F_1V8_SIGNALING",      name: "1.8V Signaling Enable",           groups: ["power", "speed_modes"],    priority: "P2", parent: "F_POWER" }
+
+      # --- BUS WIDTH (§3.4) ---
+      - { id: "F_BUS_WIDTH",          name: "Bus Width Control",                groups: ["bus_width"],               priority: "P0", parent: null }
+
+      # --- SPEED MODES (§3.9) ---
+      - { id: "F_SPEED_MODES",        name: "Speed Mode Support",              groups: ["speed_modes"],             priority: "P0", parent: null }
+      - { id: "F_DEFAULT_SPEED",      name: "Default Speed Mode",              groups: ["speed_modes"],             priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_HIGH_SPEED",         name: "High Speed Mode",                 groups: ["speed_modes"],             priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR50",          name: "UHS-I SDR50",                     groups: ["speed_modes"],             priority: "P2", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR104",         name: "UHS-I SDR104",                    groups: ["speed_modes"],             priority: "P2", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_DDR50",          name: "UHS-I DDR50",                     groups: ["speed_modes"],             priority: "P2", parent: "F_SPEED_MODES" }
+
+      # --- CARD MANAGEMENT (§3.1) ---
+      - { id: "F_CARD_DETECTION",     name: "Card Detection",                  groups: ["card_management"],         priority: "P0", parent: null }
+      - { id: "F_WRITE_PROTECT",      name: "Write Protection",                groups: ["card_management"],         priority: "P1", parent: "F_CARD_DETECTION" }
+
+      # --- TIMEOUT (§3.5) ---
+      - { id: "F_TIMEOUT",            name: "Timeout Control",                 groups: ["timeout"],                 priority: "P0", parent: null }
+
+      # --- ERROR HANDLING (§3.10) ---
+      - { id: "F_ERROR_HANDLING",     name: "Error Handling",                  groups: ["error_handling"],          priority: "P0", parent: null }
+
+      # --- SOFTWARE RESET (§3.10.3) ---
+      - { id: "F_SOFTWARE_RESET",     name: "Software Reset",                  groups: ["reset"],                   priority: "P0", parent: null }
+
+      # --- BLOCK GAP (§3.12) ---
+      - { id: "F_BLOCK_GAP",          name: "Block Gap Control",               groups: ["block_gap"],               priority: "P1", parent: null }
+      - { id: "F_READ_WAIT",          name: "Read Wait",                       groups: ["block_gap", "sdio"],       priority: "P1", parent: "F_BLOCK_GAP" }
+      - { id: "F_SUSPEND_RESUME",     name: "Suspend Resume",                  groups: ["block_gap"],               priority: "P1", parent: "F_BLOCK_GAP" }
+
+      # --- WAKEUP (§3.11) ---
+      - { id: "F_WAKEUP",             name: "Wakeup Control",                  groups: ["wakeup"],                  priority: "P1", parent: null }
+
+      # --- CARD INTERRUPT (SDIO) ---
+      - { id: "F_CARD_INTERRUPT",     name: "Card Interrupt",                  groups: ["interrupt", "sdio"],       priority: "P1", parent: null }
+
+      # --- CAPABILITIES (§2.2.25–2.2.26) ---
+      - { id: "F_CAPABILITIES",       name: "Capabilities",                    groups: ["capabilities"],            priority: "P0", parent: null }
+      - { id: "F_PRESET_VALUES",      name: "Preset Values",                   groups: ["capabilities", "configuration"], priority: "P1", parent: "F_CAPABILITIES" }
+      - { id: "F_HC_VERSION",         name: "Host Controller Version",         groups: ["capabilities"],            priority: "P0", parent: "F_CAPABILITIES" }
+
+      # --- FORCE EVENT (§1.14) ---
+      - { id: "F_FORCE_EVENT",        name: "Force Event",                     groups: ["configuration"],           priority: "P2", parent: null }
+
+      # --- NOT SUPPORTED (design decision) ---
+      - { id: "F_MULTI_SLOT",         name: "Multiple Slot Support",           groups: ["multi_slot"],              priority: "NOT_SUPPORTED", parent: null }
+      - { id: "F_SHARED_BUS",         name: "Shared Bus Control",              groups: ["multi_slot"],              priority: "NOT_SUPPORTED", parent: null }
+      - { id: "F_PME_WAKEUP",         name: "PME Wakeup",                     groups: ["wakeup"],                  priority: "NOT_SUPPORTED", parent: null }
+
+    # HD sequence definitions
+    hd_sequences:
+      - { id: "HDS_CARD_INIT",           name: "Card Initialization Sequence",         groups: ["card_management", "host_driver_sequence"],              primary_section: "3.6" }
+      - { id: "HDS_VOLTAGE_SWITCH",      name: "Voltage Switch Sequence",              groups: ["power", "host_driver_sequence"],                        primary_section: "3.6.1" }
+      - { id: "HDS_ASYNC_ABORT",         name: "Asynchronous Abort Sequence",          groups: ["error_handling", "host_driver_sequence"],               primary_section: "3.8.1" }
+      - { id: "HDS_SYNC_ABORT",          name: "Synchronous Abort Sequence",           groups: ["error_handling", "host_driver_sequence"],               primary_section: "3.8.2" }
+      - { id: "HDS_ERR_INT_RECOVERY",    name: "Error Interrupt Recovery Sequence",    groups: ["error_handling", "host_driver_sequence"],               primary_section: "3.10.1" }
+      - { id: "HDS_AUTO_CMD12_RECOVERY", name: "Auto CMD12 Error Recovery Sequence",   groups: ["auto_cmd", "error_handling", "host_driver_sequence"],   primary_section: "3.10.2" }
+      - { id: "HDS_SUSPEND",             name: "Suspend Sequence",                     groups: ["block_gap", "host_driver_sequence"],                    primary_section: "3.12" }
+      - { id: "HDS_RESUME",              name: "Resume Sequence",                      groups: ["block_gap", "host_driver_sequence"],                    primary_section: "3.12" }
+      - { id: "HDS_BUS_SPEED_CHANGE",    name: "Bus Speed Mode Change Sequence",       groups: ["speed_modes", "host_driver_sequence"],                  primary_section: "3.9" }
+
+# ==============================================================================
+# RELATION TYPES — Same as v1
+# ==============================================================================
+relation_types:
+  - { type: "REFERENCES",          description: "Node mentions table/figure" }
+  - { type: "CHILD_OF",            description: "Section hierarchy" }
+  - { type: "DEFINED_BY",          description: "Register fields from table" }
+  - { type: "VISUALIZED_BY",       description: "Register layout in figure" }
+  - { type: "DESCRIBES",           description: "Resource documents register" }
+  - { type: "BELONGS_TO",          description: "Register in functional class" }
+  - { type: "DEFINED_IN",          description: "Register defined in table" }
+  - { type: "PART_OF",             description: "Sub-feature belongs to parent" }
+  - { type: "USES_FEATURE",        description: "Sequence depends on feature" }
+  - { type: "HIGHLY_RELATED_TO",   description: "Strong cross-feature relation" }
+  - { type: "SLIGHTLY_RELATED_TO", description: "Weak cross-feature relation" }
+
+# ==============================================================================
+# EXTRACTION — Table & figure extraction behaviour
+# ==============================================================================
+extraction:
+  tables:
+    multi_page:
+      enabled: true
+      max_pages_before: 2     # scan up to N pages before the title page
+      max_pages_after: 2      # scan up to N pages after the title page
+
+    # Extraction hints: config-driven instructions injected into the LLM prompt
+    # when a table title matches one of the hint patterns.
+    # This keeps the scripts generic while letting the user steer the LLM.
+    hints:
+      - name: "register_fields"
+        match_title: "register"                   # regex matched against title
+        expected_columns:
+          - { role: "bit_range",   names: ["Bit", "Location", "Bit Position", "Bit Range", "Bits"] }
+          - { role: "access",      names: ["Access", "Attrib", "Type", "R/W", "Attribute"] }
+          - { role: "field_name",  names: ["Field Name", "Signal Name", "Name", "Field"] }
+          - { role: "description", names: ["Description", "Function", "Explanation"] }
+        instruction: |
+          This is a hardware register field table.
+          Extract it with EXACTLY these 4 CSV columns:
+            Bit,Access,Field Name,Description
+          Rules:
+          - "Bit" = bit range or position (e.g. "31-16", "07", "15-00")
+          - "Access" = access type abbreviation (e.g. "RW", "RO", "ROC", "RW1C")
+          - "Field Name" = ONLY the short field name (e.g. "DMA Enable"), NOT the full description paragraph
+          - "Description" = the full description text
+          If the original table merges field name and description into one column,
+          split them: the first line is the field name, the rest is the description.
+          Do NOT include Reserved fields.
+
+  figures:
+    multi_page:
+      enabled: false
+      max_pages_before: 1
+      max_pages_after: 1
+
+# ==============================================================================
+# VALIDATION — Post-extraction sanity checks (Haiku, fast + cheap)
+# ==============================================================================
+validation:
+  enabled: true
+  model: "haiku"                  # cheap model for sanity checks
+  checks:
+    registers:
+      enabled: true
+      rules:
+        - check: "field_name_length"
+          max_chars: 80           # field name > N chars ⇒ suspicious (likely raw dump)
+        - check: "missing_bits"
+          severity: "warning"     # fields with empty bit range
+        - check: "missing_access"
+          severity: "warning"     # fields with empty access type
+        - check: "zero_fields"
+          severity: "error"       # register with 0 extracted fields
+    tables:
+      enabled: true
+      rules:
+        - check: "empty_csv"
+          severity: "error"       # CSV < 10 bytes
+        - check: "single_row"
+          severity: "warning"     # only header, no data rows
+    figures:
+      enabled: true
+      rules:
+        - check: "empty_plantuml"
+          severity: "error"
+        - check: "no_startuml"
+          severity: "warning"     # missing @startuml / @enduml

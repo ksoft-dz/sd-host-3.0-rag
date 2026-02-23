@@ -1,0 +1,67 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultTextAlignment center
+
+title CRC16 Generator/Checker
+
+rectangle "CRC16 Shift Register" {
+    together {
+        node "data in" as din
+        
+        collections "   " as reg1
+        collections "   " as reg2
+        collections "   " as reg3
+        collections "   " as reg4
+        collections "   " as reg5
+        circle " " as xor1 #white
+        collections "   " as reg6
+        collections "   " as reg7
+        collections "   " as reg8
+        collections "   " as reg9
+        collections "   " as reg10
+        collections "   " as reg11
+        collections "   " as reg12
+        collections "   " as reg13
+        circle " " as xor2 #white
+        collections "   " as reg14
+        collections "   " as reg15
+        collections "   " as reg16
+        collections "   " as reg17
+        
+        node "data out" as dout
+    }
+}
+
+din -right-> reg1
+reg1 -right-> reg2
+reg2 -right-> reg3
+reg3 -right-> reg4
+reg4 -right-> reg5
+reg5 -right-> xor1
+xor1 -right-> reg6
+reg6 -right-> reg7
+reg7 -right-> reg8
+reg8 -right-> reg9
+reg9 -right-> reg10
+reg10 -right-> reg11
+reg11 -right-> reg12
+reg12 -right-> reg13
+reg13 -right-> xor2
+xor2 -right-> reg14
+reg14 -right-> reg15
+reg15 -right-> reg16
+reg16 -right-> reg17
+reg17 -right-> dout
+
+' Feedback path
+din -[hidden]down-> feedback
+reg17 -down-> feedback
+feedback -left-> din
+
+note as N1
+XOR gates at positions 
+corresponding to polynomial
+G(x) = x¹⁶ + x¹² + x⁵ + 1
+end note
+
+@enduml

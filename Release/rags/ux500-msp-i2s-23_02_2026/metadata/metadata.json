@@ -1,0 +1,3418 @@
+{
+  "metadata_version": "2.0.0",
+  "spec_info": {
+    "name": "Ux500 MSP I2S Controller",
+    "version": "DB8500",
+    "page_offset": 0
+  },
+  "extraction_info": {
+    "extracted_date": "2026-02-23T12:24:11Z",
+    "pipeline": "driver_source_analysis",
+    "sources": {
+      "driver_header": "driver_sources/ux500-msp-i2s.h",
+      "driver_source": "driver_sources/ux500-msp-i2s.c",
+      "device_tree": "driver_sources/device-tree-binding.txt",
+      "platform_data": "driver_sources/cpu-db8500.c"
+    },
+    "statistics": {
+      "total_nodes": 63,
+      "by_type": {
+        "REGISTER": 35,
+        "REG_CLASS": 2,
+        "FEATURE": 20,
+        "HD_SEQUENCE": 6,
+        "TABLE": 0,
+        "FIGURE": 0,
+        "SPEC_CHUNK": 0
+      },
+      "total_relations": 53,
+      "relations_by_type": {
+        "BELONGS_TO": 35,
+        "PART_OF": 4,
+        "USES_FEATURE": 14
+      },
+      "total_registers": 35,
+      "total_fields": 116,
+      "total_features": 20,
+      "total_hd_sequences": 6
+    }
+  },
+  "nodes": [
+    {
+      "id": "REG_000",
+      "type": "REGISTER",
+      "name": "MSP_DR — Data Register",
+      "description": "Transmit/receive data register. Write to transmit, read to receive. In 8-bit element mode only bits [7:0] are significant; in 16-bit mode bits [15:0]; in 32-bit mode full [31:0]. Data is shifted MSB-first by default (configurable via ENDN in TCF/RCF).",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "000h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_000_F0",
+            "name": "DATA",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit/receive data word. Width depends on element length setting.",
+            "abstract": "Transmit/receive data word. Width depends on element length setting.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_004",
+      "type": "REGISTER",
+      "name": "MSP_GCR — Global Configuration Register",
+      "description": "Master control register for the MSP. Controls RX/TX enable, FIFO enable, clock selection and polarity, frame sync, loopback mode, sample rate generator, frame generator, and SPI mode settings.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "004h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_004_F0",
+            "name": "RXEN",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Enable. 1=RX path enabled, 0=disabled.",
+            "abstract": "Receive Enable. 1=RX path enabled, 0=disabled.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F1",
+            "name": "RFFEN",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive FIFO Enable. 1=RX FIFO enabled, 0=disabled (direct DR access).",
+            "abstract": "Receive FIFO Enable. 1=RX FIFO enabled, 0=disabled (direct DR access).",
+            "values": []
+          },
+          {
+            "id": "REG_004_F2",
+            "name": "RFSPOL",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Polarity. 0=active high, 1=active low.",
+            "abstract": "Receive Frame Sync Polarity. 0=active high, 1=active low.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F3",
+            "name": "DCM",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Direct Companding Mode. 1=hardware companding/expansion active, 0=linear mode.",
+            "abstract": "Direct Companding Mode. 1=hardware companding/expansion active, 0=linear mode.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F4",
+            "name": "RFSSEL",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Selection. Selects frame sync source for RX. 0=external, 1=internal (from SRG).",
+            "abstract": "Receive Frame Sync Selection. Selects frame sync source for RX. 0=external, 1=internal (from SRG).",
+            "values": []
+          },
+          {
+            "id": "REG_004_F5",
+            "name": "RCKPOL",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Clock Polarity. 0=data sampled on falling edge, 1=data sampled on rising edge.",
+            "abstract": "Receive Clock Polarity. 0=data sampled on falling edge, 1=data sampled on rising edge.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F6",
+            "name": "RCKSEL",
+            "bits": "6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Clock Selection. 0=external clock, 1=clock from SRG.",
+            "abstract": "Receive Clock Selection. 0=external clock, 1=clock from SRG.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F7",
+            "name": "LBM",
+            "bits": "7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Loopback Mode. 1=TX output is looped back to RX input internally. Used for diagnostics.",
+            "abstract": "Loopback Mode. 1=TX output is looped back to RX input internally. Used for diagnostics.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F8",
+            "name": "TXEN",
+            "bits": "8",
+            "bit_high": 8,
+            "bit_low": 8,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Enable. 1=TX path enabled, 0=disabled.",
+            "abstract": "Transmit Enable. 1=TX path enabled, 0=disabled.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F9",
+            "name": "TFFEN",
+            "bits": "9",
+            "bit_high": 9,
+            "bit_low": 9,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit FIFO Enable. 1=TX FIFO enabled, 0=disabled (direct DR access).",
+            "abstract": "Transmit FIFO Enable. 1=TX FIFO enabled, 0=disabled (direct DR access).",
+            "values": []
+          },
+          {
+            "id": "REG_004_F10",
+            "name": "TFSPOL",
+            "bits": "10",
+            "bit_high": 10,
+            "bit_low": 10,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Polarity. 0=active high, 1=active low.",
+            "abstract": "Transmit Frame Sync Polarity. 0=active high, 1=active low.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F11",
+            "name": "TFSSEL",
+            "bits": "12:11",
+            "bit_high": 12,
+            "bit_low": 11,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Selection. 00=external FSYNC, 01=from SRG (prog), 10=from SRG (auto), 11=reserved.",
+            "abstract": "Transmit Frame Sync Selection. 00=external FSYNC, 01=from SRG (prog), 10=from SRG (auto), 11=reserved.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "External frame sync"
+              },
+              {
+                "value": "01",
+                "meaning": "Frame sync from SRG (programmed)"
+              },
+              {
+                "value": "10",
+                "meaning": "Frame sync from SRG (automatic)"
+              }
+            ]
+          },
+          {
+            "id": "REG_004_F12",
+            "name": "TCKPOL",
+            "bits": "13",
+            "bit_high": 13,
+            "bit_low": 13,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Clock Polarity. 0=data driven on falling edge, 1=data driven on rising edge.",
+            "abstract": "Transmit Clock Polarity. 0=data driven on falling edge, 1=data driven on rising edge.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F13",
+            "name": "TCKSEL",
+            "bits": "14",
+            "bit_high": 14,
+            "bit_low": 14,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Clock Selection. 0=external clock, 1=clock from SRG.",
+            "abstract": "Transmit Clock Selection. 0=external clock, 1=clock from SRG.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F14",
+            "name": "TXDDL",
+            "bits": "15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "TX Extra Delay. 1=one extra bit-clock delay added to TX data path. Used to compensate for pipeline delays in certain protocols.",
+            "abstract": "TX Extra Delay. 1=one extra bit-clock delay added to TX data path. Used to compensate for pipeline delays in certain protocols.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F15",
+            "name": "SGEN",
+            "bits": "16",
+            "bit_high": 16,
+            "bit_low": 16,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Sample Rate Generator Enable. 1=SRG clock output active, 0=stopped. Must be enabled before FGEN.",
+            "abstract": "Sample Rate Generator Enable. 1=SRG clock output active, 0=stopped. Must be enabled before FGEN.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F16",
+            "name": "SCKPOL",
+            "bits": "17",
+            "bit_high": 17,
+            "bit_low": 17,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "SRG Clock Polarity. Selects polarity of sample rate generated clock.",
+            "abstract": "SRG Clock Polarity. Selects polarity of sample rate generated clock.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F17",
+            "name": "SCKSEL",
+            "bits": "19:18",
+            "bit_high": 19,
+            "bit_low": 18,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "SRG Clock Selection. Selects the input clock source for the SRG. 00=APB clock (default).",
+            "abstract": "SRG Clock Selection. Selects the input clock source for the SRG. 00=APB clock (default).",
+            "values": []
+          },
+          {
+            "id": "REG_004_F18",
+            "name": "FGEN",
+            "bits": "20",
+            "bit_high": 20,
+            "bit_low": 20,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Frame Generator Enable. 1=frame sync generation active. SRG must be enabled first (SGEN=1).",
+            "abstract": "Frame Generator Enable. 1=frame sync generation active. SRG must be enabled first (SGEN=1).",
+            "values": []
+          },
+          {
+            "id": "REG_004_F19",
+            "name": "SPICKM",
+            "bits": "22:21",
+            "bit_high": 22,
+            "bit_low": 21,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "SPI Clock Mode. Selects SPI clock phase/polarity when MSP is used in SPI-compatible mode. 00=normal.",
+            "abstract": "SPI Clock Mode. Selects SPI clock phase/polarity when MSP is used in SPI-compatible mode. 00=normal.",
+            "values": []
+          },
+          {
+            "id": "REG_004_F20",
+            "name": "SPIBME",
+            "bits": "23",
+            "bit_high": 23,
+            "bit_low": 23,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "SPI Burst Mode Enable. 1=SPI burst transfer mode enabled.",
+            "abstract": "SPI Burst Mode Enable. 1=SPI burst transfer mode enabled.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_008",
+      "type": "REGISTER",
+      "name": "MSP_TCF — Transmit Configuration Register",
+      "description": "Configures the transmit protocol: element and frame lengths for both phases, data type (companding), endianness, data delay, frame sync behavior, and byte swap mode. Supports single or dual phase operation.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "008h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_008_F0",
+            "name": "P1ELEN",
+            "bits": "2:0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "width": 3,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 1 Element Length. Encodes the transmit data element width. 000=8-bit, 001=10-bit, 010=12-bit, 011=14-bit, 100=16-bit, 101=20-bit, 110=24-bit, 111=32-bit.",
+            "abstract": "Phase 1 Element Length. Encodes the transmit data element width. 000=8-bit, 001=10-bit, 010=12-bit, 011=14-bit, 100=16-bit, 101=20-bit, 110=24-bit, 111=32-bit.",
+            "values": [
+              {
+                "value": "000",
+                "meaning": "8 bits"
+              },
+              {
+                "value": "001",
+                "meaning": "10 bits"
+              },
+              {
+                "value": "010",
+                "meaning": "12 bits"
+              },
+              {
+                "value": "011",
+                "meaning": "14 bits"
+              },
+              {
+                "value": "100",
+                "meaning": "16 bits"
+              },
+              {
+                "value": "101",
+                "meaning": "20 bits"
+              },
+              {
+                "value": "110",
+                "meaning": "24 bits"
+              },
+              {
+                "value": "111",
+                "meaning": "32 bits"
+              }
+            ]
+          },
+          {
+            "id": "REG_008_F1",
+            "name": "P1FLEN",
+            "bits": "9:3",
+            "bit_high": 9,
+            "bit_low": 3,
+            "width": 7,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 1 Frame Length. Number of elements per frame in phase 1 minus 1. E.g., 0=1 element, 15=16 elements, 63=64 elements.",
+            "abstract": "Phase 1 Frame Length. Number of elements per frame in phase 1 minus 1. E.g., 0=1 element, 15=16 elements, 63=64 elements.",
+            "values": []
+          },
+          {
+            "id": "REG_008_F2",
+            "name": "DTYP",
+            "bits": "11:10",
+            "bit_high": 11,
+            "bit_low": 10,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Data Type / Compression Mode. Controls hardware companding. 00=linear (no companding), 10=µ-law, 11=A-law. Bit 10 may also encode frame sync polarity in certain configurations (driver ambiguity).",
+            "abstract": "Data Type / Compression Mode. Controls hardware companding. 00=linear (no companding), 10=µ-law, 11=A-law. Bit 10 may also encode frame sync polarity in certain configurations (driver ambiguity).",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "Linear (no companding)"
+              },
+              {
+                "value": "10",
+                "meaning": "µ-law companding"
+              },
+              {
+                "value": "11",
+                "meaning": "A-law companding"
+              }
+            ]
+          },
+          {
+            "id": "REG_008_F3",
+            "name": "ENDN",
+            "bits": "12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Endianness / Bit Order. 0=MSB first (big-endian), 1=LSB first (little-endian) for transmit data.",
+            "abstract": "Endianness / Bit Order. 0=MSB first (big-endian), 1=LSB first (little-endian) for transmit data.",
+            "values": []
+          },
+          {
+            "id": "REG_008_F4",
+            "name": "DDLY",
+            "bits": "14:13",
+            "bit_high": 14,
+            "bit_low": 13,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Data Delay. Number of bit-clock cycles between frame sync and first data bit for transmit. 00=0 cycles, 01=1 cycle (I2S uses 1), 10=2 cycles, 11=3 cycles.",
+            "abstract": "Data Delay. Number of bit-clock cycles between frame sync and first data bit for transmit. 00=0 cycles, 01=1 cycle (I2S uses 1), 10=2 cycles, 11=3 cycles.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "0 clock delay"
+              },
+              {
+                "value": "01",
+                "meaning": "1 clock delay (I2S standard)"
+              },
+              {
+                "value": "10",
+                "meaning": "2 clock delay"
+              },
+              {
+                "value": "11",
+                "meaning": "3 clock delay"
+              }
+            ]
+          },
+          {
+            "id": "REG_008_F5",
+            "name": "FSIG",
+            "bits": "15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Frame Sync Ignore. Controls behavior on unexpected frame sync edge. 0=abort current transfer on unexpected FSYNC, 1=ignore unexpected FSYNC and continue.",
+            "abstract": "Frame Sync Ignore. Controls behavior on unexpected frame sync edge. 0=abort current transfer on unexpected FSYNC, 1=ignore unexpected FSYNC and continue.",
+            "values": []
+          },
+          {
+            "id": "REG_008_F6",
+            "name": "P2ELEN",
+            "bits": "18:16",
+            "bit_high": 18,
+            "bit_low": 16,
+            "width": 3,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Element Length. Same encoding as P1ELEN. Only used when P2EN=1 (dual-phase mode).",
+            "abstract": "Phase 2 Element Length. Same encoding as P1ELEN. Only used when P2EN=1 (dual-phase mode).",
+            "values": []
+          },
+          {
+            "id": "REG_008_F7",
+            "name": "P2FLEN",
+            "bits": "25:19",
+            "bit_high": 25,
+            "bit_low": 19,
+            "width": 7,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Frame Length. Number of elements per frame in phase 2 minus 1. Only used when P2EN=1.",
+            "abstract": "Phase 2 Frame Length. Number of elements per frame in phase 2 minus 1. Only used when P2EN=1.",
+            "values": []
+          },
+          {
+            "id": "REG_008_F8",
+            "name": "P2SM",
+            "bits": "26",
+            "bit_high": 26,
+            "bit_low": 26,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Start Mode. 0=phase 2 starts immediately after phase 1, 1=phase 2 starts on next frame sync edge.",
+            "abstract": "Phase 2 Start Mode. 0=phase 2 starts immediately after phase 1, 1=phase 2 starts on next frame sync edge.",
+            "values": [
+              {
+                "value": "0",
+                "meaning": "Immediate start after phase 1"
+              },
+              {
+                "value": "1",
+                "meaning": "Start on frame sync"
+              }
+            ]
+          },
+          {
+            "id": "REG_008_F9",
+            "name": "P2EN",
+            "bits": "27",
+            "bit_high": 27,
+            "bit_low": 27,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Enable (dual-phase mode). 0=single-phase protocol, 1=dual-phase protocol. PCM typically uses dual-phase; I2S uses single-phase.",
+            "abstract": "Phase 2 Enable (dual-phase mode). 0=single-phase protocol, 1=dual-phase protocol. PCM typically uses dual-phase; I2S uses single-phase.",
+            "values": [
+              {
+                "value": "0",
+                "meaning": "Single-phase mode"
+              },
+              {
+                "value": "1",
+                "meaning": "Dual-phase mode"
+              }
+            ]
+          },
+          {
+            "id": "REG_008_F10",
+            "name": "TBSWAP",
+            "bits": "29:28",
+            "bit_high": 29,
+            "bit_low": 28,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Byte/Half-word Swap for transmit data. Controls byte ordering within data words.",
+            "abstract": "Byte/Half-word Swap for transmit data. Controls byte ordering within data words.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "No swap"
+              },
+              {
+                "value": "01",
+                "meaning": "Swap bytes within each word"
+              },
+              {
+                "value": "10",
+                "meaning": "Swap bytes within each half-word"
+              },
+              {
+                "value": "11",
+                "meaning": "Swap half-words within each word"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_00C",
+      "type": "REGISTER",
+      "name": "MSP_RCF — Receive Configuration Register",
+      "description": "Configures the receive protocol: element and frame lengths for both phases, data type (expansion), endianness, data delay, frame sync behavior, and byte swap mode. Mirrors TCF layout for RX path.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "00Ch",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_00C_F0",
+            "name": "P1ELEN",
+            "bits": "2:0",
+            "bit_high": 2,
+            "bit_low": 0,
+            "width": 3,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 1 Element Length. Encodes the receive data element width. 000=8-bit, 001=10-bit, 010=12-bit, 011=14-bit, 100=16-bit, 101=20-bit, 110=24-bit, 111=32-bit.",
+            "abstract": "Phase 1 Element Length. Encodes the receive data element width. 000=8-bit, 001=10-bit, 010=12-bit, 011=14-bit, 100=16-bit, 101=20-bit, 110=24-bit, 111=32-bit.",
+            "values": [
+              {
+                "value": "000",
+                "meaning": "8 bits"
+              },
+              {
+                "value": "001",
+                "meaning": "10 bits"
+              },
+              {
+                "value": "010",
+                "meaning": "12 bits"
+              },
+              {
+                "value": "011",
+                "meaning": "14 bits"
+              },
+              {
+                "value": "100",
+                "meaning": "16 bits"
+              },
+              {
+                "value": "101",
+                "meaning": "20 bits"
+              },
+              {
+                "value": "110",
+                "meaning": "24 bits"
+              },
+              {
+                "value": "111",
+                "meaning": "32 bits"
+              }
+            ]
+          },
+          {
+            "id": "REG_00C_F1",
+            "name": "P1FLEN",
+            "bits": "9:3",
+            "bit_high": 9,
+            "bit_low": 3,
+            "width": 7,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 1 Frame Length. Number of elements per frame in phase 1 minus 1. E.g., 0=1 element, 15=16 elements, 63=64 elements.",
+            "abstract": "Phase 1 Frame Length. Number of elements per frame in phase 1 minus 1. E.g., 0=1 element, 15=16 elements, 63=64 elements.",
+            "values": []
+          },
+          {
+            "id": "REG_00C_F2",
+            "name": "DTYP",
+            "bits": "11:10",
+            "bit_high": 11,
+            "bit_low": 10,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Data Type / Expansion Mode. Controls hardware companding. 00=linear (no companding), 10=µ-law, 11=A-law. Bit 10 may also encode frame sync polarity in certain configurations (driver ambiguity).",
+            "abstract": "Data Type / Expansion Mode. Controls hardware companding. 00=linear (no companding), 10=µ-law, 11=A-law. Bit 10 may also encode frame sync polarity in certain configurations (driver ambiguity).",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "Linear (no companding)"
+              },
+              {
+                "value": "10",
+                "meaning": "µ-law companding"
+              },
+              {
+                "value": "11",
+                "meaning": "A-law companding"
+              }
+            ]
+          },
+          {
+            "id": "REG_00C_F3",
+            "name": "ENDN",
+            "bits": "12",
+            "bit_high": 12,
+            "bit_low": 12,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Endianness / Bit Order. 0=MSB first (big-endian), 1=LSB first (little-endian) for receive data.",
+            "abstract": "Endianness / Bit Order. 0=MSB first (big-endian), 1=LSB first (little-endian) for receive data.",
+            "values": []
+          },
+          {
+            "id": "REG_00C_F4",
+            "name": "DDLY",
+            "bits": "14:13",
+            "bit_high": 14,
+            "bit_low": 13,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Data Delay. Number of bit-clock cycles between frame sync and first data bit for receive. 00=0 cycles, 01=1 cycle (I2S uses 1), 10=2 cycles, 11=3 cycles.",
+            "abstract": "Data Delay. Number of bit-clock cycles between frame sync and first data bit for receive. 00=0 cycles, 01=1 cycle (I2S uses 1), 10=2 cycles, 11=3 cycles.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "0 clock delay"
+              },
+              {
+                "value": "01",
+                "meaning": "1 clock delay (I2S standard)"
+              },
+              {
+                "value": "10",
+                "meaning": "2 clock delay"
+              },
+              {
+                "value": "11",
+                "meaning": "3 clock delay"
+              }
+            ]
+          },
+          {
+            "id": "REG_00C_F5",
+            "name": "FSIG",
+            "bits": "15",
+            "bit_high": 15,
+            "bit_low": 15,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Frame Sync Ignore. Controls behavior on unexpected frame sync edge. 0=abort current transfer on unexpected FSYNC, 1=ignore unexpected FSYNC and continue.",
+            "abstract": "Frame Sync Ignore. Controls behavior on unexpected frame sync edge. 0=abort current transfer on unexpected FSYNC, 1=ignore unexpected FSYNC and continue.",
+            "values": []
+          },
+          {
+            "id": "REG_00C_F6",
+            "name": "P2ELEN",
+            "bits": "18:16",
+            "bit_high": 18,
+            "bit_low": 16,
+            "width": 3,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Element Length. Same encoding as P1ELEN. Only used when P2EN=1 (dual-phase mode).",
+            "abstract": "Phase 2 Element Length. Same encoding as P1ELEN. Only used when P2EN=1 (dual-phase mode).",
+            "values": []
+          },
+          {
+            "id": "REG_00C_F7",
+            "name": "P2FLEN",
+            "bits": "25:19",
+            "bit_high": 25,
+            "bit_low": 19,
+            "width": 7,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Frame Length. Number of elements per frame in phase 2 minus 1. Only used when P2EN=1.",
+            "abstract": "Phase 2 Frame Length. Number of elements per frame in phase 2 minus 1. Only used when P2EN=1.",
+            "values": []
+          },
+          {
+            "id": "REG_00C_F8",
+            "name": "P2SM",
+            "bits": "26",
+            "bit_high": 26,
+            "bit_low": 26,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Start Mode. 0=phase 2 starts immediately after phase 1, 1=phase 2 starts on next frame sync edge.",
+            "abstract": "Phase 2 Start Mode. 0=phase 2 starts immediately after phase 1, 1=phase 2 starts on next frame sync edge.",
+            "values": [
+              {
+                "value": "0",
+                "meaning": "Immediate start after phase 1"
+              },
+              {
+                "value": "1",
+                "meaning": "Start on frame sync"
+              }
+            ]
+          },
+          {
+            "id": "REG_00C_F9",
+            "name": "P2EN",
+            "bits": "27",
+            "bit_high": 27,
+            "bit_low": 27,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Phase 2 Enable (dual-phase mode). 0=single-phase protocol, 1=dual-phase protocol. PCM typically uses dual-phase; I2S uses single-phase.",
+            "abstract": "Phase 2 Enable (dual-phase mode). 0=single-phase protocol, 1=dual-phase protocol. PCM typically uses dual-phase; I2S uses single-phase.",
+            "values": [
+              {
+                "value": "0",
+                "meaning": "Single-phase mode"
+              },
+              {
+                "value": "1",
+                "meaning": "Dual-phase mode"
+              }
+            ]
+          },
+          {
+            "id": "REG_00C_F10",
+            "name": "TBSWAP",
+            "bits": "29:28",
+            "bit_high": 29,
+            "bit_low": 28,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Byte/Half-word Swap for receive data. Controls byte ordering within data words.",
+            "abstract": "Byte/Half-word Swap for receive data. Controls byte ordering within data words.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "No swap"
+              },
+              {
+                "value": "01",
+                "meaning": "Swap bytes within each word"
+              },
+              {
+                "value": "10",
+                "meaning": "Swap bytes within each half-word"
+              },
+              {
+                "value": "11",
+                "meaning": "Swap half-words within each word"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_010",
+      "type": "REGISTER",
+      "name": "MSP_SRG — Sample Rate Generator Register",
+      "description": "Configures the sample rate generator which produces the bit clock and frame sync. SCKDIV divides the input clock. FRWID sets the active frame sync width. FRPER sets the total frame period in clock cycles.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "010h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_010_F0",
+            "name": "SCKDIV",
+            "bits": "9:0",
+            "bit_high": 9,
+            "bit_low": 0,
+            "width": 10,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Sample Clock Divider. The input clock (APB or external) is divided by (SCKDIV+1) to produce the bit clock. Range: 0-1023. Bit clock = f_input / (SCKDIV+1). Default APB clock is 48 MHz.",
+            "abstract": "Sample Clock Divider. The input clock (APB or external) is divided by (SCKDIV+1) to produce the bit clock. Range: 0-1023. Bit clock = f_input / (SCKDIV+1). Default APB clock is 48 MHz.",
+            "values": []
+          },
+          {
+            "id": "REG_010_F1",
+            "name": "FRWID",
+            "bits": "15:10",
+            "bit_high": 15,
+            "bit_low": 10,
+            "width": 6,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Frame Width. Sets the number of bit-clock cycles during which frame sync is active. For I2S: 15 (16 cycles), for PCM: 0 (1 cycle).",
+            "abstract": "Frame Width. Sets the number of bit-clock cycles during which frame sync is active. For I2S: 15 (16 cycles), for PCM: 0 (1 cycle).",
+            "values": []
+          },
+          {
+            "id": "REG_010_F2",
+            "name": "FRPER",
+            "bits": "28:16",
+            "bit_high": 28,
+            "bit_low": 16,
+            "width": 13,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Frame Period. Total number of bit-clock cycles per frame. For I2S stereo: 31 (32 cycles), for PCM: 255 (256 cycles). Frame frequency = bit_clock / (FRPER+1).",
+            "abstract": "Frame Period. Total number of bit-clock cycles per frame. For I2S stereo: 31 (32 cycles), for PCM: 255 (256 cycles). Frame frequency = bit_clock / (FRPER+1).",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_014",
+      "type": "REGISTER",
+      "name": "MSP_FLR — Flag Register",
+      "description": "Read-only status flags showing RX/TX busy states and FIFO fullness. Used by the driver to poll FIFO status during flush operations.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "014h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_014_F0",
+            "name": "RBUSY",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Receive Busy. 1=RX is currently active receiving data.",
+            "abstract": "Receive Busy. 1=RX is currently active receiving data.",
+            "values": []
+          },
+          {
+            "id": "REG_014_F1",
+            "name": "RFE",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Receive FIFO Empty. 1=RX FIFO is empty, no data available to read.",
+            "abstract": "Receive FIFO Empty. 1=RX FIFO is empty, no data available to read.",
+            "values": []
+          },
+          {
+            "id": "REG_014_F2",
+            "name": "RFU",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Receive FIFO Full. 1=RX FIFO is full, no room for new data.",
+            "abstract": "Receive FIFO Full. 1=RX FIFO is full, no room for new data.",
+            "values": []
+          },
+          {
+            "id": "REG_014_F3",
+            "name": "TBUSY",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Transmit Busy. 1=TX is currently active transmitting data.",
+            "abstract": "Transmit Busy. 1=TX is currently active transmitting data.",
+            "values": []
+          },
+          {
+            "id": "REG_014_F4",
+            "name": "TFE",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Transmit FIFO Empty. 1=TX FIFO is empty. Used during flush to confirm all data has been transmitted.",
+            "abstract": "Transmit FIFO Empty. 1=TX FIFO is empty. Used during flush to confirm all data has been transmitted.",
+            "values": []
+          },
+          {
+            "id": "REG_014_F5",
+            "name": "TFU",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Transmit FIFO Full. 1=TX FIFO is full, cannot accept more data.",
+            "abstract": "Transmit FIFO Full. 1=TX FIFO is full, cannot accept more data.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_018",
+      "type": "REGISTER",
+      "name": "MSP_DMACR — DMA Control Register",
+      "description": "Enables DMA request generation for RX and TX paths. When enabled, the MSP asserts DMA request lines instead of generating CPU interrupts for data transfer.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "018h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_018_F0",
+            "name": "RDMAE",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive DMA Enable. 1=DMA requests generated for RX data available.",
+            "abstract": "Receive DMA Enable. 1=DMA requests generated for RX data available.",
+            "values": []
+          },
+          {
+            "id": "REG_018_F1",
+            "name": "TDMAE",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit DMA Enable. 1=DMA requests generated for TX FIFO space available.",
+            "abstract": "Transmit DMA Enable. 1=DMA requests generated for TX FIFO space available.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_020",
+      "type": "REGISTER",
+      "name": "MSP_IMSC — Interrupt Mask Set/Clear Register",
+      "description": "Controls which interrupt sources are enabled (unmasked). Writing 1 to a bit enables the corresponding interrupt; writing 0 masks it. The driver uses this to enable RX/TX service and error interrupts.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "020h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_020_F0",
+            "name": "RSIP",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "abstract": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "values": []
+          },
+          {
+            "id": "REG_020_F1",
+            "name": "ROEI",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "abstract": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "values": []
+          },
+          {
+            "id": "REG_020_F2",
+            "name": "RFEI",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "abstract": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_020_F3",
+            "name": "RFSI",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "abstract": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "values": []
+          },
+          {
+            "id": "REG_020_F4",
+            "name": "TSIP",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "abstract": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "values": []
+          },
+          {
+            "id": "REG_020_F5",
+            "name": "TUEI",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "abstract": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "values": []
+          },
+          {
+            "id": "REG_020_F6",
+            "name": "TFEI",
+            "bits": "6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "abstract": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_020_F7",
+            "name": "TFSI",
+            "bits": "7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "abstract": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_024",
+      "type": "REGISTER",
+      "name": "MSP_RIS — Raw Interrupt Status Register",
+      "description": "Shows raw (pre-mask) interrupt status for all 8 interrupt sources. Each bit indicates whether the corresponding event occurred, regardless of the IMSC mask setting.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "024h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_024_F0",
+            "name": "RSIP",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "abstract": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "values": []
+          },
+          {
+            "id": "REG_024_F1",
+            "name": "ROEI",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "abstract": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "values": []
+          },
+          {
+            "id": "REG_024_F2",
+            "name": "RFEI",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "abstract": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_024_F3",
+            "name": "RFSI",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "abstract": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "values": []
+          },
+          {
+            "id": "REG_024_F4",
+            "name": "TSIP",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "abstract": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "values": []
+          },
+          {
+            "id": "REG_024_F5",
+            "name": "TUEI",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "abstract": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "values": []
+          },
+          {
+            "id": "REG_024_F6",
+            "name": "TFEI",
+            "bits": "6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "abstract": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_024_F7",
+            "name": "TFSI",
+            "bits": "7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "abstract": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_028",
+      "type": "REGISTER",
+      "name": "MSP_MIS — Masked Interrupt Status Register",
+      "description": "Shows masked interrupt status: RIS AND IMSC. Only bits corresponding to enabled (unmasked) interrupts will be set. This is what the interrupt handler should read to determine the cause of an interrupt.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "028h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_028_F0",
+            "name": "RSIP",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "abstract": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "values": []
+          },
+          {
+            "id": "REG_028_F1",
+            "name": "ROEI",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "abstract": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "values": []
+          },
+          {
+            "id": "REG_028_F2",
+            "name": "RFEI",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "abstract": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_028_F3",
+            "name": "RFSI",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "abstract": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "values": []
+          },
+          {
+            "id": "REG_028_F4",
+            "name": "TSIP",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "abstract": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "values": []
+          },
+          {
+            "id": "REG_028_F5",
+            "name": "TUEI",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "abstract": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "values": []
+          },
+          {
+            "id": "REG_028_F6",
+            "name": "TFEI",
+            "bits": "6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "abstract": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_028_F7",
+            "name": "TFSI",
+            "bits": "7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "abstract": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_02C",
+      "type": "REGISTER",
+      "name": "MSP_ICR — Interrupt Clear Register",
+      "description": "Write-only register to clear pending interrupts. Writing 1 to a bit clears the corresponding interrupt. Must be written in the ISR to acknowledge handled interrupts.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "02Ch",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_02C_F0",
+            "name": "RSIP",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "abstract": "Receive Service Interrupt. Set when RX FIFO has data ready to be read (FIFO threshold reached).",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F1",
+            "name": "ROEI",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "abstract": "Receive Overrun Error Interrupt. Set when RX FIFO overflows — new data arrives but FIFO is full. Indicates data loss.",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F2",
+            "name": "RFEI",
+            "bits": "2",
+            "bit_high": 2,
+            "bit_low": 2,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "abstract": "Receive Frame Sync Error Interrupt. Set on unexpected frame sync during receive, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F3",
+            "name": "RFSI",
+            "bits": "3",
+            "bit_high": 3,
+            "bit_low": 3,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "abstract": "Receive Frame Sync Interrupt. Set on each receive frame sync edge.",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F4",
+            "name": "TSIP",
+            "bits": "4",
+            "bit_high": 4,
+            "bit_low": 4,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "abstract": "Transmit Service Interrupt. Set when TX FIFO has space available (below threshold).",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F5",
+            "name": "TUEI",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "abstract": "Transmit Underrun Error Interrupt. Set when TX FIFO is empty but transmission is active. Indicates the output data may be corrupted.",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F6",
+            "name": "TFEI",
+            "bits": "6",
+            "bit_high": 6,
+            "bit_low": 6,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "abstract": "Transmit Frame Sync Error Interrupt. Set on unexpected frame sync during transmit, if FSIG=0 (abort mode).",
+            "values": []
+          },
+          {
+            "id": "REG_02C_F7",
+            "name": "TFSI",
+            "bits": "7",
+            "bit_high": 7,
+            "bit_low": 7,
+            "width": 1,
+            "access": "W",
+            "original_attrib": "W",
+            "raw": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "abstract": "Transmit Frame Sync Interrupt. Set on each transmit frame sync edge.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_030",
+      "type": "REGISTER",
+      "name": "MSP_MCR — Multichannel Control Register",
+      "description": "Controls multichannel (TDM) operation for RX and TX. Enables per-channel selection and RX comparison mode. Multichannel is only supported in single-phase mode. Up to 4x32=128 channels can be enabled via TCE/RCE.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "030h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_030_F0",
+            "name": "RMCEN",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Multichannel Enable. 1=RX multichannel mode active. Only valid in single-phase mode.",
+            "abstract": "Receive Multichannel Enable. 1=RX multichannel mode active. Only valid in single-phase mode.",
+            "values": []
+          },
+          {
+            "id": "REG_030_F1",
+            "name": "RMCSF",
+            "bits": "2:1",
+            "bit_high": 2,
+            "bit_low": 1,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Multichannel Sub-frame. Selects RX multichannel start phase configuration.",
+            "abstract": "Receive Multichannel Sub-frame. Selects RX multichannel start phase configuration.",
+            "values": []
+          },
+          {
+            "id": "REG_030_F2",
+            "name": "RCMPM",
+            "bits": "4:3",
+            "bit_high": 4,
+            "bit_low": 3,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Receive Comparison Mode. Controls data comparison on received channels. 00=disabled, 10=match on non-equal, 11=match on equal.",
+            "abstract": "Receive Comparison Mode. Controls data comparison on received channels. 00=disabled, 10=match on non-equal, 11=match on equal.",
+            "values": [
+              {
+                "value": "00",
+                "meaning": "Comparison disabled"
+              },
+              {
+                "value": "10",
+                "meaning": "Interrupt on non-equal match"
+              },
+              {
+                "value": "11",
+                "meaning": "Interrupt on equal match"
+              }
+            ]
+          },
+          {
+            "id": "REG_030_F3",
+            "name": "TMCEN",
+            "bits": "5",
+            "bit_high": 5,
+            "bit_low": 5,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Multichannel Enable. 1=TX multichannel mode active. Only valid in single-phase mode.",
+            "abstract": "Transmit Multichannel Enable. 1=TX multichannel mode active. Only valid in single-phase mode.",
+            "values": []
+          },
+          {
+            "id": "REG_030_F4",
+            "name": "TNCSF",
+            "bits": "7:6",
+            "bit_high": 7,
+            "bit_low": 6,
+            "width": 2,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Transmit Next Channel Sub-frame. Selects TX multichannel start phase configuration.",
+            "abstract": "Transmit Next Channel Sub-frame. Selects TX multichannel start phase configuration.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_034",
+      "type": "REGISTER",
+      "name": "MSP_RCV — Receive Comparison Value Register",
+      "description": "32-bit comparison value for multichannel RX data matching. When RCMPM is enabled, incoming data is compared against (data & RCM) == RCV. Cleared to 0 on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "034h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_034_F0",
+            "name": "CVAL",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Comparison Value. Data received on enabled channels is compared to this value (masked by RCM) to determine match/non-match condition.",
+            "abstract": "Comparison Value. Data received on enabled channels is compared to this value (masked by RCM) to determine match/non-match condition.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_038",
+      "type": "REGISTER",
+      "name": "MSP_RCM — Receive Comparison Mask Register",
+      "description": "32-bit mask for the receive comparison operation. Only bits set to 1 in this register participate in the comparison with RCV. Cleared to 0 on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "038h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_038_F0",
+            "name": "CMASK",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Comparison Mask. Bit-level mask applied before comparing received data against the comparison value in RCV.",
+            "abstract": "Comparison Mask. Bit-level mask applied before comparing received data against the comparison value in RCV.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_040",
+      "type": "REGISTER",
+      "name": "MSP_TCE0 — Transmit Channel Enable 0 Register",
+      "description": "32-bit channel enable mask for TX multichannel group 0. Each bit enables one of 32 channels (channels 0-31). Only effective when TMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "040h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_040_F0",
+            "name": "TCE0",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "TX channel enable bits for channels 0-31. 1=channel active, 0=channel muted.",
+            "abstract": "TX channel enable bits for channels 0-31. 1=channel active, 0=channel muted.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_044",
+      "type": "REGISTER",
+      "name": "MSP_TCE1 — Transmit Channel Enable 1 Register",
+      "description": "32-bit channel enable mask for TX multichannel group 1. Each bit enables one of 32 channels (channels 32-63). Only effective when TMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "044h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_044_F0",
+            "name": "TCE1",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "TX channel enable bits for channels 32-63. 1=channel active, 0=channel muted.",
+            "abstract": "TX channel enable bits for channels 32-63. 1=channel active, 0=channel muted.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_048",
+      "type": "REGISTER",
+      "name": "MSP_TCE2 — Transmit Channel Enable 2 Register",
+      "description": "32-bit channel enable mask for TX multichannel group 2. Each bit enables one of 32 channels (channels 64-95). Only effective when TMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "048h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_048_F0",
+            "name": "TCE2",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "TX channel enable bits for channels 64-95. 1=channel active, 0=channel muted.",
+            "abstract": "TX channel enable bits for channels 64-95. 1=channel active, 0=channel muted.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_04C",
+      "type": "REGISTER",
+      "name": "MSP_TCE3 — Transmit Channel Enable 3 Register",
+      "description": "32-bit channel enable mask for TX multichannel group 3. Each bit enables one of 32 channels (channels 96-127). Only effective when TMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "04Ch",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_04C_F0",
+            "name": "TCE3",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "TX channel enable bits for channels 96-127. 1=channel active, 0=channel muted.",
+            "abstract": "TX channel enable bits for channels 96-127. 1=channel active, 0=channel muted.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_060",
+      "type": "REGISTER",
+      "name": "MSP_RCE0 — Receive Channel Enable 0 Register",
+      "description": "32-bit channel enable mask for RX multichannel group 0. Each bit enables one of 32 channels (channels 0-31). Only effective when RMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "060h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_060_F0",
+            "name": "RCE0",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "RX channel enable bits for channels 0-31. 1=channel active, 0=channel ignored.",
+            "abstract": "RX channel enable bits for channels 0-31. 1=channel active, 0=channel ignored.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_064",
+      "type": "REGISTER",
+      "name": "MSP_RCE1 — Receive Channel Enable 1 Register",
+      "description": "32-bit channel enable mask for RX multichannel group 1. Each bit enables one of 32 channels (channels 32-63). Only effective when RMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "064h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_064_F0",
+            "name": "RCE1",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "RX channel enable bits for channels 32-63. 1=channel active, 0=channel ignored.",
+            "abstract": "RX channel enable bits for channels 32-63. 1=channel active, 0=channel ignored.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_068",
+      "type": "REGISTER",
+      "name": "MSP_RCE2 — Receive Channel Enable 2 Register",
+      "description": "32-bit channel enable mask for RX multichannel group 2. Each bit enables one of 32 channels (channels 64-95). Only effective when RMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "068h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_068_F0",
+            "name": "RCE2",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "RX channel enable bits for channels 64-95. 1=channel active, 0=channel ignored.",
+            "abstract": "RX channel enable bits for channels 64-95. 1=channel active, 0=channel ignored.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_06C",
+      "type": "REGISTER",
+      "name": "MSP_RCE3 — Receive Channel Enable 3 Register",
+      "description": "32-bit channel enable mask for RX multichannel group 3. Each bit enables one of 32 channels (channels 96-127). Only effective when RMCEN=1 in MCR. Cleared on MSP close.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "06Ch",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_06C_F0",
+            "name": "RCE3",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "RX channel enable bits for channels 96-127. 1=channel active, 0=channel ignored.",
+            "abstract": "RX channel enable bits for channels 96-127. 1=channel active, 0=channel ignored.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_070",
+      "type": "REGISTER",
+      "name": "MSP_IODLY — I/O Delay Register",
+      "description": "Configures I/O pad delay for the MSP data and clock lines. Written during MSP open/enable sequence. The value is provided by the platform configuration.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "070h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_070_F0",
+            "name": "IODLY",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "I/O delay configuration value. Platform-specific. Controls signal timing at the pad level.",
+            "abstract": "I/O delay configuration value. Platform-specific. Controls signal timing at the pad level.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_080",
+      "type": "REGISTER",
+      "name": "MSP_ITCR — Integration Test Control Register",
+      "description": "Controls integration test mode. When ITEN is set, normal operation is overridden and the test logic takes control. TESTFIFO enables direct FIFO access via the test data register (TSTDR). Used during TX FIFO flush.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "080h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_080_F0",
+            "name": "ITEN",
+            "bits": "0",
+            "bit_high": 0,
+            "bit_low": 0,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Integration Test Enable. 1=test mode active, normal operation suspended.",
+            "abstract": "Integration Test Enable. 1=test mode active, normal operation suspended.",
+            "values": []
+          },
+          {
+            "id": "REG_080_F1",
+            "name": "TESTFIFO",
+            "bits": "1",
+            "bit_high": 1,
+            "bit_low": 1,
+            "width": 1,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Test FIFO. 1=FIFO test mode, allows read/write via TSTDR register. Driver sets both ITEN+TESTFIFO to flush TX FIFO during close.",
+            "abstract": "Test FIFO. 1=FIFO test mode, allows read/write via TSTDR register. Driver sets both ITEN+TESTFIFO to flush TX FIFO during close.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_084",
+      "type": "REGISTER",
+      "name": "MSP_ITIP — Integration Test Input Register",
+      "description": "Provides test input data when integration test mode is active (ITEN=1). Not used by the Linux driver in normal operation.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "084h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_084_F0",
+            "name": "ITIP",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Integration test input data.",
+            "abstract": "Integration test input data.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_088",
+      "type": "REGISTER",
+      "name": "MSP_ITOP — Integration Test Output Register",
+      "description": "Provides test output data when integration test mode is active (ITEN=1). Not used by the Linux driver in normal operation.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "088h",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_088_F0",
+            "name": "ITOP",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R/W",
+            "original_attrib": "R/W",
+            "raw": "Integration test output data.",
+            "abstract": "Integration test output data.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_08C",
+      "type": "REGISTER",
+      "name": "MSP_TSTDR — Test Data Read Register",
+      "description": "Provides direct access to the TX FIFO contents when ITCR.TESTFIFO=1. The driver reads this register in a loop during flush_fifo_tx() to drain the TX FIFO.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "08Ch",
+        "class_id": "REGCLASS_CORE",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_08C_F0",
+            "name": "TDATA",
+            "bits": "31:0",
+            "bit_high": 31,
+            "bit_low": 0,
+            "width": 32,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Test data read from TX FIFO. Only valid when ITCR.TESTFIFO=1.",
+            "abstract": "Test data read from TX FIFO. Only valid when ITCR.TESTFIFO=1.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FE0",
+      "type": "REGISTER",
+      "name": "MSP_PID0 — Peripheral Identification 0 Register",
+      "description": "ARM PrimeCell identification register. Part Number [7:0]. Identifies the MSP peripheral. Read-only.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FE0h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FE0_F0",
+            "name": "PID0",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Part Number [7:0]. Identifies the MSP peripheral.",
+            "abstract": "Part Number [7:0]. Identifies the MSP peripheral.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FE4",
+      "type": "REGISTER",
+      "name": "MSP_PID1 — Peripheral Identification 1 Register",
+      "description": "ARM PrimeCell identification register. Part Number [11:8] and Designer [3:0]. Read-only.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FE4h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FE4_F0",
+            "name": "PID1",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Part Number [11:8] and Designer [3:0].",
+            "abstract": "Part Number [11:8] and Designer [3:0].",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FE8",
+      "type": "REGISTER",
+      "name": "MSP_PID2 — Peripheral Identification 2 Register",
+      "description": "ARM PrimeCell identification register. Designer [7:4] and Revision [3:0]. Read-only.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FE8h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FE8_F0",
+            "name": "PID2",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Designer [7:4] and Revision [3:0].",
+            "abstract": "Designer [7:4] and Revision [3:0].",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FEC",
+      "type": "REGISTER",
+      "name": "MSP_PID3 — Peripheral Identification 3 Register",
+      "description": "ARM PrimeCell identification register. Configuration and ECO revision. Read-only.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FECh",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FEC_F0",
+            "name": "PID3",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Configuration and ECO revision.",
+            "abstract": "Configuration and ECO revision.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FF0",
+      "type": "REGISTER",
+      "name": "MSP_CID0 — Component Identification 0 Register",
+      "description": "ARM PrimeCell component ID byte 0. Standard value is 0x0D. Together CID0-3 form the 32-bit PrimeCell component ID.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FF0h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FF0_F0",
+            "name": "CID0",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Component ID byte 0. Expected value: 0x0D.",
+            "abstract": "Component ID byte 0. Expected value: 0x0D.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FF4",
+      "type": "REGISTER",
+      "name": "MSP_CID1 — Component Identification 1 Register",
+      "description": "ARM PrimeCell component ID byte 1. Standard value is 0xF0. Together CID0-3 form the 32-bit PrimeCell component ID.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FF4h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FF4_F0",
+            "name": "CID1",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Component ID byte 1. Expected value: 0xF0.",
+            "abstract": "Component ID byte 1. Expected value: 0xF0.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FF8",
+      "type": "REGISTER",
+      "name": "MSP_CID2 — Component Identification 2 Register",
+      "description": "ARM PrimeCell component ID byte 2. Standard value is 0x05. Together CID0-3 form the 32-bit PrimeCell component ID.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FF8h",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FF8_F0",
+            "name": "CID2",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Component ID byte 2. Expected value: 0x05.",
+            "abstract": "Component ID byte 2. Expected value: 0x05.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REG_FFC",
+      "type": "REGISTER",
+      "name": "MSP_CID3 — Component Identification 3 Register",
+      "description": "ARM PrimeCell component ID byte 3. Standard value is 0xB1. Together CID0-3 form the 32-bit PrimeCell component ID.",
+      "source": {
+        "page": 0,
+        "definition_page": 0,
+        "driver_file": "ux500-msp-i2s.h"
+      },
+      "extras": {
+        "offset_hex": "FFCh",
+        "class_id": "REGCLASS_ID",
+        "spec_section": "6.9",
+        "spec_table": "",
+        "fields": [
+          {
+            "id": "REG_FFC_F0",
+            "name": "CID3",
+            "bits": "7:0",
+            "bit_high": 7,
+            "bit_low": 0,
+            "width": 8,
+            "access": "R",
+            "original_attrib": "R",
+            "raw": "Component ID byte 3. Expected value: 0xB1.",
+            "abstract": "Component ID byte 3. Expected value: 0xB1.",
+            "values": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "REGCLASS_CORE",
+      "type": "REG_CLASS",
+      "name": "Core MSP Registers",
+      "description": "Core operational registers: data, configuration, sample rate, flags, DMA, interrupts, multichannel, channel enables, I/O delay, and test registers.",
+      "source": {},
+      "extras": {
+        "address_start": "000h",
+        "address_end": "08Ch",
+        "table_1_1_name": "MSP Core Register Block",
+        "registers": [
+          "REG_000",
+          "REG_004",
+          "REG_008",
+          "REG_00C",
+          "REG_010",
+          "REG_014",
+          "REG_018",
+          "REG_020",
+          "REG_024",
+          "REG_028",
+          "REG_02C",
+          "REG_030",
+          "REG_034",
+          "REG_038",
+          "REG_040",
+          "REG_044",
+          "REG_048",
+          "REG_04C",
+          "REG_060",
+          "REG_064",
+          "REG_068",
+          "REG_06C",
+          "REG_070",
+          "REG_080",
+          "REG_084",
+          "REG_088",
+          "REG_08C"
+        ]
+      }
+    },
+    {
+      "id": "REGCLASS_ID",
+      "type": "REG_CLASS",
+      "name": "Identification Registers",
+      "description": "ARM PrimeCell peripheral and component identification registers. Read-only, factory-programmed. Used to identify the IP block type and revision.",
+      "source": {},
+      "extras": {
+        "address_start": "FE0h",
+        "address_end": "FFCh",
+        "table_1_1_name": "ARM PrimeCell ID Block",
+        "registers": [
+          "REG_FE0",
+          "REG_FE4",
+          "REG_FE8",
+          "REG_FEC",
+          "REG_FF0",
+          "REG_FF4",
+          "REG_FF8",
+          "REG_FFC"
+        ]
+      }
+    },
+    {
+      "id": "F_I2S_MODE",
+      "type": "FEATURE",
+      "name": "I2S Protocol Mode",
+      "description": "I2S (Inter-IC Sound) protocol support. Single-phase, MSB-first, 1-bit data delay, frame sync active-low. Default element length 32-bit, stereo frame of 32 bit clocks. This is the primary audio protocol mode.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "protocol",
+          "audio"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_PCM_MODE",
+      "type": "FEATURE",
+      "name": "PCM Protocol Mode",
+      "description": "PCM (Pulse Coded Modulation) protocol support. Dual-phase, MSB-first, 0 data delay, frame sync active-high. Default 16-bit elements, 256-clock frame period.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "protocol",
+          "audio"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_PCM_COMPAND",
+      "type": "FEATURE",
+      "name": "PCM Companded Mode",
+      "description": "Companded PCM mode with hardware µ-law or A-law compression/expansion. Single-phase, 8-bit elements. Used for voice-band telephony.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "protocol",
+          "audio",
+          "companding"
+        ],
+        "priority": "P1",
+        "parent_id": "F_PCM_MODE",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_COMPANDING",
+      "type": "FEATURE",
+      "name": "Hardware Companding",
+      "description": "Hardware companding support via the DTYP field in TCF/RCF. Supports linear, µ-law, and A-law modes. Controlled by DCM bit in GCR.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "companding"
+        ],
+        "priority": "P1",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_DMA",
+      "type": "FEATURE",
+      "name": "DMA Transfer",
+      "description": "DMA-based data transfer using the DMACR register. TX and RX DMA can be enabled independently. The driver enables DMA for both directions during the open sequence. DMA base address is MSP_DR (offset 0x00).",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer",
+          "dma"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_FIFO",
+      "type": "FEATURE",
+      "name": "TX/RX FIFO",
+      "description": "Transmit and receive FIFOs. 32 entries deep (based on flush loop limit). FIFO enable controlled via RFFEN/TFFEN in GCR. Status available via FLR register (empty/full flags).",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_DATA_SIZES",
+      "type": "FEATURE",
+      "name": "Configurable Data Sizes",
+      "description": "Supports 8, 10, 12, 14, 16, 20, 24, and 32-bit element sizes. Configured via P1ELEN/P2ELEN in TCF/RCF. Data size affects DR access width.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_CLOCK_GEN",
+      "type": "FEATURE",
+      "name": "Clock Generation",
+      "description": "Built-in sample rate generator (SRG) produces bit clock and frame sync. Input clock is APB (48 MHz default). Bit clock = f_input / (SCKDIV+1). Frame sync generated with configurable width and period.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "clock"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_FRAME_SYNC",
+      "type": "FEATURE",
+      "name": "Frame Synchronization",
+      "description": "Frame sync generation and detection. Configurable polarity (active high/low), width (FRWID), and period (FRPER). Unexpected frame sync can abort transfer or be ignored (FSIG bit).",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "clock",
+          "protocol"
+        ],
+        "priority": "P0",
+        "parent_id": "F_CLOCK_GEN",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_EXT_CLOCK",
+      "type": "FEATURE",
+      "name": "External Clock Input",
+      "description": "MSP can use external bit clock and frame sync instead of internal SRG. Selected via RCKSEL/TCKSEL and RFSSEL/TFSSEL bits in GCR.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "clock"
+        ],
+        "priority": "P1",
+        "parent_id": "F_CLOCK_GEN",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_MULTICHANNEL",
+      "type": "FEATURE",
+      "name": "Multichannel / TDM",
+      "description": "Time-Division Multiplexing (TDM) support. Up to 128 channels (4 x 32-bit enable masks in TCE0-3 and RCE0-3). Only supported in single-phase mode. Per-channel enable/disable for both TX and RX independently.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "multichannel"
+        ],
+        "priority": "P1",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_RX_COMPARISON",
+      "type": "FEATURE",
+      "name": "RX Data Comparison",
+      "description": "Receive data comparison mode. Compares incoming data against RCV value (masked by RCM). Can generate interrupt on match or non-match. Used for channel identification in TDM applications.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "multichannel"
+        ],
+        "priority": "P2",
+        "parent_id": "F_MULTICHANNEL",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_DUAL_PHASE",
+      "type": "FEATURE",
+      "name": "Dual Phase Protocol",
+      "description": "Dual-phase protocol support via P2EN bit. Phase 1 and phase 2 can have independent element/frame lengths. Phase 2 can start immediately after phase 1 or wait for next frame sync (P2SM bit).",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "protocol"
+        ],
+        "priority": "P1",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_LOOPBACK",
+      "type": "FEATURE",
+      "name": "Loopback Mode",
+      "description": "Internal loopback mode (LBM bit in GCR). TX output is routed back to RX input internally. Used for self-test and diagnostics without external connections. Also used transiently during shutdown to drain FIFOs.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "test",
+          "diagnostics"
+        ],
+        "priority": "P2",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_SPI_COMPAT",
+      "type": "FEATURE",
+      "name": "SPI Compatibility",
+      "description": "SPI-compatible mode with configurable clock mode (SPICKM) and burst mode (SPIBME). Allows MSP to communicate with SPI peripherals.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "protocol"
+        ],
+        "priority": "P2",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_INTERRUPT",
+      "type": "FEATURE",
+      "name": "Interrupt System",
+      "description": "8 interrupt sources: RX/TX service, RX overrun, TX underrun, RX/TX frame sync, RX/TX frame sync error. Controlled by IMSC register. Status in RIS (raw) and MIS (masked). Clear via ICR.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "interrupt"
+        ],
+        "priority": "P0",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_MULTI_INSTANCE",
+      "type": "FEATURE",
+      "name": "Multiple MSP Instances",
+      "description": "DB8500 SoC has 4 MSP instances: MSP0 at 0x80123000, MSP1 at 0x80124000, MSP2 at 0x80117000, MSP3 at 0x80125000. Each is independently configurable. The driver manages a per-instance state machine (IDLE→CONFIGURED→RUNNING).",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "platform"
+        ],
+        "priority": "P1",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_IO_DELAY",
+      "type": "FEATURE",
+      "name": "I/O Delay Configuration",
+      "description": "Configurable I/O pad delay via IODLY register. Platform-specific value written during open sequence.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "platform",
+          "timing"
+        ],
+        "priority": "P2",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_ENDIANNESS",
+      "type": "FEATURE",
+      "name": "Configurable Endianness",
+      "description": "Byte order configurable per direction (TX/RX) via ENDN bit in TCF/RCF. Also supports byte/half-word swap via TBSWAP field.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer"
+        ],
+        "priority": "P1",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "F_TEST_MODE",
+      "type": "FEATURE",
+      "name": "Integration Test Mode",
+      "description": "Integration test control via ITCR register. Test mode enables direct FIFO access through TSTDR and test I/O via ITIP/ITOP. Used by driver to flush TX FIFO during shutdown sequence.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "test"
+        ],
+        "priority": "P2",
+        "parent_id": "",
+        "tables": [],
+        "figures": [],
+        "registers": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_MSP_OPEN",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Open / Configure",
+      "description": "Full MSP initialization: configure GCR (clocks, FIFO, loopback, sync selection), set protocol descriptors (TCF/RCF), configure SRG (bit clock divider, frame width/period), optionally configure multichannel (MCR, TCE0-3, RCE0-3, RCV, RCM), enable DMA (DMACR), set IODLY, enable frame generator, flush both FIFOs, set state to CONFIGURED.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "initialization",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_I2S_MODE",
+          "F_PCM_MODE",
+          "F_CLOCK_GEN",
+          "F_DMA",
+          "F_FIFO"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_MSP_TRIGGER",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Trigger Start/Stop",
+      "description": "ALSA trigger handler. On START/RESUME/PAUSE_RELEASE: sets TXEN or RXEN in GCR to begin data flow. On STOP/SUSPEND/PAUSE_PUSH: calls disable_msp_tx/rx which clears enable bits, disables DMA, and masks interrupts.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_DMA",
+          "F_INTERRUPT"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_MSP_CLOSE",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Close / Shutdown",
+      "description": "MSP shutdown sequence. Disables TX/RX (with loopback-assisted drain if both directions active), disables DMA and interrupts. If both directions now idle: disables SRG + frame gen, zeroes GCR, TCF, RCF, DMACR, SRG, MCR, RCM, RCV, and all TCE/RCE registers. Sets state to IDLE.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "shutdown",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_FIFO",
+          "F_LOOPBACK"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_FLUSH_TX",
+      "type": "HD_SEQUENCE",
+      "name": "TX FIFO Flush",
+      "description": "Drains TX FIFO using integration test mode. Enables TX, then sets ITCR (ITEN+TESTFIFO), reads TSTDR in a loop until TFE flag is set or limit (32 reads) reached, then clears ITCR and restores GCR.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer",
+          "shutdown",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_FIFO",
+          "F_TEST_MODE"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_FLUSH_RX",
+      "type": "HD_SEQUENCE",
+      "name": "RX FIFO Flush",
+      "description": "Drains RX FIFO by temporarily enabling RX, then reading DR in a loop until RFE (RX FIFO Empty) flag is set or limit (32 reads) reached, then restores original GCR value.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "data_transfer",
+          "shutdown",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_FIFO"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    },
+    {
+      "id": "HDS_SETUP_BITCLK",
+      "type": "HD_SEQUENCE",
+      "name": "Bit Clock Setup",
+      "description": "Configures the sample rate generator. Disables SRG, calculates SCKDIV from f_inputclk / (frame_freq * clocks_per_frame), sets FRWID and FRPER, writes SRG register, waits 100µs, enables SRG, waits another 100µs. The 100µs delays allow the PLL to stabilize.",
+      "source": {
+        "driver_file": "ux500-msp-i2s.c"
+      },
+      "extras": {
+        "groups": [
+          "clock",
+          "initialization",
+          "host_driver_sequence"
+        ],
+        "uses_features": [
+          "F_CLOCK_GEN",
+          "F_FRAME_SYNC"
+        ],
+        "tables": [],
+        "figures": [],
+        "spec_sections": []
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "R0001",
+      "type": "BELONGS_TO",
+      "source_node": "REG_000",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_DR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0002",
+      "type": "BELONGS_TO",
+      "source_node": "REG_004",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_GCR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0003",
+      "type": "BELONGS_TO",
+      "source_node": "REG_008",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TCF belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0004",
+      "type": "BELONGS_TO",
+      "source_node": "REG_00C",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCF belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0005",
+      "type": "BELONGS_TO",
+      "source_node": "REG_010",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_SRG belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0006",
+      "type": "BELONGS_TO",
+      "source_node": "REG_014",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_FLR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0007",
+      "type": "BELONGS_TO",
+      "source_node": "REG_018",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_DMACR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0008",
+      "type": "BELONGS_TO",
+      "source_node": "REG_020",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_IMSC belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0009",
+      "type": "BELONGS_TO",
+      "source_node": "REG_024",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RIS belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0010",
+      "type": "BELONGS_TO",
+      "source_node": "REG_028",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_MIS belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0011",
+      "type": "BELONGS_TO",
+      "source_node": "REG_02C",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_ICR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0012",
+      "type": "BELONGS_TO",
+      "source_node": "REG_030",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_MCR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0013",
+      "type": "BELONGS_TO",
+      "source_node": "REG_034",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCV belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0014",
+      "type": "BELONGS_TO",
+      "source_node": "REG_038",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCM belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0015",
+      "type": "BELONGS_TO",
+      "source_node": "REG_040",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TCE0 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0016",
+      "type": "BELONGS_TO",
+      "source_node": "REG_044",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TCE1 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0017",
+      "type": "BELONGS_TO",
+      "source_node": "REG_048",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TCE2 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0018",
+      "type": "BELONGS_TO",
+      "source_node": "REG_04C",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TCE3 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0019",
+      "type": "BELONGS_TO",
+      "source_node": "REG_060",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCE0 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0020",
+      "type": "BELONGS_TO",
+      "source_node": "REG_064",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCE1 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0021",
+      "type": "BELONGS_TO",
+      "source_node": "REG_068",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCE2 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0022",
+      "type": "BELONGS_TO",
+      "source_node": "REG_06C",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_RCE3 belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0023",
+      "type": "BELONGS_TO",
+      "source_node": "REG_070",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_IODLY belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0024",
+      "type": "BELONGS_TO",
+      "source_node": "REG_080",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_ITCR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0025",
+      "type": "BELONGS_TO",
+      "source_node": "REG_084",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_ITIP belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0026",
+      "type": "BELONGS_TO",
+      "source_node": "REG_088",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_ITOP belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0027",
+      "type": "BELONGS_TO",
+      "source_node": "REG_08C",
+      "target_node": "REGCLASS_CORE",
+      "description": "MSP_TSTDR belongs to register class REGCLASS_CORE"
+    },
+    {
+      "id": "R0028",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FE0",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_PID0 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0029",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FE4",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_PID1 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0030",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FE8",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_PID2 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0031",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FEC",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_PID3 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0032",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FF0",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_CID0 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0033",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FF4",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_CID1 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0034",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FF8",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_CID2 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0035",
+      "type": "BELONGS_TO",
+      "source_node": "REG_FFC",
+      "target_node": "REGCLASS_ID",
+      "description": "MSP_CID3 belongs to register class REGCLASS_ID"
+    },
+    {
+      "id": "R0036",
+      "type": "PART_OF",
+      "source_node": "F_PCM_COMPAND",
+      "target_node": "F_PCM_MODE",
+      "description": "PCM Companded Mode is part of F_PCM_MODE"
+    },
+    {
+      "id": "R0037",
+      "type": "PART_OF",
+      "source_node": "F_FRAME_SYNC",
+      "target_node": "F_CLOCK_GEN",
+      "description": "Frame Synchronization is part of F_CLOCK_GEN"
+    },
+    {
+      "id": "R0038",
+      "type": "PART_OF",
+      "source_node": "F_EXT_CLOCK",
+      "target_node": "F_CLOCK_GEN",
+      "description": "External Clock Input is part of F_CLOCK_GEN"
+    },
+    {
+      "id": "R0039",
+      "type": "PART_OF",
+      "source_node": "F_RX_COMPARISON",
+      "target_node": "F_MULTICHANNEL",
+      "description": "RX Data Comparison is part of F_MULTICHANNEL"
+    },
+    {
+      "id": "R0040",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_I2S_MODE",
+      "description": "MSP Open / Configure uses feature F_I2S_MODE"
+    },
+    {
+      "id": "R0041",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_PCM_MODE",
+      "description": "MSP Open / Configure uses feature F_PCM_MODE"
+    },
+    {
+      "id": "R0042",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_CLOCK_GEN",
+      "description": "MSP Open / Configure uses feature F_CLOCK_GEN"
+    },
+    {
+      "id": "R0043",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_DMA",
+      "description": "MSP Open / Configure uses feature F_DMA"
+    },
+    {
+      "id": "R0044",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_FIFO",
+      "description": "MSP Open / Configure uses feature F_FIFO"
+    },
+    {
+      "id": "R0045",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_TRIGGER",
+      "target_node": "F_DMA",
+      "description": "MSP Trigger Start/Stop uses feature F_DMA"
+    },
+    {
+      "id": "R0046",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_TRIGGER",
+      "target_node": "F_INTERRUPT",
+      "description": "MSP Trigger Start/Stop uses feature F_INTERRUPT"
+    },
+    {
+      "id": "R0047",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_CLOSE",
+      "target_node": "F_FIFO",
+      "description": "MSP Close / Shutdown uses feature F_FIFO"
+    },
+    {
+      "id": "R0048",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_CLOSE",
+      "target_node": "F_LOOPBACK",
+      "description": "MSP Close / Shutdown uses feature F_LOOPBACK"
+    },
+    {
+      "id": "R0049",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_TX",
+      "target_node": "F_FIFO",
+      "description": "TX FIFO Flush uses feature F_FIFO"
+    },
+    {
+      "id": "R0050",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_TX",
+      "target_node": "F_TEST_MODE",
+      "description": "TX FIFO Flush uses feature F_TEST_MODE"
+    },
+    {
+      "id": "R0051",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_RX",
+      "target_node": "F_FIFO",
+      "description": "RX FIFO Flush uses feature F_FIFO"
+    },
+    {
+      "id": "R0052",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_SETUP_BITCLK",
+      "target_node": "F_CLOCK_GEN",
+      "description": "Bit Clock Setup uses feature F_CLOCK_GEN"
+    },
+    {
+      "id": "R0053",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_SETUP_BITCLK",
+      "target_node": "F_FRAME_SYNC",
+      "description": "Bit Clock Setup uses feature F_FRAME_SYNC"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName monospace
+
+map "PRESETVALUEn Register" as reg {
+  Offset => 0x0060 + n*0x2 (n=0 to 7)
+  Access => Read
+}
+
+rectangle "16-bit Register Layout" {
+  rectangle "Bit 15" as b15
+  rectangle "Bit 14" as b14
+  rectangle "Bit 13" as b13
+  rectangle "Bit 12" as b12
+  rectangle "Bit 11" as b11
+  rectangle "Bit 10" as b10
+  rectangle "Bit 9" as b9
+  rectangle "Bit 8" as b8
+  rectangle "Bit 7" as b7
+  rectangle "Bit 6" as b6
+  rectangle "Bit 5" as b5
+  rectangle "Bit 4" as b4
+  rectangle "Bit 3" as b3
+  rectangle "Bit 2" as b2
+  rectangle "Bit 1" as b1
+  rectangle "Bit 0" as b0
+}
+
+note bottom
+  |= Row |= 0 |= 1 |= 2 |= 3 |= 4 |= 5 |= 6 |= 7 |= 8 |= 9 |= 10 |= 11 |= 12 |= 13 |= 14 |= 15 |
+  | R | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+  | W | | | | | | | | | | | | | | | | |
+  | Reset | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+end note
+
+@enduml

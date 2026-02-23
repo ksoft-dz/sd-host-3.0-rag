@@ -1,0 +1,100 @@
+@startuml
+start
+
+:Set Block Size Reg;
+note right: (1)
+
+:Set Block Count Reg;
+note right: (2)
+
+:Set Argument 1 Reg;
+note right: (3)
+
+:Set Transfer Mode Reg;
+note right: (4)
+
+:Set Command Reg;
+note right: (5)
+
+:Wait for
+Command Complete Int;
+note right: (6)
+
+:Command
+occur;
+note right: (7)
+
+:Clr Command Complete status;
+
+:Get Response Data;
+note right: (8)
+
+if (Write or read?) then (Write)
+  note right: (9)
+  
+  :Wait for
+  Buffer Write Ready Int;
+  note right: (10)
+  
+  :Buffer Write
+  Ready
+  occur;
+  note right: (11)
+  
+  :Clr Buffer Write Ready status;
+  
+  :Set Block Data;
+  note right: (12)
+  
+  if (More Blocks?) then (Yes)
+    note right: (13)
+    detach
+  else (No)
+  endif
+  
+else (Read)
+  
+  :Wait for
+  Buffer Read Ready Int;
+  note right: (14)
+  
+  :Buffer Read
+  Ready
+  occur;
+  note right: (15)
+  
+  :Clr Buffer Read Ready status;
+  
+  :Get Block Data;
+  note right: (16)
+  
+  if (More Blocks?) then (Yes)
+    note right: (17)
+    detach
+  else (No)
+  endif
+  
+endif
+
+if (Single Block Transfer?\nMulti Block Transfer?\nInfinite Block Transfer?) then (Single or Multi\nBlock Transfer)
+  note right: (18)
+  
+  :Wait for
+  Transfer Complete Int;
+  note right: (19)
+  
+  :Transfer Complete Int occur;
+  note right: (20)
+  
+  :Clr Transfer Complete status;
+  
+else (Infinite Block Transfer)
+  note right: (21)
+  
+  :Abort Transaction;
+  
+endif
+
+stop
+
+@enduml

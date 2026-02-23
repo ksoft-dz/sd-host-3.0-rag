@@ -1,0 +1,36 @@
+Bit,Access,Field Name,Description
+[127:126],R,CSD_STRUCTURE,CSD structure
+[125:120],R,-,reserved
+[119:112],R,TAAC,data read access-time-1
+[111:104],R,NSAC,data read access-time-2 in CLK cycles (NSAC*100)
+[103:96],R,TRAN_SPEED,max. data transfer rate
+[95:84],R,CCC,card command classes
+[83:80],R,READ_BL_LEN,max. read data block length
+[79:79],R,READ_BL_PARTIAL,partial blocks for read allowed
+[78:78],R,WRITE_BLK_MISALIGN,write block misalignment
+[77:77],R,READ_BLK_MISALIGN,read block misalignment
+[76:76],R,DSR_IMP,DSR implemented
+[75:74],R,-,reserved
+[73:62],R,C_SIZE,device size
+[61:59],R,VDD_R_CURR_MIN,max. read current @VDD min
+[58:56],R,VDD_R_CURR_MAX,max. read current @VDD max
+[55:53],R,VDD_W_CURR_MIN,max. write current @VDD min
+[52:50],R,VDD_W_CURR_MAX,max. write current @VDD max
+[49:47],R,C_SIZE_MULT,device size multiplier
+[46:46],R,ERASE_BLK_EN,erase single block enable
+[45:39],R,SECTOR_SIZE,erase sector size
+[38:32],R,WP_GRP_SIZE,write protect group size
+[31:31],R,WP_GRP_ENABLE,write protect group enable
+[30:29],R,-,reserved (Do not use)
+[28:26],R,R2W_FACTOR,write speed factor
+[25:22],R,WRITE_BL_LEN,max. write data block length
+[21:21],R,WRITE_BL_PARTIAL,partial blocks for write allowed
+[20:16],R,-,reserved
+[15:15],R/W(1),FILE_FORMAT_GRP,File format group
+[14:14],R/W(1),COPY,copy flag
+[13:13],R/W(1),PERM_WRITE_PROTECT,permanent write protection
+[12:12],R/W,TMP_WRITE_PROTECT,temporary write protection
+[11:10],R/W(1),FILE_FORMAT,File format
+[9:8],R/W,-,reserved
+[7:1],R/W,CRC,CRC
+[0:0],-,-,not used always'1'

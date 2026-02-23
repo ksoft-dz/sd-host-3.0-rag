@@ -1,0 +1,12 @@
+@startuml
+start
+:(1) SD Clock Stop;
+note right
+  Stop SD clock
+end note
+:(2) SD Clock Supply;
+note right
+  Supply new SD clock
+end note
+stop
+@enduml

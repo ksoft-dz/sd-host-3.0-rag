@@ -1,0 +1,17 @@
+@startuml
+skinparam monochrome true
+skinparam defaultTextAlignment center
+
+map "Command Token Format" as token {
+  0 => start bit\n(always '0')
+  1 => transmitter bit\n('1'= host command)
+  CONTENT => command and address information\nor parameter, protected by 7 bit CRC checksum
+  CRC => 7-bit CRC
+  1 => end bit\n(always '1')
+}
+
+note bottom of token
+  total length=48 bits
+end note
+
+@enduml

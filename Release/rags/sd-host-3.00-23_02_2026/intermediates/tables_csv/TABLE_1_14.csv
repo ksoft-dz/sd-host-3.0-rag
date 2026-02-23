@@ -1,0 +1,3 @@
+Transfer Mode,Block Count Enable,Data Length
+Non ADMA,1,Block Count Register Value
+ADMA,0,Total length of AMDA Descriptor

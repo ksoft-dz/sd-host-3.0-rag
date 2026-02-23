@@ -1,0 +1,3 @@
+SCR Bit,Support Command,Command,CCC,Remark
+33,Set Block Count,CMD23,"2, 4",Mandatory for UHS104 card
+32,Speed Class Control,CMD20,"2, 4",Mandatory for SDXC card

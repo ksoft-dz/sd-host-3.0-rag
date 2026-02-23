@@ -1,0 +1,7 @@
+Identifier,Included in resp,Type,Value,Description,Clear Condition
+CSD_OVERWRITE,R2,E R X,"0= no error, 1= error","Can be either of the following errors: - The read only section of the CSD does not match the card content. - An attempt to reverse the copy (set as original) or permanent WP (unprotected) bits was made.",C
+WP erase skip,R2,S X,"0= not protected, 1= protected",Only partial address space was erased due to existing write protected blocks.,C
+Lock/Unlock cmd failed,R2,X,"0= no error, 1= error",Sequence or password errors during card lock/unlock operation.,C
+Card is locked,R2,S X,"0 = card is not locked, 1 = card is locked",Card is locked by a user password.,A
+Erase reset,R1 R2,S R,"0= cleared, 1= set",An erase sequence was cleared before executing because an out of erase sequence command was received.,C
+In Idle state,R1 R2,S R,"0 = Card is ready, 1 = Card is in Idle state",The card enters the idle state after power up or reset command. It will exit this state and become ready upon completion of its initialization procedures.,A

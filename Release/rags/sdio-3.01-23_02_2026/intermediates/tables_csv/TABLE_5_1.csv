@@ -1,0 +1,3 @@
+Bits,Identifier,Type,Value,Description,Clear Condition
+7,COM_CRC_ERROR,E R,"'0'= no error, '1'= error",The CRC check of the previous command failed.,B
+6,ILLEGAL_COMMAND,E R,"'0'= no error, '1'= error",Command not legal for the card State.,B

@@ -1,0 +1,17 @@
+CMD INDEX,SPI Mode,Argument,Resp,Abbreviation,Command Description
+ACMD6,No,--,--,--,--
+ACMD13,yes,[31:0] stuff bits,R2,SD_STATUS,"Send the SD Status. The status fields are given in Table 4-38"
+ACMD17,reserved,--,--,--,--
+ACMD18,yes,--,--,--,Reserved for SD security applications1
+ACMD19-ACMD21,reserved,--,--,--,--
+ACMD22,yes,[31:0] stuff bits,R1,SEND_NUM_WR_BLOCKS,"Send the numbers of the well written (without errors) blocks. Responds with 32-bit+CRC data block."
+ACMD23,yes,"[31:23] stuff bits [22:0]Number of blocks",R1,SET_WR_BLK_ERASE_COUNT,"Set the number of write blocks to be pre-erased before writing (to be used for faster Multiple Block WR command). ""1""=default (one wr block)(2)."
+ACMD24,reserved,--,--,--,--
+ACMD25,yes,--,--,--,Reserved for SD security applications1
+ACMD26,yes,--,--,--,Reserved for SD security applications1
+ACMD38,yes,--,--,--,Reserved for SD security applications1
+ACMD39-ACMD40,reserved,--,--,--,--
+ACMD41,Yes,"[31]Resetved bit [30]HCS [29:0]Reserved bits",R1,SD_SEND_OP_COND,"Sends host capacity support information and activates the card's initialization process. Reserved bits shall be set to '0'"
+ACMD42,yes,"[31:1] stuff bits [0]set_cd",R1,SET_CLR_CARD_DETECT,"Connect[1]/Disconnect[0] the 50 KOhm pull-up resistor on CS (pin 1) of the card. The pull-up may be used for card detection."
+ACMD43-ACMD49,yes,--,--,--,Reserved for SD security applications1
+ACMD51,yes,[31:0] staff bits,R1,SEND_SCR,Reads the SD Configuration Register (SCR).

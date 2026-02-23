@@ -1,0 +1,62 @@
+@startuml
+title SD Memory Card State Diagram (SPI mode)
+
+state "Power on" as PowerOn
+state "SPI Operation Mode" as SPIMode
+state "CMD0+\nCS Asserted('0')" as CMD0CS
+state "Idle State\n(idle)" as IdleState
+state "SD Bus\nOperation Modes" as SDBusMode
+state "CMD8" as CMD8State
+state "CMD58\n(READ_OCR)" as CMD58Read
+state "ACMD41(*2)" as ACMD41
+state "CMD58\n(Get CCS)" as CMD58CCS
+state "Not SD Memory Card" as NotSD
+
+note right of SDBusMode : In SD Bus mode\nfrom any state except Inactive
+
+PowerOn --> IdleState
+SPIMode --> CMD0CS
+CMD0CS --> IdleState : In SPI mode from any state\nCMD0
+
+IdleState --> SDBusMode : CMD0
+IdleState --> IdleState : CMD8
+SDBusMode --> IdleState : ACMD41
+note right of SDBusMode : card is busy
+
+note left of CMD8State : It is mandatory for the host compliant to\nPhysical Spec Version 2.00 to send CMD8
+
+CMD8State --> CMD58Read : Non\nsupported\nvoltage range
+note left of CMD58Read : Host shall refrain from\naccessing this card
+
+IdleState --> CMD58Read
+note right of CMD58Read : Not Mandatory to send CMD58:\nThough it is recommended\nto be done in order to get the\nsupported voltage range of the card.
+
+CMD58Read --> ACMD41
+note right of ACMD41 : card returns busy(*1)
+
+ACMD41 --> CMD58CCS
+note right of CMD58CCS : Host shall issue CMD58 to get\ncard capacity information(CCS).
+
+CMD8State --> NotSD : Not valid command
+
+note bottom of CMD58CCS : card-identification mode
+
+note as N1
+(*1) Note: Card returns busy when
+  - Card executes internal initialization process.
+  - If the card is High capacity SD Memory Card, there are 2 cases
+    1. CMD8 was not issued before ACMD41
+    2. ACMD41 is issued with HCS=0
+end note
+
+note as N2
+(*2) Note: 2.1mm SD Memory Card can be initialized using CMD1 and Thin (1.4mm) SD Memory Card can be initialized using CMD1 only after
+firstly initialized by using CMD0 and ACMD41. In any of the cases CMD1 is not recommended because it may be difficult for the host
+to distinguish between MultiMediaCard and SD Memory Card.
+If the SD card is initialized by CMD1 and the host treat it as MMC card, not SD card, the Data of the card may be damaged because of
+wrong interpretation of CSD and CID registers.
+end note
+
+== data-transfer mode ==
+
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+skinparam monochrome true
+
+map "Argument of ACMD41" as arg {
+  Bit 47 => S (Start bit)
+  Bit 46 => D (Direction)
+  Bits 45-40 => Index (101001 = 6 bits)
+  Bits 39 (Busy 31) => 0 (1 bit)
+  Bits 38 (HCS 30) => x (1 bit)
+  Bits 37 (FB 29) => 0 (1 bit)
+  Bits 36 (XPC 28) => x (1 bit)
+  Bits 35-33 (Reserved 27-25) => 000 (3 bits)
+  Bits 32 (S18R 24) => x (1 bit)
+  Bits 31-16 (OCR 23-08) => xxxxh (16 bits)
+  Bits 15-08 (Reserved 07-00) => 0000000 (8 bits)
+  Bits 07-01 (CRC7) => xxxxxxx (7 bits)
+  Bit 00 => E (End bit) = 1
+}
+
+note bottom of arg
+  **Host Capacity Support (HCS)**
+  0b: SDSC Only Host
+  1b: SDHC or SDXC Supported
+  
+  **SDXC Power Control (XPC)**
+  0b: Power Saving
+  1b: Maximum Performance
+  
+  **S18R: Switching to 1.8V Request**
+  0b: Use current signal voltage
+  1b: Switch to 1.8V signal voltage
+  
+  Note: Fast Boot (Bit 29) is reserved for eSD.
+end note
+@enduml

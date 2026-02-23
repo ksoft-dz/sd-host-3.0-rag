@@ -1,0 +1,17 @@
+Bit,Access,Field Name,Description
+14-13,RO,Re-Tuning Event Signal Enable,"1: Enabled
+0: Masked"
+11,RW,INT_C Signal Enable,"1: Enabled
+0: Masked"
+10,RW,INT_B Signal Enable,"1: Enabled
+0: Masked"
+09,RW,INT_A Signal Enable,"1: Enabled
+0: Masked"
+08,RW,Card Interrupt Signal Enable,"1: Enabled
+0: Masked"
+07,RW,Card Removal Signal Enable,"1: Enabled
+0: Masked"
+06,RW,Card Insertion Signal Enable,"1: Enabled
+0: Masked"
+05,RW,Buffer Read Signal Enable,"1: Enabled
+0: Masked"

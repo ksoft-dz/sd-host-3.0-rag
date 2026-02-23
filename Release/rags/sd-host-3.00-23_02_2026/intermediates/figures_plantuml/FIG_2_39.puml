@@ -1,0 +1,34 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Slot Interrupt Status Register (Offset 0FCh)" <<register>> {
+    rectangle "D15" as D15
+    rectangle "D08" as D08
+    rectangle "D07" as D07
+    rectangle "D00" as D00
+}
+
+note bottom of D15
+  Bits 15-08: Rsvd (Reserved)
+end note
+
+note bottom of D00
+  Bits 07-00: ROC (Interrupt Signal For Each Slot)
+  
+  Bit 00 = Slot 1
+  Bit 01 = Slot 2
+  Bit 02 = Slot 3
+  ...
+  Bit 07 = Slot 8
+  
+  These status bits indicate the logical OR of
+  Interrupt Signal and Wakeup Signal for each slot.
+  Maximum of 8 slots can be defined.
+end note
+
+@enduml

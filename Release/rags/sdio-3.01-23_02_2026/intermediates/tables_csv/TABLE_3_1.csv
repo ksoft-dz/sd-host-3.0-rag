@@ -1,0 +1,26 @@
+I don't see a table titled "OCR Values for CMD5" or "Table 3-1" in this image. 
+
+What I can see in this image is a legend/key section from an SDIO Simplified Specification document that defines:
+
+**Variables:**
+- NF: Number of I/O Functions (CMD5 Response)
+- MP: Memory Present Flag (CMD5 Response)
+- IORDY: I/O Power-up Status (C bit in the CMD5 response)
+- MRDY: Memory Power-up Status (OCR Bit31)
+- HCS: Host Capacity Support (ACMD41 Argument)
+- CCS: Card Capacity Status (ACMD41 Response)
+- S18R: Switching to 1.8V Request
+- S18A: Switching to 1.8V Accepted
+
+**Flags:**
+- IO: I/O Functions Initialized Flag
+- MEM: Memory Initialized Flag
+- F0: CMD0 Flag
+- F2: CMD2 Flag
+
+**Special Term:**
+- WV: Working Voltage range of OCR
+
+This appears to be a definitions box that would accompany a table, but the actual table "OCR Values for CMD5" is not present on this page.
+
+If you have another page that contains the actual table, please share it and I'll extract the data.

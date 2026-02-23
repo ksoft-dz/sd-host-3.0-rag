@@ -1,0 +1,28 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "ADMA Error Status Register" as register {
+    rectangle "D07" as d07 #White
+    rectangle "D03" as d03 #White
+    rectangle "D02" as d02 #White
+    rectangle "D01" as d01 #White
+    rectangle "D00" as d00 #White
+}
+
+note bottom of d07
+  Rsvd
+end note
+
+note bottom of d02
+  ADMA Length
+  Mismatch Error
+end note
+
+note bottom of d01
+  ADMA Error States
+end note
+
+@enduml

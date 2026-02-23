@@ -1,0 +1,12 @@
+Address,Register Name,Bit 7,Bit 6,Bit 5,Bit 4,Bit 3,Bit 2,Bit 1,Bit 0
+100h,Function n Standard Interface,CSA enable,supports CSA,RFU,RFU,Standard SDIO Function Interface Code [3],Standard SDIO Function Interface Code [2],Standard SDIO Function Interface Code [1],Standard SDIO Function Interface Code [0]
+101h,Extended Function Interface Code,Extended SDIO Standard Function interface code [7],Extended SDIO Standard Function interface code [6],Extended SDIO Standard Function interface code [5],Extended SDIO Standard Function interface code [4],Extended SDIO Standard Function interface code [3],Extended SDIO Standard Function interface code [2],Extended SDIO Standard Function interface code [1],Extended SDIO Standard Function interface code [0]
+102h,Power Selection,PS3,PS2,PS1,PS0,RFU,RFU,EPS,SPS
+103h-108h,Reserved for Future Use (RFU),RFU,RFU,RFU,RFU,RFU,RFU,RFU,RFU
+109h-10Bh,Pointer to Function CIS,Pointer to Function Card Information Structure (CIS) [23:0],,,,,,,
+10Ch-10Eh,Pointer to Function CSA,Pointer to Function Code Storage Area (CSA) [23:0],,,,,,,
+10Fh,CSA Data Access Window,Data access window to Function Code Storage Area (CSA),,,,,,,
+110h-111h,I/O Block Size,I/O block size for Function [15:0],,,,,,,
+112h-1FFh,Reserved for Future Use,Reserved for Future Use,,,,,,,
+200h-7FFh,Function 2-7 FBR,Function 2 to 7 Function Basic Information Registers (FBR),,,,,,,
+800h-FFFh,Reserved for Future Use,Reserved for Future Use,,,,,,,

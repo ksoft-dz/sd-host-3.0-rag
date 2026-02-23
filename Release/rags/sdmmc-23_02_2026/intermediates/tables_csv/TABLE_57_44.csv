@@ -1,0 +1,13 @@
+Field,Description
+6 FORCEADMAERR,"Force event for ADMA error
+1 Interrupt is generated
+0 No interrupt"
+7 FORCEAUTOCMDERR,"Force event for Auto CMD error
+1 Interrupt is generated
+0 No interrupt"
+8 FORCECURRLIMERR,"Force event for current limit error
+1 Interrupt is generated
+0 No interrupt"
+9 FORCEDATENDBITERR,"Force event for data end bit error
+1 Interrupt is generated
+0 No interrupt"

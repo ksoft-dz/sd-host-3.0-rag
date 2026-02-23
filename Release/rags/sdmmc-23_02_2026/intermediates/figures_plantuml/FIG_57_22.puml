@@ -1,0 +1,34 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+map "ERRORINTRSTSENA (Offset: 0x0036)" as reg {
+    Access => Read/Write
+}
+
+rectangle "16-bit Register Layout" {
+    rectangle "Bit 15\nERRORINTRSTS_\nENABLEREGBIT0" as b15
+    rectangle "Bit 14\nERRORINTRSTS_\nENABLEREGBIT1" as b14
+    rectangle "Bit 13\nERRORINTRSTS_\nENABLEREGBIT2" as b13
+    rectangle "Bit 12\nERRORINTRSTS_\nENABLEREGBIT3" as b12
+    rectangle "Bit 11\nERRORINTRSTS_\nENABLEREGBIT4" as b11
+    rectangle "Bit 10\nERRORINTRSTS_\nENABLEREGBIT5" as b10
+    rectangle "Bit 9\nERRORINTRSTS_\nENABLEREGBIT6" as b9
+    rectangle "Bit 8\n0" as b8
+    rectangle "Bit 7\nERRORINTRSTS_\nENABLEREGBIT8" as b7
+    rectangle "Bit 6\nERRORINTRSTS_\nENABLEREGBIT9" as b6
+    rectangle "Bit 5\n0" as b5
+    rectangle "Bit 4\n0" as b4
+    rectangle "Bit 3\nERRORINTRSTS_\nENABLEREGBIT12" as b3
+    rectangle "Bit 2\n0" as b2
+    rectangle "Bit 1\n0" as b1
+    rectangle "Bit 0\n0" as b0
+}
+
+note bottom
+  R (Read):  All bits read as 0
+  W (Write): Configurable bits shown
+  Reset:     All bits = 0
+end note
+
+@enduml

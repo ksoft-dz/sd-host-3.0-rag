@@ -1,0 +1,36 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultTextAlignment center
+
+rectangle "User Area" as UA {
+    rectangle "Recordable Area" as RA {
+        rectangle "AU1" #LightYellow
+        rectangle "AU2" #LightYellow
+        rectangle "AU3" #LightYellow
+        rectangle "AU4" #LightYellow
+        rectangle "......." as dots1
+        rectangle "AUn" #LightYellow
+    }
+}
+
+rectangle "Recording Units" as RUs {
+    rectangle "RU1" #LightBlue
+    rectangle "RU2" #LightBlue
+    rectangle "RU3" #LightBlue
+    rectangle "......." as dots2
+    rectangle "RUm" #LightBlue
+}
+
+AU3 -right-> RU1 : " "
+AU3 -right-> RU2 : " "
+AU3 -right-> RU3 : " "
+
+note right of RUs
+  m = N<sub>RU</sub> = S<sub>AU</sub>/S<sub>RU</sub>
+end note
+
+note left of UA
+  ↕
+end note
+
+@enduml

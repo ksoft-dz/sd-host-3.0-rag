@@ -1,0 +1,8 @@
+Card Classification,,DS,HS,SDR50,SDR104,DDR50
+SDSC,,M,O,N/A,N/A,N/A
+SDHC,Non UHS-I,M,O,N/A,N/A,N/A
+SDHC,UHS50,M,M,M,N/A,"O (Standard SD) M (microSD)"
+SDHC,UHS104,M,M,M,M,"O (Standard SD) M (microSD)"
+SDXC,Non UHS-I,M,O,N/A,N/A,N/A
+SDXC,UHS50,M,M,M,N/A,"O (Standard SD) M (microSD)"
+SDXC,UHS104,M,M,M,M,"O (Standard SD) M (microSD)"

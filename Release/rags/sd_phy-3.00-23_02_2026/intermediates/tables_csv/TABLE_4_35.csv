@@ -1,0 +1,7 @@
+Voltage accepted,Value Definition
+0000b,Not Defined
+0001b,2.7-3.6V
+0010b,Reserved for Low Voltage Range
+0100b,Reserved
+1000b,Reserved
+Others,Not Defined

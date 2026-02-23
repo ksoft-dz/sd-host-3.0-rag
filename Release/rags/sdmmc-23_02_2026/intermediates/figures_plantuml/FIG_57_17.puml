@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName monospace
+
+map "TIMEOUTCONTROL Register (Offset: 0x002E)" as reg {
+    Access => Read/Write
+}
+
+rectangle "8-bit Register Layout" {
+    map "Bits" as bits {
+        [7:4] => TIMEOUT_CTRVALUE
+        [3] => 0 (Reserved)
+        [2] => 0 (Reserved)
+        [1] => 0 (Reserved)
+        [0] => 0 (Reserved)
+    }
+}
+
+note bottom
+    Reset Value: 0x00 (all bits = 0)
+    
+    Bit positions:
+    | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+    |   TIMEOUT_CTRVALUE  | 0 | 0 | 0 | 0 |
+end note
+
+@enduml

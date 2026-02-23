@@ -1,0 +1,56 @@
+@startuml
+robust "DAT line" as DAT
+robust "Stop At Block Gap Request (Control)" as SABGR
+robust "Continue Request (Control)" as CR
+robust "Write Transfer Active (Status)" as WTA
+robust "DAT Line Active (Status)" as DLA
+robust "Block Gap Event (Interrupt)" as BGE
+robust "Transfer Complete (Interrupt)" as TC
+
+@0
+DAT is "Data"
+SABGR is Low
+CR is Low
+WTA is High
+DLA is High
+BGE is Low
+TC is Low
+
+@10
+DAT is "Gap"
+
+@20
+DAT is "Data"
+
+@30
+DAT is "Last block"
+
+@40
+SABGR is High
+
+@50
+CR is High
+WTA is Low
+
+@55
+CR is Low
+
+@60
+WTA is High
+DLA is High
+
+@70
+DAT is "Gap"
+
+@80
+DAT is "Data"
+WTA is Low
+DLA is Low
+
+@90
+TC is High
+
+@100
+TC is Low
+
+@enduml

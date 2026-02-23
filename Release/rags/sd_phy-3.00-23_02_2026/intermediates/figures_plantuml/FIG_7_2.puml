@@ -1,0 +1,69 @@
+@startuml
+skinparam defaultTextAlignment center
+
+start
+:Power-on;
+:CMD0+\nCS Asserted("0");
+:CMD8;
+
+if (Card returns response\nwithout illegal command) then (Ver2.00 or later\nSD Memory Card)
+  if (Valid\nResponse?) then (Non-compatible voltage range\nor check pattern error)
+    #LightGray:Unusable\nCard;
+    stop
+  else (Card with compatible\nVoltage range)
+    :CMD58\n(READ OCR);
+    if (Compatible voltage range\nand check pattern correct) then (Cards with non compatible voltage range)
+      #LightGray:Unusable\nCard;
+      stop
+    else
+      :ACMD41\nwith HCS=0or1;
+      if (Card is\nready?) then (Card returns\n'in_idle_state'=1)
+      else (Card returns\n'in_idle_state'=0)
+        :CMD58\n(Get CCS);
+        if (CCS in\nResponse?) then (CCS=1)
+          #LightGray:Ver2.00 or later\nHigh Capacity or\nExtended Capacity\nSD Memory Card;
+          stop
+        else (CCS=0)
+          #LightGray:Ver2.00 or later\nStandard Capacity\nSD Memory Card;
+          stop
+        endif
+      endif
+    endif
+  endif
+else (Illegal Command)
+  note left
+    Not Mandatory to send CMD58:
+    Though it is recommended
+    to be done in order to get
+    the supported voltage range
+    of the card.
+  end note
+  if (Ver1.X SD Memory Card\nor Not SD Memory Card) then
+    :CMD58\n(READ OCR);
+    if (Cards with non\ncompatible voltage\nrange) then
+      #LightGray:Unusable\nCard;
+      stop
+    else (Illegal Command)
+      :ACMD41\n(argument=0x0);
+      if (Card is\nready?) then (Card returns\n'in_idle_state'=1)
+      else (Card returns\n'in_idle_state'=0)
+        #LightGray:Ver1.X\nStandard Capacity\nSD Memory Card;
+        stop
+      endif
+    endif
+  else (Not SD Memory Card)
+    note left
+      Card returns
+      'in_idle_state'=0'
+    end note
+    stop
+  endif
+endif
+
+note right
+  If host supports
+  SDHC or SDXC,
+  HCS is set to 1
+end note
+
+@enduml

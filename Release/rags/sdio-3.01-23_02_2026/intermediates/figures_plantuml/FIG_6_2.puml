@@ -1,0 +1,14 @@
+@startuml
+skinparam monochrome true
+
+map "Card Information Structure (CIS) Memory Map" as cis {
+  Address => Bits 7-0
+  001000h-017FFFh => Card Common Card Information Structure (CIS) area for card common and all functions
+  018000h-01FFFFh => Reserved for Future Use
+}
+
+note bottom of cis
+  Table 6-5: Card Information Structure (CIS) 
+  and reserved area of CIA
+end note
+@enduml

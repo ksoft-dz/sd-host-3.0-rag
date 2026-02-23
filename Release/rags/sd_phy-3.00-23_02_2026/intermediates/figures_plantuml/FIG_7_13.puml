@@ -1,0 +1,19 @@
+@startuml
+skinparam monochrome true
+
+map "Data Error Token (1 byte)" as token {
+  Bit 7 => 0
+  Bit 6 => 0
+  Bit 5 => 0
+  Bit 4 => 0
+  Bit 3 => out of range
+  Bit 2 => Card ECC Failed
+  Bit 1 => CC Error
+  Bit 0 => Error
+}
+
+note bottom of token
+  Bits [7:4] = 0000 (fixed)
+  Bits [3:0] = Error flags (same as R2 response LSB)
+end note
+@enduml

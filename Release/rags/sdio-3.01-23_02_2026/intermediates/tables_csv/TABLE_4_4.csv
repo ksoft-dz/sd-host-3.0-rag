@@ -1,0 +1,9 @@
+I was unable to find a table titled "SDIO R6 Status Bits" or "Table 4-4" in this image. 
+
+The image shows page 28 of the SDIO Simplified Specification Version 3.00, which contains:
+- **Table 4-1: Supported SD Memory Commands** (showing SD Memory commands CMD0, CMD11, CMD19 and their SDIO equivalents)
+- An untitled table in section 4.2.2 showing Unsupported SD Memory Commands (CMD0, CMD12, CMD16, CMD2, CMD4, CMD9 mappings)
+
+The requested "SDIO R6 Status Bits" table (Table 4-4) does not appear on this page. It may be located on a different page of the specification document.
+
+If you'd like me to extract either of the tables that are present on this page, please let me know.

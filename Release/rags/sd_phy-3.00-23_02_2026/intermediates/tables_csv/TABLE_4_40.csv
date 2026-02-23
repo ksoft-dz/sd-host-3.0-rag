@@ -1,0 +1,7 @@
+PERFORMANCE_MOVE,Value Definition
+00h,Sequential Write
+01h,1 [MB/sec]
+02h,2 [MB/sec]
+......,......
+FEh,254 [MB/sec]
+FFh,Infinity

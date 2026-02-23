@@ -1,0 +1,36 @@
+@startuml
+robust "DAT line" as DAT
+concise "Stop At Block Gap Request (Control)" as SABGR
+concise "Continue Request (Control)" as CR
+concise "Write Transfer Active (Status)" as WTA
+concise "DAT Line Active (Status)" as DLA
+concise "Block Gap Event (Interrupt)" as BGE
+concise "Transfer Complete (Interrupt)" as TC
+
+@0
+DAT is "Data"
+SABGR is Low
+CR is Low
+WTA is Active
+DLA is Active
+BGE is Low
+TC is Low
+
+@100
+DAT is "Last block"
+
+@150
+SABGR is High
+
+@200
+DAT is Idle
+WTA is Inactive
+DLA is Inactive
+
+@220
+TC is High
+
+@240
+TC is Low
+
+@enduml

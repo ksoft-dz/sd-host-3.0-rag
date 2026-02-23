@@ -1,0 +1,14 @@
+I don't see a table titled "CLOCKCONTROL field descriptions" or "Table 1826" in this image. 
+
+The image shows Figure 1845, which is a register diagram for the "Clock control register (CLOCKCONTROL)" at offset 0x002C. This is a bit-field diagram showing the register layout with fields like:
+- CLKCTRL_SDMMCCLKFREQSEL (bits 0-9)
+- CLKCTRL_SDMMCCLKGENEN (bit 8)
+- CLKCTRL_UPSDCLKFREQ (bit 7)
+- CLKCTRL_SDCLKEN (bit 10)
+- CLKCTRL_INTCLKSTABLE (bit 11)
+- CLKCTRL_INTCLKEN (bit 14)
+- CLKCTRL_INTCLKENA (bit 15)
+
+However, the actual field descriptions table that would typically follow this figure is not visible in this image. The page appears to be cut off or the table is on a subsequent page.
+
+If you have additional pages from this document, please share them and I can extract the field descriptions table.

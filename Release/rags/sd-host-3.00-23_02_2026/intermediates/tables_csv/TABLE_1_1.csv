@@ -1,0 +1,13 @@
+No.,Register Name,Version 1.00,Version 2.00,Version 3.00,Comment
+1,SD command generation,Mand.,←,←,Parameters to generate SD commands
+2,Response,Mand.,←,←,Response value from the card
+3,Buffer Data port,Mand.,←,←,Data access port to the internal buffer
+4,Host control 1 and Others,Mand.,←,←,"Present State, controls for the SD Bus, Host reset and so on"
+5,Interrupt controls,Mand.,←,←,Interrupt statuses and enables
+6,Capabilities,Mand.,←,←,Vendor specific host controller support information
+7,Host Control 2,N/A,N/A,Mand.,Extension of Host Control Register
+8,Force Event,N/A,Mand.,Mand.,Test register to generate events by software
+9,ADMA,N/A,Opt.,Mand.,Advanced DMA registers
+10,Preset Value,N/A,N/A,Mand.,Preset for clock frequency select and driver strength select
+11,Shared Bus,N/A,N/A,Opt.,Device controls for shared bus system
+12,Common area,Mand.,←,←,Common information area

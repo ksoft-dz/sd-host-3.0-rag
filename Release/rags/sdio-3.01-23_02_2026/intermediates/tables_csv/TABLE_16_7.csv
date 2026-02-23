@@ -1,0 +1,3 @@
+Field,Description
+TPLFE_FN0_BLK_SIZE,"This is both the maximum block size and byte count that function 0 can support. A value of zero is not valid and shall not be used."
+TPLFE_MAX_TRAN_SPEED,"This byte indicates the maximum transfer rate per one data line during data transfer. This value applies to all functions in the SDIO card. This value shall be 25 Mb/Sec (32h) for all Full-Speed SDIO cards. The minimum value for Low-Speed SDIO cards shall be 400 Kb/Sec (48h). The format is identical to the TRAN_SPEED value stored in the CSD of SD memory cards. The maximum data transfer rate is coded according to the following method: Bits 2:0 contain the transfer rate unit coded as follows: 0=100kbit/s, 1=1Mbit/s, 2=10Mbit/s, 3=100Mbit/s, 4... 7=reserved"

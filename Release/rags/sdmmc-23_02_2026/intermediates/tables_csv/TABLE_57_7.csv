@@ -1,0 +1,11 @@
+Field,Description
+"10
+XFERMODE_MULTIBLKSEL","Multi/Single block select
+This bit enables multiple block data transfers.
+0 Single block
+1 Multiple block"
+"11
+XFERMODE_DATAXFERDIR","Data transfer direction select
+This bit defines the direction of data transfers.
+0 Write (host to card)
+1 Read (card to host)"

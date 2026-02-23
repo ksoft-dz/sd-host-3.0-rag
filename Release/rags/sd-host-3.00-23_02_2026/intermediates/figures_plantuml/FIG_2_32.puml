@@ -1,0 +1,79 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Force Event Register for Auto CMD Error Status (Offset 050h)" <<register>> {
+    |D15|D14|D13|D12|D11|D10|D09|D08|D07|D06|D05|D04|D03|D02|D01|D00|
+    
+    rectangle "Rsvd" as rsvd1 {
+        [D15-D08]
+    }
+    
+    rectangle "Force Event for\nCommand Not Issued By\nAuto CMD12 Error" as d07 {
+        [D07]
+    }
+    
+    rectangle "Rsvd" as rsvd2 {
+        [D06-D05]
+    }
+    
+    rectangle "Force Event for\nAuto CMD Index Error" as d04 {
+        [D04]
+    }
+    
+    rectangle "Force Event for\nAuto CMD End Bit Error" as d03 {
+        [D03]
+    }
+    
+    rectangle "Force Event for\nAuto CMD CRC Error" as d02 {
+        [D02]
+    }
+    
+    rectangle "Force Event for\nAuto CMD Timeout Error" as d01 {
+        [D01]
+    }
+    
+    rectangle "Force Event for Auto\nCMD12 Not Executed" as d00 {
+        [D00]
+    }
+}
+
+note right of d07
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d04
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d03
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d02
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d01
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+note right of d00
+  WO: Write Only
+  1 = Interrupt is generated
+  0 = No Interrupt
+end note
+
+@enduml

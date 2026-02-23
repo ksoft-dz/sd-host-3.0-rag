@@ -1,0 +1,5 @@
+I/O Resistor,Memory Resistor,Card Register
+Enabled,Enabled,Resistor Enabled
+Enabled,Disabled,"Resistor Disconnected"
+Disabled,Enabled,"Resistor Disconnected"
+Disabled,Disabled,Resistor Disconnected

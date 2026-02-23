@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+hide empty description
+
+map "MAXCURRENTCAP31_0 (Offset: 0x0048)" as reg {
+    Access => Read
+}
+
+rectangle "31                                                                    24" as upper_label
+rectangle "23        22        21        20        19        18        17        16" as upper_label2
+
+map "Bits 31:24" as upper {
+    CORECFG_MAXCURRENT3P3V =>
+}
+
+rectangle "15        14        13        12        11        10        9         8         7         6         5         4         3         2         1         0" as lower_label
+
+map "Bits 23:0" as lower {
+    Reserved (bits 23:0) => 0
+}
+
+note bottom
+  R (Read):    All bits = 0
+  W (Write):   Not writable
+  Reset:       All bits = 0
+  
+  Bits 31:24 - CORECFG_MAXCURRENT3P3V
+  Bits 23:0  - Reserved (value 0)
+end note
+
+@enduml

@@ -1,0 +1,5 @@
+System Bus,A[02],A[01],A[00],BE[3] D[31:24],BE[2] D[23:16],BE[1] D[15:08],BE[0] D[07:00]
+64-bit,No,No,No,Yes,Yes,Yes,Yes
+32-bit,Yes,No,No,Yes,Yes,Yes,Yes
+16-bit,Yes,Yes,No,No,No,Yes,Yes
+8-bit,Yes,Yes,Yes,No,No,No,Yes*2

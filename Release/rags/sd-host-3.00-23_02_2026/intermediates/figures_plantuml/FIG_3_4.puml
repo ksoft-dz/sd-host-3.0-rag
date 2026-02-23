@@ -1,0 +1,8 @@
+@startuml
+start
+:(1) Set SD Clock Off;
+note right
+  Stop SD clock
+end note
+stop
+@enduml

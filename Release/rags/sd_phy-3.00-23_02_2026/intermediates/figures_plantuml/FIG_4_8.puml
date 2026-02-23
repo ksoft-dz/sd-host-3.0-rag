@@ -1,0 +1,55 @@
+@startuml
+skinparam monochrome true
+
+title Send Tuning Block Command
+
+' Command format table at top
+map "Send Tuning Block Command" as cmd {
+  S => 0
+  T => 1
+  Index => 010011
+  Reserved => all 0
+  CRC7 => 1000101
+  E => 1
+}
+
+' Timing diagram representation
+concise "CMD" as CMD
+concise "DAT[3:0]" as DAT
+
+@0
+CMD is idle
+
+@5
+CMD is CMD19
+note bottom of CMD: CMD19
+
+@20
+CMD is R1
+
+@25
+CMD is idle
+
+@10
+DAT is idle
+
+@25
+DAT is "Data Block"
+note bottom of DAT: 146ck
+
+@50
+DAT is idle
+
+' Data block format
+rectangle "Data Block Format" {
+  rectangle "S\n0" as S
+  rectangle "128-bit Tuning Block per Line\nTuning Block Pattern" as TuningBlock
+  rectangle "CRC16\nxxxx" as CRC
+  rectangle "E\n1" as E
+  
+  S -right-> TuningBlock
+  TuningBlock -right-> CRC
+  CRC -right-> E
+}
+
+@enduml

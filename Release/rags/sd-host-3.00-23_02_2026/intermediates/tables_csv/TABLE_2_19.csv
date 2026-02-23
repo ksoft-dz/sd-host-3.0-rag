@@ -1,0 +1,4 @@
+Bit,Access,Field Name,Description
+02,RW,Wakeup Event Enable On SD Card Removal,"This bit enables wakeup event via Card Removal assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS is set to support this bit."
+01,RW,Wakeup Event Enable On SD Card Insertion,"This bit enables wakeup event via Card Insertion assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS does not affect this bit."
+00,RW,Wakeup Event Enable On Card Interrupt,"This bit enables wakeup event via Card Interrupt assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS is set to support this bit."

@@ -1,0 +1,43 @@
+@startuml
+start
+:Issue Abort CMD;
+note right: (10)
+
+if (Check Command Inhibit\n(DAT) and (CMD)) then (Command Inhibit\n(DAT)=1 or (CMD)=1)
+  note left: (11)
+  -left-> yes;
+else (Command Inhibit\n(DAT)=0 and (CMD)=0)
+  -down-> no;
+endif
+
+if (Check Error\nInterrupt Status\nfor Abort CMD) then (One of D03-00 is set,\nnamely CMD Line Error)
+  note left: (12)
+  -left-> yes;
+else (D03-00 is not set, namely CMD\nLine Error doesn't occur)
+  -down-> no;
+endif
+
+if (Check\nTimeout of\nDAT line) then (DAT line Timeout\noccurs)
+  note left: (13)
+  -left-> yes;
+else (DAT line Timeout\ndoes not occur)
+  note right: (14)
+  -down-> no;
+endif
+
+:Wait for more than\n40 us;
+
+if (Check\nDAT line) then (One or more DAT line\nis low)
+  note left: (15)
+  :Return Status\n(Non-recoverable Error);
+  note left: (16)
+else (DAT line is high)
+  note right: (17)
+  :Return Status\n(Recoverable Error);
+endif
+
+note right: (18)
+:Enable Error Interrupt Signal;
+
+stop
+@enduml

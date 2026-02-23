@@ -1,0 +1,5 @@
+SD_BUS_WIDTHS,Supported Bus Widths
+Bit 0,1 bit (DAT0)
+Bit 1,reserved
+Bit 2,4 bit (DAT0-3)
+Bit 3,reserved

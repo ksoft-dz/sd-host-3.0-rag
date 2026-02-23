@@ -1,0 +1,11 @@
+Location,Attrib,Register Field Explanation
+15-08,RwRd,Vendor Version Number
+,,"This value is reserved for the vendor version number. The Host Driver shall not interpret this value."
+07-00,HwRd,Specification Version Number
+,,"This value indicates the Host Controller Spec. Version. The upper and lower nibbles are in BCD."
+,,
+,00h,SD Host Specification Version 1.00
+,01h,SD Host Specification Version 2.00
+,02h,SD Host Specification Version 3.00
+,03h,SD Host Specification Version 3.00
+,,"04h - FFh: Reserved"

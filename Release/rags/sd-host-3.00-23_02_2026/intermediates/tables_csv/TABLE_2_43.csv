@@ -1,0 +1,10 @@
+Bit,Access,Field Name,Description
+15-14,RW/R,Register Field Expansion Driver Strength Select Value,"This field is meaningful only if BV speaking bus speed modes. This field is meaningful for 3.3V signaling.
+11b    Driver Type D is Selected
+10b    Driver Type C is Selected
+01b    Driver Type A is Selected
+00b    Driver Type B is Selected"
+13-11,RW/R,Preset Value,"Clock Pin Select Value. This bit is effective when Host Controller supports programmable clock generator.
+1    Programmable Clock Generator
+0    Host Controller Ver2.0 Compatible Clock Generator"
+10-00,RW/R,SDCLK Frequency,"SDCLK Frequency Select. This field is used to calculate a preset value to set SDCLK Frequency Select in the Clock Control register to achieve a host system."

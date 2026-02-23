@@ -1,0 +1,33 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+title Figure 1843. Block gap control register (BLOCKGAPCONTROL)\nOffset: 0x002A | Access: Read/Write
+
+map "BLOCKGAPCONTROL Register" as reg {
+  Bit 7 => BLKGAPCTRL_STOPATBLKGAP
+  Bit 6 => BLKGAPCTRL_CONTINUE
+  Bit 5 => BLKGAPCTRL_RDWAITCTRL
+  Bit 4 => BLKGAPCTRL_INTERRUPT
+  Bit 3 => BLKGAPCTRL_SPIMODE
+  Bit 2 => BLKGAPCTRL_BOOTENABLE
+  Bit 1 => BLKGAPCTRL_ALTBOOTMODE
+  Bit 0 => BLKGAPCTRL_BOOTACKENA
+}
+
+note bottom of reg
+  <b>Reset Values:</b>
+  Bit 7: 0
+  Bit 6: 0
+  Bit 5: 0
+  Bit 4: 0
+  Bit 3: 0
+  Bit 2: 0
+  Bit 1: 0
+  Bit 0: 1
+  
+  R = Read row
+  W = Write row
+end note
+
+@enduml

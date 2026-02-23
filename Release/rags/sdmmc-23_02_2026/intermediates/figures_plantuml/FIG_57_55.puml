@@ -1,0 +1,73 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0-7" as DAT
+
+concise "Boot Request Recogonised" as BR
+concise "Boot Request Complete" as BRC
+
+@0
+CMD is "Z Z Z Z S"
+DAT is "Z Z Z Z Z"
+
+@+1
+BR -> CMD : "Ns"
+DAT is "***"
+
+@+2
+CMD is {-}
+DAT is "Z S 0 1 0 E P"
+
+@+3
+CMD is {-}
+DAT is "***"
+
+@+4
+CMD is "***"
+DAT is "P S"
+
+@+5
+CMD is {-}
+DAT is "512 Bytes + CRC"
+
+@+6
+CMD is {-}
+DAT is "E P"
+
+@+7
+CMD is {-}
+DAT is "***"
+
+@+8
+CMD is {-}
+DAT is "P S"
+
+@+9
+CMD is {-}
+DAT is "Data"
+
+@+10
+CMD is "L E Z Z Z"
+DAT is "E Z"
+BRC -> CMD
+
+@+11
+CMD is "**"
+DAT is "**"
+
+@+12
+CMD is "Z S T"
+DAT is "Z Z Z Z Z"
+
+@+13
+CMD is "CMD1"
+DAT is "***"
+
+note bottom of DAT
+  tBA = Optional timing
+  tBD = Boot delay timing
+  NAC = Access cycles
+  NST = Status timing
+  NCD = Command delay
+end note
+
+@enduml

@@ -1,0 +1,12 @@
+UHS_AU_SIZE,Value Definition
+0h,Not Defined
+1h -6h,Not Used
+7h,1 MB
+8h,2 MB
+9h,4 MB
+Ah,8 MB
+Bh,12 MB
+Ch,16 MB
+Dh,24 MB
+Eh,32 MB
+Fh,64 MB

@@ -1,0 +1,4 @@
+CMD42 Parameter Bit3,Bit2,Bit1,Bit0,PWP,TWP GWP,Result of the Function,Card Status Bit25,Card Status Bit24
+1,0,0,0,Yes,don't care,Error (Note *2 Refer to Table 4-9),1,1
+1,0,0,0,No,Yes,"Execute force erase and clear Temporary Write Protect and Group Write Protect. (Note *3 Refer to Table 4-9)",1 to 0,0
+1,0,0,0,No,No,Execute force erase.,1 to 0,0

@@ -1,0 +1,11 @@
+@startuml
+start
+:(1) Wait for wakeup event;
+note right
+  Wakeup event occurs
+end note
+:(2) Disable each factor;
+:(3) Supply SD Clock;
+:(4) Changing Bus Width;
+stop
+@enduml

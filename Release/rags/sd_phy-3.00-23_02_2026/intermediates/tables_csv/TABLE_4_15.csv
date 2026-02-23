@@ -1,0 +1,4 @@
+Argument,Busy Status,Status Code,Comment
+0,Don't Care,0,Status always indicates 0.
+Eh-1h,Don't Care,Fh,Status always indicates Fh.
+Fh,Don't Care,0,Status always indicates 0.

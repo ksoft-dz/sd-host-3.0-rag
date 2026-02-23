@@ -1,0 +1,6 @@
+Step,Description
+13-8,"Repeat until all blocks are received and then go to step (14)."
+14,"If the controller is ready for a multi-block transfer, go to step (15). In case of infinite block transfer, go to step (17)."
+15,Wait for Transfer Complete interrupt.
+16,"Write 1 to the Transfer Complete in the Normal Interrupt status register for clearing this bit."
+17,Perform the sequence for Abort transaction.

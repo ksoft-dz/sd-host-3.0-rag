@@ -1,0 +1,18 @@
+Bits,Identifier,Type,Value,Description,Clear
+511:510,DAT_BUS_WIDTH,S R,"'00'= 1 (default), '01'= reserved, '10'= 4 bit width, '11'= reserved","Shows the currently defined data bus width that was defined by SET_BUS_WIDTH command",A
+509,SECURED_MODE,S R,"'0'= Not in the mode, '1'= In Secured Mode","Card is in Secured Mode of operation (refer to the ""Part 3 Security Specification"").",A
+508:502,Reserved for Security Functions (Refer to Part 3 Security Specification),,,, 
+501:496,reserved,,,, 
+495:480,SD_CARD_TYPE,SR,"'00xxh'= SD Memory Cards as defined in Physical Spec Ver1.01-3.00 ('x'=don't care). The following cards are currently defined: '0000h'= Regular SD RD/WR Card. '0001h'= SD ROM Card '0002h'=OTP","In the future, the 8 LSBs will be used to define different variations of an SD Memory Card (Each bit will define different SD Types). The 8 MSBs will be used to define SD Cards that do not comply with the Physical Layer Specification.",A
+479:448,SIZE_OF_PROTECTED_AREA,SR,Size of protected area,(See below),A
+447:440,SPEED_CLASS,SR,Speed Class of the card,(See below),A
+439:432,PERFORMANCE_MOVE,SR,Performance of move indicated by 1 [MB/s] step.,(See below),A
+431:428,AU_SIZE,SR,Size of AU,(See below),A
+427:424,reserved,,,, 
+423:408,ERASE_SIZE,SR,Number of AUs to be erased at a time,(See below),A
+407:402,ERASE_TIMEOUT,SR,"Timeout value for erasing areas specified by UNIT_OF_ERASE_AU",(See below),A
+401:400,ERASE_OFFSET,SR,Fixed offset value added to erase time.,(See below),A
+399:396,UHS_SPEED_GRADE,SR,Speed Grade for UHS mode,(See below),A
+395:392,UHS_AU_SIZE,SR,Size of AU for UHS mode,(See below),A
+391:312,reserved,,,, 
+311:0,reserved for manufacturer,,,,

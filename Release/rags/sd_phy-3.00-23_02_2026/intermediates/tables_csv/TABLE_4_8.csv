@@ -1,0 +1,5 @@
+Card State,Bus Mode,Result of the Function
+Unlocked,1-bit mode,ACMD6 is accepted
+Locked,1-bit mode,ACMD6 is rejected and still in 1-bit mode
+Unlocked,4-bit mode,ACMD6 is accepted
+Locked,4-bit mode,ACMD6 is rejected and still in 4-bit mode. CMD0 change to 1-bit mode

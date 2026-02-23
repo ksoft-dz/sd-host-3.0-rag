@@ -1,0 +1,350 @@
+# ==============================================================================
+# RAG V2 — Spec Configuration
+# ==============================================================================
+# SD Physical Layer Simplified Specification v3.01
+# ==============================================================================
+
+# ==============================================================================
+# SPEC IDENTITY
+# ==============================================================================
+spec:
+  name: "SD Physical Layer Simplified Specification"
+  version: "3.01"
+  pdf_file: "Part_1_Physical_Layer_Simplified_Specification_Ver_3.01_Final_100518.pdf"
+  page_offset: 12          # spec_page + page_offset = pdf_page (1-indexed)
+  total_spec_pages: 141    # Last numbered spec page
+
+# ==============================================================================
+# TABLE OF CONTENTS — PDF page indices (0-indexed) where each TOC lives
+# ==============================================================================
+toc:
+  sections:
+    pages: [4, 5, 6, 7, 8]   # PDF pages 5-9 (0-indexed: 4-8), TOC pages iv-viii
+    pattern: "^(\\d+(?:\\.\\d+)*)\\.?\\s+(.+?)\\s*\\.{3,}\\s*(\\d+)"
+  tables:
+    pages: [10, 11]           # PDF pages 11-12 (0-indexed: 10-11), TOC pages x-xi
+    pattern: "Table\\s+(\\d+)[-.](\\d+)\\s*:?\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "TABLE_{chapter}_{seq}"
+  figures:
+    pages: [9]                # PDF page 10 (0-indexed: 9), TOC page ix
+    pattern: "Figure\\s+(\\d+)[-.](\\d+)\\s*:?\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "FIG_{chapter}_{seq}"
+
+# ==============================================================================
+# NODE TYPES
+# ==============================================================================
+node_types:
+  TABLE:
+    enabled: true
+    id_format: "TABLE_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "register.*(field|bit)"
+        type: "REGISTER_FIELDS"
+      - pattern: "register"
+        type: "REGISTER_MAP"
+      - pattern: "command|CMD"
+        type: "COMMAND_TABLE"
+      - pattern: "signal|pin"
+        type: "SIGNAL_LIST"
+      - pattern: "timing"
+        type: "TIMING"
+      - pattern: "status|state"
+        type: "STATUS_TABLE"
+      - pattern: ".*"
+        type: "OTHER"
+
+  FIGURE:
+    enabled: true
+    id_format: "FIG_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "state|machine|transition"
+        type: "STATE_DIAGRAM"
+      - pattern: "timing|waveform"
+        type: "TIMING_DIAGRAM"
+      - pattern: "register.*(bit|field|layout)"
+        type: "REGISTER_LAYOUT"
+      - pattern: "flow|sequence|initialization"
+        type: "FLOWCHART"
+      - pattern: "block|architecture|diagram"
+        type: "BLOCK_DIAGRAM"
+      - pattern: "format|token|packet"
+        type: "FORMAT_DIAGRAM"
+      - pattern: ".*"
+        type: "OTHER"
+
+  SPEC_CHUNK:
+    enabled: true
+    id_format: "CHUNK_{section}_{idx}"
+
+  REGISTER:
+    enabled: true
+    id_format: "REG_{name}"
+
+  REG_CLASS:
+    enabled: true
+    id_format: "REGCLASS_{name}"
+
+  FEATURE:
+    enabled: true
+    id_format: "F_{name}"
+
+  HD_SEQUENCE:
+    enabled: true
+    id_format: "HD_{name}"
+
+# ==============================================================================
+# CHUNKING PARAMETERS
+# ==============================================================================
+chunking:
+  target_words: 200
+  max_words: 250
+  overlap_words: 20
+
+# ==============================================================================
+# LLM CONFIGURATION
+# ==============================================================================
+llm:
+  default_model: "opus"
+  models:
+    haiku: "claude-haiku-4-5-20251001"
+    sonnet: "claude-sonnet-4-5-20250929"
+    opus: "claude-opus-4-5-20251101"
+  rate_limit_delay: 1.5
+  max_retries: 3
+  max_workers: 4
+
+# ==============================================================================
+# DOMAIN: REGISTERS (Card Registers — not memory-mapped)
+# ==============================================================================
+domain:
+  registers:
+    enabled: true
+    # Card register "classes" (logical groupings)
+    classes:
+      - id: "REGCLASS_CARD_ID"
+        name: "Card Identification"
+        address_start: "001h"
+        address_end: "002h"
+      - id: "REGCLASS_CARD_SPECIFIC"
+        name: "Card Specific Data"
+        address_start: "003h"
+        address_end: "004h"
+      - id: "REGCLASS_OPERATING_COND"
+        name: "Operating Conditions"
+        address_start: "005h"
+        address_end: "005h"
+      - id: "REGCLASS_CONFIG"
+        name: "SD Configuration"
+        address_start: "006h"
+        address_end: "007h"
+      - id: "REGCLASS_STATUS"
+        name: "Card Status"
+        address_start: "008h"
+        address_end: "009h"
+
+    # Card register definitions (using pseudo-offsets for pipeline compatibility)
+    register_offsets:
+      "001h": { section: "5.2",   name: "CID Register",               table: "TABLE_5_2" }
+      "002h": { section: "5.3",   name: "CSD Register Structure",     table: "TABLE_5_3" }
+      "003h": { section: "5.3",   name: "CSD Register Fields v1.0",   table: "TABLE_5_4" }
+      "004h": { section: "5.1",   name: "OCR Register",               table: "TABLE_5_1" }
+      "005h": { section: "5.6",   name: "SCR Register",               table: "TABLE_5_18" }
+
+    # Tables to EXCLUDE from register field auto-detection
+    exclude_tables:
+      - "TABLE_3_1"    # SD Memory Card Registers (summary)
+      - "TABLE_3_2"    # Register Setting Requirements for ROM Card
+      - "TABLE_3_3"    # Host and Card Combinations
+      - "TABLE_3_4"    # Bus Speed Modes
+      - "TABLE_3_5"    # Bus Speed Mode Option/Mandatory
+      - "TABLE_4_1"    # Overview of Card States vs. Operation Modes
+      - "TABLE_4_17"   # Command Format (summary)
+      - "TABLE_4_18"   # Card Command Classes
+      - "TABLE_4_29"   # Card State Transition Table
+      - "TABLE_4_36"   # Card Status (this is the status response bits, not a register definition)
+      - "TABLE_4_37"   # Card Status Field/Command Cross Reference
+
+# ==============================================================================
+# DOMAIN: FEATURES
+# ==============================================================================
+  features:
+    enabled: true
+    definitions:
+      # --- CARD IDENTIFICATION (§4.2) ---
+      - { id: "F_CARD_RESET",         name: "Card Reset",                       groups: ["card_identification"],       priority: "P0", parent: null }
+      - { id: "F_OP_COND_VALID",      name: "Operating Condition Validation",   groups: ["card_identification"],       priority: "P0", parent: null }
+      - { id: "F_CARD_INIT",          name: "Card Initialization Process",      groups: ["card_identification"],       priority: "P0", parent: null }
+      - { id: "F_VOLTAGE_SWITCH",     name: "Bus Signal Voltage Switch",        groups: ["card_identification", "uhs"], priority: "P1", parent: null }
+
+      # --- DATA TRANSFER (§4.3) ---
+      - { id: "F_DATA_TRANSFER",      name: "Data Transfer Mode",               groups: ["data_transfer"],             priority: "P0", parent: null }
+      - { id: "F_WIDE_BUS",           name: "Wide Bus Selection",               groups: ["data_transfer", "bus"],      priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_DATA_READ",          name: "Data Read",                        groups: ["data_transfer"],             priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_DATA_WRITE",         name: "Data Write",                       groups: ["data_transfer"],             priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ERASE",              name: "Erase",                            groups: ["data_transfer"],             priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_WRITE_PROTECT",      name: "Write Protect Management",         groups: ["data_transfer"],             priority: "P1", parent: "F_DATA_TRANSFER" }
+      - { id: "F_LOCK_UNLOCK",        name: "Card Lock/Unlock",                 groups: ["data_transfer", "security"], priority: "P1", parent: "F_DATA_TRANSFER" }
+
+      # --- COMMAND SET (§4.7) ---
+      - { id: "F_CMD_ENGINE",         name: "Command Engine",                   groups: ["command"],                   priority: "P0", parent: null }
+      - { id: "F_BASIC_CMD",          name: "Basic Commands (Class 0)",         groups: ["command"],                   priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_READ_CMD",           name: "Block Read Commands (Class 2)",    groups: ["command", "data_transfer"],  priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_WRITE_CMD",          name: "Block Write Commands (Class 4)",   groups: ["command", "data_transfer"],  priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_ERASE_CMD",          name: "Erase Commands (Class 5)",         groups: ["command"],                   priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_PROTECT_CMD",        name: "Write Protection Commands (Class 6)", groups: ["command"],                priority: "P1", parent: "F_CMD_ENGINE" }
+      - { id: "F_LOCK_CMD",           name: "Lock Card Commands (Class 7)",     groups: ["command", "security"],       priority: "P1", parent: "F_CMD_ENGINE" }
+      - { id: "F_APP_CMD",            name: "Application-Specific Commands (Class 8)", groups: ["command"],            priority: "P0", parent: "F_CMD_ENGINE" }
+      - { id: "F_SWITCH_CMD",         name: "Switch Function Command",          groups: ["command"],                   priority: "P0", parent: "F_CMD_ENGINE" }
+
+      # --- RESPONSE HANDLING (§4.9) ---
+      - { id: "F_RESPONSE",           name: "Response Handling",                groups: ["response"],                  priority: "P0", parent: null }
+
+      # --- CARD STATUS (§4.10) ---
+      - { id: "F_CARD_STATUS",        name: "Card Status System",               groups: ["status"],                    priority: "P0", parent: null }
+      - { id: "F_SD_STATUS",          name: "SD Status",                        groups: ["status"],                    priority: "P0", parent: "F_CARD_STATUS" }
+
+      # --- BUS PROTOCOL (§3.6) ---
+      - { id: "F_SD_BUS_PROTOCOL",    name: "SD Bus Protocol",                  groups: ["bus"],                       priority: "P0", parent: null }
+      - { id: "F_SPI_BUS_PROTOCOL",   name: "SPI Bus Protocol",                groups: ["bus", "spi"],                priority: "P1", parent: null }
+
+      # --- REGISTERS (§5) ---
+      - { id: "F_OCR_REGISTER",       name: "OCR Register",                     groups: ["registers"],                 priority: "P0", parent: null }
+      - { id: "F_CID_REGISTER",       name: "CID Register",                     groups: ["registers"],                 priority: "P0", parent: null }
+      - { id: "F_CSD_REGISTER",       name: "CSD Register",                     groups: ["registers"],                 priority: "P0", parent: null }
+      - { id: "F_SCR_REGISTER",       name: "SCR Register",                     groups: ["registers"],                 priority: "P0", parent: null }
+      - { id: "F_RCA_REGISTER",       name: "RCA Register",                     groups: ["registers"],                 priority: "P0", parent: null }
+
+      # --- SPEED MODES (§3.9) ---
+      - { id: "F_SPEED_MODES",        name: "Speed Mode Support",               groups: ["speed_modes"],               priority: "P0", parent: null }
+      - { id: "F_DEFAULT_SPEED",      name: "Default Speed Mode",               groups: ["speed_modes"],               priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_HIGH_SPEED",         name: "High Speed Mode",                  groups: ["speed_modes"],               priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR12",          name: "UHS-I SDR12",                      groups: ["speed_modes", "uhs"],        priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR25",          name: "UHS-I SDR25",                      groups: ["speed_modes", "uhs"],        priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR50",          name: "UHS-I SDR50",                      groups: ["speed_modes", "uhs"],        priority: "P2", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR104",         name: "UHS-I SDR104",                     groups: ["speed_modes", "uhs"],        priority: "P2", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_DDR50",          name: "UHS-I DDR50",                      groups: ["speed_modes", "uhs"],        priority: "P2", parent: "F_SPEED_MODES" }
+
+      # --- SPEED CLASS (§4.13) ---
+      - { id: "F_SPEED_CLASS",        name: "Speed Class Specification",        groups: ["speed_class"],               priority: "P1", parent: null }
+
+      # --- ELECTRICAL INTERFACE (§6) ---
+      - { id: "F_POWER_UP",           name: "Power Up Sequence",                groups: ["electrical"],                priority: "P0", parent: null }
+      - { id: "F_BUS_SIGNAL",         name: "Bus Operating Conditions",         groups: ["electrical"],                priority: "P0", parent: null }
+
+      # --- CRC (§4.5) ---
+      - { id: "F_CRC",                name: "CRC Protection",                   groups: ["integrity"],                 priority: "P0", parent: null }
+
+      # --- SPI MODE (§7) ---
+      - { id: "F_SPI_MODE",           name: "SPI Mode",                         groups: ["spi"],                       priority: "P1", parent: null }
+      - { id: "F_SPI_INIT",           name: "SPI Mode Init/Selection",          groups: ["spi"],                       priority: "P1", parent: "F_SPI_MODE" }
+      - { id: "F_SPI_DATA_XFER",      name: "SPI Data Transfer",               groups: ["spi"],                       priority: "P1", parent: "F_SPI_MODE" }
+      - { id: "F_SPI_RESPONSES",      name: "SPI Response Tokens",              groups: ["spi"],                       priority: "P1", parent: "F_SPI_MODE" }
+
+    # HD sequence definitions (Host Driver sequences from the spec)
+    hd_sequences:
+      - { id: "HDS_CARD_INIT",           name: "Card Initialization Sequence",           groups: ["card_identification", "host_driver_sequence"],   primary_section: "4.2.3" }
+      - { id: "HDS_VOLTAGE_SWITCH",      name: "Voltage Switch Sequence",                groups: ["card_identification", "uhs", "host_driver_sequence"], primary_section: "4.2.4" }
+      - { id: "HDS_DATA_READ",           name: "Data Read Sequence",                     groups: ["data_transfer", "host_driver_sequence"],         primary_section: "4.3.3" }
+      - { id: "HDS_DATA_WRITE",          name: "Data Write Sequence",                    groups: ["data_transfer", "host_driver_sequence"],         primary_section: "4.3.4" }
+      - { id: "HDS_ERASE",               name: "Erase Sequence",                         groups: ["data_transfer", "host_driver_sequence"],         primary_section: "4.3.5" }
+      - { id: "HDS_LOCK_UNLOCK",         name: "Lock/Unlock Sequence",                   groups: ["security", "host_driver_sequence"],              primary_section: "4.3.7" }
+      - { id: "HDS_SWITCH_FUNCTION",     name: "Switch Function Sequence",               groups: ["command", "host_driver_sequence"],               primary_section: "4.3.10" }
+      - { id: "HDS_SPI_INIT",            name: "SPI Mode Initialization Sequence",       groups: ["spi", "host_driver_sequence"],                   primary_section: "7.2.1" }
+      - { id: "HDS_SPEED_MODE_CHANGE",   name: "Speed Mode Change Sequence",             groups: ["speed_modes", "host_driver_sequence"],           primary_section: "3.9.4" }
+
+# ==============================================================================
+# RELATION TYPES
+# ==============================================================================
+relation_types:
+  - { type: "REFERENCES",          description: "Node mentions table/figure" }
+  - { type: "CHILD_OF",            description: "Section hierarchy" }
+  - { type: "DEFINED_BY",          description: "Register fields from table" }
+  - { type: "VISUALIZED_BY",       description: "Register layout in figure" }
+  - { type: "DESCRIBES",           description: "Resource documents register" }
+  - { type: "BELONGS_TO",          description: "Register in functional class" }
+  - { type: "DEFINED_IN",          description: "Register defined in table" }
+  - { type: "PART_OF",             description: "Sub-feature belongs to parent" }
+  - { type: "USES_FEATURE",        description: "Sequence depends on feature" }
+  - { type: "HIGHLY_RELATED_TO",   description: "Strong cross-feature relation" }
+  - { type: "SLIGHTLY_RELATED_TO", description: "Weak cross-feature relation" }
+
+# ==============================================================================
+# EXTRACTION — Table & figure extraction behaviour
+# ==============================================================================
+extraction:
+  tables:
+    multi_page:
+      enabled: true
+      max_pages_before: 2
+      max_pages_after: 2
+
+    hints:
+      - name: "register_fields"
+        match_title: "register"
+        expected_columns:
+          - { role: "bit_range",   names: ["Bit", "Location", "Bit Position", "Bit Range", "Bits", "Width"] }
+          - { role: "access",      names: ["Access", "Attrib", "Type", "R/W", "Attribute", "Cell Type"] }
+          - { role: "field_name",  names: ["Field Name", "Signal Name", "Name", "Field", "Mnemonic"] }
+          - { role: "description", names: ["Description", "Function", "Explanation", "Value", "Definition"] }
+        instruction: |
+          This is a card register field table from the SD Physical Layer specification.
+          Extract it with EXACTLY these 4 CSV columns:
+            Bit,Access,Field Name,Description
+          Rules:
+          - "Bit" = bit range or position (e.g. "31-16", "07", "127:96")
+          - "Access" = access type abbreviation (e.g. "R", "R/W", "W") — if not present, use "R"
+          - "Field Name" = ONLY the short field name, NOT the full description
+          - "Description" = the full description text
+          If the original table merges field name and description into one column,
+          split them: the first line is the field name, the rest is the description.
+
+      - name: "command_table"
+        match_title: "command"
+        expected_columns:
+          - { role: "cmd_index",   names: ["CMD", "Index", "Cmd Index", "Command"] }
+          - { role: "type",        names: ["Type", "Resp", "Response Type"] }
+          - { role: "argument",    names: ["Argument", "Parameter"] }
+          - { role: "description", names: ["Abbreviation", "Description", "Command Description", "Name"] }
+        instruction: |
+          This is an SD command table. Extract all commands faithfully as CSV.
+          Preserve CMD index numbers (e.g. CMD0, CMD2, ACMD41).
+          Include all columns from the original table.
+
+  figures:
+    multi_page:
+      enabled: false
+      max_pages_before: 1
+      max_pages_after: 1
+
+# ==============================================================================
+# VALIDATION
+# ==============================================================================
+validation:
+  enabled: true
+  model: "haiku"
+  checks:
+    registers:
+      enabled: true
+      rules:
+        - check: "field_name_length"
+          max_chars: 80
+        - check: "missing_bits"
+          severity: "warning"
+        - check: "missing_access"
+          severity: "warning"
+        - check: "zero_fields"
+          severity: "error"
+    tables:
+      enabled: true
+      rules:
+        - check: "empty_csv"
+          severity: "error"
+        - check: "single_row"
+          severity: "warning"
+    figures:
+      enabled: true
+      rules:
+        - check: "empty_plantuml"
+          severity: "error"
+        - check: "no_startuml"
+          severity: "warning"

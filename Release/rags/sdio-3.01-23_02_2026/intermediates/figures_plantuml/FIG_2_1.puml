@@ -1,0 +1,11 @@
+@startuml
+I don't see a figure labeled "Figure 2-1" or any diagram showing signal connections to SDIO cards in this image. This page (page 14) contains only text content describing SDIO Signaling Definition, including sections on:
+
+- 2.1 SDIO Card Types
+- 2.2 SDIO Card Modes (with subsections on SPI, 1-bit SD, and 4-bit SD data transfer modes)
+- 2.3 SDIO Host Modes
+
+The page appears to be from the SDIO Simplified Specification Version 3.00, but it contains no diagrams or figures - only textual descriptions of the signaling definitions and card modes.
+
+If you're looking for Figure 2-1 showing signal connections to two 4-bit SDIO cards, it may be on a different page of this specification document.
+@enduml

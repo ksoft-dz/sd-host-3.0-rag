@@ -1,0 +1,7 @@
+"","SDMA Command","ADMA Command","CPU data Transfer","Non-DAT Transfer"
+"SDMA System Address / Argument 2","Yes / No","No / Auto CMD23","No / Auto CMD23","No / No"
+"Block Size","Yes","Yes","Yes","No (Protected)"
+"Block Count","Yes","Yes","Yes","No (Protected)"
+"Argument 1","Yes","Yes","Yes","Yes"
+"Transfer Mode","Yes","Yes","Yes","No (Protected)"
+"Command","Yes","Yes","Yes","Yes"

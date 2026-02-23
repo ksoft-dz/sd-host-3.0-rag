@@ -1,0 +1,82 @@
+@startuml
+skinparam defaultTextAlignment center
+
+|Power On Path|
+start
+:Power On;
+:IO=0, MEM=0;
+:CMD0 CS=Low;
+:CMD8;
+note right: CMD8 is required to support\nSDHC or SDXC
+:Check Response;
+
+|Re-init Memory Path|
+start
+:Re-init Memory;
+:MEM=0;
+-> joins Power On path;
+
+|Re-init IO Path|
+start
+:Re-init IO;
+:IO=0;
+:CMD52 IO Reset;
+-> joins at Check Response;
+
+|Main Flow|
+if (Check Response?) then (No Response)
+  :F8=0;
+elseif (Error Response) then
+  #yellow:Unusable card|
+  stop
+else (Good Response)
+  :F8=1;
+endif
+
+:Initialize SDIO?;
+
+if (Initialize SDIO?) then (Not Use IO or IO=1)
+  -> skip to Test MP Flag;
+else (Use IO & IO=0)
+  :CMD5 Arg=0;
+  note right: Get IO OCR
+  :Check Response;
+  
+  if (Check Response?) then (No Response)
+    -> skip to Test MP Flag;
+  elseif (NF=0 or OCR invalid) then
+    -> skip to Test MP Flag;
+  else (NF>0 & OCR valid)
+    :CMD5 Arg=WV;
+    :Check Response;
+    
+    if (Check Response?) then (1sec Timeout)
+      #yellow:Unusable card\n(Inactive State)|
+      stop
+    elseif (IORDY=0) then
+      -> loop back to CMD5 Arg=WV;
+    else (IORDY=1)
+      :IO=1;
+      note right: IO Initialized
+    endif
+  endif
+endif
+
+:Test MP Flag;
+
+if (Test MP Flag?) then (MP=0)
+  :Initialize Memory?;
+else (CMD5 No Response or MP=1)
+  :Initialize Memory?;
+endif
+
+if (Initialize Memory?) then (Use Memory & MEM=0)
+  #lightblue:C|
+  note bottom: Memory Initialization
+else (Not Use Memory or MEM=1)
+  #lightblue:D|
+  note bottom: Skip Memory Initialization
+endif
+
+stop
+@enduml

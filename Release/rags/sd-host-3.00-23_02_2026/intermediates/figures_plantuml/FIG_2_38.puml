@@ -1,0 +1,62 @@
+@startuml
+robust "Clock Pin Select[02:00]" as CPS
+clock "CLK[1]" as CLK1
+clock "CLK[2]" as CLK2
+clock "CLK[3]" as CLK3
+
+@0
+CPS is "000b"
+CLK1 is low
+CLK2 is low
+CLK3 is low
+
+@10
+CPS is "001b"
+
+@15
+CLK1 is high
+
+@20
+CLK1 is low
+
+@25
+CLK1 is high
+
+@30
+CLK1 is low
+CPS is "010b"
+
+@35
+CLK1 is high
+CLK2 is high
+
+@40
+CLK1 is low
+CLK2 is low
+
+@45
+CLK1 is high
+CLK2 is high
+
+@50
+CLK1 is low
+CLK2 is low
+CPS is "011b"
+
+@55
+CLK2 is high
+CLK3 is high
+
+@60
+CLK2 is low
+CLK3 is low
+
+@65
+CLK2 is high
+CLK3 is high
+
+@70
+CLK2 is low
+CLK3 is low
+
+@enduml

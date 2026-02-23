@@ -1,0 +1,4 @@
+Bit,Access,Field Name,Description
+31-20,RO,Present DMA Signal Level,"Indicates the current level of the CMD line on the device from errors, and the DAT[3:0] lines on the device from errors. This bit is used to check the DAT line at voltage switch and for busy check. This bit reflects the SDCMD pin."
+19,RO,Write Protect Pin Level,"Indicates the status of the WP pin of the SD memory card only. This bit reflects the SDWP pin."
+18,RO,Card Detect Pin Level,"Indicates the status of the CD pin of the SD memory card only. This bit reflects the SDCD pin. Debouncing is left to the software. Card Detect feature is not supported in SDIO mode. This bit reflects the inverse value of the SDCD pin when Card Detect Signaling is set to Normal in the Host Control 1 register. This bit reflects the SDCD pin when Card Detect Signaling is set to Test in the Host Control 1 register."

@@ -1,0 +1,2901 @@
+{
+  "pdf_structure": {
+    "pdf_file": "Part_1_Physical_Layer_Simplified_Specification_Ver_3.01_Final_100518.pdf",
+    "total_pages": 153,
+    "page_offset": 12,
+    "total_spec_pages": 141,
+    "detected_features": {
+      "tables": {
+        "found": true,
+        "count": 81,
+        "toc_pages": [
+          10,
+          11
+        ]
+      },
+      "figures": {
+        "found": true,
+        "count": 47,
+        "toc_pages": [
+          9
+        ]
+      },
+      "sections": {
+        "found": true,
+        "count": 194,
+        "toc_pages": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "page_offset_validation": {
+      "first_spec_page_text_preview": "©Copyright 2001-2010 SD Group (Panasonic, SanDisk, Toshiba) and SD Card Association \n  Physical Layer Simplified Specification Version 3.01 \n \n1\n \n1. General Description \nSD Memory Card is a memory ca",
+      "looks_like_content_start": true
+    }
+  },
+  "toc": {
+    "sections": [
+      {
+        "section_number": "1",
+        "title": "General Description",
+        "spec_page": 1,
+        "pdf_page": 13,
+        "depth": 1
+      },
+      {
+        "section_number": "2",
+        "title": "System Features",
+        "spec_page": 3,
+        "pdf_page": 15,
+        "depth": 1
+      },
+      {
+        "section_number": "3",
+        "title": "SD Memory Card System Concept",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 1
+      },
+      {
+        "section_number": "3.1",
+        "title": "Read-Write Property",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 2
+      },
+      {
+        "section_number": "3.2",
+        "title": "Supply Voltage",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 2
+      },
+      {
+        "section_number": "3.3",
+        "title": "Card Capacity",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 2
+      },
+      {
+        "section_number": "3.3.1",
+        "title": "User Area and Protected Area",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 3
+      },
+      {
+        "section_number": "3.3.2",
+        "title": "Card Capacity Classification",
+        "spec_page": 5,
+        "pdf_page": 17,
+        "depth": 3
+      },
+      {
+        "section_number": "3.4",
+        "title": "Speed Class",
+        "spec_page": 6,
+        "pdf_page": 18,
+        "depth": 2
+      },
+      {
+        "section_number": "3.5",
+        "title": "Bus Topology",
+        "spec_page": 6,
+        "pdf_page": 18,
+        "depth": 2
+      },
+      {
+        "section_number": "3.6",
+        "title": "Bus Protocol",
+        "spec_page": 7,
+        "pdf_page": 19,
+        "depth": 2
+      },
+      {
+        "section_number": "3.6.1",
+        "title": "SD Bus",
+        "spec_page": 7,
+        "pdf_page": 19,
+        "depth": 3
+      },
+      {
+        "section_number": "3.6.2",
+        "title": "SPI Bus",
+        "spec_page": 10,
+        "pdf_page": 22,
+        "depth": 3
+      },
+      {
+        "section_number": "3.7",
+        "title": "SD Memory Card–Pins and Registers",
+        "spec_page": 11,
+        "pdf_page": 23,
+        "depth": 2
+      },
+      {
+        "section_number": "3.8",
+        "title": "ROM Card",
+        "spec_page": 11,
+        "pdf_page": 23,
+        "depth": 2
+      },
+      {
+        "section_number": "3.8.1",
+        "title": "Register Setting Requirements",
+        "spec_page": 11,
+        "pdf_page": 23,
+        "depth": 3
+      },
+      {
+        "section_number": "3.8.2",
+        "title": "Unsupported Commands",
+        "spec_page": 11,
+        "pdf_page": 23,
+        "depth": 3
+      },
+      {
+        "section_number": "3.8.3",
+        "title": "Optional Commands",
+        "spec_page": 11,
+        "pdf_page": 23,
+        "depth": 3
+      },
+      {
+        "section_number": "3.8.4",
+        "title": "WP Switch",
+        "spec_page": 12,
+        "pdf_page": 24,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9",
+        "title": "Ultra High Speed Phase I (UHS-I) Card",
+        "spec_page": 13,
+        "pdf_page": 25,
+        "depth": 2
+      },
+      {
+        "section_number": "3.9.1",
+        "title": "UHS-I Operation Modes",
+        "spec_page": 13,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9.2",
+        "title": "UHS-I Card Types",
+        "spec_page": 13,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9.3",
+        "title": "Host and Card Combination",
+        "spec_page": 14,
+        "pdf_page": 26,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9.4",
+        "title": "Bus Speed Modes Selection Sequence",
+        "spec_page": 15,
+        "pdf_page": 27,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9.5",
+        "title": "UHS System Block Diagram",
+        "spec_page": 16,
+        "pdf_page": 28,
+        "depth": 3
+      },
+      {
+        "section_number": "3.9.6",
+        "title": "Summary of Bus Speed Mode",
+        "spec_page": 17,
+        "pdf_page": 29,
+        "depth": 3
+      },
+      {
+        "section_number": "4",
+        "title": "SD Memory Card Functional Description",
+        "spec_page": 18,
+        "pdf_page": 30,
+        "depth": 1
+      },
+      {
+        "section_number": "4.1",
+        "title": "General",
+        "spec_page": 18,
+        "pdf_page": 30,
+        "depth": 2
+      },
+      {
+        "section_number": "4.2",
+        "title": "Card Identification Mode",
+        "spec_page": 19,
+        "pdf_page": 31,
+        "depth": 2
+      },
+      {
+        "section_number": "4.2.1",
+        "title": "Card Reset",
+        "spec_page": 19,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "4.2.2",
+        "title": "Operating Condition Validation",
+        "spec_page": 19,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "4.2.3",
+        "title": "Card Initialization and Identification Process",
+        "spec_page": 21,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "4.2.3.1",
+        "title": "Initialization Command (ACMD41)",
+        "spec_page": 23,
+        "pdf_page": 35,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4",
+        "title": "Bus Signal Voltage Switch Sequence",
+        "spec_page": 24,
+        "pdf_page": 36,
+        "depth": 3
+      },
+      {
+        "section_number": "4.2.4.1",
+        "title": "Initialization Sequence for UHS-I",
+        "spec_page": 24,
+        "pdf_page": 36,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4.2",
+        "title": "Timing to Switch Signal Voltage",
+        "spec_page": 25,
+        "pdf_page": 37,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4.3",
+        "title": "Timing of Voltage Switch Error Detection",
+        "spec_page": 25,
+        "pdf_page": 37,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4.4",
+        "title": "Voltage Switch Command",
+        "spec_page": 25,
+        "pdf_page": 37,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4.5",
+        "title": "Tuning Command",
+        "spec_page": 25,
+        "pdf_page": 37,
+        "depth": 4
+      },
+      {
+        "section_number": "4.2.4.6",
+        "title": "An Example of UHS-I System Block Diagram",
+        "spec_page": 26,
+        "pdf_page": 38,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3",
+        "title": "Data Transfer Mode",
+        "spec_page": 27,
+        "pdf_page": 39,
+        "depth": 2
+      },
+      {
+        "section_number": "4.3.1",
+        "title": "Wide Bus Selection/Deselection",
+        "spec_page": 29,
+        "pdf_page": 41,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.2",
+        "title": "2 GByte Card",
+        "spec_page": 29,
+        "pdf_page": 41,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.3",
+        "title": "Data Read",
+        "spec_page": 29,
+        "pdf_page": 41,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.4",
+        "title": "Data Write",
+        "spec_page": 30,
+        "pdf_page": 42,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.5",
+        "title": "Erase",
+        "spec_page": 32,
+        "pdf_page": 44,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.6",
+        "title": "Write Protect Management",
+        "spec_page": 32,
+        "pdf_page": 44,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.7",
+        "title": "Card Lock/Unlock Operation",
+        "spec_page": 33,
+        "pdf_page": 45,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.7.1",
+        "title": "General",
+        "spec_page": 33,
+        "pdf_page": 45,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.7.2",
+        "title": "Parameter and the Result of CMD42",
+        "spec_page": 35,
+        "pdf_page": 47,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.7.3",
+        "title": "Forcing Erase",
+        "spec_page": 37,
+        "pdf_page": 49,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.7.3.1",
+        "title": "Force Erase Function to the Locked Card",
+        "spec_page": 37,
+        "pdf_page": 49,
+        "depth": 5
+      },
+      {
+        "section_number": "4.3.7.4",
+        "title": "Relation Between ACMD6 and Lock/Unlock State",
+        "spec_page": 38,
+        "pdf_page": 50,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.7.5",
+        "title": "Commands Accepted for Locked Card",
+        "spec_page": 38,
+        "pdf_page": 50,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.7.6",
+        "title": "Two Types of Lock/Unlock Card",
+        "spec_page": 39,
+        "pdf_page": 51,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.8",
+        "title": "Content Protection",
+        "spec_page": 39,
+        "pdf_page": 51,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.9",
+        "title": "Application-Specific Commands",
+        "spec_page": 40,
+        "pdf_page": 52,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.9.1",
+        "title": "Application-Specific Command – APP_CMD (CMD55)",
+        "spec_page": 40,
+        "pdf_page": 52,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.9.2",
+        "title": "General Command - GEN_CMD (CMD56)",
+        "spec_page": 40,
+        "pdf_page": 52,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10",
+        "title": "Switch Function Command",
+        "spec_page": 41,
+        "pdf_page": 53,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.10.1",
+        "title": "General",
+        "spec_page": 41,
+        "pdf_page": 53,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.2",
+        "title": "Mode 0 Operation - Check Function",
+        "spec_page": 43,
+        "pdf_page": 55,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.3",
+        "title": "Mode 1 Operation - Set Function",
+        "spec_page": 43,
+        "pdf_page": 55,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.4",
+        "title": "Switch Function Status",
+        "spec_page": 46,
+        "pdf_page": 58,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.4.1",
+        "title": "Busy Status Indication for Functions",
+        "spec_page": 47,
+        "pdf_page": 59,
+        "depth": 5
+      },
+      {
+        "section_number": "4.3.10.4.2",
+        "title": "Data Structure Version",
+        "spec_page": 48,
+        "pdf_page": 60,
+        "depth": 5
+      },
+      {
+        "section_number": "4.3.10.4.3",
+        "title": "Function Table of Switch Command",
+        "spec_page": 48,
+        "pdf_page": 60,
+        "depth": 5
+      },
+      {
+        "section_number": "4.3.10.5",
+        "title": "Relationship between CMD6 data & other commands",
+        "spec_page": 49,
+        "pdf_page": 61,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.6",
+        "title": "Switch Function Flow Example",
+        "spec_page": 49,
+        "pdf_page": 61,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.10.7",
+        "title": "Example of Checking",
+        "spec_page": 49,
+        "pdf_page": 61,
+        "depth": 4
+      },
+      {
+        "section_number": "4.3.11",
+        "title": "High-Speed Mode (25 MB/sec interface speed)",
+        "spec_page": 50,
+        "pdf_page": 62,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.12",
+        "title": "Command System",
+        "spec_page": 50,
+        "pdf_page": 62,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.13",
+        "title": "Send Interface Condition Command (CMD8)",
+        "spec_page": 51,
+        "pdf_page": 63,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3.14",
+        "title": "Command Functional Difference in Card Capacity Types",
+        "spec_page": 52,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "4.4",
+        "title": "Clock Control",
+        "spec_page": 53,
+        "pdf_page": 65,
+        "depth": 2
+      },
+      {
+        "section_number": "4.5",
+        "title": "Cyclic Redundancy Code (CRC)",
+        "spec_page": 54,
+        "pdf_page": 66,
+        "depth": 2
+      },
+      {
+        "section_number": "4.6",
+        "title": "Error Conditions",
+        "spec_page": 56,
+        "pdf_page": 68,
+        "depth": 2
+      },
+      {
+        "section_number": "4.6.1",
+        "title": "CRC and Illegal Command",
+        "spec_page": 56,
+        "pdf_page": 68,
+        "depth": 3
+      },
+      {
+        "section_number": "4.6.2",
+        "title": "Read, Write and Erase Timeout Conditions",
+        "spec_page": 56,
+        "pdf_page": 68,
+        "depth": 3
+      },
+      {
+        "section_number": "4.6.2.1",
+        "title": "Read",
+        "spec_page": 56,
+        "pdf_page": 68,
+        "depth": 4
+      },
+      {
+        "section_number": "4.6.2.2",
+        "title": "Write",
+        "spec_page": 56,
+        "pdf_page": 68,
+        "depth": 4
+      },
+      {
+        "section_number": "4.6.2.3",
+        "title": "Erase",
+        "spec_page": 57,
+        "pdf_page": 69,
+        "depth": 4
+      },
+      {
+        "section_number": "4.7",
+        "title": "Commands",
+        "spec_page": 58,
+        "pdf_page": 70,
+        "depth": 2
+      },
+      {
+        "section_number": "4.7.1",
+        "title": "Command Types",
+        "spec_page": 58,
+        "pdf_page": 70,
+        "depth": 3
+      },
+      {
+        "section_number": "4.7.2",
+        "title": "Command Format",
+        "spec_page": 58,
+        "pdf_page": 70,
+        "depth": 3
+      },
+      {
+        "section_number": "4.7.3",
+        "title": "Command Classes",
+        "spec_page": 58,
+        "pdf_page": 70,
+        "depth": 3
+      },
+      {
+        "section_number": "4.7.4",
+        "title": "Detailed Command Description",
+        "spec_page": 61,
+        "pdf_page": 73,
+        "depth": 3
+      },
+      {
+        "section_number": "4.8",
+        "title": "Card State Transition Table",
+        "spec_page": 69,
+        "pdf_page": 81,
+        "depth": 2
+      },
+      {
+        "section_number": "4.9",
+        "title": "Responses",
+        "spec_page": 71,
+        "pdf_page": 83,
+        "depth": 2
+      },
+      {
+        "section_number": "4.9.1",
+        "title": "R1 (normal response command):",
+        "spec_page": 71,
+        "pdf_page": 83,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.2",
+        "title": "R1b",
+        "spec_page": 71,
+        "pdf_page": 83,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.3",
+        "title": "R2 (CID, CSD register)",
+        "spec_page": 71,
+        "pdf_page": 83,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.4",
+        "title": "R3 (OCR register)",
+        "spec_page": 72,
+        "pdf_page": 84,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.5",
+        "title": "R6 (Published RCA response)",
+        "spec_page": 72,
+        "pdf_page": 84,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.6",
+        "title": "R7 (Card interface condition)",
+        "spec_page": 73,
+        "pdf_page": 85,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10",
+        "title": "Two Status Information of SD Memory Card",
+        "spec_page": 74,
+        "pdf_page": 86,
+        "depth": 2
+      },
+      {
+        "section_number": "4.10.1",
+        "title": "Card Status",
+        "spec_page": 74,
+        "pdf_page": 86,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.2",
+        "title": "SD Status",
+        "spec_page": 78,
+        "pdf_page": 90,
+        "depth": 3
+      },
+      {
+        "section_number": "4.11",
+        "title": "Memory Array Partitioning",
+        "spec_page": 82,
+        "pdf_page": 94,
+        "depth": 2
+      },
+      {
+        "section_number": "4.12",
+        "title": "Timings",
+        "spec_page": 82,
+        "pdf_page": 94,
+        "depth": 2
+      },
+      {
+        "section_number": "4.13",
+        "title": "Speed Class Specification",
+        "spec_page": 83,
+        "pdf_page": 95,
+        "depth": 2
+      },
+      {
+        "section_number": "4.13.1",
+        "title": "Speed Class Specification for SDSC and SDHC",
+        "spec_page": 83,
+        "pdf_page": 95,
+        "depth": 3
+      },
+      {
+        "section_number": "4.13.1.1",
+        "title": "Allocation Unit (AU)",
+        "spec_page": 83,
+        "pdf_page": 95,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.2",
+        "title": "Recording Unit (RU)",
+        "spec_page": 83,
+        "pdf_page": 95,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.3",
+        "title": "Write Performance",
+        "spec_page": 84,
+        "pdf_page": 96,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.4",
+        "title": "Read Performance",
+        "spec_page": 84,
+        "pdf_page": 96,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.5",
+        "title": "Performance Curve Definition",
+        "spec_page": 84,
+        "pdf_page": 96,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.6",
+        "title": "Speed Class Definition",
+        "spec_page": 84,
+        "pdf_page": 96,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.7",
+        "title": "Consideration for Inserting FAT Update during Recording",
+        "spec_page": 85,
+        "pdf_page": 97,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.1.8",
+        "title": "Measurement Conditions and Requirements of the Speed Class",
+        "spec_page": 85,
+        "pdf_page": 97,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2",
+        "title": "Speed Class Specification for SDXC",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 3
+      },
+      {
+        "section_number": "4.13.2.1",
+        "title": "Speed Class Parameters",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.1.1",
+        "title": "AU",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 5
+      },
+      {
+        "section_number": "4.13.2.1.2",
+        "title": "RU",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 5
+      },
+      {
+        "section_number": "4.13.2.2",
+        "title": "Write Performance",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.3",
+        "title": "Read Performance",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.4",
+        "title": "FAT Update",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.5",
+        "title": "CI (Continuous Information) Update",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.6",
+        "title": "Distinction of Data Type",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.7",
+        "title": "Measurement Conditions and Requirements of the Speed Class for SDXC",
+        "spec_page": 86,
+        "pdf_page": 98,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.2.8",
+        "title": "Speed Class Control Command (CMD20)",
+        "spec_page": 87,
+        "pdf_page": 99,
+        "depth": 4
+      },
+      {
+        "section_number": "4.13.3",
+        "title": "Speed Grade Specification for UHS-I",
+        "spec_page": 87,
+        "pdf_page": 99,
+        "depth": 3
+      },
+      {
+        "section_number": "4.13.4",
+        "title": "Notes for Preparation Time of UHS-I Card",
+        "spec_page": 87,
+        "pdf_page": 99,
+        "depth": 3
+      },
+      {
+        "section_number": "4.14",
+        "title": "Erase Timeout Calculation",
+        "spec_page": 88,
+        "pdf_page": 100,
+        "depth": 2
+      },
+      {
+        "section_number": "4.14.1",
+        "title": "Erase Unit",
+        "spec_page": 88,
+        "pdf_page": 100,
+        "depth": 3
+      },
+      {
+        "section_number": "4.14.2",
+        "title": "Case Analysis of Erase Time Characteristics",
+        "spec_page": 88,
+        "pdf_page": 100,
+        "depth": 3
+      },
+      {
+        "section_number": "4.14.3",
+        "title": "Method for Erase Large Areas",
+        "spec_page": 89,
+        "pdf_page": 101,
+        "depth": 3
+      },
+      {
+        "section_number": "4.14.4",
+        "title": "Calculation of Erase Timeout Value Using the Parameter Registers",
+        "spec_page": 89,
+        "pdf_page": 101,
+        "depth": 3
+      },
+      {
+        "section_number": "4.14.5",
+        "title": "Set Block Count Command",
+        "spec_page": 90,
+        "pdf_page": 102,
+        "depth": 3
+      },
+      {
+        "section_number": "5",
+        "title": "Card Registers",
+        "spec_page": 91,
+        "pdf_page": 103,
+        "depth": 1
+      },
+      {
+        "section_number": "5.1",
+        "title": "OCR register",
+        "spec_page": 92,
+        "pdf_page": 104,
+        "depth": 2
+      },
+      {
+        "section_number": "5.2",
+        "title": "CID register",
+        "spec_page": 93,
+        "pdf_page": 105,
+        "depth": 2
+      },
+      {
+        "section_number": "5.3",
+        "title": "CSD Register",
+        "spec_page": 95,
+        "pdf_page": 107,
+        "depth": 2
+      },
+      {
+        "section_number": "5.3.1",
+        "title": "CSD_STRUCTURE",
+        "spec_page": 95,
+        "pdf_page": 107,
+        "depth": 3
+      },
+      {
+        "section_number": "5.3.2",
+        "title": "CSD Register (CSD Version 1.0)",
+        "spec_page": 96,
+        "pdf_page": 108,
+        "depth": 3
+      },
+      {
+        "section_number": "5.3.3",
+        "title": "CSD Register (CSD Version 2.0)",
+        "spec_page": 103,
+        "pdf_page": 115,
+        "depth": 3
+      },
+      {
+        "section_number": "5.4",
+        "title": "RCA register",
+        "spec_page": 106,
+        "pdf_page": 118,
+        "depth": 2
+      },
+      {
+        "section_number": "5.5",
+        "title": "DSR register (Optional)",
+        "spec_page": 106,
+        "pdf_page": 118,
+        "depth": 2
+      },
+      {
+        "section_number": "5.6",
+        "title": "SCR register",
+        "spec_page": 106,
+        "pdf_page": 118,
+        "depth": 2
+      },
+      {
+        "section_number": "6",
+        "title": "SD Memory Card Hardware Interface",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 1
+      },
+      {
+        "section_number": "6.1",
+        "title": "Hot Insertion and Removal",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 2
+      },
+      {
+        "section_number": "6.2",
+        "title": "Card Detection (Insertion/Removal)",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 2
+      },
+      {
+        "section_number": "6.3",
+        "title": "Power Protection (Insertion/Removal)",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 2
+      },
+      {
+        "section_number": "6.4",
+        "title": "Power Scheme",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 2
+      },
+      {
+        "section_number": "6.4.1",
+        "title": "Power Up",
+        "spec_page": 110,
+        "pdf_page": 122,
+        "depth": 3
+      },
+      {
+        "section_number": "6.4.1.1",
+        "title": "Power Up Time",
+        "spec_page": 111,
+        "pdf_page": 123,
+        "depth": 4
+      },
+      {
+        "section_number": "6.4.1.2",
+        "title": "Power On or Power Cycle",
+        "spec_page": 111,
+        "pdf_page": 123,
+        "depth": 4
+      },
+      {
+        "section_number": "6.4.1.3",
+        "title": "Power Supply Ramp Up",
+        "spec_page": 111,
+        "pdf_page": 123,
+        "depth": 4
+      },
+      {
+        "section_number": "6.4.2",
+        "title": "Power Down and Power Cycle",
+        "spec_page": 112,
+        "pdf_page": 124,
+        "depth": 3
+      },
+      {
+        "section_number": "6.5",
+        "title": "Programmable Card Output Driver (Optional)",
+        "spec_page": 112,
+        "pdf_page": 124,
+        "depth": 2
+      },
+      {
+        "section_number": "6.6",
+        "title": "Bus Operating Conditions for 3.3V Signaling",
+        "spec_page": 112,
+        "pdf_page": 124,
+        "depth": 2
+      },
+      {
+        "section_number": "6.7",
+        "title": "Driver Strength and Bus Timing for 1.8V Signaling",
+        "spec_page": 112,
+        "pdf_page": 124,
+        "depth": 2
+      },
+      {
+        "section_number": "6.8",
+        "title": "Electrical Static Discharge (ESD) Requirement",
+        "spec_page": 112,
+        "pdf_page": 124,
+        "depth": 2
+      },
+      {
+        "section_number": "7",
+        "title": "SPI Mode",
+        "spec_page": 113,
+        "pdf_page": 125,
+        "depth": 1
+      },
+      {
+        "section_number": "7.1",
+        "title": "Introduction",
+        "spec_page": 113,
+        "pdf_page": 125,
+        "depth": 2
+      },
+      {
+        "section_number": "7.2",
+        "title": "SPI Bus Protocol",
+        "spec_page": 113,
+        "pdf_page": 125,
+        "depth": 2
+      },
+      {
+        "section_number": "7.2.1",
+        "title": "Mode Selection and Initialization",
+        "spec_page": 114,
+        "pdf_page": 126,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.2",
+        "title": "Bus Transfer Protection",
+        "spec_page": 116,
+        "pdf_page": 128,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.3",
+        "title": "Data Read",
+        "spec_page": 116,
+        "pdf_page": 128,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.4",
+        "title": "Data Write",
+        "spec_page": 117,
+        "pdf_page": 129,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.5",
+        "title": "Erase & Write Protect Management",
+        "spec_page": 118,
+        "pdf_page": 130,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.6",
+        "title": "Read CID/CSD Registers",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.7",
+        "title": "Reset Sequence",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.8",
+        "title": "Error Conditions",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.9",
+        "title": "Memory Array Partitioning",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.10",
+        "title": "Card Lock/Unlock",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.11",
+        "title": "Application Specific Commands",
+        "spec_page": 119,
+        "pdf_page": 131,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.12",
+        "title": "Content Protection Command",
+        "spec_page": 120,
+        "pdf_page": 132,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.13",
+        "title": "Switch Function Command",
+        "spec_page": 120,
+        "pdf_page": 132,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.14",
+        "title": "High Speed Mode",
+        "spec_page": 120,
+        "pdf_page": 132,
+        "depth": 3
+      },
+      {
+        "section_number": "7.2.15",
+        "title": "Speed Class Specification",
+        "spec_page": 120,
+        "pdf_page": 132,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3",
+        "title": "SPI Mode Transaction Packets",
+        "spec_page": 121,
+        "pdf_page": 133,
+        "depth": 2
+      },
+      {
+        "section_number": "7.3.1",
+        "title": "Command Tokens",
+        "spec_page": 121,
+        "pdf_page": 133,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.1.1",
+        "title": "Command Format",
+        "spec_page": 121,
+        "pdf_page": 133,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.1.2",
+        "title": "Command Classes",
+        "spec_page": 121,
+        "pdf_page": 133,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.1.3",
+        "title": "Detailed Command Description",
+        "spec_page": 123,
+        "pdf_page": 135,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.1.4",
+        "title": "Card Operation for CMD8 in SPI mode",
+        "spec_page": 128,
+        "pdf_page": 140,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2",
+        "title": "Responses",
+        "spec_page": 129,
+        "pdf_page": 141,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.2.1",
+        "title": "Format R1",
+        "spec_page": 129,
+        "pdf_page": 141,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2.2",
+        "title": "Format R1b",
+        "spec_page": 129,
+        "pdf_page": 141,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2.3",
+        "title": "Format R2",
+        "spec_page": 130,
+        "pdf_page": 142,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2.4",
+        "title": "Format R3",
+        "spec_page": 131,
+        "pdf_page": 143,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2.5",
+        "title": "Formats R4 & R5",
+        "spec_page": 131,
+        "pdf_page": 143,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.2.6",
+        "title": "Format R7",
+        "spec_page": 131,
+        "pdf_page": 143,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.3",
+        "title": "Control Tokens",
+        "spec_page": 132,
+        "pdf_page": 144,
+        "depth": 3
+      },
+      {
+        "section_number": "7.3.3.1",
+        "title": "Data Response Token",
+        "spec_page": 132,
+        "pdf_page": 144,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.3.2",
+        "title": "Start Block Tokens and Stop Tran Token",
+        "spec_page": 132,
+        "pdf_page": 144,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.3.3",
+        "title": "Data Error Token",
+        "spec_page": 133,
+        "pdf_page": 145,
+        "depth": 4
+      },
+      {
+        "section_number": "7.3.4",
+        "title": "Clearing Status Bits",
+        "spec_page": 133,
+        "pdf_page": 145,
+        "depth": 3
+      },
+      {
+        "section_number": "7.4",
+        "title": "Card Registers",
+        "spec_page": 134,
+        "pdf_page": 146,
+        "depth": 2
+      },
+      {
+        "section_number": "7.5",
+        "title": "SPI Bus Timing Diagrams",
+        "spec_page": 134,
+        "pdf_page": 146,
+        "depth": 2
+      },
+      {
+        "section_number": "7.6",
+        "title": "SPI Electrical Interface",
+        "spec_page": 135,
+        "pdf_page": 147,
+        "depth": 2
+      },
+      {
+        "section_number": "7.7",
+        "title": "SPI Bus Operating Conditions",
+        "spec_page": 135,
+        "pdf_page": 147,
+        "depth": 2
+      },
+      {
+        "section_number": "7.8",
+        "title": "Bus Timing",
+        "spec_page": 135,
+        "pdf_page": 147,
+        "depth": 2
+      }
+    ],
+    "tables": [
+      {
+        "id": "TABLE_3_1",
+        "spec_reference": "Table 3-1",
+        "title": "SD Memory Card Registers",
+        "spec_page": 11,
+        "definition_page": 23,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_3_2",
+        "spec_reference": "Table 3-2",
+        "title": "Register Setting Requirements for ROM Card",
+        "spec_page": 11,
+        "definition_page": 23,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_3_3",
+        "spec_reference": "Table 3-3",
+        "title": "Host and Card Combinations",
+        "spec_page": 14,
+        "definition_page": 26,
+        "referenced_on_pages": [
+          11
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_3_4",
+        "spec_reference": "Table 3-4",
+        "title": "Bus Speed Modes",
+        "spec_page": 17,
+        "definition_page": 29,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_3_5",
+        "spec_reference": "Table 3-5",
+        "title": "Bus Speed Mode Option / Mandatory",
+        "spec_page": 17,
+        "definition_page": 29,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_1",
+        "spec_reference": "Table 4-1",
+        "title": "Overview of Card States vs. Operation Modes",
+        "spec_page": 18,
+        "definition_page": 30,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_2",
+        "spec_reference": "Table 4-2",
+        "title": "Tuning Block Pattern",
+        "spec_page": 26,
+        "definition_page": 38,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_3",
+        "spec_reference": "Table 4-3",
+        "title": "Read Command Blocklen",
+        "spec_page": 30,
+        "definition_page": 42,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_4",
+        "spec_reference": "Table 4-4",
+        "title": "Write Command Blocklen",
+        "spec_page": 30,
+        "definition_page": 42,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_5",
+        "spec_reference": "Table 4-5",
+        "title": "Lock Card Data Structure",
+        "spec_page": 33,
+        "definition_page": 45,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_6",
+        "spec_reference": "Table 4-6",
+        "title": "Lock Unlock Function (Basic Sequence for CMD42)",
+        "spec_page": 36,
+        "definition_page": 48,
+        "referenced_on_pages": [
+          35,
+          39
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_7",
+        "spec_reference": "Table 4-7",
+        "title": "Force Erase Function to the Locked Card (Relation to the Write Protects)",
+        "spec_page": 37,
+        "definition_page": 49,
+        "referenced_on_pages": [
+          36,
+          39
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_8",
+        "spec_reference": "Table 4-8",
+        "title": "Relation between ACMD6 and the Lock/Unlock State",
+        "spec_page": 38,
+        "definition_page": 50,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_9",
+        "spec_reference": "Table 4-9",
+        "title": "Version Difference of Lock/Unlock Functions",
+        "spec_page": 39,
+        "definition_page": 51,
+        "referenced_on_pages": [
+          36,
+          37
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_10",
+        "spec_reference": "Table 4-10",
+        "title": "Available Functions",
+        "spec_page": 44,
+        "definition_page": 56,
+        "referenced_on_pages": [
+          43,
+          50
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_11",
+        "spec_reference": "Table 4-11",
+        "title": "Status Data Structure",
+        "spec_page": 47,
+        "definition_page": 59,
+        "referenced_on_pages": [
+          43,
+          46
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_12",
+        "spec_reference": "Table 4-12",
+        "title": "Data Structure Version",
+        "spec_page": 48,
+        "definition_page": 60,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_13",
+        "spec_reference": "Table 4-13",
+        "title": "Status Code of Mode 0 to Supported Function Group",
+        "spec_page": 48,
+        "definition_page": 60,
+        "referenced_on_pages": [
+          43
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_14",
+        "spec_reference": "Table 4-14",
+        "title": "Status Code of Mode 1 to Supported Function Group",
+        "spec_page": 49,
+        "definition_page": 61,
+        "referenced_on_pages": [
+          48
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_15",
+        "spec_reference": "Table 4-15",
+        "title": "Status Code of Mode 0 and 1 to Unsupported Function Group",
+        "spec_page": 49,
+        "definition_page": 61,
+        "referenced_on_pages": [
+          48
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_16",
+        "spec_reference": "Table 4-16",
+        "title": "Format of CMD8",
+        "spec_page": 51,
+        "definition_page": 63,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_17",
+        "spec_reference": "Table 4-17",
+        "title": "Command Format",
+        "spec_page": 58,
+        "definition_page": 70,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_18",
+        "spec_reference": "Table 4-18",
+        "title": "Card Command Classes (CCCs) in SD Mode",
+        "spec_page": 60,
+        "definition_page": 72,
+        "referenced_on_pages": [
+          58,
+          98
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_19",
+        "spec_reference": "Table 4-19",
+        "title": "Basic Commands (class 0)",
+        "spec_page": 62,
+        "definition_page": 74,
+        "referenced_on_pages": [
+          18,
+          27,
+          58
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_20",
+        "spec_reference": "Table 4-20",
+        "title": "Block-Oriented Read Commands (class 2)",
+        "spec_page": 63,
+        "definition_page": 75,
+        "referenced_on_pages": [
+          65,
+          108
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_21",
+        "spec_reference": "Table 4-21",
+        "title": "Block-Oriented Write Commands (class 4)",
+        "spec_page": 63,
+        "definition_page": 75,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_22",
+        "spec_reference": "Table 4-22",
+        "title": "Block Oriented Write Protection Commands (class 6)",
+        "spec_page": 64,
+        "definition_page": 76,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_23",
+        "spec_reference": "Table 4-23",
+        "title": "Erase Commands (class 5)",
+        "spec_page": 64,
+        "definition_page": 76,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_24",
+        "spec_reference": "Table 4-24",
+        "title": "Lock Card (class 7)",
+        "spec_page": 65,
+        "definition_page": 77,
+        "referenced_on_pages": [
+          64
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_25",
+        "spec_reference": "Table 4-25",
+        "title": "Application-Specific Commands (class 8)",
+        "spec_page": 65,
+        "definition_page": 77,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_26",
+        "spec_reference": "Table 4-26",
+        "title": "I/O Mode Commands (class 9)",
+        "spec_page": 65,
+        "definition_page": 77,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_27",
+        "spec_reference": "Table 4-27",
+        "title": "Application Specific Commands used/reserved by SD Memory Card",
+        "spec_page": 67,
+        "definition_page": 79,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_28",
+        "spec_reference": "Table 4-28",
+        "title": "Switch Function Commands (class 10)",
+        "spec_page": 68,
+        "definition_page": 80,
+        "referenced_on_pages": [
+          18,
+          43,
+          58,
+          67
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_29",
+        "spec_reference": "Table 4-29",
+        "title": "Card State Transition Table",
+        "spec_page": 70,
+        "definition_page": 82,
+        "referenced_on_pages": [
+          18,
+          56,
+          69
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_30",
+        "spec_reference": "Table 4-30",
+        "title": "Response R1",
+        "spec_page": 71,
+        "definition_page": 83,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_31",
+        "spec_reference": "Table 4-31",
+        "title": "Response R2",
+        "spec_page": 71,
+        "definition_page": 83,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_32",
+        "spec_reference": "Table 4-32",
+        "title": "Response R3",
+        "spec_page": 72,
+        "definition_page": 84,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_33",
+        "spec_reference": "Table 4-33",
+        "title": "Response R6",
+        "spec_page": 72,
+        "definition_page": 84,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_34",
+        "spec_reference": "Table 4-34",
+        "title": "Response R7",
+        "spec_page": 73,
+        "definition_page": 85,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_35",
+        "spec_reference": "Table 4-35",
+        "title": "Voltage Accepted in R7",
+        "spec_page": 73,
+        "definition_page": 85,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_36",
+        "spec_reference": "Table 4-36",
+        "title": "Card Status",
+        "spec_page": 76,
+        "definition_page": 88,
+        "referenced_on_pages": [
+          72,
+          74,
+          119
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_37",
+        "spec_reference": "Table 4-37",
+        "title": "Card Status Field/Command - Cross Reference",
+        "spec_page": 77,
+        "definition_page": 89,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_38",
+        "spec_reference": "Table 4-38",
+        "title": "SD Status",
+        "spec_page": 78,
+        "definition_page": 90,
+        "referenced_on_pages": [
+          66,
+          127
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_39",
+        "spec_reference": "Table 4-39",
+        "title": "Speed Class Code Field",
+        "spec_page": 79,
+        "definition_page": 91,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_40",
+        "spec_reference": "Table 4-40",
+        "title": "Performance Move Field",
+        "spec_page": 79,
+        "definition_page": 91,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_41",
+        "spec_reference": "Table 4-41",
+        "title": "AU_SIZE Field",
+        "spec_page": 80,
+        "definition_page": 92,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_42",
+        "spec_reference": "Table 4-42",
+        "title": "Maximum AU size",
+        "spec_page": 80,
+        "definition_page": 92,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_43",
+        "spec_reference": "Table 4-43",
+        "title": "Erase Size Field",
+        "spec_page": 80,
+        "definition_page": 92,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_44",
+        "spec_reference": "Table 4-44",
+        "title": "Erase Timeout Field",
+        "spec_page": 81,
+        "definition_page": 93,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_45",
+        "spec_reference": "Table 4-45",
+        "title": "Erase Offset Field",
+        "spec_page": 81,
+        "definition_page": 93,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_46",
+        "spec_reference": "Table 4-46",
+        "title": "UHS_ SPEED_GRADE Field",
+        "spec_page": 82,
+        "definition_page": 94,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_47",
+        "spec_reference": "Table 4-47",
+        "title": "UHS_AU_SIZE Field",
+        "spec_page": 82,
+        "definition_page": 94,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_1",
+        "spec_reference": "Table 5-1",
+        "title": "OCR Register Definition",
+        "spec_page": 92,
+        "definition_page": 104,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_2",
+        "spec_reference": "Table 5-2",
+        "title": "The CID Fields",
+        "spec_page": 93,
+        "definition_page": 105,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_3",
+        "spec_reference": "Table 5-3",
+        "title": "CSD Register Structure",
+        "spec_page": 95,
+        "definition_page": 107,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_4",
+        "spec_reference": "Table 5-4",
+        "title": "The CSD Register Fields (CSD Version 1.0)",
+        "spec_page": 96,
+        "definition_page": 108,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_5",
+        "spec_reference": "Table 5-5",
+        "title": "TAAC Access Time Definition",
+        "spec_page": 97,
+        "definition_page": 109,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_6",
+        "spec_reference": "Table 5-6",
+        "title": "Maximum Data Transfer Rate Definition",
+        "spec_page": 97,
+        "definition_page": 109,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_7",
+        "spec_reference": "Table 5-7",
+        "title": "Supported Card Command Classes",
+        "spec_page": 98,
+        "definition_page": 110,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_8",
+        "spec_reference": "Table 5-8",
+        "title": "Data Block Length",
+        "spec_page": 98,
+        "definition_page": 110,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_9",
+        "spec_reference": "Table 5-9",
+        "title": "DSR Implementation Code Table",
+        "spec_page": 99,
+        "definition_page": 111,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_10",
+        "spec_reference": "Table 5-10",
+        "title": "VDD, min Current Consumption",
+        "spec_page": 99,
+        "definition_page": 111,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_11",
+        "spec_reference": "Table 5-11",
+        "title": "VDD, max Current Consumption",
+        "spec_page": 99,
+        "definition_page": 111,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_12",
+        "spec_reference": "Table 5-12",
+        "title": "Multiply Factor for the Device Size",
+        "spec_page": 100,
+        "definition_page": 112,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_13",
+        "spec_reference": "Table 5-13",
+        "title": "R2W_FACTOR",
+        "spec_page": 101,
+        "definition_page": 113,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_14",
+        "spec_reference": "Table 5-14",
+        "title": "Data Block Length",
+        "spec_page": 101,
+        "definition_page": 113,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_15",
+        "spec_reference": "Table 5-15",
+        "title": "File Formats",
+        "spec_page": 102,
+        "definition_page": 114,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_16",
+        "spec_reference": "Table 5-16",
+        "title": "The CSD Register Fields (CSD Version 2.0)",
+        "spec_page": 103,
+        "definition_page": 115,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_17",
+        "spec_reference": "Table 5-17",
+        "title": "The SCR Fields",
+        "spec_page": 106,
+        "definition_page": 118,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_18",
+        "spec_reference": "Table 5-18",
+        "title": "SCR Register Structure Version",
+        "spec_page": 106,
+        "definition_page": 118,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_19",
+        "spec_reference": "Table 5-19",
+        "title": "Physical Layer Specification Version",
+        "spec_page": 107,
+        "definition_page": 119,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_20",
+        "spec_reference": "Table 5-20",
+        "title": "CPRM Security Version",
+        "spec_page": 108,
+        "definition_page": 120,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_21",
+        "spec_reference": "Table 5-21",
+        "title": "SD Memory Card Supported Bus Widths",
+        "spec_page": 108,
+        "definition_page": 120,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_22",
+        "spec_reference": "Table 5-22",
+        "title": "Extended Security",
+        "spec_page": 109,
+        "definition_page": 121,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_23",
+        "spec_reference": "Table 5-23",
+        "title": "Command Support Bits",
+        "spec_page": 109,
+        "definition_page": 121,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_1",
+        "spec_reference": "Table 7-1",
+        "title": "Command Format",
+        "spec_page": 121,
+        "definition_page": 133,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_2",
+        "spec_reference": "Table 7-2",
+        "title": "Command Classes in SPI Mode",
+        "spec_page": 122,
+        "definition_page": 134,
+        "referenced_on_pages": [
+          121
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_3",
+        "spec_reference": "Table 7-3",
+        "title": "Commands and Arguments",
+        "spec_page": 126,
+        "definition_page": 138,
+        "referenced_on_pages": [
+          121,
+          123
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_4",
+        "spec_reference": "Table 7-4",
+        "title": "Application Specific Commands used/reserved by SD Memory Card - SPI Mode",
+        "spec_page": 127,
+        "definition_page": 139,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_5",
+        "spec_reference": "Table 7-5",
+        "title": "Card Operation for CMD8 in SPI Mode",
+        "spec_page": 128,
+        "definition_page": 140,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_7_6",
+        "spec_reference": "Table 7-6",
+        "title": "SPI Mode Status Bits",
+        "spec_page": 134,
+        "definition_page": 146,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      }
+    ],
+    "figures": [
+      {
+        "id": "FIG_1_1",
+        "spec_reference": "Figure 1-1",
+        "title": "SD Specifications Documentation Structure",
+        "spec_page": 1,
+        "definition_page": 13,
+        "referenced_on_pages": [
+          2
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_1",
+        "spec_reference": "Figure 3-1",
+        "title": "\"no response\" and \"no data\" Operations",
+        "spec_page": 7,
+        "definition_page": 19,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_2",
+        "spec_reference": "Figure 3-2",
+        "title": "(Multiple) Block Read Operation",
+        "spec_page": 7,
+        "definition_page": 19,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_3",
+        "spec_reference": "Figure 3-3",
+        "title": "(Multiple) Block Write Operation",
+        "spec_page": 8,
+        "definition_page": 20,
+        "referenced_on_pages": [
+          7
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_4",
+        "spec_reference": "Figure 3-4",
+        "title": "Command Token Format",
+        "spec_page": 8,
+        "definition_page": 20,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_5",
+        "spec_reference": "Figure 3-5",
+        "title": "Response Token Format",
+        "spec_page": 8,
+        "definition_page": 20,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_6",
+        "spec_reference": "Figure 3-6",
+        "title": "Data Packet Format - Usual Data",
+        "spec_page": 9,
+        "definition_page": 21,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_7",
+        "spec_reference": "Figure 3-7",
+        "title": "Data Packet Format - Wide Width Data",
+        "spec_page": 10,
+        "definition_page": 22,
+        "referenced_on_pages": [
+          8
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_8",
+        "spec_reference": "Figure 3-8",
+        "title": "UHS-I Card Type Modes of Operation versus Frequency Range",
+        "spec_page": 13,
+        "definition_page": 25,
+        "referenced_on_pages": [
+          12
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_9",
+        "spec_reference": "Figure 3-9",
+        "title": "UHS-I Card Type Modes of Operation versus Throughput",
+        "spec_page": 14,
+        "definition_page": 26,
+        "referenced_on_pages": [
+          13
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_10",
+        "spec_reference": "Figure 3-10",
+        "title": "Command Sequence to Use UHS-I",
+        "spec_page": 15,
+        "definition_page": 27,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_1",
+        "spec_reference": "Figure 4-1",
+        "title": "SD Memory Card State Diagram (card identification mode)",
+        "spec_page": 20,
+        "definition_page": 32,
+        "referenced_on_pages": [
+          18,
+          19,
+          56
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_2",
+        "spec_reference": "Figure 4-2",
+        "title": "Card Initialization and Identification Flow (SD mode)",
+        "spec_page": 22,
+        "definition_page": 34,
+        "referenced_on_pages": [
+          21
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_3",
+        "spec_reference": "Figure 4-3",
+        "title": "Argument of ACMD41",
+        "spec_page": 23,
+        "definition_page": 35,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_4",
+        "spec_reference": "Figure 4-4",
+        "title": "Response of ACMD41",
+        "spec_page": 23,
+        "definition_page": 35,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_5",
+        "spec_reference": "Figure 4-5",
+        "title": "ACMD41 Timing Followed by Voltage Switch Sequence",
+        "spec_page": 24,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_6",
+        "spec_reference": "Figure 4-6",
+        "title": "UHS-I Host Initialization Flow Chart",
+        "spec_page": 24,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_7",
+        "spec_reference": "Figure 4-7",
+        "title": "Voltage Switch Command",
+        "spec_page": 25,
+        "definition_page": 37,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_8",
+        "spec_reference": "Figure 4-8",
+        "title": "Send Tuning Block Command",
+        "spec_page": 26,
+        "definition_page": 38,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_9",
+        "spec_reference": "Figure 4-9",
+        "title": "SD Memory Card State Diagram (data transfer mode)",
+        "spec_page": 27,
+        "definition_page": 39,
+        "referenced_on_pages": [
+          18,
+          28,
+          56
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_10",
+        "spec_reference": "Figure 4-10",
+        "title": "Use of Switch Command",
+        "spec_page": 42,
+        "definition_page": 54,
+        "referenced_on_pages": [
+          41
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_11",
+        "spec_reference": "Figure 4-11",
+        "title": "Busy Status of 'Command System'",
+        "spec_page": 47,
+        "definition_page": 59,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_12",
+        "spec_reference": "Figure 4-12",
+        "title": "CRC7 Generator/Checker",
+        "spec_page": 54,
+        "definition_page": 66,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_13",
+        "spec_reference": "Figure 4-13",
+        "title": "CRC16 Generator/Checker",
+        "spec_page": 55,
+        "definition_page": 67,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_14",
+        "spec_reference": "Figure 4-14",
+        "title": "Overview of Speed Class Specification",
+        "spec_page": 83,
+        "definition_page": 95,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_15",
+        "spec_reference": "Figure 4-15",
+        "title": "Definition of Allocation Unit (AU)",
+        "spec_page": 83,
+        "definition_page": 95,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_16",
+        "spec_reference": "Figure 4-16",
+        "title": "Three Performance Curves",
+        "spec_page": 85,
+        "definition_page": 97,
+        "referenced_on_pages": [
+          84
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_17",
+        "spec_reference": "Figure 4-17",
+        "title": "Example Erase Characteristics (Case 1 TOFFSET=0)",
+        "spec_page": 88,
+        "definition_page": 100,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_18",
+        "spec_reference": "Figure 4-18",
+        "title": "Example Erase Characteristics (Case 2 TOFFSET=2)",
+        "spec_page": 89,
+        "definition_page": 101,
+        "referenced_on_pages": [
+          81
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_4_19",
+        "spec_reference": "Figure 4-19",
+        "title": "Set Block Count Command",
+        "spec_page": 90,
+        "definition_page": 102,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_1",
+        "spec_reference": "Figure 5-1",
+        "title": "ERASE_BLK_EN = 0 Example",
+        "spec_page": 100,
+        "definition_page": 112,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_2",
+        "spec_reference": "Figure 5-2",
+        "title": "ERASE_BLK_EN = 1 Example",
+        "spec_page": 100,
+        "definition_page": 112,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_6_1",
+        "spec_reference": "Figure 6-1",
+        "title": "Power-up Diagram",
+        "spec_page": 110,
+        "definition_page": 122,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_6_2",
+        "spec_reference": "Figure 6-2",
+        "title": "Change of Figure for Power Up",
+        "spec_page": 111,
+        "definition_page": 123,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_1",
+        "spec_reference": "Figure 7-1",
+        "title": "SD Memory Card State Diagram (SPI mode)",
+        "spec_page": 114,
+        "definition_page": 126,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_2",
+        "spec_reference": "Figure 7-2",
+        "title": "SPI Mode Initialization Flow",
+        "spec_page": 115,
+        "definition_page": 127,
+        "referenced_on_pages": [
+          114
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_3",
+        "spec_reference": "Figure 7-3",
+        "title": "Single Block Read Operation",
+        "spec_page": 116,
+        "definition_page": 128,
+        "referenced_on_pages": [
+          119
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_4",
+        "spec_reference": "Figure 7-4",
+        "title": "Read Operation - Data Error",
+        "spec_page": 117,
+        "definition_page": 129,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_5",
+        "spec_reference": "Figure 7-5",
+        "title": "Multiple Block Read Operation",
+        "spec_page": 117,
+        "definition_page": 129,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_6",
+        "spec_reference": "Figure 7-6",
+        "title": "Single Block Write Operation",
+        "spec_page": 117,
+        "definition_page": 129,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_7",
+        "spec_reference": "Figure 7-7",
+        "title": "Multiple Block Write Operation",
+        "spec_page": 118,
+        "definition_page": 130,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_8",
+        "spec_reference": "Figure 7-8",
+        "title": "'No data' Operations",
+        "spec_page": 118,
+        "definition_page": 130,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_9",
+        "spec_reference": "Figure 7-9",
+        "title": "R1 Response Format",
+        "spec_page": 129,
+        "definition_page": 141,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_10",
+        "spec_reference": "Figure 7-10",
+        "title": "R2 Response Format",
+        "spec_page": 130,
+        "definition_page": 142,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_11",
+        "spec_reference": "Figure 7-11",
+        "title": "R3 Response Format",
+        "spec_page": 131,
+        "definition_page": 143,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_12",
+        "spec_reference": "Figure 7-12",
+        "title": "R7 Response Format",
+        "spec_page": 131,
+        "definition_page": 143,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_7_13",
+        "spec_reference": "Figure 7-13",
+        "title": "Data Error Token",
+        "spec_page": 133,
+        "definition_page": 145,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      }
+    ]
+  },
+  "generated_at": "2026-02-22T16:02:34Z"
+}

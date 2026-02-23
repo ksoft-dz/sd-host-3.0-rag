@@ -1,0 +1,39 @@
+@startuml
+skinparam rectangleBackgroundColor White
+skinparam componentBackgroundColor LightGray
+
+rectangle "Host Controller Core" as HCC {
+    rectangle "Master\ninterface" as MI {
+        rectangle "AHB Master" as AHBM
+        rectangle "PIO/DMA\nController" as PIODMA #LightBlue
+    }
+    
+    rectangle "Target\ninterface" as TI {
+        rectangle "AHB Target" as AHBT
+        rectangle "Host control\nregister set" as HCRS
+    }
+    
+    rectangle "Block\nBuffer\nFIFO" as BBF #LightBlue
+    
+    rectangle "Control Blocks" as CB #LightBlue {
+        rectangle "RECV_CTRL" as RECV
+        rectangle "CMD_CTRL" as CMD
+        rectangle "XMT_CTRL" as XMT
+        rectangle "CLK_GEN" as CLK
+    }
+    
+    rectangle "INTF\nCTRL" as INTF
+}
+
+rectangle "SDMMC\ninterface" as SDMMC {
+    rectangle "RX Flops" as RXF #MediumPurple
+    rectangle "TX Flops" as TXF #MediumPurple
+}
+
+PIODMA -right-> BBF
+BBF -right-> CB
+CB -right-> INTF
+INTF -right-> RXF
+INTF -right-> TXF
+
+@enduml

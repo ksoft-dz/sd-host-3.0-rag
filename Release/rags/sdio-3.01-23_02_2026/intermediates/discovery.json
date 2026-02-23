@@ -1,0 +1,1888 @@
+{
+  "pdf_structure": {
+    "pdf_file": "PartE1_SDIO_Simplified_Specification_Ver3.00.pdf",
+    "total_pages": 90,
+    "page_offset": 0,
+    "total_spec_pages": 90,
+    "detected_features": {
+      "tables": {
+        "found": true,
+        "count": 35,
+        "toc_pages": [
+          9
+        ]
+      },
+      "figures": {
+        "found": true,
+        "count": 21,
+        "toc_pages": [
+          10
+        ]
+      },
+      "sections": {
+        "found": true,
+        "count": 148,
+        "toc_pages": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ]
+      }
+    },
+    "page_offset_validation": {
+      "first_spec_page_text_preview": " \n \n \n \n \n \n \n \n \nSD Specifications \nPart E1 \nSDIO Simplified Specification \n \nVersion 3.00 \nJuly 25, 2018 \n \n \n \n \n \n \n \n \n \n \n \n \n \n \nTechnical Committee \nSD Card Association \n \n \n \n \n",
+      "looks_like_content_start": false
+    }
+  },
+  "toc": {
+    "sections": [
+      {
+        "section_number": "1",
+        "title": "General Description",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 1
+      },
+      {
+        "section_number": "1.1",
+        "title": "Definitions",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 2
+      },
+      {
+        "section_number": "1.1.1",
+        "title": "SDIO Card",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 3
+      },
+      {
+        "section_number": "1.1.2",
+        "title": "Embedded SDIO",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 3
+      },
+      {
+        "section_number": "1.2",
+        "title": "SDIO Features",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 2
+      },
+      {
+        "section_number": "1.2.1",
+        "title": "Common SDIO Features",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 3
+      },
+      {
+        "section_number": "1.2.2",
+        "title": "SDIO Card Features",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 3
+      },
+      {
+        "section_number": "1.2.3",
+        "title": "Embedded SDIO Device Features",
+        "spec_page": 12,
+        "pdf_page": 12,
+        "depth": 3
+      },
+      {
+        "section_number": "1.3",
+        "title": "Document Structure",
+        "spec_page": 13,
+        "pdf_page": 13,
+        "depth": 2
+      },
+      {
+        "section_number": "1.4",
+        "title": "Standard SDIO Functions",
+        "spec_page": 13,
+        "pdf_page": 13,
+        "depth": 2
+      },
+      {
+        "section_number": "2",
+        "title": "SDIO Signaling Definition",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 1
+      },
+      {
+        "section_number": "2.1",
+        "title": "SDIO Card Types",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 2
+      },
+      {
+        "section_number": "2.2",
+        "title": "SDIO Card Modes",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 2
+      },
+      {
+        "section_number": "2.2.1",
+        "title": "SPI (Card mandatory support)",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 3
+      },
+      {
+        "section_number": "2.2.2",
+        "title": "1-bit SD Data Transfer Mode (Card Mandatory Support)",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 3
+      },
+      {
+        "section_number": "2.2.3",
+        "title": "4-bit SD Data Transfer Mode (Mandatory for High-Speed Cards, Optional for Low-Speed)",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 3
+      },
+      {
+        "section_number": "2.3",
+        "title": "SDIO Host Modes",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 2
+      },
+      {
+        "section_number": "2.4",
+        "title": "Signal Pins",
+        "spec_page": 15,
+        "pdf_page": 15,
+        "depth": 2
+      },
+      {
+        "section_number": "2.4.1",
+        "title": "Signal Pins for SDIO Card",
+        "spec_page": 15,
+        "pdf_page": 15,
+        "depth": 3
+      },
+      {
+        "section_number": "3",
+        "title": "SDIO Card Initialization",
+        "spec_page": 16,
+        "pdf_page": 16,
+        "depth": 1
+      },
+      {
+        "section_number": "3.1",
+        "title": "Initialization Sequence",
+        "spec_page": 16,
+        "pdf_page": 16,
+        "depth": 2
+      },
+      {
+        "section_number": "3.1.1",
+        "title": "Initialization by Non-I/O Aware Host",
+        "spec_page": 16,
+        "pdf_page": 16,
+        "depth": 3
+      },
+      {
+        "section_number": "3.1.2",
+        "title": "Initialization by I/O Aware Host",
+        "spec_page": 17,
+        "pdf_page": 17,
+        "depth": 3
+      },
+      {
+        "section_number": "3.2",
+        "title": "The IO_SEND_OP_COND Command (CMD5)",
+        "spec_page": 23,
+        "pdf_page": 23,
+        "depth": 2
+      },
+      {
+        "section_number": "3.3",
+        "title": "The IO_SEND_OP_COND Response (R4)",
+        "spec_page": 24,
+        "pdf_page": 24,
+        "depth": 2
+      },
+      {
+        "section_number": "3.4",
+        "title": "Special Initialization Considerations for Combo Cards",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 2
+      },
+      {
+        "section_number": "3.4.1",
+        "title": "Re-initialize Both I/O and Memory",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.4.2",
+        "title": "Using a Combo Card as SDIO only or SD Memory only after Combo Initialization",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.4.3",
+        "title": "Acceptable Commands after Initialization",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.4.4",
+        "title": "Recommendations for RCA after Reset",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "3.4.5",
+        "title": "Enabling CRC in SPI Combo Card",
+        "spec_page": 27,
+        "pdf_page": 27,
+        "depth": 3
+      },
+      {
+        "section_number": "4",
+        "title": "Differences with SD Memory Specification",
+        "spec_page": 28,
+        "pdf_page": 28,
+        "depth": 1
+      },
+      {
+        "section_number": "4.1",
+        "title": "SDIO Command List",
+        "spec_page": 28,
+        "pdf_page": 28,
+        "depth": 2
+      },
+      {
+        "section_number": "4.2",
+        "title": "Memory Commands and SDIO Commands",
+        "spec_page": 28,
+        "pdf_page": 28,
+        "depth": 2
+      },
+      {
+        "section_number": "4.2.1",
+        "title": "Supported SD Memory Commands",
+        "spec_page": 28,
+        "pdf_page": 28,
+        "depth": 3
+      },
+      {
+        "section_number": "4.2.2",
+        "title": "Unsupported SD Memory Commands",
+        "spec_page": 28,
+        "pdf_page": 28,
+        "depth": 3
+      },
+      {
+        "section_number": "4.3",
+        "title": "Modified R6 Response",
+        "spec_page": 29,
+        "pdf_page": 29,
+        "depth": 2
+      },
+      {
+        "section_number": "4.4",
+        "title": "Reset for SDIO",
+        "spec_page": 30,
+        "pdf_page": 30,
+        "depth": 2
+      },
+      {
+        "section_number": "4.5",
+        "title": "Bus Width",
+        "spec_page": 30,
+        "pdf_page": 30,
+        "depth": 2
+      },
+      {
+        "section_number": "4.6",
+        "title": "Card Detect Resistor",
+        "spec_page": 30,
+        "pdf_page": 30,
+        "depth": 2
+      },
+      {
+        "section_number": "4.7",
+        "title": "Timings",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 2
+      },
+      {
+        "section_number": "4.8",
+        "title": "Data Transfer Block Sizes",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 2
+      },
+      {
+        "section_number": "4.9",
+        "title": "Data Transfer Abort",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 2
+      },
+      {
+        "section_number": "4.9.1",
+        "title": "Read Abort",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "4.9.2",
+        "title": "Write Abort",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10",
+        "title": "Changes to SD Memory Fixed Registers",
+        "spec_page": 32,
+        "pdf_page": 32,
+        "depth": 2
+      },
+      {
+        "section_number": "4.10.1",
+        "title": "OCR Register",
+        "spec_page": 32,
+        "pdf_page": 32,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.2",
+        "title": "CID Register",
+        "spec_page": 32,
+        "pdf_page": 32,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.3",
+        "title": "CSD Register",
+        "spec_page": 32,
+        "pdf_page": 32,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.4",
+        "title": "RCA Register",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.5",
+        "title": "DSR Register",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.6",
+        "title": "SCR Register",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.7",
+        "title": "SD Status",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "4.10.8",
+        "title": "Card Status Register",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "5",
+        "title": "New I/O Read/Write Commands",
+        "spec_page": 35,
+        "pdf_page": 35,
+        "depth": 1
+      },
+      {
+        "section_number": "5.1",
+        "title": "IO_RW_DIRECT Command (CMD52)",
+        "spec_page": 35,
+        "pdf_page": 35,
+        "depth": 2
+      },
+      {
+        "section_number": "5.2",
+        "title": "IO_RW_DIRECT Response (R5)",
+        "spec_page": 36,
+        "pdf_page": 36,
+        "depth": 2
+      },
+      {
+        "section_number": "5.2.1",
+        "title": "CMD52 Response (SD Modes)",
+        "spec_page": 36,
+        "pdf_page": 36,
+        "depth": 3
+      },
+      {
+        "section_number": "5.2.2",
+        "title": "R5, IO_RW_DIRECT Response (SPI mode)",
+        "spec_page": 37,
+        "pdf_page": 37,
+        "depth": 3
+      },
+      {
+        "section_number": "5.3",
+        "title": "IO_RW_EXTENDED Command (CMD53)",
+        "spec_page": 38,
+        "pdf_page": 38,
+        "depth": 2
+      },
+      {
+        "section_number": "5.3.1",
+        "title": "CMD53 Data Transfer Format",
+        "spec_page": 39,
+        "pdf_page": 39,
+        "depth": 3
+      },
+      {
+        "section_number": "5.3.2",
+        "title": "Special Timing for CMD53 Multi-Block Read",
+        "spec_page": 39,
+        "pdf_page": 39,
+        "depth": 3
+      },
+      {
+        "section_number": "6",
+        "title": "SDIO Card Internal Operation",
+        "spec_page": 40,
+        "pdf_page": 40,
+        "depth": 1
+      },
+      {
+        "section_number": "6.1",
+        "title": "Overview",
+        "spec_page": 40,
+        "pdf_page": 40,
+        "depth": 2
+      },
+      {
+        "section_number": "6.2",
+        "title": "Register Access Time",
+        "spec_page": 40,
+        "pdf_page": 40,
+        "depth": 2
+      },
+      {
+        "section_number": "6.3",
+        "title": "Interrupts",
+        "spec_page": 40,
+        "pdf_page": 40,
+        "depth": 2
+      },
+      {
+        "section_number": "6.4",
+        "title": "Suspend/Resume",
+        "spec_page": 41,
+        "pdf_page": 41,
+        "depth": 2
+      },
+      {
+        "section_number": "6.5",
+        "title": "Read Wait",
+        "spec_page": 41,
+        "pdf_page": 41,
+        "depth": 2
+      },
+      {
+        "section_number": "6.6",
+        "title": "CMD52 During Data Transfer",
+        "spec_page": 41,
+        "pdf_page": 41,
+        "depth": 2
+      },
+      {
+        "section_number": "6.7",
+        "title": "SDIO Fixed Internal Map",
+        "spec_page": 41,
+        "pdf_page": 41,
+        "depth": 2
+      },
+      {
+        "section_number": "6.8",
+        "title": "Common I/O Area (CIA)",
+        "spec_page": 42,
+        "pdf_page": 42,
+        "depth": 2
+      },
+      {
+        "section_number": "6.9",
+        "title": "Card Common Control Registers (CCCR)",
+        "spec_page": 42,
+        "pdf_page": 42,
+        "depth": 2
+      },
+      {
+        "section_number": "6.10",
+        "title": "Function Basic Registers (FBR)",
+        "spec_page": 53,
+        "pdf_page": 53,
+        "depth": 2
+      },
+      {
+        "section_number": "6.11",
+        "title": "Card Information Structure (CIS)",
+        "spec_page": 56,
+        "pdf_page": 56,
+        "depth": 2
+      },
+      {
+        "section_number": "6.12",
+        "title": "Multiple Function SDIO Cards",
+        "spec_page": 56,
+        "pdf_page": 56,
+        "depth": 2
+      },
+      {
+        "section_number": "6.13",
+        "title": "Setting Block Size with CMD53",
+        "spec_page": 56,
+        "pdf_page": 56,
+        "depth": 2
+      },
+      {
+        "section_number": "6.14",
+        "title": "Bus State Diagram",
+        "spec_page": 57,
+        "pdf_page": 57,
+        "depth": 2
+      },
+      {
+        "section_number": "7",
+        "title": "Embedded I/O Code Storage Area (CSA)",
+        "spec_page": 58,
+        "pdf_page": 58,
+        "depth": 1
+      },
+      {
+        "section_number": "7.1",
+        "title": "CSA Access",
+        "spec_page": 58,
+        "pdf_page": 58,
+        "depth": 2
+      },
+      {
+        "section_number": "7.2",
+        "title": "CSA Data Format",
+        "spec_page": 58,
+        "pdf_page": 58,
+        "depth": 2
+      },
+      {
+        "section_number": "8",
+        "title": "SDIO Interrupts",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 1
+      },
+      {
+        "section_number": "8.1",
+        "title": "Interrupt Timing",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 2
+      },
+      {
+        "section_number": "8.1.1",
+        "title": "SPI and SD 1-bit Mode Interrupts",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.2",
+        "title": "SD 4-bit Mode",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.3",
+        "title": "Interrupt Period Definition",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.4",
+        "title": "Interrupt Period at the Data Block Gap in 4-bit SD Mode (Optional)",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.5",
+        "title": "End of Interrupt Cycles",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.6",
+        "title": "Terminated Data Transfer Interrupt Cycle",
+        "spec_page": 60,
+        "pdf_page": 60,
+        "depth": 3
+      },
+      {
+        "section_number": "8.1.7",
+        "title": "Interrupt Clear Timing",
+        "spec_page": 60,
+        "pdf_page": 60,
+        "depth": 3
+      },
+      {
+        "section_number": "8.2",
+        "title": "Asynchronous Interrupt",
+        "spec_page": 60,
+        "pdf_page": 60,
+        "depth": 2
+      },
+      {
+        "section_number": "9",
+        "title": "SDIO Suspend/Resume Operation",
+        "spec_page": 61,
+        "pdf_page": 61,
+        "depth": 1
+      },
+      {
+        "section_number": "10",
+        "title": "Timing to Pause SDIO Read Operation",
+        "spec_page": 62,
+        "pdf_page": 62,
+        "depth": 1
+      },
+      {
+        "section_number": "10.1",
+        "title": "Pause Read Operation by Stopping SDCLK",
+        "spec_page": 62,
+        "pdf_page": 62,
+        "depth": 2
+      },
+      {
+        "section_number": "10.2",
+        "title": "Pause Read Operation by using Read Wait",
+        "spec_page": 62,
+        "pdf_page": 62,
+        "depth": 2
+      },
+      {
+        "section_number": "11",
+        "title": "Power Control",
+        "spec_page": 63,
+        "pdf_page": 63,
+        "depth": 1
+      },
+      {
+        "section_number": "11.1",
+        "title": "Power Control Overview",
+        "spec_page": 63,
+        "pdf_page": 63,
+        "depth": 2
+      },
+      {
+        "section_number": "11.2",
+        "title": "Details of SDIO Power Control",
+        "spec_page": 63,
+        "pdf_page": 63,
+        "depth": 2
+      },
+      {
+        "section_number": "11.2.1",
+        "title": "Master Power Control",
+        "spec_page": 64,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "11.2.2",
+        "title": "Power Selection",
+        "spec_page": 64,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "11.2.3",
+        "title": "Power State Control",
+        "spec_page": 64,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "11.2.4",
+        "title": "High-Power Tuples",
+        "spec_page": 64,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "11.2.5",
+        "title": "The Maximum Card Power Restricted by Tc",
+        "spec_page": 65,
+        "pdf_page": 65,
+        "depth": 3
+      },
+      {
+        "section_number": "11.3",
+        "title": "Power Control Support for the SDIO Host",
+        "spec_page": 66,
+        "pdf_page": 66,
+        "depth": 2
+      },
+      {
+        "section_number": "11.3.1",
+        "title": "Version 1.10 Host",
+        "spec_page": 66,
+        "pdf_page": 66,
+        "depth": 3
+      },
+      {
+        "section_number": "11.3.2",
+        "title": "Version 3.00 Host",
+        "spec_page": 66,
+        "pdf_page": 66,
+        "depth": 3
+      },
+      {
+        "section_number": "12",
+        "title": "High-Speed Mode",
+        "spec_page": 68,
+        "pdf_page": 68,
+        "depth": 1
+      },
+      {
+        "section_number": "12.1",
+        "title": "SDIO High-Speed Mode",
+        "spec_page": 68,
+        "pdf_page": 68,
+        "depth": 2
+      },
+      {
+        "section_number": "12.2",
+        "title": "Switching Bus Speed Mode in a Combo Card",
+        "spec_page": 68,
+        "pdf_page": 68,
+        "depth": 2
+      },
+      {
+        "section_number": "13",
+        "title": "SDIO Physical Properties",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 1
+      },
+      {
+        "section_number": "13.1",
+        "title": "SDIO Form Factors",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 2
+      },
+      {
+        "section_number": "13.2",
+        "title": "Full-Size SDIO",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 2
+      },
+      {
+        "section_number": "13.3",
+        "title": "miniSDIO",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 2
+      },
+      {
+        "section_number": "13.4",
+        "title": "microSDIO",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 2
+      },
+      {
+        "section_number": "14",
+        "title": "SDIO Power",
+        "spec_page": 70,
+        "pdf_page": 70,
+        "depth": 1
+      },
+      {
+        "section_number": "14.1",
+        "title": "SDIO Card Initialization Voltages",
+        "spec_page": 70,
+        "pdf_page": 70,
+        "depth": 2
+      },
+      {
+        "section_number": "14.2",
+        "title": "SDIO Power Consumption",
+        "spec_page": 70,
+        "pdf_page": 70,
+        "depth": 2
+      },
+      {
+        "section_number": "15",
+        "title": "Inrush Current Limiting",
+        "spec_page": 71,
+        "pdf_page": 71,
+        "depth": 1
+      },
+      {
+        "section_number": "16",
+        "title": "CIS Formats",
+        "spec_page": 72,
+        "pdf_page": 72,
+        "depth": 1
+      },
+      {
+        "section_number": "16.1",
+        "title": "CIS Reference Document",
+        "spec_page": 72,
+        "pdf_page": 72,
+        "depth": 2
+      },
+      {
+        "section_number": "16.2",
+        "title": "Basic Tuple Format and Tuple Chain Structure",
+        "spec_page": 72,
+        "pdf_page": 72,
+        "depth": 2
+      },
+      {
+        "section_number": "16.3",
+        "title": "Byte Order Within Tuples",
+        "spec_page": 72,
+        "pdf_page": 72,
+        "depth": 2
+      },
+      {
+        "section_number": "16.4",
+        "title": "Tuple Version",
+        "spec_page": 73,
+        "pdf_page": 73,
+        "depth": 2
+      },
+      {
+        "section_number": "16.5",
+        "title": "SDIO Card Metaformat",
+        "spec_page": 73,
+        "pdf_page": 73,
+        "depth": 2
+      },
+      {
+        "section_number": "16.6",
+        "title": "CISTPL_MANFID: Manufacturer Identification String Tuple",
+        "spec_page": 74,
+        "pdf_page": 74,
+        "depth": 2
+      },
+      {
+        "section_number": "16.7",
+        "title": "SDIO Specific Extensions",
+        "spec_page": 74,
+        "pdf_page": 74,
+        "depth": 2
+      },
+      {
+        "section_number": "16.7.1",
+        "title": "CISTPL_FUNCID: Function Identification Tuple",
+        "spec_page": 74,
+        "pdf_page": 74,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.2",
+        "title": "CISTPL_FUNCE: Function Extension Tuple",
+        "spec_page": 75,
+        "pdf_page": 75,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.3",
+        "title": "CISTPL_FUNCE Tuple for Function 0 (Extended Data 00h)",
+        "spec_page": 75,
+        "pdf_page": 75,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.4",
+        "title": "CISTPL_FUNCE Tuple for Function 1-7 (Extended Data 01h)",
+        "spec_page": 76,
+        "pdf_page": 76,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.5",
+        "title": "CISTPL_FUNCE Tuple for Function 1-7 (Extended Data 02h)",
+        "spec_page": 79,
+        "pdf_page": 79,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.6",
+        "title": "CISTPL_SDIO_STD: Function is a Standard SDIO Function",
+        "spec_page": 80,
+        "pdf_page": 80,
+        "depth": 3
+      },
+      {
+        "section_number": "16.7.7",
+        "title": "CISTPL_SDIO_EXT: Tuple Reserved for SDIO Cards",
+        "spec_page": 81,
+        "pdf_page": 81,
+        "depth": 3
+      },
+      {
+        "section_number": "17",
+        "title": "Embedded SDIO",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 1
+      },
+      {
+        "section_number": "17.1",
+        "title": "Relaxing SDIO Requirements for Embedded Device",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 2
+      },
+      {
+        "section_number": "17.1.1",
+        "title": "Form Factor",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 3
+      },
+      {
+        "section_number": "17.1.2",
+        "title": "CIS Information",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 3
+      },
+      {
+        "section_number": "17.1.3",
+        "title": "8-Bit Bus Mode",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 3
+      },
+      {
+        "section_number": "17.2",
+        "title": "Interface Signal for Embedded SDIO Device",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 2
+      },
+      {
+        "section_number": "17.3",
+        "title": "Shared Bus Configuration",
+        "spec_page": 82,
+        "pdf_page": 82,
+        "depth": 2
+      },
+      {
+        "section_number": "Appendix A",
+        "title": "(Normative) : Reference",
+        "spec_page": 84,
+        "pdf_page": 84,
+        "depth": 1
+      },
+      {
+        "section_number": "A.1",
+        "title": "Reference",
+        "spec_page": 84,
+        "pdf_page": 84,
+        "depth": 2
+      },
+      {
+        "section_number": "Appendix B",
+        "title": "(Normative) : Special Terms",
+        "spec_page": 85,
+        "pdf_page": 85,
+        "depth": 1
+      },
+      {
+        "section_number": "B.1",
+        "title": "Terminology",
+        "spec_page": 85,
+        "pdf_page": 85,
+        "depth": 2
+      },
+      {
+        "section_number": "B.2",
+        "title": "Abbreviations",
+        "spec_page": 85,
+        "pdf_page": 85,
+        "depth": 2
+      },
+      {
+        "section_number": "Appendix C",
+        "title": "(Normative) : Command List",
+        "spec_page": 87,
+        "pdf_page": 87,
+        "depth": 1
+      },
+      {
+        "section_number": "C.1",
+        "title": "SD Mode Command List",
+        "spec_page": 87,
+        "pdf_page": 87,
+        "depth": 2
+      },
+      {
+        "section_number": "C.2",
+        "title": "SPI Mode Command List",
+        "spec_page": 88,
+        "pdf_page": 88,
+        "depth": 2
+      },
+      {
+        "section_number": "Appendix D",
+        "title": "(Normative)",
+        "spec_page": 89,
+        "pdf_page": 89,
+        "depth": 1
+      }
+    ],
+    "tables": [
+      {
+        "id": "TABLE_3_1",
+        "spec_reference": "Table 3-1",
+        "title": "OCR Values for CMD5",
+        "spec_page": 23,
+        "definition_page": 23,
+        "referenced_on_pages": [
+          10,
+          24,
+          25,
+          33
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_1",
+        "spec_reference": "Table 4-1",
+        "title": "Supported SD Memory Commands",
+        "spec_page": 28,
+        "definition_page": 28,
+        "referenced_on_pages": [
+          10,
+          29
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_2",
+        "spec_reference": "Table 4-2",
+        "title": "Unsupported SD Memory Commands",
+        "spec_page": 29,
+        "definition_page": 29,
+        "referenced_on_pages": [
+          10,
+          30
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_3",
+        "spec_reference": "Table 4-3",
+        "title": "R6 response to CMD3",
+        "spec_page": 29,
+        "definition_page": 29,
+        "referenced_on_pages": [
+          10,
+          30
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_4",
+        "spec_reference": "Table 4-4",
+        "title": "SDIO R6 Status Bits",
+        "spec_page": 29,
+        "definition_page": 29,
+        "referenced_on_pages": [
+          10,
+          30
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_5",
+        "spec_reference": "Table 4-5",
+        "title": "Combo Card 4-bit Control",
+        "spec_page": 30,
+        "definition_page": 30,
+        "referenced_on_pages": [
+          10,
+          31
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_6",
+        "spec_reference": "Table 4-6",
+        "title": "Card Detect Resistor States",
+        "spec_page": 31,
+        "definition_page": 31,
+        "referenced_on_pages": [
+          10,
+          32
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_4_7",
+        "spec_reference": "Table 4-7",
+        "title": "SDIO Status Register Structure",
+        "spec_page": 34,
+        "definition_page": 34,
+        "referenced_on_pages": [
+          10,
+          35
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_1",
+        "spec_reference": "Table 5-1",
+        "title": "Flag Data for IO_RW_DIRECT SD Response",
+        "spec_page": 37,
+        "definition_page": 37,
+        "referenced_on_pages": [
+          10,
+          38,
+          40
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_2",
+        "spec_reference": "Table 5-2",
+        "title": "IO_RW_ EXTENDED command Op Code Definition",
+        "spec_page": 38,
+        "definition_page": 38,
+        "referenced_on_pages": [
+          10,
+          39
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_5_3",
+        "spec_reference": "Table 5-3",
+        "title": "Byte Count Values",
+        "spec_page": 39,
+        "definition_page": 39,
+        "referenced_on_pages": [
+          10,
+          40
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6_1",
+        "spec_reference": "Table 6-1",
+        "title": "Card Common Control Registers (CCCR)",
+        "spec_page": 43,
+        "definition_page": 43,
+        "referenced_on_pages": [
+          10,
+          40,
+          41,
+          44,
+          60,
+          63
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6_2",
+        "spec_reference": "Table 6-2",
+        "title": "CCCR bit Definitions",
+        "spec_page": 52,
+        "definition_page": 52,
+        "referenced_on_pages": [
+          10,
+          31,
+          39,
+          40,
+          41,
+          42,
+          53
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6_3",
+        "spec_reference": "Table 6-3",
+        "title": "Function Basic Information Registers (FBR)",
+        "spec_page": 53,
+        "definition_page": 53,
+        "referenced_on_pages": [
+          10,
+          39,
+          54
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6_4",
+        "spec_reference": "Table 6-4",
+        "title": "FBR bit and field definitions",
+        "spec_page": 55,
+        "definition_page": 55,
+        "referenced_on_pages": [
+          10,
+          39,
+          54,
+          56,
+          57
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_6_5",
+        "spec_reference": "Table 6-5",
+        "title": "Card Information Structure (CIS) and reserved area of CIA",
+        "spec_page": 56,
+        "definition_page": 56,
+        "referenced_on_pages": [
+          10,
+          57
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_11_1",
+        "spec_reference": "Table 11-1",
+        "title": "Reference of Tuples Depends on Host Version",
+        "spec_page": 65,
+        "definition_page": 65,
+        "referenced_on_pages": [
+          10,
+          66
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_1",
+        "spec_reference": "Table 16-1",
+        "title": "Basic Tuple Format",
+        "spec_page": 72,
+        "definition_page": 72,
+        "referenced_on_pages": [
+          10,
+          73
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_2",
+        "spec_reference": "Table 16-2",
+        "title": "Tuples Supported by SDIO Cards",
+        "spec_page": 73,
+        "definition_page": 73,
+        "referenced_on_pages": [
+          10,
+          74
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_3",
+        "spec_reference": "Table 16-3",
+        "title": "CISTPL_MANFID: Manufacturer Identification Tuple",
+        "spec_page": 74,
+        "definition_page": 74,
+        "referenced_on_pages": [
+          10,
+          75
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_4",
+        "spec_reference": "Table 16-4",
+        "title": "CISTPL_FUNCID Tuple",
+        "spec_page": 74,
+        "definition_page": 74,
+        "referenced_on_pages": [
+          10,
+          75
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_5",
+        "spec_reference": "Table 16-5",
+        "title": "CISTPL_FUNCE Tuple General Structure",
+        "spec_page": 75,
+        "definition_page": 75,
+        "referenced_on_pages": [
+          10,
+          76
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_6",
+        "spec_reference": "Table 16-6",
+        "title": "TPLFID_FUNCTION Tuple for Function 0 (Common)",
+        "spec_page": 75,
+        "definition_page": 75,
+        "referenced_on_pages": [
+          10,
+          76
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_7",
+        "spec_reference": "Table 16-7",
+        "title": "TPLFID_FUNCTION Field Descriptions for Function 0 (common)",
+        "spec_page": 76,
+        "definition_page": 76,
+        "referenced_on_pages": [
+          10,
+          77
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_8",
+        "spec_reference": "Table 16-8",
+        "title": "TPLFID_FUNCTION Tuple for Function 1-7 (High Power Tuple)",
+        "spec_page": 77,
+        "definition_page": 77,
+        "referenced_on_pages": [
+          10,
+          67,
+          78
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_9",
+        "spec_reference": "Table 16-9",
+        "title": "TPLFID_FUNCTION Field Descriptions for Functions 1-7",
+        "spec_page": 79,
+        "definition_page": 79,
+        "referenced_on_pages": [
+          10,
+          80
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_10",
+        "spec_reference": "Table 16-10",
+        "title": "TPLFE_FUNCTION_INFO Definition",
+        "spec_page": 79,
+        "definition_page": 79,
+        "referenced_on_pages": [
+          10,
+          78,
+          80
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_11",
+        "spec_reference": "Table 16-11",
+        "title": "TPLFE_CSA_PROPERTY Definition",
+        "spec_page": 79,
+        "definition_page": 79,
+        "referenced_on_pages": [
+          10,
+          78,
+          80
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_12",
+        "spec_reference": "Table 16-12",
+        "title": "TPLFID_FUNCTION Tuple for Function 1-7 (Power State Tuple)",
+        "spec_page": 79,
+        "definition_page": 79,
+        "referenced_on_pages": [
+          10,
+          67,
+          80
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_13",
+        "spec_reference": "Table 16-13",
+        "title": "TPLFID_FUNCTION Field Descriptions for Functions 1-7 (Power State Tuple)",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [
+          10,
+          81
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_14",
+        "spec_reference": "Table 16-14",
+        "title": "CISTPL_SDIO_STD: Tuple Reserved for SDIO Cards",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [
+          10,
+          81
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_15",
+        "spec_reference": "Table 16-15",
+        "title": "TPL_CODE CISTPL_SDIO_STD Definition",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [
+          10,
+          81
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_16_16",
+        "spec_reference": "Table 16-16",
+        "title": "CISTPL_SDIO_EXT: Tuple Reserved for SDIO Cards",
+        "spec_page": 81,
+        "definition_page": 81,
+        "referenced_on_pages": [
+          10,
+          82
+        ],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_C_1",
+        "spec_reference": "Table C-1",
+        "title": "SD Mode Command List",
+        "spec_page": 87,
+        "definition_page": 87,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_C_2",
+        "spec_reference": "Table C-2",
+        "title": "SPI Mode Command List",
+        "spec_page": 88,
+        "definition_page": 88,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      }
+    ],
+    "figures": [
+      {
+        "id": "FIG_1_1",
+        "spec_reference": "Figure 1-1",
+        "title": "SDIO Related Specifications",
+        "spec_page": 13,
+        "definition_page": 13,
+        "referenced_on_pages": [
+          11,
+          14
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_2_1",
+        "spec_reference": "Figure 2-1",
+        "title": "Signal connection to two 4-bit SDIO cards",
+        "spec_page": 15,
+        "definition_page": 15,
+        "referenced_on_pages": [
+          11,
+          16
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_1",
+        "spec_reference": "Figure 3-1",
+        "title": "SDIO Response to Non-I/O Aware Initialization",
+        "spec_page": 16,
+        "definition_page": 16,
+        "referenced_on_pages": [
+          11,
+          17
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_2",
+        "spec_reference": "Figure 3-2",
+        "title": "Card Initialization Flow in SD mode (SDIO Aware Host)",
+        "spec_page": 19,
+        "definition_page": 19,
+        "referenced_on_pages": [
+          11,
+          18,
+          20,
+          26
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_3",
+        "spec_reference": "Figure 3-3",
+        "title": "Card initialization flow in SPI mode (SDIO aware host)",
+        "spec_page": 22,
+        "definition_page": 22,
+        "referenced_on_pages": [
+          11,
+          18,
+          23
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_4",
+        "spec_reference": "Figure 3-4",
+        "title": "IO_SEND_OP_COND Command (CMD5)",
+        "spec_page": 23,
+        "definition_page": 23,
+        "referenced_on_pages": [
+          11,
+          24
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_5",
+        "spec_reference": "Figure 3-5",
+        "title": "Response R4 in SD mode",
+        "spec_page": 24,
+        "definition_page": 24,
+        "referenced_on_pages": [
+          11,
+          25
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_6",
+        "spec_reference": "Figure 3-6",
+        "title": "Response R4 in SPI mode",
+        "spec_page": 24,
+        "definition_page": 24,
+        "referenced_on_pages": [
+          11,
+          25
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_7",
+        "spec_reference": "Figure 3-7",
+        "title": "Modified R1 Response",
+        "spec_page": 24,
+        "definition_page": 24,
+        "referenced_on_pages": [
+          11,
+          25,
+          35
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_8",
+        "spec_reference": "Figure 3-8",
+        "title": "Re-Initialization Flow for I/O Controller",
+        "spec_page": 26,
+        "definition_page": 26,
+        "referenced_on_pages": [
+          11,
+          27
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_3_9",
+        "spec_reference": "Figure 3-9",
+        "title": "Re-Initialization Flow for Memory controller",
+        "spec_page": 26,
+        "definition_page": 26,
+        "referenced_on_pages": [
+          11,
+          27,
+          28
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_1",
+        "spec_reference": "Figure 5-1",
+        "title": "IO_RW_DIRECT Command",
+        "spec_page": 35,
+        "definition_page": 35,
+        "referenced_on_pages": [
+          11,
+          36
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_2",
+        "spec_reference": "Figure 5-2",
+        "title": "R5 IO_RW_DIRECT Response (SD Modes)",
+        "spec_page": 36,
+        "definition_page": 36,
+        "referenced_on_pages": [
+          11,
+          37
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_3",
+        "spec_reference": "Figure 5-3",
+        "title": "IO_RW_DIRECT Response in SPI Mode",
+        "spec_page": 37,
+        "definition_page": 37,
+        "referenced_on_pages": [
+          11,
+          38
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_5_4",
+        "spec_reference": "Figure 5-4",
+        "title": "IO_RW_EXTENDED Command",
+        "spec_page": 38,
+        "definition_page": 38,
+        "referenced_on_pages": [
+          11,
+          39
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_6_1",
+        "spec_reference": "Figure 6-1",
+        "title": "SDIO Internal Map",
+        "spec_page": 42,
+        "definition_page": 42,
+        "referenced_on_pages": [
+          11,
+          41,
+          43
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_6_2",
+        "spec_reference": "Figure 6-2",
+        "title": "State Diagram for Bus State Machine",
+        "spec_page": 57,
+        "definition_page": 57,
+        "referenced_on_pages": [
+          11,
+          58
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_8_1",
+        "spec_reference": "Figure 8-1",
+        "title": "Continuous Interrupt Cycle",
+        "spec_page": 59,
+        "definition_page": 59,
+        "referenced_on_pages": [
+          11,
+          60
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_17_1",
+        "spec_reference": "Figure 17-1",
+        "title": "Embedded SDIO Interface",
+        "spec_page": 82,
+        "definition_page": 82,
+        "referenced_on_pages": [
+          11,
+          83
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_17_2",
+        "spec_reference": "Figure 17-2",
+        "title": "Example Configuration Supporting Card Slot and Shared Bus",
+        "spec_page": 83,
+        "definition_page": 83,
+        "referenced_on_pages": [
+          11,
+          84
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_17_3",
+        "spec_reference": "Figure 17-3",
+        "title": "Device Select Using Clock Signal",
+        "spec_page": 83,
+        "definition_page": 83,
+        "referenced_on_pages": [
+          11,
+          84
+        ],
+        "transcription": {
+          "status": "PENDING"
+        }
+      }
+    ]
+  },
+  "generated_at": "2026-02-23T06:10:28Z"
+}

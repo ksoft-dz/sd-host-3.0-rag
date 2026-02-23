@@ -1,0 +1,54 @@
+@startuml
+skinparam monochrome true
+
+title Figure 1840. Present state register (PRESENTSTATE)\nOffset: 0x0024 | Access: Read
+
+map "Upper Word (Bits 0-15)" as upper {
+  15 => CARDDET_INSERTED
+  14 => CARDDET_STATETABLE
+  13 => SDMMC_CD_N
+  12 => SDMMC_WP
+  11 => SDMMC_DAT0
+  10 => SDMMC_DAT1
+  9 => SDMMC_DAT2
+  8 => SDMMC_DAT3
+  7 => SDMMC_CMD
+  6 => SDMMC_DAT4
+  5 => SDMMC_DAT5
+  4 => SDMMC_DAT6
+  3 => SDMMC_DAT7
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom of upper
+  R: All bits Read-only
+  Reset: 0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
+end note
+
+map "Lower Word (Bits 16-31)" as lower {
+  31 => PRESENTSTATE_INHIBITCMD
+  30 => PRESENTSTATE_INHIBITDAT
+  29 => DMACTRL_DATALINEACTIVE
+  28 => 0
+  27 => 0
+  26 => 0
+  25 => 0
+  24 => 0
+  23 => DMACTRL_WRXFERACTIVE
+  22 => DMACTRL_RDXFERACTIVE
+  21 => DMACTRL_PIOBUFWRENA
+  20 => DMACTRL_PIOBUFRDENA
+  19 => 0
+  18 => 0
+  17 => 0
+  16 => 0
+}
+
+note bottom of lower
+  R: All bits Read-only
+  Reset: All 0
+end note
+
+@enduml

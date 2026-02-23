@@ -1,0 +1,7 @@
+ERASE_TIMEOUT,Value Definition
+00,Erase Time-out Calculation is not supported.
+01,1 [sec]
+02,2 [sec]
+03,3 [sec]
+......,......
+63,63 [sec]

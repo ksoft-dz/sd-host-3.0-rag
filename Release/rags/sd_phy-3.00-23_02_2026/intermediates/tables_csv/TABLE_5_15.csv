@@ -1,0 +1,6 @@
+FILE_FORMAT_GRP,FILE_FORMAT,Type
+0,0,Hard disk-like file system with partition table
+0,1,"DOS FAT (floppy-like) with boot sector only (no partition table)"
+0,2,Universal File Format
+0,3,Others/Unknown
+1,"0, 1, 2, 3",Reserved

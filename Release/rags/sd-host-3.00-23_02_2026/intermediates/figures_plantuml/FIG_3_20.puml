@@ -1,0 +1,66 @@
+@startuml
+!define ORANGE #FFA500
+!define GREEN #90EE90
+!define DOTTED_ORANGE #FFA500
+
+skinparam state {
+  BackgroundColor<<error>> ORANGE
+  BackgroundColor<<no_error>> ORANGE
+  BackgroundColor<<not_executed>> DOTTED_ORANGE
+  BackgroundColor<<cmd_wo_dat>> GREEN
+  BorderStyle<<not_executed>> dashed
+}
+
+state "Return A" as ReturnA
+state "Return B" as ReturnB
+state "Return C" as ReturnC
+state "Return D" as ReturnD
+
+state "CMD_wo_DAT" as CmdA <<cmd_wo_dat>>
+state "Auto CMD12" as AutoA <<not_executed>>
+state "CMD12" as Cmd12A <<no_error>>
+
+state "CMD_wo_DAT" as CmdB <<cmd_wo_dat>>
+state "Auto CMD12" as AutoB <<not_executed>>
+state "CMD12" as Cmd12B <<error>>
+
+state "CMD_wo_DAT" as CmdC <<cmd_wo_dat>>
+state "Auto CMD12" as AutoC <<error>>
+state "CMD12" as Cmd12C <<no_error>>
+
+state "Auto CMD12" as AutoD <<error>>
+state "CMD_wo_DAT" as CmdD <<not_executed>>
+state "CMD12" as Cmd12D <<no_error>>
+
+CmdA --> AutoA : Error
+AutoA --> Cmd12A : Not executed
+Cmd12A --> ReturnA : No error
+
+CmdB --> AutoB : Error
+AutoB --> Cmd12B : Not executed
+Cmd12B --> ReturnB : Error
+
+CmdC --> AutoC : No error
+AutoC --> Cmd12C : Error
+Cmd12C --> ReturnC
+
+AutoD --> CmdD : Error
+CmdD --> Cmd12D : Not executed
+Cmd12D --> ReturnD
+
+note bottom of CmdA
+  Error Interrupt
+  timing
+end note
+
+note bottom of AutoA
+  Auto CMD12 Error
+  timing
+end note
+
+note bottom of Cmd12A
+  Error Interrupt
+  timing
+end note
+
+@enduml

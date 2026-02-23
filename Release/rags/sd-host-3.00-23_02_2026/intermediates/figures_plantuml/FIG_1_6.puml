@@ -1,0 +1,36 @@
+@startuml
+!define RECTANGLE_STYLE rectangle
+
+skinparam rectangle {
+    BackgroundColor<<enable>> LightGreen
+    BackgroundColor<<register>> Wheat
+}
+
+rectangle "Interrupt\nStatus Enable" <<enable>> as ISE
+rectangle "Register" <<register>> as REG {
+    rectangle "Set" as SET
+    rectangle "Reset" as RESET
+}
+rectangle "Interrupt\nSignal Enable" <<enable>> as ISIG
+rectangle "Wakeup\nEvent Enable" <<enable>> as WEE
+
+note left of ISE
+    Interrupt factor
+end note
+
+note left of RESET
+    Interrupt clear
+end note
+
+ISE -right-> SET
+RESET -right-> ISIG
+RESET -right-> WEE
+
+SET -right-> ISIG
+SET -down-> WEE
+
+ISIG -right-> " " : Interrupt Signal
+WEE -right-> " " : Wakeup Signal
+SET -up-> " " : Interrupt Status
+
+@enduml

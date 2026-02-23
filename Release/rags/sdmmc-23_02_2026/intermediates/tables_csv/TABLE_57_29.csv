@@ -1,0 +1,9 @@
+Field,Description
+0 NORMALINTRSTS_ENABLEREGBIT15,"Fixed to 0. The HD controls error interrupts using the Error interrupt signal enable register."
+1 NORMALINTRSTS_ENABLEREGBIT14,"Boot terminate interrupt signal enable. 0 Masked. 1 Enabled. Note: SoC does not support Execute In Place from eMMC."
+2 NORMALINTRSTS_ENABLEREGBIT13,"Boot ack rcv signal enable. 0 Masked. 1 Enabled. Note: SoC does not support Execute In Place from eMMC."
+3 NORMALINTRSTS_ENABLEREGBIT12,"Re-tuning event signal enable. 0 Masked. 1 Enabled. Note: Re-tuning is not supported."
+4 NORMALINTRSTS_ENABLEREGBIT11,"INT_C signal enable. 0 Masked. 1 Enabled. Note: INT_C is not supported."
+5 NORMALINTRSTS_ENABLEREGBIT10,"INT_B signal enable. 0 Masked. 1 Enabled. Note: INT_B is not supported."
+6 NORMALINTRSTS_ENABLEREGBIT9,"INT_A signal enable. 0 Masked. 1 Enabled. Note: INT_A is not supported."
+7 SDHCREGSET_CARDINTSTSENA,"Card interrupt signal enable. 0 Masked. 1 Enabled"

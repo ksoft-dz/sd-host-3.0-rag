@@ -1,0 +1,58 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+rectangle "Normal Interrupt Status Register (Offset 030h)" as title {
+  
+  package "Bit Layout" {
+    rectangle "D15\nError Interrupt" as D15
+    rectangle "D14-D13\nRsvd" as D14_13
+    rectangle "D12\nRe-Tuning\nEvent" as D12
+    rectangle "D11\nINT_C" as D11
+    rectangle "D10\nINT_B" as D10
+    rectangle "D09\nINT_A" as D09
+    rectangle "D08\nCard Interrupt" as D08
+    rectangle "D07\nCard Removal" as D07
+    rectangle "D06\nCard Insertion" as D06
+    rectangle "D05\nBuffer Read\nReady" as D05
+    rectangle "D04\nBuffer Write\nReady" as D04
+    rectangle "D03\nDMA Interrupt" as D03
+    rectangle "D02\nBlock Gap\nEvent" as D02
+    rectangle "D01\nTransfer\nComplete" as D01
+    rectangle "D00\nCommand\nComplete" as D00
+    
+    D15 -[hidden]right- D14_13
+    D14_13 -[hidden]right- D12
+    D12 -[hidden]right- D11
+    D11 -[hidden]right- D10
+    D10 -[hidden]right- D09
+    D09 -[hidden]right- D08
+    D08 -[hidden]right- D07
+    D07 -[hidden]right- D06
+    D06 -[hidden]right- D05
+    D05 -[hidden]right- D04
+    D04 -[hidden]right- D03
+    D03 -[hidden]right- D02
+    D02 -[hidden]right- D01
+    D01 -[hidden]right- D00
+  }
+  
+  note bottom of title
+    **Attributes:**
+    D15: ROC (Error Interrupt)
+    D14-D13: Rsvd (Reserved)
+    D12: ROC (Re-Tuning Event)
+    D11: ROC (INT_C)
+    D10: ROC (INT_B)
+    D09: ROC (INT_A)
+    D08: RW1C (Card Interrupt)
+    D07: ROC (Card Removal)
+    D06: ROC (Card Insertion)
+    D05: ROC (Buffer Read Ready)
+    D04: ROC (Buffer Write Ready)
+    D03: ROC (DMA Interrupt)
+    D02: ROC (Block Gap Event)
+    D01: ROC (Transfer Complete)
+    D00: ROC (Command Complete)
+  end note
+}
+@enduml

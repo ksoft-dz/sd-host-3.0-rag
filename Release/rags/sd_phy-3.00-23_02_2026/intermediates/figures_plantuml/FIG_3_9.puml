@@ -1,0 +1,47 @@
+@startuml
+skinparam rectangleBorderColor black
+
+title Figure 3-9 : UHS-I Card Type Modes of Operation versus Throughput
+
+legend right
+  DS: Default Speed Mode
+  HS: High Speed Mode
+  |= Signal Voltage |
+  | 3.3V | 1.8V |
+endlegend
+
+note as throughput
+  12MB/s   25MB/s              50MB/s                    104MB/s  → Throughput
+end note
+
+rectangle "UHS50 Card" as uhs50_label #white
+rectangle "UHS104 Card" as uhs104_label #white
+
+package "UHS50 Card Modes" {
+  rectangle "DS" as ds1 #LightBlue
+  rectangle "HS" as hs1 #LightBlue
+  rectangle "SDR12" as sdr12_1 #Orange
+  rectangle "SDR25" as sdr25_1 #Orange
+  rectangle "SDR50" as sdr50_1 #Orange
+  rectangle "DDR50" as ddr50_1 #Orange
+}
+
+package "UHS104 Card Modes" {
+  rectangle "DS" as ds2 #LightBlue
+  rectangle "HS" as hs2 #LightBlue
+  rectangle "SDR12" as sdr12_2 #Orange
+  rectangle "SDR25" as sdr25_2 #Orange
+  rectangle "SDR50" as sdr50_2 #Orange
+  rectangle "SDR104" as sdr104_2 #Orange
+  rectangle "DDR50" as ddr50_2 #Orange
+}
+
+note bottom of throughput
+  UHS50 Card supports: DS, HS, SDR12, SDR25, SDR50, DDR50 (up to 50MB/s)
+  UHS104 Card supports: DS, HS, SDR12, SDR25, SDR50, DDR50, SDR104 (up to 104MB/s)
+  
+  Modes at 3.3V: DS, HS, SDR12, SDR25
+  Modes at 1.8V: SDR50, DDR50, SDR104
+end note
+
+@enduml

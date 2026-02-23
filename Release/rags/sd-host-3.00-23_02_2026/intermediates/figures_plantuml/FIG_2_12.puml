@@ -1,0 +1,30 @@
+@startuml
+robust "CMD line" as CMD
+robust "DAT[0]" as DAT0
+robust "D00" as D00
+robust "D01" as D01
+
+@0
+CMD is Command
+DAT0 is Low
+D00 is Low
+D01 is Low
+
+@100
+CMD is Response
+DAT0 is Low
+D00 is High
+D01 is Low
+
+@200
+CMD is Idle
+DAT0 is Busy
+D00 is High
+D01 is High
+
+@300
+DAT0 is Low
+D00 is Low
+D01 is Low
+
+@enduml

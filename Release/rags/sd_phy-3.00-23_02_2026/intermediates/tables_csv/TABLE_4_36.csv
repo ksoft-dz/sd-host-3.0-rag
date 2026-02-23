@@ -1,0 +1,8 @@
+I can see this page contains section 4.10.1 "Card Status" which describes the card status field, but the actual Table 4-36 that defines the different entries of the status is not visible on this page. The page only shows the introductory text explaining:
+
+- Type definitions (E: Error bit, S: Status bit, R: Detected and set for actual command response, X: Detected and set during command execution)
+- Clear Condition definitions (A: According to card current state, B: Always related to previous command, C: Clear by read)
+
+The actual table with the card status bit definitions appears to be on the following page(s) which are not included in this image.
+
+If you could provide the next page(s) containing Table 4-36, I would be able to extract the complete CSV data for you.

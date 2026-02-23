@@ -1,0 +1,3 @@
+Bit,Access,Field Name,Description
+03-01,RW,SD Bus Voltage Select,"By setting these bits, the Host Driver selects the voltage level for the SD card. Before setting this register, the Host Driver shall check the Voltage Support bits in the Capabilities register. If an unsupported voltage is selected, the Host System shall not supply SD Bus voltage. 111b 3.3V (Typ.) 110b 3.0V (Typ.) 101b 1.8V (Typ.) 100b – 000b Reserved"
+00,RW,SD Bus Power,"Before setting this bit, the SD Host Driver shall set SD Bus Voltage Select. If the Host Controller detects the No Card state, this bit shall be cleared. If this bit is cleared, the Host Controller shall immediately stop driving CMD and DAT[x] (tri-state) and drive SDCLK to low level (Refer to Section 2.2.12). 1 Power on 0 Power off"

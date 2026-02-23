@@ -1,0 +1,2085 @@
+{
+  "_metadata": {
+    "source": "SD Host Controller Simplified Specification",
+    "extraction_date": "2026-02-22T12:32:01Z",
+    "total_register_classes": 12,
+    "total_registers": 34,
+    "total_fields": 114,
+    "llm_stats": {
+      "total_calls": 112,
+      "total_input_tokens": 13502,
+      "total_output_tokens": 3615,
+      "model": "claude-haiku-4-5-20251001"
+    }
+  },
+  "register_classes": [
+    {
+      "id": "REGCLASS_CMD_GEN",
+      "type": "REG_CLASS",
+      "name": "SD Command Generation",
+      "address_start": "000h",
+      "address_end": "00Fh",
+      "table_1_1_name": "SD command generation",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_RESPONSE",
+      "type": "REG_CLASS",
+      "name": "Response",
+      "address_start": "010h",
+      "address_end": "01Fh",
+      "table_1_1_name": "Response",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_BUFFER",
+      "type": "REG_CLASS",
+      "name": "Buffer Data Port",
+      "address_start": "020h",
+      "address_end": "023h",
+      "table_1_1_name": "Buffer Data port",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_HOST_CTRL1",
+      "type": "REG_CLASS",
+      "name": "Host Control 1 and Others",
+      "address_start": "024h",
+      "address_end": "02Fh",
+      "table_1_1_name": "Host control 1 and Others",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_INTERRUPT",
+      "type": "REG_CLASS",
+      "name": "Interrupt Controls",
+      "address_start": "030h",
+      "address_end": "03Dh",
+      "table_1_1_name": "Interrupt controls",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_HOST_CTRL2",
+      "type": "REG_CLASS",
+      "name": "Host Control 2",
+      "address_start": "03Eh",
+      "address_end": "03Fh",
+      "table_1_1_name": "Host Control 2",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_CAPABILITIES",
+      "type": "REG_CLASS",
+      "name": "Capabilities",
+      "address_start": "040h",
+      "address_end": "04Fh",
+      "table_1_1_name": "Capabilities",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_FORCE_EVENT",
+      "type": "REG_CLASS",
+      "name": "Force Event",
+      "address_start": "050h",
+      "address_end": "053h",
+      "table_1_1_name": "Force Event",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_ADMA",
+      "type": "REG_CLASS",
+      "name": "ADMA",
+      "address_start": "054h",
+      "address_end": "05Fh",
+      "table_1_1_name": "ADMA",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_PRESET",
+      "type": "REG_CLASS",
+      "name": "Preset Value",
+      "address_start": "060h",
+      "address_end": "06Fh",
+      "table_1_1_name": "Preset Value",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_SHARED_BUS",
+      "type": "REG_CLASS",
+      "name": "Shared Bus",
+      "address_start": "0E0h",
+      "address_end": "0E3h",
+      "table_1_1_name": "Shared Bus",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_COMMON",
+      "type": "REG_CLASS",
+      "name": "Common Area",
+      "address_start": "0F0h",
+      "address_end": "0FFh",
+      "table_1_1_name": "Common area",
+      "registers": []
+    }
+  ],
+  "registers": [
+    {
+      "id": "REG_000",
+      "name": "SDMA System Address / Argument 2 Register",
+      "offset": "000h",
+      "spec_section": "2.2.1",
+      "spec_table": "TABLE_2_3",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_000_F0",
+          "name": "SDMA System Address / Argument 2",
+          "bits": "31-00",
+          "bit_high": 31,
+          "bit_low": 0,
+          "width": 32,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This register contains the physical system memory address used for DMA transfers or the second argument for the Auto CMD23.\n(1) SDMA System Address\nThis register contains the system memory address for a SDMA transfer. When the Host Controller stops a SDMA transfer, this register shall point to the system address of the next contiguous data position. It can be accessed only if no transaction is executing (i.e., after a transaction has stopped). Read operations on this register are not normally needed.\nThe Host Driver shall initialize this register before starting a SDMA transaction. After SDMA has stopped, the next system address of the next contiguous data position can be read from this register.\nThe SDMA transfer waits at the every boundary specified by the Host SDMA Buffer Boundary in the Block Size register and generates the SDMA Interrupt to request the Host Driver to update this register. The Host Driver sets the next system address of the next data position to this register. When the most upper byte of this register (003h) is written, the Host Controller restarts the SDMA transfer.\nWhen restarting SDMA by the Resume command or by setting Continue Request in the Block Gap Control register, the Host Controller shall start at the next contiguous address stored here in the SDMA System Address register. ADMA does not use this register.\n(2) Argument 2\nThis register is used with the Auto CMD23 to set a 32-bit block count value to the argument of the CMD23 while executing Auto CMD23.\nIf Auto CMD23 is used with ADMA, the full 32-bit block count value can be set. If Auto CMD23 is used without ADMA, the available block count value is limited by the Block Count register. 65535 blocks is the maximum value in this case.",
+          "abstract": "This 32-bit read-write register holds the physical system memory address for SDMA transfers or serves as the second argument for Auto CMD23, and points to the next data position when a transfer is stopped.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 21,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_004",
+      "name": "Block Size Register",
+      "offset": "004h",
+      "spec_section": "2.2.2",
+      "spec_table": "TABLE_2_4",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_004_F1",
+          "name": "Host SDMA Buffer Boundary",
+          "bits": "14-12",
+          "bit_high": 14,
+          "bit_low": 12,
+          "width": 3,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "If large contiguous memory space may not be available in the virtual memory system. To perform long SDMA transfer, SDMA System Address register shall be updated at every system memory boundary during SDMA transfer.\nThese bits specify the size of contiguous buffer in the system memory. The SDMA transfer shall wait at the every boundary specified by these fields and the Host Controller generates the DMA Interrupt to request the Host Driver to update the SDMA System Address register. At the end of transfer, the Host Controller may issue or may not issue DMA Interrupt. In particular, DMA Interrupt shall not be issued after Transfer Complete Interrupt is issued.\nIn case of this register is set to 0 (buffer size = 4K bytes), lower 12-bit of byte address for the SDMA System Address register (004h-005h) bit points the location of the buffer in the system memory. The SDMA transfer detects carry out of the address from bit 11 to 12. These bits shall be supported when the SDMA Support in the Capabilities register is set to 1 and this function is active when the DMA Enable in the Transfer Mode register is set to 1. ADMA does not use this register.\n000b 4K bytes (Detects A11 carry out)\n001b 8K bytes (Detects A12 carry out)\n010b 16K bytes (Detects A13 carry out)\n011b 32K bytes (Detects A14 carry out)\n100b 64K bytes (Detects A15 carry out)\n101b 128K Bytes (Detects A16 carry out)\n110b 256K Bytes (Detects A17 carry out)\n111b 512K Bytes (Detects A18 carry out)",
+          "abstract": "This field specifies the size of contiguous system memory buffer boundaries at which SDMA transfers pause and generate interrupts to allow the host driver to update the SDMA System Address register for continued long transfers.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 23,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_006",
+      "name": "Block Count Register",
+      "offset": "006h",
+      "spec_section": "2.2.3",
+      "spec_table": "TABLE_2_5",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_006_F0",
+          "name": "Blocks Count For Current Transfer",
+          "bits": "15-00",
+          "bit_high": 15,
+          "bit_low": 0,
+          "width": 16,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This register is enabled when Block Count Enable in the Transfer Mode register is set to 1 and is valid only for multiple block transfers. The Host Driver shall set this register to a value between 1 and the maximum block count. The Host Controller decrements the block count after each block transfer and stops when the count reaches zero. Setting the block count to 0 results in no data blocks is transferred.\n\nThis register should be accessed only when no transaction is executing (i.e., after transactions are stopped). During data transfer, read operations on this register may return an invalid value and write operations are ignored.\n\nWhen a suspend command is completed, the number of blocks yet to be transferred can be determined by reading this register. Before issuing a resume command, the Host Driver shall restore the previously saved block count.\n\nFFFFh = 65535 blocks\n...\n0002h = 2 blocks\n0001h = 1 block\n0000h = Stop Count",
+          "abstract": "This 16-bit read-write register specifies the number of data blocks to transfer in a multiple block operation, which the Host Controller automatically decrements after each block until reaching zero.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 24,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_008",
+      "name": "Argument 1 Register",
+      "offset": "008h",
+      "spec_section": "2.2.4",
+      "spec_table": "TABLE_2_6",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_008_F0",
+          "name": "Command Argument 1",
+          "bits": "31-00",
+          "bit_high": 31,
+          "bit_low": 0,
+          "width": 32,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "The SD command argument is specified as bits[38:8] of Command Format in the Physical Layer Specification.",
+          "abstract": "Specifies the 31-bit SD command argument corresponding to bits[38:8] of the SD Physical Layer Specification command format.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 25,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_00C",
+      "name": "Transfer Mode Register",
+      "offset": "00Ch",
+      "spec_section": "2.2.5",
+      "spec_table": "TABLE_2_7",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_00C_F0",
+          "name": "Preset Full Count High",
+          "bits": "15-08",
+          "bit_high": 15,
+          "bit_low": 8,
+          "width": 8,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is used to set the high byte of the register before starting a Resume command. The Host Driver shall store the value of this register when the data transfer is suspended and set it back to a Suspend command until storing a Resume command. The value of this register is decremented by 1 when the data transfer is suspended. Refer to Preset Count register in 0.",
+          "abstract": "This field stores the high byte of a preset counter value that is decremented during suspended data transfers and must be restored by the host driver when resuming operations.",
+          "values": []
+        },
+        {
+          "id": "REG_00C_F1",
+          "name": "Preset Full Count Low",
+          "bits": "07-00",
+          "bit_high": 7,
+          "bit_low": 0,
+          "width": 8,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is used to set the low byte of the register before starting a Resume command. The Host Driver shall store the value of this register when the data transfer is suspended and set it back to a Suspend command until storing a Resume command. The value of this register is decremented by 1 when the data transfer is suspended. Refer to Preset Count register in 0.",
+          "abstract": "This 8-bit read-write field stores the low byte of a preset counter value that is decremented during suspended data transfers and must be restored by the host driver before resuming operations.",
+          "values": []
+        },
+        {
+          "id": "REG_00C_F2",
+          "name": "Auto CMD12 Enable",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is set when multiple block transfer commands using DAT line are issued to card. Setting this bit to 1 to enable Auto CMD12 function to stop a multiple block data transfer. The SD Host Driver shall set this bit to 0 for all other commands.",
+          "abstract": "Enables automatic CMD12 (stop transmission) command to terminate multiple block data transfers on the DAT line.",
+          "values": []
+        },
+        {
+          "id": "REG_00C_F3",
+          "name": "Block Count Enable",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is used to enable the Block Count register. The bit is set to 1 by the Host Driver to enable this function. If this bit is set to 0, the SD Host Controller shall ignore the value set in the all other commands.",
+          "abstract": "Enables the Block Count register to control multi-block transfer operations when set to 1, otherwise the SD Host Controller ignores block count settings.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 28,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_00E",
+      "name": "Command Register",
+      "offset": "00Eh",
+      "spec_section": "2.2.6",
+      "spec_table": "TABLE_2_9",
+      "class_id": "REGCLASS_CMD_GEN",
+      "fields": [
+        {
+          "id": "REG_00E_F0",
+          "name": "Command Index",
+          "bits": "13-08",
+          "bit_high": 13,
+          "bit_low": 8,
+          "width": 6,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "These bits shall be set to the command number (CMD0-63, ACMD0-63) that is specified in bits 45-40 of the Command Format in the Physical Layer Specification and SDIO Card Specification.",
+          "abstract": "These bits specify the command number (CMD0-63 or ACMD0-63) to be executed as defined in the SD/SDIO specification.",
+          "values": []
+        },
+        {
+          "id": "REG_00E_F1",
+          "name": "Command Type",
+          "bits": "07-06",
+          "bit_high": 7,
+          "bit_low": 6,
+          "width": 2,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "There are three types of special commands: Suspend, Resume and Abort. These bits shall be set to 00b for all other commands:\n(1) Suspend Command\nIf the Suspend command succeeds, the Host Controller shall assume the SD Bus has been released and that it is possible to issue the next command, which uses the DAT line. The Host Controller shall de-assert Read Wait for read transactions and stop checking busy for write transactions. The interrupt cycle shall start, in 4-bit mode. If the Suspend command fails, the Host Controller shall maintain its current state, and the Host Driver shall restart the transfer by setting Continue Request in the Transfer Mode register. (Refer to 3.8 Suspend/Resume.)\n(2) Resume Command\nThe Host Driver re-starts the data transfer by restoring the registers in the range of 000-000h. (Refer to Figure 1-4 in section 1.6 for the register map.) The Host Controller shall check for busy before starting write transfers.\n(3) Abort Command\nThis command is set when executing a read transfer, the Host Controller shall stop reads to the buffer. If this command is set when executing a write transfer, the Host Controller shall stop driving the DAT line. After issuing the Abort command, the Host Driver should issue a software reset. (Refer to 3.8 Abort Transaction)\n\n11b Abort CMD12, CMD52 for writing \"I/O Abort\" in CCCR\n10b Resume CMD52 for writing \"Function Select\" in CCCR\n01b Suspend CMD52 for writing \"Bus Suspend\" in CCCR\n00b Normal Other commands",
+          "abstract": "Specifies the command type, with 00b for normal commands and other values for special operations (Suspend, Resume, Abort).",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 30,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_010",
+      "name": "Response Register",
+      "offset": "010h",
+      "spec_section": "2.2.7",
+      "spec_table": "TABLE_2_11",
+      "class_id": "REGCLASS_RESPONSE",
+      "fields": [
+        {
+          "id": "REG_010_F0",
+          "name": "Command Response",
+          "bits": "127-00",
+          "bit_high": 127,
+          "bit_low": 0,
+          "width": 128,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "The Table 2-12 describes the mapping of command responses from the SD Bus to this register for each response type. In the table, R[] refers to a bit range within the response data as transmitted on the SD Bus, REP[] refers to a bit range within the Response register.",
+          "abstract": "This read-only-clear register captures SD Bus command responses, mapping response data bits to corresponding register bit positions as defined in Table 2-12.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 31,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_020",
+      "name": "Buffer Data Port Register",
+      "offset": "020h",
+      "spec_section": "2.2.8",
+      "spec_table": "TABLE_2_13",
+      "class_id": "REGCLASS_BUFFER",
+      "fields": [
+        {
+          "id": "REG_020_F0",
+          "name": "Buffer Data",
+          "bits": "31-00",
+          "bit_high": 31,
+          "bit_low": 0,
+          "width": 32,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "The Host Controller buffer can be accessed through this 32-bit Data Port register. Refer to Section 1.9.",
+          "abstract": "A 32-bit read-write data port for accessing the Host Controller's internal buffer.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 32,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_024",
+      "name": "Present State Register",
+      "offset": "024h",
+      "spec_section": "2.2.9",
+      "spec_table": "TABLE_2_14",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_024_F0",
+          "name": "Present DMA Signal Level",
+          "bits": "31-20",
+          "bit_high": 31,
+          "bit_low": 20,
+          "width": 12,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "Indicates the current level of the CMD line on the device from errors, and the DAT[3:0] lines on the device from errors. This bit is used to check the DAT line at voltage switch and for busy check. This bit reflects the SDCMD pin.",
+          "abstract": "Indicates the current voltage level of the CMD and DAT[3:0] lines for monitoring device status and detecting errors during SD card operations.",
+          "values": []
+        },
+        {
+          "id": "REG_024_F1",
+          "name": "Write Protect Pin Level",
+          "bits": "19",
+          "bit_high": 19,
+          "bit_low": 19,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "Indicates the status of the WP pin of the SD memory card only. This bit reflects the SDWP pin.",
+          "abstract": "Indicates the current logic level of the SD card's write protect (WP) pin.",
+          "values": []
+        },
+        {
+          "id": "REG_024_F2",
+          "name": "Card Detect Pin Level",
+          "bits": "18",
+          "bit_high": 18,
+          "bit_low": 18,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "Indicates the status of the CD pin of the SD memory card only. This bit reflects the SDCD pin. Debouncing is left to the software. Card Detect feature is not supported in SDIO mode. This bit reflects the inverse value of the SDCD pin when Card Detect Signaling is set to Normal in the Host Control 1 register. This bit reflects the SDCD pin when Card Detect Signaling is set to Test in the Host Control 1 register.",
+          "abstract": "This read-only bit reflects the current level of the SD card detect pin, with its polarity determined by the Card Detect Signaling mode setting in the Host Control 1 register.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 34,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_028",
+      "name": "Host Control 1 Register",
+      "offset": "028h",
+      "spec_section": "2.2.10",
+      "spec_table": "TABLE_2_16",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_028_F0",
+          "name": "High Speed Enable",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is optional. Before setting this bit, the Host Driver shall check the High Speed Support in the Capabilities register. If this bit is set to 0 (default), the Host Controller outputs CMD line and DAT lines at the falling edge of the SD Clock (up to 25MHz). If this bit is set to 1, the Host Controller outputs CMD line and DAT lines at the rising edge of the SD Clock (up to 50MHz). If Preset Value Enable in the Host Control 2 register is set to 1, Host Driver needs to reset SD Clock Enable before changing this field to avoid generating clock glitches. After setting this field, the Host Driver sets SD Clock Enable again. 1 = High Speed mode, 0 = Normal Speed mode",
+          "abstract": "Enables high-speed mode (up to 50MHz) by switching command and data line output from the falling edge to the rising edge of the SD clock.",
+          "values": []
+        },
+        {
+          "id": "REG_028_F1",
+          "name": "Data Transfer Width",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit selects the data width of the Host Controller. The Host Driver shall set it to match the data width of the SD card. 1 = 4-bit mode, 0 = 1-bit mode",
+          "abstract": "Selects the data transfer width between the Host Controller and SD card (1 = 4-bit mode, 0 = 1-bit mode).",
+          "values": []
+        },
+        {
+          "id": "REG_028_F2",
+          "name": "LED Control",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is used to caution the user not to remove the card while the SD card is being accessed. If the software is going to issue multiple SD commands, this bit can be set during all these transactions. It is not necessary to change for each transaction. 1 = LED on, 0 = LED off",
+          "abstract": "Controls an LED indicator to warn users not to remove the SD card during active access operations.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 41,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_029",
+      "name": "Power Control Register",
+      "offset": "029h",
+      "spec_section": "2.2.11",
+      "spec_table": "TABLE_2_17",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_029_F0",
+          "name": "SD Bus Voltage Select",
+          "bits": "03-01",
+          "bit_high": 3,
+          "bit_low": 1,
+          "width": 3,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "By setting these bits, the Host Driver selects the voltage level for the SD card. Before setting this register, the Host Driver shall check the Voltage Support bits in the Capabilities register. If an unsupported voltage is selected, the Host System shall not supply SD Bus voltage. 111b 3.3V (Typ.) 110b 3.0V (Typ.) 101b 1.8V (Typ.) 100b – 000b Reserved",
+          "abstract": "This 3-bit field allows the host driver to select the SD bus voltage level (3.3V, 3.0V, or 1.8V) after verifying support in the Capabilities register, with the host system refusing to supply power if an unsupported voltage is selected.",
+          "values": []
+        },
+        {
+          "id": "REG_029_F1",
+          "name": "SD Bus Power",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "Before setting this bit, the SD Host Driver shall set SD Bus Voltage Select. If the Host Controller detects the No Card state, this bit shall be cleared. If this bit is cleared, the Host Controller shall immediately stop driving CMD and DAT[x] (tri-state) and drive SDCLK to low level (Refer to Section 2.2.12). 1 Power on 0 Power off",
+          "abstract": "Controls SD bus power state, enabling or disabling the host controller's drive of command, data, and clock signals to the SD card.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 42,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02A",
+      "name": "Block Gap Control Register",
+      "offset": "02Ah",
+      "spec_section": "2.2.12",
+      "spec_table": "TABLE_2_18",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_02A_F0",
+          "name": "Interrupt At Block Gap",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is valid only in 4-bit mode of the SDIO card and selects a sample point in the interrupt cycle. Setting to 1 enables interrupt detection at the block gap for a multiple block transfer. Setting to 0 disables interrupt detection during a multiple block transfer. If the SD card cannot signal an interrupt during a multiple block transfer, this bit should be set to 0. When the Host Driver detects an SD card insertion, it shall set this bit according to the CCCR of the SDIO card.\n1 Enabled\n0 Disabled",
+          "abstract": "Enables interrupt detection at block gaps during SDIO multiple block transfers in 4-bit mode.",
+          "values": []
+        },
+        {
+          "id": "REG_02A_F1",
+          "name": "Read Wait Control",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "The read wait function is optional for SDIO cards. If the card supports read wait, set this bit to enable use of the read wait protocol to stop read data using the DAT[2] line. Otherwise, the Host Controller has to stop the SD Clock to hold read data, which restricts commands generation. When the Host Driver detects an SD card insertion, it shall set this bit according to the CCCR of the SDIO card. If the card does not support read wait, this bit shall never be set to 1 otherwise DAT line conflict may occur. If this bit is set to 0, Suspend/Resume cannot be supported.\n1 Enable Read Wait Control\n0 Disable Read Wait Control",
+          "abstract": "Enables the read wait protocol on DAT[2] for SDIO cards that support it, allowing data transfer pauses without stopping the SD clock.",
+          "values": []
+        },
+        {
+          "id": "REG_02A_F2",
+          "name": "Continue Request",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "rwac",
+          "original_attrib": "RWAC",
+          "raw": "This bit is used to restart a transaction, which was stopped using the Stop At Block Gap Request. To cancel stop at the block gap, set Stop At Block Gap Request to 0 and set this bit 1 to restart the transfer.\nThe Host Controller automatically clears this bit in either of the following cases:\n(1) In the case of a read transaction, the DAT Line Active changes from 0 to 1 as a read transaction restarts.\n(2) In the case of a write transaction, the Write Transfer Active changes from 0 to 1 as the write transaction restarts.\nTherefore, it is not necessary for Host Driver to set this bit to 0. If Stop At Block Gap Request is set to 1, any write to this bit is ignored.\n1 Restart\n0 Not affect",
+          "abstract": "This bit restarts a transaction that was previously stopped at a block gap by clearing the Stop At Block Gap Request and setting this bit to 1, after which the Host Controller automatically clears it when the transaction resumes.",
+          "values": []
+        },
+        {
+          "id": "REG_02A_F3",
+          "name": "Stop At Block Request",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit is used to stop executing read and write transaction at the next block gap for non-DMA, SDMA and ADMA transfers. The Host Driver shall leave this bit set",
+          "abstract": "Halts execution of non-DMA, SDMA, and ADMA transfers at the next block gap boundary when set by the Host Driver.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 44,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02B",
+      "name": "Wakeup Control Register",
+      "offset": "02Bh",
+      "spec_section": "2.2.13",
+      "spec_table": "TABLE_2_19",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_02B_F0",
+          "name": "Wakeup Event Enable On SD Card Removal",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit enables wakeup event via Card Removal assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS is set to support this bit.",
+          "abstract": "Enables generation of a wakeup event when an SD card is removed, contingent on the device supporting this feature via the CIS register.",
+          "values": []
+        },
+        {
+          "id": "REG_02B_F1",
+          "name": "Wakeup Event Enable On SD Card Insertion",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit enables wakeup event via Card Insertion assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS does not affect this bit.",
+          "abstract": "Enables generation of a wakeup event when an SD card is inserted, as reflected in the Normal Interrupt Status register.",
+          "values": []
+        },
+        {
+          "id": "REG_02B_F2",
+          "name": "Wakeup Event Enable On Card Interrupt",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This bit enables wakeup event via Card Interrupt assertion in the Normal Interrupt Status register. This bit can be set to 1 if FN_WUS (Wake Up Support) in CIS is set to support this bit.",
+          "abstract": "Enables the host to wake up from a low-power state when a card interrupt is asserted, subject to FN_WUS capability support.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 45,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02C",
+      "name": "Clock Control Register",
+      "offset": "02Ch",
+      "spec_section": "2.2.14",
+      "spec_table": "TABLE_2_20",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_02C_F0",
+          "name": "SDCLK Frequency Select",
+          "bits": "007-000",
+          "bit_high": 7,
+          "bit_low": 0,
+          "width": 8,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This field is used to calculate the frequency of the SDCLK pin. The definition of this field is dependent on the Host Controller Version. (1) 8-bit Divided Clock Mode - This mode is supported by the Host Controller version 1.00 and version 2.00. The frequency is not programmed directly; rather the register holds the divisor of the Base Clock Frequency For SD Clock in the Capabilities register. Only the following settings are allowed. [8h]: base clock divided by 256 [4h]: base clock divided by 128 [2h]: base clock divided by 64 [1h]: base clock divided by 32 [80h]: base clock divided by 16 [40h]: base clock divided by 8 [20h]: base clock divided by 4 [10h]: base clock divided by 2 [00h]: base clock (10MHz-63MHz) Setting 0 (Dh) specifies the highest frequency of the SD Clock. When setting this field, the HC shall also set the divided but it should not be set. The three default divisor values can be calculated by the frequency that is defined by the Base Clock Frequency For SD Clock in the Capabilities register. 25MHz divider value = (Base Clock) / 25MHz 50MHz divider value = (Base Clock) / 50MHz According to the SD Host Controller Standard Layer Specification, the maximum SD Clock frequency is 25 MHz in normal speed mode and 50MHz in high speed mode, and shall never exceed this limit. The actual frequency of SDCLK is set by the following formula: Clock Frequency = (Base Clock) / divisor",
+          "abstract": "This 8-bit field selects the SDCLK frequency by specifying a divisor applied to the base clock frequency, with only specific values (such as 0x8 for ÷256 or 0x4 for ÷128) permitted in divided clock mode.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 48,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02E",
+      "name": "Timeout Control Register",
+      "offset": "02Eh",
+      "spec_section": "2.2.15",
+      "spec_table": "TABLE_2_21",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_02E_F0",
+          "name": "Data Timeout Counter Value",
+          "bits": "03-00",
+          "bit_high": 3,
+          "bit_low": 0,
+          "width": 4,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This value determines the interval by which DAT line timeouts are detected. For more information about timeout generation, refer to the Data Timeout Error in the Error Interrupt Status register. Timeout clock frequency will be generated by dividing the TMCLK value by this value. When setting this register, prevent inadvertent timeout events by clearing the Data Timeout Error Enable bit (in the Error Interrupt Status Enable register)",
+          "abstract": "This 4-bit read-write field sets the divisor for the data timeout clock frequency to detect DAT line timeouts, with the timeout period determined by dividing TMCLK by this value.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 49,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02F",
+      "name": "Software Reset Register",
+      "offset": "02Fh",
+      "spec_section": "2.2.16",
+      "spec_table": "TABLE_2_22",
+      "class_id": "REGCLASS_HOST_CTRL1",
+      "fields": [
+        {
+          "id": "REG_02F_F0",
+          "name": "Software Reset For DAT Line",
+          "bits": "31-16",
+          "bit_high": 31,
+          "bit_low": 16,
+          "width": 16,
+          "access": "rw/sc",
+          "original_attrib": "RW/SC",
+          "raw": "Only part of these 16 bits is valid. The valid bit of this mask depends on the number of slots.",
+          "abstract": "Software-controlled reset mask for DAT line with validity determined by the number of configured slots.",
+          "values": []
+        },
+        {
+          "id": "REG_02F_F1",
+          "name": "Software Reset For CMD Line",
+          "bits": "15-00",
+          "bit_high": 15,
+          "bit_low": 0,
+          "width": 16,
+          "access": "rw/sc",
+          "original_attrib": "RW/SC",
+          "raw": "Buffer Data Port Register\nBuffer Read Enable\nBuffer Write Enable\nRead Transfer Active\nWrite Transfer Active\nDAT Line Active\nCommand Inhibit (DAT)\nCommand Inhibit (CMD)\nError Interrupt\nCard Interrupt\nCard Removal\nCard Insertion\nBuffer Write Ready\nBuffer Read Ready\nDMA Interrupt\nBlock Gap Event\nTransfer Complete\nCommand Complete\nReset",
+          "abstract": "Software-triggered reset control for the command line interface of an SD/MMC host controller.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 51,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_030",
+      "name": "Normal Interrupt Status Register",
+      "offset": "030h",
+      "spec_section": "2.2.17",
+      "spec_table": "TABLE_2_23",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_030_F0",
+          "name": "Error Interrupt",
+          "bits": "15",
+          "bit_high": 15,
+          "bit_low": 15,
+          "width": 1,
+          "access": "read-write-1-clear",
+          "original_attrib": "RW1C",
+          "raw": "This status bit is set if any of the bits in the Error Interrupt Status register are set. Thus this bit can be considered as an interrupt summary bit. Refer to Table 2-24 on page 53 for more details.\n(1) In a multi-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the Interrupt Cycle. Refer to the SD Memory Card Specification Version 3.0 for more details.\n(2) In a single-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SD Memory Card Specification Version 1.01 for more details.\n(3) In an SDIO Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.\n(4) In a Combo Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This bit serves as an interrupt summary flag that is set when any error interrupt status bits are active, and can be cleared by writing 1 to it.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F1",
+          "name": "Card Interrupt",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "(1) In a multi-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the Interrupt Cycle. Refer to the SD Memory Card Specification Version 3.0 for more details.\n(2) In a single-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SD Memory Card Specification Version 1.01 for more details.\n(3) In an SDIO Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.\n(4) In a Combo Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only bit indicates whether an interrupt has been detected on an SD Memory Card or SDIO Card, either through the interrupt cycle (multi-bit mode) or the DAT[1] line (single-bit or SDIO mode).",
+          "values": []
+        },
+        {
+          "id": "REG_030_F2",
+          "name": "Card Removal",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This bit is set if the Card Inserted in the Card Insertion Status bit is changed from 1 to 0. Refer to Table 2-25 on page 55 for more details.\nThis bit is set when the card is removed.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only-clear bit indicates when a card has been removed by detecting a transition of the Card Inserted status bit from 1 to 0.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F3",
+          "name": "Card Insertion",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This bit is set if the Card Inserted in the Card Insertion Status bit is changed from 0 to 1. Refer to Table 2-25 on page 55 for more details.\nThis bit is set when the card is inserted.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "Card insertion interrupt flag that is set when a card is inserted and cleared by writing 1 to this bit.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F4",
+          "name": "Buffer Read Ready",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This status bit is set if the Buffer Read Enable bit in the Present State register changes from 0 to 1. Refer to Table 2-25 on page 55 for more details.\nThis bit is set when the card is ready to read data from the buffer.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only-clear status bit indicates when the card buffer is ready to provide data for reading, and is cleared by writing 1 to it.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F5",
+          "name": "Buffer Write Ready",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This status bit is set if the Buffer Write Enable bit in the Present State register changes from 0 to 1. Refer to Table 2-25 on page 55 for more details.\nThis bit is set when the card is ready to write data to the buffer.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only-clear status bit indicates when the card is ready to write data to the buffer, set by a transition of the Buffer Write Enable bit from 0 to 1.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F6",
+          "name": "DMA Interrupt",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This status bit is set if the Host Controller detects the SDMA Buffer Boundary during transfer. In case of ADMA, by setting the Int field in the descriptor table, the Host controller generates this interrupt. This interrupt is not generated after a Transfer Complete. Refer to Section 1.13 on page 29 for more details.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "DMA Interrupt status bit that is set when the Host Controller detects an SDMA Buffer Boundary or when ADMA descriptor's Int field is set, and is cleared by writing 1 to this bit.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F7",
+          "name": "Block Gap Event",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This status bit is set when both read/write transaction is stopped at the block gap due to a Stop At Block Gap Request. Refer to Table 2-21 on page 50 for more details.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only-clear status bit indicates when both read and write transactions are halted at a block gap boundary following a Stop At Block Gap Request.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F8",
+          "name": "Transfer Complete",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This bit is set when a read or write transfer and a command with status busy is completed.\n(1) In the case of a Read Transaction:\nThis bit is set at the falling edge of the Read Transfer Active Status. Refer to Table 2-25 on page 55 for more details. There are two cases in which this interrupt is generated. The first is when a data transfer is completed as specified by the data length (after the last data has been read to the Host System). The second is when data has stopped at the block gap and completed the data transfer by setting the Stop At Block Gap Request in the Block Gap Control register. Refer to Table 2-21 on page 50 for more details.\n(2) In the case of a Write Transaction:\nThis bit is set at the falling edge of the Write Transfer Active Status. Refer to Table 2-25 on page 55 for more details. There are two cases in which this interrupt is generated. The first is when the last data is written to the SD card as specified by the data length and the busy signal is released. The second is when data transfers are stopped at the block gap by setting Stop At Block Gap Request in the Block Gap Control register and data transfers completed. Refer to Table 2-21 on page 50 for more details.\n(3) In the case of a Command with Busy:\nThis bit is set when busy is de-asserted. Refer to DAT Line Active and Command Inhibit (DAT) in Table 2-25 on page 55 for more details.\nThis status is cleared by writing 1 to this bit.",
+          "abstract": "This read-only-clear bit is set when a data transfer or status-busy command completes, either after all data is read to the host or when a block gap is encountered.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F9",
+          "name": "Command Complete",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This bit is set when the end bit of the command response is received (except Auto CMD12 and Auto CMD23). Refer to Table 2-25 on page 55 for more details.\nThis status is cleared by writing 1 to this bit.\nNote: This bit is not set if a Response Interrupt Disable in Transfer Mode Register is set to 1. Refer to Table 2-18 on page 47 for more details.",
+          "abstract": "This read-only-clear bit is set when a command response completes (excluding Auto CMD12/23) and is cleared by writing 1, unless response interrupts are disabled.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 56,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_032",
+      "name": "Error Interrupt Status Register",
+      "offset": "032h",
+      "spec_section": "2.2.18",
+      "spec_table": "TABLE_2_24",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_032_F0",
+          "name": "Error Number Specific Error Status",
+          "bits": "31-01",
+          "bit_high": 31,
+          "bit_low": 1,
+          "width": 31,
+          "access": "read-write-1-clear",
+          "original_attrib": "RW1C",
+          "raw": "Additional status bits for the detected ECC bit-position for the correctable error. This bit field is valid only when the ECCE bit is set. The bit position of the single correctable bit error is encoded in this field. The value in this field is valid only when the ECCE bit is set. The value in this field is undefined if the ECCE bit is cleared or if Reading or Writing to Status. In summary, Tuning Error or higher priority flags take precedence over this field. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tuning Error or higher priority flags. The Tuning Error or higher priority flags has the same error code value associated before was a location for detecting Tu",
+          "abstract": "This 31-bit read-write-1-clear field encodes the bit position of a single correctable ECC error and is valid only when the ECCE bit is set.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 59,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_034",
+      "name": "Normal Interrupt Status Enable Register",
+      "offset": "034h",
+      "spec_section": "2.2.19",
+      "spec_table": "TABLE_2_26",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_034_F0",
+          "name": "Fixed Error Interrupt Status Enable",
+          "bits": "15",
+          "bit_high": 15,
+          "bit_low": 15,
+          "width": 1,
+          "access": "read-write-1-clear",
+          "original_attrib": "RW1C",
+          "raw": "Fixed to 0. The host Driver shall not error signals using the Error Interrupt Status Enable register.",
+          "abstract": "Enables interrupt signaling for fixed errors and is cleared by writing 1 to this bit.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F1",
+          "name": "INT_C Status Enable",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "If this bit is set to 0",
+          "abstract": "Enables or disables the INT_C status interrupt when set to 1, with interrupt disabled when cleared to 0.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F2",
+          "name": "INT_B Status Enable",
+          "bits": "10",
+          "bit_high": 10,
+          "bit_low": 10,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "If this bit is set to 0",
+          "abstract": "Enables or disables the generation of interrupt B status signals when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F3",
+          "name": "INT_A Status Enable",
+          "bits": "09",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "If this bit is set to 0",
+          "abstract": "Enables or disables the generation of interrupt A status signals when set to 1 or 0 respectively.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 61,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_036",
+      "name": "Error Interrupt Status Enable Register",
+      "offset": "036h",
+      "spec_section": "2.2.20",
+      "spec_table": "TABLE_2_27",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_036_F0",
+          "name": "Vendor Specific Error Status Enable",
+          "bits": "15-12",
+          "bit_high": 15,
+          "bit_low": 12,
+          "width": 4,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks vendor-specific error status reporting when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F1",
+          "name": "Tuning Error Status Enable",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the tuning error status interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F2",
+          "name": "ADMA Error Status Enable",
+          "bits": "09",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks ADMA error status reporting when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F3",
+          "name": "Auto CMD12 Error Status Enable",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the generation of an interrupt when an error occurs during the execution of an automatic CMD12 command.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F4",
+          "name": "Current Limit Error Status Enable",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the current limit error status interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F5",
+          "name": "Data End Bit Error Status Enable",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the data end bit error status interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F6",
+          "name": "Data CRC Error Status Enable",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the generation of interrupt/status signals when a data CRC error is detected.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F7",
+          "name": "Data Timeout Error Status Enable",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the data timeout error status interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_036_F8",
+          "name": "Command Index Error Status Enable",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled, 0 Masked",
+          "abstract": "Enables or masks the Command Index Error status interrupt when set to 1 or 0 respectively.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 63,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_038",
+      "name": "Normal Interrupt Signal Enable Register",
+      "offset": "038h",
+      "spec_section": "2.2.21",
+      "spec_table": "TABLE_2_28",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_038_F0",
+          "name": "Re-Tuning Event Signal Enable",
+          "bits": "14-13",
+          "bit_high": 14,
+          "bit_low": 13,
+          "width": 2,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the re-tuning event signal, where 1 indicates the signal is enabled and 0 indicates it is masked.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F1",
+          "name": "INT_C Signal Enable",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the INT_C interrupt signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F2",
+          "name": "INT_B Signal Enable",
+          "bits": "10",
+          "bit_high": 10,
+          "bit_low": 10,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the INT_B interrupt signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F3",
+          "name": "INT_A Signal Enable",
+          "bits": "09",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the INT_A interrupt signal.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F4",
+          "name": "Card Interrupt Signal Enable",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the card interrupt signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F5",
+          "name": "Card Removal Signal Enable",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the card removal signal interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F6",
+          "name": "Card Insertion Signal Enable",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the card insertion signal interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F7",
+          "name": "Buffer Read Signal Enable",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1: Enabled\n0: Masked",
+          "abstract": "Enables or masks the buffer read signal when set to 1 or 0 respectively.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 65,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03A",
+      "name": "Error Interrupt Signal Enable Register",
+      "offset": "03Ah",
+      "spec_section": "2.2.22",
+      "spec_table": "TABLE_2_29",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_03A_F0",
+          "name": "Vendor Specific Error Signal Enable",
+          "bits": "15-12",
+          "bit_high": 15,
+          "bit_low": 12,
+          "width": 4,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "",
+          "abstract": "Vendor Specific Error Signal Enable",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F1",
+          "name": "Tuning Error Signal Enable",
+          "bits": "11-10",
+          "bit_high": 11,
+          "bit_low": 10,
+          "width": 2,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the tuning error signal output when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F2",
+          "name": "ADMA Error Signal Enable",
+          "bits": "09",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the ADMA error signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F3",
+          "name": "Auto CMD Error Signal Enable",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the automatic command error signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F4",
+          "name": "Current Limit Error Signal Enable",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the current limit error signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F5",
+          "name": "Data End Bit Error Signal Enable",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the data end bit error signal when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F6",
+          "name": "Data CRC Error Signal Enable",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the data CRC error signal interrupt when set to 1 or 0 respectively.",
+          "values": []
+        },
+        {
+          "id": "REG_03A_F7",
+          "name": "Data Timeout Error Signal Enable",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "1 Enabled 0 Masked",
+          "abstract": "Enables or masks the generation of a data timeout error signal when set to 1 or 0 respectively.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 67,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03C",
+      "name": "Auto CMD Error Status Register",
+      "offset": "03Ch",
+      "spec_section": "2.2.23",
+      "spec_table": "TABLE_2_30",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_03C_F0",
+          "name": "Response Field Exception",
+          "bits": "15-08",
+          "bit_high": 15,
+          "bit_low": 8,
+          "width": 8,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "Occurs when detecting that the response field is not matched with the Auto CMD12 or Auto CMD23 response error of the CMD_wo_DAT. CMD12 errors are indicated in D04-D01. This register is valid only when the Auto CMD Error Status Enable bit is set to 1. This bit will be set to 1 when Auto CMD12 Error is generated by Auto CMD23.",
+          "abstract": "This field captures response field mismatches or errors from Auto CMD12/CMD23 commands, with CMD12-specific errors detailed in bits D04-D01, and is only active when Auto CMD Error Status Enable is set.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F1",
+          "name": "Command Not Issued By Auto CMD12 Error",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "Setting this bit to 1 means CMD_wo_DAT is not executed due to an Auto CMD12 Error (D04-D01) in this register. This bit is set to 0 when Auto CMD Error is generated by Auto CMD23.",
+          "abstract": "This read-only-clear bit indicates that a CMD_wo_DAT command failed to execute due to an Auto CMD12 error condition.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F2",
+          "name": "Auto CMD Index Error",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "Occurs if the command index error occurs in response to a command.",
+          "abstract": "Indicates that a command index error has occurred and can be cleared by reading this status bit.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F3",
+          "name": "Auto CMD End Bit Error",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "Occurs when detecting that the end bit of command response is 0.",
+          "abstract": "Detects when the end bit of a command response is 0 instead of the expected 1, and is cleared by reading.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F4",
+          "name": "Auto CMD CRC Error",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "Occurs when detecting a CRC error in the command response.",
+          "abstract": "Indicates a CRC error was detected in the command response and is cleared by reading.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F5",
+          "name": "Auto CMD Timeout Error",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "Occurs if no response is returned within 64 SDCLK cycles from the end bit of the command. If this bit is set to 1 the other error status bits (D04-D02) are meaningless.",
+          "abstract": "This read-only-clear field indicates a command timeout error when no response is received within 64 SDCLK cycles after the command end bit, invalidating other error status bits.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F6",
+          "name": "Auto CMD12 Not Executed",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "If memory multiple block data transfer is not started due to a command error the bit is not set because it is not necessary to issue an Auto CMD12. Setting this bit to 1 means the Host Controller cannot issue the Auto CMD12 to stop memory multiple block data transfer due to some error. This bit is set to 0 when Auto CMD Error is generated by Auto CMD23.",
+          "abstract": "This read-only-clear bit indicates whether the Host Controller failed to issue Auto CMD12 to terminate a multiple block memory transfer due to an error condition.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 69,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03E",
+      "name": "Host Control 2 Register",
+      "offset": "03Eh",
+      "spec_section": "2.2.24",
+      "spec_table": "TABLE_2_32",
+      "class_id": "REGCLASS_HOST_CTRL2",
+      "fields": [
+        {
+          "id": "REG_03E_F1",
+          "name": "Host Control 2 Register",
+          "bits": "15-00",
+          "bit_high": 15,
+          "bit_low": 0,
+          "width": 16,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This 16-bit register is used to control the operation of the Host Controller. The Host Controller shall reset the Host Control 2 Register on a Software Reset for All. The Host Controller shall reset the Host Control 2 Register on a Hardware Reset. Refer to Table 2-33 for the definition of the Host Control 2 Register.\n\nBit 15: Preset Value Enable: Refer to Table 2-33 for the definition of this bit.\n\nBit 14: Asynchronous Interrupt Enable: Refer to Table 2-33 for the definition of this bit.\n\nBit 13-12: Reserved\n\nBit 11: 64-bit Addressing: Refer to Table 2-33 for the definition of this bit.\n\nBit 10: Host Version 4 Enable: Refer to Table 2-33 for the definition of this bit.\n\nBit 9: Addressing: Refer to Table 2-33 for the definition of this bit.\n\nBit 8: Command Queuing Enable: Refer to Table 2-33 for the definition of this bit.\n\nBit 7-4: UHS Mode Select: Refer to Table 2-33 for the definition of this bit.\n\nBit 3: 1.8V Signaling Enable: Refer to Table 2-33 for the definition of this bit.\n\nBit 2-0: Reserved\n\nAll of bits 15-0 are set to 0 if a card supports UHS-I/HS200/HS400 and the Host Controller supports UHS-I/HS200/HS400. If the card does not support UHS-I/HS200/HS400 or the Host Controller does not support UHS-I/HS200/HS400, all of bits 15-0 are set to 0. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized.",
+          "abstract": "A 16-bit read-write register that controls Host Controller operation and is reset on both software and hardware resets, with individual bits controlling preset values and asynchronous interrupts.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 72,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_040",
+      "name": "Capabilities Register",
+      "offset": "040h",
+      "spec_section": "2.2.25",
+      "spec_table": "TABLE_2_33",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [
+        {
+          "id": "REG_040_F0",
+          "name": "Re-Tuning Timer Count",
+          "bits": "31-16",
+          "bit_high": 31,
+          "bit_low": 16,
+          "width": 16,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "Driver: By counting either ticks, the Host Driver assesses the re-tuning procedure's run timing. If this field is read as zero, the Host Driver should assess the re-tuning procedure's run timing by using other methods so that re-tuning procedures can be inserted during data transfers.",
+          "abstract": "This read-only field counts ticks to measure re-tuning procedure timing, with zero indicating the driver must use alternative timing methods.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F1",
+          "name": "Re-Tuning Mode 3",
+          "bits": "15",
+          "bit_high": 15,
+          "bit_low": 15,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller supports the re-tuning mode 3 as defined in the SD Host Controller Simplified Specification Version 3.00. If this field is read as 0, the Host Driver should assume that the Host Controller does not support the re-tuning mode 3.",
+          "abstract": "This read-only field indicates whether the Host Controller supports re-tuning mode 3 as defined in the SD Host Controller Simplified Specification Version 3.00.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F2",
+          "name": "Re-Tuning Mode 2",
+          "bits": "14",
+          "bit_high": 14,
+          "bit_low": 14,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller supports the re-tuning mode 2 as defined in the SD Host Controller Simplified Specification Version 3.00. If this field is read as 0, the Host Driver should assume that the Host Controller does not support the re-tuning mode 2.",
+          "abstract": "This read-only field indicates whether the Host Controller supports re-tuning mode 2 as defined in the SD Host Controller Simplified Specification Version 3.00.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F3",
+          "name": "Use Tuning for SDR50",
+          "bits": "13",
+          "bit_high": 13,
+          "bit_low": 13,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller requires the capability to execute the re-tuning timing by using the tuning procedure. If this field is read as 0, the Host Driver shall not execute the tuning procedure for SDR50. The Re-Tuning Request of the Tuning Mode 1 or the Re-Tuning Request of the Tuning Mode 2 is never set to 1 for SDR50.",
+          "abstract": "This read-only field indicates whether the Host Controller supports the re-tuning procedure required for SDR50 mode operation.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F4",
+          "name": "DDR50 Support",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller supports the DDR50 mode. If this field is read as 0, the Host Driver should assume that the Host Controller does not support the DDR50 mode. The Host Driver shall not issue the DDR50 mode command to the Host Controller.",
+          "abstract": "The Host Controller supports DDR50 mode if this read-only field is set to 1, otherwise the Host Driver must not attempt to use DDR50 mode.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F5",
+          "name": "SDR104 Support",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller supports the SDR104 mode. If this field is read as 0, the Host Driver should assume that the Host Controller does not support the SDR104 mode. The Host Driver shall not issue the SDR104 mode command to the Host Controller.",
+          "abstract": "The Host Controller supports SDR104 mode if this read-only field is set to 1, otherwise the Host Driver must not attempt to use SDR104 mode.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F6",
+          "name": "SDR50 Support",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 1, the Host Controller supports the SDR50 mode. If this field is read as 0, the Host Driver should assume that the Host Controller does not support the SDR50 mode. The Host Driver shall not issue the SDR50 mode command to the Host Controller.",
+          "abstract": "The Host Controller supports SDR50 mode if this read-only field is set to 1, otherwise the Host Driver must not use SDR50 mode commands.",
+          "values": []
+        },
+        {
+          "id": "REG_040_F7",
+          "name": "Slot Type",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "read-only",
+          "original_attrib": "RO",
+          "raw": "If this field is read as 00b, the Host Controller supports the Removable Card Slot. If this field is read as 01b, the Host Controller supports the Embedded Slot for One Device. If this field is read as 10b, the Host Controller supports the Shared Bus Slot in this register. The Host Driver according to reading the Slot Type value, drives the Host Controller. The Host Driver reads an undefined value from this field, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If this field is read as 11b, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host Controller supports the Shared Bus Slot in this register, the Host Driver should assume that the Host Controller supports the Removable Card Slot. If the Host",
+          "abstract": "This read-only field indicates the type of card slot supported by the Host Controller (Removable, Embedded, or Shared Bus), guiding the Host Driver's operation accordingly.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 77,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_048",
+      "name": "Maximum Current Capabilities Register",
+      "offset": "048h",
+      "spec_section": "2.2.26",
+      "spec_table": "TABLE_2_35",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [
+        {
+          "id": "REG_048_F0",
+          "name": "Maximum Current for 1.8V",
+          "bits": "23-16",
+          "bit_high": 23,
+          "bit_low": 16,
+          "width": 8,
+          "access": "hwinit",
+          "original_attrib": "HwInit",
+          "raw": "Maximum current capability for 1.8V voltage level. This register measures current in 4mA steps.",
+          "abstract": "Specifies the maximum current capability for 1.8V supply in 4mA increments, initialized by hardware.",
+          "values": []
+        },
+        {
+          "id": "REG_048_F1",
+          "name": "Maximum Current for 3.0V",
+          "bits": "15-08",
+          "bit_high": 15,
+          "bit_low": 8,
+          "width": 8,
+          "access": "hwinit",
+          "original_attrib": "HwInit",
+          "raw": "Maximum current capability for 3.0V voltage level. This register measures current in 4mA steps.",
+          "abstract": "Specifies the maximum current capability at 3.0V in 4mA increments, initialized by hardware.",
+          "values": []
+        },
+        {
+          "id": "REG_048_F2",
+          "name": "Maximum Current for 3.3V",
+          "bits": "07-00",
+          "bit_high": 7,
+          "bit_low": 0,
+          "width": 8,
+          "access": "hwinit",
+          "original_attrib": "HwInit",
+          "raw": "Maximum current capability for 3.3V voltage level. This register measures current in 4mA steps.",
+          "abstract": "Specifies the maximum current capability for 3.3V supply in 4mA increments.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 80,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_050",
+      "name": "Force Event Register for Auto CMD Error Status",
+      "offset": "050h",
+      "spec_section": "2.2.27",
+      "spec_table": "TABLE_2_37",
+      "class_id": "REGCLASS_FORCE_EVENT",
+      "fields": [
+        {
+          "id": "REG_050_F0",
+          "name": "Force Event for Command Not Issued By Auto CMD12 Error",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this bit forces generation of an interrupt for the Command Not Issued By Auto CMD12 error condition.",
+          "values": []
+        },
+        {
+          "id": "REG_050_F1",
+          "name": "Force Event for Auto CMD Index Error",
+          "bits": "04",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this bit forces generation of an interrupt for Auto CMD Index Error events.",
+          "values": []
+        },
+        {
+          "id": "REG_050_F2",
+          "name": "Force Event for Auto CMD End Bit Error",
+          "bits": "03",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt for Auto CMD End Bit Error events.",
+          "values": []
+        },
+        {
+          "id": "REG_050_F3",
+          "name": "Force Event for Auto CMD CRC Error",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt for Auto CMD CRC errors.",
+          "values": []
+        },
+        {
+          "id": "REG_050_F4",
+          "name": "Force Event for Auto CMD Timeout Error",
+          "bits": "01",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt for Auto CMD timeout errors.",
+          "values": []
+        },
+        {
+          "id": "REG_050_F5",
+          "name": "Force Event for Auto CMD12 Not Executed",
+          "bits": "00",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 Interrupt is generated\n0 No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt when Auto CMD12 is not executed.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 81,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_052",
+      "name": "Force Event Register for Error Interrupt Status",
+      "offset": "052h",
+      "spec_section": "2.2.28",
+      "spec_table": "TABLE_2_38",
+      "class_id": "REGCLASS_FORCE_EVENT",
+      "fields": [
+        {
+          "id": "REG_052_F0",
+          "name": "Force Event for Vendor Specific Error Status",
+          "bits": "15-12",
+          "bit_high": 15,
+          "bit_low": 12,
+          "width": 4,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "Additional status bits can be defined in the register by the vendor. 1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to these vendor-defined bits generates an interrupt for vendor-specific error conditions, while 0 suppresses the interrupt.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F2",
+          "name": "Force Event for ADMA Error",
+          "bits": "09",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to this bit forces an ADMA error interrupt to be generated, while writing 0 has no effect.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F3",
+          "name": "Force Event for Auto CMD Error",
+          "bits": "08",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to this field forces an interrupt to be generated for an Auto CMD error condition.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F4",
+          "name": "Force Event for Current Limit Error",
+          "bits": "07",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt for a current limit error condition.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F5",
+          "name": "Force Event for Data End Bit Error",
+          "bits": "06",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to this field forces generation of an interrupt for a data end bit error condition.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F6",
+          "name": "Force Event for Data CRC Error",
+          "bits": "05",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "write-only",
+          "original_attrib": "WO",
+          "raw": "1 = Interrupt is generated; 0 = No Interrupt",
+          "abstract": "Writing 1 to this bit forces generation of an interrupt for a data CRC error condition.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 83,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_054",
+      "name": "ADMA Error Status Register",
+      "offset": "054h",
+      "spec_section": "2.2.29",
+      "spec_table": "TABLE_2_39",
+      "class_id": "REGCLASS_ADMA",
+      "fields": [
+        {
+          "id": "REG_054_F0",
+          "name": "ADMA Length Mismatch Error",
+          "bits": "02",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This error occurs in the following 2 cases. (1) While Block Count Enable being set, the total data length specified by the Descriptor table is different from that specified by the Block Count and Block Length. (2) Total data length can not be divided by the block length. 1 = Error, 0 = No Error",
+          "abstract": "This read-only-clear flag indicates an ADMA length mismatch error when descriptor table data length doesn't match block count specifications or isn't divisible by block length.",
+          "values": []
+        },
+        {
+          "id": "REG_054_F1",
+          "name": "ADMA Error State",
+          "bits": "01-00",
+          "bit_high": 1,
+          "bit_low": 0,
+          "width": 2,
+          "access": "read-only-clear",
+          "original_attrib": "ROC",
+          "raw": "This field indicates the state of ADMA when error is occurred during ADMA data transfer. This field never indicates \"10\" because ADMA never stops in this state. D01-D00: 00 = ST_STOP (Stop DMA) - Points next of the error descriptor, 01 = ST_FDS (Fetch Descriptor) - Points the error descriptor, 10 = Never set this state - (Not used), 11 = ST_TFR (Transfer Data) - Points the next of the error descriptor",
+          "abstract": "This read-only field indicates the ADMA state (Stop, Fetch Descriptor, or Transfer Data) at the time an error occurred during data transfer.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 84,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_058",
+      "name": "ADMA System Address Register",
+      "offset": "058h",
+      "spec_section": "2.2.30",
+      "spec_table": "TABLE_2_40",
+      "class_id": "REGCLASS_ADMA",
+      "fields": [
+        {
+          "id": "REG_058_F0",
+          "name": "ADMA System Address",
+          "bits": "63-00",
+          "bit_high": 63,
+          "bit_low": 0,
+          "width": 64,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "This register holds byte address of executing command of the Descriptor table. 32-bit Address Descriptor uses lower 32-bit of this register. At the start of ADMA, the Host Driver shall set start address of the Descriptor table. The ADMA increments this register address, which points to next line, when every fetching a Descriptor line. When the ADMA Error Interrupt is generated, this register shall hold valid Descriptor address depending on the ADMA state. The Host Driver shall program Descriptor Table on 32-bit boundary and set 32-bit boundary address to this register. ADMA2 ignores lower 2-bit of this register and assumes it to be 00b.",
+          "abstract": "This 64-bit register stores the byte address of the current ADMA descriptor being executed, automatically incremented by the ADMA controller as it fetches successive descriptor lines from the descriptor table.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 85,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_060",
+      "name": "Preset Value Registers",
+      "offset": "060h",
+      "spec_section": "2.2.31",
+      "spec_table": "TABLE_2_43",
+      "class_id": "REGCLASS_PRESET",
+      "fields": [
+        {
+          "id": "REG_060_F0",
+          "name": "Register Field Expansion Driver Strength Select Value",
+          "bits": "15-14",
+          "bit_high": 15,
+          "bit_low": 14,
+          "width": 2,
+          "access": "rw/r",
+          "original_attrib": "RW/R",
+          "raw": "This field is meaningful only if BV speaking bus speed modes. This field is meaningful for 3.3V signaling.\n11b    Driver Type D is Selected\n10b    Driver Type C is Selected\n01b    Driver Type A is Selected\n00b    Driver Type B is Selected",
+          "abstract": "Selects the driver strength type (A, B, C, or D) for 3.3V signaling in high-speed bus modes.",
+          "values": []
+        },
+        {
+          "id": "REG_060_F1",
+          "name": "Preset Value",
+          "bits": "13-11",
+          "bit_high": 13,
+          "bit_low": 11,
+          "width": 3,
+          "access": "rw/r",
+          "original_attrib": "RW/R",
+          "raw": "Clock Pin Select Value. This bit is effective when Host Controller supports programmable clock generator.\n1    Programmable Clock Generator\n0    Host Controller Ver2.0 Compatible Clock Generator",
+          "abstract": "Selects between a programmable clock generator (1) or Host Controller Ver2.0 compatible clock generator (0) when supported.",
+          "values": []
+        },
+        {
+          "id": "REG_060_F2",
+          "name": "SDCLK Frequency",
+          "bits": "10-00",
+          "bit_high": 10,
+          "bit_low": 0,
+          "width": 11,
+          "access": "rw/r",
+          "original_attrib": "RW/R",
+          "raw": "SDCLK Frequency Select. This field is used to calculate a preset value to set SDCLK Frequency Select in the Clock Control register to achieve a host system.",
+          "abstract": "This 11-bit read/write field selects the SDCLK frequency by providing a preset value for the Clock Control register to achieve the desired host system clock frequency.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 87,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_0E0",
+      "name": "Shared Bus Control Register",
+      "offset": "0E0h",
+      "spec_section": "2.2.32",
+      "spec_table": "TABLE_2_44",
+      "class_id": "REGCLASS_SHARED_BUS",
+      "fields": [
+        {
+          "id": "REG_0E0_F0",
+          "name": "Back-End Power Control",
+          "bits": "30-24",
+          "bit_high": 30,
+          "bit_low": 24,
+          "width": 7,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "Each bit of this field controls back-end power supply for an embedded memory device in the Shared Bus Controller. The back-end power supply for each embedded memory device is controlled by a bit in this field. The number of devices supported is specified by Number of Clock Pins and is a maximum of 7 devices can be controlled.\n001b = Back-end Power Control for Device 1\n010b = Back-end Power Control for Device 2\n011b = Back-end Power Control for Device 3\n100b = Back-end Power Control for Device 4\n101b = Back-end Power Control for Device 5\n110b = Back-end Power Control for Device 6\n111b = Back-end Power Control for Device 7\n\nThe b-notion of each bit is defined as follows:\n0 = Back-end Power is Off\n1 = Back-end Power is Supplied\n\nBack-End power control is effective for embedded memory devices in the Shared Bus Controller. When this bit is set to 1, the Shared Bus Controller (SDIU1) is reduce power consumption and embedded SDO devices when IDLE is set to 0.",
+          "abstract": "This 7-bit read-write field controls the back-end power supply for up to 7 embedded memory devices in the Shared Bus Controller, with each bit corresponding to one device.",
+          "values": []
+        },
+        {
+          "id": "REG_0E0_F1",
+          "name": "Interrupt pin",
+          "bits": "23-20",
+          "bit_high": 23,
+          "bit_low": 20,
+          "width": 4,
+          "access": "read-write",
+          "original_attrib": "RW",
+          "raw": "Interrupt pin (made are enabled by this field. Enable of unsupported interrupt pin is meaningless.\n000b = Interrupt is Detected by External Cycle\n001b = INT_A is Enabled\n010b = INT_B is Enabled\n1xxb = INT_C is Enabled",
+          "abstract": "Selects which interrupt pin (INT_A, INT_B, or INT_C) is enabled to detect external interrupts, with external cycle detection as the default mode.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 90,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_0F0",
+      "name": "Slot Interrupt Status Register",
+      "offset": "0F0h",
+      "spec_section": "2.2.33",
+      "spec_table": "TABLE_2_45",
+      "class_id": "REGCLASS_COMMON",
+      "fields": [
+        {
+          "id": "REG_0F0_F0",
+          "name": "Interrupt Signal For Each Slot",
+          "bits": "15-08",
+          "bit_high": 15,
+          "bit_low": 8,
+          "width": 8,
+          "access": "reserved",
+          "original_attrib": "Rsvd",
+          "raw": "This field indicates the logical OR of Interrupt Signal and Wakeup Signal for each slot. A maximum of 8 slots can be defined. If one interrupt signal is associated with multiple slots, the Host Driver can know which interrupt is asserted by reading this field. By a power on reset, the number of slots supported by the controller is set. The interrupt signal shall be de-asserted and this status shall read 00h.",
+          "abstract": "This field provides a bitmask indicating which of up to 8 slots have active interrupt or wakeup signals, allowing the host driver to identify which interrupts are asserted.",
+          "values": []
+        },
+        {
+          "id": "REG_0F0_F1",
+          "name": "Slot 3 / Slot 2 / Slot 1",
+          "bits": "02-00",
+          "bit_high": 2,
+          "bit_low": 0,
+          "width": 3,
+          "access": "slot",
+          "original_attrib": "Slot",
+          "raw": "",
+          "abstract": "Slot 3 / Slot 2 / Slot 1",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 91,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_0FE",
+      "name": "Host Controller Version Register",
+      "offset": "0FEh",
+      "spec_section": "2.2.34",
+      "spec_table": "TABLE_2_46",
+      "class_id": "REGCLASS_COMMON",
+      "fields": [
+        {
+          "id": "REG_0FE_F0",
+          "name": "Vendor Version Number",
+          "bits": "15-08",
+          "bit_high": 15,
+          "bit_low": 8,
+          "width": 8,
+          "access": "rwrd",
+          "original_attrib": "RwRd",
+          "raw": "This value is reserved for the vendor version number. The Host Driver shall not interpret this value.",
+          "abstract": "Vendor-specific version number field reserved for vendor use that the host driver must not interpret.",
+          "values": []
+        },
+        {
+          "id": "REG_0FE_F1",
+          "name": "Specification Version Number",
+          "bits": "07-00",
+          "bit_high": 7,
+          "bit_low": 0,
+          "width": 8,
+          "access": "hwrd",
+          "original_attrib": "HwRd",
+          "raw": "This value indicates the Host Controller Spec. Version. The upper and lower nibbles are in BCD.\nSD Host Specification Version 1.00\nSD Host Specification Version 2.00\nSD Host Specification Version 3.00\nSD Host Specification Version 3.00\n04h - FFh: Reserved",
+          "abstract": "This 8-bit read-only field indicates the SD Host Controller specification version in BCD format, with values 00h-03h representing versions 1.00 through 3.00 and higher values reserved.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 91,
+        "definition_page": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+SD_SECURITY,CPRM Security Version
+0,No Security
+1,Not Used
+2,SDSC Card (Security Version 1.01)
+3,SDHC Card (Security Version 2.00)
+4,SDXC Card (Security Version 3.xx)
+5 - 7,Reserved

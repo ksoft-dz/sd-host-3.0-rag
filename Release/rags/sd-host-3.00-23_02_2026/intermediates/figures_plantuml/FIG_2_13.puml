@@ -1,0 +1,21 @@
+@startuml
+robust "CMD line" as CMD
+robust "D00" as D00
+
+@0
+CMD is Command
+D00 is {-}
+
+@100
+CMD is {-}
+D00 is High
+
+@200
+D00 is {-}
+
+note bottom of D00
+  The Host Controller clears D00
+  if the command is issued successfully.
+end note
+
+@enduml

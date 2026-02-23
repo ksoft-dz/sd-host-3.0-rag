@@ -1,0 +1,45 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+hide empty description
+
+map "CAPABILITIES31_0 Register (Offset: 0x0040, Access: Read)" as reg {
+}
+
+rectangle "Bits 31-24" as upper {
+  rectangle "31-26: CORECFG_TIMEOUTCLKFREQ" as b31_26
+  rectangle "25: 0" as b25
+  rectangle "24: CORECFG_TIMEOUTCLKUNIT" as b24
+}
+
+rectangle "Bits 23-16" as mid_upper {
+  rectangle "23-16: CORECFG_BASECLKFREQ" as b23_16
+}
+
+rectangle "Bits 15-8" as mid_lower {
+  rectangle "15-14: CORECFG_MAXBLKLENGTH" as b15_14
+  rectangle "13: CORECFG_8BITSUPPORT" as b13
+  rectangle "12: CORECFG_ADMA2SUPPORT" as b12
+  rectangle "11: 0" as b11
+  rectangle "10: CORECFG_HIGHSPEEDSUPPORT" as b10
+  rectangle "9: CORECFG_SDMASUPPORT" as b9
+  rectangle "8: CORECFG_SUSPENDRESUME" as b8
+}
+
+rectangle "Bits 7-0" as lower {
+  rectangle "7: CORECFG_3P3VOLTSUPPORT" as b7
+  rectangle "6: CORECFG" as b6
+  rectangle "5: 0" as b5
+  rectangle "4: 0" as b4
+  rectangle "3: 0" as b3
+  rectangle "2: CORECFG_ASYNCHINTRSUPPORT" as b2
+  rectangle "1: CORECFG_SLOTTYPE" as b1
+  rectangle "0: CORECFG" as b0
+}
+
+note bottom
+  Reset Values:
+  Bits 0-15:  0 0 1 0 0 0 0 1 1 1 1 0 0 1 0 0
+  Bits 16-31: 0 0 1 1 0 0 1 0 1 0 0 0 0 0 0 1
+end note
+@enduml

@@ -1,0 +1,5 @@
+Interrupt Status Enable,Interrupt Signal Enable,Wakeup Event Enable,Interrupt Status,Interrupt Signal
+0 (Mask),x (don't care),x (don't care),0 (Not exist),0 (De-assert)
+1 (Enable),0 (Mask),x (don't care),x (don't care),0 (De-assert)
+1 (Enable),1 (Enable),x (don't care),0 (Not exist),0 (De-assert)
+1 (Enable),1 (Enable),x (don't care),1 (Exist),1 (Assert)

@@ -1,0 +1,44 @@
+@startuml
+skinparam defaultTextAlignment center
+
+title Figure 6-2 : Change of Figure for Power Up
+
+concise "VDD Supply\nvoltage" as VDD
+
+@0
+VDD is {-}
+
+@50
+VDD is "0.5V" #LightBlue
+note bottom: Power On/Cycle\nlevel/duration
+
+@150
+VDD is {/}
+note bottom: Power ramp up
+
+@300
+VDD is "2.7V\nVDD min"
+
+@350
+VDD is "3.6V\nVDD max"
+
+@400
+VDD is "Stable Supply voltage"
+note bottom
+  Initialization sequence
+  ----
+  Initialization delay The
+  maximum of 1msec, 74 clock
+  cycles and supply up time
+end note
+
+@500
+VDD is "CMD0"
+
+legend right
+  Operating Supply Range: 2.7V (VDD min) to 3.6V (VDD max)
+  Power On/Cycle duration: >1msec at <0.5V
+  Time (not to scale)
+end legend
+
+@enduml

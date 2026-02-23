@@ -1,0 +1,13 @@
+Step,Description
+4,"Set the value corresponding to the executed data block count in the Block count register. If the Block Count Enable in the Transfer mode register is set to 1, total data length can be designated by the Block count register and the Descriptor table. These two parameters indicate same data length. However, transfer length is limited by the 16-bit Block count register. If the Block Count Enable in the Transfer mode register is set to 0, total data length is designated by not Block count register but the Descriptor table. In this case, ADMA reads more data than length programmed in descriptor from SDMMC card. Too much read operation is aborted asynchronously and extra read data is discarded when the ADMA is completed."
+5,Set the argument value to the Argument register.
+6,"Set the value to the Transfer mode register. The host driver determines Multi / Single Block Select, Block Count Enable, Data Transfer Direction, Auto CMD12 Enable and DMA Enable."
+7,"Set the value to the Command register. When writing to the upper byte [3] of the Command register, the SDMMC command is issued and DMA is started."
+8,Wait for the Command Complete Interrupt.
+9,Write 1 to the Command Complete in the Normal interrupt status register to clear this bit.
+10,Read Response register and get necessary information of the issued command.
+11,Wait for the Transfer Complete Interrupt and ADMA Error Interrupt.
+12,"If Transfer Complete is set 1, go to Step (13) else if ADMA Error Interrupt is set to 1, go to Step (14)."
+13,Write 1 to the Transfer Complete Status in the Normal interrupt status register to clear this bit.
+14,Write 1 to the ADMA Error interrupt status in the Error interrupt status register to clear this bit.
+15,"Abort ADMA operation. SDMMC card operation is stopped by issuing Abort command. If necessary, the host driver checks ADMA Error status register to detect why ADMA error is generated."

@@ -1,0 +1,62 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Host Control 1 Register (Offset 028h)" <<register>> {
+    rectangle "D07\nCard Detect Signal\nSelection" as D07
+    rectangle "D06\nCard Detect Test\nLevel" as D06
+    rectangle "D05\nExtended Data\nTransfer Width" as D05
+    rectangle "D04-D03\nDMA Select" as D04_D03
+    rectangle "D02\nHigh Speed Enable" as D02
+    rectangle "D01\nData Transfer\nWidth" as D01
+    rectangle "D00\nLED Control" as D00
+    
+    D07 -right- D06
+    D06 -right- D05
+    D05 -right- D04_D03
+    D04_D03 -right- D02
+    D02 -right- D01
+    D01 -right- D00
+}
+
+note bottom of D07
+  RW - Card Detect Signal Selection
+  1: Card Detect Test Level selected
+  0: SDCD# selected (normal use)
+end note
+
+note bottom of D06
+  RW - Card Detect Test Level
+  1: Card Inserted
+  0: No Card
+end note
+
+note bottom of D05
+  RW - Extended Data Transfer Width
+  1: 8-bit Bus Width
+  0: Bus Width by Data Transfer Width
+end note
+
+note bottom of D04_D03
+  RW - DMA Select
+  00: SDMA selected
+  01: Reserved
+  10: 32-bit Address ADMA2 selected
+  11: Reserved (Version 4.00)
+end note
+
+note bottom of D02
+  RW - High Speed Enable
+end note
+
+note bottom of D01
+  RW - Data Transfer Width
+end note
+
+note bottom of D00
+  RW - LED Control
+end note
+
+@enduml

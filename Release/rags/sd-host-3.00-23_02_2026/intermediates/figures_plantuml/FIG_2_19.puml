@@ -1,0 +1,39 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Timeout Control Register (Offset 02Eh)" <<register>> {
+    rectangle "D07" as d7
+    rectangle "D04" as d4
+    rectangle "D03" as d3
+    rectangle "D00" as d0
+    
+    d7 -[hidden]right- d4
+    d4 -[hidden]right- d3
+    d3 -[hidden]right- d0
+    
+    note bottom of d7
+        Rsvd
+    end note
+    
+    note bottom of d3
+        Data Timeout Counter
+        Value
+    end note
+}
+
+note right of "Timeout Control Register (Offset 02Eh)"
+    Bits 07-04: Reserved (Rsvd)
+    Bits 03-00: Data Timeout Counter Value (RW)
+    
+    Counter Values:
+    1111b = Reserved
+    1110b = TMCLK x 2^27
+    ...
+    0001b = TMCLK x 2^14
+    0000b = TMCLK x 2^13
+end note
+
+@enduml

@@ -1,0 +1,12 @@
+Field,Description
+16:31 CMDDEBUGBUS,CMD_CTRL debug bus
+16:31 CMDDEBUGBUS,"cmdfsm_cmdrespstatus [3:0] - Command response status"
+16:31 CMDDEBUGBUS,"sdhcregset_bootena_sdmmcclk - Double synchronization of sdhcregset_bootena signal"
+16:31 CMDDEBUGBUS,"sdhcregset_cmdexecute_sdmmcclk - Double synchronization of sdhcregset_cmdexecute signal"
+16:31 CMDDEBUGBUS,"cmdfsm_autocmd23 - It is set when AutoCMD 23 Qualified with CMD_Data Present"
+16:31 CMDDEBUGBUS,cmdfsm_autocmd12 - Auto CMD12 indication
+16:31 CMDDEBUGBUS,cmdfsm_cmdissued - CMD issued signal
+16:31 CMDDEBUGBUS,cmdfsm_cmdcomplete - Command complete bit
+16:31 CMDDEBUGBUS,cmdfsm_cmdena - CMD output enable
+16:31 CMDDEBUGBUS,cmdfsm_cmdout - CMD output
+16:31 CMDDEBUGBUS,"cmdfsm_state[3:0] - Command state machine"

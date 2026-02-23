@@ -1,0 +1,8 @@
+Bus Speed Mode,Max. Bus Speed [MB/s],Max. Clock Frequency [MHz],Signal Voltage [V],SDSC Max. Current [mA/3.6V VDD],SDHC Max. Current [mA/3.6V VDD],SDXC Max. Current [mA/3.6V VDD]
+SDR104,104,208,1.8,-,800,800
+SDR50,50,100,1.8,-,400,400
+DDR50,50,50,1.8,-,400,400
+SDR25,25,50,1.8,-,200,200
+SDR12,12.5,25,1.8,-,100,100/150
+High Speed,25,50,3.3,200,200,200
+Default Speed,12.5,25,3.3,100,100,100/150

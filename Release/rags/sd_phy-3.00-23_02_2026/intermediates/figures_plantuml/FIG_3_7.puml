@@ -1,0 +1,52 @@
+@startuml
+skinparam monochrome false
+
+title Data Packet Format - Wide Width Data
+
+legend left
+  b511                    b0
+  |====Ex. SD Status====|
+  Wide Width Data
+  
+  Ex.
+  [SD memory]
+  ACMD13(SD Status),
+  ACMD51(SCR),
+  etc
+endlegend
+
+note as N1
+  **Data Packet Format for Standard Bus (only DAT0 used)**
+end note
+
+rectangle "Standard Bus Format" {
+  rectangle "DAT0" as std {
+    rectangle "Start bit\n0" as std_start #white
+    rectangle "b511" as std_b511 #lightgreen
+    rectangle "b510" as std_b510 #lightgreen
+    rectangle "b509" as std_b509 #lightgreen
+    rectangle "b508" as std_b508 #lightgreen
+    rectangle "• • •" as std_dots #white
+    rectangle "b1" as std_b1 #lightgreen
+    rectangle "b0" as std_b0 #lightgreen
+    rectangle "CRC" as std_crc #white
+    rectangle "End bit\n1" as std_end #white
+  }
+}
+
+note as N2
+  **Data Packet Format for Wide Bus (all four lines used)**
+end note
+
+rectangle "Wide Bus Format" {
+  rectangle "DAT3: | 0 | b511 | b507 | b503 | b499 | • • • | b7 | b3 | CRC | 1 |" as dat3 #lightgreen
+  rectangle "DAT2: | 0 | b510 | b506 | b502 | b498 | • • • | b6 | b2 | CRC | 1 |" as dat2 #lightgreen
+  rectangle "DAT1: | 0 | b509 | b505 | b501 | b497 | • • • | b5 | b1 | CRC | 1 |" as dat1 #lightgreen
+  rectangle "DAT0: | 0 | b508 | b504 | b500 | b496 | • • • | b4 | b0 | CRC | 1 |" as dat0 #lightgreen
+}
+
+N1 -[hidden]-> std
+std -[hidden]-> N2
+N2 -[hidden]-> dat3
+
+@enduml

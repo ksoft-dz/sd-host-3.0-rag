@@ -1,0 +1,67 @@
+@startuml
+title Figure 3-2: (Multiple) Block Read Operation
+
+concise "CMD" as CMD
+concise "DAT" as DAT
+
+@0
+CMD is idle
+
+@5
+CMD is command
+note top of CMD: from\nhost\nto card
+
+@20
+CMD is response
+note top of CMD: from\ncard\nto host
+
+@35
+CMD is idle
+
+@100
+CMD is command
+note top of CMD: stop command\nstops data transfer
+
+@115
+CMD is response
+
+@130
+CMD is idle
+
+@20
+DAT is idle
+
+@25
+DAT is "data block"
+
+@40
+DAT is crc
+
+@45
+DAT is "data block"
+note top of DAT: data from card\nto host
+
+@60
+DAT is crc
+
+@65
+DAT is "data block"
+
+@80
+DAT is crc
+
+@90
+DAT is idle
+
+@0
+note bottom of DAT: block read operation
+
+@0
+note bottom of CMD
+multiple block read operation
+end note
+
+@90
+note bottom of DAT: data stop operation
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+skinparam backgroundColor white
+skinparam handwritten false
+
+' Define the table structure
+together {
+    rectangle "Speed Class Overview" {
+        map "Card Types" as header {
+            row1 => Standard Capacity | SDHC (AU =<4MB) | SDXC (Large AU)
+        }
+        
+        rectangle "**Default Speed Mode**" as dsm #lightyellow {
+            rectangle "Class 2, 4, 6 (0<=r<1)" as class246_default #white
+            rectangle "Class 2, 4, 6 (r=0)" as class246_sdxc #white
+        }
+        
+        rectangle "**High Speed Mode**" as hsm #lightyellow {
+            rectangle "New Class 10 (r=0)" as class10 #white
+        }
+    }
+}
+
+note bottom of header
+  **r: Ratio of Used RU over an AU**
+  0<r<1: Fragmented Write
+  r=0 : Sequential Write with no fragmentation
+end note
+
+@enduml

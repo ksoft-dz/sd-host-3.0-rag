@@ -1,0 +1,26 @@
+Card Command Class (CCC),0,1,2,3,4,5,6,7,8,9,10,11
+Supported commands,class description,basic,reser ved,block read,reser ved,block write,erase,write protection,lock card,appli-cation specific,I/O mode,switch,reser ved
+CMD0,Optional,,,,,,,,,,,
+CMD28,Optional,,,,,,,,*,,,
+CMD29,Optional,,,,,,,,*,,,
+CMD30,Optional,,,,,,,,*,,,
+CMD32,Mandatory¹,,,,,*,,,,,,
+CMD33,Mandatory¹,,,,,*,,,,,,
+CMD34-37²,Optional,,,,,,,*,,,,
+CMD38,Mandatory¹,,,,,*,,,,,*,
+CMD42³,(Note 4),,,,,,,,*,,,
+CMD50²,Optional,,,,,,,,,,,*
+CMD52,Optional,,,,,,,,,,*,
+CMD53,Optional,,,,,,,,,,*,
+CMD55,Mandatory,,,,,,,,*,,,
+CMD56,Mandatory,,,,,,,,*,,,
+CMD57²,Optional,,,,,,,,,,,*
+CMD58,Mandatory,*,,,,,,,,,,,
+CMD59,Mandatory,*,,,,,,,,,,,
+ACMD6,Mandatory,,,,,,,,*,,,,
+ACMD13,Mandatory¹,,,,,,,,*,,,,
+ACMD22,Mandatory¹,,,,,,,,*,,,,
+ACMD23,Mandatory¹,,,,,,,,*,,,,
+ACMD41,Mandatory,,,,,,,,*,,,,
+ACMD42,Mandatory,,,,,,,,*,,,,
+ACMD51,Mandatory,,,,,,,,*,,,,

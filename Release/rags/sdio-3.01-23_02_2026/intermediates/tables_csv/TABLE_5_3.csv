@@ -1,0 +1,10 @@
+I don't see a table titled "Byte Count Values" or "Table 5-3" in this image. 
+
+The image shows page 38 of an SDIO Simplified Specification document, which contains:
+
+1. **Figure 5-4: IO_RW_EXTENDED Command** - A bit field diagram showing the structure of CMD53
+2. **Table 5-2: IO_RW_EXTENDED command Op Code Definition** - A small table showing OP codes (0 and 1) and their command operations related to multi-byte R/W operations
+
+The page discusses the IO_RW_EXTENDED Command (CMD53) and its various fields including Start bit, Direction, Command Index, RW Flag, Function Number, Block Mode, and OP code.
+
+If "Table 5-3: Byte Count Values" exists in this document, it may be on a different page. Could you provide the correct page image containing that table?

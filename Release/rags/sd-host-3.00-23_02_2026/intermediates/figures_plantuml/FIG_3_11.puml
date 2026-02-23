@@ -1,0 +1,45 @@
+@startuml
+start
+
+:Check Command
+Inhibit (CMD);
+note right
+  (1)
+  CMD Line used
+end note
+
+if (CMD Line free) then (yes)
+  :Issue the command
+  with the busy?;
+  note right: (2)
+  
+  if (Yes) then (yes)
+    :Issue Abort
+    Command?;
+    note right: (3)
+    
+    if (No) then (yes)
+      :Check Command
+      Inhibit (DAT);
+      note right
+        (4)
+        DAT Line used
+      end note
+      
+      if (DAT Line free) then (yes)
+        note right: New command can be issued
+        :Set Argument 1 Reg;
+        note right: (5)
+        
+        :Set Command Reg;
+        note right: (6)
+        
+        :Command Complete Sequence;
+        note right: (7)
+      endif
+    endif
+  endif
+endif
+
+stop
+@enduml

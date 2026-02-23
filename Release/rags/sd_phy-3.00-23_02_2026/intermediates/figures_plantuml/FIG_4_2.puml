@@ -1,0 +1,92 @@
+@startuml
+skinparam defaultTextAlignment center
+
+start
+:Power-on;
+:CMD0;
+:CMD8;
+
+if (Card returns response?) then (No response)
+  :Ver2.00 or later SD Memory Card(voltage mismatch)
+  or Ver1.X SD Memory Card
+  or not SD Memory Card;
+  :ACMD41
+  with HCS=0;
+  
+  if (No response?) then (No response)
+    #LightGray:Unusable
+    Card|
+    note left
+      cards with non compatible
+      voltage range (card goes to
+      'Ina' state) or time-out
+      (no response or busy) occurs
+    end note
+    stop
+  else (Card returns busy)
+    if (Card is ready?) then (Card returns ready)
+    else (Card returns busy)
+      :Card is ready?;
+      note left: Card returns busy
+    endif
+  endif
+  
+  :Ver1.X
+  Standard Capacity
+  SD Memory Card;
+  
+else (Card returns response)
+  :Ver2.00 or later
+  SD Memory Card;
+  
+  if (Valid Response?) then (Non-compatible voltage range\nor check pattern is not correct)
+    #LightGray:Unusable
+    Card|
+    stop
+  else (Compatible voltage range\nand check pattern is correct)
+    :Card with compatible
+    Voltage range;
+    note right: If host supports high capacity, HCS is set to 1
+    
+    :ACMD41
+    with HCS=0or1;
+    
+    if (Card is ready?) then (Card returns busy)
+      :Card is ready?;
+    else (Card returns ready)
+    endif
+    
+    if (cards with non compatible voltage range\nor time-out (no response or busy) occurs) then (yes)
+      #LightGray:Unusable
+      Card|
+      stop
+    endif
+    
+    if (CCS in Response?) then (CCS=0)
+      #Pink:Ver2.00 or later
+      Standard Capacity
+      SD Memory Card;
+    else (CCS=1)
+      #Pink:Ver2.00 or later
+      High Capacity or
+      Extended Capacity
+      SD Memory Card;
+    endif
+  endif
+endif
+
+if (S18R and S18A ?) then (S18R=0 or S18A=0)
+else (S18R=1&S18A=1)
+  :CMD11;
+endif
+note right: S18R and S18A are negotiated in ACMD41.\nS18A is valid only when card returns ready
+
+:CMD2;
+:CMD3;
+
+stop
+
+partition "Not SD Memory Card" {
+}
+
+@enduml

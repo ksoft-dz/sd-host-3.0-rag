@@ -1,0 +1,40 @@
+Field,Description
+"0
+NORMALINTRSTS_ENABLEREGBIT15","Fixed to 0
+The HC controls error interrupts using the Error interrupt status enable register."
+"1
+NORMALINTRSTS_ENABLEREGBIT14","Boot terminate interrupt enable
+0 Masked
+1 Enabled
+Note: SoC does not support Execute In Place from eMMC."
+"2
+NORMALINTRSTS_ENABLEREGBIT13","Boot ack rcv enable
+0 Masked
+1 Enabled
+Note: SoC does not support Execute In Place from eMMC."
+"3
+NORMALINTRSTS_ENABLEREGBIT12","Re-tuning event status enable
+0 Masked
+1 Enabled
+Note: Re-tuning is not supported."
+"4
+NORMALINTRSTS_ENABLEREGBIT11","INT_C status enable
+If this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_C and may set this bit again after all interrupt requests to INT_C pin are cleared to prevent inadvertent interrupts.
+Note: INT_C is not supported."
+"5
+NORMALINTRSTS_ENABLEREGBIT10","INT_B status enable
+If this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_B and may set this bit again after all interrupt requests to INT_B pin are cleared to prevent inadvertent interrupts.
+Note: INT_B is not supported."
+"6
+NORMALINTRSTS_ENABLEREGBIT9","INT_A status enable
+If this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_A and may set this bit again after all interrupt requests to INT_A pin are cleared to prevent inadvertent interrupts.
+Note: INT_A is not supported."
+"7
+SDHCREGSET_CARDINTSTSENA","Card interrupt status enable
+If this bit is set to 0, the HC clears interrupt request to the system. The card interrupt detection is stopped when this bit is cleared and restarted when this bit is set to 1. The HD may clear the card interrupt status enable before servicing the card interrupt and may set this bit again after all interrupt requests from the card are cleared to prevent inadvertent interrupts.
+0 Masked
+1 Enabled"
+"8
+SDHCREGSET_CARDREMSTSENA","Card removal status enable
+0 Masked
+1 Enabled"

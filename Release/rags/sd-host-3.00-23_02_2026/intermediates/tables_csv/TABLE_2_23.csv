@@ -1,0 +1,39 @@
+Bit,Access,Field Name,Description
+15,RW1C,Error Interrupt,"This status bit is set if any of the bits in the Error Interrupt Status register are set. Thus this bit can be considered as an interrupt summary bit. Refer to Table 2-24 on page 53 for more details.
+(1) In a multi-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the Interrupt Cycle. Refer to the SD Memory Card Specification Version 3.0 for more details.
+(2) In a single-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SD Memory Card Specification Version 1.01 for more details.
+(3) In an SDIO Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.
+(4) In a Combo Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.
+This status is cleared by writing 1 to this bit."
+08,RO,Card Interrupt,"(1) In a multi-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the Interrupt Cycle. Refer to the SD Memory Card Specification Version 3.0 for more details.
+(2) In a single-bit SD Memory Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SD Memory Card Specification Version 1.01 for more details.
+(3) In an SDIO Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.
+(4) In a Combo Card, this bit is set to 1 when an interrupt is detected in the DAT[1] line. Refer to the SDIO Card Specification Version 2.0 for more details.
+This status is cleared by writing 1 to this bit."
+07,ROC,Card Removal,"This bit is set if the Card Inserted in the Card Insertion Status bit is changed from 1 to 0. Refer to Table 2-25 on page 55 for more details.
+This bit is set when the card is removed.
+This status is cleared by writing 1 to this bit."
+06,ROC,Card Insertion,"This bit is set if the Card Inserted in the Card Insertion Status bit is changed from 0 to 1. Refer to Table 2-25 on page 55 for more details.
+This bit is set when the card is inserted.
+This status is cleared by writing 1 to this bit."
+05,ROC,Buffer Read Ready,"This status bit is set if the Buffer Read Enable bit in the Present State register changes from 0 to 1. Refer to Table 2-25 on page 55 for more details.
+This bit is set when the card is ready to read data from the buffer.
+This status is cleared by writing 1 to this bit."
+04,ROC,Buffer Write Ready,"This status bit is set if the Buffer Write Enable bit in the Present State register changes from 0 to 1. Refer to Table 2-25 on page 55 for more details.
+This bit is set when the card is ready to write data to the buffer.
+This status is cleared by writing 1 to this bit."
+03,ROC,DMA Interrupt,"This status bit is set if the Host Controller detects the SDMA Buffer Boundary during transfer. In case of ADMA, by setting the Int field in the descriptor table, the Host controller generates this interrupt. This interrupt is not generated after a Transfer Complete. Refer to Section 1.13 on page 29 for more details.
+This status is cleared by writing 1 to this bit."
+02,ROC,Block Gap Event,"This status bit is set when both read/write transaction is stopped at the block gap due to a Stop At Block Gap Request. Refer to Table 2-21 on page 50 for more details.
+This status is cleared by writing 1 to this bit."
+01,ROC,Transfer Complete,"This bit is set when a read or write transfer and a command with status busy is completed.
+(1) In the case of a Read Transaction:
+This bit is set at the falling edge of the Read Transfer Active Status. Refer to Table 2-25 on page 55 for more details. There are two cases in which this interrupt is generated. The first is when a data transfer is completed as specified by the data length (after the last data has been read to the Host System). The second is when data has stopped at the block gap and completed the data transfer by setting the Stop At Block Gap Request in the Block Gap Control register. Refer to Table 2-21 on page 50 for more details.
+(2) In the case of a Write Transaction:
+This bit is set at the falling edge of the Write Transfer Active Status. Refer to Table 2-25 on page 55 for more details. There are two cases in which this interrupt is generated. The first is when the last data is written to the SD card as specified by the data length and the busy signal is released. The second is when data transfers are stopped at the block gap by setting Stop At Block Gap Request in the Block Gap Control register and data transfers completed. Refer to Table 2-21 on page 50 for more details.
+(3) In the case of a Command with Busy:
+This bit is set when busy is de-asserted. Refer to DAT Line Active and Command Inhibit (DAT) in Table 2-25 on page 55 for more details.
+This status is cleared by writing 1 to this bit."
+00,ROC,Command Complete,"This bit is set when the end bit of the command response is received (except Auto CMD12 and Auto CMD23). Refer to Table 2-25 on page 55 for more details.
+This status is cleared by writing 1 to this bit.
+Note: This bit is not set if a Response Interrupt Disable in Transfer Mode Register is set to 1. Refer to Table 2-18 on page 47 for more details."

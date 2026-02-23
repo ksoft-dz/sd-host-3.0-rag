@@ -1,0 +1,25 @@
+@startuml
+!define RECTANGLE_STYLE rectangle
+
+skinparam rectangle {
+    BackgroundColor LightBlue
+    BorderColor Black
+}
+
+skinparam component {
+    BackgroundColor Orange
+    BorderColor Black
+}
+
+rectangle "SD Host" as host {
+    component "Buffer" as hostbuffer
+}
+
+rectangle "SD Card" as card {
+    component "Buffer" as cardbuffer
+}
+
+host -right-> card : SD Bus
+hostbuffer -right-> cardbuffer
+
+@enduml

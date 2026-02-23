@@ -1,0 +1,12 @@
+Code,Name,Description,PCMCIA Reference,Type Common,Type Function
+00h,CISTPL_NULL,Null tuple,3.1.9,O,O
+10h,CISTPL_CHECKSUM,Checksum control,3.1.1,R,R
+15h,CISTPL_VERS_1,Level 1 version/product-information,3.2.10,O,O
+16h,CISTPL_ALTSTR,The Alternate Language String Tuple,3.2.1,O,O
+20h,CISTPL_MANFID,Manufacturer Identification String Tuple,3.2.9,M,O
+21h,CISTPL_FUNCID,Function Identification Tuple,3.2.7,n/a,M
+22h,CISTPL_FUNCE,Function Extensions,3.2.6,n/a,M
+80h-8Fh,Vendor Unique Tuples,Vendor Unique Tuples,None,O,O
+91h,CISTPL_SDIO_STD,"Additional information for functions built to support application specifications for standard SDIO functions.",6.1.2,n/a,"M¹:Standard Function O¹:Non-Standard Function"
+92h,CISTPL_SDIO_EXT,Reserved for future use with SDIO devices.,6.1.3,n/a,n/a
+FFh,CISTPL_END,The End-of-chain Tuple,3.1.2,M,M

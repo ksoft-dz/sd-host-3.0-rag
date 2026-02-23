@@ -1,0 +1,39 @@
+@startuml
+!define REGISTER_WIDTH 32
+
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "SDMA System Address / Argument 2 Register (Offset 000h)" <<register>> {
+    rectangle "D31" as D31
+    rectangle "..." as middle
+    rectangle "D00" as D00
+}
+
+D31 -right-> middle
+middle -right-> D00
+
+note bottom of D31
+  **Bits 31-00: SDMA System Address / Argument 2 (RW)**
+  
+  (1) **SDMA System Address**
+  - Contains physical system memory address for DMA transfers
+  - Points to next contiguous data position when transfer stops
+  - Can only be accessed when no transaction is executing
+  - Initialized by Host Driver before starting SDMA transaction
+  - Transfer waits at boundaries specified by Host SDMA Buffer Boundary
+  - Host Controller generates DMA Interrupt to request updates
+  - Writing to 003h restarts SDMA transfer
+  - When restarting via Resume command or Continue Request,
+    starts at address stored here
+  - ADMA does not use this register
+  
+  (2) **Argument 2**
+  - Used with Auto CMD23 to set 32-bit block count value
+  - With ADMA: full 32-bit block count value can be used
+  - Without ADMA: limited by Block Count register (max 65535 blocks)
+end note
+
+@enduml

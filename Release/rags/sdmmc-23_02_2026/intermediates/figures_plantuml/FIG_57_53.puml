@@ -1,0 +1,79 @@
+@startuml
+skinparam monochrome false
+
+title Figure 1882. Multiple block read
+
+rectangle "Host Command" as HC {
+}
+
+rectangle "Response" as RESP {
+}
+
+note right of HC : ← N_CR cycles →
+note left of RESP : ← N_AC cycles →
+
+rectangle "CMD Line" as CMD {
+  rectangle "S" #LightGreen
+  rectangle "T" #LightGreen
+  rectangle "Content" #Violet
+  rectangle "CRC" #Cyan
+  rectangle "E" #Cyan
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "P" #Gray
+  rectangle "**" #White
+  rectangle "P" #Gray
+  rectangle "S" #LightGreen
+  rectangle "T" #LightGreen
+  rectangle "Content" #Violet
+  rectangle "CRC" #Cyan
+  rectangle "E" #Cyan
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "P" #Gray
+  rectangle "********" #White
+  rectangle "P" #Gray
+  rectangle "P" #Gray
+  rectangle "P" #Gray
+  rectangle "P" #Gray
+  rectangle "P" #Gray
+  rectangle "P" #Gray
+}
+
+note bottom of CMD : ← N_AC cycles → ← Read Data
+
+rectangle "DAT0-7 Line" as DAT {
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "*****" #White
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "Z" #Gray
+  rectangle "P" #Gray
+  rectangle "********" #White
+  rectangle "P" #Yellow
+  rectangle "S" #LightGreen
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "***" #White
+  rectangle "*" #White
+  rectangle "D" #Violet
+  rectangle "E" #Cyan
+  rectangle "P" #Gray
+  rectangle "********" #White
+  rectangle "P" #Yellow
+  rectangle "S" #LightGreen
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+  rectangle "D" #Violet
+}
+
+note bottom of DAT : ← N_AC cycles → ← Read Data
+
+@enduml

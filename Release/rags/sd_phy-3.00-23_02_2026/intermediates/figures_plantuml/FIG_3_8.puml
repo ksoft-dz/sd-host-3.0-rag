@@ -1,0 +1,46 @@
+@startuml
+skinparam rectangleBorderColor black
+skinparam defaultFontSize 11
+
+title Figure 3-8 : UHS-I Card Type Modes of Operation versus Frequency Range
+
+legend right
+  DS: Default Speed Mode
+  HS: High Speed Mode
+  |= Signal Voltage |
+  |<#87CEEB> 3.3V |
+  |<#FFE4B5> 1.8V |
+endlegend
+
+scale 1
+
+rectangle "UHS50 Card" as uhs50_label #white;line:white
+
+rectangle "UHS50 Card Modes" as uhs50 {
+  rectangle "DS" as ds1 #87CEEB
+  rectangle "HS" as hs1 #87CEEB
+  rectangle "SDR12" as sdr12_1 #FFE4B5
+  rectangle "SDR25" as sdr25_1 #FFE4B5
+  rectangle "SDR50" as sdr50_1 #FFE4B5
+  rectangle "DDR50" as ddr50_1 #FFE4B5
+}
+
+rectangle "UHS104 Card Modes" as uhs104 {
+  rectangle "DS" as ds2 #87CEEB
+  rectangle "HS" as hs2 #87CEEB
+  rectangle "SDR12" as sdr12_2 #FFE4B5
+  rectangle "SDR25" as sdr25_2 #FFE4B5
+  rectangle "SDR50" as sdr50_2 #FFE4B5
+  rectangle "SDR104" as sdr104 #FFE4B5
+  rectangle "DDR50" as ddr50_2 #FFE4B5
+}
+
+note bottom
+  Frequency Scale:
+  25MHz | 50MHz | 100MHz | 208MHz →
+  
+  UHS50: DS, HS, SDR12 (25MHz) | SDR25, DDR50 (50MHz) | SDR50 (100MHz)
+  UHS104: DS, HS, SDR12 (25MHz) | SDR25, DDR50 (50MHz) | SDR50 (100MHz) | SDR104 (208MHz)
+end note
+
+@enduml

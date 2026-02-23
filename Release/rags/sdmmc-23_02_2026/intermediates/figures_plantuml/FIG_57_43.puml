@@ -1,0 +1,59 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1872. Debug status 3 register (DBG_STA3)
+
+note right
+  Offset: 0x0228
+  Access: Read
+end note
+
+map "Bits 31:16" as upper {
+  31 => 0
+  30 => 0
+  29 => 0
+  28 => 0
+  27 => 0
+  26 => 0
+  25 => 0
+  24 => 0
+  23 => TXDDEBUGBUS
+  22 => TXDDEBUGBUS
+  21 => 0
+  20 => 0
+  19 => 0
+  18 => 0
+  17 => 0
+  16 => 0
+}
+
+map "Bits 15:0" as lower {
+  15 => 0
+  14 => 0
+  13 => 0
+  12 => 0
+  11 => 0
+  10 => 0
+  9 => 0
+  8 => 0
+  7 => 0
+  6 => 0
+  5 => 0
+  4 => 0
+  3 => 0
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom
+  R = Read access
+  W = Write access (not applicable - Read only)
+  Reset value: 0x00000000
+  
+  Bits 23-24: TXDDEBUGBUS
+  All other bits: Reserved (0)
+end note
+
+@enduml

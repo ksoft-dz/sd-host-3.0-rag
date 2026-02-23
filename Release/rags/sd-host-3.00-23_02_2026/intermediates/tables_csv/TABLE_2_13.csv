@@ -1,0 +1,2 @@
+Bit,Access,Field Name,Description
+31-00,RW,Buffer Data,"The Host Controller buffer can be accessed through this 32-bit Data Port register. Refer to Section 1.9."

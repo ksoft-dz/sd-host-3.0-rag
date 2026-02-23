@@ -1,0 +1,55 @@
+@startuml
+state "Saving\nRegister" as Saving #Orange
+state "Restoring\nRegister" as Restoring #Orange
+
+[*] --> IssueDataTransferCommand1 : Issue data transfer\ncommand
+
+IssueDataTransferCommand1 : Issue data transfer
+IssueDataTransferCommand1 : command
+IssueDataTransferCommand1 #LightGreen
+
+IssueDataTransferCommand1 --> TransferDataBlock1 : Transfer\ndata block
+
+TransferDataBlock1 : Transfer
+TransferDataBlock1 : data block
+TransferDataBlock1 #LightGray
+
+TransferDataBlock1 --> IssueSuspendCommand
+
+IssueSuspendCommand : Issue
+IssueSuspendCommand : Suspend Command
+IssueSuspendCommand #Pink
+
+IssueSuspendCommand --> Saving : 000-00D
+
+Saving --> IssueDataTransferCommand2 : Accepted\n000-00D
+
+IssueDataTransferCommand2 : Issue data transfer
+IssueDataTransferCommand2 : command
+IssueDataTransferCommand2 #LightCyan
+
+IssueDataTransferCommand2 --> TransferDataBlock2 : Transfer\ndata block
+
+TransferDataBlock2 : Transfer
+TransferDataBlock2 : data block
+TransferDataBlock2 #LightCyan
+
+TransferDataBlock2 --> Restoring
+
+Restoring --> IssueResumeCommand : 000-00D
+
+IssueResumeCommand : Issue
+IssueResumeCommand : Resume Command
+IssueResumeCommand #Pink
+
+IssueResumeCommand --> TransferDataBlock3 : Transfer\ndata block
+
+TransferDataBlock3 : Transfer
+TransferDataBlock3 : data block
+TransferDataBlock3 #LightGray
+
+TransferDataBlock1 -[dotted]-> TransferDataBlock3
+
+IssueDataTransferCommand2 --> IssueDataTransferCommand2 : Insert another\ndata transfer
+
+@enduml

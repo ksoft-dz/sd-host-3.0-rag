@@ -1,0 +1,4 @@
+Step,Description
+1,Issue Abort command.
+2,"Set both Software Reset for DAT Line and Software Reset for CMD Line to 1 in the Software reset register to do software reset."
+3,"Check Software Reset for DAT Line and Software Reset for CMD Line in the Software reset register. If both Software Reset for DAT Line and Software Reset for CMD Line are 0, go to 'End'. If either Software Reset for DAT Line or Software Reset for CMD Line is 1, go to step (3)."

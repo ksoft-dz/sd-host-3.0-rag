@@ -1,0 +1,31 @@
+Field,Description
+"0
+HOSTCTRL2_
+PRESETVALUEENABLE","Preset value enable
+As the operating sdmmccard_clk frequency and I/O driver strength depend on the host system implementation, it is difficult to determine these parameters in the standard host driver. When preset value enable is set to automatic. This bit enables the functions defined in the Preset value registers.
+1 Automatic selection by preset value are enabled
+0 sdmmccard_clk and driver strength are controlled by host driver
+If this bit is set to 0, sdmmccard_clk frequency select and driver strength select in Host control 2 register are set by host driver.
+If this bit is set to 1, sdmmccard_clk frequency Select and driver strength select in Host control 2 register are set by host controller as specified in the Preset value registers."
+"1
+HOSTCTRL2_
+ASYNCHINTRENABLE","Asynchronous interrupt enable
+1 Enabled
+0 Disabled"
+"8
+HOSTCTRL2_
+SAMPLINGCLKSELECT","Sampling clock select
+1 Tuned clock is used to sample data
+0 Fixed clock is used to sample data
+Note: Tunning is not supported. This bit should always set to 0."
+"9
+HOSTCTRL2_
+EXECUTETUNING","Execute tuning
+1 Execute tuning
+0 Not tuned or tuning completed
+Note: Tunning is not supported. This bit should always set to 0."
+"10:11
+HOSTCTRL2_
+DRIVERSTRENGTH","Driver strength select
+In 3.3V signaling, this field is not effective.
+Note: This field is not effective as only 3.3V signaling is supported."

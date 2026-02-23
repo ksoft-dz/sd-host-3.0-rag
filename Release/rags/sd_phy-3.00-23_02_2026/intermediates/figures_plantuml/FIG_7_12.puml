@@ -1,0 +1,24 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+map "R7 Response Format (40 bits)" as R7 {
+  39 => 0 (start bit)
+  38-32 => R1
+  31-28 => command version
+  27-12 => reserved bits
+  11-8 => voltage accepted
+  7-0 => check pattern ('echo-back')
+}
+
+note bottom of R7
+  Bit positions:
+  [39]     - Start bit (0)
+  [38:32]  - R1 response
+  [31:28]  - Command version
+  [27:12]  - Reserved bits
+  [11:8]   - Voltage accepted
+  [7:0]    - Check pattern (echo-back)
+end note
+
+@enduml

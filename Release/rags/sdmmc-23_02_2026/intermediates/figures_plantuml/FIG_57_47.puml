@@ -1,0 +1,36 @@
+@startuml
+start
+
+:1. Set System Address Reg;
+
+:2. Set Block Size reg;
+
+:3. Set Block Count Reg;
+
+:4. Set Argument Reg;
+
+:5. Set Transfer Mode Reg;
+
+:6. Set Command Reg;
+
+:7. Wait for Command Complete Int;
+note right: Command Complete Int Occurs
+
+:8. Clear Command Complete Sts;
+
+:9. Get Response Data;
+
+:10. Wait for Transfer Complete Int and DMA Int;
+
+:11. Check Interrupt Status;
+note right: Transfer Complete Int Occurs
+
+:12. Clear DMA Interrupt Status;
+
+:13. Set System Address Reg;
+
+:14. Clear Transfer Complete Sts\nClear DMA Int Sts;
+
+stop
+
+@enduml

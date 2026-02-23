@@ -1,0 +1,44 @@
+@startuml
+!define RECTANGLE_WIDTH 120
+!define RECTANGLE_HEIGHT 80
+
+package "Multiple Slot Controller Register Map" {
+  
+  rectangle "Slot 1" {
+    rectangle "Base Pointer 1" as BP1 {
+      rectangle "00\nStandard\nRegister Set\n\nEF" as SRS1 #FFE4B5
+      rectangle "F0\nCommon\nRegister Area\nFF" as CRA1 #B0E0E6
+    }
+  }
+  
+  rectangle "Slot 2" {
+    rectangle "Base Pointer 2" as BP2 {
+      rectangle "00\nStandard\nRegister Set\n\nEF" as SRS2 #FFE4B5
+      rectangle "F0\nCommon\nRegister Area\nFF" as CRA2 #B0E0E6
+    }
+  }
+  
+  rectangle "......" as dots1
+  
+  rectangle "Slot n" {
+    rectangle "Base Pointer n" as BPn {
+      rectangle "00\nStandard\nRegister Set\n\nEF" as SRSn #FFE4B5
+      rectangle "F0\nCommon\nRegister Area\nFF" as CRAn #B0E0E6
+    }
+  }
+  
+  note bottom of CRA1
+    The same register statuses can be read 
+    for each common register area.
+  end note
+}
+
+SRS1 -[hidden]down- CRA1
+SRS2 -[hidden]down- CRA2
+SRSn -[hidden]down- CRAn
+
+BP1 -[hidden]right- BP2
+BP2 -[hidden]right- dots1
+dots1 -[hidden]right- BPn
+
+@enduml

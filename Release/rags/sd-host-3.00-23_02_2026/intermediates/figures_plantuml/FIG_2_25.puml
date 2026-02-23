@@ -1,0 +1,50 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+skinparam rectangle {
+    BackgroundColor<<bit>> LightBlue
+    BackgroundColor<<reserved>> LightGray
+    BackgroundColor<<fixed>> Gray
+}
+
+rectangle "Normal Interrupt Signal Enable Register (Offset 038h)" {
+    rectangle "Bit 15\nFixed to 0" <<fixed>> as bit15
+    rectangle "Bits 14-13\nRsvd" <<reserved>> as bit14_13
+    rectangle "Bit 12\nRe-Tuning Event\nSignal Enable" <<bit>> as bit12
+    rectangle "Bit 11\nINT_C Signal\nEnable" <<bit>> as bit11
+    rectangle "Bit 10\nINT_B Signal\nEnable" <<bit>> as bit10
+    rectangle "Bit 09\nINT_A Signal\nEnable" <<bit>> as bit09
+    rectangle "Bit 08\nCard Interrupt Signal\nEnable" <<bit>> as bit08
+    rectangle "Bit 07\nCard Removal Signal\nEnable" <<bit>> as bit07
+    rectangle "Bit 06\nCard Insertion Signal\nEnable" <<bit>> as bit06
+    rectangle "Bit 05\nBuffer Read Ready\nSignal Enable" <<bit>> as bit05
+    rectangle "Bit 04\nBuffer Write Ready\nSignal Enable" <<bit>> as bit04
+    rectangle "Bit 03\nDMA Interrupt Signal\nEnable" <<bit>> as bit03
+    rectangle "Bit 02\nBlock Gap Event\nSignal Enable" <<bit>> as bit02
+    rectangle "Bit 01\nTransfer Complete\nSignal Enable" <<bit>> as bit01
+    rectangle "Bit 00\nCommand Complete\nSignal Enable" <<bit>> as bit00
+    
+    bit15 -right- bit14_13
+    bit14_13 -right- bit12
+    bit12 -right- bit11
+    bit11 -right- bit10
+    bit10 -right- bit09
+    bit09 -right- bit08
+    bit08 -right- bit07
+    bit07 -right- bit06
+    bit06 -right- bit05
+    bit05 -right- bit04
+    bit04 -right- bit03
+    bit03 -right- bit02
+    bit02 -right- bit01
+    bit01 -right- bit00
+}
+
+note bottom
+  Each bit: 1 = Enabled, 0 = Masked
+  Bit 15: RO (Fixed to 0)
+  Bits 14-13: Reserved
+  Bits 12-00: RW (Enable bits)
+end note
+
+@enduml

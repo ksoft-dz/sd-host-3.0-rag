@@ -1,0 +1,53 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<bit>> LightGray
+    BorderColor Black
+}
+
+rectangle "Normal Interrupt Status Enable Register (Offset 034h)" as register {
+    rectangle "D15\nFixed to 0" as D15 <<bit>>
+    rectangle "D14-D13\nRsvd" as D14_13 <<bit>>
+    rectangle "D12\nRe-Tuning Event\nStatus Enable" as D12 <<bit>>
+    rectangle "D11\nINT_C Status Enable" as D11 <<bit>>
+    rectangle "D10\nINT_B Status Enable" as D10 <<bit>>
+    rectangle "D09\nINT_A Status Enable" as D09 <<bit>>
+    rectangle "D08\nCard Interrupt Status\nEnable" as D08 <<bit>>
+    rectangle "D07\nCard Removal Status\nEnable" as D07 <<bit>>
+    rectangle "D06\nCard Insertion Status\nEnable" as D06 <<bit>>
+    rectangle "D05\nBuffer Read Ready\nStatus Enable" as D05 <<bit>>
+    rectangle "D04\nBuffer Write Ready\nStatus Enable" as D04 <<bit>>
+    rectangle "D03\nDMA Interrupt Status\nEnable" as D03 <<bit>>
+    rectangle "D02\nBlock Gap Event Status\nEnable" as D02 <<bit>>
+    rectangle "D01\nTransfer Complete\nStatus Enable" as D01 <<bit>>
+    rectangle "D00\nCommand Complete\nStatus Enable" as D00 <<bit>>
+    
+    D15 -right- D14_13
+    D14_13 -right- D12
+    D12 -right- D11
+    D11 -right- D10
+    D10 -right- D09
+    D09 -right- D08
+    D08 -right- D07
+    D07 -right- D06
+    D06 -right- D05
+    D05 -right- D04
+    D04 -right- D03
+    D03 -right- D02
+    D02 -right- D01
+    D01 -right- D00
+}
+
+note right of register
+  **Bit 15 (RO):** Fixed to 0
+  **Bits 14-13:** Reserved
+  **Bit 12 (RW):** Re-Tuning Event Status Enable
+    1 = Enabled, 0 = Masked
+  **Bit 11 (RW):** INT_C Status Enable
+    1 = Enabled, 0 = Masked
+  **Bit 10 (RW):** INT_B Status Enable
+    1 = Enabled, 0 = Masked
+  **Bit 09 (RW):** INT_A Status Enable
+    1 = Enabled, 0 = Masked
+end note
+
+@enduml

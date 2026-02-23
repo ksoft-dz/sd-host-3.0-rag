@@ -1,0 +1,39 @@
+@startuml
+concise "DataIn" as DI
+concise "DataOut" as DO
+
+@0
+DI is "..."
+
+@50
+DI is "command"
+note top of DI : from\nhost\nto card
+
+@150
+DI is "..."
+
+@400
+DI is "command"
+note top of DI : Next\nCommand
+
+@500
+DI is "..."
+
+@0
+DO is "..."
+
+@150
+DO is "response"
+note top of DO : from\ncard\nto host
+
+@250
+DO is "..."
+
+@300
+DO is "data error"
+note top of DO : data error token\nfrom card to host
+
+@400
+DO is "..."
+
+@enduml

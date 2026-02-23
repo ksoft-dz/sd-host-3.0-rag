@@ -1,0 +1,14 @@
+Bit,Access,Field Name,Description
+13-08,RW,Command Index,"These bits shall be set to the command number (CMD0-63, ACMD0-63) that is specified in bits 45-40 of the Command Format in the Physical Layer Specification and SDIO Card Specification."
+07-06,RW,Command Type,"There are three types of special commands: Suspend, Resume and Abort. These bits shall be set to 00b for all other commands:
+(1) Suspend Command
+If the Suspend command succeeds, the Host Controller shall assume the SD Bus has been released and that it is possible to issue the next command, which uses the DAT line. The Host Controller shall de-assert Read Wait for read transactions and stop checking busy for write transactions. The interrupt cycle shall start, in 4-bit mode. If the Suspend command fails, the Host Controller shall maintain its current state, and the Host Driver shall restart the transfer by setting Continue Request in the Transfer Mode register. (Refer to 3.8 Suspend/Resume.)
+(2) Resume Command
+The Host Driver re-starts the data transfer by restoring the registers in the range of 000-000h. (Refer to Figure 1-4 in section 1.6 for the register map.) The Host Controller shall check for busy before starting write transfers.
+(3) Abort Command
+This command is set when executing a read transfer, the Host Controller shall stop reads to the buffer. If this command is set when executing a write transfer, the Host Controller shall stop driving the DAT line. After issuing the Abort command, the Host Driver should issue a software reset. (Refer to 3.8 Abort Transaction)
+
+11b Abort CMD12, CMD52 for writing ""I/O Abort"" in CCCR
+10b Resume CMD52 for writing ""Function Select"" in CCCR
+01b Suspend CMD52 for writing ""Bus Suspend"" in CCCR
+00b Normal Other commands"

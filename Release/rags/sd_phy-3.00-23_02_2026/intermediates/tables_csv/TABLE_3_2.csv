@@ -1,0 +1,8 @@
+Bit,Access,Field Name,Description
+SD_CARD_TYPE,R,SD Status,0001h - SD ROM Card
+CCC bit 4,R,CSD,0 - Class4 block write
+CCC bit 5,R,CSD,0 - Class5 erase
+CCC bit 6,R,CSD,0 - Class6 write protection
+CCC bit 7,R,CSD,0 or 1 - Class7 lock card
+PERM_WRITE_PROT,R,CSD,1 - Permanent Write Protect
+SD_SECURITY,R,SCR,0 or 2 or 3 - Security is optional.

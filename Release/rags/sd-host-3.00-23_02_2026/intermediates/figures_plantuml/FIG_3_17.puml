@@ -1,0 +1,24 @@
+@startuml
+start
+
+:(1) Set Stop at Block Gap Request;
+
+:(2) Wait for
+Transfer Complete Int;
+
+:(3) Clr Transfer Complete status;
+note right: Transfer Complete Int occur
+
+:(4) Issue Abort Command;
+
+:(5) Set Software Reset For
+DAT line (DR) and CMD line (CR);
+
+while (Check DR and CR?) is (DR=1 or CR=1)
+  :(6) Set Software Reset For
+  DAT line (DR) and CMD line (CR);
+endwhile (DR=0 and CR=0)
+
+stop
+
+@enduml

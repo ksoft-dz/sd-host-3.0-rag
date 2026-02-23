@@ -1,0 +1,2 @@
+Field,Description
+TIMEOUT_CTRVALUE,"Data timeout counter value. This value is used to set the data timeout period in card bus clock periods: Data timeout period = (DTCYC x 2^TIMEOUT_CTRVALUE) where DTCYC is defined in the Capabilities register."

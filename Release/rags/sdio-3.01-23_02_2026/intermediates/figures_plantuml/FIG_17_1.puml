@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 11
+
+map "CISTPL_SDIO_EXT: Tuple Reserved for SDIO Cards" as tuple {
+}
+
+rectangle "Byte Layout" {
+    map "Byte 00h" as byte0 {
+        7-0 => TPL_CODE CISTPL_SDIO_EXT (92h)
+    }
+    
+    map "Byte 01h" as byte1 {
+        7-0 => TPL_LINK Link to next tuple (0 ≤ n ≤ 255)\nn is the number of bytes in the tuple body
+    }
+    
+    map "Byte 02h ... (n+1)" as byte2n {
+        7-0 => TPLSDIO_EXT_DATA The data component of this tuple (n bytes)\nIf n=0, TPLSDIO_EXT_DATA does not exist.
+    }
+}
+
+byte0 -[hidden]down- byte1
+byte1 -[hidden]down- byte2n
+
+@enduml

@@ -1,0 +1,24 @@
+Field,Description
+"0
+REG_ERRORINTRSTS","Error interrupt
+If any of the bits in the Error interrupt status register are set, then this bit is set. Therefore the HD can test for an error by checking this bit first.
+0: No error
+1: Error"
+"1
+NORMALINTRSTS_BOOTCOMPLETE","Boot terminate interrupt
+This status is set if the boot operation get terminated.
+0: Boot operation is not terminated.
+1: Boot operation is terminated.
+Note: SoC does not support Execute in Place from eMMC"
+"2
+NORMALINTRSTS_RCVBOOTACK","Boot ack rx
+This status is set if the boot acknowledge is received from device.
+0: Boot ack is not received.
+1: Boot ack is received.
+Note: SoC does not support Execute in Place from eMMC"
+"3
+NORMALINTRSTS_RETUNINGEVENT","Re-tuning event
+This status is set if Re-tuning request in the Present state register changes from 0 to 1. Host controller requests host driver to perform re-tuning for next data transfer. Current data transfer (not large block count) can be completed without re-tuning.
+1: Re-tuning is performed.
+0: Re-tuning is not required.
+Note: Re-tuning is not supported."

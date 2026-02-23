@@ -1,0 +1,40 @@
+@startuml
+!define REGISTER_WIDTH 32
+
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Shared Bus Control Register (Offset 0E0h)" as register {
+    rectangle "D31" as d31 #LightGray
+    rectangle "D30-D24\nRsvd" as d30_24 #White
+    rectangle "D23" as d23 #LightGray
+    rectangle "D22-D20\nBack-End Power\nControl" as d22_20 #White
+    rectangle "D19" as d19 #LightGray
+    rectangle "D18-D16\nRsvd" as d18_16 #White
+    rectangle "D15" as d15 #LightGray
+    rectangle "D14-D08\nClock Pin Select" as d14_08 #White
+    rectangle "D07-D06\nRsvd" as d07_06 #LightGray
+    rectangle "D05-D04\nBus Width Preset" as d05_04 #White
+    rectangle "D03\nRsvd" as d03 #LightGray
+    rectangle "D02-D00\nNumber of Interrupt\nInput Pins" as d02_00 #White
+}
+
+note right of register
+  **Bit Fields:**
+  - D31: Reserved
+  - D30-D24: Reserved
+  - D23: Reserved
+  - D22-D20: Back-End Power Control (RW)
+  - D19: Reserved
+  - D18-D16: Reserved
+  - D15: Reserved
+  - D14-D08: Clock Pin Select (RW)
+  - D07-D06: Reserved
+  - D05-D04: Bus Width Preset (RW)
+  - D03: Reserved
+  - D02-D00: Number of Clock Pins (RW)
+end note
+
+@enduml

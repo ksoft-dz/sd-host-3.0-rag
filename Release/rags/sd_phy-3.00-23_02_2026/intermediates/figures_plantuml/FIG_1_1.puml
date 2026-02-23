@@ -1,0 +1,32 @@
+@startuml
+skinparam rectangleBorderColor black
+skinparam rectangleBackgroundColor white
+
+rectangle "Application Specifications" as app {
+    rectangle "Part 4 Audio" as audio
+    rectangle "Part 8 Video" as video
+    rectangle "Other Applications" as other
+}
+
+rectangle "Part 2 File System" as filesystem
+
+rectangle "Part 3 Security" as security
+
+rectangle "Part 1 Physical Layer\nMechanical Addenda\neSD Addendum (Embedded)" as physical #LightBlue
+
+rectangle "Part A1\nAdvanced\nSecurity SD\nExtension" as advancedsec
+
+rectangle "Part E1 SDIO" as sdio
+
+' Layout relationships
+audio -[hidden]r- video
+video -[hidden]r- other
+
+filesystem -[hidden]d- physical
+security -[hidden]r- physical
+physical -[hidden]r- advancedsec
+advancedsec -[hidden]r- sdio
+
+app -[hidden]d- filesystem
+
+@enduml

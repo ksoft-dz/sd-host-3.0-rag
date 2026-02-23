@@ -1,0 +1,13 @@
+Field,Description
+8,Force event for command not issued by Auto CMD12 error
+FORCECMDNOTISSUED,1 Interrupt is generated
+BYAUTOCMD12ERR,0 No interrupt
+11,Force event for Auto CMD index error
+FORCEAUTOCMD,1 Interrupt is generated
+INDEXERR,0 No interrupt
+12,Force event for Auto CMD index error
+FORCEAUTOCMD,1 Interrupt is generated
+ENDBITERR,0 No interrupt
+13,Force event for Auto CMD CRC error
+FORCEAUTOCMD,1 Interrupt is generated
+CRCERR,0 No interrupt

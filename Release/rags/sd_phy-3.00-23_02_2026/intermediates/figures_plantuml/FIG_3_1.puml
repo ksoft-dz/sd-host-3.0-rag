@@ -1,0 +1,43 @@
+@startuml
+skinparam defaultTextAlignment center
+
+title Figure 3-1: "no response" and "no data" Operations
+
+concise "CMD" as CMD
+concise "DAT" as DAT
+
+@0
+CMD is {-}
+
+@5
+note top of CMD : from\nhost\nto card(s)
+CMD is command
+
+@25
+CMD is {-}
+
+@50
+note top of CMD : from\nhost\nto card
+CMD is command
+
+@70
+CMD is {-}
+
+@75
+note top of CMD : from\ncard\nto host
+CMD is response
+
+@95
+CMD is {-}
+
+@0
+DAT is {-}
+
+@120
+DAT is {-}
+
+note bottom of DAT
+  |<------ operation (no response) ------>|<---- operation (no data) ---->|
+end note
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+skinparam monochrome true
+
+note as BlockCount
+  **Block Count**
+  00000000h: No Effect
+  00000001h: 1 block
+  00000002h: 2 blocks
+  ............
+  FFFFFFFFh: 4294967295 blocks
+end note
+
+rectangle "Set Block Count Command" as cmd_struct {
+  rectangle "S\n0" as S
+  rectangle "T\n1" as T
+  rectangle "Index\n010111" as Index
+  rectangle "Block Count\n32-bit" as BC
+  rectangle "CRC7\nxx" as CRC
+  rectangle "E\n1" as E
+}
+
+S -right[hidden]- T
+T -right[hidden]- Index
+Index -right[hidden]- BC
+BC -right[hidden]- CRC
+CRC -right[hidden]- E
+
+note right of cmd_struct
+  No error is indicated by CMD23.
+end note
+
+rectangle "CMD" as CMD_LINE {
+  rectangle "CMD23" as CMD23
+  rectangle "R1" as R1_1
+  rectangle "CMD18/25" as CMD18_25
+  rectangle "R1" as R1_2
+}
+
+CMD23 -right-> R1_1
+R1_1 -right-> CMD18_25
+CMD18_25 -right-> R1_2
+
+rectangle "DAT[0]" as DAT_LINE {
+  note "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" as dashes
+}
+
+cmd_struct -[hidden]down- CMD_LINE
+CMD_LINE -[hidden]down- DAT_LINE
+
+@enduml

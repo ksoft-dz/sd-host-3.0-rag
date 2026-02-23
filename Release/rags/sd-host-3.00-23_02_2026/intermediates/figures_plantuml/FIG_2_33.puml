@@ -1,0 +1,43 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+rectangle "Force Event Register for Error Interrupt Status (Offset 052h)" {
+  
+  package "Register Layout (16 bits)" {
+    rectangle "D15-D12\nForce Event for\nVendor Specific\nError Status\n(WO)" as D15_12
+    rectangle "D11-D10\nRsvd" as D11_10
+    rectangle "D09\nForce Event for\nADMA Error\n(WO)" as D09
+    rectangle "D08\nForce Event for\nAuto CMD Error\n(WO)" as D08
+    rectangle "D07\nForce Event for\nCurrent Limit Error\n(WO)" as D07
+    rectangle "D06\nForce Event for\nData End Bit Error\n(WO)" as D06
+    rectangle "D05\nForce Event for\nData CRC Error\n(WO)" as D05
+    rectangle "D04\nForce Event for\nData Timeout Error\n(WO)" as D04
+    rectangle "D03\nForce Event for\nCommand Index\nError (WO)" as D03
+    rectangle "D02\nForce Event for\nCommand End Bit\nError (WO)" as D02
+    rectangle "D01\nForce Event for\nCommand CRC\nError (WO)" as D01
+    rectangle "D00\nForce Event for\nCommand Timeout\nError (WO)" as D00
+    
+    D15_12 -[hidden]right- D11_10
+    D11_10 -[hidden]right- D09
+    D09 -[hidden]right- D08
+    D08 -[hidden]right- D07
+    D07 -[hidden]right- D06
+    D06 -[hidden]right- D05
+    D05 -[hidden]right- D04
+    D04 -[hidden]right- D03
+    D03 -[hidden]right- D02
+    D02 -[hidden]right- D01
+    D01 -[hidden]right- D00
+  }
+  
+  note right
+    **Bit Values:**
+    1 = Interrupt is generated
+    0 = No Interrupt
+    
+    **Attributes:**
+    WO = Write Only
+    Rsvd = Reserved
+  end note
+}
+@enduml

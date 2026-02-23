@@ -1,0 +1,21 @@
+Bit,Access,Field Name,Description
+31-16,RW/SC,Software Reset For DAT Line,Only part of these 16 bits is valid. The valid bit of this mask depends on the number of slots.
+15-00,RW/SC,Software Reset For CMD Line,"Buffer Data Port Register
+Buffer Read Enable
+Buffer Write Enable
+Read Transfer Active
+Write Transfer Active
+DAT Line Active
+Command Inhibit (DAT)
+Command Inhibit (CMD)
+Error Interrupt
+Card Interrupt
+Card Removal
+Card Insertion
+Buffer Write Ready
+Buffer Read Ready
+DMA Interrupt
+Block Gap Event
+Transfer Complete
+Command Complete
+Reset"

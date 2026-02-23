@@ -1,0 +1,55 @@
+@startuml
+!define REGISTER_WIDTH 64
+
+' Main descriptor table structure
+rectangle "32-bit Address Descriptor Table (64-bit/8-byte)" {
+  
+  ' Bit field layout
+  rectangle "Bit Fields" {
+    card "63-32: 32-bit Address" as addr
+    card "31-16: 16-bit Length" as len
+    card "15-06: Reserved (000000)" as res
+    card "05-04: Act2, Act1" as act
+    card "03: 0" as zero
+    card "02: Int" as int
+    card "01: End" as end
+    card "00: Valid" as valid
+  }
+  
+  ' Attribute descriptions
+  rectangle "Attribute Bits" {
+    card "Valid" as v_desc {
+      Valid=1: descriptor line effective
+      Valid=0: generate ADMA Error Interrupt, stop ADMA
+    }
+    
+    card "End" as e_desc {
+      End=1: end of descriptor
+      Transfer Complete Interrupt generated
+      when descriptor line completed
+    }
+    
+    card "Int" as i_desc {
+      Int=1: generates DMA Interrupt
+      when descriptor line completed
+    }
+  }
+  
+  ' Operation table
+  rectangle "Operations (Act2, Act1)" {
+    card "00: Nop - No Operation\nDo not execute current line, go to next line" as op_nop
+    card "01: rsv - reserved\n(Same as Nop)" as op_rsv
+    card "10: Tran - Transfer Data\nTransfer data of one descriptor line" as op_tran
+    card "11: Link - Link Descriptor\nLink to another descriptor" as op_link
+  }
+}
+
+addr -[hidden]down-> len
+len -[hidden]down-> res
+res -[hidden]down-> act
+act -[hidden]down-> zero
+zero -[hidden]down-> int
+int -[hidden]down-> end
+end -[hidden]down-> valid
+
+@enduml

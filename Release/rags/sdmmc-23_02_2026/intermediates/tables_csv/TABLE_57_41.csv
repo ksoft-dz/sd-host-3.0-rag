@@ -1,0 +1,2 @@
+Field,Description
+"15, SDHCHOSTIF_, SLOTINTRSTS","Interrupt signal for slot#0. This status bit indicates the OR of interrupt signal and wakeup signal for slot. Note: Wakeup interrupt is not supported. Bit[0] is showing status of interrupt signal only."

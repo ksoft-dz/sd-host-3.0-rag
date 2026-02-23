@@ -1,0 +1,40 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Transfer Mode Register (Offset 00Ch)" <<register>> {
+    rectangle "D15-D06" as rsvd {
+        label "Rsvd"
+    }
+    rectangle "D05" as d05 {
+        label "Multi Single Block\nSelect"
+    }
+    rectangle "D04" as d04 {
+        label "Data Transfer\nDirection Select"
+    }
+    rectangle "D03-D02" as d03_02 {
+        label "Auto Command\nEnable"
+    }
+    rectangle "D01" as d01 {
+        label "Block Count Enable"
+    }
+    rectangle "D00" as d00 {
+        label "DMA Enable"
+    }
+}
+
+note right of d05
+  Bit 05: Multi / Single Block Select
+  1 = Multiple Block
+  0 = Single Block
+end note
+
+note right of d04
+  Bit 04: Data Transfer Direction Select
+  1 = Read (Card to Host)
+  0 = Write (Host to Card)
+end note
+
+@enduml

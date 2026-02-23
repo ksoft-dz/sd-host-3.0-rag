@@ -1,0 +1,68 @@
+@startuml
+!define ORANGE #FFE4B5
+!define GREEN #90EE90
+!define BLUE #ADD8E6
+!define GRAY #D3D3D3
+
+rectangle "Standard Register Set" {
+  rectangle "0F-00h" as r00 ORANGE
+  rectangle "SD Command Generation" as cmd00 GREEN
+  r00 -[hidden]- cmd00
+  
+  rectangle "1F-10h" as r10 ORANGE
+  rectangle "Response" as resp GREEN
+  r10 -[hidden]- resp
+  
+  rectangle "23-20h" as r20 ORANGE
+  rectangle "Buffer Data Port" as buf GREEN
+  rectangle "Buffer" as buflabel #white
+  r20 -[hidden]- buf
+  buf -right-> buflabel
+  
+  rectangle "2F-24h" as r24 ORANGE
+  rectangle "Host Control 1 and Others" as hc1 GREEN
+  r24 -[hidden]- hc1
+  
+  rectangle "3D-30h" as r30 ORANGE
+  rectangle "Interrupt Controls" as int GREEN
+  r30 -[hidden]- int
+  
+  rectangle "3F-3Eh" as r3e ORANGE
+  rectangle "Host Control 2" as hc2 BLUE
+  r3e -[hidden]- hc2
+  
+  rectangle "4F-40h" as r40 ORANGE
+  rectangle "Capabilities" as cap GREEN
+  r40 -[hidden]- cap
+  
+  rectangle "53-50h" as r50 ORANGE
+  rectangle "Force Event" as fe GREEN
+  r50 -[hidden]- fe
+  
+  rectangle "5F-54h" as r54 ORANGE
+  rectangle "ADMA" as adma GREEN
+  r54 -[hidden]- adma
+  
+  rectangle "6F-60h" as r60 ORANGE
+  rectangle "Preset Value" as pv BLUE
+  r60 -[hidden]- pv
+  
+  rectangle "Reserved" as res1 GRAY
+  
+  rectangle "E3-E0h" as re0 ORANGE
+  rectangle "Shared Bus" as sb BLUE
+  re0 -[hidden]- sb
+  
+  rectangle "Reserved" as res2 GRAY
+  
+  rectangle "FF-F0h" as rf0 ORANGE
+  rectangle "Common Area" as ca GREEN
+  rf0 -[hidden]- ca
+  
+  note right of sb
+    Ver.1.00
+    Ver.2.00
+    Ver.3.00
+  end note
+}
+@enduml

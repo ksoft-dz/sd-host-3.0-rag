@@ -1,0 +1,40 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+rectangle "Block Count Register (Offset 006h)" as BCR {
+  rectangle "D15...D00" as bits #lightgray {
+    label "Blocks Count For Current Transfer" as field
+  }
+}
+
+note right of BCR
+  **Location:** 15-00
+  **Attribute:** RW (Read/Write)
+  
+  **Register Field Explanation:**
+  Blocks Count For Current Transfer
+  
+  • Enabled when Block Count Enable = 1
+  • Valid only for multiple block transfers
+  • Value: 1 to maximum block count
+  • Decrements after each block transfer
+  • Stops when count reaches zero
+  • Setting to 0 = no data blocks transferred
+  
+  **Access Rules:**
+  • Access only when no transaction executing
+  • Read during transfer may return invalid value
+  • Write operations during transfer are ignored
+  
+  **Suspend/Resume:**
+  • Read to determine blocks yet to be transferred
+  • Restore saved block count before resume
+  
+  **Value Examples:**
+  FFFFh = 65535 blocks
+  0002h = 2 blocks
+  0001h = 1 block
+  0000h = Stop Count
+end note
+
+@enduml

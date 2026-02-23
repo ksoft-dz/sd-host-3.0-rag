@@ -1,0 +1,32 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1836. Transfer mode register (TRANSFERMODE)
+
+map "TRANSFERMODE (Offset: 0x000C, Access: Read/Write)" as REG {
+  15 => XFERMODE_DMAENABLE
+  14 => XFERMODE_BLKCNTENA
+  13 => (reserved)
+  12 => XFERMODE_AUTOCMDENA
+  11 => XFERMODE_DATAXFERDIR
+  10 => XFERMODE_MULTIBLKSEL
+  9 => 0
+  8 => 0
+  7 => 0
+  6 => 0
+  5 => 0
+  4 => 0
+  3 => 0
+  2 => 0
+  1 => 0
+  0 => 0
+}
+
+note bottom of REG
+  R (Read):  All bits readable
+  W (Write): Bits 10-15 writable
+  Reset:     0x0000 (all bits = 0)
+end note
+
+@enduml

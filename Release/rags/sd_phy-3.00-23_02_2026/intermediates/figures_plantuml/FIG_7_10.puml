@@ -1,0 +1,55 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Arial
+
+map "R2 Response Format (2 Bytes)" as r2 {
+}
+
+rectangle "1. Byte" as byte1 {
+  rectangle "7" as b1_7
+  rectangle "6" as b1_6
+  rectangle "5" as b1_5
+  rectangle "4" as b1_4
+  rectangle "3" as b1_3
+  rectangle "2" as b1_2
+  rectangle "1" as b1_1
+  rectangle "0" as b1_0
+}
+
+rectangle "2. Byte" as byte2 {
+  rectangle "7" as b2_7
+  rectangle "6" as b2_6
+  rectangle "5" as b2_5
+  rectangle "4" as b2_4
+  rectangle "3" as b2_3
+  rectangle "2" as b2_2
+  rectangle "1" as b2_1
+  rectangle "0" as b2_0
+}
+
+note right of byte1
+  First byte is identical to R1 response
+  Bit 7 = 0 (start bit)
+end note
+
+note right of byte2
+  Bit 0: Card is locked
+  Bit 1: wp erase skip | lock/unlock cmd failed
+  Bit 2: error
+  Bit 3: CC error
+  Bit 4: card ecc failed
+  Bit 5: wp violation
+  Bit 6: erase param
+  Bit 7: out of range | csd overwrite
+end note
+
+note bottom of byte1
+  Bit 0: in idle state
+  Bit 1: erase reset
+  Bit 2: illegal command
+  Bit 3: com crc error
+  Bit 4: erase sequence error
+  Bit 5: address error
+  Bit 6: parameter error
+end note
+@enduml

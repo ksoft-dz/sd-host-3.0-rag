@@ -1,0 +1,38 @@
+@startuml
+!define DESCRIPTOR_COLOR #FFFFCC
+!define MEMORY_COLOR #CCFFCC
+
+rectangle "An Example Program of Descriptor Table" as DescTable {
+  rectangle "A SD Multiple\nRead Write\nOperation" as Operation {
+    
+    package "Descriptor Table" {
+      rectangle "Address 1 | Length 1 | Tran" as Desc1 DESCRIPTOR_COLOR
+      rectangle "Address 2 | Length 2 | Tran" as Desc2 DESCRIPTOR_COLOR
+      rectangle "....... | ....... | Tran" as Desc3 DESCRIPTOR_COLOR
+      rectangle "Address n | Length n | Tran & End" as DescN DESCRIPTOR_COLOR
+      
+      Desc1 -[hidden]down-> Desc2
+      Desc2 -[hidden]down-> Desc3
+      Desc3 -[hidden]down-> DescN
+    }
+  }
+}
+
+rectangle "System Memory Map" as MemMap {
+  rectangle "Data 2" as Data2 MEMORY_COLOR
+  rectangle " " as Space1 #FFFFFF
+  rectangle "Data 1" as Data1 MEMORY_COLOR
+  rectangle " " as Space2 #FFFFFF
+  rectangle "Data n" as DataN MEMORY_COLOR
+  
+  Data2 -[hidden]down-> Space1
+  Space1 -[hidden]down-> Data1
+  Data1 -[hidden]down-> Space2
+  Space2 -[hidden]down-> DataN
+}
+
+Desc2 --> Data2 : "Address 2\nLength 2"
+Desc1 --> Data1 : "Address 1\nLength 1"
+DescN --> DataN : "Address n\nLength n"
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+scale 1.5
+
+map "Physical Block\n(per CSD)" as blocks {
+  0 => 0123456789
+  1 => 0123456789
+  2 => 0123456789
+  3 => 0123456789
+  4 => 0123456789
+  5 => 0123456789
+  6 => 0123456789
+}
+
+rectangle "Host Erase\nAddress Range" as host {
+  note right: Block 0 position 5 to Block 4 position 0
+}
+
+rectangle "Erase Area" as erase {
+  note right: Block 0 position 5 to Block 4 position 0
+}
+
+@enduml

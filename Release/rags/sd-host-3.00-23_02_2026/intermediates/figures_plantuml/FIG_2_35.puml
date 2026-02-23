@@ -1,0 +1,67 @@
+@startuml
+!define REGISTER_WIDTH 400
+
+rectangle "ADMA System Address Register (Offset 058h)" {
+  
+  package "Register Layout" {
+    rectangle "D63                                                                                                D00" as bits
+    rectangle "ADMA System Address" as field #LightGray
+  }
+  
+  package "Field Details" {
+    note right
+      **Location: 63-00**
+      **Attribute: RW**
+      
+      **ADMA System Address**
+      This register holds byte address of executing 
+      command of the Descriptor table.
+      
+      32-bit Address Descriptor uses lower 32-bit 
+      of this register. At the start of ADMA, the 
+      Host Driver shall set start address of the 
+      Descriptor table.
+      
+      The ADMA increments this register address, 
+      which points to next line, when every fetching 
+      a Descriptor line.
+      
+      When the ADMA Error Interrupt is generated, 
+      this register shall hold valid Descriptor 
+      address depending on the ADMA state.
+      
+      Host Driver shall program Descriptor Table 
+      on 32-bit boundary and set 32-bit boundary 
+      address to this register.
+      
+      ADMA2 ignores lower 2-bit of this register 
+      and assumes it to be 00b.
+    end note
+  }
+  
+  package "32-bit Address ADMA Mapping" {
+    rectangle "Register Value → 32-bit System Address" as map32 {
+      |Value|Address|
+      |xxxxxxxx 00000000h|00000000h|
+      |xxxxxxxx 00000004h|00000004h|
+      |xxxxxxxx 00000008h|00000008h|
+      |xxxxxxxx 0000000Ch|0000000Ch|
+      |......|......|
+      |xxxxxxxx FFFFFFFCh|FFFFFFFCh|
+    }
+  }
+  
+  package "64-bit Address ADMA Mapping" {
+    rectangle "Register Value → 64-bit System Address" as map64 {
+      |Value|Address|
+      |00000000 00000000h|00000000 00000000h|
+      |00000000 00000004h|00000000 00000004h|
+      |00000000 00000008h|00000000 00000008h|
+      |00000000 0000000Ch|00000000 0000000Ch|
+      |......|......|
+      |FFFFFFFF FFFFFFFCh|FFFFFFFF FFFFFFFCh|
+    }
+  }
+}
+
+@enduml

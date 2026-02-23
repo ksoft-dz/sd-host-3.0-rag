@@ -1,0 +1,836 @@
+{
+  "_metadata": {
+    "source": "SDIO Simplified Specification",
+    "extraction_date": "2026-02-23T06:21:33Z",
+    "total_tables": 35,
+    "converted": 35,
+    "failed": 0,
+    "multi_page_tables": 18,
+    "hint_applied_count": 19,
+    "llm_stats": {
+      "total_calls": 35,
+      "total_input_tokens": 49225,
+      "total_output_tokens": 12052,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_3_1",
+      "spec_reference": "Table 3-1",
+      "title": "OCR Values for CMD5",
+      "spec_page": 23,
+      "definition_page": 23,
+      "referenced_on_pages": [
+        10,
+        24,
+        25,
+        33
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          21,
+          22,
+          23
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_1",
+      "spec_reference": "Table 4-1",
+      "title": "Supported SD Memory Commands",
+      "spec_page": 28,
+      "definition_page": 28,
+      "referenced_on_pages": [
+        10,
+        29
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          28
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_2",
+      "spec_reference": "Table 4-2",
+      "title": "Unsupported SD Memory Commands",
+      "spec_page": 29,
+      "definition_page": 29,
+      "referenced_on_pages": [
+        10,
+        30
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          29
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table lists SD Memory commands that are unsupported or have different equivalents in SDIO-only cards, showing the corresponding SDIO command alternatives and explanations for each."
+    },
+    {
+      "id": "TABLE_4_3",
+      "spec_reference": "Table 4-3",
+      "title": "R6 response to CMD3",
+      "spec_page": 29,
+      "definition_page": 29,
+      "referenced_on_pages": [
+        10,
+        30
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          29
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_4",
+      "spec_reference": "Table 4-4",
+      "title": "SDIO R6 Status Bits",
+      "spec_page": 29,
+      "definition_page": 29,
+      "referenced_on_pages": [
+        10,
+        30
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          29
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_5",
+      "spec_reference": "Table 4-5",
+      "title": "Combo Card 4-bit Control",
+      "spec_page": 30,
+      "definition_page": 30,
+      "referenced_on_pages": [
+        10,
+        31
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          30
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_6",
+      "spec_reference": "Table 4-6",
+      "title": "Card Detect Resistor States",
+      "spec_page": 31,
+      "definition_page": 31,
+      "referenced_on_pages": [
+        10,
+        32
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          31,
+          32,
+          33
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-5 shows the control methods (CCCR and/or ACMD6) used for combo card 4-bit bus width control based on the initialization state of the IO and Memory portions."
+    },
+    {
+      "id": "TABLE_4_7",
+      "spec_reference": "Table 4-7",
+      "title": "SDIO Status Register Structure",
+      "spec_page": 34,
+      "definition_page": 34,
+      "referenced_on_pages": [
+        10,
+        35
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-6 describes the card detect resistor states based on the combination of I/O and Memory resistor enable/disable settings."
+    },
+    {
+      "id": "TABLE_5_1",
+      "spec_reference": "Table 5-1",
+      "title": "Flag Data for IO_RW_DIRECT SD Response",
+      "spec_page": 37,
+      "definition_page": 37,
+      "referenced_on_pages": [
+        10,
+        38,
+        40
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          37
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the flag data bits for the IO_RW_DIRECT SD Response (R5), specifying error flags for CRC errors and illegal commands with their bit positions, types, values, and clear conditions."
+    },
+    {
+      "id": "TABLE_5_2",
+      "spec_reference": "Table 5-2",
+      "title": "IO_RW_ EXTENDED command Op Code Definition",
+      "spec_page": 38,
+      "definition_page": 38,
+      "referenced_on_pages": [
+        10,
+        39
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          38
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the flag data fields for the IO_RW_DIRECT SD Response, including the IO current state, error flags, and out-of-range indicators with their bit positions, types, values, and clear conditions."
+    },
+    {
+      "id": "TABLE_5_3",
+      "spec_reference": "Table 5-3",
+      "title": "Byte Count Values",
+      "spec_page": 39,
+      "definition_page": 39,
+      "referenced_on_pages": [
+        10,
+        40
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          39,
+          40,
+          41
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_6_1",
+      "spec_reference": "Table 6-1",
+      "title": "Card Common Control Registers (CCCR)",
+      "spec_page": 43,
+      "definition_page": 43,
+      "referenced_on_pages": [
+        10,
+        40,
+        41,
+        44,
+        60,
+        63
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "multi_page": true,
+        "hint_applied": "cccr_register_map"
+      },
+      "abstract": "This page contains introductory text for SDIO Card Internal Operation but does not include the actual CCCR register map table (Table 6-1), which appears on a subsequent page."
+    },
+    {
+      "id": "TABLE_6_2",
+      "spec_reference": "Table 6-2",
+      "title": "CCCR bit Definitions",
+      "spec_page": 52,
+      "definition_page": 52,
+      "referenced_on_pages": [
+        10,
+        31,
+        39,
+        40,
+        41,
+        42,
+        53
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          50,
+          51,
+          52
+        ],
+        "multi_page": true,
+        "hint_applied": "cccr_bit_definitions"
+      },
+      "abstract": "This table defines the CCCR (Card Common Control Registers) bit fields for SDIO cards, including data flags, execution flags, ready flags, block size settings, and master power control support registers with their addresses, access types, and functional descriptions."
+    },
+    {
+      "id": "TABLE_6_3",
+      "spec_reference": "Table 6-3",
+      "title": "Function Basic Information Registers (FBR)",
+      "spec_page": 53,
+      "definition_page": 53,
+      "referenced_on_pages": [
+        10,
+        39,
+        54
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          53,
+          54
+        ],
+        "multi_page": true,
+        "hint_applied": "fbr_register_map"
+      },
+      "abstract": "This table shows CCCR bit definitions for the Enable Asynchronous Interrupt (EAI) field, Reserved for Future Use (RFU) bits, and vendor-reserved registers in the SDIO specification."
+    },
+    {
+      "id": "TABLE_6_4",
+      "spec_reference": "Table 6-4",
+      "title": "FBR bit and field definitions",
+      "spec_page": 55,
+      "definition_page": 55,
+      "referenced_on_pages": [
+        10,
+        39,
+        54,
+        56,
+        57
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          54,
+          55
+        ],
+        "multi_page": true,
+        "hint_applied": "fbr_bit_definitions"
+      },
+      "abstract": "This table defines the SDIO Standard Function Interface Code field in the Function Basic Registers (FBR), which is a read-only field identifying the standard interface type supported by each I/O function with codes ranging from 0h (no standard interface) to Fh (extended interface codes)."
+    },
+    {
+      "id": "TABLE_6_5",
+      "spec_reference": "Table 6-5",
+      "title": "Card Information Structure (CIS) and reserved area of CIA",
+      "spec_page": 56,
+      "definition_page": 56,
+      "referenced_on_pages": [
+        10,
+        57
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_6_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          56,
+          57
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the Function 1-7 I/O Block Size field in the FBR (Function Basic Registers), which is a 16-bit read/write register that sets the block size (1-2048 bytes) for I/O block operations on SDIO functions 1-7."
+    },
+    {
+      "id": "TABLE_11_1",
+      "spec_reference": "Table 11-1",
+      "title": "Reference of Tuples Depends on Host Version",
+      "spec_page": 65,
+      "definition_page": 65,
+      "referenced_on_pages": [
+        10,
+        66
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_11_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          63,
+          64,
+          65,
+          66,
+          67
+        ],
+        "multi_page": true,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "The requested table \"Reference of Tuples Depends on Host Version\" (Table 11-1) is not present on this page, which instead covers SDIO read operation timing and pause mechanisms."
+    },
+    {
+      "id": "TABLE_16_1",
+      "spec_reference": "Table 16-1",
+      "title": "Basic Tuple Format",
+      "spec_page": 72,
+      "definition_page": 72,
+      "referenced_on_pages": [
+        10,
+        73
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          70,
+          71,
+          72
+        ],
+        "multi_page": true,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_16_2",
+      "spec_reference": "Table 16-2",
+      "title": "Tuples Supported by SDIO Cards",
+      "spec_page": 73,
+      "definition_page": 73,
+      "referenced_on_pages": [
+        10,
+        74
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          73
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "Table 16-1 shows the basic tuple format structure for SDIO Card Information Structure (CIS), consisting of a tuple code byte, a link byte indicating the tuple body length, and the variable-length tuple body itself."
+    },
+    {
+      "id": "TABLE_16_3",
+      "spec_reference": "Table 16-3",
+      "title": "CISTPL_MANFID: Manufacturer Identification Tuple",
+      "spec_page": 74,
+      "definition_page": 74,
+      "referenced_on_pages": [
+        10,
+        75
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          74
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table lists the CIS tuple codes supported by SDIO cards, indicating their names, descriptions, PCMCIA references, and whether they are mandatory, optional, or recommended for common and function CIS areas."
+    },
+    {
+      "id": "TABLE_16_4",
+      "spec_reference": "Table 16-4",
+      "title": "CISTPL_FUNCID Tuple",
+      "spec_page": 74,
+      "definition_page": 74,
+      "referenced_on_pages": [
+        10,
+        75
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          74
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table lists the CIS tuple codes supported by SDIO cards, including their names, descriptions, PCMCIA references, and whether each tuple type is mandatory (M), optional (O), recommended (R), or not applicable (n/a) for common and function-specific areas."
+    },
+    {
+      "id": "TABLE_16_5",
+      "spec_reference": "Table 16-5",
+      "title": "CISTPL_FUNCE Tuple General Structure",
+      "spec_page": 75,
+      "definition_page": 75,
+      "referenced_on_pages": [
+        10,
+        76
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          75
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_16_6",
+      "spec_reference": "Table 16-6",
+      "title": "TPLFID_FUNCTION Tuple for Function 0 (Common)",
+      "spec_page": 75,
+      "definition_page": 75,
+      "referenced_on_pages": [
+        10,
+        76
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          75
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_16_7",
+      "spec_reference": "Table 16-7",
+      "title": "TPLFID_FUNCTION Field Descriptions for Function 0 (common)",
+      "spec_page": 76,
+      "definition_page": 76,
+      "referenced_on_pages": [
+        10,
+        77
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          76
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table defines the TPLFE_FN0_BLK_SIZE and TPLFE_MAX_TRAN_SPEED fields for Function 0 of the CISTPL_FUNCE tuple, specifying maximum block size and data transfer rate parameters for SDIO cards."
+    },
+    {
+      "id": "TABLE_16_8",
+      "spec_reference": "Table 16-8",
+      "title": "TPLFID_FUNCTION Tuple for Function 1-7 (High Power Tuple)",
+      "spec_page": 77,
+      "definition_page": 77,
+      "referenced_on_pages": [
+        10,
+        67,
+        78
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_8.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table defines the CISTPL_FUNCE tuple format for SDIO Functions 1-7 (Extended Data 01h), specifying byte offsets and field names for function information including power requirements, card serial number, CSA size, block size, OCR, and bandwidth parameters."
+    },
+    {
+      "id": "TABLE_16_9",
+      "spec_reference": "Table 16-9",
+      "title": "TPLFID_FUNCTION Field Descriptions for Functions 1-7",
+      "spec_page": 79,
+      "definition_page": 79,
+      "referenced_on_pages": [
+        10,
+        80
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_9.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table defines the TPLFID_FUNCTION tuple fields for SDIO Functions 1-7, describing function information, version, serial number, CSA properties, block size, OCR value, and power requirements at various operating voltages."
+    },
+    {
+      "id": "TABLE_16_10",
+      "spec_reference": "Table 16-10",
+      "title": "TPLFE_FUNCTION_INFO Definition",
+      "spec_page": 79,
+      "definition_page": 79,
+      "referenced_on_pages": [
+        10,
+        78,
+        80
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_10.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the fields within the TPLFE_FUNCTION_INFO tuple structure for SDIO functions, including version information, serial number, CSA properties, block size limits, OCR values, and power consumption parameters at various operating voltages."
+    },
+    {
+      "id": "TABLE_16_11",
+      "spec_reference": "Table 16-11",
+      "title": "TPLFE_CSA_PROPERTY Definition",
+      "spec_page": 79,
+      "definition_page": 79,
+      "referenced_on_pages": [
+        10,
+        78,
+        80
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_11.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_16_12",
+      "spec_reference": "Table 16-12",
+      "title": "TPLFID_FUNCTION Tuple for Function 1-7 (Power State Tuple)",
+      "spec_page": 79,
+      "definition_page": 79,
+      "referenced_on_pages": [
+        10,
+        67,
+        80
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_12.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table defines the TPLFID_FUNCTION tuple fields for SDIO Functions 1-7, specifying power state and configuration parameters including function information, version, serial number, CSA properties, block size, OCR value, and operating power requirements at various voltage levels."
+    },
+    {
+      "id": "TABLE_16_13",
+      "spec_reference": "Table 16-13",
+      "title": "TPLFID_FUNCTION Field Descriptions for Functions 1-7 (Power State Tuple)",
+      "spec_page": 80,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        10,
+        81
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_13.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          80
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "Table 16-9 defines the TPLFID_FUNCTION field bit descriptions for Functions 1-7, showing that bits 7-1 are Reserved for Future Use (RFU) and bit 0 is designated as FN_WUS (Function Wake Up Support)."
+    },
+    {
+      "id": "TABLE_16_14",
+      "spec_reference": "Table 16-14",
+      "title": "CISTPL_SDIO_STD: Tuple Reserved for SDIO Cards",
+      "spec_page": 80,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        10,
+        81
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_14.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          80
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "The requested table \"CISTPL_SDIO_STD: Tuple Reserved for SDIO Cards\" (Table 16-14) is not present on this page, which contains Tables 16-9 through 16-12 related to TPLFID_FUNCTION and TPLFE definitions."
+    },
+    {
+      "id": "TABLE_16_15",
+      "spec_reference": "Table 16-15",
+      "title": "TPL_CODE CISTPL_SDIO_STD Definition",
+      "spec_page": 80,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        10,
+        81
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_15.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          80
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_16_16",
+      "spec_reference": "Table 16-16",
+      "title": "CISTPL_SDIO_EXT: Tuple Reserved for SDIO Cards",
+      "spec_page": 81,
+      "definition_page": 81,
+      "referenced_on_pages": [
+        10,
+        82
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_16_16.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          81
+        ],
+        "multi_page": false,
+        "hint_applied": "tuple_format"
+      },
+      "abstract": "This table defines the CISTPL_SDIO_STD tuple structure (code 91h) reserved for standard SDIO functions, specifying byte positions for the tuple code, link, standard ID, type, and optional data fields."
+    },
+    {
+      "id": "TABLE_C_1",
+      "spec_reference": "Table C-1",
+      "title": "SD Mode Command List",
+      "spec_page": 87,
+      "definition_page": 87,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_C_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          85,
+          86,
+          87
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_C_2",
+      "spec_reference": "Table C-2",
+      "title": "SPI Mode Command List",
+      "spec_page": 88,
+      "definition_page": 88,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_C_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          88,
+          89,
+          90
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table lists the SD Mode commands supported by SD memory and SDIO devices, indicating whether each command is mandatory or optional for each system type along with relevant implementation notes."
+    }
+  ]
+}

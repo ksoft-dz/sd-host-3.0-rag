@@ -1,0 +1,13 @@
+Bit,Access,Field Name,Description
+07,WO,Force Event for Command Not Issued By Auto CMD12 Error,"1 Interrupt is generated
+0 No Interrupt"
+04,WO,Force Event for Auto CMD Index Error,"1 Interrupt is generated
+0 No Interrupt"
+03,WO,Force Event for Auto CMD End Bit Error,"1 Interrupt is generated
+0 No Interrupt"
+02,WO,Force Event for Auto CMD CRC Error,"1 Interrupt is generated
+0 No Interrupt"
+01,WO,Force Event for Auto CMD Timeout Error,"1 Interrupt is generated
+0 No Interrupt"
+00,WO,Force Event for Auto CMD12 Not Executed,"1 Interrupt is generated
+0 No Interrupt"

@@ -1,0 +1,82 @@
+@startuml
+start
+
+:Set Block Size reg;
+note left: 1
+
+:Set Block Count Reg;
+note left: 2
+
+:Set Argument Reg;
+note left: 3
+
+:Set Transfer Mode Reg;
+note left: 4
+
+fork
+  :Set Command Reg;
+  note right: 5
+  
+  :Wait for Command\nComplete Int;
+  note right: 6
+  
+  :Clear Command\nComplete Sts;
+  note right: 7
+  
+  :Get Response Data;
+  note right: 8
+fork end
+
+if (Write or Read?) then
+  note right: 9
+  
+  fork
+    :Wait for Buffer Write\nReady Int;
+    note left: 10-W
+    note left: Buffer Write\nRdy Int occured
+    
+    :Clear Buffer Write Rdy\nSts;
+    note left: 11-W
+    
+    :Set Block Data;
+    note left: 12-W
+    
+    if (More Blocks?) then
+      note left: 13-W
+    endif
+  fork again
+    :Wait for Buffer Read\nReady Int;
+    note right: 10-R
+    note right: Buffer Read\nRdy Int occured
+    
+    :Clear Buffer Read Rdy\nSts;
+    note right: 11-R
+    
+    :Get Block Data;
+    note right: 12-R
+    
+    if (More Blocks?) then
+      note right: 13-R
+    endif
+  fork end
+endif
+
+if (Single Multi/Infinite Block\nTransfer) then (Single/\nMulti Block\nTransfer)
+  note: 14
+  
+  :Wait for Transfer\nComplete Int;
+  note left: 15
+  
+  :Clear Transfer\nComplete Sts;
+  note left: 16
+  note right: Transfer\nComplete Int\nOccured
+  
+else (Infinite\nBlock\nTransfer)
+  :Abort Transaction;
+  note right: 17
+endif
+
+:End;
+
+stop
+@enduml

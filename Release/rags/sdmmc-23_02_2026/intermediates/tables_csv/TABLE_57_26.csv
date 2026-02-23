@@ -1,0 +1,5 @@
+Command CRC error,Command timeout error,Kinds of error
+0,0,No error
+0,1,Response timeout error
+1,0,Response CRC error
+1,1,CMD line conflicts

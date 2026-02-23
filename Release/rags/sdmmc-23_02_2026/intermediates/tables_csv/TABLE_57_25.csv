@@ -1,0 +1,9 @@
+Field,Description
+"3 ERRORINTRSTS_HOSTERROR","Target response error Occurs when detecting ERROR in m_hresp (DMA transaction). 0 No error 1 Error"
+"6 ERRORINTRSTS_ADMAERROR","DMA error This bit is set when the host controller detects errors during ADMA based data transfer. The state of the ADMA at an error occurrence is saved in the ADMA Error status register. 0 No error 1 Error"
+"7 ERRORINTRSTS_AUTOCMDERROR","Auto CMD error Auto CMD12 and Auto CMD23 use this error status. This bit is set when detecting that one of the bits D00-D04 in Auto CMD Error status register has changed from 0 to 1. In case of Auto CMD12, this bit is set to 1, not only when the errors in Auto CMD12 occur but also when Auto CMD12 is not executed due to the previous command error. 0 No error 1 Error"
+"9 ERRORINTRSTS_DATAENDBITERROR","Data end bit error Occurs when detecting 0 at the end bit position of read data which uses the DAT line or the end bit position of the CRC status. 0 No error 1 Error"
+"10 ERRORINTRSTS_DATACRCERROR","Data CRC error Occurs when detecting CRC error when transferring read data which uses the DAT line or when detecting the write CRC status having a value of other than "010". 0 No error 1 Error"
+"11 ERRORINTRSTS_DATATIMEOUTERROR","Data timeout error Occurs when detecting one of following timeout conditions: – Busy timeout for R1b, R5b type – Busy timeout after Write CRC status – Write CRC status timeout – Read data timeout 0 No error 1 Timeout"
+"12 ERRORINTRSTS_CMDINDEXERROR","Command index error Occurs if a command index error occurs in the command response. 0 No error 1 Error"
+"13 ERRORINTRSTS_CMDENDBITERROR","Command end bit error Occurs when detecting that the end bit of a command response is 0. 0 No error 1 End bit error generated"

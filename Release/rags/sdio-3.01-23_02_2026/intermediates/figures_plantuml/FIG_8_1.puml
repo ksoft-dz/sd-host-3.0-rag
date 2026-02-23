@@ -1,0 +1,12 @@
+@startuml
+I don't see a figure labeled "Figure 8-1" or any diagram showing a "Continuous Interrupt Cycle" in this image. 
+
+This page (page 58) contains only text content describing:
+- Section 7: Embedded I/O Code Storage Area (CSA)
+- Section 7.1: CSA Access
+- Section 7.2: CSA Data Format
+
+The page consists entirely of explanatory text about the Code Storage Area functionality for SDIO cards, with no diagrams, figures, or visual elements to transcribe.
+
+If you're looking for Figure 8-1 showing a Continuous Interrupt Cycle, it would likely be on a different page in the document, possibly in Chapter 8.
+@enduml

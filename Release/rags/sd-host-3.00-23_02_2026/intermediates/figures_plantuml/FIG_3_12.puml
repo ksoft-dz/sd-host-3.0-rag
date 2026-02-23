@@ -1,0 +1,20 @@
+@startuml
+start
+:(1) Wait for\nCommand Complete Int;
+:(2) Command Complete Int occur;
+:(3) Clr Command Complete status;
+:(4) Get Response Data;
+if (Command with\nTransfer\nComplete Int?) then (yes)
+  :(5) Wait for\nTransfer Complete Int;
+  :(6) Transfer Complete Int occur;
+  :Clr Transfer Complete status;
+else (No)
+endif
+:(7) Check\nResponse Data;
+if (Error?) then (No error)
+  :(8) Return Status\n(No Error);
+else (Error)
+  :(9) Return Status\n(Response Contents Error);
+endif
+stop
+@enduml

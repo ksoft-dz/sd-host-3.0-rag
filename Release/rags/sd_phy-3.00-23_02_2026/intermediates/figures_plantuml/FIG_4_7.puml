@@ -1,0 +1,38 @@
+@startuml
+skinparam monochrome true
+
+title Voltage Switch Command
+
+rectangle "Voltage Switch Command" {
+    map CommandFormat {
+        S => 0
+        T => 1
+        Index => 001011
+        Reserved => all 0
+        CRC7 => 0111011
+        E => 1
+    }
+}
+
+concise "CMD" as CMD
+concise "DAT[3:0]" as DAT
+
+@0
+CMD is idle
+
+@1
+CMD is CMD11
+CMD -> CMD : {Start}
+
+@2
+CMD is idle
+
+@3
+CMD is R1
+
+@4
+CMD is idle
+
+DAT is {-}
+
+@enduml

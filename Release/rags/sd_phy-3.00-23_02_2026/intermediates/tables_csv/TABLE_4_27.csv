@@ -1,0 +1,20 @@
+ACMD INDEX,type,argument,resp,abbreviation,command description
+ACMD1-5,Reserved,,,,
+ACMD6,ac,"[31:2] stuff bits [1:0]bus width",R1,SET_BUS_WIDTH,"Defines the data bus width ('00'=1bit or '10'=4 bits bus) to be used for data transfer. The allowed data bus widths are given in SCR register."
+ACMD7-12,Reserved,,,,
+ACMD13,adtc,[31:0] stuff bits,R1,SD_STATUS,"Send the SD Status. The status fields are given in Table 4-38."
+ACMD14-16,Reserved for Security Specification,,,,
+ACMD17,Reserved,,,,
+ACMD18,Reserved for SD security applications,,,,
+ACMD19-21,Reserved,,,,
+ACMD22,adtc,[31:0] stuff bits,R1,SEND_NUM_WR_BLOCKS,"Send the number of the written (with-out errors) write blocks. Responds with 32bit+CRC data block. If WRITE_BL_PARTIAL='0', the unit of ACMD22 is always 512 byte. If WRITE_BL_PARTIAL='1', the unit of ACMD22 is a block length which was used when the write command was executed."
+ACMD23,ac,"[31:23] stuff bits [22:0]Number of blocks",R1,SET_WR_BLK_ERASE_COUNT,"Set the number of write blocks to be pre-erased before writing (to be used for faster Multiple Block WR command). '1'=default (one wr block)."
+ACMD24,Reserved,,,,
+ACMD25,Reserved for SD security applications,,,,
+ACMD26,Reserved for SD security applications,,,,
+ACMD27-28,Reserved for Security Specification,,,,
+ACMD29,Reserved,,,,
+ACMD30-35,Reserved for Security Specification,,,,
+ACMD36-37,Reserved,,,,
+ACMD38,Reserved for SD security applications,,,,
+ACMD39-40,Reserved,,,,

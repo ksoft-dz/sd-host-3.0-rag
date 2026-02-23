@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+title Figure 5-1 : IO_RW_DIRECT Command
+
+map "IO_RW_DIRECT Command (CMD52)" as cmd {
+  S => 1
+  D => 1
+  Command Index\n110100b => 6
+  R/W flag => 1
+  Function Number => 3
+  RAW flag => 1
+  Stuff => 1
+  Register Address => 17
+  Stuff => 1
+  Write Data\nor Stuff Bits => 8
+  CRC7 => 7
+  E => 1
+}
+
+note bottom of cmd
+  Field bit widths shown in bottom row
+  Total command length for CMD52
+end note
+
+@enduml

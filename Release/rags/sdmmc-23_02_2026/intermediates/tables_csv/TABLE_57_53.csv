@@ -1,0 +1,2 @@
+Field,Description
+"24:31 RXDDEBUGBUS0","RXD_CTRL debug bus: rxdirl_rcvstatus[2:0] - Receive status (EndBit Err, CRC Error, timeout error), rxdirl_rcvstsvld - Receive status valid, rxdirl_stopafterblk - Stop receiving after this block (Stop at block gap), rxdirl_stopsdcardclk2 - Stop SDMMC clock indication (Stop at block gap), rxdirl_stopsdcardclk1 - Stop SDMMC clock indication (Normal operation, Buffer full), rxdirl_rcvdata - Receive data indication"

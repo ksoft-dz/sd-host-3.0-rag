@@ -1,0 +1,10 @@
+SD Card,Internal Clock *1,SD Power,SD Clock,SD Bus,Power State *2,Comment
+No exist,Stop,OFF,Stop,-,P00,Host not used
+No exist,Oscillate,OFF,Stop,-,P01,No card
+No exist,Oscillate,ON,Stop,-,P02,Short transition state *3
+No exist,Oscillate,ON,Oscillate,-,P03,Short transition state *3
+Exist,Stop,OFF,Stop,-,P10,Host not used
+Exist,Oscillate,OFF,Stop,-,P11,Low power mode
+Exist,Oscillate,ON,Stop,-,P12,Wakeup
+Exist,Oscillate,ON,Oscillate,Wait,P13,Ready to issue command
+Exist,Oscillate,ON,Oscillate,Access,P14,During transaction

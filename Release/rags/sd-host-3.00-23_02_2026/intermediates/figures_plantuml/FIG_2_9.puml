@@ -1,0 +1,75 @@
+@startuml
+!define REGISTER_WIDTH 32
+
+skinparam rectangle {
+    BackgroundColor<<bit>> LightGray
+    BackgroundColor<<field>> White
+}
+
+rectangle "Present State Register (Offset 024h)" {
+    rectangle "D31" <<bit>>
+    rectangle "D30-D25" as D30_25 <<field>> {
+        label "Rsvd"
+    }
+    rectangle "D24" <<bit>> {
+        label "CMD Line Signal\nLevel"
+    }
+    rectangle "D23-D20" as D23_20 <<bit>> {
+        label "DAT[3:0] Line Signal\nLevel"
+    }
+    rectangle "D19" <<bit>> {
+        label "Write Protect\nSwitch Pin Level"
+    }
+    rectangle "D18" <<bit>> {
+        label "Card Detect Pin\nLevel"
+    }
+    rectangle "D17" <<bit>> {
+        label "Card State Stable"
+    }
+    rectangle "D16" <<bit>> {
+        label "Card Inserted"
+    }
+    rectangle "D15-D13" as D15_13 <<field>> {
+        label "Rsvd"
+    }
+    rectangle "D12" <<bit>> {
+        label "Buffer Read\nEnable"
+    }
+    rectangle "D11" <<bit>> {
+        label "Buffer Write\nEnable"
+    }
+    rectangle "D10" <<bit>> {
+        label "Read Transfer\nActive"
+    }
+    rectangle "D09" <<bit>> {
+        label "Write Transfer\nActive"
+    }
+    rectangle "D08" <<bit>> {
+        label "Re-Tuning\nRequest"
+    }
+    rectangle "D07-D04" as D07_04 <<field>> {
+        label "Rsvd"
+    }
+    rectangle "D03" <<bit>> {
+        label "DAT Line Active"
+    }
+    rectangle "D02" <<bit>> {
+        label "Command Inhibit\n(DAT)"
+    }
+    rectangle "D01" <<bit>> {
+        label "Command Inhibit\n(CMD)"
+    }
+    rectangle "D00" <<bit>>
+}
+
+note right
+  Bit 31-25: Reserved
+  Bit 24: CMD Line Signal Level (RO)
+  Bit 23-20: DAT[3:0] Line Signal Level (RO)
+  Bit 19: Write Protect Switch Pin Level (RO)
+  Bit 18: Card Detect Pin Level (RO)
+  Bit 17: Card State Stable
+  Bit 16: Card Inserted
+end note
+
+@enduml

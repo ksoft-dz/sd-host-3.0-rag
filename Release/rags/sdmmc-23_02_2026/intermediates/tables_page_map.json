@@ -1,0 +1,1249 @@
+{
+  "_metadata": {
+    "source": "SDMMC Controller (3MCR) — SPC58 H-Line Reference Manual",
+    "extraction_date": "2026-02-23T15:06:55Z",
+    "total_tables": 59,
+    "converted": 59,
+    "failed": 0,
+    "multi_page_tables": 30,
+    "hint_applied_count": 3,
+    "llm_stats": {
+      "total_calls": 59,
+      "total_input_tokens": 81703,
+      "total_output_tokens": 14422,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_57_1",
+      "spec_reference": "Table 1808",
+      "original_number": 1808,
+      "title": "SDMMC memory map",
+      "spec_page": 8,
+      "definition_page": 8,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "multi_page": true,
+        "hint_applied": "memory_map"
+      },
+      "abstract": "This page contains descriptive text about SDMMC clocks and interface control, but does not include the SDMMC memory map table."
+    },
+    {
+      "id": "TABLE_57_2",
+      "spec_reference": "Table 1809",
+      "original_number": 1809,
+      "title": "Registers to generate SDMMC command",
+      "spec_page": 10,
+      "definition_page": 10,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          9,
+          10
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The requested table \"Table 1809: Registers to generate SDMMC command\" is not present on this page; the page shows Table 1808 (SDMMC memory map continued) which lists register offset addresses and their locations, not a bit-field register description table."
+    },
+    {
+      "id": "TABLE_57_3",
+      "spec_reference": "Table 1810",
+      "original_number": 1810,
+      "title": "SDMASYSADDR field descriptions",
+      "spec_page": 11,
+      "definition_page": 11,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          11
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the SDMA_SYSADDRESS field (bits 0:31) which serves dual purposes as the SDMA system address for DMA transfers and as Argument 2 for Auto CMD23 block count operations."
+    },
+    {
+      "id": "TABLE_57_4",
+      "spec_reference": "Table 1811",
+      "original_number": 1811,
+      "title": "BLOCKSIZE field descriptions",
+      "spec_page": 12,
+      "definition_page": 12,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          12
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the BLOCKSIZE register fields for the SDMMC controller, including SDMA buffer boundary settings (1:3) and transfer block size configuration (4:15) for DMA operations."
+    },
+    {
+      "id": "TABLE_57_5",
+      "spec_reference": "Table 1812",
+      "original_number": 1812,
+      "title": "BLOCKCOUNT field descriptions",
+      "spec_page": 13,
+      "definition_page": 13,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          13
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the BLOCKCOUNT field (bits 0:15, XFER_BLOCKCOUNT) which specifies the number of blocks to transfer in multiple block operations, with the hardware controller decrementing the count after each block until reaching zero."
+    },
+    {
+      "id": "TABLE_57_6",
+      "spec_reference": "Table 1813",
+      "original_number": 1813,
+      "title": "ARGUMENT1 field descriptions",
+      "spec_page": 14,
+      "definition_page": 14,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          14
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the ARGUMENT1 field for the SDMMC controller, specifying that bits 0:31 contain the MMC command argument corresponding to bits 39-8 of the command format."
+    },
+    {
+      "id": "TABLE_57_7",
+      "spec_reference": "Table 1814",
+      "original_number": 1814,
+      "title": "TRANSFERMODE field descriptions",
+      "spec_page": 14,
+      "definition_page": 14,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          14
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the TRANSFERMODE register fields for configuring block transfer mode (single/multiple) and data transfer direction (read/write) between host and card in the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_8",
+      "spec_reference": "Table 1815",
+      "original_number": 1815,
+      "title": "Determination of transfer type",
+      "spec_page": 15,
+      "definition_page": 15,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_8.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          15
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines how the transfer type (Single, Infinite, Multiple, or Stop Multiple Transfer) is determined based on the Multi/Single block setting, Block count enable, and Block count values in the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_9",
+      "spec_reference": "Table 1816",
+      "original_number": 1816,
+      "title": "COMMAND field descriptions",
+      "spec_page": 16,
+      "definition_page": 16,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_9.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          16
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the COMMAND register fields including the command index (CMDINDEX) for specifying command numbers and the command type (CMDTYPE) for special commands like suspend, resume, and abort operations in the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_10",
+      "spec_reference": "Table 1817",
+      "original_number": 1817,
+      "title": "RESPONSEn field descriptions",
+      "spec_page": 17,
+      "definition_page": 17,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_10.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          17
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the COMMAND_RESPONSE field (bits 0:15) of the RESPONSEn register, which contains command response data transmitted on the SDMMC bus and is read-only with zero initialization at reset."
+    },
+    {
+      "id": "TABLE_57_11",
+      "spec_reference": "Table 1818",
+      "original_number": 1818,
+      "title": "Determination of transfer type",
+      "spec_page": 18,
+      "definition_page": 18,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_11.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          18
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mapping between response type codes, index check enable, and CRC check enable parameters to determine the corresponding SDMMC response type name."
+    },
+    {
+      "id": "TABLE_57_12",
+      "spec_reference": "Table 1819",
+      "original_number": 1819,
+      "title": "Response bit definition for each response type",
+      "spec_page": 18,
+      "definition_page": 18,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_12.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          18
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mapping between SDMMC response types and their corresponding response fields and register bit ranges."
+    },
+    {
+      "id": "TABLE_57_13",
+      "spec_reference": "Table 1820",
+      "original_number": 1820,
+      "title": "DATAPORT field descriptions",
+      "spec_page": 19,
+      "definition_page": 19,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_13.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          19,
+          20,
+          21
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DATAPORT field, which provides a 32-bit data port register for accessing the host controller buffer."
+    },
+    {
+      "id": "TABLE_57_14",
+      "spec_reference": "Table 1821",
+      "original_number": 1821,
+      "title": "PRESENTSTATE field descriptions",
+      "spec_page": 19,
+      "definition_page": 19,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_14.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          19,
+          20,
+          21
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the PRESENTSTATE register fields for the SDMMC controller, detailing the signal level monitoring capabilities for DAT and CMD lines used for error recovery and debugging purposes."
+    },
+    {
+      "id": "TABLE_57_15",
+      "spec_reference": "Table 1822",
+      "original_number": 1822,
+      "title": "HOSTCONTROL1 field descriptions",
+      "spec_page": 24,
+      "definition_page": 24,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_15.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          22,
+          23,
+          24
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the PRESENTSTATE_INHIBITDAT and PRESENTSTATE_INHIBITCMD fields that indicate command inhibit status for DAT and CMD lines respectively in the SDMMC host controller."
+    },
+    {
+      "id": "TABLE_57_16",
+      "spec_reference": "Table 1823",
+      "original_number": 1823,
+      "title": "POWERCONTROL field descriptions",
+      "spec_page": 25,
+      "definition_page": 25,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_16.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          25,
+          26
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the POWERCONTROL register fields for the SDMMC controller, including the SDBUS voltage selection bits (4:6) and the SD bus power control bit (7)."
+    },
+    {
+      "id": "TABLE_57_17",
+      "spec_reference": "Table 1824",
+      "original_number": 1824,
+      "title": "BLOCKGAPCONTROL field descriptions",
+      "spec_page": 25,
+      "definition_page": 25,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_17.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          25,
+          26
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the BLOCKGAPCONTROL register fields for controlling boot acknowledge checking and alternative boot mode access in eMMC card operations."
+    },
+    {
+      "id": "TABLE_57_18",
+      "spec_reference": "Table 1825",
+      "original_number": 1825,
+      "title": "WAKEUPCONTROL field descriptions",
+      "spec_page": 27,
+      "definition_page": 27,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_18.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          26,
+          27,
+          28
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_57_19",
+      "spec_reference": "Table 1826",
+      "original_number": 1826,
+      "title": "CLOCKCONTROL field descriptions",
+      "spec_page": 29,
+      "definition_page": 29,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_19.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          28,
+          29,
+          30
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_57_20",
+      "spec_reference": "Table 1827",
+      "original_number": 1827,
+      "title": "TIMEOUTCONTROL field descriptions",
+      "spec_page": 31,
+      "definition_page": 31,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_20.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          30,
+          31
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the TIMEOUT_CTRVALUE field in the TIMEOUTCONTROL register, which sets the data timeout period for the SDMMC controller based on card bus clock periods."
+    },
+    {
+      "id": "TABLE_57_21",
+      "spec_reference": "Table 1828",
+      "original_number": 1828,
+      "title": "SOFTWARERESET field descriptions",
+      "spec_page": 32,
+      "definition_page": 32,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_21.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          32
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the SOFTWARERESET field bits for the SDMMC controller, detailing software reset options for DAT line, CMD line, and full controller reset along with the registers and bits affected by each reset type."
+    },
+    {
+      "id": "TABLE_57_22",
+      "spec_reference": "Table 1829",
+      "original_number": 1829,
+      "title": "NORMALINTRSTS field descriptions",
+      "spec_page": 33,
+      "definition_page": 33,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_22.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          33,
+          34,
+          35
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the NORMALINTRSTS register fields for the SDMMC controller, including error interrupt status, boot complete/terminate interrupt, boot acknowledge receive status, and re-tuning event indicators."
+    },
+    {
+      "id": "TABLE_57_23",
+      "spec_reference": "Table 1830",
+      "original_number": 1830,
+      "title": "Relation between transfer complete and data timeout error",
+      "spec_page": 36,
+      "definition_page": 36,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_23.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          34,
+          35,
+          36
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_57_24",
+      "spec_reference": "Table 1831",
+      "original_number": 1831,
+      "title": "Relation between command complete and command timeout error",
+      "spec_page": 36,
+      "definition_page": 36,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_24.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          34,
+          35,
+          36
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_57_25",
+      "spec_reference": "Table 1832",
+      "original_number": 1832,
+      "title": "ERRORINTRSTS field descriptions",
+      "spec_page": 37,
+      "definition_page": 37,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_25.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          37
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the ERRORINTRSTS register field descriptions for the Secure Digital and MultiMediaCard controller (SDMMC), detailing various error interrupt status bits including host errors, DMA errors, auto command errors, data errors, timeout errors, and command index/end bit errors."
+    },
+    {
+      "id": "TABLE_57_26",
+      "spec_reference": "Table 1833",
+      "original_number": 1833,
+      "title": "Relation between command CRC error and command timeout error",
+      "spec_page": 38,
+      "definition_page": 38,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_26.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          38
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the four possible error states based on the combination of command CRC error and command timeout error bit values in an SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_27",
+      "spec_reference": "Table 1834",
+      "original_number": 1834,
+      "title": "NORMALINTRSTSENA field descriptions",
+      "spec_page": 39,
+      "definition_page": 39,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_27.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          39,
+          40
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the NORMALINTRSTSENA register fields for the SDMMC controller, defining interrupt status enable bits for various functions including boot operations, re-tuning events, INT_A/B/C signals, and card interrupt/removal detection."
+    },
+    {
+      "id": "TABLE_57_28",
+      "spec_reference": "Table 1835",
+      "original_number": 1835,
+      "title": "ERRORINTRSTSENA field descriptions",
+      "spec_page": 41,
+      "definition_page": 41,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_28.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          40,
+          41
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "The requested Table 1835 (ERRORINTRSTSENA field descriptions) is not present on this page; only the register bit diagram for ERRORINTRSTSENA is shown, with the field descriptions table likely appearing on a subsequent page."
+    },
+    {
+      "id": "TABLE_57_29",
+      "spec_reference": "Table 1836",
+      "original_number": 1836,
+      "title": "NORMALINTRSIGENA field descriptions",
+      "spec_page": 42,
+      "definition_page": 42,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_29.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          42,
+          43
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the NORMALINTRSIGENA register field descriptions for the SDMMC controller, defining interrupt signal enable bits for various events including boot operations, re-tuning, and card interrupts."
+    },
+    {
+      "id": "TABLE_57_30",
+      "spec_reference": "Table 1837",
+      "original_number": 1837,
+      "title": "ERRORINTRSIGENA field descriptions",
+      "spec_page": 44,
+      "definition_page": 44,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_30.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          43,
+          44
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "The requested table \"ERRORINTRSIGENA field descriptions\" (Table 1837) is not present on this page; the page shows Table 1836 (NORMALINTRSIGENA field descriptions continued) and Figure 1853 (Error interrupt signal enable register), but the ERRORINTRSIGENA field descriptions table appears to be on a subsequent page."
+    },
+    {
+      "id": "TABLE_57_31",
+      "spec_reference": "Table 1838",
+      "original_number": 1838,
+      "title": "AUTOCMDERRSTS field descriptions",
+      "spec_page": 45,
+      "definition_page": 45,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_31.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          45
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the AUTOCMDERRSTS register fields for Auto CMD error status, including error types for CMD12, index errors, end bit errors, and CRC errors with their respective bit positions and descriptions."
+    },
+    {
+      "id": "TABLE_57_32",
+      "spec_reference": "Table 1839",
+      "original_number": 1839,
+      "title": "Relation between auto CMD12 CRC error and auto CMD12 timeout error",
+      "spec_page": 46,
+      "definition_page": 46,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_32.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          46
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the four possible error conditions based on the combination of Auto CMD12 CRC error and Auto CMD12 timeout error bit values, indicating no error, response timeout error, response CRC error, or CMD line conflict."
+    },
+    {
+      "id": "TABLE_57_33",
+      "spec_reference": "Table 1840",
+      "original_number": 1840,
+      "title": "HOSTCONTROL2 field descriptions",
+      "spec_page": 47,
+      "definition_page": 47,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_33.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          47,
+          48
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the HOSTCONTROL2 register fields for the SDMMC controller, including preset value enable, asynchronous interrupt enable, sampling clock select, execute tuning, and driver strength select configurations."
+    },
+    {
+      "id": "TABLE_57_34",
+      "spec_reference": "Table 1841",
+      "original_number": 1841,
+      "title": "CAPABILITIES31_0 field descriptions",
+      "spec_page": 49,
+      "definition_page": 49,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_34.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          48,
+          49,
+          50
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "The requested Table 1841 (CAPABILITIES31_0 field descriptions) is not present on this page; only the register diagram and the end of the previous table (1840) are visible."
+    },
+    {
+      "id": "TABLE_57_35",
+      "spec_reference": "Table 1842",
+      "original_number": 1842,
+      "title": "CAPABILITIES63_32 field descriptions",
+      "spec_page": 51,
+      "definition_page": 51,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_35.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          50,
+          51
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the CAPABILITIES31_0 register fields for the SDMMC controller, including maximum block length, base clock frequency, and timeout clock configuration parameters."
+    },
+    {
+      "id": "TABLE_57_36",
+      "spec_reference": "Table 1843",
+      "original_number": 1843,
+      "title": "MAXCURRENTCAP31_0 field descriptions",
+      "spec_page": 52,
+      "definition_page": 52,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_36.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          52
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the MAXCURRENTCAP31_0 register field, specifically the CORECFG_MAXCURRENT3P3V field (bits 24:31) which defines the maximum current for 3.3V operation."
+    },
+    {
+      "id": "TABLE_57_37",
+      "spec_reference": "Table 1844",
+      "original_number": 1844,
+      "title": "MAXCURRENTCAP63_32 field descriptions",
+      "spec_page": 52,
+      "definition_page": 52,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_37.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          52
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the MAXCURRENTCAP63_32 register field descriptions, showing that bits 0:31 are reserved."
+    },
+    {
+      "id": "TABLE_57_38",
+      "spec_reference": "Table 1845",
+      "original_number": 1845,
+      "title": "Maximum current value definition",
+      "spec_page": 53,
+      "definition_page": 53,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_38.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          53
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the maximum current values for the SDMMC controller, mapping register values 0-255 to corresponding current levels ranging from 4 mA to 1020 mA, with register value 0 used to retrieve information via another method."
+    },
+    {
+      "id": "TABLE_57_39",
+      "spec_reference": "Table 1846",
+      "original_number": 1846,
+      "title": "PRESETVALUEn field descriptions",
+      "spec_page": 53,
+      "definition_page": 53,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_39.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          53
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the PRESETVALUEn register field, indicating that bits 0:15 are reserved with details provided in a separate table (Table 1847) for preset value register definitions."
+    },
+    {
+      "id": "TABLE_57_40",
+      "spec_reference": "Table 1847",
+      "original_number": 1847,
+      "title": "Preset value register definition",
+      "spec_page": 53,
+      "definition_page": 53,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_40.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          53
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 1847 defines the preset value registers for the SDMMC controller, listing register names, their memory offsets, descriptions of preset values for different speed modes (initialization, default, and high speed), and their associated signal voltage levels (3.3V)."
+    },
+    {
+      "id": "TABLE_57_41",
+      "spec_reference": "Table 1848",
+      "original_number": 1848,
+      "title": "SLOTINTRSTS field descriptions",
+      "spec_page": 54,
+      "definition_page": 54,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_41.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          54
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the SLOTINTRSTS field (bits 15) which indicates the interrupt signal status for slot#0, combining interrupt and wakeup signals."
+    },
+    {
+      "id": "TABLE_57_42",
+      "spec_reference": "Table 1849",
+      "original_number": 1849,
+      "title": "HOSTCONTROLLERVER field descriptions",
+      "spec_page": 55,
+      "definition_page": 55,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_42.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          55
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the HOSTCONTROLLERVER register fields, showing vendor version number in bits 0:7 and specification version number in bits 8:15 for the Secure Digital and MultiMediaCard controller."
+    },
+    {
+      "id": "TABLE_57_43",
+      "spec_reference": "Table 1850",
+      "original_number": 1850,
+      "title": "FORCEEVENTFORAUTOCMDERRSTS field descriptions",
+      "spec_page": 55,
+      "definition_page": 55,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_43.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          55
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the FORCEEVENTFORAUTOCMDERRSTS register fields that control force event generation for various Auto CMD12 errors including command not issued, index errors, end bit errors, and CRC errors in the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_44",
+      "spec_reference": "Table 1851",
+      "original_number": 1851,
+      "title": "FORCEEVENTFORERRINTSTS field descriptions",
+      "spec_page": 56,
+      "definition_page": 56,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_44.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          56,
+          57
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the FORCEEVENTFORERRINTSTS register fields used to force error interrupt events for ADMA errors, Auto CMD errors, current limit errors, and data end bit errors in the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_45",
+      "spec_reference": "Table 1852",
+      "original_number": 1852,
+      "title": "ADMAERRSTS field descriptions",
+      "spec_page": 58,
+      "definition_page": 58,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_45.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          57,
+          58
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "The requested Table 1852 containing ADMAERRSTS field descriptions is not present in this image; only the register diagram and introductory text are shown."
+    },
+    {
+      "id": "TABLE_57_46",
+      "spec_reference": "Table 1853",
+      "original_number": 1853,
+      "title": "ADMASYSADDRn field descriptions",
+      "spec_page": 58,
+      "definition_page": 58,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_46.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          57,
+          58
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_57_47",
+      "spec_reference": "Table 1854",
+      "original_number": 1854,
+      "title": "BOOTTIMEOUTCNT field descriptions",
+      "spec_page": 59,
+      "definition_page": 59,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_47.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          59
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the BOOTTIMEOUTCNT field (bits 0:31) which contains the boot data timeout counter value used to determine DAT line timeout intervals during eMMC boot operations."
+    },
+    {
+      "id": "TABLE_57_48",
+      "spec_reference": "Table 1855",
+      "original_number": 1855,
+      "title": "CORE_CONFIG field descriptions",
+      "spec_page": 60,
+      "definition_page": 60,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_48.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          60
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the CORE_CONFIG register fields for the SDMMC controller, including settings for maximum current, slot type selection, asynchronous interrupt support, ADMA2 support, and base clock frequency configuration."
+    },
+    {
+      "id": "TABLE_57_49",
+      "spec_reference": "Table 1856",
+      "original_number": 1856,
+      "title": "FB_CLK_SEL field descriptions",
+      "spec_page": 61,
+      "definition_page": 61,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_49.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          61
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the FB_CLK_SEL field (bits 30:31) which selects the feedback clock source for loopback operations in the SDMMC controller, with options for internal delayed clock or external device pin connection."
+    },
+    {
+      "id": "TABLE_57_50",
+      "spec_reference": "Table 1857",
+      "original_number": 1857,
+      "title": "DBG_STA1 field descriptions",
+      "spec_page": 62,
+      "definition_page": 62,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_50.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          62
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DBG_STA1 register field DMADEBUGBUS (bits 16:31), which provides DMA controller debug information including various host interface states, transfer modes, and state machine indicators for the SDMMC controller."
+    },
+    {
+      "id": "TABLE_57_51",
+      "spec_reference": "Table 1858",
+      "original_number": 1858,
+      "title": "DBG_STA2 field descriptions",
+      "spec_page": 63,
+      "definition_page": 63,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_51.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          63
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DBG_STA2 register field CMDDEBUGBUS (bits 16:31), which contains CMD_CTRL debug bus signals for monitoring command FSM states and various SDMMC controller status indicators."
+    },
+    {
+      "id": "TABLE_57_52",
+      "spec_reference": "Table 1859",
+      "original_number": 1859,
+      "title": "DBG_STA3 field descriptions",
+      "spec_page": 64,
+      "definition_page": 64,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_52.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          64
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DBG_STA3 register field TXDDEBUGBUS (bits 16:31), which contains various TXD_CTRL debug bus signals for monitoring SDMMC transmit and data transfer status."
+    },
+    {
+      "id": "TABLE_57_53",
+      "spec_reference": "Table 1860",
+      "original_number": 1860,
+      "title": "DBG_STA4 field descriptions",
+      "spec_page": 65,
+      "definition_page": 65,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_53.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          65,
+          66,
+          67
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DBG_STA4 register field for the SDMMC controller, detailing the RXD_CTRL debug bus signals including receive status, stop conditions, and clock indications."
+    },
+    {
+      "id": "TABLE_57_54",
+      "spec_reference": "Table 1861",
+      "original_number": 1861,
+      "title": "DBG_STA5 field descriptions",
+      "spec_page": 65,
+      "definition_page": 65,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_54.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          65,
+          66,
+          67
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the DBG_STA5 register field RXDDEBUGBUS1, which provides debug bus signals for the RXD_CTRL module including end-of-block indications, clock control, and receive data state machine status."
+    },
+    {
+      "id": "TABLE_57_55",
+      "spec_reference": "Table 1862",
+      "original_number": 1862,
+      "title": "Non-DMA transaction",
+      "spec_page": 68,
+      "definition_page": 68,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_55.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          66,
+          67,
+          68,
+          69
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "The referenced Table 1862 for Non-DMA transaction is not displayed on this page; only a reference to it appears in section 57.4.1."
+    },
+    {
+      "id": "TABLE_57_56",
+      "spec_reference": "Table 1863",
+      "original_number": 1863,
+      "title": "DMA transaction",
+      "spec_page": 70,
+      "definition_page": 70,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_56.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          69,
+          70,
+          71,
+          72
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the steps for non-DMA transaction sequence in the SDMMC controller, covering block reception, transfer completion handling, and abort procedures."
+    },
+    {
+      "id": "TABLE_57_57",
+      "spec_reference": "Table 1864",
+      "original_number": 1864,
+      "title": "ADMA transaction flow",
+      "spec_page": 73,
+      "definition_page": 73,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_57.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          71,
+          72,
+          73,
+          74
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the step-by-step ADMA (Advanced DMA) transaction flow for read and write data transfers between the host controller and SD/MMC card, including interrupt handling and ping-pong FIFO buffer management."
+    },
+    {
+      "id": "TABLE_57_58",
+      "spec_reference": "Table 1865",
+      "original_number": 1865,
+      "title": "Abort transaction",
+      "spec_page": 75,
+      "definition_page": 75,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_58.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          74,
+          75
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the step-by-step procedure for performing an ADMA (Advanced DMA) transaction flow on an SDMMC controller, covering register configuration, command issuance, interrupt handling, and error management."
+    },
+    {
+      "id": "TABLE_57_59",
+      "spec_reference": "Table 1866",
+      "original_number": 1866,
+      "title": "Asynchronous abort",
+      "spec_page": 76,
+      "definition_page": 76,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_57_59.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          76,
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table describes the three-step procedure for performing an asynchronous abort operation in the SDMMC controller, involving issuing an abort command, triggering software resets for DAT and CMD lines, and checking reset completion status."
+    }
+  ]
+}

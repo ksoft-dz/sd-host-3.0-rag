@@ -1,0 +1,38 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor White
+    BorderColor Black
+}
+
+rectangle "Embedded SDIO" as sdio {
+    rectangle "Basic\nSD Bus IF" as basic
+    rectangle "Optional\nData Line" as optional
+}
+
+' Basic SD Bus Interface signals
+basic : CLK
+basic : CMD
+basic : DAT[3:0]
+basic : VDDH
+basic : GND
+
+' Back-End Function Power pins
+rectangle "Back-End Function\nPower pins" as backend {
+    label "BP1"
+    label "BP2"
+    label "..."
+    label "BP7"
+}
+
+' Optional signals
+optional : DAT[7:4]
+
+' Interrupt pin
+rectangle "Interrupt pin\n(Open drain)" as interrupt {
+    label "INT#"
+}
+
+basic -right-> backend
+optional -right-> interrupt
+
+@enduml

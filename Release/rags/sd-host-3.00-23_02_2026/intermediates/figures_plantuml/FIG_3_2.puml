@@ -1,0 +1,11 @@
+@startuml
+start
+:(1) Enable Int or Card Detect;
+:(2) Card Detect Int occur;
+:(3) Clr Card Detect Int Status;
+if (Check\nCard Inserted) then (Card Inserted is 1b,\nthen recognize as insertion)
+  stop
+else (Card Inserted is 0b,\nthen recognize as removal)
+  stop
+endif
+@enduml

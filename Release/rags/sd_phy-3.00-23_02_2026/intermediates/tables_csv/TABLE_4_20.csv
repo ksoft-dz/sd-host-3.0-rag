@@ -1,0 +1,3 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD21 CMD22,Reserved,,,,
+CMD23,ac,[31:0] Block Count,R1,SET_BLOCK_COUNT,Specify block count for CMD18 and CMD25.

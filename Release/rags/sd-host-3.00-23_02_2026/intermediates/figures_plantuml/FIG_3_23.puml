@@ -1,0 +1,14 @@
+@startuml
+start
+:Make SD Host Controller 1bit mode;
+note right
+  (1)
+  DO NOT need for insertion and
+  removal wakeup
+end note
+:Stop SD Clock;
+note left: (2)
+:Enable each factor;
+note left: (3)
+stop
+@enduml

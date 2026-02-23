@@ -1,0 +1,7 @@
+ERASE_SIZE,Value Definition
+0000h,Erase Time-out Calculation is not supported.
+0001h,1 AU
+0002,2 AU
+0003,3 AU
+......,......
+FFFFh,65535 AU

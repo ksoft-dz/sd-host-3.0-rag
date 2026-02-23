@@ -1,0 +1,4 @@
+Max block size READ_BL_LEN,CSD value Misalign,CSD value Partial,Current Blocklen,Read CMD Start Address
+512Bytes,0 (Disable),1 (Enable),1- 512 bytes,"Any address is accepted."
+1kBytes,0 (Disable),1 (Enable),1- 512 bytes,"Any address is accepted."
+2kBytes,0 (Disable),1 (Enable),1- 512 bytes,"Any address is accepted."

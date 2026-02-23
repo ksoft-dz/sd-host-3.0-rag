@@ -1,0 +1,4 @@
+Byte,7,6,5,4,3,2,1,0
+00h,TPL_CODE Tuple code: CISTPL_xxx,,,,,,,
+01h,"TPL_LINK Offset to next tuple in chain. This is the number of bytes in the tuple body. (n)",,,,,,,
+02h..(n+2),The tuple body. (n bytes),,,,,,,

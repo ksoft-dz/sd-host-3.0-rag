@@ -1,0 +1,51 @@
+@startuml
+skinparam monochrome false
+
+title Figure 3-6: Data Packet Format - Usual Data
+
+legend left
+  8bit width Data
+  |= b7 |= b0 |
+  | 1st Byte ||
+  | 2nd Byte ||
+  | 3rd Byte ||
+  | . ||
+  | . ||
+  | . ||
+  | n th Byte ||
+  
+  Ex
+  [SDIO]
+    CMD53
+  [SD memory]
+    CMD17, CMD18,
+    CMD24, CMD25,
+    ACMD18, ACMD25,
+    etc
+endlegend
+
+package "Data Packet Format for Standard Bus (only DAT0 used)" {
+  rectangle "DAT0" as dat0_std {
+    rectangle "Start bit\n0" as start_std #white
+    rectangle "1st Byte\nData\n|b7|b6|b5|b4|b3|b2|b1|b0|" as byte1_std #yellow
+    rectangle "2nd Byte\nData" as byte2_std #yellow
+    rectangle "3rd Byte\nData" as byte3_std #yellow
+    rectangle "..." as dots_std
+    rectangle "n th Byte\nData\n|b7|b6|b5|b4|b3|b2|b1|b0|" as byten_std #yellow
+    rectangle "CRC" as crc_std #cyan
+    rectangle "End bit\n1" as end_std #white
+  }
+}
+
+package "Data Packet Format for Wide Bus (all four lines used)" {
+  rectangle "DAT3: |0|b7|b3|b7|b3|b7|b3|...|b7|b3|CRC|1|" as dat3 
+  rectangle "DAT2: |0|b6|b2|b6|b2|b6|b2|...|b6|b2|CRC|1|" as dat2
+  rectangle "DAT1: |0|b5|b1|b5|b1|b5|b1|...|b5|b1|CRC|1|" as dat1
+  rectangle "DAT0: |0|b4|b0|b4|b0|b4|b0|...|b4|b0|CRC|1|" as dat0
+}
+
+note bottom of dat3
+  Start bit | 1st Byte Data | 2nd Byte Data | 3rd Byte Data | ... | n th Byte Data | End bit
+end note
+
+@enduml

@@ -1,0 +1,38 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+skinparam rectangle {
+    BackgroundColor<<bit>> LightGray
+    BackgroundColor<<field>> White
+}
+
+rectangle "Block Size Register (Offset 004h)" {
+    rectangle "D15" <<bit>> #LightGray
+    rectangle "D14" <<bit>> #LightGray  
+    rectangle "D12" <<bit>> #LightGray
+    rectangle "D11" <<bit>> #LightGray
+    rectangle "D00" <<bit>> #LightGray
+    
+    rectangle "Rsvd" <<field>>
+    rectangle "Host SDMA Buffer Boundary" <<field>>
+    rectangle "Transfer Block Size" <<field>>
+}
+
+note right
+  **Bit Fields:**
+  • D15: Rsvd (Reserved)
+  • D14-12: RW - Host SDMA Buffer Boundary
+  • D11-00: Transfer Block Size
+  
+  **Host SDMA Buffer Boundary Values:**
+  000b = 4K bytes (Detects A11 carry out)
+  001b = 8K bytes (Detects A12 carry out)
+  010b = 16K Bytes (Detects A13 carry out)
+  011b = 32K Bytes (Detects A14 carry out)
+  100b = 64K bytes (Detects A15 carry out)
+  101b = 128K Bytes (Detects A16 carry out)
+  110b = 256K Bytes (Detects A17 carry out)
+  111b = 512K Bytes (Detects A18 carry out)
+end note
+
+@enduml

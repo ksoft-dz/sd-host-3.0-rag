@@ -1,0 +1,30 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+map "ARGUMENT1 Register (Offset: 0x0008)" as reg {
+    Access => Read/Write
+}
+
+rectangle "31                                                                              16" as upper_label
+rectangle "15                                                                               0" as lower_label
+
+map "Bits 31:0" as bits {
+    COMMAND_ARGUMENT1 [31:0] => Command argument value
+}
+
+note bottom of bits
+    Reset Value: 0x00000000
+    
+    Upper half (bits 31:16):
+    |16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|
+    |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |
+    
+    Lower half (bits 15:0):
+    |0 |1 |2 |3 |4 |5 |6 |7 |8 |9 |10|11|12|13|14|15|
+    |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |0 |
+    
+    COMMAND_ARGUMENT1 spans all 32 bits
+end note
+
+@enduml

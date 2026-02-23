@@ -1,0 +1,5 @@
+I notice this image does not contain a table titled "Status Data Structure" or "Table 4-11". The image shows page 45 of an SD Card Physical Layer Simplified Specification document, which contains information about maximum current of a connector and function groups related to UHS-I card types.
+
+The visible content shows a small table about Function 0-F with 3.3V Signal and 1.8V Signal rows, along with current limit information (F0=200mA, F1=400mA, F2=600mA, F3=800mA).
+
+If you need the "Status Data Structure" table, it would likely be on a different page of this specification document. Could you provide the correct page image containing Table 4-11 or the Status Data Structure table?

@@ -1,0 +1,1853 @@
+{
+  "_metadata": {
+    "source": "SDMMC Controller (3MCR) — SPC58 H-Line Reference Manual",
+    "extraction_date": "2026-02-23T15:46:40Z",
+    "total_register_classes": 7,
+    "total_registers": 43,
+    "total_fields": 91,
+    "llm_stats": {
+      "total_calls": 91,
+      "total_input_tokens": 11009,
+      "total_output_tokens": 3009,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "register_classes": [
+    {
+      "id": "REGCLASS_CMD_DATA",
+      "type": "REG_CLASS",
+      "name": "Command & Data Transfer",
+      "address_start": "0x000",
+      "address_end": "0x00F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_RESPONSE",
+      "type": "REG_CLASS",
+      "name": "Response Registers",
+      "address_start": "0x010",
+      "address_end": "0x01F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_HOST_CTRL",
+      "type": "REG_CLASS",
+      "name": "Host Control & Configuration",
+      "address_start": "0x020",
+      "address_end": "0x02F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_INTERRUPT",
+      "type": "REG_CLASS",
+      "name": "Interrupt & Status",
+      "address_start": "0x030",
+      "address_end": "0x03F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_CAPABILITIES",
+      "type": "REG_CLASS",
+      "name": "Capabilities & Preset Values",
+      "address_start": "0x040",
+      "address_end": "0x06F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_ADMA",
+      "type": "REG_CLASS",
+      "name": "ADMA Control",
+      "address_start": "0x054",
+      "address_end": "0x05F",
+      "table_1_1_name": "",
+      "registers": []
+    },
+    {
+      "id": "REGCLASS_VENDOR",
+      "type": "REG_CLASS",
+      "name": "Vendor-Specific (ST Extensions)",
+      "address_start": "0x080",
+      "address_end": "0x0FF",
+      "table_1_1_name": "",
+      "registers": []
+    }
+  ],
+  "registers": [
+    {
+      "id": "REG_000",
+      "name": "SDMA System Address",
+      "offset": "0x000",
+      "spec_section": "57.3.2.2",
+      "spec_table": "TABLE_57_3",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_000_F0",
+          "name": "SDMA_SYSADDRESS",
+          "bits": "0:31",
+          "bit_high": 0,
+          "bit_low": 31,
+          "width": -30,
+          "access": "",
+          "original_attrib": "",
+          "raw": "SDMA system address (Low) / Argument 2 (Low) (1) SDMA system address This register contains the system memory address for a SDMA transfer. When the host controller stops a SDMA transfer, this register points to the system address of the next contiguous data position. It can be accessed only if no transaction is executing (after a transaction has stopped). Read operations during transfers may return an invalid value. The host driver initializes this register before starting a SDMA transaction. After SDMA has stopped, the next system address of the next contiguous data position can be read from this register. The SDMA transfer waits at the every boundary specified by the host SDMA buffer boundary in the Block size register. The host controller generates DMA Interrupt to request the host driver to update this register. The host driver sets the next system address of the next data position to this register. When the most upper byte of this register (0x003) is written, the host controller restarts the SDMA transfer. When restarting SDMA by the Resume command or by setting Continue request in the Block gap control register, the host controller starts at the next contiguous address stored here in the SDMA System address register. ADMA does not use this register. (2) Argument 2 This register is used with the Auto CMD23 to set a 32-bit block count value to the argument of the CMD23 while executing Auto CMD23. If Auto CMD23 is used with ADMA, the full 32-bit block count value can be used. If Auto CMD23 is used without AMDA, the available block count value is limited by the Block count register. 65535 blocks is the maximum value in this case.",
+          "abstract": "System memory address register for SDMA transfers that holds the current/next contiguous data position and can also serve as Argument 2, initialized by the host driver before transfers and updated automatically as the transfer progresses.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 11,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_004",
+      "name": "Block Size",
+      "offset": "0x004",
+      "spec_section": "57.3.2.3",
+      "spec_table": "TABLE_57_4",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_004_F0",
+          "name": "SDMA_BUFBOUNDARY",
+          "bits": "1:3",
+          "bit_high": 1,
+          "bit_low": 3,
+          "width": -1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Host SDMA buffer size. To perform long DMA transfer, System address register is updated at every system boundary during DMA transfer. These bits specify the size of contiguous buffer in the system memory. The DMA transfer waits at the every boundary specified by these fields and the HC generates the DMA Interrupt to request the HD to update the System address register. These bits support when the DMA support in the Capabilities register is set to 1 and this function is active when the DMA enable in the Transfer mode register is set to 1. 000 4 Kbytes (Detects A11 Carry out) 001 8 Kbytes (Detects A12 Carry out) 010 16 Kbytes (Detects A13 Carry out) 011 32 Kbytes (Detects A14 Carry out) 100 64 Kbytes (Detects A15 Carry out) 101 128 Kbytes (Detects A16 Carry out) 110 256 Kbytes (Detects A17 Carry out) 111 512 Kbytes (Detects A18 Carry out)",
+          "abstract": "Specifies the host SDMA buffer boundary size at which DMA transfers pause and generate an interrupt to request system address register updates for long DMA operations.",
+          "values": []
+        },
+        {
+          "id": "REG_004_F1",
+          "name": "XFER_BLOCKSIZE",
+          "bits": "4:15",
+          "bit_high": 4,
+          "bit_low": 15,
+          "width": -10,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Transfer block size. This register field specifies the block size for block data transfers for CMD17, CMD18, CMD24, CMD25, and CMD53. It can be accessed only if no transaction is executing (that is after a transaction has stopped). Read operations during transfer return an invalid value and Write operations are ignored. 0x0000 No data transfer 0x0001 1 Byte 0x0002 2 Bytes 0x0003 3 Bytes 0x0004 4 Bytes ... 0x01FF 511 Bytes 0x0200 512 Bytes",
+          "abstract": "Specifies the block size (0 to 512 bytes) for block data transfers used by CMD17, CMD18, CMD24, CMD25, and CMD53, and can only be modified when no transaction is in progress.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 12,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_006",
+      "name": "Block Count",
+      "offset": "0x006",
+      "spec_section": "57.3.2.4",
+      "spec_table": "TABLE_57_5",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_006_F0",
+          "name": "XFER_BLOCKCOUNT",
+          "bits": "0:15",
+          "bit_high": 0,
+          "bit_low": 15,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Block count for current transfer. This register is enabled when Block count enable in the Transfer mode register is set to 1 and is valid only for multiple block transfers. The HC decrements the block count after each block transfer and stops when the count reaches zero. It can be accessed only if no transaction is executing (that is after a transaction has stopped). Read operations during transfer return an invalid value and Write operations are ignored. When saving transfer context as a result of Suspend command, the number of blocks yet to be transferred can be determined by reading this register. When restoring transfer context prior to issuing a Resume command, the HD restores the previously save block count. 0x0000 Stop count 0x0001 1 block 0x0002 2 blocks ... 0xFFFF 65535 blocks",
+          "abstract": "Specifies the number of blocks for multiple block transfers, decremented by the host controller after each block transfer until reaching zero, accessible only when no transaction is executing.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 13,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_008",
+      "name": "Argument 1",
+      "offset": "0x008",
+      "spec_section": "57.3.2.5",
+      "spec_table": "TABLE_57_6",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_008_F0",
+          "name": "COMMAND_ARGUMENT1",
+          "bits": "0:31",
+          "bit_high": 0,
+          "bit_low": 31,
+          "width": -30,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command argument 1 The MMC command argument is specified as bit39-8 of Command-Format.",
+          "abstract": "Command argument 1 value corresponding to bits 39-8 of the MMC command format, used to specify parameters for MMC/SD card commands.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 14,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_00C",
+      "name": "Transfer Mode",
+      "offset": "0x00C",
+      "spec_section": "57.3.2.6",
+      "spec_table": "TABLE_57_7",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_00C_F0",
+          "name": "XFERMODE_MULTIBLKSEL",
+          "bits": "10",
+          "bit_high": 10,
+          "bit_low": 10,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Multi/Single block select\nThis bit enables multiple block data transfers.\n0 Single block\n1 Multiple block",
+          "abstract": "Enables selection between single block and multiple block data transfer modes.",
+          "values": []
+        },
+        {
+          "id": "REG_00C_F1",
+          "name": "XFERMODE_DATAXFERDIR",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Data transfer direction select\nThis bit defines the direction of data transfers.\n0 Write (host to card)\n1 Read (card to host)",
+          "abstract": "Selects the data transfer direction, where 0 indicates a write operation from host to card and 1 indicates a read operation from card to host.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 14,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_00E",
+      "name": "Command",
+      "offset": "0x00E",
+      "spec_section": "57.3.2.7",
+      "spec_table": "TABLE_57_9",
+      "class_id": "REGCLASS_CMD_DATA",
+      "fields": [
+        {
+          "id": "REG_00E_F0",
+          "name": "COMMAND_CMDINDEX",
+          "bits": "2:7",
+          "bit_high": 2,
+          "bit_low": 7,
+          "width": -4,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command index. This bit is set to the command number (CMD0–63, ACMD0–63).",
+          "abstract": "Specifies the command index number (0-63) for SD/MMC commands or application-specific commands to be sent to the card.",
+          "values": []
+        },
+        {
+          "id": "REG_00E_F1",
+          "name": "COMMAND_CMDTYPE",
+          "bits": "8:9",
+          "bit_high": 8,
+          "bit_low": 9,
+          "width": 0,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command type. There are three types of special commands: suspend, resume and abort. These bits are set to 00b for all other commands. Suspend command: If the Suspend command succeeds, the HC assumes the eMMC Bus has been released and that it is possible to issue the next command which uses the DAT line. The HC de-asserts Read Wait for read transactions and stop checking busy for write transactions. The interrupt cycle starts, in 4-bit mode. If the Suspend command fails, the HC maintains its current state and the HD restarts the transfer by setting Continue request in the Block gap control register. Resume command: The HD re-starts the data transfer by restoring the registers in the range of 0x000–0x00D. The HC checks for busy before starting write transfers. Abort command: If this command is set when executing a read transfer, the HC stops Reads to the buffer. If this command is set when executing a write transfer, the HC stops driving the DAT line. After issuing the Abort command, the HD issues a software reset. 00 Normal, 01 Suspend, 10 Resume, 11 Abort",
+          "abstract": "Specifies the command type, distinguishing between normal commands (00b) and special commands including suspend, resume, and abort operations that control data line transactions and bus release behavior.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 16,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_010",
+      "name": "Response n",
+      "offset": "0x010",
+      "spec_section": "57.3.2.8",
+      "spec_table": "TABLE_57_10",
+      "class_id": "REGCLASS_RESPONSE",
+      "fields": [
+        {
+          "id": "REG_010_F0",
+          "name": "COMMAND_RESPONSE",
+          "bits": "0:15",
+          "bit_high": 0,
+          "bit_low": 15,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command response R[ ] refers to a bit range within the response data as transmitted on the SDMMC bus, REP[ ] refers to a bit range within the Response register. Note: These bits are read only bits and initialized to zero at reset.",
+          "abstract": "Contains bits [39:24] of the command response data received from the SDMMC bus, accessible as a read-only 16-bit field that is cleared to zero on reset.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 17,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_020",
+      "name": "Data Port",
+      "offset": "0x020",
+      "spec_section": "57.3.2.9",
+      "spec_table": "TABLE_57_13",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [],
+      "source": {
+        "page": 19,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_024",
+      "name": "Present State",
+      "offset": "0x024",
+      "spec_section": "57.3.2.10",
+      "spec_table": "TABLE_57_14",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [
+        {
+          "id": "REG_024_F0",
+          "name": "SDMMC_DAT[7:4]",
+          "bits": "3:0",
+          "bit_high": 3,
+          "bit_low": 0,
+          "width": 4,
+          "access": "",
+          "original_attrib": "",
+          "raw": "DAT[7:4] line signal level. This status is used to check DAT line level to recover from errors, and for debugging.",
+          "abstract": "Indicates the current signal level of SDMMC data lines DAT[7:4] for error recovery and debugging purposes.",
+          "values": []
+        },
+        {
+          "id": "REG_024_F1",
+          "name": "SDMMC_CMD",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "CMD line signal level. This status is used to check CMD line level to recover from errors, and for debugging.",
+          "abstract": "Indicates the current signal level of the CMD line, used for error recovery and debugging purposes.",
+          "values": []
+        },
+        {
+          "id": "REG_024_F2",
+          "name": "SDMMC_DAT[3:0]",
+          "bits": "8:11",
+          "bit_high": 8,
+          "bit_low": 11,
+          "width": -2,
+          "access": "",
+          "original_attrib": "",
+          "raw": "DAT[3:0] line signal level. This status is used to check DAT line level to recover from errors, and for debugging. This is especially useful in detecting the busy signal level from DAT[0].",
+          "abstract": "DAT[3:0] line signal level status used for error recovery, debugging, and detecting the busy signal level from DAT[0].",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 19,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_028",
+      "name": "Host Control 1",
+      "offset": "0x028",
+      "spec_section": "57.3.2.11",
+      "spec_table": "TABLE_57_15",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [
+        {
+          "id": "REG_028_F0",
+          "name": "PRESENTSTATE_INHIBITDAT",
+          "bits": "30",
+          "bit_high": 30,
+          "bit_low": 30,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command inhibit (DAT). This status bit is generated if either the DAT line active or the read transfer active is set to 1. If this bit is 0, it indicates the HC can issue the next command. Commands with busy signal belong to Command inhibit (DAT) (ex. R1b, R5b type). Changing from 1 to 0 generates a Transfer Complete Interrupt in the Normal interrupt status register. Note: The host driver can save registers in the range of 0x000-0x00D for a Suspend transaction after this bit has changed from 1 to 0. 1: Cannot issue command which uses the DAT line 0: Can issue command which uses the DAT line. Note: This bit is read only bit and initialized to zero at reset.",
+          "abstract": "Command inhibit status for DAT line indicating whether the host controller can issue the next command; set to 1 when DAT line is active or read transfer is active, and transitioning from 1 to 0 generates a Transfer Complete interrupt.",
+          "values": []
+        },
+        {
+          "id": "REG_028_F1",
+          "name": "PRESENTSTATE_INHIBITCMD",
+          "bits": "31",
+          "bit_high": 31,
+          "bit_low": 31,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command inhibit (CMD). If this bit is 0, it indicates the CMD line is not in use and the HC can issue a command using the CMD line. This bit is set immediately after the Command register (0x00F) is written. This bit is cleared when the command response is received. Even if the Command inhibit (DAT) is set to 1, commands using only the CMD line can be issued if this bit is 0. Changing from 1 to 0 generates a Command Complete Interrupt in the Normal interrupt status register. If the HC cannot issue the command because of a command conflict error or because of command not issued by Auto CMD12 error, this bit remains 1 and the Command Complete is not set. Status issuing Auto CMD12 is not read from this bit. Auto CMD12 and Auto CMD23 consist of two responses. In this case, this bit is not cleared by the response of CMD12 or CMD23 but cleared by the response of a read/write command. Status issuing Auto CMD12 is not read from this bit. So if a command is issued during Auto CMD12 operation, host controller manages to issue two commands: CMD12 and a command set by Command register. Note: This bit is read only bit and initialized to zero at reset.",
+          "abstract": "Indicates whether the CMD line is available for issuing a new command, being set when the Command register is written and cleared when a command response is received.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 24,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_029",
+      "name": "Power Control",
+      "offset": "0x029",
+      "spec_section": "57.3.2.12",
+      "spec_table": "TABLE_57_16",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [
+        {
+          "id": "REG_029_F0",
+          "name": "PWRCTRL_SDBUSVOLTAGE",
+          "bits": "4:6",
+          "bit_high": 4,
+          "bit_low": 6,
+          "width": -1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "eMMC bus voltage select. By setting these bits, the HD selects the voltage level. Before setting this register, the HD checks the voltage support bits in the Capabilities register. 111 3.3 Flattop. 110 Reserved. ... 000 Reserved. Note: only 3.3V is supported",
+          "abstract": "Selects the eMMC bus voltage level, with only 3.3V (value 111) supported; other values are reserved.",
+          "values": []
+        },
+        {
+          "id": "REG_029_F1",
+          "name": "SD_BUS_POWER",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Before setting this bit, the SD host driver set SD Bus voltage select. If the HC detects the No card state, this bit is cleared. 1 Power on. 0 Power off",
+          "abstract": "Controls power to the SD bus, enabling (1) or disabling (0) power after the bus voltage has been configured, and is automatically cleared when no card is detected.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 25,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02A",
+      "name": "Block Gap Control",
+      "offset": "0x02A",
+      "spec_section": "57.3.2.13",
+      "spec_table": "TABLE_57_17",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [
+        {
+          "id": "REG_02A_F0",
+          "name": "BLKGAPCTRL_BOOTACKENA",
+          "bits": "0",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "To check for the boot acknowledge in boot operation.\n1 Wait for boot ack from eMMC card\n0 Will not wait for boot ack from eMMC card",
+          "abstract": "Controls whether the controller waits for a boot acknowledge signal from the eMMC card during boot operation.",
+          "values": []
+        },
+        {
+          "id": "REG_02A_F1",
+          "name": "BLKGAPCTRL_ALTBOOTMODE",
+          "bits": "1",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "To start boot code access in alternative mode.\n1 To start alternate boot mode access\n0 To stop alternate boot mode access",
+          "abstract": "Controls the start and stop of alternate boot mode access for boot code operations.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 25,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02B",
+      "name": "Wakeup Control",
+      "offset": "0x02B",
+      "spec_section": "57.3.2.14",
+      "spec_table": "TABLE_57_18",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [],
+      "source": {
+        "page": 27,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02C",
+      "name": "Clock Control",
+      "offset": "0x02C",
+      "spec_section": "57.3.2.15",
+      "spec_table": "TABLE_57_19",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [],
+      "source": {
+        "page": 29,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02E",
+      "name": "Timeout Control",
+      "offset": "0x02E",
+      "spec_section": "57.3.2.16",
+      "spec_table": "TABLE_57_20",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [],
+      "source": {
+        "page": 31,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_02F",
+      "name": "Software Reset",
+      "offset": "0x02F",
+      "spec_section": "57.3.2.17",
+      "spec_table": "TABLE_57_21",
+      "class_id": "REGCLASS_HOST_CTRL",
+      "fields": [
+        {
+          "id": "REG_02F_F0",
+          "name": "SWRESET_FOR_DAT",
+          "bits": "5",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Software reset for DAT line. Only part of data circuit is reset. The following registers and bits are cleared by this bit: Buffer data port register: – Buffer is cleared and initialized. Present state register: – Buffer read enable – Buffer write enable – Read transfer active – Write transfer active – DAT line active – Command inhibit (DAT) Block gap control register: – Continue request – Stop at block gap request Normal interrupt status register: – Buffer read ready – Buffer write ready – Block gap event – Transfer complete 1 Reset 0 Work",
+          "abstract": "Software reset that clears the DAT line circuitry, resetting data transfer buffers, clearing buffer-related status bits in the present state register, block gap control settings, and buffer ready interrupt flags.",
+          "values": []
+        },
+        {
+          "id": "REG_02F_F1",
+          "name": "SWRESET_FOR_CMD",
+          "bits": "6",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Software reset for CMD line. Only part of command circuit is reset. The following registers and bits are cleared by this bit: Present state register: – Command inhibit (CMD) Normal interrupt status register: – Command complete 1 Reset 0 Work",
+          "abstract": "Software reset for the CMD line that clears command-related status bits including command inhibit and command complete indicators in the present state and normal interrupt status registers.",
+          "values": []
+        },
+        {
+          "id": "REG_02F_F2",
+          "name": "SWRESET_FOR_ALL",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Software reset for all. This reset affects the entire HC except for the card detection circuit. Register bits of type R, RW, RW1C, RWAC are cleared to 0. During its initialization, the HD set this bit to 1 to reset the HC. The HC reset this bit to 0 when Capabilities registers are valid and the HD can read them. Additional use of software reset for all may not affect the value of the Capabilities registers. If this bit is set to 1, the SDMMC card resets itself and must be re initialized by the HD. 1 Reset 0 Work",
+          "abstract": "Software reset control bit that resets the entire host controller except the card detection circuit, clearing R/RW/RW1C/RWAC register bits to 0, and is automatically cleared by hardware when Capabilities registers become valid.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 32,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_030",
+      "name": "Normal Interrupt Status",
+      "offset": "0x030",
+      "spec_section": "57.3.2.18",
+      "spec_table": "TABLE_57_22",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_030_F0",
+          "name": "REG_ERRORINTRSTS",
+          "bits": "0",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Error interrupt\nIf any of the bits in the Error interrupt status register are set, then this bit is set. Therefore the HD can test for an error by checking this bit first.\n0: No error\n1: Error",
+          "abstract": "Indicates whether any error condition exists by reflecting the combined status of all bits in the Error interrupt status register, allowing quick error detection through a single bit check.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F1",
+          "name": "NORMALINTRSTS_BOOTCOMPLETE",
+          "bits": "1",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot terminate interrupt\nThis status is set if the boot operation get terminated.\n0: Boot operation is not terminated.\n1: Boot operation is terminated.\nNote: SoC does not support Execute in Place from eMMC",
+          "abstract": "Boot terminate interrupt status indicating whether the boot operation has been terminated (1) or is still in progress (0).",
+          "values": []
+        },
+        {
+          "id": "REG_030_F2",
+          "name": "NORMALINTRSTS_RCVBOOTACK",
+          "bits": "2",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot ack rx\nThis status is set if the boot acknowledge is received from device.\n0: Boot ack is not received.\n1: Boot ack is received.\nNote: SoC does not support Execute in Place from eMMC",
+          "abstract": "Indicates whether a boot acknowledge signal has been received from the eMMC device during boot operations.",
+          "values": []
+        },
+        {
+          "id": "REG_030_F3",
+          "name": "NORMALINTRSTS_RETUNINGEVENT",
+          "bits": "3",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Re-tuning event\nThis status is set if Re-tuning request in the Present state register changes from 0 to 1. Host controller requests host driver to perform re-tuning for next data transfer. Current data transfer (not large block count) can be completed without re-tuning.\n1: Re-tuning is performed.\n0: Re-tuning is not required.\nNote: Re-tuning is not supported.",
+          "abstract": "Status flag indicating a re-tuning event occurred when the re-tuning request transitioned from 0 to 1, signaling the host controller requests re-tuning for the next data transfer (note: re-tuning is not supported in this implementation).",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 33,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_032",
+      "name": "Error Interrupt Status",
+      "offset": "0x032",
+      "spec_section": "57.3.2.19",
+      "spec_table": "TABLE_57_25",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_032_F0",
+          "name": "ERRORINTRSTS_HOSTERROR",
+          "bits": "3",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Target response error Occurs when detecting ERROR in m_hresp (DMA transaction). 0 No error 1 Error",
+          "abstract": "Indicates a target response error when an ERROR is detected on m_hresp during a DMA transaction.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F1",
+          "name": "ERRORINTRSTS_ADMAERROR",
+          "bits": "6",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "DMA error This bit is set when the host controller detects errors during ADMA based data transfer. The state of the ADMA at an error occurrence is saved in the ADMA Error status register. 0 No error 1 Error",
+          "abstract": "Indicates when the host controller detects an error during ADMA-based data transfer, with the ADMA state at error occurrence saved in the ADMA Error Status register.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F2",
+          "name": "ERRORINTRSTS_AUTOCMDERROR",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Auto CMD error Auto CMD12 and Auto CMD23 use this error status. This bit is set when detecting that one of the bits D00-D04 in Auto CMD Error status register has changed from 0 to 1. In case of Auto CMD12, this bit is set to 1, not only when the errors in Auto CMD12 occur but also when Auto CMD12 is not executed due to the previous command error. 0 No error 1 Error",
+          "abstract": "Indicates an Auto CMD error occurred when any bit in the Auto CMD Error status register (D00-D04) transitions from 0 to 1, applicable to both Auto CMD12 and Auto CMD23 operations.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F3",
+          "name": "ERRORINTRSTS_DATAENDBITERROR",
+          "bits": "9",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Data end bit error Occurs when detecting 0 at the end bit position of read data which uses the DAT line or the end bit position of the CRC status. 0 No error 1 Error",
+          "abstract": "Indicates a data end bit error occurred when a 0 was detected at the end bit position of read data on the DAT line or at the end bit position of CRC status.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F4",
+          "name": "ERRORINTRSTS_DATACRCERROR",
+          "bits": "10",
+          "bit_high": 10,
+          "bit_low": 10,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Data CRC error Occurs when detecting CRC error when transferring read data which uses the DAT line or when detecting the write CRC status having a value of other than 010\". 0 No error 1 Error\"",
+          "abstract": "Indicates a CRC error detected during data transfer on the DAT line, either from read data or from write CRC status not equal to '010'.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F5",
+          "name": "ERRORINTRSTS_DATATIMEOUTERROR",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Data timeout error Occurs when detecting one of following timeout conditions: – Busy timeout for R1b, R5b type – Busy timeout after Write CRC status – Write CRC status timeout – Read data timeout 0 No error 1 Timeout",
+          "abstract": "Indicates a data timeout error occurred due to busy timeout for R1b/R5b responses, busy timeout after write CRC status, write CRC status timeout, or read data timeout conditions.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F6",
+          "name": "ERRORINTRSTS_CMDINDEXERROR",
+          "bits": "12",
+          "bit_high": 12,
+          "bit_low": 12,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command index error Occurs if a command index error occurs in the command response. 0 No error 1 Error",
+          "abstract": "Indicates whether a command index error occurred in the command response, where 0 means no error and 1 indicates an error.",
+          "values": []
+        },
+        {
+          "id": "REG_032_F7",
+          "name": "ERRORINTRSTS_CMDENDBITERROR",
+          "bits": "13",
+          "bit_high": 13,
+          "bit_low": 13,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command end bit error Occurs when detecting that the end bit of a command response is 0. 0 No error 1 End bit error generated",
+          "abstract": "Indicates a command end bit error occurred when the end bit of a command response was detected as 0 instead of the expected value.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 37,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_034",
+      "name": "Normal Interrupt Status Enable",
+      "offset": "0x034",
+      "spec_section": "57.3.2.20",
+      "spec_table": "TABLE_57_27",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_034_F0",
+          "name": "NORMALINTRSTS_ENABLEREGBIT15",
+          "bits": "0",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Fixed to 0\nThe HC controls error interrupts using the Error interrupt status enable register.",
+          "abstract": "This bit is fixed to 0 as the host controller manages error interrupts through a separate Error Interrupt Status Enable register rather than this field.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F1",
+          "name": "NORMALINTRSTS_ENABLEREGBIT14",
+          "bits": "1",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot terminate interrupt enable\n0 Masked\n1 Enabled\nNote: SoC does not support Execute In Place from eMMC.",
+          "abstract": "Enables or masks the boot terminate interrupt signal in the normal interrupt status enable register.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F2",
+          "name": "NORMALINTRSTS_ENABLEREGBIT13",
+          "bits": "2",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot ack rcv enable\n0 Masked\n1 Enabled\nNote: SoC does not support Execute In Place from eMMC.",
+          "abstract": "Enables the boot acknowledge received interrupt status, where 0 masks the interrupt and 1 enables it.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F3",
+          "name": "NORMALINTRSTS_ENABLEREGBIT12",
+          "bits": "3",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Re-tuning event status enable\n0 Masked\n1 Enabled\nNote: Re-tuning is not supported.",
+          "abstract": "Re-tuning event status enable bit that controls whether re-tuning event status is masked or enabled, though re-tuning is not supported in this implementation.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F4",
+          "name": "NORMALINTRSTS_ENABLEREGBIT11",
+          "bits": "4",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_C status enable\nIf this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_C and may set this bit again after all interrupt requests to INT_C pin are cleared to prevent inadvertent interrupts.\nNote: INT_C is not supported.",
+          "abstract": "Enables the INT_C interrupt status reporting, allowing the host controller to generate or suppress interrupt requests to the system for the INT_C pin (not supported in this implementation).",
+          "values": []
+        },
+        {
+          "id": "REG_034_F5",
+          "name": "NORMALINTRSTS_ENABLEREGBIT10",
+          "bits": "5",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_B status enable\nIf this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_B and may set this bit again after all interrupt requests to INT_B pin are cleared to prevent inadvertent interrupts.\nNote: INT_B is not supported.",
+          "abstract": "Enables the INT_B interrupt status reporting, allowing the host controller to generate or suppress INT_B interrupt requests to the system.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F6",
+          "name": "NORMALINTRSTS_ENABLEREGBIT9",
+          "bits": "6",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_A status enable\nIf this bit is set to 0, the host controller clears the interrupt request to the system. The host driver may clear this bit before servicing the INT_A and may set this bit again after all interrupt requests to INT_A pin are cleared to prevent inadvertent interrupts.\nNote: INT_A is not supported.",
+          "abstract": "Enables the INT_A interrupt status reporting, allowing the host controller to generate or suppress interrupt requests to the system for the INT_A pin (not supported in this implementation).",
+          "values": []
+        },
+        {
+          "id": "REG_034_F7",
+          "name": "SDHCREGSET_CARDINTSTSENA",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Card interrupt status enable\nIf this bit is set to 0, the HC clears interrupt request to the system. The card interrupt detection is stopped when this bit is cleared and restarted when this bit is set to 1. The HD may clear the card interrupt status enable before servicing the card interrupt and may set this bit again after all interrupt requests from the card are cleared to prevent inadvertent interrupts.\n0 Masked\n1 Enabled",
+          "abstract": "Enables or masks card interrupt status detection and system interrupt requests, where clearing stops detection and setting to 1 restarts it.",
+          "values": []
+        },
+        {
+          "id": "REG_034_F8",
+          "name": "SDHCREGSET_CARDREMSTSENA",
+          "bits": "8",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Card removal status enable\n0 Masked\n1 Enabled",
+          "abstract": "Enables the card removal status signal to indicate when a card has been removed from the SD host controller slot.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 39,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_036",
+      "name": "Error Interrupt Status Enable",
+      "offset": "0x036",
+      "spec_section": "57.3.2.21",
+      "spec_table": "TABLE_57_28",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [],
+      "source": {
+        "page": 41,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_038",
+      "name": "Normal Interrupt Signal Enable",
+      "offset": "0x038",
+      "spec_section": "57.3.2.22",
+      "spec_table": "TABLE_57_29",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_038_F0",
+          "name": "NORMALINTRSTS_ENABLEREGBIT15",
+          "bits": "0",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Fixed to 0. The HD controls error interrupts using the Error interrupt signal enable register.",
+          "abstract": "This bit is fixed to 0 as the host driver controls error interrupts through the separate Error Interrupt Signal Enable register rather than this field.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F1",
+          "name": "NORMALINTRSTS_ENABLEREGBIT14",
+          "bits": "1",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot terminate interrupt signal enable. 0 Masked. 1 Enabled. Note: SoC does not support Execute In Place from eMMC.",
+          "abstract": "Enables or masks the boot terminate interrupt signal, though Execute In Place from eMMC is not supported by the SoC.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F2",
+          "name": "NORMALINTRSTS_ENABLEREGBIT13",
+          "bits": "2",
+          "bit_high": 2,
+          "bit_low": 2,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot ack rcv signal enable. 0 Masked. 1 Enabled. Note: SoC does not support Execute In Place from eMMC.",
+          "abstract": "Enables the boot acknowledge received interrupt signal, though Execute In Place from eMMC is not supported by the SoC.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F3",
+          "name": "NORMALINTRSTS_ENABLEREGBIT12",
+          "bits": "3",
+          "bit_high": 3,
+          "bit_low": 3,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Re-tuning event signal enable. 0 Masked. 1 Enabled. Note: Re-tuning is not supported.",
+          "abstract": "Re-tuning event signal enable bit that controls whether re-tuning events are masked or enabled, though re-tuning functionality is not supported.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F4",
+          "name": "NORMALINTRSTS_ENABLEREGBIT11",
+          "bits": "4",
+          "bit_high": 4,
+          "bit_low": 4,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_C signal enable. 0 Masked. 1 Enabled. Note: INT_C is not supported.",
+          "abstract": "Enables the INT_C interrupt signal, though this interrupt source is not supported in the hardware.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F5",
+          "name": "NORMALINTRSTS_ENABLEREGBIT10",
+          "bits": "5",
+          "bit_high": 5,
+          "bit_low": 5,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_B signal enable. 0 Masked. 1 Enabled. Note: INT_B is not supported.",
+          "abstract": "Enables the INT_B signal interrupt status, though INT_B functionality is not supported on this device.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F6",
+          "name": "NORMALINTRSTS_ENABLEREGBIT9",
+          "bits": "6",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "INT_A signal enable. 0 Masked. 1 Enabled. Note: INT_A is not supported.",
+          "abstract": "Enables or masks the INT_A signal interrupt status, though INT_A functionality is not supported.",
+          "values": []
+        },
+        {
+          "id": "REG_038_F7",
+          "name": "SDHCREGSET_CARDINTSTSENA",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Card interrupt signal enable. 0 Masked. 1 Enabled",
+          "abstract": "Card interrupt signal enable bit that controls whether card interrupt signals are masked (0) or enabled (1).",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 42,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03A",
+      "name": "Error Interrupt Signal Enable",
+      "offset": "0x03A",
+      "spec_section": "57.3.2.23",
+      "spec_table": "TABLE_57_30",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [],
+      "source": {
+        "page": 44,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03C",
+      "name": "Auto CMD Error Status",
+      "offset": "0x03C",
+      "spec_section": "57.3.2.24",
+      "spec_table": "TABLE_57_31",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_03C_F0",
+          "name": "AUTOCMDERRSTS_NEXTERROR",
+          "bits": "8",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Command not issued by Auto CMD12 error\nSetting this bit to 1 means CMD_wo_DAT is not executed due to an Auto CMD12 error (D04- D01) in this register.\nThis bit is set to 0 when Auto CMD error is generated by Auto CMD23.\n0 No error\n1 Not issued",
+          "abstract": "Indicates that CMD_wo_DAT was not executed due to an Auto CMD12 error; set to 1 when command issuance fails due to Auto CMD12 errors, cleared when the error originates from Auto CMD23.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F1",
+          "name": "AUTOCMDERRSTS_INDEXERROR",
+          "bits": "11",
+          "bit_high": 11,
+          "bit_low": 11,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Auto CMD index error\nOccurs if the command index error occurs in response to a command.\n0 No error\n1 Error",
+          "abstract": "Indicates whether an auto command index error occurred in the response to a command, where 1 signifies an error was detected.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F2",
+          "name": "AUTOCMDERRSTS_ENDBITERROR",
+          "bits": "12",
+          "bit_high": 12,
+          "bit_low": 12,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Auto CMD end bit error\nOccurs when detecting that the end bit of command response is 0.\n0 No error\n1 End bit error generated",
+          "abstract": "Indicates whether an end bit error was detected in the auto command response, set when the expected end bit value of 1 is read as 0.",
+          "values": []
+        },
+        {
+          "id": "REG_03C_F3",
+          "name": "AUTOCMDERRSTS_CRCERROR",
+          "bits": "13",
+          "bit_high": 13,
+          "bit_low": 13,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Auto CMD CRC error\nOccurs when detecting a CRC error in the command response.\n0 No error\n1 CRC error generated",
+          "abstract": "Indicates whether a CRC error was detected in the response to an Auto CMD command, where 1 signifies a CRC error occurred.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 45,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_03E",
+      "name": "Host Control 2",
+      "offset": "0x03E",
+      "spec_section": "57.3.2.25",
+      "spec_table": "TABLE_57_33",
+      "class_id": "REGCLASS_INTERRUPT",
+      "fields": [
+        {
+          "id": "REG_03E_F0",
+          "name": "HOSTCTRL2_",
+          "bits": "0",
+          "bit_high": 0,
+          "bit_low": 0,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Preset value enable\nAs the operating sdmmccard_clk frequency and I/O driver strength depend on the host system implementation, it is difficult to determine these parameters in the standard host driver. When preset value enable is set to automatic. This bit enables the functions defined in the Preset value registers.\n1 Automatic selection by preset value are enabled\n0 sdmmccard_clk and driver strength are controlled by host driver\nIf this bit is set to 0, sdmmccard_clk frequency select and driver strength select in Host control 2 register are set by host driver.\nIf this bit is set to 1, sdmmccard_clk frequency Select and driver strength select in Host control 2 register are set by host controller as specified in the Preset value registers.",
+          "abstract": "Enables automatic selection of clock frequency and driver strength using preset value registers, or allows manual control by the host driver when disabled.",
+          "values": []
+        },
+        {
+          "id": "REG_03E_F1",
+          "name": "HOSTCTRL2_",
+          "bits": "1",
+          "bit_high": 1,
+          "bit_low": 1,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Asynchronous interrupt enable\n1 Enabled\n0 Disabled",
+          "abstract": "Enables or disables asynchronous interrupt signaling for the host controller.",
+          "values": []
+        },
+        {
+          "id": "REG_03E_F2",
+          "name": "HOSTCTRL2_",
+          "bits": "8",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Sampling clock select\n1 Tuned clock is used to sample data\n0 Fixed clock is used to sample data\nNote: Tunning is not supported. This bit should always set to 0.",
+          "abstract": "Selects between tuned clock (1) or fixed clock (0) for data sampling, though tuning is not supported so this field should always be set to 0.",
+          "values": []
+        },
+        {
+          "id": "REG_03E_F3",
+          "name": "HOSTCTRL2_",
+          "bits": "9",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Execute tuning\n1 Execute tuning\n0 Not tuned or tuning completed\nNote: Tunning is not supported. This bit should always set to 0.",
+          "abstract": "Tuning execution control bit that should always be set to 0 as tuning is not supported in this implementation.",
+          "values": []
+        },
+        {
+          "id": "REG_03E_F4",
+          "name": "HOSTCTRL2_",
+          "bits": "10:11",
+          "bit_high": 10,
+          "bit_low": 11,
+          "width": 0,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Driver strength select\nIn 3.3V signaling, this field is not effective.\nNote: This field is not effective as only 3.3V signaling is supported.",
+          "abstract": "Driver strength select field, which is not effective as only 3.3V signaling is supported.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 47,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_040",
+      "name": "Capabilities [31:0]",
+      "offset": "0x040",
+      "spec_section": "57.3.2.26",
+      "spec_table": "TABLE_57_34",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 49,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_044",
+      "name": "Capabilities [63:32]",
+      "offset": "0x044",
+      "spec_section": "57.3.2.27",
+      "spec_table": "TABLE_57_35",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [
+        {
+          "id": "REG_044_F0",
+          "name": "CORECFG_MAXBLKLENGTH",
+          "bits": "14:15",
+          "bit_high": 14,
+          "bit_low": 15,
+          "width": 0,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Max block length. This value indicates the maximum block size that the HD can read and write to the buffer in the HC. The buffer transfers this block size without wait cycles. Three sizes can be defined as indicated below. 00 512 bytes, 01 1024 bytes, 10 2048 bytes, 11 4096 bytes. Note: max 512 B block size is supported.",
+          "abstract": "Indicates the maximum block size (512B, 1KB, 2KB, or 4KB) that the host driver can read/write to the host controller buffer without wait cycles, with only 512-byte blocks supported.",
+          "values": []
+        },
+        {
+          "id": "REG_044_F1",
+          "name": "CORECFG_BASECLKFREQ",
+          "bits": "16:23",
+          "bit_high": 16,
+          "bit_low": 23,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Base clock frequency of SDMMC_CLK. It's value is 8'b00110010 (50 MHz). 50 MHz is shown as reset value, but sdmmc_clk freq is 100 MHz. 50 MHz clk for SDMMC card and controller should be generated by software by dividing sdmmc_clk from 2. Note: Base clock frequency configuration is programmed in CORE_CONFIG.baseclkfreq_sdmmc_clk field.",
+          "abstract": "Base clock frequency for SDMMC_CLK, hardcoded to 50 MHz (0x32), though the actual sdmmc_clk runs at 100 MHz and software must divide by 2 to achieve the 50 MHz card interface clock.",
+          "values": []
+        },
+        {
+          "id": "REG_044_F2",
+          "name": "CORECFG_TIMEOUTCLKUNIT",
+          "bits": "24",
+          "bit_high": 24,
+          "bit_low": 24,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Timeout clock unit. This bit shows the unit of base clock frequency used to detect data timeout error. 0 KHz, 1 MHz",
+          "abstract": "Indicates the unit of the timeout clock frequency used for data timeout error detection, where 0 represents KHz and 1 represents MHz.",
+          "values": []
+        },
+        {
+          "id": "REG_044_F3",
+          "name": "CORECFG_TIMEOUTCLKFREQ",
+          "bits": "26:31",
+          "bit_high": 26,
+          "bit_low": 31,
+          "width": -4,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Timeout clock frequency. This bit shows the base clock frequency used to detect data timeout error. It's value is 6'b000001. Because timeout clock unit is 1 MHz, so timeout clock frequency is 1 MHz.",
+          "abstract": "Indicates the base clock frequency for data timeout error detection, fixed at 1 MHz (value 0x01) with a timeout clock unit of 1 MHz.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 51,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_048",
+      "name": "Maximum Current Capabilities [31:0]",
+      "offset": "0x048",
+      "spec_section": "57.3.2.28",
+      "spec_table": "TABLE_57_36",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [
+        {
+          "id": "REG_048_F0",
+          "name": "CORECFG_MAXCURRENT3P3V",
+          "bits": "24:31",
+          "bit_high": 24,
+          "bit_low": 31,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Maximum current for 3.3V",
+          "abstract": "Specifies the maximum current capability supported by the host controller when operating at 3.3V supply voltage.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 52,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_04C",
+      "name": "Maximum Current Capabilities [63:32]",
+      "offset": "0x04C",
+      "spec_section": "57.3.2.29",
+      "spec_table": "TABLE_57_37",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 52,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_050",
+      "name": "Force Event Auto CMD Error Status",
+      "offset": "0x050",
+      "spec_section": "57.3.2.33",
+      "spec_table": "TABLE_57_43",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 55,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_052",
+      "name": "Force Event Error Interrupt Status",
+      "offset": "0x052",
+      "spec_section": "57.3.2.34",
+      "spec_table": "TABLE_57_44",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [
+        {
+          "id": "REG_052_F0",
+          "name": "FORCEADMAERR",
+          "bits": "6",
+          "bit_high": 6,
+          "bit_low": 6,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Force event for ADMA error\n1 Interrupt is generated\n0 No interrupt",
+          "abstract": "Forces an ADMA error event to generate an interrupt for diagnostic or testing purposes.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F1",
+          "name": "FORCEAUTOCMDERR",
+          "bits": "7",
+          "bit_high": 7,
+          "bit_low": 7,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Force event for Auto CMD error\n1 Interrupt is generated\n0 No interrupt",
+          "abstract": "Forces generation of an Auto CMD error interrupt for diagnostic or testing purposes.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F2",
+          "name": "FORCECURRLIMERR",
+          "bits": "8",
+          "bit_high": 8,
+          "bit_low": 8,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Force event for current limit error\n1 Interrupt is generated\n0 No interrupt",
+          "abstract": "Forces generation of a current limit error interrupt event when set to 1.",
+          "values": []
+        },
+        {
+          "id": "REG_052_F3",
+          "name": "FORCEDATENDBITERR",
+          "bits": "9",
+          "bit_high": 9,
+          "bit_low": 9,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Force event for data end bit error\n1 Interrupt is generated\n0 No interrupt",
+          "abstract": "Forces a data end bit error event to generate an interrupt for diagnostic or testing purposes.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 56,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_054",
+      "name": "ADMA Error Status",
+      "offset": "0x054",
+      "spec_section": "57.3.2.35",
+      "spec_table": "TABLE_57_45",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 58,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_058",
+      "name": "ADMA System Address",
+      "offset": "0x058",
+      "spec_section": "57.3.2.36",
+      "spec_table": "TABLE_57_46",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 58,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_060",
+      "name": "Preset Value n",
+      "offset": "0x060",
+      "spec_section": "57.3.2.30",
+      "spec_table": "TABLE_57_39",
+      "class_id": "REGCLASS_CAPABILITIES",
+      "fields": [],
+      "source": {
+        "page": 53,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_0FC",
+      "name": "Slot Interrupt Status",
+      "offset": "0x0FC",
+      "spec_section": "57.3.2.31",
+      "spec_table": "TABLE_57_41",
+      "class_id": "REGCLASS_VENDOR",
+      "fields": [],
+      "source": {
+        "page": 54,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_0FE",
+      "name": "Host Controller Version",
+      "offset": "0x0FE",
+      "spec_section": "57.3.2.32",
+      "spec_table": "TABLE_57_42",
+      "class_id": "REGCLASS_VENDOR",
+      "fields": [],
+      "source": {
+        "page": 55,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_100",
+      "name": "Boot Timeout Control",
+      "offset": "0x100",
+      "spec_section": "57.3.2.37",
+      "spec_table": "TABLE_57_47",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_100_F0",
+          "name": "BOOT_TIMEOUTCNT",
+          "bits": "0:31",
+          "bit_high": 0,
+          "bit_low": 31,
+          "width": -30,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Boot data timeout counter value. This value determines the interval by which DAT line timeouts are detected during boot operation for eMMC card. The value is in number of sdmmccard_clk clock. Note: SoC does not support Execute In Place from eMMC.",
+          "abstract": "Specifies the boot data timeout counter value in sdmmccard_clk cycles for detecting DAT line timeouts during eMMC boot operations.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 59,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_104",
+      "name": "Core Config",
+      "offset": "0x104",
+      "spec_section": "57.3.2.38",
+      "spec_table": "TABLE_57_48",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_104_F0",
+          "name": "MAXCURRENT_3P3V",
+          "bits": "0:7",
+          "bit_high": 0,
+          "bit_low": 7,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Maximum current for 3.3V. Value depends on IO drive strength.",
+          "abstract": "Specifies the maximum current capability for the 3.3V power supply, with the value determined by the configured I/O drive strength.",
+          "values": []
+        },
+        {
+          "id": "REG_104_F1",
+          "name": "CORECFG_SLOTTYPE",
+          "bits": "12:13",
+          "bit_high": 12,
+          "bit_low": 13,
+          "width": 0,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Select slot type 00 Removable card slot 01 Embedded slot for one device 10 Shared bus slot 11 Reserved",
+          "abstract": "Configures the slot type as removable card slot, embedded slot for one device, shared bus slot, or reserved.",
+          "values": []
+        },
+        {
+          "id": "REG_104_F2",
+          "name": "CORECFG_ ASYNCHINTRSUPPORT",
+          "bits": "14",
+          "bit_high": 14,
+          "bit_low": 14,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Enable asynchronous interrupt support 0 Core does not support monitoring of asynchronous interrupt 1 Core supports monitoring of asynchronous interrupt",
+          "abstract": "Indicates whether the core supports monitoring of asynchronous interrupts.",
+          "values": []
+        },
+        {
+          "id": "REG_104_F3",
+          "name": "CORECFG_ ADMA2SUPPORT",
+          "bits": "15",
+          "bit_high": 15,
+          "bit_low": 15,
+          "width": 1,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Selection for ADMA2 support",
+          "abstract": "Indicates whether the host controller supports ADMA2 (Advanced DMA 2) transfer mode.",
+          "values": []
+        },
+        {
+          "id": "REG_104_F4",
+          "name": "BASECLKFREQ_ SDMMC_CLK",
+          "bits": "24:31",
+          "bit_high": 24,
+          "bit_low": 31,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Base clock frequency for SDMMC clock. This is the frequency of the sdmmc_clk. 8'h32 = 50 MHz",
+          "abstract": "Base clock frequency for the SD/MMC clock interface, where a value of 0x32 indicates 50 MHz.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 60,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_108",
+      "name": "FB_CLK_SEL",
+      "offset": "0x108",
+      "spec_section": "57.3.2.39",
+      "spec_table": "TABLE_57_49",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_108_F0",
+          "name": "FEEDBACKCLK_SEL",
+          "bits": "30:31",
+          "bit_high": 30,
+          "bit_low": 31,
+          "width": 0,
+          "access": "",
+          "original_attrib": "",
+          "raw": "Selects feedback clock from the sources of loopback. 00 Loopback from output of SDMMC HC IP (delayed SDMMC Tx clock is provided as loopback clock) 01 OPEN 10 OPEN 11 Loopback from external SDMMC device pin connected on SDMMC_FDBCK_CLK IO PAD",
+          "abstract": "Selects the feedback clock source for loopback, with options for loopback from the SDMMC host controller IP output (delayed Tx clock) or from an external device pin connected to the SDMMC_FDBCK_CLK IO pad.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 61,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_10C",
+      "name": "Debug Status 1",
+      "offset": "0x10C",
+      "spec_section": "57.3.2.40",
+      "spec_table": "TABLE_57_50",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_10C_F0",
+          "name": "DMADEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "DMA_CTRL debug bus\nhostintf_blocknextcmd - Command Complete indication from CMDCTRL module is set, the next command indication should be blocked\nhostintf_abortcmdmode - When the Abort command is issued, the flag is set\nhostintf_rdxferactive - This is set from the time the command Last Bit is issued or Block Gap Continue to the time the last block of data is sent to host\nhostintf_enddataxfer - It is set when the end Data Transfer Complete Indications from the PIO/SDMA and ADMA2 state machines\nhostintf_stopatblkgap - For write transfer, it is set from the PIO/SDMA and ADMA2 state machines. For read transfer, RegSet is used to generate Stop at BlkGap\nhostwrdat_state - The WriteData state machine transfers the data to host interface\nhostrddat_state - The ReadData state machine receives the data from host interface\nhosttrans_state[1:0] - Host transfer state machine\nadma2_state[3:0] - ADMA2 state machine\npiosdma_state[2:0] - PIO/SDMA state machine",
+          "abstract": "DMA_CTRL debug bus providing status signals including command blocking state, abort mode flag, read transfer active indicator, and end data transfer completion indications from PIO/SDMA and ADMA2 state machines.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 62,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_110",
+      "name": "Debug Status 2",
+      "offset": "0x110",
+      "spec_section": "57.3.2.41",
+      "spec_table": "TABLE_57_51",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_110_F0",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "CMD_CTRL debug bus",
+          "abstract": "Debug bus output from the command control logic.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F1",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_cmdrespstatus [3:0] - Command response status",
+          "abstract": "Command debug bus containing the command FSM command response status in bits [3:0].",
+          "values": []
+        },
+        {
+          "id": "REG_110_F2",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "sdhcregset_bootena_sdmmcclk - Double synchronization of sdhcregset_bootena signal",
+          "abstract": "Debug bus signal representing the double-synchronized version of the boot enable signal (sdhcregset_bootena) to the SDMMC clock domain.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F3",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "sdhcregset_cmdexecute_sdmmcclk - Double synchronization of sdhcregset_cmdexecute signal",
+          "abstract": "Debug bus signal representing the double-synchronized version of the command execute signal across the SDMMC clock domain.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F4",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_autocmd23 - It is set when AutoCMD 23 Qualified with CMD_Data Present",
+          "abstract": "Indicates when AutoCMD23 is qualified with CMD_Data Present in the command state machine debug bus.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F5",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_autocmd12 - Auto CMD12 indication",
+          "abstract": "Indicates Auto CMD12 command state machine debug information on the command debug bus.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F6",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_cmdissued - CMD issued signal",
+          "abstract": "CMD issued signal from the command finite state machine, indicating when a command has been issued.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F7",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_cmdcomplete - Command complete bit",
+          "abstract": "Command debug bus bits indicating the command FSM command complete status.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F8",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_cmdena - CMD output enable",
+          "abstract": "CMD output enable signal from the command state machine, exposed on the debug bus.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F9",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_cmdout - CMD output",
+          "abstract": "CMD output signal from the command finite state machine debug bus.",
+          "values": []
+        },
+        {
+          "id": "REG_110_F10",
+          "name": "CMDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "cmdfsm_state[3:0] - Command state machine",
+          "abstract": "Debug bus output containing the 4-bit command state machine state in bits [3:0] of this field.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 63,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_114",
+      "name": "Debug Status 3",
+      "offset": "0x114",
+      "spec_section": "57.3.2.42",
+      "spec_table": "TABLE_57_52",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_114_F0",
+          "name": "TXDDEBUGBUS",
+          "bits": "16:31",
+          "bit_high": 16,
+          "bit_low": 31,
+          "width": -14,
+          "access": "",
+          "original_attrib": "",
+          "raw": "TXD_CTRL debug bus\ntxdfsm_enatimeoutchk - Enable data timeout check\ntxdfsm_stopsdmmccardclk - Stop SDMMC card clock\ntxdfsm_xmitstatus[2:0] - Transmit status {ENDBIT err, CRC error, timeout error}\ntxdfsm_xmitstsvld - Transmit status valid indication\ntxdfsm_rcvcrcsts - Receive CRC status indication to RXCRC state machine\ntxdfsm_readeob - Read EOB\ntxdfsm_readbuffer - Read buffer\ntxdfsm_sdmmcdataena - SDMMC data enable\ntxdfsm_wrxferactive - Wr transfer active indication\ntxdfsm_datalineactive - Data line active indication\ntxdfsm_state[3:0] - Transmit data state machine",
+          "abstract": "Debug bus output from the TXD_CTRL block providing visibility into transmit data state machine signals including timeout checking, clock control, transmit status with error flags, CRC status, buffer read operations, and data transfer activity indicators.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 64,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_118",
+      "name": "Debug Status 4",
+      "offset": "0x118",
+      "spec_section": "57.3.2.43",
+      "spec_table": "TABLE_57_53",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_118_F0",
+          "name": "RXDDEBUGBUS0",
+          "bits": "24:31",
+          "bit_high": 24,
+          "bit_low": 31,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "RXD_CTRL debug bus: rxdirl_rcvstatus[2:0] - Receive status (EndBit Err, CRC Error, timeout error), rxdirl_rcvstsvld - Receive status valid, rxdirl_stopafterblk - Stop receiving after this block (Stop at block gap), rxdirl_stopsdcardclk2 - Stop SDMMC clock indication (Stop at block gap), rxdirl_stopsdcardclk1 - Stop SDMMC clock indication (Normal operation, Buffer full), rxdirl_rcvdata - Receive data indication",
+          "abstract": "Debug bus signals from RXD_CTRL module providing receive status information including error flags (EndBit, CRC, timeout), status validity, block gap stop indicators, SDMMC clock stop indications for both block gap and buffer full conditions, and receive data indication.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 65,
+        "definition_page": 0
+      }
+    },
+    {
+      "id": "REG_11C",
+      "name": "Debug Status 5",
+      "offset": "0x11C",
+      "spec_section": "57.3.2.44",
+      "spec_table": "TABLE_57_54",
+      "class_id": "",
+      "fields": [
+        {
+          "id": "REG_11C_F0",
+          "name": "RXDDEBUGBUS1",
+          "bits": "24:31",
+          "bit_high": 24,
+          "bit_low": 31,
+          "width": -6,
+          "access": "",
+          "original_attrib": "",
+          "raw": "RXD_CTRL debug bus (RX CLK) rxdfem_reachingeobi - Reaching End of block indication rxdfem_okstopclk - OK to Stop the clock (End of block flow control) rxdfem_dataeob - Data Byte/Word is End of block indication rxdfem_dataentw - Data Byte/Word write rxdfem_wforblk - Wait for block indication rxdfem_state [2:0] - Receive data state machine",
+          "abstract": "Debug bus signals from the RXD_CTRL module on the RX clock domain, providing visibility into end-of-block handling, clock gating control, data write operations, and the 3-bit receive data state machine status.",
+          "values": []
+        }
+      ],
+      "source": {
+        "page": 65,
+        "definition_page": 0
+      }
+    }
+  ]
+}

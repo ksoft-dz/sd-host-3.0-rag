@@ -1,0 +1,12 @@
+I notice that this page does not contain a table titled "Command Format" or "Table 4-17". This page (page 57) from the SD Card Physical Layer Simplified Specification Version 3.01 contains:
+
+1. Text about busy indication during block gap in multiple block write operations
+2. Information about write busy timing and CMD12
+3. Application Notes about timeout for write operations
+4. Section 4.6.2.3 about Erase operations
+
+There is no CSV table to extract from this particular page. The page contains only explanatory text and notes, not the Command Format table you're looking for.
+
+If you need the Command Format table (Table 4-17), it would likely be on a different page of this specification document.
+
+ABSTRACT: This page contains explanatory text about busy indication timing and erase operations, but does not include the Command Format table.

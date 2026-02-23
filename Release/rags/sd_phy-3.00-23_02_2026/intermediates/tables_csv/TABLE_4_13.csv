@@ -1,0 +1,6 @@
+Argument,Busy Status,Status Code,Comment
+0,Don't Care,0,"Status indicates a default function, which is always supported."
+Supported function,Ready,=Arg.,"Status indicates that the function specified in the argument is supported and can be switched."
+Supported function,Busy,Current Selected,"Status indicates that the function specified in the argument is supported but cannot be switched because the function is busy."
+Not Supported function,Don't Care,Fh,"Status indicates that the function specified in the argument is not supported."
+Fh,Don't Care,Current Selected,Status indicates current selected function

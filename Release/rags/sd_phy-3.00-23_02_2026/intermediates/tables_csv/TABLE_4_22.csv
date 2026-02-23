@@ -1,0 +1,5 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD28,ac,[31:0] data address²,R1b,SET_WRITE_PROT,"If the card has write protection features, this command sets the write protection bit of the addressed group. The properties of write protection are coded in the card specific data (WP_GRP_SIZE). SDHC and SDXC Cards do not support this command."
+CMD29,ac,[31:0] data address²,R1b,CLR_WRITE_PROT,"If the card provides write protection features, this command clears the write protection bit of the addressed group. SDHC and SDXC Cards do not support this command."
+CMD30,adtc,[31:0] write protect data address²,R1,SEND_WRITE_PROT,"If the card provides write protection features, this command asks the card to send the status of the write protection bits.¹ SDHC and SDXC Cards do not support this command."
+CMD31,Reserved,,,,

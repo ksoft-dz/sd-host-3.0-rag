@@ -1,0 +1,44 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+rectangle "Error Interrupt Status Register (Offset 032h)" as register {
+  
+  package "Bit Layout" {
+    rectangle "D15-D12\nVendor Specific\nError Status\n(RW1C)" as D15_12
+    rectangle "D11\nRsvd" as D11
+    rectangle "D10\nTuning Error\n(RW1C)" as D10
+    rectangle "D09\nADMA Error\n(RW1C)" as D09
+    rectangle "D08\nAuto CMD12 Error\n(R)" as D08
+    rectangle "D07\nCurrent Limit Error\n(R)" as D07
+    rectangle "D06\nData End Bit Error\n(R)" as D06
+    rectangle "D05\nData CRC Error\n(R)" as D05
+    rectangle "D04\nData Timeout\nError\n(R)" as D04
+    rectangle "D03\nCommand Index\nError\n(R)" as D03
+    rectangle "D02\nCommand End Bit\nError\n(R)" as D02
+    rectangle "D01\nCommand CRC\nError\n(R)" as D01
+    rectangle "D00\nCommand\nTimeout Error\n(R)" as D00
+  }
+  
+  D15_12 -[hidden]right- D11
+  D11 -[hidden]right- D10
+  D10 -[hidden]right- D09
+  D09 -[hidden]right- D08
+  D08 -[hidden]right- D07
+  D07 -[hidden]right- D06
+  D06 -[hidden]right- D05
+  D05 -[hidden]right- D04
+  D04 -[hidden]right- D03
+  D03 -[hidden]right- D02
+  D02 -[hidden]right- D01
+  D01 -[hidden]right- D00
+}
+
+note right of register
+  **Key Fields:**
+  - Tuning Error (D10): 1=Error, 0=No Error
+  - ADMA Error (D09): 1=Error, 0=No Error
+  - Bits enabled by Error Interrupt Status Enable register
+  - Write 1 to clear (RW1C), Write 0 keeps unchanged
+end note
+
+@enduml

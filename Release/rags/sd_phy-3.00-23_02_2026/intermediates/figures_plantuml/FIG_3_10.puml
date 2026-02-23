@@ -1,0 +1,63 @@
+@startuml
+skinparam rectangleBackgroundColor #FFFF99
+skinparam defaultTextAlignment center
+
+start
+
+:Power on;
+
+:CMD0|
+note right #FFFFCC
+  Once signal voltage is switched to 1.8V, the card continues 1.8V signaling
+  regardless of CMD0. Power cycle resets the signal voltage to 3.3V.
+  After Switching 1.8V singling, the card cannot be changed to SPI mode.
+end note
+
+:CMD8|
+note right #FFFFCC
+  Host requests card to change 1.8V signal voltage by ACMD41.
+  A status is indicated in the response whether voltage switch is accepted.
+end note
+
+#90EE90:ACMD41|
+
+:CMD11|
+note right #FFFFCC
+  If voltage switch is accepted by ACMD41, CMD11 invokes voltage
+  switching sequence. If it is completed, the card enters SDR12 (default).
+end note
+
+:CMD2|
+
+:CMD3|
+
+:CMD7|
+note right #87CEEB
+  If the CARD_IS_LOCKED status is set to 1 in the response of CMD7,
+  CMD42 is required before ACMD6 to unlock the card.
+end note
+
+:CMD42|
+note right #87CEEB
+  UHS-I supports only 4-bit mode. Host shall select 4-bit mode by ACMD6.
+end note
+
+#90EE90:ACMD6|
+note right #87CEEB
+  Driver Strength is selected by CMD6 Function Group 3.
+  Bus Speed Mode is selected by CMD6 Function Group 1.
+  Current Limit is selected by CMD6 Function Group 4.
+end note
+
+#FF69B4:CMD6|
+
+:CMD19|
+note right #87CEEB
+  CMD19 sends a tuning block to the host to determine sampling point.
+  UHS50 and UHS104 cards support CMD19 in 1.8V signaling. Sampling
+  clock tuning is required for UHS104 host and optional for UHS50 host.
+end note
+
+stop
+
+@enduml

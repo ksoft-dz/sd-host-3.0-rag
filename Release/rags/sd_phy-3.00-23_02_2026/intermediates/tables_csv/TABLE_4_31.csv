@@ -1,0 +1,4 @@
+Bit position,135,134,[133:128],[127:1],0
+Width (bits),1,1,6,127,1
+Value,'0','0','111111',x,'1'
+Description,start bit,transmission bit,reserved,"CID or CSD register incl. internal CRC7",end bit

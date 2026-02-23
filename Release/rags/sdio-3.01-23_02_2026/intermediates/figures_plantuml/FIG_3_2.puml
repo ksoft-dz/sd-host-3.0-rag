@@ -1,0 +1,82 @@
+@startuml
+skinparam defaultTextAlignment center
+
+|Main Flow|
+
+start
+
+fork
+  :Re-init Memory|
+  :MEM=0, F2=0;
+fork again
+  :Power On|
+  :IO=0, MEM=0, F2=0;
+fork again
+  :Re-init IO|
+  :IO=0;
+  :CMD52 IO Reset]
+end fork
+
+:CMD0 Pin1=High;
+
+:CMD8]
+note right: CMD8 is required to support\nSDHC or SDXC
+
+:Check Response;
+
+if (Response?) then (No Response)
+  :F8=0;
+elseif (Error Response) then
+  #yellow:Unusable card|
+  stop
+else (Good Response)
+  :F8=1;
+endif
+
+:Initialize SDIO?;
+
+if (IO setting?) then (Not Use IO or IO=1)
+else (Use IO & IO=0)
+  :CMD5 Arg=0]
+  note right: Get IO OCR
+  
+  :Check Response;
+  
+  if (Response?) then (No Response)
+  elseif (NF=0 or OCR invalid) then
+  else (NF>0 & OCR valid)
+    :CMD5 Arg=S18R,WV]
+    note right: S18R=1: UHS-I Host
+    
+    :Check Response;
+    
+    if (Response?) then (1sec Timeout)
+      #pink:Unusable card\n(Inactive State)|
+      stop
+    elseif (IORDY=0) then
+    else (IORDY=1)
+      :IO=1;
+      note right: IO Initialized (Check S18A later)
+    endif
+  endif
+endif
+
+:Test MP Flag;
+
+if (MP Flag?) then (MP=0)
+elseif (CMD5 No Response or MP=1) then
+endif
+
+:Initialize Memory?;
+
+if (Memory setting?) then (Use Memory & MEM=0)
+  :A|
+  :Memory Initialization;
+else (Not Use Memory or MEM=1)
+  :B|
+  :Skip Memory Initialization;
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,6 @@
+Response type,Index check enable,CRC check enable,Name of response type
+00,0,0,No response
+01,0,1,R2
+10,0,0,"R3, R4"
+10,1,1,"R1, R6, R5, R7"
+11,1,1,"R1b, R5b"

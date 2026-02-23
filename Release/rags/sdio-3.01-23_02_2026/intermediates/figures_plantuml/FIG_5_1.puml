@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+
+map "SDIO Status Register" as reg {
+  Bit 25 => CARD_IS_LOCKED [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 24 => LOCK_UNLOCK_FAILED [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 23 => COM_CRC_ERROR [ER] - CRC check of previous command failed (Clear: B)
+  Bit 22 => ILLEGAL_COMMAND [ER] - Previous command not legal for card state (Clear: B)
+  Bit 21 => CARD_ECC_FAILED [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 20 => CC_ERROR [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 19 => ERROR [ERX] - General or unknown error occurred (Clear: C)
+  Bit 18 => UNDERRUN [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 17 => OVERRUN [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 16 => CID_CSD_OVERWRITE [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 15 => WP_ERASE_SKIP [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 14 => CARD_ECC_DISABLED [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 13 => ERASE_RESET [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 12:9 => CURRENT_STATE [SX, Value=15=I/O only] - For I/O only card, fixed at 0Fh (Clear: B)
+  Bit 8 => READY_FOR_DATA [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 7:6 => Reserved
+  Bit 5 => APP_CMD [N/A, Value=0] - CMD55 not used in SDIO operation (Clear: C)
+  Bit 4 => Reserved
+  Bit 3 => AKE_SEQ_ERROR [N/A, Value=0] - Not used with SDIO operation (Clear: C)
+  Bit 2 => Reserved for application specific commands
+  Bit 1:0 => Reserved for manufacturer test mode
+}
+@enduml

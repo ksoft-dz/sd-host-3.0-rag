@@ -1,0 +1,13 @@
+Bit,Access,Field Name,Description
+15,Rsvd,Reserved,
+14-12,RW,Host SDMA Buffer Boundary,"If large contiguous memory space may not be available in the virtual memory system. To perform long SDMA transfer, SDMA System Address register shall be updated at every system memory boundary during SDMA transfer.
+These bits specify the size of contiguous buffer in the system memory. The SDMA transfer shall wait at the every boundary specified by these fields and the Host Controller generates the DMA Interrupt to request the Host Driver to update the SDMA System Address register. At the end of transfer, the Host Controller may issue or may not issue DMA Interrupt. In particular, DMA Interrupt shall not be issued after Transfer Complete Interrupt is issued.
+In case of this register is set to 0 (buffer size = 4K bytes), lower 12-bit of byte address for the SDMA System Address register (004h-005h) bit points the location of the buffer in the system memory. The SDMA transfer detects carry out of the address from bit 11 to 12. These bits shall be supported when the SDMA Support in the Capabilities register is set to 1 and this function is active when the DMA Enable in the Transfer Mode register is set to 1. ADMA does not use this register.
+000b 4K bytes (Detects A11 carry out)
+001b 8K bytes (Detects A12 carry out)
+010b 16K bytes (Detects A13 carry out)
+011b 32K bytes (Detects A14 carry out)
+100b 64K bytes (Detects A15 carry out)
+101b 128K Bytes (Detects A16 carry out)
+110b 256K Bytes (Detects A17 carry out)
+111b 512K Bytes (Detects A18 carry out)"

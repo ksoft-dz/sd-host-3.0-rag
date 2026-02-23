@@ -1,0 +1,17 @@
+AU_SIZE,Value Definition
+0h,Not Defined
+1h,16 KB
+2h,32 KB
+3h,64 KB
+4h,128 KB
+5h,256 KB
+6h,512 KB
+7h,1 MB
+8h,2 MB
+9h,4 MB
+Ah,8 MB
+Bh,12 MB
+Ch,16 MB
+Dh,24 MB
+Eh,32 MB
+Fh,64 MB

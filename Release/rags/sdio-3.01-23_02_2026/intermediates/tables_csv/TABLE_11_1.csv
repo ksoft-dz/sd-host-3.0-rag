@@ -1,0 +1,11 @@
+I notice that the image provided shows page 92 of an SDIO Simplified Specification document, which contains "Chapter 10: Timing to Pause SDIO Read Operation" with sections 10.1 and 10.2 about pausing read operations.
+
+However, this page does not contain "Table 11-1: Reference of Tuples Depends on Host Version." This table would likely be found in Chapter 11 of the document, on a different page.
+
+The visible content on this page discusses:
+- Pause Read Operation by Stopping SDCLK (section 10.1)
+- Pause Read Operation by using Read Wait (section 10.2)
+
+To extract the table you're looking for, I would need the page that actually contains Table 11-1, which appears to be in a different section of the document.
+
+ABSTRACT: The requested table "Reference of Tuples Depends on Host Version" (Table 11-1) is not present on this page, which instead covers SDIO read operation timing and pause mechanisms.

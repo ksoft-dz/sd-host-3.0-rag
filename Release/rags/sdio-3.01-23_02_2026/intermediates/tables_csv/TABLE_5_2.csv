@@ -1,0 +1,6 @@
+Bits,Identifier,Type,Value,Description,Clear Condition
+5-4,IO_CURRENT_STATE,S,"00=DIS, 01=CMD, 02=TRN, 03=RFU","DIS=Disabled: Initialize, Standby and Inactive States (card not selected). CMD=DAT lines free: 1. Command waiting (No transaction suspended) 2. Command waiting (All CMD53 transactions suspended) 3. Executing CMD52 in CMD State. TRN=Transfer: Command executing with data transfer using DAT[0] or DAT[3:0] lines",B
+3,ERROR,ERX,"'0'= no error, '1'= error",A general or an unknown error occurred during the operation.,C
+2,RFU,--,Fixed at 0,Reserved for Future Use,C
+1,FUNCTION_NUMBER,ER,"'0'= no error, '1'= error",An invalid function number was requested,C
+0,OUT_OF_RANGE,ERX,"'0'= no error, '1'= error","ER: The command's argument was out of the allowed range for this card. EX: Out of range occurs during execution of CMD53.",C

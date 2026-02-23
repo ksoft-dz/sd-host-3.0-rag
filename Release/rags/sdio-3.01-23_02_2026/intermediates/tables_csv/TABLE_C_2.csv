@@ -1,0 +1,41 @@
+Supported Commands,Abbreviation,SD/MEM System,SDIO System,Comments
+CMD0,GO_IDLE_STATE,Mandatory,Mandatory,Used to change from SD to SPI mode
+CMD2,ALL_SEND_CID,Mandatory,,CID not supported by SDIO
+CMD3,SEND_RELATIVE_ADDR,Mandatory,Mandatory,
+CMD4,SET_DSR,Optional,,DSR not supported by SDIO
+CMD5,IO_SEND_OP_COND,,Mandatory,
+CMD6,SWITCH_FUNC,Mandatory,Mandatory,Added in Part 1 v1.10
+CMD7,SELECT/DESELECT_CARD,Mandatory,Mandatory,
+CMD8,SEND_IF_COND,Optional,Optional,SD-IC or SDXC
+CMD9,SEND_CSD,Mandatory,Mandatory,CSD not supported by SDIO
+CMD10,SEND_CID,Mandatory,Mandatory,CID not supported by SDIO
+CMD11,VOLTAGE_SWITCH,Optional,Optional,Mandatory if UHS-I supported
+CMD12,STOP_TRANSMISSION,Mandatory,,
+CMD13,SEND_STATUS,Mandatory,Mandatory,Card Status includes only SD/MEM information
+CMD15,GO_INACTIVE_STATE,Mandatory,Mandatory,
+CMD16,SET_BLOCKLEN,Mandatory,,
+CMD17,READ_SINGLE_BLOCK,Mandatory,,
+CMD18,READ_MULTIPLE_BLOCK,Mandatory,,
+CMD19,SEND_TUNING_BLOCK,Optional,Optional,Mandatory if UHS-I supported
+CMD23,SET_BLOCK_COUNT,Optional,,Mandatory if SDR104 supported
+CMD24,WRITE_BLOCK,Mandatory,,
+CMD25,WRITE_MULTIPLE_BLOCK,Mandatory,,
+CMD27,PROGRAM_CSD,Mandatory,,CSD not supported by SDIO
+CMD28,SET_WRITE_PROT,Optional,,
+CMD29,CLR_WRITE_PROT,Optional,,
+CMD30,SEND_WRITE_PROT,Optional,,
+CMD32,ERASE_WR_BLK_START,Mandatory,,
+CMD33,ERASE_WR_BLK_END,Mandatory,,
+CMD38,ERASE,Mandatory,,
+CMD42,LOCK_UNLOCK,Optional,,
+CMD52,IO_RW_DIRECT,,Mandatory,
+CMD53,IO_RW_EXTENDED,,Mandatory,Block mode is optional
+CMD55,APP_CMD,Mandatory,Mandatory,
+CMD56,GEN_CMD,Mandatory,,
+ACMD6,SET_BUS_WIDTH,Mandatory,,
+ACMD13,SD_STATUS,Mandatory,,
+ACMD22,SEND_NUM_WR_BLOCKS,Mandatory,,
+ACMD23,SET_WR_BLK_ERASE_COUNT,Mandatory,,
+ACMD41,SD_APP_OP_COND,Mandatory,,
+ACMD42,SET_CLR_CARD_DETECT,Mandatory,,
+ACMD51,SEND_SCR,Mandatory,,SCR not supported by SDIO

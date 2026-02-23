@@ -1,0 +1,15 @@
+@startuml
+start
+
+:1. Issue Abort Command;
+
+:2. Set Software reset for DAT
+Line(Dr) and CMD Line(CR);
+
+repeat
+  :3. Check DR and CR;
+repeat while (DR=1 or\nCR=1) is (yes)
+->DR=0 or\nCR=0;
+
+stop
+@enduml

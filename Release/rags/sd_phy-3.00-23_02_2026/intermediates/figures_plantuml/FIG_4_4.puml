@@ -1,0 +1,47 @@
+@startuml
+skinparam monochrome true
+
+map "Response of ACMD41 (R3)" as response {
+  Bit 47 => S
+  Bit 46 => D
+  Bits 45-40 => Index
+  Bits 39 (Busy 31) => Busy
+  Bits 38 (CCS 30) => CCS
+  Bit 37 (Rsvd. 29) => Rsvd.
+  Bits 36-33 (Reserved 28-25) => Reserved
+  Bit 32 (S18A 24) => S18A
+  Bits 31-16 (OCR 23-08) => OCR
+  Bits 15-08 (Reserved 07-00) => Reserved
+  Bits 07-01 => CRC7
+  Bit 00 => E
+}
+
+note bottom of response
+  **Bit Values:**
+  | Field | Value | Size (bits) |
+  | S | 0 | 1 |
+  | D | 0 | 1 |
+  | Index | 111111 | 6 |
+  | Busy | x | 1 |
+  | CCS | x | 1 |
+  | Rsvd. | 0 | 4 |
+  | Reserved | 0000 | 4 |
+  | S18A | x | 1 |
+  | OCR | xxxxh | 16 |
+  | Reserved | 0000000 | 8 |
+  | CRC7 | 1111111 | 7 |
+  | E | 1 | 1 |
+  
+  **Busy Status:**
+  0b: On Initialization
+  1b: Initialization Complete
+  
+  **Card Capacity Status:**
+  0b: SDSC
+  1b: SDHC or SDXC
+  
+  **S18A: Switching to 1.8V Accepted:**
+  0b: Continues current voltage signaling
+  1b: Ready for switching signal voltage
+end note
+@enduml

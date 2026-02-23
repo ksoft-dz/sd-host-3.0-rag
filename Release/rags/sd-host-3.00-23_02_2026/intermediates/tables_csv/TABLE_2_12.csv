@@ -1,0 +1,9 @@
+Kind of Response,Meaning of Response,Response Field,Response Register
+"R1, R1b (normal response)",Card Status,R [39:8],REP [31:0]
+R1b (Auto CMD12 response),Card Status for Auto CMD12,R [39:8],REP [127:96]
+R1 (Auto CMD23 response),Card Status for Auto CMD23,R [39:8],REP [127:96]
+"R2 (CID, CSD register)","CID or CSD reg. incl.",R [127:8],REP [119:0]
+R3 (OCR register),OCR register for memory,R [39:8],REP [31:0]
+R4 (OCR register),OCR register for I/O etc,R [39:8],REP [31:0]
+"R5,R5b",SDIO response,R [39:8],REP [31:0]
+R6 (Published RCA response),New published RCA[31:16] etc,R [39:8],REP [31:0]

@@ -1,0 +1,46 @@
+@startuml
+concise "DataIn" as DI
+concise "DataOut" as DO
+
+@0
+DI is idle
+
+@100
+DI is command
+note top of DI: from\nhost\nto card
+
+@200
+DI is idle
+
+@250
+DO is response
+note top of DO: from\ncard\nto host
+
+@350
+DO is "data block"
+note top of DO: data from card\nto host
+
+@450
+DO is CRC
+
+@500
+DO is "data block"
+
+@600
+DO is CRC
+note top of DO: Stop Trans-\nmission\nCommand
+
+@650
+DI is command
+
+@750
+DI is idle
+
+@800
+DO is response
+note top of DO: from\ncard\nto host
+
+@900
+DO is idle
+
+@enduml

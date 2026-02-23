@@ -1,0 +1,25 @@
+@startuml
+start
+
+:(1) Restore Register (000-00Dh);
+
+:(2) Issue Resume Command;
+
+:(3) Check
+Data Flag
+(DF);
+
+if (DF=0) then (yes)
+  :(4) Set Software Reset For DAT line (DR);
+  
+  repeat
+    :(5) Check
+    DR;
+  repeat while (DR=1) is (yes)
+  ->DR=0;
+else (DF=1)
+endif
+
+stop
+
+@enduml

@@ -1,0 +1,51 @@
+@startuml
+!define RECTANGLE class
+
+package "Advanced DMA" {
+  rectangle "System Address Register" as SAR
+  rectangle "Data Length (Internal)" as DLI
+  rectangle "Data Address (Internal)" as DAI
+  
+  package "State Machine" {
+    rectangle "Flags" as Flags
+  }
+  
+  rectangle "SDMA" as SDMA
+}
+
+package "System Memory" {
+  package "Descriptor Table" {
+    rectangle "Address | Length | Attributes" as Header1
+    rectangle "Address 1 | Length 1 | Tran" as Desc1
+    rectangle "Address 2 | Length 2 | Tran" as Desc2
+    rectangle "Address | - | Link" as Link
+    rectangle "Address | Length | Attributes" as Header2
+    rectangle "Address 3 | Length 3 | Tran" as Desc3
+    rectangle "Address 4 | Length 4 | Tran,End" as Desc4
+    
+    rectangle "Data 4" as Data4
+    rectangle "Data 3" as Data3
+    rectangle "Data 2" as Data2
+    rectangle "Data 1" as Data1
+  }
+}
+
+SAR -right-> Header1 : "Descriptor Pointer"
+SAR -down-> Link : "Descriptor Pointer"
+
+SDMA -right-> Header1 : "DMA Interrupt"
+SDMA -right-> Header2 : "ADMA Error"
+SDMA -right-> Data4 : "Transfer complete"
+
+Link -down-> Header2
+
+Header2 -down-> Data4
+Desc3 -down-> Data3
+Desc4 -down-> Data2
+Desc1 -down-> Data1
+
+note right of SAR
+  System Address Register is used as Descriptor Pointer
+end note
+
+@enduml

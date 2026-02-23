@@ -1,0 +1,38 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+map "NORMALINTRSTS (0x0030)" as reg {
+  15 => NORMALINTRSTS_CMDCOMPLETE
+  14 => NORMALINTRSTS_XFERCOMPLETE
+  13 => NORMALINTRSTS_BLKGAPEVENT
+  12 => NORMALINTRSTS_DMAINTTERUPT
+  11 => NORMALINTRSTS_BUFWRREADY
+  10 => NORMALINTRSTS_BUFRDREADY
+  9 => NORMALINTRSTS_CARDINSSTS
+  8 => NORMALINTRSTS_CARDREMSTS
+  7 => NORMALINTRSTS_CARDINTSTS
+  6 => NORMALINTRSTS_INTA
+  5 => NORMALINTRSTS_INTB
+  4 => NORMALINTRSTS_INTC
+  3 => NORMALINTRSTS_RETUNINGEVENT
+  2 => NORMALINTRSTS_RCVBOOTACK
+  1 => NORMALINTRSTS_BOOTCOMPLETE
+  0 => REG_ERRORINTRSTS
+}
+
+note bottom of reg
+  Access: Read/Write
+  Offset: 0x0030
+  
+  Reset values:
+  Bit 0: 0
+  Bits 1-2: 0
+  Bit 3: 0
+  Bits 4-6: 0
+  Bits 7-15: 0
+  
+  W (write): w1c for bits 1-2, 7-15
+  (write 1 to clear)
+end note
+@enduml

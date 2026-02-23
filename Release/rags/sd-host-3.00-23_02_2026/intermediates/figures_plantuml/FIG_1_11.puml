@@ -1,0 +1,35 @@
+@startuml
+[*] --> ST_STOP : Power On or Reset or Error
+
+ST_STOP : Stop ADMA
+
+ST_STOP --> ST_FDS : TFC=1&\n(End=1 or STOP=1)\nEnd=1&\nTran=0
+
+ST_FDS : Fetch Descriptor
+ST_FDS --> ST_FDS : Valid=0\n**Generates ADMA\nError Interrupt**
+ST_FDS --> ST_CADR : End=0&\nTran=0\nValid=1\n**Load Register from Descriptor\nLoad Attributes, TFC=0\nLoad DAT_LEN\nLoad DAT_ADR**
+
+ST_CADR : Change Address
+ST_CADR --> ST_TFR : Tran=1
+
+ST_TFR : Transfer Data
+ST_TFR --> ST_TFR : Data Transfer
+ST_TFR --> ST_FDS : TFC=1&\nEnd=0&STOP=0
+ST_TFR --> ST_STOP : **DAT_ADR++**\nTerminate transfer when transfer data\nlength reach to DAT_LEN.\nAnd then set flag TFC=1.
+
+ST_STOP --> ST_FDS : Driver sets SYS_ADR\nCommand (Reg. Write or Continue)
+
+note bottom of ST_CADR
+**Definition of Symbols:**
+**SYS_ADR** : ADMA System Address Register
+**SYS_ADR++** : Point to next line.
+**DAT_ADR** : Data Address Register (Internal)
+**DAT_LEN** : Data Length Register (Internal)
+**TFC** : TransFer Complete flag (Internal)
+**STOP**: Stop At Block Gap Request
+
+**Link ->: SYS_ADR= DAT_ADR**
+**others -> SYS_ADR++**
+end note
+
+@enduml

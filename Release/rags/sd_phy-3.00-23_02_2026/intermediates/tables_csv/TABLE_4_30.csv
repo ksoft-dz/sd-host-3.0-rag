@@ -1,0 +1,4 @@
+Bit position,47,46,[45:40],[39:8],[7:1],0
+Width (bits),1,1,6,32,7,1
+Value,'0','0',x,x,x,'1'
+Description,start bit,transmission bit,command index,card status,CRC7,end bit

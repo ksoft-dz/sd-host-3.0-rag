@@ -1,0 +1,7 @@
+SPEED_CLASS,Value Definition
+00h,Class 0
+01h,Class 2
+02h,Class 4
+03h,Class 6
+04h,Class 10
+05h – FFh,Reserved

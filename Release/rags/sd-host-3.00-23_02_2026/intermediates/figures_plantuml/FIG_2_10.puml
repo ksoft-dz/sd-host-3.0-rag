@@ -1,0 +1,12 @@
+@startuml
+[*] --> Reset : Power On
+
+Reset --> Debouncing : Once debouncing\nclock becomes valid
+
+Debouncing --> CardInserted : SDCD#=1\nStable
+Debouncing --> NoCard : SDCD#=0\nStable
+
+CardInserted --> Debouncing
+NoCard --> Debouncing
+
+@enduml

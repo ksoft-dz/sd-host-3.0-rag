@@ -1,0 +1,2 @@
+Bit,Access,Field Name,Description
+127-00,ROC,Command Response,"The Table 2-12 describes the mapping of command responses from the SD Bus to this register for each response type. In the table, R[] refers to a bit range within the response data as transmitted on the SD Bus, REP[] refers to a bit range within the Response register."

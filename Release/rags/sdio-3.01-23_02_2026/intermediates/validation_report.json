@@ -1,0 +1,64 @@
+{
+  "_metadata": {
+    "validation_date": "2026-02-23T06:58:09Z",
+    "total_issues": 9,
+    "errors": 0,
+    "warnings": 9
+  },
+  "issues": [
+    {
+      "node_id": "REG_002_F0",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'SDIO Standard Function Interface Code' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F1",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'Function Supports CSA' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F2",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'Function CSA Enable' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F3",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'Extended SDIO Standard Function interface code' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F4",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'SPS' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F5",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'EPS' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F6",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'PSx' has empty bit range"
+    },
+    {
+      "node_id": "REG_002_F7",
+      "check": "missing_bits",
+      "severity": "warning",
+      "message": "Field 'Function 1-7 I/O Block Size' has empty bit range"
+    },
+    {
+      "node_id": "TABLE_16_14",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    }
+  ]
+}

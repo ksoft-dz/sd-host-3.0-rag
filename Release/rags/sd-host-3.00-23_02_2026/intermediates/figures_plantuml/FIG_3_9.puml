@@ -1,0 +1,79 @@
+@startuml
+start
+
+:A;
+
+if (Check F8 Flag) then (F8=0)
+  :Get OCR (ACMD41)
+  Voltage Window = 0;
+  
+  if (Check OCR) then (OCR OK)
+    :Initialization (ACMD41)
+    Set Voltage Window;
+    
+    if (Response OK?) then (Good Response)
+      if (Check Busy) then (Ready)
+        :SDSC
+        Ver1.01 or Ver1.10;
+        :B;
+      else (Busy)
+        :B;
+      endif
+    else (Error)
+      :B;
+    endif
+  else (OCR fails)
+    :Not SD
+    Card;
+    stop
+  endif
+  
+else (F8=1)
+  :Get OCR (ACMD41)
+  Voltage Window = 0;
+  
+  if (Check OCR) then (OCR OK)
+    :Initialization
+    (ACMD41 HCS=1, S18R, XPC)
+    Set Voltage Window;
+    
+    if (Response OK?) then (Good Response)
+      if (Check Busy) then (Ready)
+        if (Check CCS) then (CCS=1)
+          :SDHC
+          SDXC;
+          :Signal Voltage
+          Switch Procedure;
+        else (CCS=0)
+          :SDSC
+          Ver.2.00 or Ver3.00;
+          :B;
+        endif
+      else (Busy)
+        :B;
+      endif
+    else (Error)
+      :B;
+    endif
+  else (OCR fails)
+    :B;
+  endif
+endif
+
+:B;
+
+if (Check SDIO) then (SDIO=1)
+  :SDIO only
+  Card;
+  stop
+else (SDIO=0)
+  :Unusable
+  Card;
+  stop
+endif
+
+:Get CID (CMD2);
+:Get RCA (CMD3);
+
+stop
+@enduml

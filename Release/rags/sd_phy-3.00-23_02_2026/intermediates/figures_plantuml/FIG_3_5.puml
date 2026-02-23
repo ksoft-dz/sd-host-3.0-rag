@@ -1,0 +1,56 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+title Figure 3-5: Response Token Format
+
+note as N1
+  transmitter bit:
+  '0'=card response
+end note
+
+note as N2
+  start bit:
+  always'0'
+end note
+
+note as N3
+  Response content: mirrored command and status infor-
+  mation (R1 response), OCR register (R3 response) or
+  RCA (R6), protected by a 7bit CRC checksum
+end note
+
+note as N4
+  end bit:
+  always '1'
+end note
+
+rectangle "R1, R3, R6 Response (48 bits)" {
+  rectangle "0\nstart" as R1_START #white
+  rectangle "0\ntx" as R1_TX #white
+  rectangle "CONTENT" as R1_CONTENT #lightgray
+  rectangle "1\nend" as R1_END #white
+}
+
+note bottom of R1_CONTENT
+  total length=48 bits
+end note
+
+rectangle "R2 Response (136 bits)" {
+  rectangle "0\nstart" as R2_START #white
+  rectangle "0\ntx" as R2_TX #white
+  rectangle "CONTENT=CID or CSD" as R2_CONTENT #lightgray
+  rectangle "CRC" as R2_CRC #white
+  rectangle "1\nend" as R2_END #white
+}
+
+note bottom of R2_CONTENT
+  total length=136 bits
+end note
+
+note as N5
+  end bit:
+  always '1'
+end note
+
+@enduml

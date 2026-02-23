@@ -1,0 +1,9 @@
+Bit,Access,Field Name,Description
+128,R,CID,"Card identification number; card individual number for identification (See 5.2). Mandatory."
+16,R,RCA,"Relative card address; local system address of a card, dynamically suggested by the card and approved by the host during initialization (See 5.4). Mandatory."
+16,R,DSR,"Driver Stage Register; to configure the card's output drivers (See 5.5). Optional."
+128,R,CSD,"Card Specific Data; information about the card operation conditions (See 5.3). Mandatory"
+64,R,SCR,"SD Configuration Register; information about the SD Memory Card's Special Features capabilities (See 5.6). Mandatory"
+32,R,OCR,"Operation conditions register (See 5.1). Mandatory."
+512,R,SSR,"SD Status; information about the card proprietary features (See 4.10.2). Mandatory"
+32,R,CSR,"Card Status; information about the card status (See 4.10.1). Mandatory"

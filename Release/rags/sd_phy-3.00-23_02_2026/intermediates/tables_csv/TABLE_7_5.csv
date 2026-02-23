@@ -1,0 +1,5 @@
+Index,Reserved,VHS,Pattern,CRC,R1,Ver,Reserved,VCA,Pattern
+=8,Don't Care,Don't Care,Don't Care,Error,09h,(R1 only),,,
+Not 8,Don't Care,Don't Care,Don't Care,Don't Care,Depends on command index,,,
+=8,Don't Care,Mismatch *2,Don't Care,Correct,01h,Ver=0,0,0,Echo Back
+=8,Don't Care,Match *2,Don't Care,Correct,01h,Ver=0,0,Echo Back,Echo Back

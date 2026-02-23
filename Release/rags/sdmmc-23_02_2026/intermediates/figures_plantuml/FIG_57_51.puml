@@ -1,0 +1,65 @@
+@startuml
+start
+
+:Power on Reset;
+
+:Initialize the Host
+Controller;
+
+:Wait for card insertion
+interrupt;
+
+:Write Clock Control
+Register;
+
+:Program System
+Address Register;
+
+:Program Block Size,
+Block Count Register;
+
+:Set dma_en, blk_cnt_en, data
+transfer direction, multi
+block_select in transfer mode
+register;
+
+:Program block gap control
+register, Set boot_en and
+boot_ack_chk;
+
+:Host Controller pulls the CMD line
+low and reads the boot data from
+device;
+
+fork
+  :Host Controller decrements
+  block count on receiving
+  block of data from device;
+  
+  :Host Controller stops SD
+  clock when block count
+  reached zero;
+  
+  :Asserts boot termination
+  interrupt when FIFO gets
+  empty (once all bytes of data
+  are written into system
+  memory);
+  
+  if (Boot code read over?) then (If Host driver wants to read\nmore data, program block\ncount register again)
+    :Host Controller resumes the
+    SD clock;
+    
+    :End of boot read;
+    stop
+  else (If driver is done with boot\ncode read, set the boot\nenable to 0 in block gap\ncontrol register)
+    :Host Controller pulls CMD
+    line to High;
+    
+    :End of boot read;
+    stop
+  endif
+fork again
+end fork
+
+@enduml

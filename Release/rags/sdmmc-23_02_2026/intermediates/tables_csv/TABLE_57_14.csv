@@ -1,0 +1,4 @@
+Field,Description
+"3:0 SDMMC_DAT[7:4]","DAT[7:4] line signal level. This status is used to check DAT line level to recover from errors, and for debugging."
+"7 SDMMC_CMD","CMD line signal level. This status is used to check CMD line level to recover from errors, and for debugging."
+"8:11 SDMMC_DAT[3:0]","DAT[3:0] line signal level. This status is used to check DAT line level to recover from errors, and for debugging. This is especially useful in detecting the busy signal level from DAT[0]."

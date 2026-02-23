@@ -1,0 +1,6 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD16,ac,"[31:0] block length",R1,SET_BLOCKLEN,See description in Table 4-20
+CMD40,adtc,Reserved for Security Specification,,,
+CMD42,adtc,"[31:0] Reserved bits (Set all 0)",R1,LOCK_UNLOCK,"Used to set/reset the password or lock/unlock the card. The size of the data block is set by the SET_BLOCK_LEN command. Reserved bits in the argument and in Lock Card Data Structure shall be set to 0."
+CMD43-49,,Reserved,,,
+CMD51,,Reserved,,,

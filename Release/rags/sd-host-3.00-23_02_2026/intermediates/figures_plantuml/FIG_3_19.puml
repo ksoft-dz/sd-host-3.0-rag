@@ -1,0 +1,35 @@
+@startuml
+!define RECTANGLE class
+
+package "SD Host Controller" #FFE4B5 {
+  rectangle "Error Interrupt Status" as EIS
+  rectangle "Normal Interrupt Status" as NIS
+}
+
+package "SDIO Card" #90EE90 {
+  rectangle "Function\nError" as FE
+}
+
+rectangle "SD Bus\nError Recovery" as SBER #FFFFE0
+rectangle "Function\nError Recovery" as FER #87CEEB
+
+EIS -down-> SBER : "SD Bus"
+NIS -down-> FER : "Card Interrupt"
+FE -down-> FER
+
+SBER -up-> EIS
+FER -up-> NIS
+FER -left-> SBER
+
+note bottom of SBER
+  Host Driver
+end note
+
+note bottom of FER
+  Card Driver
+end note
+
+EIS -right-> FE : "SD Bus"
+NIS -right-> FE : "Card Interrupt"
+
+@enduml

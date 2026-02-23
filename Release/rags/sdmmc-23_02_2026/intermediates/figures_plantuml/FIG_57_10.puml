@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+title Figure 1839. Data port register (DATAPORT)
+
+map "DATAPORT (Offset: 0x0020) - Access: Read/Write" as REG {
+}
+
+note as N1
+<b>Bits 31:0 - PIOBUFRDDATA</b>
+|= Bit |= 31 | 30 | 29 | 28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17 | 16 |
+| R | PIOBUFRDDATA ||||||||||||||||
+| W | PIOBUFRDDATA ||||||||||||||||
+| Reset | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+
+|= Bit |= 15 | 14 | 13 | 12 | 11 | 10 | 9 | 8 | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+| R | PIOBUFRDDATA ||||||||||||||||
+| W | PIOBUFRDDATA ||||||||||||||||
+| Reset | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+end note
+
+@enduml

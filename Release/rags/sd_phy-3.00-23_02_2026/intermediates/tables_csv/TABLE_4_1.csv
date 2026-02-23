@@ -1,0 +1,11 @@
+Card state,Operation mode
+Inactive State,inactive
+Idle State,card identification mode
+Ready State,card identification mode
+Identification State,card identification mode
+Stand-by State,data transfer mode
+Transfer State,data transfer mode
+Sending-data State,data transfer mode
+Receive-data State,data transfer mode
+Programming State,data transfer mode
+Disconnect State,data transfer mode

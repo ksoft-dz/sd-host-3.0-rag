@@ -1,0 +1,28 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> #CCCCCC
+    BorderColor Black
+}
+
+rectangle "Wakeup Control Register (Offset 02Bh)" <<register>> {
+    |D07|D06|D05|D04|D03|D02|D01|D00|
+    |Rsvd|Rsvd|Rsvd|Rsvd|Rsvd|Wakeup Event Enable\nOn SD Card Removal|Wakeup Event Enable\nOn SD Card Insertion|Wakeup Event Enable\nOn SD Card Interrupt|
+}
+
+note right
+  Bit 02 (RW): Wakeup Event Enable On SD Card Removal
+    1 = Enable
+    0 = Disable
+  
+  Bit 01 (RW): Wakeup Event Enable On SD Card Insertion
+    1 = Enable
+    0 = Disable
+  
+  Bit 00 (RW): Wakeup Event Enable On Card Interrupt
+    1 = Enable
+    0 = Disable
+  
+  Bits 07-03: Reserved
+end note
+
+@enduml

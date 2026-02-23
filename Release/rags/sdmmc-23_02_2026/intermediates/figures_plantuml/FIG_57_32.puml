@@ -1,0 +1,33 @@
+@startuml
+skinparam monochrome true
+
+map "SLOTINTRSTS Register (Offset: 0x00FC)" as reg {
+  Access => Read
+}
+
+rectangle "16-bit Register Layout" {
+  rectangle "Bit 15\nSDHCHOSTIF_\nSLOTINTRSTS" as bit15
+  rectangle "Bit 14\n0" as bit14
+  rectangle "Bit 13\n0" as bit13
+  rectangle "Bit 12\n0" as bit12
+  rectangle "Bit 11\n0" as bit11
+  rectangle "Bit 10\n0" as bit10
+  rectangle "Bit 9\n0" as bit9
+  rectangle "Bit 8\n0" as bit8
+  rectangle "Bit 7\n0" as bit7
+  rectangle "Bit 6\n0" as bit6
+  rectangle "Bit 5\n0" as bit5
+  rectangle "Bit 4\n0" as bit4
+  rectangle "Bit 3\n0" as bit3
+  rectangle "Bit 2\n0" as bit2
+  rectangle "Bit 1\n0" as bit1
+  rectangle "Bit 0\n0" as bit0
+}
+
+note bottom
+  R (Read): All bits reset to 0
+  W (Write): All bits reset to 0
+  Reset: All bits = 0
+end note
+
+@enduml

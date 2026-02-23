@@ -1,0 +1,2005 @@
+{
+  "pdf_structure": {
+    "pdf_file": "sdmmc_chapter_57.pdf",
+    "total_pages": 81,
+    "page_offset": 0,
+    "total_spec_pages": 81,
+    "original_page_offset": 2848,
+    "detected_features": {
+      "sections": {
+        "found": true,
+        "count": 82,
+        "toc_pages": []
+      },
+      "tables": {
+        "found": true,
+        "count": 59,
+        "toc_pages": []
+      },
+      "figures": {
+        "found": true,
+        "count": 57,
+        "toc_pages": []
+      }
+    },
+    "page_offset_validation": {
+      "first_spec_page_text_preview": "Section 57 - SDMMC chapter extracted from RM0452",
+      "looks_like_content_start": true
+    }
+  },
+  "toc": {
+    "sections": [
+      {
+        "section_number": "57.1",
+        "title": "Features",
+        "spec_page": 1,
+        "pdf_page": 1,
+        "depth": 1
+      },
+      {
+        "section_number": "57.1.1",
+        "title": "General description",
+        "spec_page": 1,
+        "pdf_page": 1,
+        "depth": 2
+      },
+      {
+        "section_number": "57.1.2",
+        "title": "Key features",
+        "spec_page": 2,
+        "pdf_page": 2,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2",
+        "title": "Architecture",
+        "spec_page": 2,
+        "pdf_page": 2,
+        "depth": 1
+      },
+      {
+        "section_number": "57.2.1",
+        "title": "Block diagram",
+        "spec_page": 2,
+        "pdf_page": 2,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.2",
+        "title": "Host controller core block description",
+        "spec_page": 3,
+        "pdf_page": 3,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.2.1",
+        "title": "Host interface (master/target)",
+        "spec_page": 3,
+        "pdf_page": 3,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.2",
+        "title": "Host controller register set",
+        "spec_page": 3,
+        "pdf_page": 3,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.3",
+        "title": "PIO/DMA controller",
+        "spec_page": 4,
+        "pdf_page": 4,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.4",
+        "title": "Block buffer",
+        "spec_page": 4,
+        "pdf_page": 4,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.5",
+        "title": "Clock generator",
+        "spec_page": 4,
+        "pdf_page": 4,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.6",
+        "title": "Timeout control",
+        "spec_page": 4,
+        "pdf_page": 4,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.7",
+        "title": "Command control",
+        "spec_page": 5,
+        "pdf_page": 5,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.8",
+        "title": "Transmit control",
+        "spec_page": 5,
+        "pdf_page": 5,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.9",
+        "title": "Receive control",
+        "spec_page": 5,
+        "pdf_page": 5,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.2.10",
+        "title": "Interface control",
+        "spec_page": 6,
+        "pdf_page": 6,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.3",
+        "title": "Clocks",
+        "spec_page": 6,
+        "pdf_page": 6,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.4",
+        "title": "Resets",
+        "spec_page": 7,
+        "pdf_page": 7,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.5",
+        "title": "Frequency range",
+        "spec_page": 7,
+        "pdf_page": 7,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.6",
+        "title": "FIFO overrun and underrun conditions in DMA and non-DMA",
+        "spec_page": 7,
+        "pdf_page": 7,
+        "depth": 2
+      },
+      {
+        "section_number": "57.2.6.1",
+        "title": "Write",
+        "spec_page": 7,
+        "pdf_page": 7,
+        "depth": 3
+      },
+      {
+        "section_number": "57.2.6.2",
+        "title": "Read",
+        "spec_page": 8,
+        "pdf_page": 8,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3",
+        "title": "Registers",
+        "spec_page": 8,
+        "pdf_page": 8,
+        "depth": 1
+      },
+      {
+        "section_number": "57.3.1",
+        "title": "Registers memory map",
+        "spec_page": 8,
+        "pdf_page": 8,
+        "depth": 2
+      },
+      {
+        "section_number": "57.3.2",
+        "title": "Registers description",
+        "spec_page": 10,
+        "pdf_page": 10,
+        "depth": 2
+      },
+      {
+        "section_number": "57.3.2.1",
+        "title": "Register access method",
+        "spec_page": 10,
+        "pdf_page": 10,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.2",
+        "title": "SDMA System address / Argument 2 register (SDMASYSADDR)",
+        "spec_page": 10,
+        "pdf_page": 10,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.3",
+        "title": "Block size register (BLOCKSIZE)",
+        "spec_page": 11,
+        "pdf_page": 11,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.4",
+        "title": "Block count register (BLOCKCOUNT)",
+        "spec_page": 12,
+        "pdf_page": 12,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.5",
+        "title": "Argument 1 register (ARGUMENT1)",
+        "spec_page": 13,
+        "pdf_page": 13,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.6",
+        "title": "Transfer mode register (TRANSFERMODE)",
+        "spec_page": 14,
+        "pdf_page": 14,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.7",
+        "title": "Command register (COMMAND)",
+        "spec_page": 16,
+        "pdf_page": 16,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.8",
+        "title": "Response n register (RESPONSEn)",
+        "spec_page": 17,
+        "pdf_page": 17,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.9",
+        "title": "Data port register (DATAPORT)",
+        "spec_page": 18,
+        "pdf_page": 18,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.10",
+        "title": "Present state register (PRESENTSTATE)",
+        "spec_page": 19,
+        "pdf_page": 19,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.11",
+        "title": "Host control 1 register (HOSTCONTROL1)",
+        "spec_page": 23,
+        "pdf_page": 23,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.12",
+        "title": "Power control register (POWERCONTROL)",
+        "spec_page": 24,
+        "pdf_page": 24,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.13",
+        "title": "Block gap control register (BLOCKGAPCONTROL)",
+        "spec_page": 25,
+        "pdf_page": 25,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.14",
+        "title": "Wake up control register (WAKEUPCONTROL)",
+        "spec_page": 27,
+        "pdf_page": 27,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.15",
+        "title": "Clock control register (CLOCKCONTROL)",
+        "spec_page": 27,
+        "pdf_page": 27,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.16",
+        "title": "Timeout control register (TIMEOUTCONTROL)",
+        "spec_page": 30,
+        "pdf_page": 30,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.17",
+        "title": "Software reset register (SOFTWARERESET)",
+        "spec_page": 31,
+        "pdf_page": 31,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.18",
+        "title": "Normal interrupt status register (NORMALINTRSTS)",
+        "spec_page": 33,
+        "pdf_page": 33,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.19",
+        "title": "Error interrupt status register (ERRORINTRSTS)",
+        "spec_page": 36,
+        "pdf_page": 36,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.20",
+        "title": "Normal interrupt status enable register (NORMALINTRSTSENA)",
+        "spec_page": 38,
+        "pdf_page": 38,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.21",
+        "title": "Error interrupt status enable register (ERRORINTRSTSENA)",
+        "spec_page": 40,
+        "pdf_page": 40,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.22",
+        "title": "Normal interrupt signal enable register (NORMALINTRSIGENA)",
+        "spec_page": 41,
+        "pdf_page": 41,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.23",
+        "title": "Error interrupt signal enable register (ERRORINTRSIGENA)",
+        "spec_page": 43,
+        "pdf_page": 43,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.24",
+        "title": "Auto CMD error status enable register (AUTOCMDERRSTS)",
+        "spec_page": 44,
+        "pdf_page": 44,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.25",
+        "title": "Host control 2 register (HOSTCONTROL2)",
+        "spec_page": 46,
+        "pdf_page": 46,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.26",
+        "title": "Capabilities[31:0] register (CAPABILITIES31_0)",
+        "spec_page": 48,
+        "pdf_page": 48,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.27",
+        "title": "Capabilities[63:32] register (CAPABILITIES63_32)",
+        "spec_page": 50,
+        "pdf_page": 50,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.28",
+        "title": "Maximum current capabilities[31:0] register (MAXCURRENTCAP31_0)",
+        "spec_page": 51,
+        "pdf_page": 51,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.29",
+        "title": "Maximum current capabilities[63:32] register (MAXCURRENTCAP63_32)",
+        "spec_page": 52,
+        "pdf_page": 52,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.30",
+        "title": "Preset value n register (PRESETVALUEn)",
+        "spec_page": 53,
+        "pdf_page": 53,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.31",
+        "title": "Slot interrupt status register (SLOTINTRSTS)",
+        "spec_page": 54,
+        "pdf_page": 54,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.32",
+        "title": "Host controller version register (HOSTCONTROLLERVER)",
+        "spec_page": 54,
+        "pdf_page": 54,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.33",
+        "title": "Force event for auto CMD error status register",
+        "spec_page": 55,
+        "pdf_page": 55,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.34",
+        "title": "Force event for error interrupt status register (FORCEEVENTFORERRINTSTS)",
+        "spec_page": 56,
+        "pdf_page": 56,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.35",
+        "title": "ADMA Error status register (ADMAERRSTS)",
+        "spec_page": 57,
+        "pdf_page": 57,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.36",
+        "title": "ADMA System address n register (ADMASYSADDRn)",
+        "spec_page": 58,
+        "pdf_page": 58,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.37",
+        "title": "Boot timeout control register (BOOTTIMEOUTCNT)",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.38",
+        "title": "Core configuration register (CORE_CONFIG)",
+        "spec_page": 59,
+        "pdf_page": 59,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.39",
+        "title": "Feedback clock selection register (FB_CLK_SEL)",
+        "spec_page": 60,
+        "pdf_page": 60,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.40",
+        "title": "Debug status 1 register (DBG_STA1)",
+        "spec_page": 61,
+        "pdf_page": 61,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.41",
+        "title": "Debug status 2 register (DBG_STA2)",
+        "spec_page": 62,
+        "pdf_page": 62,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.42",
+        "title": "Debug status 3 register (DBG_STA3)",
+        "spec_page": 63,
+        "pdf_page": 63,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.43",
+        "title": "Debug status 4 register (DBG_STA4)",
+        "spec_page": 64,
+        "pdf_page": 64,
+        "depth": 3
+      },
+      {
+        "section_number": "57.3.2.44",
+        "title": "Debug status 5 register (DBG_STA5)",
+        "spec_page": 65,
+        "pdf_page": 65,
+        "depth": 3
+      },
+      {
+        "section_number": "57.4",
+        "title": "Driver flow sequence",
+        "spec_page": 66,
+        "pdf_page": 66,
+        "depth": 1
+      },
+      {
+        "section_number": "57.4.1",
+        "title": "Non-DMA transaction",
+        "spec_page": 66,
+        "pdf_page": 66,
+        "depth": 2
+      },
+      {
+        "section_number": "57.4.2",
+        "title": "DMA transaction",
+        "spec_page": 69,
+        "pdf_page": 69,
+        "depth": 2
+      },
+      {
+        "section_number": "57.4.3",
+        "title": "ADMA transactions",
+        "spec_page": 72,
+        "pdf_page": 72,
+        "depth": 2
+      },
+      {
+        "section_number": "57.4.4",
+        "title": "Abort transaction (sync and async)",
+        "spec_page": 74,
+        "pdf_page": 74,
+        "depth": 2
+      },
+      {
+        "section_number": "57.4.4.1",
+        "title": "Synchronous abort",
+        "spec_page": 75,
+        "pdf_page": 75,
+        "depth": 3
+      },
+      {
+        "section_number": "57.4.4.2",
+        "title": "Asynchronous abort",
+        "spec_page": 76,
+        "pdf_page": 76,
+        "depth": 3
+      },
+      {
+        "section_number": "57.4.5",
+        "title": "Boot operation (normal and alternate)",
+        "spec_page": 76,
+        "pdf_page": 76,
+        "depth": 2
+      },
+      {
+        "section_number": "57.4.5.1",
+        "title": "Normal boot operation",
+        "spec_page": 76,
+        "pdf_page": 76,
+        "depth": 3
+      },
+      {
+        "section_number": "57.4.5.2",
+        "title": "Alternate boot operation",
+        "spec_page": 77,
+        "pdf_page": 77,
+        "depth": 3
+      },
+      {
+        "section_number": "57.4.5.3",
+        "title": "Boot code chunk read operation",
+        "spec_page": 78,
+        "pdf_page": 78,
+        "depth": 3
+      },
+      {
+        "section_number": "57.5",
+        "title": "Timing",
+        "spec_page": 79,
+        "pdf_page": 79,
+        "depth": 1
+      },
+      {
+        "section_number": "57.5.1",
+        "title": "Timing diagram",
+        "spec_page": 79,
+        "pdf_page": 79,
+        "depth": 2
+      }
+    ],
+    "tables": [
+      {
+        "id": "TABLE_57_1",
+        "spec_reference": "Table 1808",
+        "original_number": 1808,
+        "title": "SDMMC memory map",
+        "spec_page": 8,
+        "definition_page": 8,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_2",
+        "spec_reference": "Table 1809",
+        "original_number": 1809,
+        "title": "Registers to generate SDMMC command",
+        "spec_page": 10,
+        "definition_page": 10,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_3",
+        "spec_reference": "Table 1810",
+        "original_number": 1810,
+        "title": "SDMASYSADDR field descriptions",
+        "spec_page": 11,
+        "definition_page": 11,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_4",
+        "spec_reference": "Table 1811",
+        "original_number": 1811,
+        "title": "BLOCKSIZE field descriptions",
+        "spec_page": 12,
+        "definition_page": 12,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_5",
+        "spec_reference": "Table 1812",
+        "original_number": 1812,
+        "title": "BLOCKCOUNT field descriptions",
+        "spec_page": 13,
+        "definition_page": 13,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_6",
+        "spec_reference": "Table 1813",
+        "original_number": 1813,
+        "title": "ARGUMENT1 field descriptions",
+        "spec_page": 14,
+        "definition_page": 14,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_7",
+        "spec_reference": "Table 1814",
+        "original_number": 1814,
+        "title": "TRANSFERMODE field descriptions",
+        "spec_page": 14,
+        "definition_page": 14,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_8",
+        "spec_reference": "Table 1815",
+        "original_number": 1815,
+        "title": "Determination of transfer type",
+        "spec_page": 15,
+        "definition_page": 15,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_9",
+        "spec_reference": "Table 1816",
+        "original_number": 1816,
+        "title": "COMMAND field descriptions",
+        "spec_page": 16,
+        "definition_page": 16,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_10",
+        "spec_reference": "Table 1817",
+        "original_number": 1817,
+        "title": "RESPONSEn field descriptions",
+        "spec_page": 17,
+        "definition_page": 17,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_11",
+        "spec_reference": "Table 1818",
+        "original_number": 1818,
+        "title": "Determination of transfer type",
+        "spec_page": 18,
+        "definition_page": 18,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_12",
+        "spec_reference": "Table 1819",
+        "original_number": 1819,
+        "title": "Response bit definition for each response type",
+        "spec_page": 18,
+        "definition_page": 18,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_13",
+        "spec_reference": "Table 1820",
+        "original_number": 1820,
+        "title": "DATAPORT field descriptions",
+        "spec_page": 19,
+        "definition_page": 19,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_14",
+        "spec_reference": "Table 1821",
+        "original_number": 1821,
+        "title": "PRESENTSTATE field descriptions",
+        "spec_page": 19,
+        "definition_page": 19,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_15",
+        "spec_reference": "Table 1822",
+        "original_number": 1822,
+        "title": "HOSTCONTROL1 field descriptions",
+        "spec_page": 24,
+        "definition_page": 24,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_16",
+        "spec_reference": "Table 1823",
+        "original_number": 1823,
+        "title": "POWERCONTROL field descriptions",
+        "spec_page": 25,
+        "definition_page": 25,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_17",
+        "spec_reference": "Table 1824",
+        "original_number": 1824,
+        "title": "BLOCKGAPCONTROL field descriptions",
+        "spec_page": 25,
+        "definition_page": 25,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_18",
+        "spec_reference": "Table 1825",
+        "original_number": 1825,
+        "title": "WAKEUPCONTROL field descriptions",
+        "spec_page": 27,
+        "definition_page": 27,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_19",
+        "spec_reference": "Table 1826",
+        "original_number": 1826,
+        "title": "CLOCKCONTROL field descriptions",
+        "spec_page": 29,
+        "definition_page": 29,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_20",
+        "spec_reference": "Table 1827",
+        "original_number": 1827,
+        "title": "TIMEOUTCONTROL field descriptions",
+        "spec_page": 31,
+        "definition_page": 31,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_21",
+        "spec_reference": "Table 1828",
+        "original_number": 1828,
+        "title": "SOFTWARERESET field descriptions",
+        "spec_page": 32,
+        "definition_page": 32,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_22",
+        "spec_reference": "Table 1829",
+        "original_number": 1829,
+        "title": "NORMALINTRSTS field descriptions",
+        "spec_page": 33,
+        "definition_page": 33,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_23",
+        "spec_reference": "Table 1830",
+        "original_number": 1830,
+        "title": "Relation between transfer complete and data timeout error",
+        "spec_page": 36,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_24",
+        "spec_reference": "Table 1831",
+        "original_number": 1831,
+        "title": "Relation between command complete and command timeout error",
+        "spec_page": 36,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_25",
+        "spec_reference": "Table 1832",
+        "original_number": 1832,
+        "title": "ERRORINTRSTS field descriptions",
+        "spec_page": 37,
+        "definition_page": 37,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_26",
+        "spec_reference": "Table 1833",
+        "original_number": 1833,
+        "title": "Relation between command CRC error and command timeout error",
+        "spec_page": 38,
+        "definition_page": 38,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_27",
+        "spec_reference": "Table 1834",
+        "original_number": 1834,
+        "title": "NORMALINTRSTSENA field descriptions",
+        "spec_page": 39,
+        "definition_page": 39,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_28",
+        "spec_reference": "Table 1835",
+        "original_number": 1835,
+        "title": "ERRORINTRSTSENA field descriptions",
+        "spec_page": 41,
+        "definition_page": 41,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_29",
+        "spec_reference": "Table 1836",
+        "original_number": 1836,
+        "title": "NORMALINTRSIGENA field descriptions",
+        "spec_page": 42,
+        "definition_page": 42,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_30",
+        "spec_reference": "Table 1837",
+        "original_number": 1837,
+        "title": "ERRORINTRSIGENA field descriptions",
+        "spec_page": 44,
+        "definition_page": 44,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_31",
+        "spec_reference": "Table 1838",
+        "original_number": 1838,
+        "title": "AUTOCMDERRSTS field descriptions",
+        "spec_page": 45,
+        "definition_page": 45,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_32",
+        "spec_reference": "Table 1839",
+        "original_number": 1839,
+        "title": "Relation between auto CMD12 CRC error and auto CMD12 timeout error",
+        "spec_page": 46,
+        "definition_page": 46,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_33",
+        "spec_reference": "Table 1840",
+        "original_number": 1840,
+        "title": "HOSTCONTROL2 field descriptions",
+        "spec_page": 47,
+        "definition_page": 47,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_34",
+        "spec_reference": "Table 1841",
+        "original_number": 1841,
+        "title": "CAPABILITIES31_0 field descriptions",
+        "spec_page": 49,
+        "definition_page": 49,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_35",
+        "spec_reference": "Table 1842",
+        "original_number": 1842,
+        "title": "CAPABILITIES63_32 field descriptions",
+        "spec_page": 51,
+        "definition_page": 51,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_36",
+        "spec_reference": "Table 1843",
+        "original_number": 1843,
+        "title": "MAXCURRENTCAP31_0 field descriptions",
+        "spec_page": 52,
+        "definition_page": 52,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_37",
+        "spec_reference": "Table 1844",
+        "original_number": 1844,
+        "title": "MAXCURRENTCAP63_32 field descriptions",
+        "spec_page": 52,
+        "definition_page": 52,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_38",
+        "spec_reference": "Table 1845",
+        "original_number": 1845,
+        "title": "Maximum current value definition",
+        "spec_page": 53,
+        "definition_page": 53,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_39",
+        "spec_reference": "Table 1846",
+        "original_number": 1846,
+        "title": "PRESETVALUEn field descriptions",
+        "spec_page": 53,
+        "definition_page": 53,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_40",
+        "spec_reference": "Table 1847",
+        "original_number": 1847,
+        "title": "Preset value register definition",
+        "spec_page": 53,
+        "definition_page": 53,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_41",
+        "spec_reference": "Table 1848",
+        "original_number": 1848,
+        "title": "SLOTINTRSTS field descriptions",
+        "spec_page": 54,
+        "definition_page": 54,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_42",
+        "spec_reference": "Table 1849",
+        "original_number": 1849,
+        "title": "HOSTCONTROLLERVER field descriptions",
+        "spec_page": 55,
+        "definition_page": 55,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_43",
+        "spec_reference": "Table 1850",
+        "original_number": 1850,
+        "title": "FORCEEVENTFORAUTOCMDERRSTS field descriptions",
+        "spec_page": 55,
+        "definition_page": 55,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_44",
+        "spec_reference": "Table 1851",
+        "original_number": 1851,
+        "title": "FORCEEVENTFORERRINTSTS field descriptions",
+        "spec_page": 56,
+        "definition_page": 56,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_45",
+        "spec_reference": "Table 1852",
+        "original_number": 1852,
+        "title": "ADMAERRSTS field descriptions",
+        "spec_page": 58,
+        "definition_page": 58,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_46",
+        "spec_reference": "Table 1853",
+        "original_number": 1853,
+        "title": "ADMASYSADDRn field descriptions",
+        "spec_page": 58,
+        "definition_page": 58,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_47",
+        "spec_reference": "Table 1854",
+        "original_number": 1854,
+        "title": "BOOTTIMEOUTCNT field descriptions",
+        "spec_page": 59,
+        "definition_page": 59,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_48",
+        "spec_reference": "Table 1855",
+        "original_number": 1855,
+        "title": "CORE_CONFIG field descriptions",
+        "spec_page": 60,
+        "definition_page": 60,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_49",
+        "spec_reference": "Table 1856",
+        "original_number": 1856,
+        "title": "FB_CLK_SEL field descriptions",
+        "spec_page": 61,
+        "definition_page": 61,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_50",
+        "spec_reference": "Table 1857",
+        "original_number": 1857,
+        "title": "DBG_STA1 field descriptions",
+        "spec_page": 62,
+        "definition_page": 62,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_51",
+        "spec_reference": "Table 1858",
+        "original_number": 1858,
+        "title": "DBG_STA2 field descriptions",
+        "spec_page": 63,
+        "definition_page": 63,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_52",
+        "spec_reference": "Table 1859",
+        "original_number": 1859,
+        "title": "DBG_STA3 field descriptions",
+        "spec_page": 64,
+        "definition_page": 64,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_53",
+        "spec_reference": "Table 1860",
+        "original_number": 1860,
+        "title": "DBG_STA4 field descriptions",
+        "spec_page": 65,
+        "definition_page": 65,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_54",
+        "spec_reference": "Table 1861",
+        "original_number": 1861,
+        "title": "DBG_STA5 field descriptions",
+        "spec_page": 65,
+        "definition_page": 65,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_55",
+        "spec_reference": "Table 1862",
+        "original_number": 1862,
+        "title": "Non-DMA transaction",
+        "spec_page": 68,
+        "definition_page": 68,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_56",
+        "spec_reference": "Table 1863",
+        "original_number": 1863,
+        "title": "DMA transaction",
+        "spec_page": 70,
+        "definition_page": 70,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_57",
+        "spec_reference": "Table 1864",
+        "original_number": 1864,
+        "title": "ADMA transaction flow",
+        "spec_page": 73,
+        "definition_page": 73,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_58",
+        "spec_reference": "Table 1865",
+        "original_number": 1865,
+        "title": "Abort transaction",
+        "spec_page": 75,
+        "definition_page": 75,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "TABLE_57_59",
+        "spec_reference": "Table 1866",
+        "original_number": 1866,
+        "title": "Asynchronous abort",
+        "spec_page": 76,
+        "definition_page": 76,
+        "referenced_on_pages": [],
+        "conversion": {
+          "status": "PENDING"
+        }
+      }
+    ],
+    "figures": [
+      {
+        "id": "FIG_57_1",
+        "spec_reference": "Figure 1830",
+        "original_number": 1830,
+        "title": "3MCR controller",
+        "spec_page": 3,
+        "definition_page": 3,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_2",
+        "spec_reference": "Figure 1831",
+        "original_number": 1831,
+        "title": "Feedback clock selection",
+        "spec_page": 7,
+        "definition_page": 7,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_3",
+        "spec_reference": "Figure 1832",
+        "original_number": 1832,
+        "title": "SDMA System address / Argument 2 register (SDMASYSADDR)",
+        "spec_page": 11,
+        "definition_page": 11,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_4",
+        "spec_reference": "Figure 1833",
+        "original_number": 1833,
+        "title": "Block size register (BLOCKSIZE)",
+        "spec_page": 12,
+        "definition_page": 12,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_5",
+        "spec_reference": "Figure 1834",
+        "original_number": 1834,
+        "title": "Block count register (BLOCKCOUNT)",
+        "spec_page": 13,
+        "definition_page": 13,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_6",
+        "spec_reference": "Figure 1835",
+        "original_number": 1835,
+        "title": "Argument 1 register (ARGUMENT1)",
+        "spec_page": 13,
+        "definition_page": 13,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_7",
+        "spec_reference": "Figure 1836",
+        "original_number": 1836,
+        "title": "Transfer mode register (TRANSFERMODE)",
+        "spec_page": 14,
+        "definition_page": 14,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_8",
+        "spec_reference": "Figure 1837",
+        "original_number": 1837,
+        "title": "Command register (COMMAND)",
+        "spec_page": 16,
+        "definition_page": 16,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_9",
+        "spec_reference": "Figure 1838",
+        "original_number": 1838,
+        "title": "Response n register (RESPONSEn)",
+        "spec_page": 17,
+        "definition_page": 17,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_10",
+        "spec_reference": "Figure 1839",
+        "original_number": 1839,
+        "title": "Data port register (DATAPORT)",
+        "spec_page": 18,
+        "definition_page": 18,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_11",
+        "spec_reference": "Figure 1840",
+        "original_number": 1840,
+        "title": "Present state register (PRESENTSTATE)",
+        "spec_page": 19,
+        "definition_page": 19,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_12",
+        "spec_reference": "Figure 1841",
+        "original_number": 1841,
+        "title": "Host control 1 register (HOSTCONTROL1)",
+        "spec_page": 23,
+        "definition_page": 23,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_13",
+        "spec_reference": "Figure 1842",
+        "original_number": 1842,
+        "title": "Power control register (POWERCONTROL)",
+        "spec_page": 25,
+        "definition_page": 25,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_14",
+        "spec_reference": "Figure 1843",
+        "original_number": 1843,
+        "title": "Block gap control register (BLOCKGAPCONTROL)",
+        "spec_page": 25,
+        "definition_page": 25,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_15",
+        "spec_reference": "Figure 1844",
+        "original_number": 1844,
+        "title": "Wakeup control register (WAKEUPCONTROL)",
+        "spec_page": 27,
+        "definition_page": 27,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_16",
+        "spec_reference": "Figure 1845",
+        "original_number": 1845,
+        "title": "Clock control register (CLOCKCONTROL)",
+        "spec_page": 28,
+        "definition_page": 28,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_17",
+        "spec_reference": "Figure 1846",
+        "original_number": 1846,
+        "title": "Timeout control register (TIMEOUTCONTROL)",
+        "spec_page": 30,
+        "definition_page": 30,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_18",
+        "spec_reference": "Figure 1847",
+        "original_number": 1847,
+        "title": "Software reset register (SOFTWARERESET)",
+        "spec_page": 31,
+        "definition_page": 31,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_19",
+        "spec_reference": "Figure 1848",
+        "original_number": 1848,
+        "title": "Normal interrupt status register (NORMALINTRSTS)",
+        "spec_page": 33,
+        "definition_page": 33,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_20",
+        "spec_reference": "Figure 1849",
+        "original_number": 1849,
+        "title": "Error interrupt status register (ERRORINTRSTS)",
+        "spec_page": 36,
+        "definition_page": 36,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_21",
+        "spec_reference": "Figure 1850",
+        "original_number": 1850,
+        "title": "Normal interrupt status enable register (NORMALINTRSTSENA)",
+        "spec_page": 38,
+        "definition_page": 38,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_22",
+        "spec_reference": "Figure 1851",
+        "original_number": 1851,
+        "title": "Error interrupt status enable register (ERRORINTRSTSENA)",
+        "spec_page": 40,
+        "definition_page": 40,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_23",
+        "spec_reference": "Figure 1852",
+        "original_number": 1852,
+        "title": "Normal interrupt signal enable register (NORMALINTRSIGENA)",
+        "spec_page": 42,
+        "definition_page": 42,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_24",
+        "spec_reference": "Figure 1853",
+        "original_number": 1853,
+        "title": "Error interrupt signal enable register (ERRORINTRSIGENA)",
+        "spec_page": 43,
+        "definition_page": 43,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_25",
+        "spec_reference": "Figure 1854",
+        "original_number": 1854,
+        "title": "Auto CMD error status enable register (AUTOCMDERRSTS)",
+        "spec_page": 45,
+        "definition_page": 45,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_26",
+        "spec_reference": "Figure 1855",
+        "original_number": 1855,
+        "title": "Host control 2 register (HOSTCONTROL2)",
+        "spec_page": 47,
+        "definition_page": 47,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_27",
+        "spec_reference": "Figure 1856",
+        "original_number": 1856,
+        "title": "Capabilities[31:0] register (CAPABILITIES31_0)",
+        "spec_page": 48,
+        "definition_page": 48,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_28",
+        "spec_reference": "Figure 1857",
+        "original_number": 1857,
+        "title": "Capabilities[63:32] register (CAPABILITIES63_32)",
+        "spec_page": 51,
+        "definition_page": 51,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_29",
+        "spec_reference": "Figure 1858",
+        "original_number": 1858,
+        "title": "Maximum current capabilities[31:0] register (MAXCURRENTCAP31_0)",
+        "spec_page": 52,
+        "definition_page": 52,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_30",
+        "spec_reference": "Figure 1859",
+        "original_number": 1859,
+        "title": "Maximum current capabilities[63:32] register (MAXCURRENTCAP63_32)",
+        "spec_page": 52,
+        "definition_page": 52,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_31",
+        "spec_reference": "Figure 1860",
+        "original_number": 1860,
+        "title": "Preset value n register (PRESETVALUEn)",
+        "spec_page": 53,
+        "definition_page": 53,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_32",
+        "spec_reference": "Figure 1861",
+        "original_number": 1861,
+        "title": "Slot interrupt status register (SLOTINTRSTS)",
+        "spec_page": 54,
+        "definition_page": 54,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_33",
+        "spec_reference": "Figure 1862",
+        "original_number": 1862,
+        "title": "Host controller version register (HOSTCONTROLLERVER)",
+        "spec_page": 54,
+        "definition_page": 54,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_34",
+        "spec_reference": "Figure 1863",
+        "original_number": 1863,
+        "title": "Force event for auto CMD error status register",
+        "spec_page": 55,
+        "definition_page": 55,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_35",
+        "spec_reference": "Figure 1864",
+        "original_number": 1864,
+        "title": "Force event for error interrupt status register (FORCEEVENTFORERRINTSTS)",
+        "spec_page": 56,
+        "definition_page": 56,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_36",
+        "spec_reference": "Figure 1865",
+        "original_number": 1865,
+        "title": "ADMA Error status register (ADMAERRSTS)",
+        "spec_page": 57,
+        "definition_page": 57,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_37",
+        "spec_reference": "Figure 1866",
+        "original_number": 1866,
+        "title": "ADMA System address n register (ADMASYSADDRn)",
+        "spec_page": 58,
+        "definition_page": 58,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_38",
+        "spec_reference": "Figure 1867",
+        "original_number": 1867,
+        "title": "Boot timeout control register (BOOTTIMEOUTCNT)",
+        "spec_page": 59,
+        "definition_page": 59,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_39",
+        "spec_reference": "Figure 1868",
+        "original_number": 1868,
+        "title": "Core configuration register (CORE_CONFIG)",
+        "spec_page": 59,
+        "definition_page": 59,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_40",
+        "spec_reference": "Figure 1869",
+        "original_number": 1869,
+        "title": "Feedback clock selection register (FB_CLK_SEL)",
+        "spec_page": 60,
+        "definition_page": 60,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_41",
+        "spec_reference": "Figure 1870",
+        "original_number": 1870,
+        "title": "Debug status 1 register (DBG_STA1)",
+        "spec_page": 61,
+        "definition_page": 61,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_42",
+        "spec_reference": "Figure 1871",
+        "original_number": 1871,
+        "title": "Debug status 2 register (DBG_STA2)",
+        "spec_page": 62,
+        "definition_page": 62,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_43",
+        "spec_reference": "Figure 1872",
+        "original_number": 1872,
+        "title": "Debug status 3 register (DBG_STA3)",
+        "spec_page": 63,
+        "definition_page": 63,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_44",
+        "spec_reference": "Figure 1873",
+        "original_number": 1873,
+        "title": "Debug status 4 register (DBG_STA4)",
+        "spec_page": 64,
+        "definition_page": 64,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_45",
+        "spec_reference": "Figure 1874",
+        "original_number": 1874,
+        "title": "Debug status 5 register (DBG_STA5)",
+        "spec_page": 65,
+        "definition_page": 65,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_46",
+        "spec_reference": "Figure 1875",
+        "original_number": 1875,
+        "title": "Data transfer using DAT line sequence (not using DMA)",
+        "spec_page": 67,
+        "definition_page": 67,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_47",
+        "spec_reference": "Figure 1876",
+        "original_number": 1876,
+        "title": "Data transfer using DAT line sequence (using DMA)",
+        "spec_page": 70,
+        "definition_page": 70,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_48",
+        "spec_reference": "Figure 1877",
+        "original_number": 1877,
+        "title": "ADMA transaction flow",
+        "spec_page": 73,
+        "definition_page": 73,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_49",
+        "spec_reference": "Figure 1878",
+        "original_number": 1878,
+        "title": "Synchronous abort transaction",
+        "spec_page": 75,
+        "definition_page": 75,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_50",
+        "spec_reference": "Figure 1879",
+        "original_number": 1879,
+        "title": "Asynchronous abort",
+        "spec_page": 76,
+        "definition_page": 76,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_51",
+        "spec_reference": "Figure 1880",
+        "original_number": 1880,
+        "title": "Boot code access flow diagram",
+        "spec_page": 79,
+        "definition_page": 79,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_52",
+        "spec_reference": "Figure 1881",
+        "original_number": 1881,
+        "title": "Multiple-block write timing",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_53",
+        "spec_reference": "Figure 1882",
+        "original_number": 1882,
+        "title": "Multiple block read",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_54",
+        "spec_reference": "Figure 1883",
+        "original_number": 1883,
+        "title": "Boot operation timing with termination between consecutive data blocks",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_55",
+        "spec_reference": "Figure 1884",
+        "original_number": 1884,
+        "title": "Boot operation timing with termination during transfer",
+        "spec_page": 80,
+        "definition_page": 80,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_56",
+        "spec_reference": "Figure 1885",
+        "original_number": 1885,
+        "title": "Alternative boot operation, termination between consecutive data blocks",
+        "spec_page": 81,
+        "definition_page": 81,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      },
+      {
+        "id": "FIG_57_57",
+        "spec_reference": "Figure 1886",
+        "original_number": 1886,
+        "title": "Alternative boot operation, termination during transfer",
+        "spec_page": 81,
+        "definition_page": 81,
+        "referenced_on_pages": [],
+        "transcription": {
+          "status": "PENDING"
+        }
+      }
+    ]
+  },
+  "generated_at": "2026-02-23T13:50:27.220944+00:00"
+}

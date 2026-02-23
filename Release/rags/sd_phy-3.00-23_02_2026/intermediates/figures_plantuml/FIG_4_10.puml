@@ -1,0 +1,27 @@
+@startuml
+title Figure 4-10: Use of Switch Command
+
+legend top
+  Check function (Mode=0)
+end legend
+
+concise "CMD" as CMD1
+concise "DAT" as DAT1
+
+@0
+CMD1 is "CMD6"
+@1
+CMD1 is "Res"
+@2
+CMD1 is {-}
+
+@0
+DAT1 is {-}
+@2
+DAT1 is "Card internal\nexecution"
+@4
+DAT1 is "Status Data"
+@6
+DAT1 is {-}
+
+@enduml

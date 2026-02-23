@@ -1,0 +1,382 @@
+# ==============================================================================
+# RAG V2 — Spec Configuration
+# ==============================================================================
+# SDMMC Controller — RM0452 Section 57 (SPC58 H-Line Reference Manual)
+# SD Host Controller 3.0 compliant, MMC 4.51, 3MCR (multi card reader)
+# ==============================================================================
+
+# ==============================================================================
+# SPEC IDENTITY
+# ==============================================================================
+spec:
+  name: "SDMMC Controller (3MCR) — SPC58 H-Line Reference Manual"
+  version: "RM0452 Rev 4"
+  pdf_file: "sdmmc_chapter_57.pdf"
+  page_offset: 0           # extracted PDF: page 1 = spec page 1 (no preamble)
+  total_spec_pages: 81     # Pages 2849-2929 of original RM (81 pages)
+
+# ==============================================================================
+# TABLE OF CONTENTS — Not applicable (chapter extracted from full RM)
+# Discovery handled by custom script: scripts/discover_sdmmc.py
+# ==============================================================================
+toc:
+  sections:
+    pages: []
+    pattern: "^(57(?:\\.\\d+)*)\\.?\\s+(.+?)\\s*\\.{3,}\\s*(\\d+)"
+  tables:
+    pages: []
+    pattern: "Table\\s+(\\d+)\\.\\s+(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "TABLE_57_{seq}"
+  figures:
+    pages: []
+    pattern: "Figure\\s+(\\d+)\\.\\s+(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "FIG_57_{seq}"
+
+# ==============================================================================
+# NODE TYPES
+# ==============================================================================
+node_types:
+  TABLE:
+    enabled: true
+    id_format: "TABLE_57_{seq}"
+    classification_rules:
+      - pattern: "register.*(field|bit|description)"
+        type: "REGISTER_FIELDS"
+      - pattern: "memory.*map|register.*map|address.*offset"
+        type: "REGISTER_MAP"
+      - pattern: "command|CMD"
+        type: "COMMAND_TABLE"
+      - pattern: "signal|pin"
+        type: "SIGNAL_LIST"
+      - pattern: "timing|clock"
+        type: "TIMING"
+      - pattern: "status|state|error"
+        type: "STATUS_TABLE"
+      - pattern: "interrupt"
+        type: "INTERRUPT_TABLE"
+      - pattern: "capability|preset"
+        type: "CAPABILITY_TABLE"
+      - pattern: ".*"
+        type: "OTHER"
+
+  FIGURE:
+    enabled: true
+    id_format: "FIG_57_{seq}"
+    classification_rules:
+      - pattern: "state|machine|transition"
+        type: "STATE_DIAGRAM"
+      - pattern: "timing|waveform"
+        type: "TIMING_DIAGRAM"
+      - pattern: "register.*(bit|field|layout)"
+        type: "REGISTER_LAYOUT"
+      - pattern: "flow|sequence|initialization|transaction"
+        type: "FLOWCHART"
+      - pattern: "block|architecture|diagram|controller"
+        type: "BLOCK_DIAGRAM"
+      - pattern: "format|token|packet|frame"
+        type: "FORMAT_DIAGRAM"
+      - pattern: ".*"
+        type: "OTHER"
+
+  SPEC_CHUNK:
+    enabled: true
+    id_format: "CHUNK_{section}_{idx}"
+
+  REGISTER:
+    enabled: true
+    id_format: "REG_{name}"
+
+  REG_CLASS:
+    enabled: true
+    id_format: "REGCLASS_{name}"
+
+  FEATURE:
+    enabled: true
+    id_format: "F_{name}"
+
+  HD_SEQUENCE:
+    enabled: true
+    id_format: "HD_{name}"
+
+# ==============================================================================
+# CHUNKING PARAMETERS
+# ==============================================================================
+chunking:
+  target_words: 200
+  max_words: 250
+  overlap_words: 20
+
+# ==============================================================================
+# LLM CONFIGURATION
+# ==============================================================================
+llm:
+  default_model: "opus"
+  models:
+    haiku: "claude-haiku-4-5-20251001"
+    sonnet: "claude-sonnet-4-5-20250929"
+    opus: "claude-opus-4-5-20251101"
+  rate_limit_delay: 1.5
+  max_retries: 3
+  max_workers: 4
+
+# ==============================================================================
+# DOMAIN: REGISTERS (SD Host Controller 3.0 memory-mapped + ST extensions)
+# ==============================================================================
+domain:
+  registers:
+    enabled: true
+    # Register functional classes (SD Host 3.0 groups)
+    classes:
+      - id: "REGCLASS_CMD_DATA"
+        name: "Command & Data Transfer"
+        address_start: "0x000"
+        address_end: "0x00F"
+      - id: "REGCLASS_RESPONSE"
+        name: "Response Registers"
+        address_start: "0x010"
+        address_end: "0x01F"
+      - id: "REGCLASS_HOST_CTRL"
+        name: "Host Control & Configuration"
+        address_start: "0x020"
+        address_end: "0x02F"
+      - id: "REGCLASS_INTERRUPT"
+        name: "Interrupt & Status"
+        address_start: "0x030"
+        address_end: "0x03F"
+      - id: "REGCLASS_CAPABILITIES"
+        name: "Capabilities & Preset Values"
+        address_start: "0x040"
+        address_end: "0x06F"
+      - id: "REGCLASS_ADMA"
+        name: "ADMA Control"
+        address_start: "0x054"
+        address_end: "0x05F"
+      - id: "REGCLASS_VENDOR"
+        name: "Vendor-Specific (ST Extensions)"
+        address_start: "0x080"
+        address_end: "0x0FF"
+
+    # SD Host Controller 3.0 standard register map + ST-specific extensions
+    # Table IDs map to "xxx field descriptions" tables in discovery
+    register_offsets:
+      "0x000": { section: "57.3.2.2",  name: "SDMA System Address",             table: "TABLE_57_3" }
+      "0x004": { section: "57.3.2.3",  name: "Block Size",                      table: "TABLE_57_4" }
+      "0x006": { section: "57.3.2.4",  name: "Block Count",                     table: "TABLE_57_5" }
+      "0x008": { section: "57.3.2.5",  name: "Argument 1",                      table: "TABLE_57_6" }
+      "0x00C": { section: "57.3.2.6",  name: "Transfer Mode",                   table: "TABLE_57_7" }
+      "0x00E": { section: "57.3.2.7",  name: "Command",                         table: "TABLE_57_9" }
+      "0x010": { section: "57.3.2.8",  name: "Response n",                      table: "TABLE_57_10" }
+      "0x020": { section: "57.3.2.9",  name: "Data Port",                       table: "TABLE_57_13" }
+      "0x024": { section: "57.3.2.10", name: "Present State",                   table: "TABLE_57_14" }
+      "0x028": { section: "57.3.2.11", name: "Host Control 1",                  table: "TABLE_57_15" }
+      "0x029": { section: "57.3.2.12", name: "Power Control",                   table: "TABLE_57_16" }
+      "0x02A": { section: "57.3.2.13", name: "Block Gap Control",               table: "TABLE_57_17" }
+      "0x02B": { section: "57.3.2.14", name: "Wakeup Control",                  table: "TABLE_57_18" }
+      "0x02C": { section: "57.3.2.15", name: "Clock Control",                   table: "TABLE_57_19" }
+      "0x02E": { section: "57.3.2.16", name: "Timeout Control",                 table: "TABLE_57_20" }
+      "0x02F": { section: "57.3.2.17", name: "Software Reset",                  table: "TABLE_57_21" }
+      "0x030": { section: "57.3.2.18", name: "Normal Interrupt Status",         table: "TABLE_57_22" }
+      "0x032": { section: "57.3.2.19", name: "Error Interrupt Status",          table: "TABLE_57_25" }
+      "0x034": { section: "57.3.2.20", name: "Normal Interrupt Status Enable",  table: "TABLE_57_27" }
+      "0x036": { section: "57.3.2.21", name: "Error Interrupt Status Enable",   table: "TABLE_57_28" }
+      "0x038": { section: "57.3.2.22", name: "Normal Interrupt Signal Enable",  table: "TABLE_57_29" }
+      "0x03A": { section: "57.3.2.23", name: "Error Interrupt Signal Enable",   table: "TABLE_57_30" }
+      "0x03C": { section: "57.3.2.24", name: "Auto CMD Error Status",           table: "TABLE_57_31" }
+      "0x03E": { section: "57.3.2.25", name: "Host Control 2",                  table: "TABLE_57_33" }
+      "0x040": { section: "57.3.2.26", name: "Capabilities [31:0]",             table: "TABLE_57_34" }
+      "0x044": { section: "57.3.2.27", name: "Capabilities [63:32]",            table: "TABLE_57_35" }
+      "0x048": { section: "57.3.2.28", name: "Maximum Current Capabilities [31:0]",  table: "TABLE_57_36" }
+      "0x04C": { section: "57.3.2.29", name: "Maximum Current Capabilities [63:32]", table: "TABLE_57_37" }
+      "0x050": { section: "57.3.2.33", name: "Force Event Auto CMD Error Status",    table: "TABLE_57_43" }
+      "0x052": { section: "57.3.2.34", name: "Force Event Error Interrupt Status",   table: "TABLE_57_44" }
+      "0x054": { section: "57.3.2.35", name: "ADMA Error Status",               table: "TABLE_57_45" }
+      "0x058": { section: "57.3.2.36", name: "ADMA System Address",             table: "TABLE_57_46" }
+      "0x060": { section: "57.3.2.30", name: "Preset Value n",                  table: "TABLE_57_39" }
+      "0x0FC": { section: "57.3.2.31", name: "Slot Interrupt Status",           table: "TABLE_57_41" }
+      "0x0FE": { section: "57.3.2.32", name: "Host Controller Version",         table: "TABLE_57_42" }
+      # ST-specific vendor extensions
+      "0x100": { section: "57.3.2.37", name: "Boot Timeout Control",            table: "TABLE_57_47" }
+      "0x104": { section: "57.3.2.38", name: "Core Config",                     table: "TABLE_57_48" }
+      "0x108": { section: "57.3.2.39", name: "FB_CLK_SEL",                      table: "TABLE_57_49" }
+      "0x10C": { section: "57.3.2.40", name: "Debug Status 1",                  table: "TABLE_57_50" }
+      "0x110": { section: "57.3.2.41", name: "Debug Status 2",                  table: "TABLE_57_51" }
+      "0x114": { section: "57.3.2.42", name: "Debug Status 3",                  table: "TABLE_57_52" }
+      "0x118": { section: "57.3.2.43", name: "Debug Status 4",                  table: "TABLE_57_53" }
+      "0x11C": { section: "57.3.2.44", name: "Debug Status 5",                  table: "TABLE_57_54" }
+
+    # Tables to EXCLUDE from register field auto-detection
+    exclude_tables:
+      - "TABLE_57_1"    # SDMMC memory map / register summary — not field-level
+
+# ==============================================================================
+# DOMAIN: FEATURES
+# ==============================================================================
+  features:
+    enabled: true
+    definitions:
+      # --- CORE FUNCTIONALITY ---
+      - { id: "F_SD_HOST_3_0",       name: "SD Host Controller 3.0 Compliance",    groups: ["core", "compliance"],          priority: "P0", parent: null }
+      - { id: "F_MMC_4_51",          name: "MMC 4.51 Support",                     groups: ["core", "compliance"],          priority: "P0", parent: null }
+      - { id: "F_3MCR",              name: "3MCR Multi Card Reader",               groups: ["core"],                        priority: "P0", parent: null }
+
+      # --- COMMAND ENGINE ---
+      - { id: "F_CMD_ENGINE",        name: "Command Issuing",                      groups: ["command"],                     priority: "P0", parent: null }
+      - { id: "F_AUTO_CMD12",        name: "Auto CMD12",                           groups: ["command"],                     priority: "P1", parent: "F_CMD_ENGINE" }
+      - { id: "F_AUTO_CMD23",        name: "Auto CMD23",                           groups: ["command"],                     priority: "P1", parent: "F_CMD_ENGINE" }
+
+      # --- DATA TRANSFER ---
+      - { id: "F_DATA_TRANSFER",     name: "Data Transfer",                        groups: ["data_transfer"],               priority: "P0", parent: null }
+      - { id: "F_NON_DMA",           name: "Non-DMA Transfer (PIO)",               groups: ["data_transfer"],               priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_SDMA",              name: "SDMA Transfer",                        groups: ["data_transfer", "dma"],         priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ADMA1",             name: "ADMA1 Transfer",                       groups: ["data_transfer", "dma"],         priority: "P1", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ADMA2",             name: "ADMA2 Transfer",                       groups: ["data_transfer", "dma"],         priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_MULTI_BLOCK",       name: "Multiple Block Transfer",              groups: ["data_transfer"],               priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_SINGLE_BLOCK",      name: "Single Block Transfer",                groups: ["data_transfer"],               priority: "P0", parent: "F_DATA_TRANSFER" }
+      - { id: "F_ABORT",             name: "Abort Transaction",                    groups: ["data_transfer"],               priority: "P1", parent: "F_DATA_TRANSFER" }
+      - { id: "F_SUSPEND_RESUME",    name: "Suspend/Resume",                       groups: ["data_transfer"],               priority: "P2", parent: "F_DATA_TRANSFER" }
+
+      # --- INTERRUPT SYSTEM ---
+      - { id: "F_INTERRUPT",         name: "Interrupt System",                     groups: ["interrupt"],                   priority: "P0", parent: null }
+      - { id: "F_NORMAL_INT",        name: "Normal Interrupts",                    groups: ["interrupt"],                   priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_ERROR_INT",         name: "Error Interrupts",                     groups: ["interrupt"],                   priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_WAKEUP",            name: "Wakeup Event",                         groups: ["interrupt", "power"],           priority: "P2", parent: "F_INTERRUPT" }
+
+      # --- CLOCK & POWER ---
+      - { id: "F_CLOCK_CONTROL",     name: "Clock Control",                        groups: ["clock"],                       priority: "P0", parent: null }
+      - { id: "F_SDCLK_FREQ_SEL",    name: "SDCLK Frequency Select",              groups: ["clock"],                       priority: "P0", parent: "F_CLOCK_CONTROL" }
+      - { id: "F_POWER_CONTROL",     name: "Power Control",                        groups: ["power"],                       priority: "P0", parent: null }
+
+      # --- SPEED MODES ---
+      - { id: "F_SPEED_MODES",       name: "Speed Mode Support",                   groups: ["speed_modes"],                 priority: "P0", parent: null }
+      - { id: "F_DEFAULT_SPEED",     name: "Default Speed (25 MHz)",               groups: ["speed_modes"],                 priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_HIGH_SPEED",        name: "High Speed (50 MHz)",                  groups: ["speed_modes"],                 priority: "P0", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR12",         name: "UHS-I SDR12",                          groups: ["speed_modes", "uhs"],          priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR25",         name: "UHS-I SDR25",                          groups: ["speed_modes", "uhs"],          priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR50",         name: "UHS-I SDR50",                          groups: ["speed_modes", "uhs"],          priority: "P1", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_SDR104",        name: "UHS-I SDR104",                         groups: ["speed_modes", "uhs"],          priority: "P2", parent: "F_SPEED_MODES" }
+      - { id: "F_UHS_DDR50",         name: "UHS-I DDR50",                          groups: ["speed_modes", "uhs"],          priority: "P2", parent: "F_SPEED_MODES" }
+
+      # --- BOOT OPERATION ---
+      - { id: "F_BOOT_OP",           name: "Boot Operation",                       groups: ["boot", "mmc"],                 priority: "P1", parent: null }
+      - { id: "F_ALT_BOOT",          name: "Alternative Boot Mode",                groups: ["boot", "mmc"],                 priority: "P2", parent: "F_BOOT_OP" }
+
+      # --- HOST CONTROL ---
+      - { id: "F_SOFTWARE_RESET",    name: "Software Reset",                       groups: ["control"],                     priority: "P0", parent: null }
+      - { id: "F_TIMEOUT_CONTROL",   name: "Timeout Control",                      groups: ["control"],                     priority: "P0", parent: null }
+      - { id: "F_CAPABILITIES",      name: "Capabilities Register",                groups: ["control"],                     priority: "P0", parent: null }
+      - { id: "F_PRESET_VALUES",     name: "Preset Value Registers",               groups: ["control", "speed_modes"],      priority: "P1", parent: null }
+      - { id: "F_VOLTAGE_SWITCH",    name: "1.8V Signaling",                       groups: ["power", "uhs"],                priority: "P1", parent: null }
+
+      # --- BUS INTERFACE ---
+      - { id: "F_4BIT_MODE",         name: "4-bit Data Bus",                       groups: ["bus"],                         priority: "P0", parent: null }
+      - { id: "F_8BIT_MODE",         name: "8-bit Data Bus (MMC)",                 groups: ["bus", "mmc"],                  priority: "P1", parent: null }
+      - { id: "F_LED_CONTROL",       name: "LED Control",                          groups: ["bus"],                         priority: "P2", parent: null }
+
+    # HD sequence definitions (Host Driver sequences from section 57.4)
+    hd_sequences:
+      - { id: "HDS_NON_DMA_XFER",     name: "Non-DMA Data Transfer Sequence",        groups: ["data_transfer", "host_driver_sequence"],     primary_section: "57.4.1" }
+      - { id: "HDS_DMA_XFER",         name: "DMA Data Transfer Sequence",             groups: ["data_transfer", "dma", "host_driver_sequence"], primary_section: "57.4.2" }
+      - { id: "HDS_ADMA_XFER",        name: "ADMA Data Transfer Sequence",            groups: ["data_transfer", "dma", "host_driver_sequence"], primary_section: "57.4.3" }
+      - { id: "HDS_ABORT_XFER",       name: "Abort Transaction Sequence",             groups: ["data_transfer", "host_driver_sequence"],     primary_section: "57.4.4" }
+      - { id: "HDS_BOOT_OP",          name: "Boot Operation Sequence",                groups: ["boot", "mmc", "host_driver_sequence"],       primary_section: "57.4.5" }
+      - { id: "HDS_CARD_INIT",        name: "Card Detection and Initialization",      groups: ["card_init", "host_driver_sequence"],         primary_section: "57.2.5" }
+      - { id: "HDS_CLK_FREQ_CHANGE",  name: "Clock Frequency Change Sequence",        groups: ["clock", "host_driver_sequence"],              primary_section: "57.2.2" }
+
+# ==============================================================================
+# RELATION TYPES
+# ==============================================================================
+relation_types:
+  - { type: "REFERENCES",          description: "Node mentions table/figure" }
+  - { type: "CHILD_OF",            description: "Section hierarchy" }
+  - { type: "DEFINED_BY",          description: "Register fields from table" }
+  - { type: "VISUALIZED_BY",       description: "Register layout in figure" }
+  - { type: "DESCRIBES",           description: "Resource documents register" }
+  - { type: "BELONGS_TO",          description: "Register in functional class" }
+  - { type: "DEFINED_IN",          description: "Register defined in table" }
+  - { type: "PART_OF",             description: "Sub-feature belongs to parent" }
+  - { type: "USES_FEATURE",        description: "Sequence depends on feature" }
+  - { type: "HIGHLY_RELATED_TO",   description: "Strong cross-feature relation" }
+  - { type: "SLIGHTLY_RELATED_TO", description: "Weak cross-feature relation" }
+
+# ==============================================================================
+# EXTRACTION — Table & figure extraction behaviour
+# ==============================================================================
+extraction:
+  tables:
+    multi_page:
+      enabled: true
+      max_pages_before: 2
+      max_pages_after: 2
+
+    hints:
+      - name: "register_fields"
+        match_title: "register"
+        expected_columns:
+          - { role: "bit_range",   names: ["Bit", "Location", "Bit Position", "Bit Range", "Bits", "Width", "Offset"] }
+          - { role: "access",      names: ["Access", "Attrib", "Type", "R/W", "Attribute", "Cell Type"] }
+          - { role: "field_name",  names: ["Field Name", "Signal Name", "Name", "Field", "Mnemonic", "Acronym"] }
+          - { role: "description", names: ["Description", "Function", "Explanation", "Value", "Definition", "Reset Value"] }
+        instruction: |
+          This is a memory-mapped register field table from the SDMMC (SD Host Controller 3.0) 
+          in the SPC58 H-Line Reference Manual RM0452.
+          Extract it with EXACTLY these 4 CSV columns:
+            Bit,Access,Field Name,Description
+          Rules:
+          - "Bit" = bit range or position (e.g. "31:16", "7:0", "15", "[31:24]")
+          - "Access" = access type abbreviation (e.g. "R", "R/W", "W", "ROC", "RW1C") — if not present, use "R"
+          - "Field Name" = ONLY the short field name, NOT the full description
+          - "Description" = the full description text including reset value info
+          If the original table merges field name and description into one column,
+          split them: the first line is the field name, the rest is the description.
+
+      - name: "memory_map"
+        match_title: "memory map|register map"
+        expected_columns:
+          - { role: "offset",      names: ["Offset", "Address", "Addr"] }
+          - { role: "name",        names: ["Name", "Register Name", "Mnemonic", "Acronym"] }
+          - { role: "width",       names: ["Width", "Size", "Bits"] }
+          - { role: "access",      names: ["Access", "Type", "R/W"] }
+          - { role: "reset",       names: ["Reset", "Default", "Reset Value", "Initial Value"] }
+        instruction: |
+          This is the SDMMC register memory map / summary table.
+          Extract all columns faithfully as CSV.
+          Preserve hex offset addresses (e.g. 0x000, 0x004).
+
+  figures:
+    multi_page:
+      enabled: false
+      max_pages_before: 1
+      max_pages_after: 1
+
+# ==============================================================================
+# VALIDATION
+# ==============================================================================
+validation:
+  enabled: true
+  model: "haiku"
+  checks:
+    registers:
+      enabled: true
+      rules:
+        - check: "field_name_length"
+          max_chars: 80
+        - check: "missing_bits"
+          severity: "warning"
+        - check: "missing_access"
+          severity: "warning"
+        - check: "zero_fields"
+          severity: "error"
+    tables:
+      enabled: true
+      rules:
+        - check: "empty_csv"
+          severity: "error"
+        - check: "single_row"
+          severity: "warning"
+    figures:
+      enabled: true
+      rules:
+        - check: "empty_plantuml"
+          severity: "error"
+        - check: "no_startuml"
+          severity: "warning"

@@ -1,0 +1,6 @@
+Byte,7,6,5,4,3,2,1,0
+00h,TPL_CODE CISTPL_SDIO_STD (91h)
+01h,"TPL_LINK Link to next tuple (2 ≤ n ≤ 255) n is the number of bytes in the tuple body"
+02h,TPLSDIO_STD_ID
+03h,TPLSDIO_STD_TYPE
+04h ... (n+1),"TPLSDIO_STD_DATA If n = 2, TPLSDIO_STD_DATA does not exist."

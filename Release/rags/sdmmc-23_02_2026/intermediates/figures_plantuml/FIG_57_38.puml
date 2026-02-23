@@ -1,0 +1,50 @@
+@startuml
+skinparam monochrome true
+
+title Figure 1867. Boot timeout control register (BOOTTIMEOUTCNT)\nOffset: 0x0070 | Access: Read/Write
+
+map "Bits 0-15" as upper {
+  15 => BOOT_TIMEOUTCNT
+  14 => BOOT_TIMEOUTCNT
+  13 => BOOT_TIMEOUTCNT
+  12 => BOOT_TIMEOUTCNT
+  11 => BOOT_TIMEOUTCNT
+  10 => BOOT_TIMEOUTCNT
+  9 => BOOT_TIMEOUTCNT
+  8 => BOOT_TIMEOUTCNT
+  7 => BOOT_TIMEOUTCNT
+  6 => BOOT_TIMEOUTCNT
+  5 => BOOT_TIMEOUTCNT
+  4 => BOOT_TIMEOUTCNT
+  3 => BOOT_TIMEOUTCNT
+  2 => BOOT_TIMEOUTCNT
+  1 => BOOT_TIMEOUTCNT
+  0 => BOOT_TIMEOUTCNT
+}
+
+map "Bits 16-31" as lower {
+  31 => BOOT_TIMEOUTCNT
+  30 => BOOT_TIMEOUTCNT
+  29 => BOOT_TIMEOUTCNT
+  28 => BOOT_TIMEOUTCNT
+  27 => BOOT_TIMEOUTCNT
+  26 => BOOT_TIMEOUTCNT
+  25 => BOOT_TIMEOUTCNT
+  24 => BOOT_TIMEOUTCNT
+  23 => BOOT_TIMEOUTCNT
+  22 => BOOT_TIMEOUTCNT
+  21 => BOOT_TIMEOUTCNT
+  20 => BOOT_TIMEOUTCNT
+  19 => BOOT_TIMEOUTCNT
+  18 => BOOT_TIMEOUTCNT
+  17 => BOOT_TIMEOUTCNT
+  16 => BOOT_TIMEOUTCNT
+}
+
+note bottom of upper
+  R/W: Read/Write
+  Reset: 0x00000000
+  BOOT_TIMEOUTCNT[31:0]: Boot data timeout counter value
+end note
+
+@enduml

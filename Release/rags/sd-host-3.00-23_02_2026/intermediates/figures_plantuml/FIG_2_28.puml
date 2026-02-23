@@ -1,0 +1,61 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> LightGray
+    BorderColor Black
+}
+
+rectangle "Host Control 2 Register (Offset 03Eh)" <<register>> {
+    |Bit 15|
+    :Preset Value Enable;
+    note right
+    RW
+    end note
+    
+    |Bit 14|
+    :Asynchronous
+    Interrupt Enable;
+    note right
+    RW
+    end note
+    
+    |Bit 13|
+    :Reserved;
+    note right
+    (Reserved bits 13-08)
+    end note
+    
+    |Bit 08-07|
+    :Reserved;
+    
+    |Bit 07|
+    :Sampling Clock
+    Select;
+    note right
+    RW
+    end note
+    
+    |Bit 06|
+    :Execute Tuning;
+    note right
+    RW
+    end note
+    
+    |Bit 05-04|
+    :Driver Strength Select;
+    note right
+    RW (2 bits)
+    end note
+    
+    |Bit 03|
+    :1.8V Signaling Enable;
+    note right
+    RW
+    end note
+    
+    |Bit 02-00|
+    :UHS Mode Select;
+    note right
+    RW (3 bits)
+    end note
+}
+@enduml

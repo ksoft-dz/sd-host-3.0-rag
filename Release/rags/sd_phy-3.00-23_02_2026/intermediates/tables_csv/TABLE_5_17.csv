@@ -1,0 +1,19 @@
+I notice this image shows page 104 of an SD Card specification document, but it contains a bulleted list describing SCR (SD Card Configuration Register) fields rather than a formatted table titled "The SCR Fields" (Table 5-17).
+
+The page shows field descriptions in a list format including:
+- TAAC
+- NSAC
+- TRAN_SPEED
+- CCC
+- READ_BL_LEN
+- READ_BL_PARTIAL
+- WRITE_BLK_MISALIGN
+- READ_BLK_MISALIGN
+- DSR_IMP
+- C_SIZE
+
+This appears to be explanatory text about SCR fields, but the actual Table 5-17 "The SCR Fields" with its structured format (showing bit positions, field widths, values, etc.) is not visible on this page.
+
+If you have another page that contains the actual Table 5-17 in tabular format, please share that image and I can extract it as CSV.
+
+ABSTRACT: This page contains descriptive text about SCR fields but does not show the actual Table 5-17 "The SCR Fields" in tabular format.

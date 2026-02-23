@@ -1,0 +1,59 @@
+@startuml
+skinparam defaultTextAlignment center
+
+title Figure 4-5 : ACMD41 Timing Followed by Voltage Switch Sequence
+
+|Repeat ACMD41|
+|The Last ACMD41|
+
+rectangle "Repeat ACMD41" {
+  rectangle "CMD55" as cmd55_1
+  rectangle "R1" as r1_1
+  rectangle "CMD41" as cmd41_1
+  rectangle "R3" as r3_1
+}
+
+rectangle "The Last ACMD41" {
+  rectangle "CMD55" as cmd55_2
+  rectangle "R1" as r1_2
+  rectangle "CMD41" as cmd41_2
+  rectangle "R3" as r3_2
+}
+
+rectangle "CMD11" as cmd11
+rectangle "R1" as r1_3
+rectangle "Voltage Switch" as vs #yellow
+rectangle "CMD2" as cmd2
+rectangle "R2" as r2
+
+cmd55_1 -right-> r1_1
+r1_1 -right-> cmd41_1
+cmd41_1 -right-> r3_1
+r3_1 -right-> cmd55_2
+cmd55_2 -right-> r1_2
+r1_2 -right-> cmd41_2
+cmd41_2 -right-> r3_2
+r3_2 -right-> cmd11
+cmd11 -right-> r1_3
+r1_3 -right-> vs
+vs -right-> cmd2
+cmd2 -right-> r2
+
+note bottom of cmd55_1
+  Bit 30: HCS=1
+  Bit 24: S18R=1
+end note
+
+note bottom of r3_1 #pink
+  Bit 31: Busy
+  Bit 30: CCS Invalid
+  Bit 24: S18A Invalid
+end note
+
+note bottom of r3_2
+  Bit 31: Ready
+  Bit 30: CCS=1
+  Bit 24: S18A=1
+end note
+
+@enduml

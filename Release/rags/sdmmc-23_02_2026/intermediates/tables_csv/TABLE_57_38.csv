@@ -1,0 +1,8 @@
+Register value,Current value
+0,Get information via another method
+1,4 mA
+2,8 mA
+3,12 mA
+...,
+254,1016 mA
+255,1020 mA

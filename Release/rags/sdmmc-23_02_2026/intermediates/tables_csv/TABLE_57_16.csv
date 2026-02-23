@@ -1,0 +1,3 @@
+Field,Description
+"4:6 PWRCTRL_SDBUSVOLTAGE","eMMC bus voltage select. By setting these bits, the HD selects the voltage level. Before setting this register, the HD checks the voltage support bits in the Capabilities register. 111 3.3 Flattop. 110 Reserved. ... 000 Reserved. Note: only 3.3V is supported"
+"7 SD_BUS_POWER","Before setting this bit, the SD host driver set SD Bus voltage select. If the HC detects the No card state, this bit is cleared. 1 Power on. 0 Power off"

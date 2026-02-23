@@ -1,0 +1,5 @@
+ERASE_OFFSET,Value Definition
+0h,0 [sec]
+1h,1 [sec]
+2h,2 [sec]
+3h,3 [sec]

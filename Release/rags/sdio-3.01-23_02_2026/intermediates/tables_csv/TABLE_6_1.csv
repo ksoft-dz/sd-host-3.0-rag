@@ -1,0 +1,23 @@
+Address,Register Name,Bit 7,Bit 6,Bit 5,Bit 4,Bit 3,Bit 2,Bit 1,Bit 0
+00h,CCCR/SDIO Revision,SDIO bit 3,SDIO bit 2,SDIO bit 1,SDIO bit 0,CCCR bit 3,CCCR bit 2,CCCR bit 1,CCCR bit 0
+01h,SD Specification Revision,RFU,RFU,RFU,RFU,SD bit 3,SD bit 2,SD bit 1,SD bit 0
+02h,I/O Enable,IOE7,IOE6,IOE5,IOE4,IOE3,IOE2,IOE1,RFU
+03h,I/O Ready,IOR7,IOR6,IOR5,IOR4,IOR3,IOR2,IOR1,RFU
+04h,Int Enable,IEN7,IEN6,IEN5,IEN4,IEN3,IEN2,IEN1,IENM
+05h,Int Pending,INT7,INT6,INT5,INT4,INT3,INT2,INT1,RFU
+06h,I/O Abort,RFU,RFU,RFU,RFU,RES,AS2,AS1,AS0
+07h,Bus Interface Control,CD Disable,SCSI,ECSI,RFU,RFU,S8B,Bus Width 1,Bus Width 0
+08h,Card Capability,4BLS,LSC,E4MI,S4MI,SBS,SRW,SMB,SDC
+09h-0Bh,Common CIS Pointer,Pointer to cards common Card Information Structure (CIS),,,,,,,
+0Ch,Bus Suspend,RFU,RFU,RFU,RFU,RFU,RFU,BR,BS
+0Dh,Function Select,DF,RFU,RFU,RFU,FS3,FS2,FS1,FS0
+0Eh,Exec Flags,EX7,EX6,EX5,EX4,EX3,EX2,EX1,EX0
+0Fh,Ready Flags,RF7,RF6,RF5,RF4,RF3,RF2,RF1,RF0
+10h-11h,FN0 Block Size,I/O block size for Function 0,,,,,,,
+12h,Power Control,RFU,RFU,RFU,RFU,RFU,RFU,EMPC,SMPC
+13h,Bus Speed Select,RFU,RFU,RFU,RFU,BSS2,BSS1,BSS0/EHS,SHS
+14h,UHS-I Support,RFU,RFU,RFU,RFU,RFU,SDDR50,SSDR104,SSDR50
+15h,Driver Strength,RFU,RFU,DTS1,DTS0,RFU,SDTD,SDTC,SDTA
+16h,Interrupt Extension,RFU,RFU,RFU,RFU,RFU,RFU,EAI,SAI
+17h-EFh,RFU,Reserved for Future Use,,,,,,,
+F0h-FFh,Reserved for Vendors,Vendor Unique Registers,,,,,,,

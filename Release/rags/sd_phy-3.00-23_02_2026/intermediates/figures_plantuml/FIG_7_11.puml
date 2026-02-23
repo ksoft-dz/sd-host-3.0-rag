@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+map "R3 Response Format (40 bits)" as R3 {
+}
+
+note as N1
+  |= Bit Position |= Field |= Width |
+  | 39 | Start bit (0) | 1 bit |
+  | 38-32 | R1 | 7 bits |
+  | 31-0 | OCR | 32 bits |
+end note
+
+rectangle "Bit Layout" {
+  rectangle "39" as b39
+  rectangle "32|31" as b32
+  rectangle "0" as b0
+  
+  b39 -right-> b32
+  b32 -right-> b0
+}
+
+note bottom of "Bit Layout"
+  |<#lightgray> 0 | R1 (bits 39-32) | OCR Register (bits 31-0) |
+end note
+
+@enduml

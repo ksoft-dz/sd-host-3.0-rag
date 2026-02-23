@@ -1,0 +1,6 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD32,ac,"[31:0] data address1",R1,ERASE_WR_BLK_START,Sets the address of the first write block to be erased.
+CMD33,ac,"[31:0] data address1",R1,ERASE_WR_BLK_END,Sets the address of the last write block of the continuous range to be erased.
+CMD38,ac,[31:0] stuff bits,R1b,ERASE,Erases all previously selected write blocks.
+CMD39,Reserved,,,,
+CMD41,Reserved,,,,

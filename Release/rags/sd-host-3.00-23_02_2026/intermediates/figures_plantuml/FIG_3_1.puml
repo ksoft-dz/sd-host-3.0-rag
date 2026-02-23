@@ -1,0 +1,5 @@
+@startuml
+rectangle "Double Box" {
+  rectangle " " as inner
+}
+@enduml

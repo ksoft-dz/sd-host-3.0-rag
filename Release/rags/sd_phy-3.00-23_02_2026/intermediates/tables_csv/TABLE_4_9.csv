@@ -1,0 +1,5 @@
+Notes,Type 1 Card (Earlier Version),Type 2 Card (New Version)
+*1 in Table 4-6,"Treat CMD42 Parameter=0011b as 0001b. Treat CMD42 Parameter=0111b as 0101b. Treat CMD42 Parameter=0110b as 0010b. Results of other combinations are Error.",All results are Error
+*2 in Table 4-7,"Execute force erase and set Permanent Write Protect. If force erase is completed, the CARD_IS_LOCKED is changed from 1 to 0. A priority is given to force erase from Permanent Write Protect.","The result is Error. A priority is given to Permanent Write Protect from force erase."
+*3 in Table 4-7,"Execute force erase but Temporary Write Protect and Group Write Protect are not cleared. It should be cleared by the host.","Execute force erase and clear Temporary Write Protect and Group Write Protect."
+*4 in Table 4-6,"CMD42 Parameter=0010 and CMD42 Parameter=0110 The result is no error. Card status Bit24 will be 0","The result is Error. Card status Bit24 will be 1"

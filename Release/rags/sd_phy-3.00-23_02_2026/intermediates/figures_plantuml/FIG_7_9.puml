@@ -1,0 +1,21 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Arial
+
+map "R1 Response Format (1 byte)" as R1 {
+  Bit 7 => 0 (always zero)
+  Bit 6 => parameter error
+  Bit 5 => address error
+  Bit 4 => erase sequence error
+  Bit 3 => com crc error
+  Bit 2 => illegal command
+  Bit 1 => erase reset
+  Bit 0 => in idle state
+}
+
+note bottom of R1
+  MSB (bit 7) is always 0
+  Bits 6-0 are error/status flags
+  A set bit (1) indicates the condition
+end note
+@enduml

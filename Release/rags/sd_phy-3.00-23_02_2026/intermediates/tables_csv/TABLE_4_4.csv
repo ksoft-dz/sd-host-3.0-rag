@@ -1,0 +1,4 @@
+Max block size WRITE_BL_LEN,CSD value Misalign,CSD value Partial,Current Blocklen,Write CMD Start Address
+512Bytes,0 (Disable),0 (Disable),512 bytes,n * 512 bytes (n: Integer)
+1kBytes,0 (Disable),0 (Disable),512 bytes,n * 512 bytes (n: Integer)
+2kBytes,0 (Disable),0 (Disable),512 bytes,n * 512 bytes (n: Integer)

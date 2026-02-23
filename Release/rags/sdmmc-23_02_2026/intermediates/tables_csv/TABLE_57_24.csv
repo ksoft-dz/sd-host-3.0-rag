@@ -1,0 +1,5 @@
+I've examined the image carefully, but I don't see a table titled "Relation between command complete and command timeout error" or "Table 1831" on this page.
+
+The image shows **Table 1829: NORMALINTRSTS field descriptions (continued)** from an SDMMC controller specification document (RM0452). This table describes various interrupt status fields like INT_C, INT_B, INT_A, Card interrupt, Card removal, Card insertion, Buffer read ready, and Buffer write ready.
+
+If you need the content from Table 1829 that is visible, I can extract that instead. Alternatively, if Table 1831 is on a different page, please provide that image.

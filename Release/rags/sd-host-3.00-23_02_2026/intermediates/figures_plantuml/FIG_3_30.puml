@@ -1,0 +1,57 @@
+@startuml
+concise "DAT line" as DAT
+concise "Stop At Block Gap Request (Control)" as SABGR
+concise "Continue Request (Control)" as CR
+concise "Write Transfer Active (Status)" as WTA
+concise "DAT Line Active (Status)" as DLA
+concise "Block Gap Event (Interrupt)" as BGE
+concise "Transfer Complete (Interrupt)" as TC
+
+@0
+DAT is Active
+SABGR is Low
+CR is Low
+WTA is Active
+DLA is Active
+BGE is Low
+TC is Low
+
+@10
+DAT is "Not last block"
+
+@20
+SABGR is High
+
+@30
+WTA is Low
+DLA is Low
+
+@35
+BGE is High
+
+@40
+CR is High
+
+@45
+WTA is Active
+DLA is Active
+
+@50
+BGE is Low
+
+@55
+TC is High
+
+@60
+SABGR is Low
+
+@65
+TC is Low
+
+note bottom of DAT
+  Notation of the DAT line
+  for write cycle:
+  Data block | CRC Status | Busy
+end note
+
+@enduml

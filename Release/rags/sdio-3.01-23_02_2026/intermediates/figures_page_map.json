@@ -1,0 +1,380 @@
+{
+  "_metadata": {
+    "source": "SDIO Simplified Specification",
+    "extraction_date": "2026-02-23T06:27:18Z",
+    "total_figures": 21,
+    "transcribed": 21,
+    "failed": 0,
+    "llm_stats": {
+      "total_calls": 21,
+      "total_input_tokens": 36545,
+      "total_output_tokens": 7834,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "figures": [
+    {
+      "id": "FIG_1_1",
+      "spec_reference": "Figure 1-1",
+      "title": "SDIO Related Specifications",
+      "spec_page": 13,
+      "definition_page": 13,
+      "referenced_on_pages": [
+        11,
+        14
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_1_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_2_1",
+      "spec_reference": "Figure 2-1",
+      "title": "Signal connection to two 4-bit SDIO cards",
+      "spec_page": 15,
+      "definition_page": 15,
+      "referenced_on_pages": [
+        11,
+        16
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_2_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_3_1",
+      "spec_reference": "Figure 3-1",
+      "title": "SDIO Response to Non-I/O Aware Initialization",
+      "spec_page": 16,
+      "definition_page": 16,
+      "referenced_on_pages": [
+        11,
+        17
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the signal connection topology where an SD Host connects to two 4-bit SDIO cards using CLK, CMD, and DAT[3:0] signal lines for each card."
+    },
+    {
+      "id": "FIG_3_2",
+      "spec_reference": "Figure 3-2",
+      "title": "Card Initialization Flow in SD mode (SDIO Aware Host)",
+      "spec_page": 19,
+      "definition_page": 19,
+      "referenced_on_pages": [
+        11,
+        18,
+        20,
+        26
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_2.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the SDIO card initialization sequence for an SDIO-aware host, showing the decision paths for CMD8, CMD5 commands, IO/memory initialization, and error handling states."
+    },
+    {
+      "id": "FIG_3_3",
+      "spec_reference": "Figure 3-3",
+      "title": "Card initialization flow in SPI mode (SDIO aware host)",
+      "spec_page": 22,
+      "definition_page": 22,
+      "referenced_on_pages": [
+        11,
+        18,
+        23
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_3.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart illustrates the SDIO card initialization sequence in SPI mode for an SDIO-aware host, showing the decision paths for initializing IO and memory functions based on CMD8, CMD5, and CMD52 responses."
+    },
+    {
+      "id": "FIG_3_4",
+      "spec_reference": "Figure 3-4",
+      "title": "IO_SEND_OP_COND Command (CMD5)",
+      "spec_page": 23,
+      "definition_page": 23,
+      "referenced_on_pages": [
+        11,
+        24
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_4.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This flowchart shows the SD card initialization process in SPI mode for SDIO-aware hosts, depicting how the host determines card type (SDSC, SDHC/SDXC, memory-only, combo, or IO-only) based on CMD58 response flags for IO and MEM initialization status and CCS capacity status."
+    },
+    {
+      "id": "FIG_3_5",
+      "spec_reference": "Figure 3-5",
+      "title": "Response R4 in SD mode",
+      "spec_page": 24,
+      "definition_page": 24,
+      "referenced_on_pages": [
+        11,
+        25
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_5.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the 48-bit command format structure for the IO_SEND_OP_COND (CMD5) command used to inquire about voltage range requirements of SDIO cards."
+    },
+    {
+      "id": "FIG_3_6",
+      "spec_reference": "Figure 3-6",
+      "title": "Response R4 in SPI mode",
+      "spec_page": 24,
+      "definition_page": 24,
+      "referenced_on_pages": [
+        11,
+        25
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_6.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the 48-bit command format for the IO_SEND_OP_COND (CMD5) command used to inquire about the voltage range needed by SDIO cards."
+    },
+    {
+      "id": "FIG_3_7",
+      "spec_reference": "Figure 3-7",
+      "title": "Modified R1 Response",
+      "spec_page": 24,
+      "definition_page": 24,
+      "referenced_on_pages": [
+        11,
+        25,
+        35
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_7.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the bit field layout of the IO_SEND_OP_COND command (CMD5) used in SDIO to inquire about the voltage range needed by the I/O card, consisting of start bit, direction, command index, stuff bits, S18R flag, I/O OCR register, CRC7, and end bit fields."
+    },
+    {
+      "id": "FIG_3_8",
+      "spec_reference": "Figure 3-8",
+      "title": "Re-Initialization Flow for I/O Controller",
+      "spec_page": 26,
+      "definition_page": 26,
+      "referenced_on_pages": [
+        11,
+        27
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_8.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_3_9",
+      "spec_reference": "Figure 3-9",
+      "title": "Re-Initialization Flow for Memory controller",
+      "spec_page": 26,
+      "definition_page": 26,
+      "referenced_on_pages": [
+        11,
+        27,
+        28
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_3_9.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_5_1",
+      "spec_reference": "Figure 5-1",
+      "title": "IO_RW_DIRECT Command",
+      "spec_page": 35,
+      "definition_page": 35,
+      "referenced_on_pages": [
+        11,
+        36
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_5_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This table defines the SDIO Status Register bit fields, showing bit positions, identifiers, types, values, descriptions, and clear conditions for each status flag in the SDIO card interface."
+    },
+    {
+      "id": "FIG_5_2",
+      "spec_reference": "Figure 5-2",
+      "title": "R5 IO_RW_DIRECT Response (SD Modes)",
+      "spec_page": 36,
+      "definition_page": 36,
+      "referenced_on_pages": [
+        11,
+        37
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_5_2.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the bit field layout of the IO_RW_DIRECT command (CMD52) used for single-byte register access in SDIO, including start bit, direction, command index, R/W flag, function number, RAW flag, register address, write data, CRC, and end bit fields."
+    },
+    {
+      "id": "FIG_5_3",
+      "spec_reference": "Figure 5-3",
+      "title": "IO_RW_DIRECT Response in SPI Mode",
+      "spec_page": 37,
+      "definition_page": 37,
+      "referenced_on_pages": [
+        11,
+        38
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_5_3.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the 48-bit R5 response format for the IO_RW_DIRECT (CMD52) command in SD modes, containing start bit, direction, command index, stuff bits, 8-bit response flags, 8-bit read/write data, CRC7, and end bit fields."
+    },
+    {
+      "id": "FIG_5_4",
+      "spec_reference": "Figure 5-4",
+      "title": "IO_RW_EXTENDED Command",
+      "spec_page": 38,
+      "definition_page": 38,
+      "referenced_on_pages": [
+        11,
+        39
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_5_4.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This figure shows the 8-bit SPI R1 response byte format for the IO_RW_DIRECT command (CMD52) in SPI mode, with individual bit fields indicating start bit, various error flags, reserved bits, idle state, followed by 8 bits of read/write data."
+    },
+    {
+      "id": "FIG_6_1",
+      "spec_reference": "Figure 6-1",
+      "title": "SDIO Internal Map",
+      "spec_page": 42,
+      "definition_page": 42,
+      "referenced_on_pages": [
+        11,
+        41,
+        43
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_6_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_6_2",
+      "spec_reference": "Figure 6-2",
+      "title": "State Diagram for Bus State Machine",
+      "spec_page": 57,
+      "definition_page": 57,
+      "referenced_on_pages": [
+        11,
+        58
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_6_2.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This table shows the SDIO Card Information Structure (CIS) memory address map, with the common CIS area at addresses 001000h-017FFFh and a reserved area at 018000h-01FFFFh."
+    },
+    {
+      "id": "FIG_8_1",
+      "spec_reference": "Figure 8-1",
+      "title": "Continuous Interrupt Cycle",
+      "spec_page": 59,
+      "definition_page": 59,
+      "referenced_on_pages": [
+        11,
+        60
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_8_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "FIG_17_1",
+      "spec_reference": "Figure 17-1",
+      "title": "Embedded SDIO Interface",
+      "spec_page": 82,
+      "definition_page": 82,
+      "referenced_on_pages": [
+        11,
+        83
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_17_1.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This table shows the byte-level register layout for the CISTPL_SDIO_EXT tuple (code 92h), a reserved tuple structure for future SDIO card use containing a tuple code, link field, and variable-length data component."
+    },
+    {
+      "id": "FIG_17_2",
+      "spec_reference": "Figure 17-2",
+      "title": "Example Configuration Supporting Card Slot and Shared Bus",
+      "spec_page": 83,
+      "definition_page": 83,
+      "referenced_on_pages": [
+        11,
+        84
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_17_2.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the Embedded SDIO interface with basic SD bus signals (CLK, CMD, DAT[3:0], power), optional 8-bit data lines (DAT[7:4]), back-end function power pins (BP1-BP7), and an open-drain interrupt pin (INT#)."
+    },
+    {
+      "id": "FIG_17_3",
+      "spec_reference": "Figure 17-3",
+      "title": "Device Select Using Clock Signal",
+      "spec_page": 83,
+      "definition_page": 83,
+      "referenced_on_pages": [
+        11,
+        84
+      ],
+      "transcription": {
+        "status": "COMPLETED",
+        "plantuml_file": "intermediates\\figures_plantuml\\FIG_17_3.puml",
+        "model": "claude-opus-4-5-20251101"
+      },
+      "abstract": "This block diagram shows the Embedded SDIO interface pinout, including the basic SD bus interface signals (CLK, CMD, DAT[3:0], VDDH, GND), optional 8-bit data lines (DAT[7:4]), back-end function power pins (BP1-BP7), and an open-drain interrupt pin (INT#)."
+    }
+  ]
+}

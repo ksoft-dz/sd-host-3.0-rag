@@ -1,0 +1,51 @@
+@startuml
+skinparam monochrome true
+
+concise "CMD" as CMD
+concise "DAT" as DAT
+
+@0
+CMD is "command"
+note top of CMD : from\nhost\nto card
+
+@1
+CMD is " "
+
+@2
+CMD is "response"
+note top of CMD : from\ncard\nto host
+
+@3
+CMD is " "
+
+@4
+DAT is "data block"
+note top of DAT : data from\nhost\nto card
+
+@5
+DAT is "crc"
+
+@6
+DAT is "busy"
+note top of DAT : crc ok\nresponse\nand busy\nfrom\ncard\nto host
+
+@7
+DAT is " "
+
+@8
+DAT is "data block"
+
+@9
+DAT is "crc"
+
+@10
+DAT is "busy"
+
+@11
+CMD is "command"
+note top of CMD : stop command\nstops data trans-\nfer
+
+@12
+CMD is "response"
+
+@enduml

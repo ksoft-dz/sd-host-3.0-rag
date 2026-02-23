@@ -1,0 +1,31 @@
+@startuml
+skinparam rectangle {
+    BackgroundColor<<register>> #E0E0E0
+    BorderColor Black
+}
+
+rectangle "Host Controller Version Register (Offset 0FEh)" <<register>> {
+    |D15|D08|D07|D00|
+    |Vendor Version Number|Specification Version Number|
+}
+
+note right
+  **Bit Fields:**
+  
+  **D15-D08: Vendor Version Number**
+  - Reserved for vendor version number
+  - Host Driver should not use this status
+  
+  **D07-D00: Specification Version Number**
+  - Indicates Host Controller Spec Version
+  - Upper and lower 4-bits indicate version
+  
+  **Version Encoding:**
+  - 00h: SD Host Specification Version 1.00
+  - 01h: SD Host Specification Version 2.00
+          (Including ADMA and Test Register)
+  - 02h: SD Host Specification Version 3.00
+  - others: Reserved
+end note
+
+@enduml

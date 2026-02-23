@@ -1,0 +1,103 @@
+@startuml
+!define REGISTER_WIDTH 16
+
+skinparam rectangle {
+    BackgroundColor<<bit>> LightBlue
+    BackgroundColor<<reserved>> LightGray
+}
+
+rectangle "Error Interrupt Signal Enable Register (Offset 03Ah)" {
+    rectangle "D15-D12" <<bit>> as D15_12 {
+        Vendor Specific Error Signal
+    }
+    rectangle "D11" <<reserved>> as D11 {
+        Rsvd
+    }
+    rectangle "D10" <<bit>> as D10 {
+        Tuning Error Signal Enable
+    }
+    rectangle "D09" <<bit>> as D09 {
+        ADMA Error Signal Enable
+    }
+    rectangle "D08" <<bit>> as D08 {
+        Auto CMD Error Signal Enable
+    }
+    rectangle "D07" <<bit>> as D07 {
+        Current Limit Error Signal Enable
+    }
+    rectangle "D06" <<bit>> as D06 {
+        Data End Bit Error Signal Enable
+    }
+    rectangle "D05" <<bit>> as D05 {
+        Data CRC Error Signal Enable
+    }
+    rectangle "D04" <<bit>> as D04 {
+        Data Timeout Error Signal Enable
+    }
+    rectangle "D03" <<bit>> as D03 {
+        Command Index Error Signal Enable
+    }
+    rectangle "D02" <<bit>> as D02 {
+        Command End Bit Error Signal Enable
+    }
+    rectangle "D01" <<bit>> as D01 {
+        Command CRC Error Signal Enable
+    }
+    rectangle "D00" <<bit>> as D00 {
+        Command Timeout Error Signal Enable
+    }
+}
+
+note right of D15_12
+  Bits 15-12: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D11
+  Bit 11: Reserved
+end note
+
+note right of D10
+  Bit 10: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D09
+  Bit 09: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D08
+  Bit 08: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D07
+  Bit 07: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D06
+  Bit 06: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D05
+  Bit 05: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+note right of D04
+  Bit 04: RW
+  1 = Enabled
+  0 = Masked
+end note
+
+@enduml

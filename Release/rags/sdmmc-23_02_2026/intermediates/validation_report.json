@@ -1,0 +1,682 @@
+{
+  "_metadata": {
+    "validation_date": "2026-02-23T15:52:47Z",
+    "total_issues": 112,
+    "errors": 14,
+    "warnings": 98
+  },
+  "issues": [
+    {
+      "node_id": "REG_000_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDMA_SYSADDRESS' has empty access type"
+    },
+    {
+      "node_id": "REG_004_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDMA_BUFBOUNDARY' has empty access type"
+    },
+    {
+      "node_id": "REG_004_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'XFER_BLOCKSIZE' has empty access type"
+    },
+    {
+      "node_id": "REG_006_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'XFER_BLOCKCOUNT' has empty access type"
+    },
+    {
+      "node_id": "REG_008_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'COMMAND_ARGUMENT1' has empty access type"
+    },
+    {
+      "node_id": "REG_00C_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'XFERMODE_MULTIBLKSEL' has empty access type"
+    },
+    {
+      "node_id": "REG_00C_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'XFERMODE_DATAXFERDIR' has empty access type"
+    },
+    {
+      "node_id": "REG_00E_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'COMMAND_CMDINDEX' has empty access type"
+    },
+    {
+      "node_id": "REG_00E_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'COMMAND_CMDTYPE' has empty access type"
+    },
+    {
+      "node_id": "REG_010_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'COMMAND_RESPONSE' has empty access type"
+    },
+    {
+      "node_id": "REG_020",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_024_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDMMC_DAT[7:4]' has empty access type"
+    },
+    {
+      "node_id": "REG_024_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDMMC_CMD' has empty access type"
+    },
+    {
+      "node_id": "REG_024_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDMMC_DAT[3:0]' has empty access type"
+    },
+    {
+      "node_id": "REG_028_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'PRESENTSTATE_INHIBITDAT' has empty access type"
+    },
+    {
+      "node_id": "REG_028_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'PRESENTSTATE_INHIBITCMD' has empty access type"
+    },
+    {
+      "node_id": "REG_029_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'PWRCTRL_SDBUSVOLTAGE' has empty access type"
+    },
+    {
+      "node_id": "REG_029_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SD_BUS_POWER' has empty access type"
+    },
+    {
+      "node_id": "REG_02A_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'BLKGAPCTRL_BOOTACKENA' has empty access type"
+    },
+    {
+      "node_id": "REG_02A_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'BLKGAPCTRL_ALTBOOTMODE' has empty access type"
+    },
+    {
+      "node_id": "REG_02B",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_02C",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_02E",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_02F_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SWRESET_FOR_DAT' has empty access type"
+    },
+    {
+      "node_id": "REG_02F_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SWRESET_FOR_CMD' has empty access type"
+    },
+    {
+      "node_id": "REG_02F_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SWRESET_FOR_ALL' has empty access type"
+    },
+    {
+      "node_id": "REG_030_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'REG_ERRORINTRSTS' has empty access type"
+    },
+    {
+      "node_id": "REG_030_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_BOOTCOMPLETE' has empty access type"
+    },
+    {
+      "node_id": "REG_030_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_RCVBOOTACK' has empty access type"
+    },
+    {
+      "node_id": "REG_030_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_RETUNINGEVENT' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_HOSTERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_ADMAERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_AUTOCMDERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_DATAENDBITERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_DATACRCERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F5",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_DATATIMEOUTERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F6",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_CMDINDEXERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_032_F7",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'ERRORINTRSTS_CMDENDBITERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT15' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT14' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT13' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT12' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT11' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F5",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT10' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F6",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT9' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F7",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDHCREGSET_CARDINTSTSENA' has empty access type"
+    },
+    {
+      "node_id": "REG_034_F8",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDHCREGSET_CARDREMSTSENA' has empty access type"
+    },
+    {
+      "node_id": "REG_036",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_038_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT15' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT14' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT13' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT12' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT11' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F5",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT10' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F6",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'NORMALINTRSTS_ENABLEREGBIT9' has empty access type"
+    },
+    {
+      "node_id": "REG_038_F7",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'SDHCREGSET_CARDINTSTSENA' has empty access type"
+    },
+    {
+      "node_id": "REG_03A",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_03C_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'AUTOCMDERRSTS_NEXTERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_03C_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'AUTOCMDERRSTS_INDEXERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_03C_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'AUTOCMDERRSTS_ENDBITERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_03C_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'AUTOCMDERRSTS_CRCERROR' has empty access type"
+    },
+    {
+      "node_id": "REG_03E_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'HOSTCTRL2_' has empty access type"
+    },
+    {
+      "node_id": "REG_03E_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'HOSTCTRL2_' has empty access type"
+    },
+    {
+      "node_id": "REG_03E_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'HOSTCTRL2_' has empty access type"
+    },
+    {
+      "node_id": "REG_03E_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'HOSTCTRL2_' has empty access type"
+    },
+    {
+      "node_id": "REG_03E_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'HOSTCTRL2_' has empty access type"
+    },
+    {
+      "node_id": "REG_040",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_044_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_MAXBLKLENGTH' has empty access type"
+    },
+    {
+      "node_id": "REG_044_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_BASECLKFREQ' has empty access type"
+    },
+    {
+      "node_id": "REG_044_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_TIMEOUTCLKUNIT' has empty access type"
+    },
+    {
+      "node_id": "REG_044_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_TIMEOUTCLKFREQ' has empty access type"
+    },
+    {
+      "node_id": "REG_048_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_MAXCURRENT3P3V' has empty access type"
+    },
+    {
+      "node_id": "REG_04C",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_050",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_052_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'FORCEADMAERR' has empty access type"
+    },
+    {
+      "node_id": "REG_052_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'FORCEAUTOCMDERR' has empty access type"
+    },
+    {
+      "node_id": "REG_052_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'FORCECURRLIMERR' has empty access type"
+    },
+    {
+      "node_id": "REG_052_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'FORCEDATENDBITERR' has empty access type"
+    },
+    {
+      "node_id": "REG_054",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_058",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_060",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_0FC",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_0FE",
+      "check": "zero_fields",
+      "severity": "error",
+      "message": "Register has 0 extracted fields"
+    },
+    {
+      "node_id": "REG_100_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'BOOT_TIMEOUTCNT' has empty access type"
+    },
+    {
+      "node_id": "REG_104_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'MAXCURRENT_3P3V' has empty access type"
+    },
+    {
+      "node_id": "REG_104_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_SLOTTYPE' has empty access type"
+    },
+    {
+      "node_id": "REG_104_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_ ASYNCHINTRSUPPORT' has empty access type"
+    },
+    {
+      "node_id": "REG_104_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CORECFG_ ADMA2SUPPORT' has empty access type"
+    },
+    {
+      "node_id": "REG_104_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'BASECLKFREQ_ SDMMC_CLK' has empty access type"
+    },
+    {
+      "node_id": "REG_108_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'FEEDBACKCLK_SEL' has empty access type"
+    },
+    {
+      "node_id": "REG_10C_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'DMADEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F1",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F2",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F3",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F4",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F5",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F6",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F7",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F8",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F9",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_110_F10",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'CMDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_114_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'TXDDEBUGBUS' has empty access type"
+    },
+    {
+      "node_id": "REG_118_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'RXDDEBUGBUS0' has empty access type"
+    },
+    {
+      "node_id": "REG_11C_F0",
+      "check": "missing_access",
+      "severity": "warning",
+      "message": "Field 'RXDDEBUGBUS1' has empty access type"
+    },
+    {
+      "node_id": "TABLE_57_1",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_2",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_28",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_30",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_34",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_45",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    },
+    {
+      "node_id": "TABLE_57_55",
+      "check": "single_row",
+      "severity": "warning",
+      "message": "CSV has only header row, no data"
+    }
+  ]
+}

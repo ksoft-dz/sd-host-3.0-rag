@@ -1,0 +1,366 @@
+# ==============================================================================
+# RAG V2 — Spec Configuration
+# ==============================================================================
+# SDIO Simplified Specification Version 3.00 (Part E1)
+# SD Card Association, July 2018
+# ==============================================================================
+
+# ==============================================================================
+# SPEC IDENTITY
+# ==============================================================================
+spec:
+  name: "SDIO Simplified Specification"
+  version: "3.00"
+  pdf_file: "PartE1_SDIO_Simplified_Specification_Ver3.00.pdf"
+  page_offset: 0            # spec_page + page_offset = pdf_page (pages match)
+  total_spec_pages: 89      # Last numbered spec page
+
+# ==============================================================================
+# TABLE OF CONTENTS — PDF page indices (0-indexed)
+# ==============================================================================
+toc:
+  sections:
+    pages: [4, 5, 6, 7, 8]   # PDF pages 4-8 (Table of Contents)
+    pattern: "^(\\d+(?:\\.\\d+)*|[A-Z]\\.\\d+(?:\\.\\d+)*|Appendix\\s+[A-Z])\\.?\\s+(.+?)(?:\\s*\\.{3,}\\s*|\\s+)(\\d+)\\s*$"
+  tables:
+    pages: [9]                # PDF page 9 (Table of Tables)
+    pattern: "Table\\s+(\\w+)\\s*[-.]?\\s*(\\d+)\\s*:\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "TABLE_{chapter}_{seq}"
+  figures:
+    pages: [10]               # PDF page 10 (Table of Figures)
+    pattern: "Figure\\s+(\\w+)\\s*[-.]?\\s*(\\d+)\\s*:\\s*(.+?)\\.{3,}\\s*(\\d+)"
+    id_format: "FIG_{chapter}_{seq}"
+
+# ==============================================================================
+# NODE TYPES
+# ==============================================================================
+node_types:
+  TABLE:
+    enabled: true
+    id_format: "TABLE_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "register.*(field|bit|definition)"
+        type: "REGISTER_FIELDS"
+      - pattern: "register|CCCR|FBR"
+        type: "REGISTER_MAP"
+      - pattern: "command|CMD"
+        type: "COMMAND_TABLE"
+      - pattern: "signal|pin"
+        type: "SIGNAL_LIST"
+      - pattern: "timing"
+        type: "TIMING"
+      - pattern: "tuple|CIS|CISTPL"
+        type: "CIS_TUPLE"
+      - pattern: ".*"
+        type: "OTHER"
+
+  FIGURE:
+    enabled: true
+    id_format: "FIG_{chapter}_{seq}"
+    classification_rules:
+      - pattern: "state|machine|transition"
+        type: "STATE_DIAGRAM"
+      - pattern: "timing|waveform"
+        type: "TIMING_DIAGRAM"
+      - pattern: "command|CMD|response"
+        type: "COMMAND_FORMAT"
+      - pattern: "flow|initialization"
+        type: "FLOWCHART"
+      - pattern: "block|architecture|diagram|map|interface"
+        type: "BLOCK_DIAGRAM"
+      - pattern: ".*"
+        type: "OTHER"
+
+  SPEC_CHUNK:
+    enabled: true
+    id_format: "CHUNK_{section}_{idx}"
+
+  REGISTER:
+    enabled: true
+    id_format: "REG_{offset}"
+
+  REG_CLASS:
+    enabled: true
+    id_format: "REGCLASS_{name}"
+
+  FEATURE:
+    enabled: true
+    id_format: "F_{name}"
+
+  HD_SEQUENCE:
+    enabled: true
+    id_format: "HD_{name}"
+
+# ==============================================================================
+# CHUNKING PARAMETERS
+# ==============================================================================
+chunking:
+  target_words: 200
+  max_words: 250
+  overlap_words: 20
+
+# ==============================================================================
+# LLM CONFIGURATION
+# ==============================================================================
+llm:
+  default_model: "sonnet"
+  models:
+    haiku: "claude-haiku-4-5-20251001"
+    sonnet: "claude-sonnet-4-5-20250929"
+    opus: "claude-opus-4-5-20251101"
+  rate_limit_delay: 1.5
+  max_retries: 3
+  max_workers: 4
+
+# ==============================================================================
+# DOMAIN: REGISTERS
+# ==============================================================================
+domain:
+  registers:
+    enabled: true
+    # SDIO has two register sets: CCCR (Card Common Control Registers)
+    # and FBR (Function Basic Registers), accessed via CMD52/CMD53.
+    classes:
+      - id: "REGCLASS_CCCR"
+        name: "Card Common Control Registers"
+        address_start: "000h"
+        address_end: "0FFh"  # CCCR occupies function 0, addresses 00h-FFh
+      - id: "REGCLASS_FBR"
+        name: "Function Basic Registers"
+        address_start: "100h"
+        address_end: "7FFh"  # FBR at n00h-nFFh for functions 1-7
+
+    # Register offsets — SDIO register sets
+    # Each register_offset maps to one table that has the field layout
+    register_offsets:
+      "001h": { section: "6.9",  name: "CCCR Registers",         table: "TABLE_6_2" }
+      "002h": { section: "6.10", name: "FBR Registers",          table: "TABLE_6_4" }
+
+    # Tables to EXCLUDE from register field extraction
+    exclude_tables:
+      - "TABLE_3_1"    # OCR Values for CMD5 (value enumeration, not register layout)
+      - "TABLE_4_1"    # Supported SD Memory Commands
+      - "TABLE_4_2"    # Unsupported SD Memory Commands
+      - "TABLE_4_3"    # R6 response to CMD3
+      - "TABLE_4_4"    # SDIO R6 Status Bits
+      - "TABLE_4_5"    # Combo Card 4-bit Control
+      - "TABLE_4_6"    # Card Detect Resistor States
+      - "TABLE_4_7"    # SDIO Status Register Structure (status bits, not register fields)
+      - "TABLE_5_1"    # Flag Data for IO_RW_DIRECT
+      - "TABLE_5_2"    # IO_RW_EXTENDED Op Code
+      - "TABLE_5_3"    # Byte Count Values
+      - "TABLE_6_5"    # CIS reserved area (address map, not register fields)
+      - "TABLE_11_1"   # Tuples reference table
+      - "TABLE_C_1"    # SD Mode Command List
+      - "TABLE_C_2"    # SPI Mode Command List
+
+# ==============================================================================
+# DOMAIN: FEATURES
+# ==============================================================================
+  features:
+    enabled: true
+    definitions:
+      # --- INITIALIZATION (§3) ---
+      - { id: "F_INIT",               name: "Card Initialization",             groups: ["initialization"],          priority: "P0", parent: null }
+      - { id: "F_INIT_NON_IO",        name: "Non-I/O Aware Initialization",    groups: ["initialization"],          priority: "P1", parent: "F_INIT" }
+      - { id: "F_INIT_IO_AWARE",      name: "I/O Aware Initialization",        groups: ["initialization"],          priority: "P0", parent: "F_INIT" }
+      - { id: "F_CMD5",               name: "IO_SEND_OP_COND (CMD5)",          groups: ["initialization", "command"], priority: "P0", parent: "F_INIT" }
+      - { id: "F_R4_RESPONSE",        name: "R4 Response",                     groups: ["initialization", "response"], priority: "P0", parent: "F_INIT" }
+      - { id: "F_COMBO_INIT",         name: "Combo Card Initialization",       groups: ["initialization"],          priority: "P1", parent: "F_INIT" }
+
+      # --- BUS MODES (§2) ---
+      - { id: "F_BUS_MODES",          name: "Bus Transfer Modes",              groups: ["bus"],                     priority: "P0", parent: null }
+      - { id: "F_SPI_MODE",           name: "SPI Mode",                        groups: ["bus"],                     priority: "P0", parent: "F_BUS_MODES" }
+      - { id: "F_SD_1BIT",            name: "1-bit SD Mode",                   groups: ["bus"],                     priority: "P0", parent: "F_BUS_MODES" }
+      - { id: "F_SD_4BIT",            name: "4-bit SD Mode",                   groups: ["bus"],                     priority: "P0", parent: "F_BUS_MODES" }
+
+      # --- I/O COMMANDS (§5) ---
+      - { id: "F_IO_COMMANDS",        name: "I/O Read/Write Commands",         groups: ["command", "data_transfer"], priority: "P0", parent: null }
+      - { id: "F_CMD52",              name: "IO_RW_DIRECT (CMD52)",            groups: ["command"],                 priority: "P0", parent: "F_IO_COMMANDS" }
+      - { id: "F_CMD53",              name: "IO_RW_EXTENDED (CMD53)",          groups: ["command", "data_transfer"], priority: "P0", parent: "F_IO_COMMANDS" }
+      - { id: "F_CMD53_BLOCK",        name: "CMD53 Block Mode",               groups: ["command", "data_transfer"], priority: "P0", parent: "F_CMD53" }
+      - { id: "F_CMD53_BYTE",         name: "CMD53 Byte Mode",                groups: ["command", "data_transfer"], priority: "P0", parent: "F_CMD53" }
+      - { id: "F_R5_RESPONSE",        name: "R5 Response",                    groups: ["command", "response"],     priority: "P0", parent: "F_IO_COMMANDS" }
+
+      # --- SD MEMORY DIFFERENCES (§4) ---
+      - { id: "F_SD_COMPAT",          name: "SD Memory Compatibility",         groups: ["compatibility"],           priority: "P1", parent: null }
+      - { id: "F_CMD_SUPPORT",        name: "Supported/Unsupported Commands",  groups: ["compatibility", "command"], priority: "P1", parent: "F_SD_COMPAT" }
+      - { id: "F_R6_RESPONSE",        name: "Modified R6 Response",            groups: ["compatibility", "response"], priority: "P1", parent: "F_SD_COMPAT" }
+      - { id: "F_SDIO_RESET",         name: "Reset for SDIO",                 groups: ["compatibility", "reset"],  priority: "P0", parent: "F_SD_COMPAT" }
+      - { id: "F_BUS_WIDTH",          name: "Bus Width Control",              groups: ["compatibility", "bus"],    priority: "P0", parent: "F_SD_COMPAT" }
+      - { id: "F_DATA_ABORT",         name: "Data Transfer Abort",            groups: ["compatibility", "error_handling"], priority: "P0", parent: "F_SD_COMPAT" }
+
+      # --- CARD INTERNAL OPERATION (§6) ---
+      - { id: "F_CIA",                name: "Common I/O Area",                 groups: ["registers"],               priority: "P0", parent: null }
+      - { id: "F_CCCR",               name: "CCCR Registers",                 groups: ["registers"],               priority: "P0", parent: "F_CIA" }
+      - { id: "F_FBR",                name: "FBR Registers",                  groups: ["registers"],               priority: "P0", parent: "F_CIA" }
+      - { id: "F_CIS",                name: "Card Information Structure",     groups: ["registers", "cis"],        priority: "P0", parent: "F_CIA" }
+      - { id: "F_MULTI_FUNC",         name: "Multiple Function Support",      groups: ["registers"],               priority: "P1", parent: "F_CIA" }
+      - { id: "F_BLOCK_SIZE",         name: "Block Size Setting",             groups: ["registers", "data_transfer"], priority: "P0", parent: "F_CIA" }
+      - { id: "F_BUS_STATE",          name: "Bus State Machine",              groups: ["registers"],               priority: "P1", parent: "F_CIA" }
+
+      # --- CSA (§7) ---
+      - { id: "F_CSA",                name: "Code Storage Area",              groups: ["csa"],                     priority: "P2", parent: null }
+
+      # --- INTERRUPTS (§8) ---
+      - { id: "F_INTERRUPT",          name: "SDIO Interrupt System",          groups: ["interrupt"],                priority: "P0", parent: null }
+      - { id: "F_INT_TIMING",         name: "Interrupt Timing",              groups: ["interrupt"],                priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_INT_4BIT",           name: "4-bit Mode Interrupts",         groups: ["interrupt", "bus"],         priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_INT_SPI_1BIT",       name: "SPI/1-bit Mode Interrupts",    groups: ["interrupt", "bus"],         priority: "P0", parent: "F_INTERRUPT" }
+      - { id: "F_ASYNC_INT",          name: "Asynchronous Interrupt",        groups: ["interrupt"],                priority: "P1", parent: "F_INTERRUPT" }
+
+      # --- SUSPEND/RESUME (§9) ---
+      - { id: "F_SUSPEND_RESUME",     name: "Suspend/Resume Operation",       groups: ["suspend_resume"],           priority: "P1", parent: null }
+
+      # --- READ WAIT (§10) ---
+      - { id: "F_READ_WAIT",          name: "Read Wait / Pause Read",         groups: ["read_wait"],                priority: "P1", parent: null }
+      - { id: "F_RW_STOP_CLK",        name: "Pause by Stopping SDCLK",       groups: ["read_wait"],                priority: "P1", parent: "F_READ_WAIT" }
+      - { id: "F_RW_READ_WAIT",       name: "Pause by Read Wait Signal",     groups: ["read_wait"],                priority: "P1", parent: "F_READ_WAIT" }
+
+      # --- POWER CONTROL (§11) ---
+      - { id: "F_POWER",              name: "Power Control",                   groups: ["power"],                    priority: "P0", parent: null }
+      - { id: "F_MASTER_POWER",       name: "Master Power Control",           groups: ["power"],                    priority: "P0", parent: "F_POWER" }
+      - { id: "F_POWER_SELECT",       name: "Power Selection",               groups: ["power"],                    priority: "P1", parent: "F_POWER" }
+      - { id: "F_POWER_STATE",        name: "Power State Control",           groups: ["power"],                    priority: "P1", parent: "F_POWER" }
+
+      # --- HIGH-SPEED (§12) ---
+      - { id: "F_HIGH_SPEED",         name: "High-Speed Mode",                groups: ["speed_modes"],              priority: "P0", parent: null }
+      - { id: "F_HS_COMBO",           name: "Combo Card Speed Switching",    groups: ["speed_modes"],              priority: "P1", parent: "F_HIGH_SPEED" }
+
+      # --- CIS FORMATS (§16) ---
+      - { id: "F_CIS_FORMAT",         name: "CIS Tuple Formats",              groups: ["cis"],                      priority: "P1", parent: null }
+      - { id: "F_MANFID_TUPLE",       name: "CISTPL_MANFID Tuple",           groups: ["cis"],                      priority: "P1", parent: "F_CIS_FORMAT" }
+      - { id: "F_FUNCID_TUPLE",       name: "CISTPL_FUNCID Tuple",           groups: ["cis"],                      priority: "P1", parent: "F_CIS_FORMAT" }
+      - { id: "F_FUNCE_TUPLE",        name: "CISTPL_FUNCE Tuple",            groups: ["cis"],                      priority: "P1", parent: "F_CIS_FORMAT" }
+
+      # --- EMBEDDED SDIO (§17) ---
+      - { id: "F_EMBEDDED",           name: "Embedded SDIO",                   groups: ["embedded"],                 priority: "P2", parent: null }
+      - { id: "F_SHARED_BUS",         name: "Shared Bus Configuration",       groups: ["embedded"],                 priority: "P2", parent: "F_EMBEDDED" }
+      - { id: "F_8BIT_BUS",           name: "8-Bit Bus Mode",                groups: ["embedded", "bus"],          priority: "P2", parent: "F_EMBEDDED" }
+
+    # HD sequence definitions
+    hd_sequences:
+      - { id: "HDS_CARD_INIT_SD",     name: "Card Initialization (SD Mode)",   groups: ["initialization", "host_driver_sequence"],    primary_section: "3.1.2" }
+      - { id: "HDS_CARD_INIT_SPI",    name: "Card Initialization (SPI Mode)",  groups: ["initialization", "host_driver_sequence"],    primary_section: "3.1.2" }
+      - { id: "HDS_IO_RW_DIRECT",     name: "IO_RW_DIRECT Sequence",           groups: ["command", "host_driver_sequence"],           primary_section: "5.1" }
+      - { id: "HDS_IO_RW_EXTENDED",   name: "IO_RW_EXTENDED Sequence",          groups: ["command", "data_transfer", "host_driver_sequence"], primary_section: "5.3" }
+      - { id: "HDS_ABORT",            name: "I/O Abort Sequence",               groups: ["error_handling", "host_driver_sequence"],    primary_section: "4.9" }
+      - { id: "HDS_SUSPEND",          name: "Suspend Sequence",                 groups: ["suspend_resume", "host_driver_sequence"],    primary_section: "9" }
+      - { id: "HDS_RESUME",           name: "Resume Sequence",                  groups: ["suspend_resume", "host_driver_sequence"],    primary_section: "9" }
+      - { id: "HDS_INT_HANDLING",     name: "Interrupt Handling Sequence",      groups: ["interrupt", "host_driver_sequence"],         primary_section: "8.1" }
+
+# ==============================================================================
+# RELATION TYPES
+# ==============================================================================
+relation_types:
+  - { type: "REFERENCES",          description: "Node mentions table/figure" }
+  - { type: "CHILD_OF",            description: "Section hierarchy" }
+  - { type: "DEFINED_BY",          description: "Register fields from table" }
+  - { type: "VISUALIZED_BY",       description: "Register layout in figure" }
+  - { type: "DESCRIBES",           description: "Resource documents register" }
+  - { type: "BELONGS_TO",          description: "Register in functional class" }
+  - { type: "DEFINED_IN",          description: "Register defined in table" }
+  - { type: "PART_OF",             description: "Sub-feature belongs to parent" }
+  - { type: "USES_FEATURE",        description: "Sequence depends on feature" }
+  - { type: "HIGHLY_RELATED_TO",   description: "Strong cross-feature relation" }
+  - { type: "SLIGHTLY_RELATED_TO", description: "Weak cross-feature relation" }
+
+# ==============================================================================
+# EXTRACTION — Table & figure extraction behaviour
+# ==============================================================================
+extraction:
+  tables:
+    multi_page:
+      enabled: true
+      max_pages_before: 2
+      max_pages_after: 2
+
+    hints:
+      - name: "cccr_register_map"
+        match_title: "Card Common Control Registers.*CCCR"
+        expected_columns:
+          - { role: "address",     names: ["Address", "Addr"] }
+          - { role: "field_name",  names: ["Register Name", "Name"] }
+          - { role: "bit_range",   names: ["Bit 7", "Bit 6", "Bit 5", "Bit 4", "Bit 3", "Bit 2", "Bit 1", "Bit 0"] }
+        instruction: |
+          This is the CCCR register map table. Extract it as CSV with columns:
+            Address,Register Name,Bit 7,Bit 6,Bit 5,Bit 4,Bit 3,Bit 2,Bit 1,Bit 0
+          Each row is one byte address (00h, 01h, etc.) with the bit-field names.
+          Preserve multi-line cells as single values.
+
+      - name: "cccr_bit_definitions"
+        match_title: "CCCR bit"
+        expected_columns:
+          - { role: "bit_range",   names: ["Addr", "Address"] }
+          - { role: "field_name",  names: ["Field", "Name"] }
+          - { role: "access",      names: ["Type", "Access", "R/W"] }
+          - { role: "description", names: ["Description"] }
+        instruction: |
+          This table has CCCR bit definitions. Extract as CSV with columns:
+            Addr,Field,Type,Description
+          The format is "XXh: FieldName" for address and field.
+          Type is the access type (R/O, R/W, W/O, etc.).
+          Description is the full field description text.
+
+      - name: "fbr_register_map"
+        match_title: "Function Basic Information Registers.*FBR"
+        instruction: |
+          This is the FBR register map table. Extract it as CSV with columns:
+            Address,Bit 7,Bit 6,Bit 5,Bit 4,Bit 3,Bit 2,Bit 1,Bit 0
+          Each row is one byte address with bit-level field names.
+
+      - name: "fbr_bit_definitions"
+        match_title: "FBR bit"
+        expected_columns:
+          - { role: "field_name",  names: ["Field"] }
+          - { role: "access",      names: ["Type"] }
+          - { role: "description", names: ["Description"] }
+        instruction: |
+          This table has FBR bit/field definitions. Extract as CSV with columns:
+            Field,Type,Description
+          Capture each field with its access type and description.
+
+      - name: "tuple_format"
+        match_title: "CISTPL|TPLFID|Tuple"
+        instruction: |
+          This is a CIS tuple definition table. Extract as CSV preserving
+          all columns exactly as they appear—typically Byte, Name, Description.
+
+  figures:
+    multi_page:
+      enabled: false
+      max_pages_before: 1
+      max_pages_after: 1
+
+# ==============================================================================
+# VALIDATION
+# ==============================================================================
+validation:
+  enabled: true
+  model: "haiku"
+  checks:
+    registers:
+      enabled: true
+      rules:
+        - check: "field_name_length"
+          max_chars: 80
+        - check: "missing_bits"
+          severity: "warning"
+        - check: "missing_access"
+          severity: "warning"
+        - check: "zero_fields"
+          severity: "error"
+    tables:
+      enabled: true
+      rules:
+        - check: "empty_csv"
+          severity: "error"
+        - check: "single_row"
+          severity: "warning"
+    figures:
+      enabled: true
+      rules:
+        - check: "empty_plantuml"
+          severity: "error"
+        - check: "no_startuml"
+          severity: "warning"

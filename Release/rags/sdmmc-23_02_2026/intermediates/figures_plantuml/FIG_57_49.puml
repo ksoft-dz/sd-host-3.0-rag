@@ -1,0 +1,21 @@
+@startuml
+start
+:Set Stop at Block Gap\nRequest;
+note left: 1
+:Wait for Transfer\nComplete Int;
+note left: 2
+:Transfer Complete Int Occurs;
+:Clear Transfer\nComplete Sts;
+note left: 3
+:Issue Abort Command;
+note left: 4
+:Set Software reset for DAT\nLine(Dr) and CMD Line(CR);
+note right: 5
+:Check DR and CR;
+note right: 6
+if (DR=1 or\nCR=1) then (yes)
+  ->Set Software reset for DAT\nLine(Dr) and CMD Line(CR);
+else (DR=0 or\nCR=0)
+endif
+stop
+@enduml

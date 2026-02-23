@@ -1,0 +1,83 @@
+@startuml
+start
+
+:(1) Check
+Auto CMD12 not
+executed Status;
+
+if (PCMD) then (Executed\n(PCMD=0))
+  :(6) Set Software Reset For CMD line (CR);
+  :(7) Check CR;
+  if (CR) then (CR=1)
+    :(7) Check CR;
+  else (CR=0)
+    :(8) Issue CMD12;
+    :(9) Check
+    Return Status;
+    if (Return Status) then (Recoverable Error or No error)
+      :(10) Check CMD_wo_DAT
+      not executed by Auto
+      CMD12 Error;
+      if (CMD_wo_DAT) then (Executed)
+        :(14) Set Software Reset
+        For DAT line (DR);
+        :(15) Check DR;
+        if (DR) then (DR=1)
+          :(15) Check DR;
+        else (DR=0)
+          :(20) Return Status
+          (D);
+          stop
+        endif
+      else (Not executed)
+        :(11) Set Software Reset
+        For DAT line (DR);
+        :(12) Check DR;
+        if (DR) then (DR=1)
+          :(12) Check DR;
+        else (DR=0)
+          :(13) Check
+          PCMD;
+          if (PCMD) then (PCMD=1)
+            :(18) Return Status
+            (B);
+            stop
+          else (PCMD=0)
+            :(19) Return Status
+            (C);
+            stop
+          endif
+        endif
+      endif
+    else (Non-recoverable Error)
+      :(16) Return Status
+      (Non-recoverable Error);
+      stop
+    endif
+  endif
+else (Not executed\n(PCMD=1))
+  :(2) Wait for Error Interrupt Recovery
+  for CMD_wo_DAT;
+  :(3) Check
+  Return Status;
+  if (Return Status) then (Recoverable Error)
+    :(4) Issue CMD12;
+    :(5) Check
+    Return Status;
+    if (Return Status) then (Non-recoverable Error)
+      :(16) Return Status
+      (Non-recoverable Error);
+      stop
+    else (No error)
+      :(17) Return Status
+      (A);
+      stop
+    endif
+  else (Non-recoverable Error)
+    :(16) Return Status
+    (Non-recoverable Error);
+    stop
+  endif
+endif
+
+@enduml

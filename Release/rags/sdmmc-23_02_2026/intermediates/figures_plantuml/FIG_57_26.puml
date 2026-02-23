@@ -1,0 +1,27 @@
+@startuml
+skinparam monochrome true
+
+map "HOSTCONTROL2 (Offset: 0x003E)" as reg {
+    15 => HOSTCTRL2_UHSMODESELECT
+    14 => HOSTCTRL2_UHSMODESELECT
+    13 => (reserved)
+    12 => HOSTCTRL2_1P8VSIGNALLINGENA
+    11 => HOSTCTRL2_DRIVERSTRENGTH
+    10 => HOSTCTRL2_DRIVERSTRENGTH
+    9 => HOSTCTRL2_EXECUTETUNING
+    8 => HOSTCTRL2_SAMPLINGCLKSELECT
+    7 => (reserved)
+    6 => (reserved)
+    5 => (reserved)
+    4 => (reserved)
+    3 => (reserved)
+    2 => (reserved)
+    1 => HOSTCTRL2_ASYNCHINTRENABLE
+    0 => HOSTCTRL2_PRESETVALUEENABLE
+}
+
+note bottom of reg
+    Access: Read/Write
+    Reset: All bits = 0
+end note
+@enduml

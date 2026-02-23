@@ -1,0 +1,10 @@
+I've examined the image carefully, but I don't see a table titled "Lock Unlock Function (Basic Sequence for CMD42)" or "Table 4-6" on this page. 
+
+This page (page 34) from the SD Card Physical Layer Simplified Specification contains text descriptions of lock/unlock command sequences, specifically covering:
+- Setting the Password
+- Reset the Password
+- Locking the Card
+
+The content is presented as bulleted text paragraphs rather than in a tabular format. The table you're looking for may be on a different page of the specification document.
+
+If you have another page that contains this specific table, please share it and I'll be happy to extract the CSV data from it.

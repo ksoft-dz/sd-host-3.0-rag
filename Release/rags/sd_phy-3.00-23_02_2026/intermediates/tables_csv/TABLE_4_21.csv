@@ -1,0 +1,8 @@
+CMD INDEX,type,argument,resp,abbreviation,command description
+CMD16,ac,"[31:0] block length",R1,SET_BLOCKLEN,See description in Table 4-20
+CMD20,ac,"[31:28]Speed Class Control [27:0]Reserved (all-0)",R1b,SPEED_CLASS_CONTROL,Speed Class control command. Refer to Section 4.13.2.8.
+CMD23,ac,"[31:0] Block Count",R1,SET_BLOCK_COUNT,Specify block count for CMD18 and CMD25.
+CMD24,adtc,"[31:0] data address²",R1,WRITE_BLOCK,"In case of SDSC Card, block length is set by the SET_BLOCKLEN command¹. In case of SDHC and SDXC Cards, block length is fixed 512 Bytes regardless of the SET_BLOCKLEN command."
+CMD25,adtc,"[31:0] data address²",R1,WRITE_MULTIPLE_BLOCK,"Continuously writes blocks of data until a STOP_TRANSMISSION follows. Block length is specified the same as WRITE_BLOCK command."
+CMD26,Reserved For Manufacturer,,,,
+CMD27,adtc,"[31:0] stuff bits",R1,PROGRAM_CSD,Programming of the programmable bits of the CSD.

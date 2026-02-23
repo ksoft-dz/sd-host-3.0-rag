@@ -1,0 +1,25 @@
+Bit,Access,Field Name,Description
+31-16,RO,Reserved,
+15-00,RW,Host Control 2 Register,"This 16-bit register is used to control the operation of the Host Controller. The Host Controller shall reset the Host Control 2 Register on a Software Reset for All. The Host Controller shall reset the Host Control 2 Register on a Hardware Reset. Refer to Table 2-33 for the definition of the Host Control 2 Register.
+
+Bit 15: Preset Value Enable: Refer to Table 2-33 for the definition of this bit.
+
+Bit 14: Asynchronous Interrupt Enable: Refer to Table 2-33 for the definition of this bit.
+
+Bit 13-12: Reserved
+
+Bit 11: 64-bit Addressing: Refer to Table 2-33 for the definition of this bit.
+
+Bit 10: Host Version 4 Enable: Refer to Table 2-33 for the definition of this bit.
+
+Bit 9: Addressing: Refer to Table 2-33 for the definition of this bit.
+
+Bit 8: Command Queuing Enable: Refer to Table 2-33 for the definition of this bit.
+
+Bit 7-4: UHS Mode Select: Refer to Table 2-33 for the definition of this bit.
+
+Bit 3: 1.8V Signaling Enable: Refer to Table 2-33 for the definition of this bit.
+
+Bit 2-0: Reserved
+
+All of bits 15-0 are set to 0 if a card supports UHS-I/HS200/HS400 and the Host Controller supports UHS-I/HS200/HS400. If the card does not support UHS-I/HS200/HS400 or the Host Controller does not support UHS-I/HS200/HS400, all of bits 15-0 are set to 0. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized. The Host Driver shall set this register to select the UHS-I/HS200/HS400 mode after the card is initialized."

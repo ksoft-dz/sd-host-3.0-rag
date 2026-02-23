@@ -1,0 +1,20 @@
+Bit,Access,Field Name,Description
+30-24,RW,Back-End Power Control,"Each bit of this field controls back-end power supply for an embedded memory device in the Shared Bus Controller. The back-end power supply for each embedded memory device is controlled by a bit in this field. The number of devices supported is specified by Number of Clock Pins and is a maximum of 7 devices can be controlled.
+001b = Back-end Power Control for Device 1
+010b = Back-end Power Control for Device 2
+011b = Back-end Power Control for Device 3
+100b = Back-end Power Control for Device 4
+101b = Back-end Power Control for Device 5
+110b = Back-end Power Control for Device 6
+111b = Back-end Power Control for Device 7
+
+The b-notion of each bit is defined as follows:
+0 = Back-end Power is Off
+1 = Back-end Power is Supplied
+
+Back-End power control is effective for embedded memory devices in the Shared Bus Controller. When this bit is set to 1, the Shared Bus Controller (SDIU1) is reduce power consumption and embedded SDO devices when IDLE is set to 0."
+23-20,RW,Interrupt pin,"Interrupt pin (made are enabled by this field. Enable of unsupported interrupt pin is meaningless.
+000b = Interrupt is Detected by External Cycle
+001b = INT_A is Enabled
+010b = INT_B is Enabled
+1xxb = INT_C is Enabled"

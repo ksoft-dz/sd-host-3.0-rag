@@ -1,0 +1,6 @@
+Argument,Busy Status,Status Code,Comment
+0,Don't Care,0,Default function can always be switched.
+Supported function,Ready,=Arg.,"Status indicates the same function number as specified in the argument, which means successful function change."
+Supported function,Busy,Current Selected,Switch function is canceled and status indicates current selected function.
+Not Supported function,Don't Care,Fh,"If one of the function groups indicates an error code (Fh), switch requests to all switch functions are canceled and the rest of the data in the Status Data Structure should be ignored."
+Fh,Don't Care,Current Selected,Status indicates current selected function

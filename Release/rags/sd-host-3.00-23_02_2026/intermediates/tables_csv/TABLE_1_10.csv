@@ -1,0 +1,8 @@
+SD Bus Power (Note 1),SD Clock Enable (Note 2),State of SDCLK
+Change 0 to 1,0,Drive Low
+,1,Start Clock with specified Period of High
+Change 1 to 0,0,Drive Low
+,1,Drive Low immediately
+0,Don't Care,Drive Low
+,Change 0 to 1,Start Clock with specified Period of High
+1,Change 1 to 0,Maintains Period of High and then stops Clock and drive Low

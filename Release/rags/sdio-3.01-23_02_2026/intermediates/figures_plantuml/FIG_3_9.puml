@@ -1,0 +1,7 @@
+@startuml
+I don't see a figure labeled "Figure 3-9" or any diagram showing a "Re-Initialization Flow for Memory controller" on this page. This page (page 25) contains only text content from the SDIO Simplified Specification, covering sections 3.4 through 3.4.4 about initialization considerations for Combo Cards.
+
+The text references "Figure 3-2" in sections 3.4.1 and 3.4.2, but the actual figure is not present on this page.
+
+If you have a different page that contains Figure 3-9, please share that image and I'll be happy to transcribe the diagram to PlantUML format.
+@enduml

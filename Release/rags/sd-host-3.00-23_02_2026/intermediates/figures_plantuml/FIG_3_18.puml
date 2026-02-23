@@ -1,0 +1,35 @@
+@startuml
+start
+
+:(1);
+if (Memory Supported?) then (Yes)
+  :(2);
+  :CMD6 mode1: Change Bus Speed Mode;
+  :(3);
+  if (Change Bus Speed\nMode Successfully?) then (Yes)
+    :(4);
+    :Host sets the same Bus Speed Mode;
+  else (No)
+    stop
+  endif
+else (No)
+  stop
+endif
+
+:(5);
+if (SDIO Supported?) then
+  :(6);
+  :Set EHS or BSS[2:0] in CCCR;
+  :(7);
+  if (EHS or BSS[2:0] is\nwritten?) then (Yes)
+    :(8);
+    :Host set to the same Bus Speed Mode;
+  else (No)
+    stop
+  endif
+else
+  stop
+endif
+
+stop
+@enduml

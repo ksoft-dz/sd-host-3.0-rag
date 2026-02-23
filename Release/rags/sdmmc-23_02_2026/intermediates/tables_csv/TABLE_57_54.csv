@@ -1,0 +1,2 @@
+Field,Description
+"24:31 RXDDEBUGBUS1","RXD_CTRL debug bus (RX CLK) rxdfem_reachingeobi - Reaching End of block indication rxdfem_okstopclk - OK to Stop the clock (End of block flow control) rxdfem_dataeob - Data Byte/Word is End of block indication rxdfem_dataentw - Data Byte/Word write rxdfem_wforblk - Wait for block indication rxdfem_state [2:0] - Receive data state machine"

@@ -1,0 +1,38 @@
+@startuml
+!define REGISTER_WIDTH 400
+
+skinparam rectangle {
+    BackgroundColor<<header>> DarkGray
+    BackgroundColor<<data>> White
+    BorderColor Black
+}
+
+rectangle "Offset 010h" as off010h <<header>> {
+    rectangle "D31" as d31_010h_left <<header>>
+    rectangle "Command Response 0-31" as cr0_31 <<data>>
+    rectangle "D00" as d00_010h_right <<header>>
+}
+
+rectangle "Offset 014h" as off014h <<header>> {
+    rectangle "D31" as d31_014h_left <<header>>
+    rectangle "Command Response 32-63" as cr32_63 <<data>>
+    rectangle "D00" as d00_014h_right <<header>>
+}
+
+rectangle "Offset 018h" as off018h <<header>> {
+    rectangle "D31" as d31_018h_left <<header>>
+    rectangle "Command Response 64-95" as cr64_95 <<data>>
+    rectangle "D00" as d00_018h_right <<header>>
+}
+
+rectangle "Offset 01Ch" as off01ch <<header>> {
+    rectangle "D31" as d31_01ch_left <<header>>
+    rectangle "Command Response 96-127" as cr96_127 <<data>>
+    rectangle "D00" as d00_01ch_right <<header>>
+}
+
+off010h -[hidden]down- off014h
+off014h -[hidden]down- off018h
+off018h -[hidden]down- off01ch
+
+@enduml

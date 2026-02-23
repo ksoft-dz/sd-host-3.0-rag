@@ -1,0 +1,2 @@
+Bit,Access,Field Name,Description
+31-00,RW,Command Argument 1,The SD command argument is specified as bits[38:8] of Command Format in the Physical Layer Specification.

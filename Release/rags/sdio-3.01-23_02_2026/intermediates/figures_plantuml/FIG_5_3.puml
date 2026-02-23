@@ -1,0 +1,23 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Courier
+
+map "R5 IO_RW_DIRECT Response (SD Modes)" as response {
+  Bit 47 => S (Start bit)
+  Bit 46 => D (Direction)
+  Bits 45-40 => Command Index\n110100b
+  Bits 39-24 => Stuff
+  Bits 23-16 => Response Flags Bit\n[7:0]
+  Bits 15-8 => Read or Write Data
+  Bits 7-1 => CRC7
+  Bit 0 => E (End bit)
+}
+
+note bottom of response
+  Field widths:
+  S=1, D=1, Command Index=6
+  Stuff=16, Response Flags=8
+  Read/Write Data=8, CRC7=7, E=1
+  Total = 48 bits
+end note
+@enduml

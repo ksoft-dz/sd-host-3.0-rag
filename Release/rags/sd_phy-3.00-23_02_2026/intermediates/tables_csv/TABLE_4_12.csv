@@ -1,0 +1,4 @@
+Data Structure Version,Fields of Status Data Structure
+00h,511:376 are defined
+01h,511:272 are defined
+02h-FFh,Reserved

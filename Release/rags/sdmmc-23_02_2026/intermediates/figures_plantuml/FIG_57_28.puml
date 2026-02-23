@@ -1,0 +1,41 @@
+@startuml
+skinparam monochrome true
+
+map "CAPABILITIES63_32 Register (Offset: 0x0044)" as reg {
+  Access => Read
+}
+
+rectangle "Bits [15:0]" as upper {
+  rectangle "15:8" as bits15_8 [
+    15 | 14 | 13 | 12 | 11 | 10 | 9 | 8
+    0  | 0  | 0  | 0  | 0  | 0  | 0 | 0
+    Reserved
+  ]
+  rectangle "7:0" as bits7_0 [
+    7 | 6 | 5 | 4 | 3 | 2 | 1 | 0
+    CORECFG_SPISUPPORT | CORECFG_SPIBLKMODE | 0 | 0 | 0 | 0 | 0 | 0
+  ]
+}
+
+rectangle "Bits [31:16]" as lower {
+  rectangle "31:29" as bits31_29 [
+    31 | 30 | 29
+    0  | 0  | CORECFG_DDRMODESUPPORT
+  ]
+  rectangle "28:17" as bits28_17 [
+    28 | 27 | 26 | 25 | 24 | 23 | 22 | 21 | 20 | 19 | 18 | 17
+    0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | CORECFG_RETUNINGMODES
+  ]
+  rectangle "16" as bit16 [
+    16
+    CORECFG_RETUNINGMODES
+  ]
+}
+
+note bottom of reg
+  Reset Values:
+  Bits [15:0]: 0x0001 (bit 7 = 1)
+  Bits [31:16]: 0x2000 (bit 29 = 1)
+end note
+
+@enduml

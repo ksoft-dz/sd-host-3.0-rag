@@ -1,0 +1,5 @@
+Bit,Access,Field Name,Description
+D15-D14,RW,Driver Strength Select Value,Driver Strength Select Value
+D13-D11,RW,Reserved,Reserved
+D10,RW,Clock Generator Select Value,Clock Generator Select Value
+D09-D00,RW,SDCLK Frequency Select Value,SDCLK Frequency Select Value

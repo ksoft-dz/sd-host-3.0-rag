@@ -1,0 +1,61 @@
+@startuml
+start
+
+:Create Descriptor table;
+note right: (1)
+
+:Set ADMA System Address Reg;
+note right: (2)
+
+:Set Block Size Reg;
+note right: (3)
+
+:Set Block Count Reg;
+note right: (4)
+
+:Set Argument 1 Reg;
+note right: (5)
+
+:Set Transfer Mode Reg;
+note right: (6)
+
+:Set Command Reg;
+note right: (7)
+
+:Wait for
+Command Complete Int;
+note right: (8)
+
+note right
+Command Complete
+Int occurs
+end note
+
+:Clr Command Complete status;
+note right: (9)
+
+:Get Response Data;
+note right: (10)
+
+:Wait for
+Transfer Complete Int
+and ADMA Error Int;
+note right: (11)
+
+if (Check\nInterrupt Status) then (Transfer Complete\nInt. occurs)
+  note right: (12)
+  :Clr Transfer Complete
+  Interrupt status;
+  note right: (13)
+else (ADMA Error Int. occurs)
+  :Clr ADMA Error
+  Interrupt status;
+  note right: (14)
+  :Abort ADMA
+  Operation;
+  note right: (15)
+endif
+
+stop
+
+@enduml

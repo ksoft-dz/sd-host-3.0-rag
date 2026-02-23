@@ -1,0 +1,57 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0-7" as DAT
+
+concise "Boot Request Recogonised" as BR
+concise "Boot Request Complete" as BRC
+
+@0
+CMD is "Z Z Z Z S"
+DAT is "Z Z Z Z Z"
+
+@+1
+BR -> CMD : N_s
+DAT is "***"
+
+@+2
+CMD is "***"
+DAT is "Z S 0 1 0 E P"
+
+@+3
+DAT is "***"
+note bottom : t_BA\nOptional
+
+@+4
+DAT is "P S"
+
+@+5
+DAT is "512 Bytes + CRC"
+
+@+6
+DAT is "E P"
+
+@+7
+CMD is "***"
+DAT is "***"
+note bottom : N_AC
+
+@+8
+DAT is "P S"
+
+@+9
+DAT is "512 bytes+CRC"
+
+@+10
+DAT is "E P P P Z Z Z Z"
+CMD is "L E Z Z Z Z S T"
+note right : CMD1
+
+@+11
+DAT is "***"
+note bottom : N_ST\nN_CD
+
+BRC -> CMD
+
+note bottom of DAT : t_BD
+
+@enduml

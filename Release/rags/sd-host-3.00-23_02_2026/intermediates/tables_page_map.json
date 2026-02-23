@@ -1,0 +1,1161 @@
+{
+  "_metadata": {
+    "source": "SD Host Controller Simplified Specification",
+    "extraction_date": "2026-02-22T11:59:01Z",
+    "total_tables": 60,
+    "converted": 60,
+    "failed": 0,
+    "multi_page_tables": 34,
+    "hint_applied_count": 37,
+    "llm_stats": {
+      "total_calls": 1,
+      "total_input_tokens": 1839,
+      "total_output_tokens": 362,
+      "model": "claude-sonnet-4-5-20250929"
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_1_1",
+      "spec_reference": "Table 1-1",
+      "title": "Supported Registers",
+      "spec_page": 2,
+      "definition_page": 13,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_1.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table lists the 12 standard register sets supported by SD Host Controllers across specification versions 1.00, 2.00, and 3.00, indicating whether each register is mandatory, optional, or not available in each version."
+    },
+    {
+      "id": "TABLE_1_2",
+      "spec_reference": "Table 1-2",
+      "title": "Registers to Generate SD Command",
+      "spec_page": 4,
+      "definition_page": 15,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_2.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table shows the register settings required at offsets 000h to 00Fh for generating different types of SD commands including SDMA, ADMA, CPU data transfer, and non-DAT transfer modes."
+    },
+    {
+      "id": "TABLE_1_3",
+      "spec_reference": "Table 1-3",
+      "title": "Relations between Address and Byte Enable",
+      "spec_page": 5,
+      "definition_page": 16,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_3.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table shows the relationship between lower address bits (A[02:00]) and byte enable signals (BE[3:0]) for accessing the Buffer Data Port register across different system bus widths (64-bit, 32-bit, 16-bit, and 8-bit)."
+    },
+    {
+      "id": "TABLE_1_4",
+      "spec_reference": "Table 1-4",
+      "title": "Available Byte Enable Pattern for Buffer Data Port Register",
+      "spec_page": 6,
+      "definition_page": 17,
+      "referenced_on_pages": [
+        7
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_4.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the valid byte enable patterns for accessing the Buffer Data Port Register, showing which combinations of BE[3:0] signals are supported for 4-byte, 2-byte, and 1-byte access types mapped to specific data bus segments."
+    },
+    {
+      "id": "TABLE_1_5",
+      "spec_reference": "Table 1-5",
+      "title": "Interrupt Signal Table",
+      "spec_page": 9,
+      "definition_page": 20,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_5.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the logic for interrupt signal assertion in SD Host Controllers based on the states of interrupt status enable, interrupt signal enable, wakeup event enable, and interrupt status flags."
+    },
+    {
+      "id": "TABLE_1_6",
+      "spec_reference": "Table 1-6",
+      "title": "Wakeup Signal Table",
+      "spec_page": 9,
+      "definition_page": 20,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_6.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the conditions under which wakeup signals are asserted in an SD Host Controller based on the states of interrupt status enable, interrupt signal enable, wakeup event enable, and interrupt status bits."
+    },
+    {
+      "id": "TABLE_1_7",
+      "spec_reference": "Table 1-7",
+      "title": "Summary of Register Status for Data Transfer",
+      "spec_page": 10,
+      "definition_page": 21,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_7.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table summarizes the register status, buffer interrupt, and complete interrupt conditions for different types of data transfers (write/read, DMA/non-DMA) in the SD Host Controller."
+    },
+    {
+      "id": "TABLE_1_8",
+      "spec_reference": "Table 1-8",
+      "title": "Power State Definition",
+      "spec_page": 11,
+      "definition_page": 22,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_8.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the power states (P00-P14) of an SD Host Controller based on SD card presence, internal clock status, SD power, SD clock, and SD bus conditions, listed in increasing order of power consumption."
+    },
+    {
+      "id": "TABLE_1_9",
+      "spec_reference": "Table 1-9",
+      "title": "Relation between Auto CMD12 and CMD_wo_DAT",
+      "spec_page": 12,
+      "definition_page": 23,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_9.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table shows the relationship between Auto CMD12 errors and CMD_wo_DAT commands, detailing the error status and outcomes when these commands are issued in different sequences or independently."
+    },
+    {
+      "id": "TABLE_1_10",
+      "spec_reference": "Table 1-10",
+      "title": "Controlling SDCLK by the SD Bus Power and SD Clock Enable",
+      "spec_page": 13,
+      "definition_page": 24,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_10.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines how the SDCLK signal state is controlled by the combination of SD Bus Power and SD Clock Enable register settings, specifying when the clock drives low, starts with a specified period, or stops after maintaining its high period."
+    },
+    {
+      "id": "TABLE_1_11",
+      "spec_reference": "Table 1-11",
+      "title": "ADMA2 Length Field",
+      "spec_page": 16,
+      "definition_page": 27,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_11.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the ADMA2 length field encoding where values 0000h through FFFFh represent data transfer lengths from 65536 bytes (or 1 byte) down to 65535 bytes for SD Host Controller descriptor operations."
+    },
+    {
+      "id": "TABLE_1_12",
+      "spec_reference": "Table 1-12",
+      "title": "64-bit Address Descriptor Table (Removed)",
+      "spec_page": 16,
+      "definition_page": 27,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_12.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "Table 1-12 documenting the 64-bit Address Descriptor Table format was removed from the SD Host Controller Simplified Specification Version 3.00 as 64-bit system support will be modified in Version 4.00."
+    },
+    {
+      "id": "TABLE_1_13",
+      "spec_reference": "Table 1-13",
+      "title": "ADMA2 States",
+      "spec_page": 17,
+      "definition_page": 28,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_13.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the four states of ADMA2 operation (Fetch Descriptor, Change Address, Transfer Data, and Stop DMA) and describes the specific operations and state transitions that occur in each state."
+    },
+    {
+      "id": "TABLE_1_14",
+      "spec_reference": "Table 1-14",
+      "title": "Host Controller Data Transfer Length",
+      "spec_page": 18,
+      "definition_page": 29,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_1_14.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table specifies how data transfer length is determined in SD Host Controller based on transfer mode (Non-ADMA vs ADMA) and Block Count Enable setting."
+    },
+    {
+      "id": "TABLE_2_1",
+      "spec_reference": "Table 2-1",
+      "title": "SD Host Controller Register Map",
+      "spec_page": 19,
+      "definition_page": 30,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_1.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table maps the SD Host Controller register set, showing register offsets from 000h to 0FEh with their corresponding 15-08 bit and 07-00 bit field assignments for controlling SD card operations, interrupts, DMA, capabilities, and status."
+    },
+    {
+      "id": "TABLE_2_2",
+      "spec_reference": "Table 2-2",
+      "title": "Register (and Register Bit-Field) Types",
+      "spec_page": 20,
+      "definition_page": 31,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_2.csv",
+        "model": "claude-sonnet-4-5-20250929"
+      },
+      "abstract": "This table defines the various register and register bit-field access types used in the SD Host Controller specification, including read-only, read-write, write-to-clear, and hardware-initialized attributes."
+    },
+    {
+      "id": "TABLE_2_3",
+      "spec_reference": "Table 2-3",
+      "title": "SDMA System Address / Argument 2 Register",
+      "spec_page": 21,
+      "definition_page": 32,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_3.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          32,
+          33
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The SDMA System Address / Argument 2 Register (offset 000h) is a 32-bit read/write register that holds either the physical system memory address for SDMA transfers or the block count argument for Auto CMD23 operations."
+    },
+    {
+      "id": "TABLE_2_4",
+      "spec_reference": "Table 2-4",
+      "title": "Block Size Register",
+      "spec_page": 23,
+      "definition_page": 34,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_4.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          33,
+          34
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Block Size Register configures the number of bytes in a data block and specifies the SDMA buffer boundary for system memory transfers."
+    },
+    {
+      "id": "TABLE_2_5",
+      "spec_reference": "Table 2-5",
+      "title": "Block Count Register",
+      "spec_page": 24,
+      "definition_page": 35,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_5.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          35
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Block Count Register (offset 006h) is a 16-bit read/write register that configures the number of data blocks to transfer in multiple block operations, decrementing after each block until reaching zero."
+    },
+    {
+      "id": "TABLE_2_6",
+      "spec_reference": "Table 2-6",
+      "title": "Argument 1 Register",
+      "spec_page": 25,
+      "definition_page": 36,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_6.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          36,
+          37,
+          38
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Argument 1 Register contains the 32-bit SD Command Argument specified in bits[38:8] of the SD Physical Layer Specification Command Format."
+    },
+    {
+      "id": "TABLE_2_7",
+      "spec_reference": "Table 2-7",
+      "title": "Transfer Mode Register",
+      "spec_page": 28,
+      "definition_page": 39,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_7.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Transfer Mode Register configures data transfer parameters including preset count values, Auto CMD12 enable, and block count enable for SD host controller operations."
+    },
+    {
+      "id": "TABLE_2_8",
+      "spec_reference": "Table 2-8",
+      "title": "Determination of Transfer Type",
+      "spec_page": 28,
+      "definition_page": 39,
+      "referenced_on_pages": [
+        26,
+        27,
+        112,
+        114,
+        116
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_8.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the register fields for determining USB transfer types, including address mode, size, and descriptions for PNP byte locations 00 and 04 which control transfer parameters and data size."
+    },
+    {
+      "id": "TABLE_2_9",
+      "spec_reference": "Table 2-9",
+      "title": "Command Register",
+      "spec_page": 30,
+      "definition_page": 41,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_9.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          40,
+          41
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Command Register (Offset 00Eh) defines the command index, command type (normal, suspend, resume, or abort), and response type for SD Host Controller operations."
+    },
+    {
+      "id": "TABLE_2_10",
+      "spec_reference": "Table 2-10",
+      "title": "Relation between Parameters and the Name of Response Type",
+      "spec_page": 30,
+      "definition_page": 41,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_10.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          40,
+          41
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the relationship between 2-bit command type values (00b-11b) and their corresponding SD card response type names, including Normal, Suspend, Resume, and Abort commands with their specific CMD implementations."
+    },
+    {
+      "id": "TABLE_2_11",
+      "spec_reference": "Table 2-11",
+      "title": "Response Register",
+      "spec_page": 31,
+      "definition_page": 42,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_11.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          42
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Response Register (offset 010h) stores command responses from SD cards with different bit mappings depending on the response type (R1-R6), where most 48-bit responses use bits [39:8] mapped to REP[31:0] and 136-bit responses use bits [127:8] mapped to REP[119:0]."
+    },
+    {
+      "id": "TABLE_2_12",
+      "spec_reference": "Table 2-12",
+      "title": "Response Bit Definition for Each Response Type",
+      "spec_page": 31,
+      "definition_page": 42,
+      "referenced_on_pages": [
+        32
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_12.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          42
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mapping between different SD card response types (R1-R6) and their corresponding bit positions in both the Response Field transmitted on the SD Bus and the Response Register stored in the host controller."
+    },
+    {
+      "id": "TABLE_2_13",
+      "spec_reference": "Table 2-13",
+      "title": "Buffer Data Port Register",
+      "spec_page": 32,
+      "definition_page": 43,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_13.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          43,
+          44
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Buffer Data Port Register is a 32-bit read/write register that provides access to the Host Controller's internal buffer for data transfer operations."
+    },
+    {
+      "id": "TABLE_2_14",
+      "spec_reference": "Table 2-14",
+      "title": "Present State Register (Part 1)",
+      "spec_page": 34,
+      "definition_page": 45,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_14.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          44,
+          45,
+          46,
+          47
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table describes the Present State Register fields (bits 31-18) for an SD Host Controller, indicating DMA signal levels, write protect status, and card detect pin status."
+    },
+    {
+      "id": "TABLE_2_15",
+      "spec_reference": "Table 2-15",
+      "title": "Present State Register (Part 2)",
+      "spec_page": 38,
+      "definition_page": 49,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_15.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          47,
+          48,
+          49,
+          50,
+          51
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the bit fields of the Present State Register (Part 2) for an SD Bus Controller, including buffer pointers, command/data line status indicators, card detection states, and transfer activity flags."
+    },
+    {
+      "id": "TABLE_2_16",
+      "spec_reference": "Table 2-16",
+      "title": "Host Control 1 Register",
+      "spec_page": 41,
+      "definition_page": 52,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_16.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          52
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Host Control 1 Register defines control bits for high-speed mode selection, data transfer width configuration, and LED status indication in an SD Host Controller."
+    },
+    {
+      "id": "TABLE_2_17",
+      "spec_reference": "Table 2-17",
+      "title": "Power Control Register",
+      "spec_page": 42,
+      "definition_page": 53,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_17.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          53,
+          54
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Power Control Register (offset 029h) controls the SD bus voltage selection and power state for the SD card interface in an SD Host Controller."
+    },
+    {
+      "id": "TABLE_2_18",
+      "spec_reference": "Table 2-18",
+      "title": "Block Gap Control Register",
+      "spec_page": 44,
+      "definition_page": 55,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_18.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          54,
+          55
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Block Gap Control Register (Offset 02Ah) controls interrupt handling, read wait protocol, transaction continuation, and block gap stopping for SDIO card operations in 4-bit mode."
+    },
+    {
+      "id": "TABLE_2_19",
+      "spec_reference": "Table 2-19",
+      "title": "Wakeup Control Register",
+      "spec_page": 45,
+      "definition_page": 56,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_19.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          56,
+          57,
+          58
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Wakeup Control Register configures wakeup event triggers for SD card operations including card removal, insertion, and interrupt events, with each bit enabling wakeup functionality dependent on the Host Controller's power state and CIS support settings."
+    },
+    {
+      "id": "TABLE_2_20",
+      "spec_reference": "Table 2-20",
+      "title": "Clock Control Register",
+      "spec_page": 48,
+      "definition_page": 59,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_20.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          57,
+          58,
+          59
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Clock Control Register (offset 02Ch) defines the SDCLK frequency select field which controls the SD clock frequency through a divisor-based mechanism dependent on the Host Controller version."
+    },
+    {
+      "id": "TABLE_2_21",
+      "spec_reference": "Table 2-21",
+      "title": "Timeout Control Register",
+      "spec_page": 49,
+      "definition_page": 60,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_21.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          60,
+          61
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Timeout Control Register (offset 02Eh) allows the Host Driver to set the Data Timeout Counter Value to determine the interval for detecting DAT line timeouts based on the TMCLK frequency."
+    },
+    {
+      "id": "TABLE_2_22",
+      "spec_reference": "Table 2-22",
+      "title": "Software Reset Register",
+      "spec_page": 51,
+      "definition_page": 62,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_22.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          61,
+          62,
+          63,
+          64
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Software Reset Register (Offset 02Fh) provides software control to reset various controller components including DAT line, CMD line, and multiple status/interrupt flags through 16-bit masks for each reset type."
+    },
+    {
+      "id": "TABLE_2_23",
+      "spec_reference": "Table 2-23",
+      "title": "Normal Interrupt Status Register",
+      "spec_page": 56,
+      "definition_page": 67,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_23.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          65,
+          66,
+          67,
+          68,
+          69
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Normal Interrupt Status Register contains status bits for various SD/SDIO host controller interrupt conditions including command completion, data transfer events, card insertion/removal, DMA operations, and error conditions that can be cleared by writing 1 to the respective bit positions."
+    },
+    {
+      "id": "TABLE_2_24",
+      "spec_reference": "Table 2-24",
+      "title": "Error Interrupt Status Register",
+      "spec_page": 59,
+      "definition_page": 70,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_24.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_2_25",
+      "spec_reference": "Table 2-25",
+      "title": "The Relation between Command CRC Error and Command Timeout Error",
+      "spec_page": 59,
+      "definition_page": 70,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_25.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_2_26",
+      "spec_reference": "Table 2-26",
+      "title": "Normal Interrupt Status Enable Register",
+      "spec_page": 61,
+      "definition_page": 72,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_26.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          71,
+          72,
+          73
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This register enables or disables interrupt status signals for INT_A, INT_B, and INT_C pins in the SD Host Controller, allowing the host driver to control interrupt request propagation to the system."
+    },
+    {
+      "id": "TABLE_2_27",
+      "spec_reference": "Table 2-27",
+      "title": "Error Interrupt Status Enable Register",
+      "spec_page": 63,
+      "definition_page": 74,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_27.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          73,
+          74,
+          75
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Error Interrupt Status Enable Register (Offset 036h) controls which error interrupt status flags are enabled or masked for the SD Host Controller, with individual enable bits for various error conditions including vendor-specific errors, tuning errors, ADMA errors, Auto CMD12 errors, and data/command-related errors."
+    },
+    {
+      "id": "TABLE_2_28",
+      "spec_reference": "Table 2-28",
+      "title": "Normal Interrupt Signal Enable Register",
+      "spec_page": 65,
+      "definition_page": 76,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_28.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          75,
+          76,
+          77
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This register enables normal interrupt signals for the SD Host Controller, including card detection, buffer operations, and re-tuning events, with each bit controlling whether the corresponding interrupt is enabled (1) or masked (0)."
+    },
+    {
+      "id": "TABLE_2_29",
+      "spec_reference": "Table 2-29",
+      "title": "Error Interrupt Signal Enable Register",
+      "spec_page": 67,
+      "definition_page": 78,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_29.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          77,
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This register enables error interrupt signals for various SD Host Controller error conditions including ADMA, Auto CMD, data transfer, and vendor-specific errors."
+    },
+    {
+      "id": "TABLE_2_30",
+      "spec_reference": "Table 2-30",
+      "title": "Auto CMD Error Status Register",
+      "spec_page": 69,
+      "definition_page": 80,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_30.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Auto CMD Error Status Register tracks various error conditions that can occur during automatic CMD12 or CMD23 command execution in SD host controller operations."
+    },
+    {
+      "id": "TABLE_2_31",
+      "spec_reference": "Table 2-31",
+      "title": "The Relation between CRC Error and Timeout Error for Auto CMD",
+      "spec_page": 69,
+      "definition_page": 80,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_31.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the Auto CMD Error Status Register fields, including timeout, CRC, end bit, and index error conditions for Auto CMD12 and CMD23 operations."
+    },
+    {
+      "id": "TABLE_2_32",
+      "spec_reference": "Table 2-32",
+      "title": "Host Control 2 Register",
+      "spec_page": 72,
+      "definition_page": 83,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_32.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          81,
+          82,
+          83,
+          84,
+          85
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Host Control 2 Register is a 16-bit register (bits 15-00) that controls UHS-I/HS200/HS400 mode selection, addressing modes, command queuing, and other advanced host controller features, with most bits reserved."
+    },
+    {
+      "id": "TABLE_2_33",
+      "spec_reference": "Table 2-33",
+      "title": "Capabilities Register (Part 1)",
+      "spec_page": 77,
+      "definition_page": 88,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_33.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          86,
+          87,
+          88,
+          89
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_2_34",
+      "spec_reference": "Table 2-34",
+      "title": "Capabilities Register (Part 2)",
+      "spec_page": 79,
+      "definition_page": 90,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_34.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          89,
+          90
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the capabilities register fields (bits 23-16) for an SD Host Controller, specifying support for features like Suspend/Resume, SDMA, High Speed mode, ADMA2, 8-bit bus width, and maximum block length."
+    },
+    {
+      "id": "TABLE_2_35",
+      "spec_reference": "Table 2-35",
+      "title": "Maximum Current Capabilities Register",
+      "spec_page": 80,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_35.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Maximum Current Capabilities Register indicates the maximum current capability for each supported voltage level (1.8V, 3.0V, and 3.3V) in 4mA steps, with values meaningful only if Voltage Support is set in the Capabilities register."
+    },
+    {
+      "id": "TABLE_2_36",
+      "spec_reference": "Table 2-36",
+      "title": "Maximum Current Value Definition",
+      "spec_page": 80,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_36.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mapping between register values (0-255) and their corresponding maximum current capabilities in 4mA increments, ranging from 4mA to 1020mA, for SD Host Controller voltage support specifications."
+    },
+    {
+      "id": "TABLE_2_37",
+      "spec_reference": "Table 2-37",
+      "title": "Force Event Register for Auto CMD Error Status",
+      "spec_page": 81,
+      "definition_page": 92,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_37.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          92,
+          93
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the Force Event Register fields for Auto CMD Error Status at offset 050h, which allows software to generate interrupts for various Auto CMD12 error conditions including command not issued, index error, end bit error, CRC error, timeout error, and not executed status."
+    },
+    {
+      "id": "TABLE_2_38",
+      "spec_reference": "Table 2-38",
+      "title": "Force Event for Error Interrupt Status Register",
+      "spec_page": 83,
+      "definition_page": 94,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_38.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          93,
+          94
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Force Event Register for Error Interrupt Status (Offset 052h) is a write-only register that allows software to force error interrupt status bits for testing purposes, with each bit generating the corresponding interrupt when set to 1 if the Error Interrupt Status Enable register bit is enabled."
+    },
+    {
+      "id": "TABLE_2_39",
+      "spec_reference": "Table 2-39",
+      "title": "ADMA Error Status Register",
+      "spec_page": 84,
+      "definition_page": 95,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_39.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          95
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The ADMA Error Status Register contains fields that indicate ADMA length mismatch errors and the ADMA error state when errors occur during ADMA data transfer operations."
+    },
+    {
+      "id": "TABLE_2_40",
+      "spec_reference": "Table 2-40",
+      "title": "ADMA System Address Register",
+      "spec_page": 85,
+      "definition_page": 96,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_40.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          96
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The ADMA System Address Register (offset 058h) contains the physical descriptor address used for ADMA data transfer, holding byte addresses for executing commands from the descriptor table with specific alignment requirements for 32-bit and 64-bit addressing modes."
+    },
+    {
+      "id": "TABLE_2_41",
+      "spec_reference": "Table 2-41",
+      "title": "Preset Value Registers",
+      "spec_page": 86,
+      "definition_page": 97,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_41.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          97
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the bit fields of a Preset Value Register used to configure driver strength, clock generator selection, and SDCLK frequency for different SD bus speed modes in an SD Host Controller."
+    },
+    {
+      "id": "TABLE_2_42",
+      "spec_reference": "Table 2-42",
+      "title": "Preset Value Register Select Condition",
+      "spec_page": 86,
+      "definition_page": 97,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_42.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          97
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the bit field structure of the Preset Value Register, which stores preset values for driver strength, clock generator selection, and SDCLK frequency configuration based on the selected bus speed mode."
+    },
+    {
+      "id": "TABLE_2_43",
+      "spec_reference": "Table 2-43",
+      "title": "Fields of A Preset Value Register",
+      "spec_page": 87,
+      "definition_page": 98,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_43.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          98,
+          99,
+          100
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the bit fields of a Preset Value Register for an SD Host Controller, including driver strength selection, clock pin configuration, and SDCLK frequency settings."
+    },
+    {
+      "id": "TABLE_2_44",
+      "spec_reference": "Table 2-44",
+      "title": "Shared Bus Control Register",
+      "spec_page": 90,
+      "definition_page": 101,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_44.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          99,
+          100,
+          101
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Shared Bus Control Register configures back-end power control for up to 7 embedded memory devices and enables interrupt pin detection modes in the SD Host Controller."
+    },
+    {
+      "id": "TABLE_2_45",
+      "spec_reference": "Table 2-45",
+      "title": "Slot Interrupt Status Register",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_45.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          102,
+          103,
+          104
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "The Slot Interrupt Status Register indicates interrupt and wakeup signals for up to 8 slots, with bits 15-08 showing the logical OR of interrupt and wakeup signals per slot, and bits 02-00 representing individual slot statuses."
+    },
+    {
+      "id": "TABLE_2_46",
+      "spec_reference": "Table 2-46",
+      "title": "Host Controller Version",
+      "spec_page": 91,
+      "definition_page": 102,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_2_46.csv",
+        "model": "claude-sonnet-4-5-20250929",
+        "pages_used": [
+          102,
+          103,
+          104
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the Host Controller Version Register fields, including vendor version number and specification version number in BCD format, with values indicating SD Host Specification versions 1.00 through 3.00."
+    }
+  ]
+}

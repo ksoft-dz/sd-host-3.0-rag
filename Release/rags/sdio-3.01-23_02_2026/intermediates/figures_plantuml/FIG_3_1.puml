@@ -1,0 +1,25 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam defaultTextAlignment center
+
+rectangle "SD Host" as host
+
+rectangle "SD I/O Card" as card1 {
+}
+
+rectangle "SD I/O Card" as card2 {
+}
+
+' Signal bus for first card
+rectangle "CLK\nCMD\nDAT[3:0]" as bus1
+
+' Signal bus for second card
+rectangle "CLK\nCMD\nDAT[3:0]" as bus2
+
+host -right-> bus1
+bus1 -right-> card1
+
+host -right-> bus2
+bus2 -right-> card2
+
+@enduml

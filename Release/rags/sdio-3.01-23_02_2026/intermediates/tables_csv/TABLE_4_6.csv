@@ -1,0 +1,5 @@
+IO,Memory,Control Method
+Initialized,Not,CCCR
+Initialized,Initialized,
+Not Initialized,Initialized,ACMD6
+Initialized,Initialized,CCCR & ACMD6

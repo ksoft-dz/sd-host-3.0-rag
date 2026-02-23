@@ -1,0 +1,6 @@
+Field,Description
+0:7 MAXCURRENT_3P3V,"Maximum current for 3.3V. Value depends on IO drive strength."
+12:13 CORECFG_SLOTTYPE,"Select slot type 00 Removable card slot 01 Embedded slot for one device 10 Shared bus slot 11 Reserved"
+14 CORECFG_ ASYNCHINTRSUPPORT,"Enable asynchronous interrupt support 0 Core does not support monitoring of asynchronous interrupt 1 Core supports monitoring of asynchronous interrupt"
+15 CORECFG_ ADMA2SUPPORT,Selection for ADMA2 support
+24:31 BASECLKFREQ_ SDMMC_CLK,"Base clock frequency for SDMMC clock. This is the frequency of the sdmmc_clk. 8'h32 = 50 MHz"

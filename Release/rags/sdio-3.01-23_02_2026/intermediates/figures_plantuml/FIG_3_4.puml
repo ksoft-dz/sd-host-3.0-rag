@@ -1,0 +1,46 @@
+@startuml
+skinparam defaultTextAlignment center
+
+state "C" as C #LightBlue
+state "D" as D #LightBlue
+
+C --> CheckResponse : HCS=1: SDHC or SDXC Host\nACMD41 Arg=HCS, WV
+
+state "Check Response" as CheckResponse #Yellow
+CheckResponse --> CheckResponse : IDLE=1
+CheckResponse --> D : Illegal Command\nor 1sec Timeout
+CheckResponse --> MemInit : IDLE=0\nMEM=1
+
+state "Memory Initialized" as MemInit #LightGreen
+MemInit --> CMD58
+
+state "CMD58" as CMD58 #Violet
+CMD58 --> CheckIOMEM1 : IO=1 or MEM=1
+
+state "Check IO, MEM" as CheckIOMEM1 #Yellow
+CheckIOMEM1 --> D : IO=0 and MEM=0
+CheckIOMEM1 --> CheckIOMEM2 : IO=0, MEM=0
+
+state "Check IO, MEM" as CheckIOMEM2 #Yellow
+CheckIOMEM2 --> CheckCCS1 : IO=0, MEM=1
+CheckIOMEM2 --> IOOnlyCard : IO=1, MEM=0
+CheckIOMEM2 --> CheckCCS2 : IO=1, MEM=1
+
+state "Check CCS" as CheckCCS1 #Yellow
+CheckCCS1 --> SDSC_Memory : CCS=0
+CheckCCS1 --> SDHC_Memory : CCS=1
+
+state "IO Only\nCard" as IOOnlyCard #Violet
+
+state "Check CCS" as CheckCCS2 #Yellow
+CheckCCS2 --> SDSC_Combo : CCS=0
+CheckCCS2 --> SDHC_Combo : CCS=1
+
+state "Unusable card" as D #LightBlue
+
+state "SDSC\nMemory\nOnly Card" as SDSC_Memory #LightGray
+state "SDHC or SDXC\nMemory\nOnly Card" as SDHC_Memory #LightGray
+state "SDSC\nCombo\nCard" as SDSC_Combo #LightGray
+state "SDHC or SDXC\nCombo\nCard" as SDHC_Combo #LightGray
+
+@enduml

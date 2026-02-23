@@ -1,0 +1,1657 @@
+{
+  "_metadata": {
+    "source": "SD Physical Layer Simplified Specification",
+    "extraction_date": "2026-02-22T16:56:54Z",
+    "total_tables": 81,
+    "converted": 81,
+    "failed": 0,
+    "multi_page_tables": 29,
+    "hint_applied_count": 27,
+    "llm_stats": {
+      "total_calls": 81,
+      "total_input_tokens": 122728,
+      "total_output_tokens": 20487,
+      "model": "claude-opus-4-5-20251101"
+    }
+  },
+  "tables": [
+    {
+      "id": "TABLE_3_1",
+      "spec_reference": "Table 3-1",
+      "title": "SD Memory Card Registers",
+      "spec_page": 11,
+      "definition_page": 23,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          23,
+          24
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 3-1 lists the SD Memory Card registers including CID, RCA, DSR, CSD, SCR, OCR, SSR, and CSR with their bit widths and descriptions indicating whether each register is mandatory or optional."
+    },
+    {
+      "id": "TABLE_3_2",
+      "spec_reference": "Table 3-2",
+      "title": "Register Setting Requirements for ROM Card",
+      "spec_page": 11,
+      "definition_page": 23,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          23,
+          24
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "Table 3-2 specifies the register setting requirements for ROM Cards, defining field values in SD Status, CSD, and SCR registers that indicate read-only memory characteristics including disabled write/erase classes and permanent write protection."
+    },
+    {
+      "id": "TABLE_3_3",
+      "spec_reference": "Table 3-3",
+      "title": "Host and Card Combinations",
+      "spec_page": 14,
+      "definition_page": 26,
+      "referenced_on_pages": [
+        11
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          26
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the supported operating modes and maximum clock frequencies for different combinations of UHS-I SD card types (UHS50/UHS104 in microSD/Full-size form factors) with various host signaling types (SDR fixed-delay, SDR variable-delay, and DDR)."
+    },
+    {
+      "id": "TABLE_3_4",
+      "spec_reference": "Table 3-4",
+      "title": "Bus Speed Modes",
+      "spec_page": 17,
+      "definition_page": 29,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          29
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 3-4 defines SD card bus speed modes with their maximum bus speeds, clock frequencies, signal voltages, and maximum current requirements for SDSC, SDHC, and SDXC card types."
+    },
+    {
+      "id": "TABLE_3_5",
+      "spec_reference": "Table 3-5",
+      "title": "Bus Speed Mode Option / Mandatory",
+      "spec_page": 17,
+      "definition_page": 29,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_3_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          29
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table specifies which bus speed modes (DS, HS, SDR50, SDR104, DDR50) are mandatory (M), optional (O), or not available (N/A) for different SD card classifications (SDSC, SDHC, SDXC) and their UHS variants."
+    },
+    {
+      "id": "TABLE_4_1",
+      "spec_reference": "Table 4-1",
+      "title": "Overview of Card States vs. Operation Modes",
+      "spec_page": 18,
+      "definition_page": 30,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          30,
+          31
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table maps SD Memory Card states to their corresponding operation modes, showing that Inactive State operates in inactive mode, Idle/Ready/Identification States operate in card identification mode, and Stand-by through Disconnect States operate in data transfer mode."
+    },
+    {
+      "id": "TABLE_4_2",
+      "spec_reference": "Table 4-2",
+      "title": "Tuning Block Pattern",
+      "spec_page": 26,
+      "definition_page": 38,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          38
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-2 defines the 64-byte tuning block pattern used for CMD19 tuning sequence in SD card UHS-I mode, consisting of hexadecimal values arranged in a 4x4 grid."
+    },
+    {
+      "id": "TABLE_4_3",
+      "spec_reference": "Table 4-3",
+      "title": "Read Command Blocklen",
+      "spec_page": 30,
+      "definition_page": 42,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          42,
+          43
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-3 defines the read command block length behavior for SD cards with different maximum block sizes, showing that when partial block access is enabled and misalign is disabled, any address is accepted for read operations with block lengths of 1-512 bytes."
+    },
+    {
+      "id": "TABLE_4_4",
+      "spec_reference": "Table 4-4",
+      "title": "Write Command Blocklen",
+      "spec_page": 30,
+      "definition_page": 42,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          42,
+          43
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-4 defines the write command block length behavior when partial block accesses are disabled (WRITE_BL_PARTIAL = 0), showing that all max block sizes use 512-byte current block lengths with integer-multiple addressing."
+    },
+    {
+      "id": "TABLE_4_5",
+      "spec_reference": "Table 4-5",
+      "title": "Lock Card Data Structure",
+      "spec_page": 33,
+      "definition_page": 45,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          45,
+          46,
+          47
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the data structure for the lock/unlock card command, specifying bit fields for erase, lock/unlock, clear password, set password operations, password length, and password data bytes."
+    },
+    {
+      "id": "TABLE_4_6",
+      "spec_reference": "Table 4-6",
+      "title": "Lock Unlock Function (Basic Sequence for CMD42)",
+      "spec_page": 36,
+      "definition_page": 48,
+      "referenced_on_pages": [
+        35,
+        39
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          46,
+          47,
+          48
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_7",
+      "spec_reference": "Table 4-7",
+      "title": "Force Erase Function to the Locked Card (Relation to the Write Protects)",
+      "spec_page": 37,
+      "definition_page": 49,
+      "referenced_on_pages": [
+        36,
+        39
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          49
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the behavior of the force erase function on a locked SD card based on different write protection states (PWP, TWP, GWP), showing the resulting function executed and corresponding card status bits."
+    },
+    {
+      "id": "TABLE_4_8",
+      "spec_reference": "Table 4-8",
+      "title": "Relation between ACMD6 and the Lock/Unlock State",
+      "spec_page": 38,
+      "definition_page": 50,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_8.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          50
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table describes how the ACMD6 command (used for bus width changes) behaves differently depending on whether the SD card is in a locked or unlocked state and the current bus mode."
+    },
+    {
+      "id": "TABLE_4_9",
+      "spec_reference": "Table 4-9",
+      "title": "Version Difference of Lock/Unlock Functions",
+      "spec_page": 39,
+      "definition_page": 51,
+      "referenced_on_pages": [
+        36,
+        37
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_9.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          51
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table compares the behavioral differences between Type 1 (earlier version) and Type 2 (new version) SD memory cards regarding lock/unlock functions, including CMD42 parameter handling, force erase operations, and write protect behaviors."
+    },
+    {
+      "id": "TABLE_4_10",
+      "spec_reference": "Table 4-10",
+      "title": "Available Functions",
+      "spec_page": 44,
+      "definition_page": 56,
+      "referenced_on_pages": [
+        43,
+        50
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_10.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          56,
+          57,
+          58
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the available functions for SD card configuration including current limit, driver strength, command system, and access mode settings across different function groups and argument slices."
+    },
+    {
+      "id": "TABLE_4_11",
+      "spec_reference": "Table 4-11",
+      "title": "Status Data Structure",
+      "spec_page": 47,
+      "definition_page": 59,
+      "referenced_on_pages": [
+        43,
+        46
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_11.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          57,
+          58,
+          59
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_12",
+      "spec_reference": "Table 4-12",
+      "title": "Data Structure Version",
+      "spec_page": 48,
+      "definition_page": 60,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_12.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          60
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-12 defines the Data Structure Version field values (00h, 01h, 02h-FFh) and their corresponding effective bit field ranges in the Switch Function Status data structure."
+    },
+    {
+      "id": "TABLE_4_13",
+      "spec_reference": "Table 4-13",
+      "title": "Status Code of Mode 0 to Supported Function Group",
+      "spec_page": 48,
+      "definition_page": 60,
+      "referenced_on_pages": [
+        43
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_13.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          60
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the status codes returned in Mode 0 for supported function groups in SD card switch commands, indicating whether functions are supported, busy, or not supported based on the argument and busy status conditions."
+    },
+    {
+      "id": "TABLE_4_14",
+      "spec_reference": "Table 4-14",
+      "title": "Status Code of Mode 1 to Supported Function Group",
+      "spec_page": 49,
+      "definition_page": 61,
+      "referenced_on_pages": [
+        48
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_14.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          61
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the status codes returned in Mode 1 for supported function groups, showing how the argument value, busy status, and resulting status code indicate successful function switches, cancellations, or error conditions."
+    },
+    {
+      "id": "TABLE_4_15",
+      "spec_reference": "Table 4-15",
+      "title": "Status Code of Mode 0 and 1 to Unsupported Function Group",
+      "spec_page": 49,
+      "definition_page": 61,
+      "referenced_on_pages": [
+        48
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_15.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          61
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-15 defines the status codes returned for Mode 0 and Mode 1 operations when accessing unsupported function groups, where the status always indicates fixed values (0 or Fh) regardless of busy status."
+    },
+    {
+      "id": "TABLE_4_16",
+      "spec_reference": "Table 4-16",
+      "title": "Format of CMD8",
+      "spec_page": 51,
+      "definition_page": 63,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_16.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          63
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-16 defines the 48-bit format of CMD8 (Send Interface Condition Command), showing bit positions, widths, values, and descriptions for each field including the voltage supplied (VHS) encoding options."
+    },
+    {
+      "id": "TABLE_4_17",
+      "spec_reference": "Table 4-17",
+      "title": "Command Format",
+      "spec_page": 58,
+      "definition_page": 70,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_17.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          69,
+          70,
+          71
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This page contains explanatory text about busy indication timing and erase operations, but does not include the Command Format table."
+    },
+    {
+      "id": "TABLE_4_18",
+      "spec_reference": "Table 4-18",
+      "title": "Card Command Classes (CCCs) in SD Mode",
+      "spec_page": 60,
+      "definition_page": 72,
+      "referenced_on_pages": [
+        58,
+        98
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_18.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          71,
+          72
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table maps SD card commands (CMD0-CMD55) to their command class categories (CCCs 0-11), indicating whether each command is mandatory or optional and which functional class it belongs to in SD mode."
+    },
+    {
+      "id": "TABLE_4_19",
+      "spec_reference": "Table 4-19",
+      "title": "Basic Commands (class 0)",
+      "spec_page": 62,
+      "definition_page": 74,
+      "referenced_on_pages": [
+        18,
+        27,
+        58
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_19.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          74
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-19 defines Basic Commands (class 0) for SD cards, including commands for card deactivation, block length setting, single and multiple block reads, tuning, and speed class control."
+    },
+    {
+      "id": "TABLE_4_20",
+      "spec_reference": "Table 4-20",
+      "title": "Block-Oriented Read Commands (class 2)",
+      "spec_page": 63,
+      "definition_page": 75,
+      "referenced_on_pages": [
+        65,
+        108
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_20.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          75
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-20 defines Block-Oriented Read Commands (class 2) for SD cards, showing only CMD21/CMD22 as reserved and CMD23 (SET_BLOCK_COUNT) for specifying block count for multi-block read/write operations."
+    },
+    {
+      "id": "TABLE_4_21",
+      "spec_reference": "Table 4-21",
+      "title": "Block-Oriented Write Commands (class 4)",
+      "spec_page": 63,
+      "definition_page": 75,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_21.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          75
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-21 defines the Block-Oriented Write Commands (class 4) for SD cards, including commands for setting block length, speed class control, block count, single and multiple block writes, and CSD programming."
+    },
+    {
+      "id": "TABLE_4_22",
+      "spec_reference": "Table 4-22",
+      "title": "Block Oriented Write Protection Commands (class 6)",
+      "spec_page": 64,
+      "definition_page": 76,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_22.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          76
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-22 defines the Block Oriented Write Protection Commands (class 6) for SD cards, including commands to set, clear, and query write protection status for addressed groups, noting that SDHC and SDXC cards do not support these commands."
+    },
+    {
+      "id": "TABLE_4_23",
+      "spec_reference": "Table 4-23",
+      "title": "Erase Commands (class 5)",
+      "spec_page": 64,
+      "definition_page": 76,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_23.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          76
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-23 defines the SD card Erase Commands (class 5), which include CMD32 and CMD33 for setting the start and end addresses of write blocks to be erased, and CMD38 for executing the erase operation on the selected blocks."
+    },
+    {
+      "id": "TABLE_4_24",
+      "spec_reference": "Table 4-24",
+      "title": "Lock Card (class 7)",
+      "spec_page": 65,
+      "definition_page": 77,
+      "referenced_on_pages": [
+        64
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_24.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-24 defines the Lock Card commands (class 7) for SD cards, including SET_BLOCKLEN and LOCK_UNLOCK commands used for password and card locking operations."
+    },
+    {
+      "id": "TABLE_4_25",
+      "spec_reference": "Table 4-25",
+      "title": "Application-Specific Commands (class 8)",
+      "spec_page": 65,
+      "definition_page": 77,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_25.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-25 defines the Application-Specific Commands (class 8) for SD Memory Cards, including CMD55 (APP_CMD) which indicates the next command is application-specific, and CMD56 (GEN_CMD) for general purpose data block transfers."
+    },
+    {
+      "id": "TABLE_4_26",
+      "spec_reference": "Table 4-26",
+      "title": "I/O Mode Commands (class 9)",
+      "spec_page": 65,
+      "definition_page": 77,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_26.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          77,
+          78
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-26 shows I/O Mode Commands (class 9) which references CMD52-54 as commands for SDIO defined in the separate SDIO Card Specification document."
+    },
+    {
+      "id": "TABLE_4_27",
+      "spec_reference": "Table 4-27",
+      "title": "Application Specific Commands used/reserved by SD Memory Card",
+      "spec_page": 67,
+      "definition_page": 79,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_27.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          78,
+          79
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table lists the Application Specific Commands (ACMDs) used or reserved by SD Memory Cards, including commands for setting bus width, reading SD status, counting written blocks, and setting pre-erase block counts, along with reserved entries for security specifications."
+    },
+    {
+      "id": "TABLE_4_28",
+      "spec_reference": "Table 4-28",
+      "title": "Switch Function Commands (class 10)",
+      "spec_page": 68,
+      "definition_page": 80,
+      "referenced_on_pages": [
+        18,
+        43,
+        58,
+        67
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_28.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          80,
+          81
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 4-28 shows Switch Function Commands (class 10) listing CMD37, CMD50, and CMD57, but the table appears to be empty with no type, argument, response, abbreviation, or command description data filled in for these commands."
+    },
+    {
+      "id": "TABLE_4_29",
+      "spec_reference": "Table 4-29",
+      "title": "Card State Transition Table",
+      "spec_page": 70,
+      "definition_page": 82,
+      "referenced_on_pages": [
+        18,
+        56,
+        69
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_29.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          81,
+          82
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SD card state transitions showing the next state after each command is executed, with \"-\" indicating the command is treated as illegal for that current state."
+    },
+    {
+      "id": "TABLE_4_30",
+      "spec_reference": "Table 4-30",
+      "title": "Response R1",
+      "spec_page": 71,
+      "definition_page": 83,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_30.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          83
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-30 defines the 48-bit Response R1 format for normal response commands, showing the bit positions and descriptions for start bit, transmission bit, command index, card status, CRC7, and end bit fields."
+    },
+    {
+      "id": "TABLE_4_31",
+      "spec_reference": "Table 4-31",
+      "title": "Response R2",
+      "spec_page": 71,
+      "definition_page": 83,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_31.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          83
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-31 defines the 136-bit R2 response format used for transmitting CID and CSD register contents in response to CMD2, CMD10, and CMD9 commands."
+    },
+    {
+      "id": "TABLE_4_32",
+      "spec_reference": "Table 4-32",
+      "title": "Response R3",
+      "spec_page": 72,
+      "definition_page": 84,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_32.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          84
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-32 defines the 48-bit Response R3 format used for the OCR register response to ACMD41, showing bit positions, widths, values, and descriptions for each field including start bit, transmission bit, reserved fields, OCR register content, and end bit."
+    },
+    {
+      "id": "TABLE_4_33",
+      "spec_reference": "Table 4-33",
+      "title": "Response R6",
+      "spec_page": 72,
+      "definition_page": 84,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_33.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          84
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-33 defines the 48-bit Response R6 (Published RCA response) format, showing bit positions, widths, values, and descriptions for fields including start bit, transmission bit, command index, argument field containing the new published RCA and card status bits, CRC7, and end bit."
+    },
+    {
+      "id": "TABLE_4_34",
+      "spec_reference": "Table 4-34",
+      "title": "Response R7",
+      "spec_page": 73,
+      "definition_page": 85,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_34.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          85,
+          86,
+          87
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-34 defines the Response R7 format for SD card interface, showing a 48-bit response structure containing command index, reserved bits, voltage accepted field, echo-back check pattern, and CRC7 for card voltage support verification."
+    },
+    {
+      "id": "TABLE_4_35",
+      "spec_reference": "Table 4-35",
+      "title": "Voltage Accepted in R7",
+      "spec_page": 73,
+      "definition_page": 85,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_35.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          85,
+          86,
+          87
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-35 defines the voltage accepted values in the R7 response field, mapping binary codes to supported voltage ranges including 2.7-3.6V and reserved values."
+    },
+    {
+      "id": "TABLE_4_36",
+      "spec_reference": "Table 4-36",
+      "title": "Card Status",
+      "spec_page": 76,
+      "definition_page": 88,
+      "referenced_on_pages": [
+        72,
+        74,
+        119
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_36.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          86,
+          87,
+          88
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_4_37",
+      "spec_reference": "Table 4-37",
+      "title": "Card Status Field/Command - Cross Reference",
+      "spec_page": 77,
+      "definition_page": 89,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_37.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          89
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table provides a cross-reference showing which Card Status bits (31 through 5) may be set in the R1 response for each SD card command (CMD3 through ACMD51), where 'x' indicates the bit may be affected by that command."
+    },
+    {
+      "id": "TABLE_4_38",
+      "spec_reference": "Table 4-38",
+      "title": "SD Status",
+      "spec_page": 78,
+      "definition_page": 90,
+      "referenced_on_pages": [
+        66,
+        127
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_38.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          90
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SD Status register fields for SD Memory Cards, including bit positions, identifiers, types, values, and descriptions for status information such as bus width, security mode, card type, speed class, and various size/timing parameters."
+    },
+    {
+      "id": "TABLE_4_39",
+      "spec_reference": "Table 4-39",
+      "title": "Speed Class Code Field",
+      "spec_page": 79,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_39.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the Speed Class Code Field values (00h-FFh) and their corresponding SD card speed class definitions (Class 0 through Class 10, with remaining values reserved)."
+    },
+    {
+      "id": "TABLE_4_40",
+      "spec_reference": "Table 4-40",
+      "title": "Performance Move Field",
+      "spec_page": 79,
+      "definition_page": 91,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_40.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          91
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-40 defines the PERFORMANCE_MOVE field values for SD cards, mapping hexadecimal codes (00h-FFh) to performance move speeds ranging from Sequential Write to 254 MB/sec, with FFh indicating infinity."
+    },
+    {
+      "id": "TABLE_4_41",
+      "spec_reference": "Table 4-41",
+      "title": "AU_SIZE Field",
+      "spec_page": 80,
+      "definition_page": 92,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_41.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          92
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the AU_SIZE field values (0h-Fh) and their corresponding Allocation Unit sizes ranging from 16 KB to 64 MB for SD card storage."
+    },
+    {
+      "id": "TABLE_4_42",
+      "spec_reference": "Table 4-42",
+      "title": "Maximum AU size",
+      "spec_page": 80,
+      "definition_page": 92,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_42.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          92
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the maximum Allocation Unit (AU) size for SD cards based on their storage capacity, ranging from 512 KB for cards up to 64MB to 64MB for cards up to 2TB."
+    },
+    {
+      "id": "TABLE_4_43",
+      "spec_reference": "Table 4-43",
+      "title": "Erase Size Field",
+      "spec_page": 80,
+      "definition_page": 92,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_43.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          92
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-43 defines the ERASE_SIZE field values, a 16-bit field indicating the number of Allocation Units (AUs) from 0 to 65535 that can be erased in one operation, with 0000h indicating erase timeout calculation is not supported."
+    },
+    {
+      "id": "TABLE_4_44",
+      "spec_reference": "Table 4-44",
+      "title": "Erase Timeout Field",
+      "spec_page": 81,
+      "definition_page": 93,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_44.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          93
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the ERASE_TIMEOUT field values (00-63) and their corresponding erase timeout durations in seconds, where 00 indicates timeout calculation is not supported and values 01-63 represent 1-63 seconds respectively."
+    },
+    {
+      "id": "TABLE_4_45",
+      "spec_reference": "Table 4-45",
+      "title": "Erase Offset Field",
+      "spec_page": 81,
+      "definition_page": 93,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_45.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          93
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 4-45 defines the ERASE_OFFSET field values (0h-3h) and their corresponding time definitions in seconds (0-3 sec) used to adjust the erase offset by moving in parallel on the upper side."
+    },
+    {
+      "id": "TABLE_4_46",
+      "spec_reference": "Table 4-46",
+      "title": "UHS_ SPEED_GRADE Field",
+      "spec_page": 82,
+      "definition_page": 94,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_46.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          94
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the UHS_SPEED_GRADE field values for indicating UHS mode Speed Grade, where 0h represents less than 10MB/sec, 1h represents 10MB/sec and above, and values 2h-Fh are reserved for future speed grades."
+    },
+    {
+      "id": "TABLE_4_47",
+      "spec_reference": "Table 4-47",
+      "title": "UHS_AU_SIZE Field",
+      "spec_page": 82,
+      "definition_page": 94,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_4_47.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          94
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the UHS_AU_SIZE field values for UHS-I SD cards, mapping hexadecimal codes (0h-Fh) to Allocation Unit sizes ranging from 1 MB to 64 MB."
+    },
+    {
+      "id": "TABLE_5_1",
+      "spec_reference": "Table 5-1",
+      "title": "OCR Register Definition",
+      "spec_page": 92,
+      "definition_page": 104,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          103,
+          104
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This page contains only the introductory text for the Card Registers section and does not include the OCR Register Definition table (Table 5-1), which appears on a later page."
+    },
+    {
+      "id": "TABLE_5_2",
+      "spec_reference": "Table 5-2",
+      "title": "The CID Fields",
+      "spec_page": 93,
+      "definition_page": 105,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          105,
+          106
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the structure of the 128-bit Card IDentification (CID) register fields for SD Memory Cards, including manufacturer ID, product information, serial number, and CRC checksum with their respective bit widths and positions."
+    },
+    {
+      "id": "TABLE_5_3",
+      "spec_reference": "Table 5-3",
+      "title": "CSD Register Structure",
+      "spec_page": 95,
+      "definition_page": 107,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          106,
+          107
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": ""
+    },
+    {
+      "id": "TABLE_5_4",
+      "spec_reference": "Table 5-4",
+      "title": "The CSD Register Fields (CSD Version 1.0)",
+      "spec_page": 96,
+      "definition_page": 108,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          108
+        ],
+        "multi_page": false,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the CSD (Card Specific Data) Register fields for CSD Version 1.0, specifying bit positions, access types, field names, and descriptions for SD card configuration parameters including timing, capacity, protection, and format information."
+    },
+    {
+      "id": "TABLE_5_5",
+      "spec_reference": "Table 5-5",
+      "title": "TAAC Access Time Definition",
+      "spec_page": 97,
+      "definition_page": 109,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          109
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the TAAC (asynchronous access time) bit field encoding for SD card CSD registers, specifying time unit codes in bits 2:0 and time value multipliers in bits 6:3."
+    },
+    {
+      "id": "TABLE_5_6",
+      "spec_reference": "Table 5-6",
+      "title": "Maximum Data Transfer Rate Definition",
+      "spec_page": 97,
+      "definition_page": 109,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          109
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-6 defines the TRAN_SPEED register bit fields for encoding the maximum data transfer rate per data line on SD Memory Cards, including transfer rate units and time value multipliers."
+    },
+    {
+      "id": "TABLE_5_7",
+      "spec_reference": "Table 5-7",
+      "title": "Supported Card Command Classes",
+      "spec_page": 98,
+      "definition_page": 110,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_7.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          110
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 5-7 defines the mapping between CCC (Card Command Class) register bits 0-11 and their corresponding supported command classes (class 0 through class 11) for SD Memory Cards."
+    },
+    {
+      "id": "TABLE_5_8",
+      "spec_reference": "Table 5-8",
+      "title": "Data Block Length",
+      "spec_page": 98,
+      "definition_page": 110,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_8.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          110
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-8 defines the mapping between READ_BL_LEN register values and the corresponding data block lengths in bytes for SD Memory Card read operations."
+    },
+    {
+      "id": "TABLE_5_9",
+      "spec_reference": "Table 5-9",
+      "title": "DSR Implementation Code Table",
+      "spec_page": 99,
+      "definition_page": 111,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_9.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          111
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the DSR_IMP bit values that indicate whether a configurable driver stage register (DSR) is implemented on an SD card, with 0 meaning no DSR and 1 meaning DSR is implemented."
+    },
+    {
+      "id": "TABLE_5_10",
+      "spec_reference": "Table 5-10",
+      "title": "VDD, min Current Consumption",
+      "spec_page": 99,
+      "definition_page": 111,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_10.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          111
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-10 defines the 3-bit encoding for VDD_R_CURR_MIN and VDD_W_CURR_MIN fields, which specify maximum read and write current consumption values at minimal power supply voltage, ranging from 0.5mA to 100mA."
+    },
+    {
+      "id": "TABLE_5_11",
+      "spec_reference": "Table 5-11",
+      "title": "VDD, max Current Consumption",
+      "spec_page": 99,
+      "definition_page": 111,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_11.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          111
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-11 defines the encoding for VDD_R_CURR_MAX and VDD_W_CURR_MAX fields (bits 2:0), which specify the maximum read and write current consumption values at maximal power supply VDD, ranging from 1mA to 200mA."
+    },
+    {
+      "id": "TABLE_5_12",
+      "spec_reference": "Table 5-12",
+      "title": "Multiply Factor for the Device Size",
+      "spec_page": 100,
+      "definition_page": 112,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_12.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          112
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-12 defines the multiply factor (MULT) values for computing total SD card device size, where C_SIZE_MULT values 0-7 correspond to multiplication factors of 4 to 512 (powers of 2 from 2² to 2⁹)."
+    },
+    {
+      "id": "TABLE_5_13",
+      "spec_reference": "Table 5-13",
+      "title": "R2W_FACTOR",
+      "spec_page": 101,
+      "definition_page": 113,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_13.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          113
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the R2W_FACTOR field values (0-7) and their corresponding multiples of read access time used to calculate typical block program time for SD memory cards."
+    },
+    {
+      "id": "TABLE_5_14",
+      "spec_reference": "Table 5-14",
+      "title": "Data Block Length",
+      "spec_page": 101,
+      "definition_page": 113,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_14.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          113
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the mapping between WRITE_BL_LEN register values and the corresponding maximum write data block lengths for SD Memory Cards, ranging from 512 to 2048 bytes."
+    },
+    {
+      "id": "TABLE_5_15",
+      "spec_reference": "Table 5-15",
+      "title": "File Formats",
+      "spec_page": 102,
+      "definition_page": 114,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_15.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          114
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-15 defines the file format types supported on SD cards based on combinations of FILE_FORMAT_GRP and FILE_FORMAT field values, including partition table formats, DOS FAT, Universal File Format, and reserved entries."
+    },
+    {
+      "id": "TABLE_5_16",
+      "spec_reference": "Table 5-16",
+      "title": "The CSD Register Fields (CSD Version 2.0)",
+      "spec_page": 103,
+      "definition_page": 115,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_16.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          115,
+          116,
+          117
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This table defines the CSD (Card Specific Data) register fields for CSD Version 2.0, which applies to SDHC and SDXC memory cards and contains card-specific information including capacity, transfer speed, and write protection settings."
+    },
+    {
+      "id": "TABLE_5_17",
+      "spec_reference": "Table 5-17",
+      "title": "The SCR Fields",
+      "spec_page": 106,
+      "definition_page": 118,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_17.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          116,
+          117,
+          118
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This page contains descriptive text about SCR fields but does not show the actual Table 5-17 \"The SCR Fields\" in tabular format."
+    },
+    {
+      "id": "TABLE_5_18",
+      "spec_reference": "Table 5-18",
+      "title": "SCR Register Structure Version",
+      "spec_page": 106,
+      "definition_page": 118,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_18.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          116,
+          117,
+          118
+        ],
+        "multi_page": true,
+        "hint_applied": "register_fields"
+      },
+      "abstract": "This page does not contain Table 5-18 \"SCR Register Structure Version\" - it contains descriptive text about various CSD/SCR register fields (TAAC, NSAC, TRAN_SPEED, CCC, READ_BL_LEN, READ_BL_PARTIAL, WRITE_BLK_MISALIGN, READ_BLK_MISALIGN, DSR_IMP, C_SIZE) but no actual table structure is present on this page."
+    },
+    {
+      "id": "TABLE_5_19",
+      "spec_reference": "Table 5-19",
+      "title": "Physical Layer Specification Version",
+      "spec_page": 107,
+      "definition_page": 119,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_19.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          119
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-19 maps SD_SPEC register values (0-15) to their corresponding Physical Layer Specification version numbers for SD memory cards."
+    },
+    {
+      "id": "TABLE_5_20",
+      "spec_reference": "Table 5-20",
+      "title": "CPRM Security Version",
+      "spec_page": 108,
+      "definition_page": 120,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_20.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          120
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SD_SECURITY field values (0-7) that indicate the CPRM Security Specification Version for different SD card capacity types, including SDSC, SDHC, and SDXC cards."
+    },
+    {
+      "id": "TABLE_5_21",
+      "spec_reference": "Table 5-21",
+      "title": "SD Memory Card Supported Bus Widths",
+      "spec_page": 108,
+      "definition_page": 120,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_21.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          120
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SD_BUS_WIDTHS field bits that indicate which DAT bus widths (1-bit or 4-bit) are supported by an SD Memory Card."
+    },
+    {
+      "id": "TABLE_5_22",
+      "spec_reference": "Table 5-22",
+      "title": "Extended Security",
+      "spec_page": 109,
+      "definition_page": 121,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_22.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          121
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "Table 5-22 defines the EX_SECURITY field values indicating whether Extended Security is supported and references the Part 3 Security Specification for detailed field values."
+    },
+    {
+      "id": "TABLE_5_23",
+      "spec_reference": "Table 5-23",
+      "title": "Command Support Bits",
+      "spec_page": 109,
+      "definition_page": 121,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_5_23.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          121
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 5-23 defines the Command Support Bits in SCR bits 33-32, indicating support for CMD23 (Set Block Count) mandatory for UHS104 cards and CMD20 (Speed Class Control) mandatory for SDXC cards."
+    },
+    {
+      "id": "TABLE_7_1",
+      "spec_reference": "Table 7-1",
+      "title": "Command Format",
+      "spec_page": 121,
+      "definition_page": 133,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_1.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          133
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "Table 7-1 defines the 6-byte SD Memory Card command format structure, showing bit positions, widths, values, and descriptions for the start bit, transmission bit, command index, argument, CRC7, and end bit fields."
+    },
+    {
+      "id": "TABLE_7_2",
+      "spec_reference": "Table 7-2",
+      "title": "Command Classes in SPI Mode",
+      "spec_page": 122,
+      "definition_page": 134,
+      "referenced_on_pages": [
+        121
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_2.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          134,
+          135,
+          136
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table defines the command class categories (CCC bits 0-11) supported by various SD card commands in SPI mode, indicating whether each command is mandatory or optional and which functional class it belongs to (basic, block read/write, erase, write protection, lock card, application specific, I/O mode, or switch)."
+    },
+    {
+      "id": "TABLE_7_3",
+      "spec_reference": "Table 7-3",
+      "title": "Commands and Arguments",
+      "spec_page": 126,
+      "definition_page": 138,
+      "referenced_on_pages": [
+        121,
+        123
+      ],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_3.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          136,
+          137,
+          138
+        ],
+        "multi_page": true,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table lists SD Memory Card commands (CMD0-CMD27) with their SPI mode support, arguments, response types, abbreviations, and functional descriptions for card interface operations."
+    },
+    {
+      "id": "TABLE_7_4",
+      "spec_reference": "Table 7-4",
+      "title": "Application Specific Commands used/reserved by SD Memory Card - SPI Mode",
+      "spec_page": 127,
+      "definition_page": 139,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_4.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          139
+        ],
+        "multi_page": false,
+        "hint_applied": "command_table"
+      },
+      "abstract": "This table lists the application-specific commands (ACMD) used or reserved by SD Memory Cards in SPI mode, including their arguments, response types, abbreviations, and functional descriptions."
+    },
+    {
+      "id": "TABLE_7_5",
+      "spec_reference": "Table 7-5",
+      "title": "Card Operation for CMD8 in SPI Mode",
+      "spec_page": 128,
+      "definition_page": 140,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_5.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          140
+        ],
+        "multi_page": false,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SD card's response behavior for CMD8 command in SPI mode based on different command argument checks including index, VHS (voltage supplied), pattern, and CRC conditions."
+    },
+    {
+      "id": "TABLE_7_6",
+      "spec_reference": "Table 7-6",
+      "title": "SPI Mode Status Bits",
+      "spec_page": 134,
+      "definition_page": 146,
+      "referenced_on_pages": [],
+      "conversion": {
+        "status": "COMPLETED",
+        "csv_file": "intermediates\\tables_csv\\TABLE_7_6.csv",
+        "model": "claude-opus-4-5-20251101",
+        "pages_used": [
+          146,
+          147,
+          148
+        ],
+        "multi_page": true,
+        "hint_applied": null
+      },
+      "abstract": "This table defines the SPI mode status bits for SD cards, including their identifiers, response types, values, descriptions, and clear conditions for various card states and error conditions."
+    }
+  ]
+}

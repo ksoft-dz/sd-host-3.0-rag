@@ -1,0 +1,53 @@
+@startuml
+!define REGISTER_WIDTH 32
+
+skinparam rectangle {
+    BackgroundColor<<reserved>> LightGray
+    BackgroundColor<<field>> White
+}
+
+rectangle "Maximum Current Capabilities Register (Offset 048h)" {
+    rectangle "D63" as D63
+    rectangle "D32" as D32_label
+    
+    rectangle "Rsvd" <<reserved>> as Rsvd_upper
+    
+    rectangle "D31" as D31
+    rectangle "D24" as D24
+    rectangle "D23" as D23
+    rectangle "D16" as D16
+    rectangle "D15" as D15
+    rectangle "D08" as D08
+    rectangle "D07" as D07
+    rectangle "D00" as D00
+    
+    rectangle "Rsvd" <<reserved>> as Rsvd_lower
+    rectangle "Maximum Current for 1.8V" <<field>> as Max18V
+    rectangle "Maximum Current for 3.0V" <<field>> as Max30V
+    rectangle "Maximum Current for 3.3V" <<field>> as Max33V
+}
+
+note right of Max18V
+  Bits 23-16: HwInit
+  Maximum Current for 1.8V
+end note
+
+note right of Max30V
+  Bits 15-08: HwInit
+  Maximum Current for 3.0V
+end note
+
+note right of Max33V
+  Bits 07-00: HwInit
+  Maximum Current for 3.3V
+end note
+
+note left of Rsvd_upper
+  Bits 63-56: Reserved
+  Bits 55-48: Reserved
+  Bits 47-40: Reserved
+  Bits 39-32: Reserved
+  Bits 31-24: Reserved
+end note
+
+@enduml

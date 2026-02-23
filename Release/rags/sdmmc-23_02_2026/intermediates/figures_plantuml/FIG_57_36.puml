@@ -1,0 +1,68 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontName Monospaced
+
+map "ADMAERRSTS (Offset: 0x0054)" as reg {
+    Access => Read
+}
+
+rectangle "8-bit Register Layout" {
+    rectangle "Bit 7\nADMAERRSTS_\nADMAERRORSTATE" as bit7
+    rectangle "Bit 6" as bit6
+    rectangle "Bit 5\nADMAERRSTS_\nADMALENMISMATCHERR" as bit5
+    rectangle "Bit 4" as bit4
+    rectangle "Bit 3" as bit3
+    rectangle "Bit 2" as bit2
+    rectangle "Bit 1" as bit1
+    rectangle "Bit 0" as bit0
+}
+
+note bottom of bit7
+  R: -
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit6
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit5
+  R: -
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit4
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit3
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit2
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit1
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+note bottom of bit0
+  R: 0
+  W: -
+  Reset: 0
+end note
+
+@enduml

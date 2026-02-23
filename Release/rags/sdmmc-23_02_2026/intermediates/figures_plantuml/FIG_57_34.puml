@@ -1,0 +1,28 @@
+@startuml
+skinparam monochrome true
+skinparam defaultFontSize 10
+
+title Figure 1863. Force event for auto CMD error status register\n(FORCEEVENTFORAUTOCMDERRSTS)
+
+map "FORCEEVENTFORAUTOCMDERRSTS (Offset: 0x0050)" as REG {
+    Access => Write only
+}
+
+rectangle "16-bit Register Layout" {
+    rectangle "Bit 15-14\nFORCEAUTOCMD\nNOTEXEC" as B15_14
+    rectangle "Bit 13\nFORCEAUTOCMD\nTIMEOUTERR" as B13
+    rectangle "Bit 12\nFORCEAUTOCMD\nCRCERR" as B12
+    rectangle "Bit 11\nFORCEAUTOCMD\nENDBITERR" as B11
+    rectangle "Bit 10\nFORCEAUTOCMD\nINDEXERR" as B10
+    rectangle "Bit 9\nReserved\n(0)" as B9
+    rectangle "Bit 8\nFORCECMDNOTISSUED\nBYAUTOCMD12ERR" as B8
+    rectangle "Bit 7-0\nReserved\n(0)" as B7_0
+}
+
+note bottom
+  R (Read):  All bits read as 0
+  W (Write): Write 1 to set corresponding error bit
+  Reset:     All bits reset to 0
+end note
+
+@enduml

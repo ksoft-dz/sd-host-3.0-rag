@@ -1,0 +1,9 @@
+Field,Description
+"0
+BLKGAPCTRL_BOOTACKENA","To check for the boot acknowledge in boot operation.
+1 Wait for boot ack from eMMC card
+0 Will not wait for boot ack from eMMC card"
+"1
+BLKGAPCTRL_ALTBOOTMODE","To start boot code access in alternative mode.
+1 To start alternate boot mode access
+0 To stop alternate boot mode access"

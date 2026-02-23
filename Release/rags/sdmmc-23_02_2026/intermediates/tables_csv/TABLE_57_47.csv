@@ -1,0 +1,2 @@
+Field,Description
+"0:31 BOOT_TIMEOUTCNT","Boot data timeout counter value. This value determines the interval by which DAT line timeouts are detected during boot operation for eMMC card. The value is in number of sdmmccard_clk clock. Note: SoC does not support Execute In Place from eMMC."

@@ -1,0 +1,33 @@
+@startuml
+!define RECTANGLE rectangle
+
+skinparam rectangle {
+    BackgroundColor<<system>> White
+    BackgroundColor<<hostif>> LightBlue
+    BackgroundColor<<buffer>> Orange
+    BackgroundColor<<register>> Yellow
+    BackgroundColor<<cmd>> LightGreen
+    BackgroundColor<<dat>> LightGreen
+}
+
+RECTANGLE "System Bus\nInterface" as SystemBus <<system>>
+
+package "Buffer Interface" {
+    RECTANGLE "Host IF\n(DMA)" as HostIF <<hostif>>
+    RECTANGLE "Buffer" as Buffer <<buffer>>
+    RECTANGLE "Register\nSet" as RegisterSet <<register>>
+    RECTANGLE "CMD\nControl" as CMDControl <<cmd>>
+    RECTANGLE "DAT\nControl" as DATControl <<dat>>
+}
+
+RECTANGLE "SD Bus\nInterface" as SDBus <<system>>
+
+SystemBus <--> HostIF
+HostIF <--> Buffer
+HostIF --> RegisterSet
+Buffer <--> CMDControl
+Buffer <--> DATControl
+CMDControl <--> SDBus : CMD
+DATControl <--> SDBus : DAT[3:0]
+
+@enduml

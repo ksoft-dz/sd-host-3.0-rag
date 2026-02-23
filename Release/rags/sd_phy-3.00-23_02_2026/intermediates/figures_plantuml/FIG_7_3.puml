@@ -1,0 +1,38 @@
+@startuml
+skinparam defaultTextAlignment center
+
+concise "DataIn" as DI
+concise "DataOut" as DO
+
+@0
+DI is {-}
+
+@50
+DI is "command"
+note top of DI : from\nhost\nto card
+
+@150
+DI is {-}
+
+@450
+DI is "command"
+note top of DI : Next\nCommand
+
+@0
+DO is {-}
+
+@150
+DO is "response"
+note top of DO : from\ncard\nto host
+
+@250
+DO is "data block"
+note top of DO : data from card\nto host
+
+@400
+DO is "CRC"
+
+@450
+DO is {-}
+
+@enduml

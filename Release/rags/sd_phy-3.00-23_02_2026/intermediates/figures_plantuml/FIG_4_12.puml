@@ -1,0 +1,48 @@
+@startuml
+skinparam rectangleBackgroundColor white
+skinparam componentBackgroundColor white
+
+rectangle "CRC7 Generator/Checker" {
+    
+    ' Input
+    label "data in" as din
+    
+    ' XOR gate at input
+    circle " " as xor1
+    note right of xor1 : ⊕
+    
+    ' Shift register stages (7 bits for CRC7)
+    rectangle "D" as d0
+    rectangle "D" as d1
+    rectangle "D" as d2
+    
+    ' Middle XOR gate
+    circle " " as xor2
+    note bottom of xor2 : ⊕
+    
+    rectangle "D" as d3
+    rectangle "D" as d4
+    rectangle "D" as d5
+    rectangle "D" as d6
+    
+    ' Output
+    label "data out" as dout
+    
+    ' Connections - main shift register path
+    din --> xor1
+    xor1 --> d0
+    d0 --> d1
+    d1 --> d2
+    d2 --> xor2
+    xor2 --> d3
+    d3 --> d4
+    d4 --> d5
+    d5 --> d6
+    d6 --> dout
+    
+    ' Feedback path from output back to XOR gates
+    d6 -down-> xor1 : feedback
+    d6 -down-> xor2 : feedback
+}
+
+@enduml

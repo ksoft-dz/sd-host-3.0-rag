@@ -1,0 +1,29 @@
+@startuml
+skinparam monochrome true
+
+map "AUTOCMDERRSTS (0x003C) - Auto CMD error status enable register" as REG {
+  15 => AUTOCMDERRSTS_NOTEXECERROR
+  14 => AUTOCMDERRSTS_TIMEOUTERROR
+  13 => AUTOCMDERRSTS_CRCERROR
+  12 => AUTOCMDERRSTS_ENDBITERROR
+  11 => AUTOCMDERRSTS_INDEXERROR
+  10 => Reserved (0)
+  9 => Reserved (0)
+  8 => AUTOCMDERRSTS_NEXTERROR
+  7 => Reserved (0)
+  6 => Reserved (0)
+  5 => Reserved (0)
+  4 => Reserved (0)
+  3 => Reserved (0)
+  2 => Reserved (0)
+  1 => Reserved (0)
+  0 => Reserved (0)
+}
+
+note bottom of REG
+  Access: Read
+  Offset: 0x003C
+  Reset value: 0x0000
+  R = Read, W = Write
+end note
+@enduml

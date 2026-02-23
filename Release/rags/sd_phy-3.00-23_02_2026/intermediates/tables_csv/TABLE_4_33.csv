@@ -1,0 +1,4 @@
+Bit position,47,46,[45:40],[39:8] Argument field,,[7:1],0
+Width (bits),1,1,6,16,16,7,1
+Value,'0','0',x,x,x,x,'1'
+Description,start bit,transmission bit,"command index ('000011')","New published RCA [31:16] of the card","[15:0] card status bits: 23,22,19,12:0 (see Table 4-36)",CRC7,end bit

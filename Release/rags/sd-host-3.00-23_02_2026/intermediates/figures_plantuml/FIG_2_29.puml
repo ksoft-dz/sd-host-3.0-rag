@@ -1,0 +1,35 @@
+@startuml
+start
+
+partition "Tuning Procedure" {
+  :Start of Tuning
+  Set Execute Tuning = 1;
+  :Issue CMD19;
+  :Wait until
+  Buffer Read Ready;
+  :Clear Buffer Read Ready;
+  if (Check\nExecute Tuning) then (= 1)
+    if (Check\nSampling Clock Select) then (= 0)
+      :Tuning Failed;
+      stop
+    else (= 1)
+      :Tuning Completed;
+      stop
+    endif
+  else (= 0)
+    if (Check\nSampling Clock Select) then (= 0)
+      :Tuning Failed;
+      stop
+    else (= 1)
+      :Tuning Completed;
+      stop
+    endif
+  endif
+}
+
+partition "Tuning Error Recovery" {
+  :Reset Tuning Circuit
+  Set Sampling Clock Select = 0;
+}
+
+@enduml

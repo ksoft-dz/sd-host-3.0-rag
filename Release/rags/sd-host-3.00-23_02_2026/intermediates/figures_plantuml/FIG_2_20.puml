@@ -1,0 +1,53 @@
+@startuml
+!define REGISTER_WIDTH 8
+
+rectangle "Software Reset Register (Offset 02Fh)" {
+  
+  package "Bit Layout" {
+    rectangle "D07-D03\nRsvd" as rsvd #lightgray
+    rectangle "D02\nSoftware Reset For\nDAT Line" as dat
+    rectangle "D01\nSoftware Reset For\nCMD Line" as cmd
+    rectangle "D00\nSoftware Reset For\nAll" as all
+  }
+  
+  rsvd -right- dat
+  dat -right- cmd
+  cmd -right- all
+}
+
+note right of dat
+  **Software Reset For DAT Line (RWAC)**
+  Only part of data circuit is reset.
+  DMA circuit is also reset.
+  
+  **Cleared registers/bits:**
+  • Buffer Data Port register
+  • Present State register bits:
+    - Buffer Read Enable
+    - Buffer Write Enable
+    - Read Transfer Active
+    - Write Transfer Active
+    - DAT Line Active
+    - Command Inhibit (DAT)
+  • Block Gap Control register bits:
+    - Continue Request
+    - Stop At Block Gap Request
+  • Normal Interrupt Status register bits:
+    - Buffer Read Ready
+    - Buffer Write Ready
+    - DMA Interrupt
+    - Block Gap Event
+    - Transfer Complete
+  
+  **Values:**
+  1 = Reset
+  0 = Work
+end note
+
+note right of rsvd
+  Location: 07-03
+  Attribute: Rsvd
+  Reserved
+end note
+
+@enduml

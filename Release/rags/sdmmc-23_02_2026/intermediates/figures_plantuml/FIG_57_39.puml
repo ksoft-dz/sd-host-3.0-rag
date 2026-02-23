@@ -1,0 +1,50 @@
+@startuml
+skinparam monochrome true
+
+map "CORE_CONFIG Register (Offset: 0x0208)" as reg {
+  Access => Read/Write
+}
+
+rectangle "Bits 31-24" as upper {
+  rectangle "31" as b31
+  rectangle "30" as b30
+  rectangle "29" as b29
+  rectangle "28" as b28
+  rectangle "27" as b27
+  rectangle "26" as b26
+  rectangle "25" as b25
+  rectangle "24" as b24
+}
+
+rectangle "Bits 23-16" as uppermid {
+  rectangle "23" as b23
+  rectangle "22" as b22
+  rectangle "21" as b21
+  rectangle "20" as b20
+  rectangle "19" as b19
+  rectangle "18" as b18
+  rectangle "17" as b17
+  rectangle "16" as b16
+}
+
+note bottom of upper
+  R/W: BASECLKFREQ_SDMMC_CLK (bits 31-24 = 0)
+  Reset: 0
+end note
+
+rectangle "Bits 15-0" as lower {
+  rectangle "15: CORECFG_ADMA2SUPPORT" as b15
+  rectangle "14: CORECFG_ASYNCHINTRSUPPORT" as b14
+  rectangle "13-12: CORECFG_SLOTTYPE" as b13_12
+  rectangle "11-0: MAXCURRENT_3P3V" as b11_0
+}
+
+note bottom of lower
+  Reset values:
+  Bit 15 (CORECFG_ADMA2SUPPORT): 0
+  Bit 14 (CORECFG_ASYNCHINTRSUPPORT): 1
+  Bits 13-12 (CORECFG_SLOTTYPE): 0
+  Bits 11-0 (MAXCURRENT_3P3V): 0
+end note
+
+@enduml

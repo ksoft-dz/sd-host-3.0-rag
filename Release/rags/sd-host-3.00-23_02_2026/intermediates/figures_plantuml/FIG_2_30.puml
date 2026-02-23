@@ -1,0 +1,46 @@
+@startuml
+!define REGISTER_WIDTH 32
+
+rectangle "Capabilities Register (Offset 040h)" {
+  
+  package "Bits 63-32" {
+    rectangle "D63-D56\nRsvd" as D63_56
+    rectangle "D55\nRsvd" as D55
+    rectangle "D48\nClock Multiplier" as D48
+    rectangle "D47-D46\nRe-Tuning Modes" as D47_46
+    rectangle "D45\nUse Tuning for SDR50" as D45
+    rectangle "D44\nRsvd" as D44
+    rectangle "D43-D40\nTimer Count for\nRe-Tuning" as D43_40
+    rectangle "D39\nRsvd" as D39
+    rectangle "D38\nDriver Type D Support" as D38
+    rectangle "D37\nDriver Type C Support" as D37
+    rectangle "D36\nDriver Type A Support" as D36
+    rectangle "D35\nRsvd" as D35
+    rectangle "D34\nDDR50 Support" as D34
+    rectangle "D33\nSDR104 Support" as D33
+    rectangle "D32\nSDR50 Support" as D32
+  }
+  
+  package "Bits 31-0" {
+    rectangle "D31\nSlot Type" as D31
+    rectangle "D30\nAsynchronous Interrupt\nSupport" as D30
+    rectangle "D29\n64-bit System Bus\nSupport" as D29
+    rectangle "D28\nRsvd" as D28
+    rectangle "D27\nVoltage Support 1.8V" as D27
+    rectangle "D26\nVoltage Support 3.0V" as D26
+    rectangle "D25\nVoltage Support 3.3V" as D25
+    rectangle "D24\nSuspend/Resume\nSupport" as D24
+    rectangle "D23\nSDMA Support" as D23
+    rectangle "D22\nHigh Speed Support" as D22
+    rectangle "D21\nRsvd" as D21
+    rectangle "D20\nADMA2 Support" as D20
+    rectangle "D19\n8-bit Support for\nEmbedded Device" as D19
+    rectangle "D18-D16\nMax Block Length" as D18_16
+    rectangle "D15-D08\nBase Clock Frequency\nFor SD Clock" as D15_08
+    rectangle "D07\nTimeout Clock Unit" as D07
+    rectangle "D06\nRsvd" as D06
+    rectangle "D05-D00\nTimeout Clock\nFrequency" as D05_00
+  }
+}
+
+@enduml

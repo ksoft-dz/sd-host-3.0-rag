@@ -1,0 +1,47 @@
+@startuml
+title Figure 7-7: Multiple Block Write Operation
+
+concise "DataIn" as DI
+concise "DataOut" as DO
+
+@0
+DI is "command"
+DO is {-}
+
+@100
+DI is {-}
+DO is "response"
+
+@200
+DI is "data block"
+DO is {-}
+
+@350
+DI is {-}
+DO is "data_response"
+
+@450
+DI is {-}
+DO is "busy"
+
+@550
+DI is {-}
+DO is {-}
+
+@650
+DI is "command"
+DO is "busy"
+
+@750
+DI is {-}
+DO is {-}
+
+note top of DI @ 0 : from\nhost\nto card
+note top of DI @ 100 : from\ncard\nto host
+note top of DI @ 200 : Start\nBlock\nToken
+note top of DI @ 280 : data from\nhost\nto card
+note top of DI @ 400 : Data\nresponse and\nbusy from\ncard
+note top of DI @ 550 : Stop\nTran\nToken
+note top of DI @ 650 : new command\nfrom host
+
+@enduml

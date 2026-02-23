@@ -1,0 +1,7 @@
+@startuml
+I don't see a figure labeled "Figure 6-1" (SDIO Internal Map) in this image. The page contains text from the SDIO Simplified Specification Version 3.00, covering sections 6.4 through 6.7, but the actual Figure 6-1 that is referenced in section 6.7 ("Figure 6-1 shows the internal map of an SDIO card with multiple functions") is not displayed on this page.
+
+The figure is mentioned at the end of section 6.7, suggesting it likely appears on the following page (page 42).
+
+If you have the next page of the document that contains Figure 6-1, I would be happy to transcribe it into PlantUML format.
+@enduml

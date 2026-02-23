@@ -1,0 +1,133 @@
+@startuml
+robust "CMD" as CMD
+robust "DAT0-7" as DAT
+
+@0
+CMD is "Z"
+DAT is "Z"
+
+@1
+CMD is "CMD0"
+
+@2
+CMD is "Z"
+DAT is "Z"
+
+@3
+DAT is "***"
+
+@4
+DAT is "Z"
+
+@5
+DAT is "S"
+
+@6
+DAT is "0"
+
+@7
+DAT is "1"
+
+@8
+DAT is "0"
+
+@9
+DAT is "E"
+
+@10
+DAT is "P"
+
+@11
+DAT is "***"
+
+@12
+DAT is "P"
+
+@13
+DAT is "S"
+
+@14
+DAT is "512 bytes + CRC"
+
+@15
+DAT is "E"
+
+@16
+DAT is "P"
+
+@17
+DAT is "***"
+
+@18
+DAT is "P"
+
+@19
+DAT is "S"
+
+@20
+DAT is "512 bytes + CRC"
+
+@21
+DAT is "E"
+
+@22
+DAT is "P"
+
+@23
+DAT is "P"
+
+@24
+DAT is "P"
+
+@25
+DAT is "Z"
+
+@26
+DAT is "Z"
+
+@27
+DAT is "Z"
+
+@28
+DAT is "Z"
+
+@29
+DAT is "****"
+
+@30
+CMD is "***"
+
+@35
+CMD is "CMD0"
+
+@36
+CMD is "Z"
+
+@37
+CMD is "Z"
+
+@38
+CMD is "Z"
+
+@39
+CMD is "S"
+
+@40
+CMD is "T"
+
+@41
+CMD is "CMD1"
+
+note bottom of DAT
+  tBA → Optional
+  tBD
+  ←NAC→
+  NSTNote 2
+end note
+
+note right of CMD
+  Boot operation
+  complete
+end note
+
+@enduml
