@@ -1,0 +1,1268 @@
+{
+  "_metadata": {
+    "source": "Ux500 MSP I2S Controller — DB8500 SoC (Linux kernel driver source analysis)",
+    "extraction_date": "2026-02-24T16:05:42Z",
+    "total_features": 20,
+    "total_hd_sequences": 6,
+    "total_relations": 18,
+    "linux_driver_coverage_summary": {
+      "implemented": 16,
+      "partial": 2,
+      "not_implemented": 2
+    },
+    "driver_sources": {
+      "low_level": "ux500-msp-i2s.c (578 lines)",
+      "low_level_header": "ux500-msp-i2s.h (430 lines)",
+      "dai_wrapper": "ux500_msp_dai.c (825 lines)",
+      "dai_header": "ux500_msp_dai.h (67 lines)",
+      "kernel_path": "sound/soc/ux500/"
+    }
+  },
+  "features": [
+    {
+      "id": "F_I2S_MODE",
+      "type": "FEATURE",
+      "name": "I2S Protocol Mode",
+      "description": "## I2S Protocol Mode (F_I2S_MODE)\n\nI2S (Inter-IC Sound) protocol support. Single-phase, MSB-first, 1-bit data delay, frame sync active-low. Default element length 32-bit, stereo frame of 32 bit clocks. This is the primary audio protocol mode.",
+      "groups": [
+        "protocol",
+        "audio"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_008",
+        "REG_00C",
+        "REG_010"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "sound",
+        "protocol",
+        "support",
+        "data",
+        "delay",
+        "frame",
+        "sync",
+        "default",
+        "element",
+        "length",
+        "stereo",
+        "clocks",
+        "primary",
+        "audio"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "setup_i2s_protdesc() in ux500_msp_dai.c, MSP_I2S_PROTOCOL case in setup_msp_config(). Default protdesc and explicit protdesc paths both exercised.",
+          "implemented_in": "ux500_msp_dai.c:setup_i2s_protdesc,setup_msp_config; ux500-msp-i2s.c:configure_protocol"
+        }
+      }
+    },
+    {
+      "id": "F_PCM_MODE",
+      "type": "FEATURE",
+      "name": "PCM Protocol Mode",
+      "description": "## PCM Protocol Mode (F_PCM_MODE)\n\nPCM (Pulse Coded Modulation) protocol support. Dual-phase, MSB-first, 0 data delay, frame sync active-high. Default 16-bit elements, 256-clock frame period.",
+      "groups": [
+        "protocol",
+        "audio"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_008",
+        "REG_00C",
+        "REG_010"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "pulse",
+        "coded",
+        "modulation",
+        "protocol",
+        "support",
+        "data",
+        "delay",
+        "frame",
+        "sync",
+        "default",
+        "elements",
+        "period"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "setup_pcm_protdesc() in ux500_msp_dai.c, MSP_PCM_PROTOCOL case in setup_msp_config(). DSP_A and DSP_B formats supported.",
+          "implemented_in": "ux500_msp_dai.c:setup_pcm_protdesc,setup_msp_config; ux500-msp-i2s.c:configure_protocol"
+        }
+      }
+    },
+    {
+      "id": "F_PCM_COMPAND",
+      "type": "FEATURE",
+      "name": "PCM Companded Mode",
+      "description": "## PCM Companded Mode (F_PCM_COMPAND)\n\nCompanded PCM mode with hardware µ-law or A-law compression/expansion. Single-phase, 8-bit elements. Used for voice-band telephony.",
+      "groups": [
+        "protocol",
+        "audio",
+        "companding"
+      ],
+      "priority": "P1",
+      "parent_id": "F_PCM_MODE",
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_008",
+        "REG_00C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "companded",
+        "hardware",
+        "elements",
+        "telephony"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "PARTIAL",
+          "notes": "Low-level driver has protdesc_pcm_compand struct and MSP_PCM_COMPAND_PROTOCOL case in configure_protocol(). But DAI layer never sets msp_config->protocol=MSP_PCM_COMPAND_PROTOCOL. Code path exists but unreachable from ALSA.",
+          "implemented_in": "ux500-msp-i2s.c:configure_protocol (static protdesc_pcm_compand)"
+        }
+      }
+    },
+    {
+      "id": "F_COMPANDING",
+      "type": "FEATURE",
+      "name": "Hardware Companding",
+      "description": "## Hardware Companding (F_COMPANDING)\n\nHardware companding support via the DTYP field in TCF/RCF. Supports linear, µ-law, and A-law modes. Controlled by DCM bit in GCR.",
+      "groups": [
+        "companding"
+      ],
+      "priority": "P1",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_008",
+        "REG_00C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "hardware",
+        "companding",
+        "support",
+        "dtyp",
+        "field",
+        "supports",
+        "linear",
+        "modes",
+        "controlled"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "PARTIAL",
+          "notes": "set_prot_desc_tx/rx writes compression_mode/expansion_mode to TCF/RCF DTYP field. But DAI always passes MSP_COMPRESS_MODE_LINEAR / MSP_EXPAND_MODE_LINEAR. Hardware companding (u-law/A-law) never activated.",
+          "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        }
+      }
+    },
+    {
+      "id": "F_DMA",
+      "type": "FEATURE",
+      "name": "DMA Transfer",
+      "description": "## DMA Transfer (F_DMA)\n\nDMA-based data transfer using the DMACR register. TX and RX DMA can be enabled independently. The driver enables DMA for both directions during the open sequence. DMA base address is MSP_DR (offset 0x00).",
+      "groups": [
+        "data_transfer",
+        "dma"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_018"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "data",
+        "transfer",
+        "using",
+        "dmacr",
+        "register",
+        "enabled",
+        "independently",
+        "driver",
+        "enables",
+        "both",
+        "directions",
+        "during",
+        "open",
+        "sequence",
+        "base",
+        "address",
+        "offset"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "DMACR RDMAE/TDMAE enabled in ux500_msp_i2s_open(), toggled in trigger/close. DMA data configured in ux500_msp_dai_of_probe().",
+          "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_open,disable_msp_tx,disable_msp_rx; ux500_msp_dai.c:ux500_msp_dai_of_probe"
+        }
+      }
+    },
+    {
+      "id": "F_FIFO",
+      "type": "FEATURE",
+      "name": "TX/RX FIFO",
+      "description": "## TX/RX FIFO (F_FIFO)\n\nTransmit and receive FIFOs. 32 entries deep (based on flush loop limit). FIFO enable controlled via RFFEN/TFFEN in GCR. Status available via FLR register (empty/full flags).",
+      "groups": [
+        "data_transfer"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_000",
+        "REG_004",
+        "REG_014"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "transmit",
+        "receive",
+        "fifos",
+        "entries",
+        "deep",
+        "based",
+        "flush",
+        "loop",
+        "limit",
+        "fifo",
+        "enable",
+        "controlled",
+        "status",
+        "available",
+        "register",
+        "flags"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "RFFEN/TFFEN enabled in GCR during open. flush_fifo_rx/tx drain FIFOs during close. FLR register polled for empty/full status.",
+          "implemented_in": "ux500-msp-i2s.c:flush_fifo_rx,flush_fifo_tx,ux500_msp_i2s_open"
+        }
+      }
+    },
+    {
+      "id": "F_DATA_SIZES",
+      "type": "FEATURE",
+      "name": "Configurable Data Sizes",
+      "description": "## Configurable Data Sizes (F_DATA_SIZES)\n\nSupports 8, 10, 12, 14, 16, 20, 24, and 32-bit element sizes. Configured via P1ELEN/P2ELEN in TCF/RCF. Data size affects DR access width.",
+      "groups": [
+        "data_transfer"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_008",
+        "REG_00C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "supports",
+        "element",
+        "sizes",
+        "configured",
+        "data",
+        "size",
+        "affects",
+        "access",
+        "width",
+        "configurable"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "P1ELEN/P2ELEN set in set_prot_desc_tx/rx from protdesc elem_len fields. 16-bit default in most protocols. 32-bit for I2S master.",
+          "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        }
+      }
+    },
+    {
+      "id": "F_CLOCK_GEN",
+      "type": "FEATURE",
+      "name": "Clock Generation",
+      "description": "## Clock Generation (F_CLOCK_GEN)\n\nBuilt-in sample rate generator (SRG) produces bit clock and frame sync. Input clock is APB (48 MHz default). Bit clock = f_input / (SCKDIV+1). Frame sync generated with configurable width and period.",
+      "groups": [
+        "clock"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_010"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "sample",
+        "rate",
+        "generator",
+        "produces",
+        "clock",
+        "frame",
+        "sync",
+        "input",
+        "default",
+        "generated",
+        "configurable",
+        "width",
+        "period",
+        "generation"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "setup_bitclk() calculates SCKDIV from f_inputclk/(frame_freq*clocks_per_frame), writes SRG register. SGEN enabled in GCR. 100us stabilization delays.",
+          "implemented_in": "ux500-msp-i2s.c:setup_bitclk,ux500_msp_i2s_open"
+        }
+      }
+    },
+    {
+      "id": "F_FRAME_SYNC",
+      "type": "FEATURE",
+      "name": "Frame Synchronization",
+      "description": "## Frame Synchronization (F_FRAME_SYNC)\n\nFrame sync generation and detection. Configurable polarity (active high/low), width (FRWID), and period (FRPER). Unexpected frame sync can abort transfer or be ignored (FSIG bit).",
+      "groups": [
+        "clock",
+        "protocol"
+      ],
+      "priority": "P0",
+      "parent_id": "F_CLOCK_GEN",
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_010"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "frame",
+        "sync",
+        "generation",
+        "detection",
+        "configurable",
+        "polarity",
+        "active",
+        "width",
+        "frwid",
+        "period",
+        "frper",
+        "unexpected",
+        "abort",
+        "transfer",
+        "ignored",
+        "fsig",
+        "synchronization"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "FRWID/FRPER configured in setup_bitclk(). FGEN/TFSPEN/RFSPEN enabled in GCR during open. Polarity set via TCF/RCF fsync_pol fields.",
+          "implemented_in": "ux500-msp-i2s.c:setup_bitclk,ux500_msp_i2s_open"
+        }
+      }
+    },
+    {
+      "id": "F_EXT_CLOCK",
+      "type": "FEATURE",
+      "name": "External Clock Input",
+      "description": "## External Clock Input (F_EXT_CLOCK)\n\nMSP can use external bit clock and frame sync instead of internal SRG. Selected via RCKSEL/TCKSEL and RFSSEL/TFSSEL bits in GCR.",
+      "groups": [
+        "clock"
+      ],
+      "priority": "P1",
+      "parent_id": "F_CLOCK_GEN",
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "external",
+        "clock",
+        "frame",
+        "sync",
+        "instead",
+        "internal",
+        "selected",
+        "bits",
+        "input"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "setup_clocking() BC_FC case sets tx_clk_sel=0 (external), rx_clk_sel=0 (external), srg_clk_sel=0x2<<SCKSEL (external clock to SRG). Used when codec provides bus clock.",
+          "implemented_in": "ux500_msp_dai.c:setup_clocking; ux500-msp-i2s.c:ux500_msp_i2s_open"
+        }
+      }
+    },
+    {
+      "id": "F_MULTICHANNEL",
+      "type": "FEATURE",
+      "name": "Multichannel / TDM",
+      "description": "## Multichannel / TDM (F_MULTICHANNEL)\n\nTime-Division Multiplexing (TDM) support. Up to 128 channels (4 x 32-bit enable masks in TCE0-3 and RCE0-3). Only supported in single-phase mode. Per-channel enable/disable for both TX and RX independently.",
+      "groups": [
+        "multichannel"
+      ],
+      "priority": "P1",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_030",
+        "REG_040",
+        "REG_044",
+        "REG_048",
+        "REG_04C",
+        "REG_060",
+        "REG_064",
+        "REG_068",
+        "REG_06C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "multiplexing",
+        "support",
+        "channels",
+        "enable",
+        "masks",
+        "only",
+        "supported",
+        "both",
+        "independently",
+        "multichannel"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "configure_multichannel() writes MCR, TCE0-3, RCE0-3. DAI setup_pcm_multichan() configures TX channel_0 from tx_mask. TDM slot counts 1/2/8/16 supported.",
+          "implemented_in": "ux500-msp-i2s.c:configure_multichannel; ux500_msp_dai.c:setup_pcm_multichan"
+        }
+      }
+    },
+    {
+      "id": "F_RX_COMPARISON",
+      "type": "FEATURE",
+      "name": "RX Data Comparison",
+      "description": "## RX Data Comparison (F_RX_COMPARISON)\n\nReceive data comparison mode. Compares incoming data against RCV value (masked by RCM). Can generate interrupt on match or non-match. Used for channel identification in TDM applications.",
+      "groups": [
+        "multichannel"
+      ],
+      "priority": "P2",
+      "parent_id": "F_MULTICHANNEL",
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_030",
+        "REG_034",
+        "REG_038"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "receive",
+        "data",
+        "comparison",
+        "compares",
+        "incoming",
+        "against",
+        "value",
+        "masked",
+        "generate",
+        "interrupt",
+        "match",
+        "channel",
+        "identification",
+        "applications"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": true,
+        "linux_driver_coverage": {
+          "status": "NOT_IMPLEMENTED",
+          "notes": "Code path exists in configure_multichannel() (ux500-msp-i2s.c) to write RCV/RCM registers, but DAI layer (ux500_msp_dai.c setup_pcm_multichan) always sets rx_comparison_enable_mode=MSP_COMPARISON_DISABLED. Feature is dead code in the Linux ALSA path.",
+          "implemented_in": ""
+        }
+      }
+    },
+    {
+      "id": "F_DUAL_PHASE",
+      "type": "FEATURE",
+      "name": "Dual Phase Protocol",
+      "description": "## Dual Phase Protocol (F_DUAL_PHASE)\n\nDual-phase protocol support via P2EN bit. Phase 1 and phase 2 can have independent element/frame lengths. Phase 2 can start immediately after phase 1 or wait for next frame sync (P2SM bit).",
+      "groups": [
+        "protocol"
+      ],
+      "priority": "P1",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004",
+        "REG_008",
+        "REG_00C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "protocol",
+        "support",
+        "phase",
+        "have",
+        "independent",
+        "lengths",
+        "start",
+        "immediately",
+        "after",
+        "wait",
+        "next",
+        "frame",
+        "sync",
+        "dual"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "configure_protocol() conditionally sets P2EN based on tx/rx_phase_mode. I2S uses DUAL_PHASE (setup_i2s_protdesc), PCM uses SINGLE_PHASE. Phase 2 start mode configurable.",
+          "implemented_in": "ux500-msp-i2s.c:configure_protocol; ux500_msp_dai.c:setup_i2s_protdesc,setup_pcm_protdesc"
+        }
+      }
+    },
+    {
+      "id": "F_LOOPBACK",
+      "type": "FEATURE",
+      "name": "Loopback Mode",
+      "description": "## Loopback Mode (F_LOOPBACK)\n\nInternal loopback mode (LBM bit in GCR). TX output is routed back to RX input internally. Used for self-test and diagnostics without external connections. Also used transiently during shutdown to drain FIFOs.",
+      "groups": [
+        "test",
+        "diagnostics"
+      ],
+      "priority": "P2",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "internal",
+        "loopback",
+        "output",
+        "routed",
+        "back",
+        "input",
+        "internally",
+        "diagnostics",
+        "without",
+        "external",
+        "connections",
+        "transiently",
+        "during",
+        "shutdown",
+        "drain",
+        "fifos"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "LBM bit toggled in ux500_msp_i2s_close() to assist FIFO drain when both TX/RX active (routes TX back to RX). Cleared when done.",
+          "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_close"
+        }
+      }
+    },
+    {
+      "id": "F_SPI_COMPAT",
+      "type": "FEATURE",
+      "name": "SPI Compatibility",
+      "description": "## SPI Compatibility (F_SPI_COMPAT)\n\nSPI-compatible mode with configurable clock mode (SPICKM) and burst mode (SPIBME). Allows MSP to communicate with SPI peripherals.",
+      "groups": [
+        "protocol"
+      ],
+      "priority": "P2",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_004"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "configurable",
+        "clock",
+        "spickm",
+        "burst",
+        "spibme",
+        "allows",
+        "communicate",
+        "peripherals",
+        "compatibility"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": true,
+        "linux_driver_coverage": {
+          "status": "NOT_IMPLEMENTED",
+          "notes": "SPICKM/SPIBME bits defined in header (ux500-msp-i2s.h) but no SPI protocol descriptor or configuration code exists in any .c driver file. No SPI format case in DAI set_dai_fmt or setup_msp_config.",
+          "implemented_in": ""
+        }
+      }
+    },
+    {
+      "id": "F_INTERRUPT",
+      "type": "FEATURE",
+      "name": "Interrupt System",
+      "description": "## Interrupt System (F_INTERRUPT)\n\n8 interrupt sources: RX/TX service, RX overrun, TX underrun, RX/TX frame sync, RX/TX frame sync error. Controlled by IMSC register. Status in RIS (raw) and MIS (masked). Clear via ICR.",
+      "groups": [
+        "interrupt"
+      ],
+      "priority": "P0",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_020",
+        "REG_024",
+        "REG_028",
+        "REG_02C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "interrupt",
+        "sources",
+        "service",
+        "overrun",
+        "underrun",
+        "frame",
+        "sync",
+        "error",
+        "controlled",
+        "imsc",
+        "register",
+        "status",
+        "masked",
+        "clear",
+        "system"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "IMSC masked (all interrupts cleared) in disable_msp_tx/rx. ICR write to clear pending interrupts. Used in trigger stop and close sequences.",
+          "implemented_in": "ux500-msp-i2s.c:disable_msp_tx,disable_msp_rx,ux500_msp_i2s_open"
+        }
+      }
+    },
+    {
+      "id": "F_MULTI_INSTANCE",
+      "type": "FEATURE",
+      "name": "Multiple MSP Instances",
+      "description": "## Multiple MSP Instances (F_MULTI_INSTANCE)\n\nDB8500 SoC has 4 MSP instances: MSP0 at 0x80123000, MSP1 at 0x80124000, MSP2 at 0x80117000, MSP3 at 0x80125000. Each is independently configurable. The driver manages a per-instance state machine (IDLE→CONFIGURED→RUNNING).",
+      "groups": [
+        "platform"
+      ],
+      "priority": "P1",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [],
+      "spec_sections": [],
+      "index_keywords": [
+        "instances",
+        "each",
+        "independently",
+        "configurable",
+        "driver",
+        "manages",
+        "state",
+        "machine",
+        "multiple"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "Platform driver registers per-MSP instance. init_msp() does ioremap of per-instance registers. 4 MSP instances on DB8500 SoC (MSP0-3).",
+          "implemented_in": "ux500-msp-i2s.c:init_msp; ux500_msp_dai.c:ux500_msp_drv_probe"
+        }
+      }
+    },
+    {
+      "id": "F_IO_DELAY",
+      "type": "FEATURE",
+      "name": "I/O Delay Configuration",
+      "description": "## I/O Delay Configuration (F_IO_DELAY)\n\nConfigurable I/O pad delay via IODLY register. Platform-specific value written during open sequence.",
+      "groups": [
+        "platform",
+        "timing"
+      ],
+      "priority": "P2",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_070"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "configurable",
+        "delay",
+        "iodly",
+        "register",
+        "value",
+        "written",
+        "during",
+        "open",
+        "sequence",
+        "configuration"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "IODLY register written with config->iodelay in ux500_msp_i2s_open(). Value set by DAI setup_clocking() (0x20 for slave mode).",
+          "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_open; ux500_msp_dai.c:setup_clocking"
+        }
+      }
+    },
+    {
+      "id": "F_ENDIANNESS",
+      "type": "FEATURE",
+      "name": "Configurable Endianness",
+      "description": "## Configurable Endianness (F_ENDIANNESS)\n\nByte order configurable per direction (TX/RX) via ENDN bit in TCF/RCF. Also supports byte/half-word swap via TBSWAP field.",
+      "groups": [
+        "data_transfer"
+      ],
+      "priority": "P1",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_008",
+        "REG_00C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "byte",
+        "order",
+        "configurable",
+        "direction",
+        "endn",
+        "supports",
+        "swap",
+        "tbswap",
+        "field",
+        "endianness"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "ENDN bit set in TCF/RCF via set_prot_desc_tx/rx. TBSWAP field also configured. Affects byte order of data on MSP data line.",
+          "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        }
+      }
+    },
+    {
+      "id": "F_TEST_MODE",
+      "type": "FEATURE",
+      "name": "Integration Test Mode",
+      "description": "## Integration Test Mode (F_TEST_MODE)\n\nIntegration test control via ITCR register. Test mode enables direct FIFO access through TSTDR and test I/O via ITIP/ITOP. Used by driver to flush TX FIFO during shutdown sequence.",
+      "groups": [
+        "test"
+      ],
+      "priority": "P2",
+      "parent_id": null,
+      "figures": [],
+      "tables": [],
+      "registers": [
+        "REG_080",
+        "REG_084",
+        "REG_088",
+        "REG_08C"
+      ],
+      "spec_sections": [],
+      "index_keywords": [
+        "integration",
+        "test",
+        "control",
+        "itcr",
+        "register",
+        "enables",
+        "direct",
+        "fifo",
+        "access",
+        "through",
+        "tstdr",
+        "driver",
+        "flush",
+        "during",
+        "shutdown",
+        "sequence"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {
+        "not_implemented_in_linux_driver": false,
+        "linux_driver_coverage": {
+          "status": "IMPLEMENTED",
+          "notes": "ITCR register used in flush_fifo_tx() to enable test mode (ITEN+TESTFIFO). TSTDR read in loop to drain TX FIFO. Critical for clean shutdown.",
+          "implemented_in": "ux500-msp-i2s.c:flush_fifo_tx"
+        }
+      }
+    }
+  ],
+  "hd_sequences": [
+    {
+      "id": "HDS_MSP_OPEN",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Open / Configure",
+      "description": "## MSP Open / Configure (HDS_MSP_OPEN)\n\nFull MSP initialization: configure GCR (clocks, FIFO, loopback, sync selection), set protocol descriptors (TCF/RCF), configure SRG (bit clock divider, frame width/period), optionally configure multichannel (MCR, TCE0-3, RCE0-3, RCV, RCM), enable DMA (DMACR), set IODLY, enable frame generator, flush both FIFOs, set state to CONFIGURED.",
+      "groups": [
+        "initialization",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_I2S_MODE",
+        "F_PCM_MODE",
+        "F_CLOCK_GEN",
+        "F_DMA",
+        "F_FIFO"
+      ],
+      "index_keywords": [
+        "full",
+        "initialization",
+        "configure",
+        "clocks",
+        "fifo",
+        "loopback",
+        "sync",
+        "selection",
+        "protocol",
+        "descriptors",
+        "clock",
+        "divider",
+        "frame",
+        "optionally",
+        "multichannel",
+        "enable",
+        "dmacr",
+        "iodly",
+        "generator",
+        "flush"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    },
+    {
+      "id": "HDS_MSP_TRIGGER",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Trigger Start/Stop",
+      "description": "## MSP Trigger Start/Stop (HDS_MSP_TRIGGER)\n\nALSA trigger handler. On START/RESUME/PAUSE_RELEASE: sets TXEN or RXEN in GCR to begin data flow. On STOP/SUSPEND/PAUSE_PUSH: calls disable_msp_tx/rx which clears enable bits, disables DMA, and masks interrupts.",
+      "groups": [
+        "data_transfer",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_DMA",
+        "F_INTERRUPT"
+      ],
+      "index_keywords": [
+        "alsa",
+        "trigger",
+        "handler",
+        "sets",
+        "txen",
+        "rxen",
+        "begin",
+        "data",
+        "flow",
+        "calls",
+        "which",
+        "clears",
+        "enable",
+        "bits",
+        "disables",
+        "masks",
+        "interrupts"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    },
+    {
+      "id": "HDS_MSP_CLOSE",
+      "type": "HD_SEQUENCE",
+      "name": "MSP Close / Shutdown",
+      "description": "## MSP Close / Shutdown (HDS_MSP_CLOSE)\n\nMSP shutdown sequence. Disables TX/RX (with loopback-assisted drain if both directions active), disables DMA and interrupts. If both directions now idle: disables SRG + frame gen, zeroes GCR, TCF, RCF, DMACR, SRG, MCR, RCM, RCV, and all TCE/RCE registers. Sets state to IDLE.",
+      "groups": [
+        "shutdown",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_FIFO",
+        "F_LOOPBACK"
+      ],
+      "index_keywords": [
+        "shutdown",
+        "sequence",
+        "disables",
+        "drain",
+        "directions",
+        "active",
+        "interrupts",
+        "idle",
+        "frame",
+        "zeroes",
+        "dmacr",
+        "registers",
+        "sets",
+        "state",
+        "close"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    },
+    {
+      "id": "HDS_FLUSH_TX",
+      "type": "HD_SEQUENCE",
+      "name": "TX FIFO Flush",
+      "description": "## TX FIFO Flush (HDS_FLUSH_TX)\n\nDrains TX FIFO using integration test mode. Enables TX, then sets ITCR (ITEN+TESTFIFO), reads TSTDR in a loop until TFE flag is set or limit (32 reads) reached, then clears ITCR and restores GCR.",
+      "groups": [
+        "data_transfer",
+        "shutdown",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_FIFO",
+        "F_TEST_MODE"
+      ],
+      "index_keywords": [
+        "drains",
+        "fifo",
+        "using",
+        "integration",
+        "test",
+        "mode",
+        "enables",
+        "sets",
+        "itcr",
+        "reads",
+        "tstdr",
+        "loop",
+        "until",
+        "flag",
+        "limit",
+        "reached",
+        "clears",
+        "restores",
+        "flush"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    },
+    {
+      "id": "HDS_FLUSH_RX",
+      "type": "HD_SEQUENCE",
+      "name": "RX FIFO Flush",
+      "description": "## RX FIFO Flush (HDS_FLUSH_RX)\n\nDrains RX FIFO by temporarily enabling RX, then reading DR in a loop until RFE (RX FIFO Empty) flag is set or limit (32 reads) reached, then restores original GCR value.",
+      "groups": [
+        "data_transfer",
+        "shutdown",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_FIFO"
+      ],
+      "index_keywords": [
+        "drains",
+        "fifo",
+        "temporarily",
+        "enabling",
+        "reading",
+        "loop",
+        "until",
+        "empty",
+        "flag",
+        "limit",
+        "reads",
+        "reached",
+        "restores",
+        "original",
+        "value",
+        "flush"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    },
+    {
+      "id": "HDS_SETUP_BITCLK",
+      "type": "HD_SEQUENCE",
+      "name": "Bit Clock Setup",
+      "description": "## Bit Clock Setup (HDS_SETUP_BITCLK)\n\nConfigures the sample rate generator. Disables SRG, calculates SCKDIV from f_inputclk / (frame_freq * clocks_per_frame), sets FRWID and FRPER, writes SRG register, waits 100µs, enables SRG, waits another 100µs. The 100µs delays allow the PLL to stabilize.",
+      "groups": [
+        "clock",
+        "initialization",
+        "host_driver_sequence"
+      ],
+      "primary_spec_section": "",
+      "figures": [],
+      "tables": [],
+      "spec_sections": [],
+      "uses_features": [
+        "F_CLOCK_GEN",
+        "F_FRAME_SYNC"
+      ],
+      "index_keywords": [
+        "configures",
+        "sample",
+        "rate",
+        "generator",
+        "disables",
+        "calculates",
+        "sckdiv",
+        "sets",
+        "frwid",
+        "frper",
+        "writes",
+        "register",
+        "waits",
+        "enables",
+        "another",
+        "delays",
+        "allow",
+        "stabilize",
+        "clock",
+        "setup"
+      ],
+      "confidence": 0.95,
+      "validation_status": "AUTO",
+      "extras": {}
+    }
+  ],
+  "relations": [
+    {
+      "id": "R0036",
+      "type": "PART_OF",
+      "source_node": "F_PCM_COMPAND",
+      "target_node": "F_PCM_MODE",
+      "description": "PCM Companded Mode is part of F_PCM_MODE"
+    },
+    {
+      "id": "R0037",
+      "type": "PART_OF",
+      "source_node": "F_FRAME_SYNC",
+      "target_node": "F_CLOCK_GEN",
+      "description": "Frame Synchronization is part of F_CLOCK_GEN"
+    },
+    {
+      "id": "R0038",
+      "type": "PART_OF",
+      "source_node": "F_EXT_CLOCK",
+      "target_node": "F_CLOCK_GEN",
+      "description": "External Clock Input is part of F_CLOCK_GEN"
+    },
+    {
+      "id": "R0039",
+      "type": "PART_OF",
+      "source_node": "F_RX_COMPARISON",
+      "target_node": "F_MULTICHANNEL",
+      "description": "RX Data Comparison is part of F_MULTICHANNEL"
+    },
+    {
+      "id": "R0040",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_I2S_MODE",
+      "description": "MSP Open / Configure uses feature F_I2S_MODE"
+    },
+    {
+      "id": "R0041",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_PCM_MODE",
+      "description": "MSP Open / Configure uses feature F_PCM_MODE"
+    },
+    {
+      "id": "R0042",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_CLOCK_GEN",
+      "description": "MSP Open / Configure uses feature F_CLOCK_GEN"
+    },
+    {
+      "id": "R0043",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_DMA",
+      "description": "MSP Open / Configure uses feature F_DMA"
+    },
+    {
+      "id": "R0044",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_OPEN",
+      "target_node": "F_FIFO",
+      "description": "MSP Open / Configure uses feature F_FIFO"
+    },
+    {
+      "id": "R0045",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_TRIGGER",
+      "target_node": "F_DMA",
+      "description": "MSP Trigger Start/Stop uses feature F_DMA"
+    },
+    {
+      "id": "R0046",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_TRIGGER",
+      "target_node": "F_INTERRUPT",
+      "description": "MSP Trigger Start/Stop uses feature F_INTERRUPT"
+    },
+    {
+      "id": "R0047",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_CLOSE",
+      "target_node": "F_FIFO",
+      "description": "MSP Close / Shutdown uses feature F_FIFO"
+    },
+    {
+      "id": "R0048",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_MSP_CLOSE",
+      "target_node": "F_LOOPBACK",
+      "description": "MSP Close / Shutdown uses feature F_LOOPBACK"
+    },
+    {
+      "id": "R0049",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_TX",
+      "target_node": "F_FIFO",
+      "description": "TX FIFO Flush uses feature F_FIFO"
+    },
+    {
+      "id": "R0050",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_TX",
+      "target_node": "F_TEST_MODE",
+      "description": "TX FIFO Flush uses feature F_TEST_MODE"
+    },
+    {
+      "id": "R0051",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_FLUSH_RX",
+      "target_node": "F_FIFO",
+      "description": "RX FIFO Flush uses feature F_FIFO"
+    },
+    {
+      "id": "R0052",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_SETUP_BITCLK",
+      "target_node": "F_CLOCK_GEN",
+      "description": "Bit Clock Setup uses feature F_CLOCK_GEN"
+    },
+    {
+      "id": "R0053",
+      "type": "USES_FEATURE",
+      "source_node": "HDS_SETUP_BITCLK",
+      "target_node": "F_FRAME_SYNC",
+      "description": "Bit Clock Setup uses feature F_FRAME_SYNC"
+    }
+  ]
+}

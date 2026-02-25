@@ -496,6 +496,55 @@ class MetadataAPI:
             summary[ntype] = by_status
         return _success("get_coverage_summary", {}, summary)
     
+    def list_features_not_implemented_in_driver(self) -> dict:
+        """List features tagged as not_implemented_in_linux_driver."""
+        features = self._nodes_by_type.get("FEATURE", [])
+        matches = [n for n in features
+                   if n.get("extras", {}).get("not_implemented_in_linux_driver", False)]
+        summaries = [{
+            "id": n["id"],
+            "name": n["name"],
+            "coverage_status": n.get("coverage", {}).get("status", ""),
+            "coverage_notes": n.get("coverage", {}).get("notes", ""),
+            "registers": n.get("extras", {}).get("registers", [])
+        } for n in matches]
+        return _success("list_features_not_implemented_in_driver", {}, summaries)
+    
+    def list_features_by_driver_coverage(self, status: str = None) -> dict:
+        """List features with their linux driver coverage info. Optionally filter by status."""
+        params = {"status": status}
+        features = self._nodes_by_type.get("FEATURE", [])
+        results = []
+        for n in features:
+            cov = n.get("coverage", {})
+            cov_status = cov.get("status", "NOT_IMPLEMENTED")
+            if status and cov_status != status.upper():
+                continue
+            results.append({
+                "id": n["id"],
+                "name": n["name"],
+                "coverage_status": cov_status,
+                "implemented_in": cov.get("implemented_in", ""),
+                "not_implemented_in_linux_driver": n.get("extras", {}).get("not_implemented_in_linux_driver", False),
+                "registers": n.get("extras", {}).get("registers", [])
+            })
+        return _success("list_features_by_driver_coverage", params, results)
+    
+    def get_feature_registers(self, feature_id: str) -> dict:
+        """Get registers associated with a feature."""
+        params = {"feature_id": feature_id}
+        node = self._nodes_by_id.get(feature_id)
+        if not node or node["type"] != "FEATURE":
+            return _error("get_feature_registers", params, f"NOT_FOUND or not a FEATURE: '{feature_id}'")
+        reg_ids = node.get("extras", {}).get("registers", [])
+        regs = []
+        for rid in reg_ids:
+            rn = self._nodes_by_id.get(rid)
+            if rn:
+                regs.append({"id": rn["id"], "name": rn["name"],
+                             "offset": rn.get("extras", {}).get("offset_hex", "")})
+        return _success("get_feature_registers", params, regs)
+    
     # =========================================================================
     # 9. METADATA INFO
     # =========================================================================

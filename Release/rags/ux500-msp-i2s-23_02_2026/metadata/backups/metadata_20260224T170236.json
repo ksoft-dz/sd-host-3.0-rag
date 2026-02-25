@@ -2513,19 +2513,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "setup_i2s_protdesc() in ux500_msp_dai.c, MSP_I2S_PROTOCOL case in setup_msp_config(). Default protdesc and explicit protdesc paths both exercised.",
-        "implemented_in": "ux500_msp_dai.c:setup_i2s_protdesc,setup_msp_config; ux500-msp-i2s.c:configure_protocol"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2545,19 +2534,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "setup_pcm_protdesc() in ux500_msp_dai.c, MSP_PCM_PROTOCOL case in setup_msp_config(). DSP_A and DSP_B formats supported.",
-        "implemented_in": "ux500_msp_dai.c:setup_pcm_protdesc,setup_msp_config; ux500-msp-i2s.c:configure_protocol"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2578,18 +2556,8 @@
         "parent_id": "F_PCM_MODE",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "PARTIAL",
-        "notes": "Low-level driver has protdesc_pcm_compand struct and MSP_PCM_COMPAND_PROTOCOL case in configure_protocol(). But DAI layer never sets msp_config->protocol=MSP_PCM_COMPAND_PROTOCOL. Code path exists but unreachable from ALSA.",
-        "implemented_in": "ux500-msp-i2s.c:configure_protocol (static protdesc_pcm_compand)"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2608,18 +2576,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "PARTIAL",
-        "notes": "set_prot_desc_tx/rx writes compression_mode/expansion_mode to TCF/RCF DTYP field. But DAI always passes MSP_COMPRESS_MODE_LINEAR / MSP_EXPAND_MODE_LINEAR. Hardware companding (u-law/A-law) never activated.",
-        "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2639,16 +2597,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_018"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "DMACR RDMAE/TDMAE enabled in ux500_msp_i2s_open(), toggled in trigger/close. DMA data configured in ux500_msp_dai_of_probe().",
-        "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_open,disable_msp_tx,disable_msp_rx; ux500_msp_dai.c:ux500_msp_dai_of_probe"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2667,18 +2617,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_000",
-          "REG_004",
-          "REG_014"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "RFFEN/TFFEN enabled in GCR during open. flush_fifo_rx/tx drain FIFOs during close. FLR register polled for empty/full status.",
-        "implemented_in": "ux500-msp-i2s.c:flush_fifo_rx,flush_fifo_tx,ux500_msp_i2s_open"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2697,17 +2637,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "P1ELEN/P2ELEN set in set_prot_desc_tx/rx from protdesc elem_len fields. 16-bit default in most protocols. 32-bit for I2S master.",
-        "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2726,17 +2657,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "setup_bitclk() calculates SCKDIV from f_inputclk/(frame_freq*clocks_per_frame), writes SRG register. SGEN enabled in GCR. 100us stabilization delays.",
-        "implemented_in": "ux500-msp-i2s.c:setup_bitclk,ux500_msp_i2s_open"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2756,17 +2678,8 @@
         "parent_id": "F_CLOCK_GEN",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "FRWID/FRPER configured in setup_bitclk(). FGEN/TFSPEN/RFSPEN enabled in GCR during open. Polarity set via TCF/RCF fsync_pol fields.",
-        "implemented_in": "ux500-msp-i2s.c:setup_bitclk,ux500_msp_i2s_open"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2785,16 +2698,8 @@
         "parent_id": "F_CLOCK_GEN",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "setup_clocking() BC_FC case sets tx_clk_sel=0 (external), rx_clk_sel=0 (external), srg_clk_sel=0x2<<SCKSEL (external clock to SRG). Used when codec provides bus clock.",
-        "implemented_in": "ux500_msp_dai.c:setup_clocking; ux500-msp-i2s.c:ux500_msp_i2s_open"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2813,24 +2718,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_030",
-          "REG_040",
-          "REG_044",
-          "REG_048",
-          "REG_04C",
-          "REG_060",
-          "REG_064",
-          "REG_068",
-          "REG_06C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "configure_multichannel() writes MCR, TCE0-3, RCE0-3. DAI setup_pcm_multichan() configures TX channel_0 from tx_mask. TDM slot counts 1/2/8/16 supported.",
-        "implemented_in": "ux500-msp-i2s.c:configure_multichannel; ux500_msp_dai.c:setup_pcm_multichan"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2849,18 +2738,8 @@
         "parent_id": "F_MULTICHANNEL",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_030",
-          "REG_034",
-          "REG_038"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": true
-      },
-      "coverage": {
-        "status": "NOT_IMPLEMENTED",
-        "notes": "Code path exists in configure_multichannel() (ux500-msp-i2s.c) to write RCV/RCM registers, but DAI layer (ux500_msp_dai.c setup_pcm_multichan) always sets rx_comparison_enable_mode=MSP_COMPARISON_DISABLED. Feature is dead code in the Linux ALSA path.",
-        "implemented_in": ""
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2879,18 +2758,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "configure_protocol() conditionally sets P2EN based on tx/rx_phase_mode. I2S uses DUAL_PHASE (setup_i2s_protdesc), PCM uses SINGLE_PHASE. Phase 2 start mode configurable.",
-        "implemented_in": "ux500-msp-i2s.c:configure_protocol; ux500_msp_dai.c:setup_i2s_protdesc,setup_pcm_protdesc"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2910,16 +2779,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "LBM bit toggled in ux500_msp_i2s_close() to assist FIFO drain when both TX/RX active (routes TX back to RX). Cleared when done.",
-        "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_close"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2938,16 +2799,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": true
-      },
-      "coverage": {
-        "status": "NOT_IMPLEMENTED",
-        "notes": "SPICKM/SPIBME bits defined in header (ux500-msp-i2s.h) but no SPI protocol descriptor or configuration code exists in any .c driver file. No SPI format case in DAI set_dai_fmt or setup_msp_config.",
-        "implemented_in": ""
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2966,19 +2819,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_020",
-          "REG_024",
-          "REG_028",
-          "REG_02C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "IMSC masked (all interrupts cleared) in disable_msp_tx/rx. ICR write to clear pending interrupts. Used in trigger stop and close sequences.",
-        "implemented_in": "ux500-msp-i2s.c:disable_msp_tx,disable_msp_rx,ux500_msp_i2s_open"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -2998,13 +2840,7 @@
         "tables": [],
         "figures": [],
         "registers": [],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "Platform driver registers per-MSP instance. init_msp() does ioremap of per-instance registers. 4 MSP instances on DB8500 SoC (MSP0-3).",
-        "implemented_in": "ux500-msp-i2s.c:init_msp; ux500_msp_dai.c:ux500_msp_drv_probe"
+        "spec_sections": []
       }
     },
     {
@@ -3024,16 +2860,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_070"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "IODLY register written with config->iodelay in ux500_msp_i2s_open(). Value set by DAI setup_clocking() (0x20 for slave mode).",
-        "implemented_in": "ux500-msp-i2s.c:ux500_msp_i2s_open; ux500_msp_dai.c:setup_clocking"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -3052,17 +2880,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "ENDN bit set in TCF/RCF via set_prot_desc_tx/rx. TBSWAP field also configured. Affects byte order of data on MSP data line.",
-        "implemented_in": "ux500-msp-i2s.c:set_prot_desc_tx,set_prot_desc_rx"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
@@ -3081,19 +2900,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_080",
-          "REG_084",
-          "REG_088",
-          "REG_08C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "ITCR register used in flush_fifo_tx() to enable test mode (ITEN+TESTFIFO). TSTDR read in loop to drain TX FIFO. Critical for clean shutdown.",
-        "implemented_in": "ux500-msp-i2s.c:flush_fifo_tx"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {

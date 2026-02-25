@@ -1,0 +1,3 @@
+* Update prompts to force agents to answer by ALWAYS GIVING SPEC SECTION AND REFERENCE AND PAGE NUMBER to any of their claims (except their synthesis / analysis)
+* Transform to database to improve retrieval and allow for more complex queries (e.g. "show me all the sections that talk about error recovery")
+* Add initial copilot instructions that are forced at any prompting automatically in RAG mode.

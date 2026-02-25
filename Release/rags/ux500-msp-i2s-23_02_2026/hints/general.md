@@ -1,0 +1,2 @@
+The multichannel serial port (MSP) is a synchronous transmit/receive serial communication interface. It provides a direct interface to:
+* Industry-standard CODECs and serially connected A/D and D/A devices

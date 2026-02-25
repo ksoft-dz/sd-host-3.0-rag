@@ -2513,14 +2513,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2545,14 +2539,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2578,13 +2566,8 @@
         "parent_id": "F_PCM_MODE",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "PARTIAL",
@@ -2608,13 +2591,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "PARTIAL",
@@ -2639,11 +2617,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_018"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2667,13 +2642,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_000",
-          "REG_004",
-          "REG_014"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2697,12 +2667,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2726,12 +2692,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2756,12 +2718,8 @@
         "parent_id": "F_CLOCK_GEN",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_010"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2785,11 +2743,8 @@
         "parent_id": "F_CLOCK_GEN",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2813,19 +2768,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_030",
-          "REG_040",
-          "REG_044",
-          "REG_048",
-          "REG_04C",
-          "REG_060",
-          "REG_064",
-          "REG_068",
-          "REG_06C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2849,13 +2793,8 @@
         "parent_id": "F_MULTICHANNEL",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_030",
-          "REG_034",
-          "REG_038"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": true
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "NOT_IMPLEMENTED",
@@ -2879,13 +2818,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004",
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2910,11 +2844,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2938,11 +2869,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_004"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": true
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "NOT_IMPLEMENTED",
@@ -2966,14 +2894,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_020",
-          "REG_024",
-          "REG_028",
-          "REG_02C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -2998,8 +2920,7 @@
         "tables": [],
         "figures": [],
         "registers": [],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -3024,11 +2945,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_070"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -3052,12 +2970,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_008",
-          "REG_00C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
+        "registers": [],
+        "spec_sections": []
       },
       "coverage": {
         "status": "IMPLEMENTED",
@@ -3081,19 +2995,8 @@
         "parent_id": "",
         "tables": [],
         "figures": [],
-        "registers": [
-          "REG_080",
-          "REG_084",
-          "REG_088",
-          "REG_08C"
-        ],
-        "spec_sections": [],
-        "not_implemented_in_linux_driver": false
-      },
-      "coverage": {
-        "status": "IMPLEMENTED",
-        "notes": "ITCR register used in flush_fifo_tx() to enable test mode (ITEN+TESTFIFO). TSTDR read in loop to drain TX FIFO. Critical for clean shutdown.",
-        "implemented_in": "ux500-msp-i2s.c:flush_fifo_tx"
+        "registers": [],
+        "spec_sections": []
       }
     },
     {
