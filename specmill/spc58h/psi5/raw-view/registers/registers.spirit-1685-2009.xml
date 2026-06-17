@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009 http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009/index.xsd">
+<spirit:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009"
+    xsi:schemaLocation="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009 index.xsd">
   <spirit:vendor>NXP</spirit:vendor>
   <spirit:library>PSI5</spirit:library>
   <spirit:name>PSI5</spirit:name>
