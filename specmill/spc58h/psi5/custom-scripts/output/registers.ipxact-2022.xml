@@ -1,0 +1,1988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ipxact:component xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2022" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2022 index.xsd">
+  <ipxact:vendor>NXP</ipxact:vendor>
+  <ipxact:library>PSI5</ipxact:library>
+  <ipxact:name>PSI5</ipxact:name>
+  <ipxact:version>1.0</ipxact:version>
+  <ipxact:memoryMaps>
+    <ipxact:memoryMap>
+      <ipxact:name>PSI5_MemoryMap</ipxact:name>
+      <ipxact:addressBlock>
+        <ipxact:name>PSI5_Registers</ipxact:name>
+        <ipxact:baseAddress>0x0</ipxact:baseAddress>
+        <ipxact:range>0x200</ipxact:range>
+        <ipxact:width>32</ipxact:width>
+        <ipxact:usage>register</ipxact:usage>
+        <ipxact:register>
+          <ipxact:name>PSI5_GCR</ipxact:name>
+          <ipxact:displayName>Global Control Register (PSI5_GCR(4))</ipxact:displayName>
+          <ipxact:description>Offset 0x0000</ipxact:description>
+          <ipxact:addressOffset>0x0000</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>GLOBAL_DISABLE_REQ</ipxact:name>
+            <ipxact:description>PSI5 Receive Global disable request. When set, all PSI5 channels enter Disable mode (from individual Normal or Config modes) regardless of the settings of the PCCR[PSI5_CH_CONFIG] and PCCR[PSI5_CH_EN] bits. When cleared, each PSI5 channel enters Config mode or Normal mode based on the setting of the PCCR[PSI5_CH_CONFIG] bit if PCCR[PSI5_CH_CONFIG] is set for that channel; otherwise, that particular channel continues to stay in Disable mode. The reset value is dependent on the parameter PSI5_PDIS_RST. When PSI5_PDIS_RST = 0 then the reset value is “0”(PSI5 module is enabled after reset). When PSI5_PDIS_RST = 1then the reset value is “1”(PSI5 module is disabled after reset). For the value of parameter PSI5_PDIS_RST refer to the Device Configuration Chapter. This bit is writable in all the modes. 0 PSI5 channel(s) enters Normal or Config mode, depending on the value of the PCCR[PSI5_CH_CONFIG] bit. 1 All PSI5 Channels are in Disable mode. Note: When GLOBAL_DISABLE_REQ == 1 then all the clock enables (shown in Figure 1603) from the IP go to a 0 (inactive) state.</ipxact:description>
+            <ipxact:bitOffset>15</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CTC_GED</ipxact:name>
+            <ipxact:description>Channel Target Counter (CTC) Global Enable/Disable. 0 All the CTC counters having PCCR[CTC_GED_SEL] = 1 are reset. 1 Simultaneously starts the CTC of all the channels that have PCCR[CTC_GED_SEL] = 1. Note: This bit is writable in all modes.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_PCCR</ipxact:name>
+          <ipxact:displayName>PSI5 Channel Control Register (PSI5_CH0_PCCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.2 - Offset 0x0008</ipxact:description>
+          <ipxact:addressOffset>0x0008</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>PSI5_CH_EN</ipxact:name>
+            <ipxact:description>PSI5 Channel Enable. If this bit is cleared this particular psi5 channel continues to stay in Disable mode even if GCR[GLOBAL_DISABLE_REQ] = 0. If set, it enters Configuration mode from Disable mode (based on PCCR[PSI5_CH_CONFIG]). Default value is 0. All state machines are disabled. This bit can be written in all modes. 0 PSI5 channel continues in Disable mode. 1 PSI5 channel enabled to enter Config/Normal mode. Note: When PSI5_CH_EN == 0 then the clock enable for that particular channel that goes from the IP, goes to “0” (inactive state). “”Do note that when going from Disable to Config mode, the programming of other bits of this register CANNOT be done in the same cycle, as the one in which this bit is being written.</ipxact:description>
+            <ipxact:bitOffset>31</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>PSI5_CH_CONFIG</ipxact:name>
+            <ipxact:description>PSI5 Channel Config mode request If this bit is set (and PCCR[PSI5_CH_EN] = ’1’) this particular psi5 channel enters Configuration mode from Disable mode. Default value is 0. User software must program all PSI5 channel parameters before clearing this bit. Once cleared, channel parameters in registers are locked for writing. The values set cannot be changed until this bit is set again after entering the Disable mode 1 (If PCCR[PSI5_CH_EN] = ’1’ and GCR[GLOBAL_DISABLE_REQ] = ’0’) - PSI5 Channel enters Config mode. Various configuration registers can be programmed in this mode. The only registers NOT writable in the config mode but writable in the Normal mode are the output registers PSI5_DBR and the PSI5_DSR. 0 (If PCCR[PSI5_CH_EN] = ’1’ and GCR[GLOBAL_DISABLE_REQ] = ’0’) PSI5 Channel enters Normal mode. Channel parameter registers are locked for writing. This bit can be written in all the modes but writing a “0” in the Normal mode will not change the operation mode of the device. Note: This bit can be written in all modes, but writing a 0 in the Normal mode does not change the operation mode of the device. For more details refer to Figure 1537 and to Table 1611. Do note that when going from Disable to Config mode, the programming of other bits of this register CANNOT be done in the same cycle, as the one in which this bit is being written.</ipxact:description>
+            <ipxact:bitOffset>30</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>MODE</ipxact:name>
+            <ipxact:description>This bit selects the operating modes. 0 Asynchronous operating mode (Integrated sync pulse generator module is switched off, only RX active). Note that in this mode the sync pulses from the internal sync pulse generator are not allowed to be propagated to the output path, which always remains at logic 0. There is no T-bit error in the Asynchronous mode. 1 Synchronous operating modes (Integrated sync pulse generator module is switched on, both TX and RX subblocks active).</ipxact:description>
+            <ipxact:bitOffset>29</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>BIT_RATE</ipxact:name>
+            <ipxact:description>This bit selects the receive message bit rate (T bit) for this particular PSI5 Channel, that is, it selects one of the two driven clocks (4 MHz or 6.048 MHz) in CGM. 0 125 Kbit/s bit rate selected (4 MHz clock). 1 189 Kbit/s bit rate selected (6.048 MHz clock).</ipxact:description>
+            <ipxact:bitOffset>28</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FAST_CLR_PSI5</ipxact:name>
+            <ipxact:description>This bit controls the clearing mechanism of bits in NDSR (in conf2, conf3 and conf4 modes), EISR (in conf2, conf3 and conf4 modes), and OWSR (in conf2 and conf3 modes). 1 Fast Clearing Enabled 0 Fast Clearing Disables (clear when written to 1) Note: This bit is effective only when DMA_PM_DS_CONFIG = conf2, conf3, or conf4 else this bit has no effect and only software clearing is available. Further, though the OWSR is not directly read by the DMA as a single register, it is cleared in specific modes (when FAST_CLR_PSI5 == 1) as can be seen below. Following are the details in the various modes of the DCR[DMA_PM_DS_CONFIG] bits: – In conf1 mode: This bit has no effect. Reading the DDSR and the DPMR returns a 0. – In conf2 mode: In this case the diagnostic bits (EISR, NDSR) are cleared ONLY when the diagnostic registers appended with the corresponding PSI5 messages are completely read using the DPMR. During the intermediate operation (when the PSI5 message has been read but the diagnostic bits are still pending), the PSI5 message read from the DPMR will not clear these bits. Both of these registers are simultaneously cleared when the corresponding DMA operation is over. However, only those bits are cleared, the corresponding messages of which form the part of the DMA request being serviced. Note that the OWSR bits are cleared upon the corresponding PSI5 message read from the DPMR. Reading the DDSR returns a 0 in this mode. – In conf3 mode: The PSI5 diagnostic register bits (EISR,NDSR) and OWSR are automatically cleared when the corresponding PSI5 message is read from the DPMR. The specific register bits of EISR,NDSR and OWSR, corresponding to each message, are cleared sequentially one by one as the corresponding message is being read by the DMA. Note that the three bits (each of EISR, NDSR, and OWSR) corresponding to a specific location are always cleared simultaneously. Reading the DDSR returns a 0. When reading from the PMRH/PMRL registers, this bit does not have any effect on fast clearing. – In conf4 mode: In this case the diagnostic bits (EISR, NDSR) are cleared as soon as these registers are read through the DDSR. These registers are cleared simultaneously in one go, as soon as the corresponding DMA request has been serviced. Only those bits of these registers are cleared, the messages of which form a part of the DMA request. Note that in this mode the reading of the PSI5 messages from the DMA is not available as the request is being used for reading the diagnostic registers. Reading the DPMR returns a 0. The PSI5 messages can be read only from the PMRH/PMRL register. Hence the OWSR has to be cleared only by w1c. – In all the above modes, when reading from the PMRH/PMRL registers, the FAST_CLR_PSI5 does not have any effect on fast clearing. – Further, In all the above cases if FAST_CLR_PSI5 = 0 then the specific diagnostic bits and the OWSR have to be cleared by w1c.</ipxact:description>
+            <ipxact:bitOffset>27</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>FAST_CLR_SMC</ipxact:name>
+            <ipxact:description>This bit controls the clearing mechanism of the IS_NVSM[x], IS_CESM[x], and IS_OWSM[x] bits in the GISR. 0 Fast clearing is disabled (clear when written to 1). 1 Fast clearing is enabled. Note: This bit is effective only when DCR[DMA_EN_SF] = 1. When FAST_CLR_SMC = 1 then the IS_NVSM[x], IS_CESM[x], and IS_OWSM[x] bits are automatically cleared upon reading the DSFR message register, as per the slot[x] message read in from the DSFR. When reading directly from the SFR registers, this bit does not affect auto clearing. If FAST_CLR_SMC = 0 then the above bits have to be cleared by a w1c.</ipxact:description>
+            <ipxact:bitOffset>26</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SP_TS_CLK_SEL</ipxact:name>
+            <ipxact:description>This bit controls which clock goes to the Sync Pulse and Time Stamp Generator Unit. 0 The 1 MHz clock generated from the CGM goes for clocking the Time Stamp Unit and sync pulse generator. 1 Reserved. Note: The above selection affects ONLY the clock for the Time Stamp Unit and Sync Pulse Generator. The 1 MHz clock to the rest of the logic like the Manchester decoder or the Slot Boundary Counters is still the 1 MHz from the CGM. The clock selected using this bit is called SP_TS_CLK.</ipxact:description>
+            <ipxact:bitOffset>23</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DEBUG_FREEZE_CTRL</ipxact:name>
+            <ipxact:description>0 When the IP enters the Debug mode then it goes into the “Open” mode, that is, the core of the IP keeps on working normally. In this case, there can be a difference between the value of a particular status bit, which is there at the time Debug mode is entered and the time at which the debugger reads it, since some upcoming events might change the status. The hardware clearing, of course, remains disabled. Note: In the above configuration, the status of registers read through the debugger may be different when entering debug mode and when actually accessing registers at some later point of time. 1 When the IP enters the “Debug mode” then it goes into the “Freeze Mode”. Note that whenever there is a request to enter the freeze mode then the IP enters this mode, ONLY when the Manchester decoder and the Sync Pulse Generator are stopped coherently. This means that before entering the “freeze mode”, if there is any pending reception that is ongoing, then the same is completed first. Simultaneously the “sdout” line of the IP should be at a low level. Once these two conditions are satisfied, the IP enters the Debug Freeze mode. The Time Stamp counters are also halted. In the above configuration, incoming packets could get lost while the Debug mode is active.</ipxact:description>
+            <ipxact:bitOffset>22</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DEBUG_EN</ipxact:name>
+            <ipxact:description>This bit allows/prevents the IP from entering the debug mode, whenever the debugger is connected and a breakpoint is encountered by the debugger: 0 The IP never enters the debug mode, even if the debugger is connected and a breakpoint is encountered. It keeps on working normally, as in the functional mode. 1 Whenever the debugger is connected and a breakpoint is encountered, the IP enters the debug mode. In the Debug mode, the DMA read pointers and other status registers that normally get affected by the READ operation remain unaffected.</ipxact:description>
+            <ipxact:bitOffset>21</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ERROR_SELECT0</ipxact:name>
+            <ipxact:description>Error_Select[0] or F_INT_SEL 0 The F bit does not generate an interrupt. 1 The F bit generates an interrupt.</ipxact:description>
+            <ipxact:bitOffset>15</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ERROR_SELECT1</ipxact:name>
+            <ipxact:description>Error_Select[1] or T_INT_SEL 0 The T bit does not generate an interrupt. 1 The T bit generates an interrupt.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ERROR_SELECT2</ipxact:name>
+            <ipxact:description>Error_Select[2] or EM_INT_SEL 0 The EM bit does not generate an interrupt. 1 The EM bit generates an interrupt.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ERROR_SELECT3</ipxact:name>
+            <ipxact:description>Error_Select[3] or E_INT_SEL E error Electrical Error (E) 0 The E bit does not generate an interrupt. 1 The E bit generates an interrupt.</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ERROR_SELECT4</ipxact:name>
+            <ipxact:description>The ERROR_SELECT bitfield indicates which of the C, E, EM, T or F error conditions generate an interrupt when the EICR Interrupt Enable bit is set. The individual bits are mapped as {C,E,EM,T,F}. The corresponding error is also latched in the PSI5_EISR. Default: ERROR_SELECT = 11111: Any of C,E,EM,T or F generate an interrupt. C error CRC Error (C) Bit 20: ERROR_SELECT[4] or C_INT_SEL 0 The C bit does not generate an interrupt. 1 The C bit generates an interrupt.</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>MEM_DEPTH</ipxact:name>
+            <ipxact:description>Can be programmed from 0 to 31 and denotes the size of the memory that should be used for storing the PSI5 messages. Area above the MEM_DEPTH is treated as being unavailable for message storage. MEM_DEPTH also denotes the number of RAM registers available for the CPU access. Note that the same memory can be accessed sequentially (though the DMA) or randomly anytime by the CPU. 0x00 Indicates that only 1 location of the memory is available for storage. 0x1F (31) Indicates that all the 32 locations of the memory are available for storage. Note: Depending on the configuration of the DMA_PM_DS_CONFIG bits in the DCR, the MEM_DEPTH memory size may be accessed by CPU only (interrupts are generated) or CPU and DMA (through the dedicated DMA popup registers). DMA_PM_DS_CONFIG = conf1 then DMA requests are disabled and only the interrupts can be used for data transfer. DMA_PM_DS_CONFIG = conf2,conf3,conf4 then DMA requests are enabled. The interrupts should be disabled by writing a 0 in the corresponding IE bits. For more details refer to description of DMA_PM_DS_CONFIG in the DCRs. The data in the memory area defined by the MEM_DEPTH parameter is always filled in a sequential fashion as in a FIFO, but can be read sequentially or randomly. There can be no slot-memory location correspondence due to the T bit errors in the Manchester decoder. The memory area above the configured MEM_DEPTH size will always be read as 0. Irrespective of the configuration, the data can always be randomly read by the CPU from the PMRL/PMRH register.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>5</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CTC_ED</ipxact:name>
+            <ipxact:description>Channel Target Counter Enable/Disable This bit is used to control the CTC locally from the channel in case the CTC_GED_SEL = 0. 0 The CTC counters is disabled and reset. 1 The CTC counter is enabled and start counting. Note: This bit is writable in Normal mode and the Config mode.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CTC_GED_SEL</ipxact:name>
+            <ipxact:description>Channel Target Counter, Global Enable/Disable Select This bit selects whether the CTC should be enabled/disabled by CTC_GED bit (in GCR) or the CTC_ED bit. Enabling by the CTC_GED bit is used when staggering of the channels is required. 0 CTC enabled disabled by CTC_ED. 1 CTC enabled/disabled by CTC_GED.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DCR</ipxact:name>
+          <ipxact:displayName>DMA Control Register (PSI5_CH0_DCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.3 - Offset 0x000C</ipxact:description>
+          <ipxact:addressOffset>0x000C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DMA_PM_DS_CONFIG</ipxact:name>
+            <ipxact:description>These bits define how the PSI5 messages are stored in the MEM_DEPTH memory area and the associated diagnostic bits (EISR, NDSR) are transferred. 00 conf1 The DMA request is disabled. In this mode, only the interrupts can be used for indicating that data transfer is required. 01 conf2 After transferring the “dma_pm_ds_wm” number of PSI5 messages, there will be two additional 32-bit transfers in which the NDSR and the EISR registers are sequentially transferred through the DPMR registers by using DMA. 10 conf3 “dma_pm_ds_wm” number of PSI5 messages is transferred in each DMA request. The DMA read is through the DPMR registers. 11 conf4 Only the diagnostic bits are transferred through the DDSR. The DMA read is through the DDSR registers. The DPMR, DDSR, and DSFR registers should be used for DMA access and the PMRH/PMRL, NDSR, EISR, and OWSR registers should be used for CPU access. Note: For more details refer to the description of the DCR[DMA_PM_DS_WM] bits. When DMA_PM_DS_CONFIG bits = conf2 or conf3 and if the CPU and the DMA are simultaneously used for reading the PSI5 messages, then in the course of reading the messages it is possible that there can be an overflow, though some intermediate locations, which have been read by the CPU, are empty. This will occur because the DMA access is made independent of the CPU access. The DMA logic would never know that the CPU has already read a message that was scheduled to be read by the DMA. Whenever the DMA is used for reading the PSI5 message (conf2/conf3) modes then though the CPU can read the messages in parallel through the PMRH/PMRL registers, still for the purpose of setting the Overwrite/Overflow bits only a read from the DMA through the popup registers (DPMR) would be treated as valid read. This will also be true for the SMC messages when accessed simultaneously by the CPU/DMA.</ipxact:description>
+            <ipxact:bitOffset>30</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>2</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DMA_EN_SF</ipxact:name>
+            <ipxact:description>Enable DMA request for SMC Frame Data 0 DMA for SMC frame is disabled. The six dedicated 1-1 slot corresponding SMC registers can only be read by the CPU through the SFR. Reading the DSFRs returns 0. 1 DMA for SMC frame is enabled. The six dedicated slot corresponding SMC registers can be read by reading the DSFR successively. In the DMA mode the six registers are read in a round robin fashion as explained in the DSFR details. Reading directly through the SFR registers is still available.</ipxact:description>
+            <ipxact:bitOffset>29</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DMA_PM_DS_UF</ipxact:name>
+            <ipxact:description>Enables interrupt when there is underflow in DMA PSI5 message register when DMA is enabled. Default value is 0. For the details as to when this underflow occurs, refer to the details of IS_DMA_PM_DS_UF bit details of the DSR. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>23</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DMA_SFUF</ipxact:name>
+            <ipxact:description>Enables interrupt when there is underflow in DMA SMC Frame register when DMA is enabled. It is set when the DSFR is read without a valid DMA request, that is, it is empty. Default value is 0. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>21</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DMA_PM_DS_FIFO_FULL</ipxact:name>
+            <ipxact:description>This bit is effective only when the DMA_PM_DS_CONFIG = conf2,conf3 or conf4. It enables the FIFO FULL condition generation interrupt. For the cases that generate these FIFO FULL conditions, refer to the description of IS_DMA_PM_DS_FIFO_FULL register bit of the DSR. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>20</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DMA_TF_PM_DS</ipxact:name>
+            <ipxact:description>Enable for Interrupt, which is generated when DMA transfer finishes for PSI5 messages/DMA Diagnostic Status register depending on the DMA_PM_DS_CONFIG bits of the DCR. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DMA_TF_SF</ipxact:name>
+            <ipxact:description>Enable for interrupt, which is generated when DMA transfer finishes for DMA SMC Frame register. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DMA_PM_DS_WM</ipxact:name>
+            <ipxact:description>0–31 Valid Water Mark levels Value fixed by user software. Since each location has two 32-bit registers hence a total of sixty-four 32-bit words is present. The default and minimum value of dma_pm_ds_wm is ‘0’, that is, 1 message/Diagnostic bit of 1 location. The maximum value of dma_pm_ds_wm is 31, that is, the actual watermark = 32 RAM locations. Note: These bits are ineffective if DMA_PM_DS_CONFIG = conf1. These bits indicates the number of PSI5 message to be stored in FIFO / number of unread diagnostic bits in the diagnostic registers with a correspondence to the messages in the FIFO, before the corresponding DMA request is asserted. The watermark definition changes depending on the configuration of the DMA_PM_DS_CONFIG bits in the DCR as mentioned below. When DMA_PM_DS_CONFIG = conf2 or conf3 then the watermark refers to the number of new unread PSI5 messages that are stored in the FIFO before a DMA request is asserted. In conf2 mode of DMA_PM_DS_CONFIG, the number of words to be transferred, set in the DMA controllers TCD must be set equal to the number of words corresponding to the set water mark value + 2 words (for the two 32-bit diagnostic registers). In conf3, the number of words to be transferred set in the DMA controllers TCD must be set equal to the number of words corresponding to the set water mark value. When DMA_PM_DS_CONFIG = conf4 then the watermark refers to the number of new unread diagnostic bits in the diagnostic register. In this configuration the PSI5 messages can only be read by the CPU, since the DMA request would cater to reading the diagnostic bits only. In conf4, the number of words transferred in each DMA request = 2 x 32- bit words (for the two 32-bit diagnostic registers). The water mark however refers to the number of new unread diagnostic bits pertaining to each PSI5 message in the FIFO.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>5</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DSR</ipxact:name>
+          <ipxact:displayName>DMA Status Register (PSI5_CH0_DSR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.4 - Offset 0x0010</ipxact:description>
+          <ipxact:addressOffset>0x0010</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IS_DMA_PM_DS_UF</ipxact:name>
+            <ipxact:description>Depending on the DMA_PM_DS_CONFIG bits following is the underflow conditions: Default value is 0. conf1: underflow disabled conf2 and conf3: Underflow happens when the software reads the PSI5 message FIFO though the DPMR, beyond the available messages (empty area). conf4: Underflow happens when the diagnostic registers are read through the DDSR without a valid DMA request and the DDSR contains no new data. 0 No underflow has occurred. 1 Underflow has occurred. The bits are cleared by a w1c.</ipxact:description>
+            <ipxact:bitOffset>23</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DMA_SFUF</ipxact:name>
+            <ipxact:description>SMC Frame DMA underflow: This happens when the DSFR has been read without a proper DMA request being asserted. The DSFR is empty and it is read. This bit is cleared by a w1c. 0 No underflow has occurred. 1 Underflow has occurred.</ipxact:description>
+            <ipxact:bitOffset>21</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DMA_PM_DS_FIFO_FULL</ipxact:name>
+            <ipxact:description>Interrupt Status when there is FIFO FULL corresponding to the DMA request ipd_psi5_dma_req_pm_ds. The FIFO FULL scenarios are detailed below with respect to the various settings of the DMA_PM_DS_CONFIG bit. conf1: FIFO FULL disabled conf2 and conf3: FIFO FULL occurs when all the memory locations become full in the PSI5 message FIFO. It indicates that without any read, any new upcoming message will now overwrite the existing messages and set the overwrite bits. This bit is cleared either by w1c or upon a PSI5 message read depending on the FAST_CLR_PSI5 bit. conf4: FIFO FULL occurs when there is a “REGISTER FULL” in the Diagnostic registers. FIFO FULL here means that the diagnostic registers contain 32 unread diagnostic bits. A new message starts changing the status of the diagnostic bits. In this configuration it is necessary to read the diagnostic bits through the DMA using the DDSR in order to prevent FIFO FULL. Of course the diagnostic registers NDSR/EISR can be read any time by the CPU, but to prevent FIFO FULL they HAVE to be read through the DDSR registers only. Also in this mode the PSI5 messages DONT contribute to the FIFO FULL. The PSI5 messages have to be read by the CPU using the PMRH/PMRL registers in order to prevent the overwrite bits from being set in the OWSR. In this mode the OWSR bits are NOT automatically cleared upon the PSI5 message read since the PSI5 message has to be read by the PMRH/PMRL register and NOT though the DPMR. The OWSR bits have to be cleared by a w1c. Reading the DPMR returns a 0 in this mode. This bit is cleared by a w1c. 0 No FIFO full. 1 FIFO full has occurred</ipxact:description>
+            <ipxact:bitOffset>20</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DMA_TF_PM_DS</ipxact:name>
+            <ipxact:description>This flag is set when DMA transfer finishes. For the various configurations of this request refer to the descriptions of the DMA_PM_DS_CONFIG bits in the DCR. This flag is cleared by w1c.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DMA_TF_SF</ipxact:name>
+            <ipxact:description>This flag is set when DMA transfer finishes for DMA SMC Frame register.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_GICR</ipxact:name>
+          <ipxact:displayName>General Interrupt Control Register (PSI5_CH0_GICR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.5 - Offset 0x0014</ipxact:description>
+          <ipxact:addressOffset>0x0014</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IE_NVSM[6:1]</ipxact:name>
+            <ipxact:description>Interrupt request enabled when any new valid SMC message (fault free) is received in SFR[i]{i:0 to 5}, that is, during slot1 to slot6. This interrupt is generated only when corresponding IS_NVSMS[5:0] is set. For each bit position, the corresponding request is enabled as follows: 0 Interrupt is disabled. 1 Interrupt is enabled. Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>26</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_OWSM[6:1]</ipxact:name>
+            <ipxact:description>Interrupt request enable for the SMC message Overwrite bits. The interrupt for SMC message overwrite occurs when any unread SMC message in a particular SMC slot register gets overwritten by a new SMC message of that particular slot. Even if the SMC message has a CRC error, still if it is unread and is overwritten the overwrite bit gets set. Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>18</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_PRR</ipxact:name>
+            <ipxact:description>Interrupt request enabled when Preparation Register ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>15</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_BRR</ipxact:name>
+            <ipxact:description>Interrupt request enabled when buffer Register is ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DSRR</ipxact:name>
+            <ipxact:description>Interrupt request enabled when Data Shift Register is ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_PROW</ipxact:name>
+            <ipxact:description>Interrupt request enabled when system tries to overwrite on Preparation register when it is not ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_BROW</ipxact:name>
+            <ipxact:description>Interrupt request enabled when system tries to overwrite on buffer register when it is not ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes. 53.3.2.6 New Data Interrupt Control Register (PSI5_CH0_NDICR) The New Data Interrupt Control Register (PSI5_NDICR) contains the interrupt enable bits related to a new PSI5 message arrival, in the corresponding PSI5 message buffer location.</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DSROW</ipxact:name>
+            <ipxact:description>Interrupt request enabled when system tries to overwrite on Data Shift register when it is not ready to accept new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>10</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_DTS</ipxact:name>
+            <ipxact:description>Interrupt request enabled when the Data Start sequence Triggered Time Stamp value is refreshed on DTSRR. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_STS</ipxact:name>
+            <ipxact:description>Interrupt request enabled when the Sync Pulse Triggered Time Stamp value is refreshed on STSRR. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: This bit is writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IE_CESM[6:1]</ipxact:name>
+            <ipxact:description>Interrupt request when received SMC frame in corresponding slot has CRC failure (CRC recalculation on SMC). 0 Interrupt is disabled. 1 Interrupt is enabled. Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_NDICR</ipxact:name>
+          <ipxact:displayName>New Data Interrupt Control Register (PSI5_CH0_NDICR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.6 - Offset 0x0018</ipxact:description>
+          <ipxact:addressOffset>0x0018</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IE_ND</ipxact:name>
+            <ipxact:description>Interrupt request enabled when any new message (fault-free/with fault) is received in the RAM buffer Register ’x’ location [x: 0 to 31], This interrupt is generated only when corresponding RAM buffer Ready with new data. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_OWICR</ipxact:name>
+          <ipxact:displayName>Overwrite Interrupt Control Register (PSI5_CH0_OWICR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.7 - Offset 0x001C</ipxact:description>
+          <ipxact:addressOffset>0x001C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IE_OW</ipxact:name>
+            <ipxact:description>Interrupt request enabled when any new message overwrites the old unread PSI5 message in the RAM buffer Register ’x’ location [x: 0 to 31], This interrupt generated only when corresponding RAM buffer Ready with new data. 0 Interrupt is disabled 1 Interrupt is enabled Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_EICR</ipxact:name>
+          <ipxact:displayName>Error Interrupt Control Register (PSI5_CH0_EICR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.8 - Offset 0x0020</ipxact:description>
+          <ipxact:addressOffset>0x0020</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IE_ERROR</ipxact:name>
+            <ipxact:description>Interrupt request enabled when any/all of the error conditions C, E, EM, T, or F is observed in a PSI5 message in the RAM buffer Register ’x’ location [x: 0 to 31]. This interrupt is generated only when the corresponding RAM buffer is Ready with new data. Which error condition (any of C, E, EM, T, or F) generates the interrupt is selectable by the PCCR[ERROR_SELECT] field. If all are selected, then which of C,E,EM,T or F is set can be isolated by reading the corresponding received message. 0 Interrupt is disabled. 1 Interrupt is enabled. Note: These bits are writable in Config and Normal modes. 53.3.2.9 General Interrupt Status Register (PSI5_CH0_GISR) The General Interrupt Status Register (PSI5_GISR) contains the status bits related to SMC messages, ECU-to-sensor communication, and the Time Stamp.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_GISR</ipxact:name>
+          <ipxact:displayName>General Interrupt Status Register (PSI5_CH0_GISR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0024</ipxact:description>
+          <ipxact:addressOffset>0x0024</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>IS_NVSM[6:1]</ipxact:name>
+            <ipxact:description>These flags are set when corresponding SFR[i] receives and is ready (to read) with new valid SMC message. These bits are cleared automatically upon message read, when the FAST_CLR_SMC = 1 and the DMA_EN_SF = 1 or by w1c. 1. For these register bits individual “bit setting” commands should not be used. Rather, the normal register read/write commands should be used.</ipxact:description>
+            <ipxact:bitOffset>26</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_OWSM[6:1]</ipxact:name>
+            <ipxact:description>Status for the SMC message overwrites bits. Each of the 6 locations corresponds to the SMC message pertaining to each SFR[x] register, x = 1 to 6. These bits are cleared automatically upon message read when the FAST_CLR_SMC = 1 and the DMA_EN_SF = 1 or by w1c.</ipxact:description>
+            <ipxact:bitOffset>18</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DPR_RDY</ipxact:name>
+            <ipxact:description>This bit acts both as a status and a control bit. Status bit Action: When “1” it indicates that the Data Preparation register is ready to receive new data from the system bus side. When “0” it indicates that there is a ongoing processing of the data in DPR or there is a data shift ongoing from the DPR to the DBR, or the CPU has done a “w1c” to this bit. In this case any write by the CPU to this register will be rejected and the PSI5_GISR[IS_PROW] bit gets set. When PSI5_DOBCR[CMD_TYPE] == “7” then this bit remains at value “0”. Control Bit Action: When a “w1c” is done to this register bit, then it indicates to the IP that the data in DPR is valid and is to be used for processing and shifting to DBR. For detailed action of this bit refer to Section 53.4.3.4: Data transmission.</ipxact:description>
+            <ipxact:bitOffset>15</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DBR_RDY</ipxact:name>
+            <ipxact:description>This bit acts both as a status and a control bit. Status bit Action: When “1” it indicates that the Data Buffer register is ready to receive new data from the system bus side or the Data Preparation register. When “0” it indicates that there is a ongoing shift of the data from the DPR to the DBR, or the CPU has done a “w1c” to this bit. In this case any write by the CPU to this register will be rejected and the PSI5_GISR[IS_BROW] bit gets set. A write to PSI5_DOBCR[DBR_RST] will abort the current data transaction in DBR and make the DBR_RDY as “1”. Control Bit Action: When a “w1c” is done to this register bit, then it indicates to the IP that the data in DBR is valid and is to be used for shifting to DSR. This procedure is used when the data is written by the CPU to DBR directly skipping the DPR. For detailed action of this bit refer to Section 53.4.3.4: Data transmission.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DSR_RDY</ipxact:name>
+            <ipxact:description>This bit acts both as a status and a control bit. Status bit Action: When “1” it indicates that the Data Shift register is ready to receive new data from the system bus side or the Data Buffer register. When “0” it indicates that there is a ongoing command transmission of the data in DSR, or the CPU has done a “w1c” to this bit leading to the new command transmission. In this case any write by the CPU to this register will be rejected and the PSI5_GISR[IS_DSROW] bit gets set. A write to PSI5_DOBCR[DSR_RST] will abort the current command transmission and make the DSR_RDY as “1”. Control Bit Action: When a “w1c” is done to this register bit, and PSI5_DOBCR[SW_READY] == 1, then it indicates to the IP that the data in DSR is valid and is to be used for command shifting. This procedure is used when the data is written by the CPU to DSR directly skipping the DBR. For detailed action of this bit refer to Section 53.4.3.4: Data transmission.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_PROW</ipxact:name>
+            <ipxact:description>This flag is set when the system tries to overwrite on Preparation register when it is not ready to accept new data.</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_BROW</ipxact:name>
+            <ipxact:description>This flag is set when the system tries to overwrite on buffer register when it is not ready to accept new data.</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DSROW</ipxact:name>
+            <ipxact:description>This flag is set when the system tries to overwrite on Data Shift register when it is not ready to accept new data.</ipxact:description>
+            <ipxact:bitOffset>10</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DTS</ipxact:name>
+            <ipxact:description>This Interrupt flag is set when the Data Start sequence Triggered Time Stamp value is refreshed on DTSRR.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_STS</ipxact:name>
+            <ipxact:description>This Interrupt flag is set when the Sync Pulse Triggered Time Stamp value is refreshed on STSRR.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_CESM[6:1]</ipxact:name>
+            <ipxact:description>These flags are set when the received SMC frame in the corresponding slot has a CRC failure (CRC recalculation on SMC). These bits are automatically cleared upon message read, when the FAST_CLR_SMC =1 and the DMA_EN_SF = 1 or by w1c.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IS_DEBUG_FREEZE</ipxact:name>
+            <ipxact:description>This flag is set to “1” when the IP enters the debug freeze mode. Refer to Section 53.1.3.5: Debug mode for details about the debug mode. This bit is auto cleared by the hardware when the IP exits the debug freeze mode. 0 IP not in debug freeze mode 1 IP in debug freeze mode</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DPMR</ipxact:name>
+          <ipxact:displayName>DMA PSI5 Message Register (PSI5_CH0_DPMR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.10 - Offset 0x0028</ipxact:description>
+          <ipxact:addressOffset>0x0028</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>PSI5_RXDATAPSI5_RXDATA[31:0]</ipxact:name>
+            <ipxact:description>This popup register contains the PMRL[31:0] data followed by the PMRH[31:0] data for each of the FIFO locations, when the FIFO is read by the DMA. It would require two 32-bit IPS access to read one PSI5 Message. For each of the locations, the DATA is pushed sequentially until all the data corresponding to the programmed watermark is complete, after which the DMA request is deasserted. The depth of the FIFO is 32 × 64. This popup register can be used differently based on the configuration of the DMA_PM_DS_CONFIG bits in the DCR. When DMA_PM_DS_CONFIG = conf2 then it pops the PSI5 message, followed by NDSR, followed by EISR. When DMA_PM_DS_CONFIG = conf3, it pops only the PSI5 messages. When DMA_PM_DS_CONFIG = conf4, it pops the NDSR followed by EISR. This register is a reflection of the location, pointed to by the DMA read pointer. For more details refer to the Section 53.3.2.2: PSI5 Channel Control Register (PSI5_CH0_PCCR), Section 53.3.2.3: DMA Control Register (PSI5_CH0_DCR), and Section 53.3.2.4: DMA Status Register (PSI5_CH0_DSR). 53.3.2.12 DMA Diagnostic Status Register (PSI5_CH0_DDSR) Figure 1549 shows the DMA Diagnostic Status Register.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DSFR</ipxact:name>
+          <ipxact:displayName>DMA SMC Frame Register (PSI5_CH0_DSFR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.11 - Offset 0x002C</ipxact:description>
+          <ipxact:addressOffset>0x002C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SMC_RXDATA</ipxact:name>
+            <ipxact:description>When the DMA_EN_SF = 1, then the six SFR registers are searched in a round robin fashion for the reception of the complete SMC data. The DMA request is asserted as soon as the first encountered SFR has a complete SMC frame. This request remains asserted until all the registers that have pending data, have transferred the data through the DMA. Each other SFR is a 32-bit register. This register is a reflection of the location pointed to by the DMA read pointer.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DDSR</ipxact:name>
+          <ipxact:displayName>DMA Diagnostic Status Register (PSI5_CH0_DDSR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.12 - Offset 0x0030</ipxact:description>
+          <ipxact:addressOffset>0x0030</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DDS</ipxact:name>
+            <ipxact:description>This register maps each of the individual Diagnostic registers (in the order NDSR, EISR) depending on the configuration of the DMA_PM_DS_CONFIG bits in the DCR. This register is a reflection of the location, pointed to by the DMA read pointer. For more details refer to the Section 53.3.2.2: PSI5 Channel Control Register (PSI5_CH0_PCCR),Section 53.3.2.3: DMA Control Register (PSI5_CH0_DCR) and Section 53.3.2.4: DMA Status Register (PSI5_CH0_DSR). Note: No FIFO is implemented for diagnostic registers. They are two 32-bit registers addressable by either the CPU (reading NDSR or EISR directly) or the DMA (reading the DDSR successively). 53.3.2.13 PSI5 Message Receive Register Low (PSI5_CH0_PMRRL) Figure 1550 shows the PSI5 Message Receive Register Low. 53.3.2.14 PSI5 Message Receive Register High (PSI5_CH0_PMRRH) Figure 1551 shows the PSI5 Message Receive Register High.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_PMRRL</ipxact:name>
+          <ipxact:displayName>PSI5 Message Receive Register Low (PSI5_CH0_PMRRL)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.13 - Offset 0x0034</ipxact:description>
+          <ipxact:addressOffset>0x0034</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>C</ipxact:name>
+            <ipxact:description>This bit will be set if CRC/P recalculation return an Error. Note: Any new PSI5 message is always stored in the PSI5 receive register (PMRRL/PMRRH). In parallel it is also stored in the RAM registers in a sequential manner like in a Ring Buffer.</ipxact:description>
+            <ipxact:bitOffset>31</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CRCP</ipxact:name>
+            <ipxact:description>This field represents CRC/Parity value of the data. When parity configuration is selected in the S[1-6]FCR registers, the CRC[2] bits denotes the parity.</ipxact:description>
+            <ipxact:bitOffset>28</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DATA_REGION</ipxact:name>
+            <ipxact:description>These are application-specific optional bits + data payload of received message. See Section 53.4.2.1: Reception of data frames for more details. The data is left- aligned, that is, Data Region[0]/D0 corresponds to first received bit of the PSI5 message after Start sequence detection and Data Region[n]/D’n’ corresponds to successive bits up to expected number of bits (n: 8 &lt;= n &lt;= 28). If n &lt; 28 remaining bit positions are filled with ’0’s, that is, between last received bit and CRC field.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>28</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_PMRRH</ipxact:name>
+          <ipxact:displayName>PSI5 Message Receive Register High (PSI5_CH0_PMRRH)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.14 - Offset 0x0038</ipxact:description>
+          <ipxact:addressOffset>0x0038</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>TimeStampValue</ipxact:name>
+            <ipxact:description>This is 24-bit Time Stamp value appended to Received message as soon as start bits are detected. This time stamp is captured at rising edge of S0 and stored at the rising edge of S1. The specific value that is appended can be programmed by setting the TS_CAPT bit in the Section 53.3.2.27: Slot n Frame Configuration Register (PSI5_CH0_SnFCR). In other words these bits contain either the start bit(S0) captured time stamp or the SYNC pulse captured time stamp, dependent on TS_CAPT bit. Note that in messages where “F” bit has been set; the value of the Time Stamp appended to the message is “0”. When a new message comes it would always overwrite the data in the PSI5 receive register. But the original message would still be available in the RAM register provided all locations in the RAM registers are not full, and an overwrite has not occurred. 53.3.2.15 PSI5 Message Register Low n (PSI5_CH0_PMRLn) Figure 1552 shows the PSI5 Message Register Low n. 53.3.2.16 PSI5 Message Register High n (PSI5_CH0_PMRHn) Figure 1553 shows the PSI5 Message Register High n.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>24</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SlotCounter</ipxact:name>
+            <ipxact:description>This value indicates the slot number in which this frame was received. More specifically, it indicates in which slot the start bits of the frame have been detected. If the start bits get detected before the start boundary of Slot1, then the slot counter has a value of “0”. For asynchronous modes the slot counter has a fixed value of “1”. The six slots are numbered as Slot1, Slot2,....Slot6.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>T</ipxact:name>
+            <ipxact:description>This bit indicates timing error, that is, frame has started in an unconfigured slot, spread across two slots, started before the first configured slot. 0 No timing error in the corresponding slot. 1 Timing error in the corresponding slot.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>E</ipxact:name>
+            <ipxact:description>This bit indicates electrical error, that is, at least one bit is absent during the Tbit period (except M0 and M1 bits and the start bits). 0 No electrical error in fields other than M0, M1, and start fields. 1 Electrical error in fields other than M0, M1, and start fields.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>EM</ipxact:name>
+            <ipxact:description>This bit indicates electrical error in the PSI5 Message at bits corresponding to Serial Messaging Channel (M0,M1), that is, at least one bit is absent during the T bit period. 0 No electrical error in M0, M1 fields. 1 Electrical error in M0, M1 fields.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>F</ipxact:name>
+            <ipxact:description>This represents that NO frame was received in the corresponding configured slot. 0 Frame was received in the corresponding configured slot. 1 No frame was received (F bit error).</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:registerFile>
+          <ipxact:name>PSI5_CH0_PMR</ipxact:name>
+          <ipxact:displayName>PSI5_CH0_PMR bank (32 slots, 8-byte pitch)</ipxact:displayName>
+          <ipxact:array>
+            <ipxact:dim>32</ipxact:dim>
+          </ipxact:array>
+          <ipxact:addressOffset>0x003C</ipxact:addressOffset>
+          <ipxact:range>0x8</ipxact:range>
+          <ipxact:register>
+            <ipxact:name>PMRL</ipxact:name>
+            <ipxact:displayName>PSI5 Message Register 0 Low Word of Data Frame (PSI5_CH0_PMRL0)</ipxact:displayName>
+            <ipxact:description>Section 53.3.2.15</ipxact:description>
+            <ipxact:addressOffset>0x0</ipxact:addressOffset>
+            <ipxact:size>32</ipxact:size>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:field>
+              <ipxact:name>C</ipxact:name>
+              <ipxact:description>This bit will be set if CRC/Parity recalculation return an Error.</ipxact:description>
+              <ipxact:bitOffset>31</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>CRCP</ipxact:name>
+              <ipxact:description>This field represents CRC/Parity value of the data. When parity configuration is selected in the S[1-6]FCR registers, the CRCP[2] bits denotes the parity. Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>28</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>3</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>DATA_REGION</ipxact:name>
+              <ipxact:description>These are application-specific optional bits + data payload of received message. See Section 53.4.2.1: Reception of data framesfor more details. The data is left-aligned, that is, Data Region[0]/D0 corresponds to first received bit of the PSI5 message after Start sequence detection and Data Region[n]/D’n’ corresponds to successive bits up to expected number of bits (n: 8 &lt;= n &lt;= 28). If n &lt; 28 remaining bit positions are filled with ’0’s, that is, between last received bit and CRC field. Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>0</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>28</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+          </ipxact:register>
+          <ipxact:register>
+            <ipxact:name>PMRH</ipxact:name>
+            <ipxact:displayName>PSI5 Message Register 0 High Word of Data Frame (PSI5_CH0_PMRH0)</ipxact:displayName>
+            <ipxact:description>Section 53.3.2.16</ipxact:description>
+            <ipxact:addressOffset>0x4</ipxact:addressOffset>
+            <ipxact:size>32</ipxact:size>
+            <ipxact:access>read-write</ipxact:access>
+            <ipxact:field>
+              <ipxact:name>Time_Stamp_Value</ipxact:name>
+              <ipxact:description>This is 24-bit Time Stamp value appended to Received message as soon as start bits are detected. This time stamp is captured at rising edge of S0 and stored at the rising edge of S1. The specific value that is appended can be programmed by setting the TS_CAPT bit in the Section 53.3.2.27: Slot n Frame Configuration Register (PSI5_CH0_SnFCR). In other words these bits contain either the start bit (S0) captured time stamp or the SYNC pulse captured time stamp, dependent on TS_CAPT bit. Note that in messages where “F” bit has been set; the value of the Time Stamp appended to the message is “0”. In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>8</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>24</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>Slot_Counter</ipxact:name>
+              <ipxact:description>This value indicates the slot number in which this frame was received. More specifically, it indicates in which slot the start bits of the frame have been detected. If the start bits get detected before the start boundary of Slot1, then the slot counter has a value of “0”. The slot counter is automatically incremented at each slot boundary irrespective of whether a message is received or not. For asynchronous modes the slot counter has a fixed value of “1”. Note: The six slots are numbered as Slot1, Slot2,...., Slot6.In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>5</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>3</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>T</ipxact:name>
+              <ipxact:description>This bit indicates timing error, that is, frame has started in an unconfigured slot or it has spread across two slots or it has started before the first configured slot. 0 No timing error in the corresponding slot. 1 Timing error in the corresponding slot. In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes). 53.3.2.17 SMC Frame Register n (PSI5_CH0_SFRn) Figure 1554 shows the SMC Frame Register n.</ipxact:description>
+              <ipxact:bitOffset>4</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>E</ipxact:name>
+              <ipxact:description>This Bit Indicates Electrical Error, that is, at least one bit is absent during the Tbit period (except M0 and M1 bits and the start bits). 0 No electrical error in fields other than M0, M1 and start fields. 1 Electrical error in fields other than M0, M1 and start fields. In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>3</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>EM</ipxact:name>
+              <ipxact:description>This bit indicates electrical error in the PSI5 Message at bits corresponding to Serial Messaging Channel (M0, M1), that is, at least one bit is absent during the Tbit period. 0 No electrical error in M0, M1 fields. 1 Electrical error in M0, M1 fields. In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>2</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>F</ipxact:name>
+              <ipxact:description>This represents that NO frame was received in corresponding configured Slot. 0 Frame was received in the corresponding configured slot. 1 No frame was received (F bit error). In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+              <ipxact:bitOffset>1</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+            <ipxact:field>
+              <ipxact:name>O</ipxact:name>
+              <ipxact:description>This bit carries the same information as OWSR, but appended here for each message separately. This bit is set when the current message (which is being read) has overwritten some previous unread message. Note that, if the corresponding location in the OWSR has been cleared or has been set by the SOWSR, then the same will be reflected in the message stored in the corresponding RAM location as well.</ipxact:description>
+              <ipxact:bitOffset>0</ipxact:bitOffset>
+              <ipxact:resets>
+                <ipxact:reset>
+                  <ipxact:value>0x0</ipxact:value>
+                </ipxact:reset>
+              </ipxact:resets>
+              <ipxact:bitWidth>1</ipxact:bitWidth>
+              <ipxact:access>read-write</ipxact:access>
+            </ipxact:field>
+          </ipxact:register>
+        </ipxact:registerFile>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR1</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 1 (PSI5_CH0_SFR1)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x013C</ipxact:description>
+          <ipxact:addressOffset>0x013C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DATA[11:0]</ipxact:name>
+            <ipxact:description>DATA payload Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes). Note: Six dedicated 32-bit SFR[x] registers for SMC are available with a 1-1 slot correspondence. These can be read by either the CPU or the DMA (when DMA_EN_SF = 1). No FIFO for SMC frame is available. Six 32-bit registers are available in the address space, which can be accessed by either the DMA (using the DSFR) or the CPU (using the six SFR registers), depending on the setting of the DMA_EN_SMC bit. 53.3.2.18 New Data Status Register (PSI5_CH0_NDSR) Figure 1555 shows the New Data Status Register. 53.3.2.19 Overwrite Status Register (PSI5_CH0_OWSR)</ipxact:description>
+            <ipxact:bitOffset>20</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>12</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>IDDATA</ipxact:name>
+            <ipxact:description>Message ID/DATA: If C = ’0’ indicates ID[3:0], if C = ’1’ indicates DATA[15:12]. Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>4</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>ID</ipxact:name>
+            <ipxact:description>Message ID: If C = ’0’ indicates ID[7:4], if C = ’1’ indicates ID[3:0]. Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+            <ipxact:bitOffset>12</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>4</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>C</ipxact:name>
+            <ipxact:description>Configuration bit 0 12-bit data and 8-bit message ID. 1 16-bit data and 4-bit message ID. Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CRC</ipxact:name>
+            <ipxact:description>6-bit CRC for slow serial message Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>OW</ipxact:name>
+            <ipxact:description>Overwrite status 0 The present data was already read when new message arrived. 1 New message has overwritten the previous unread message. Note: If the corresponding SOWSM bits in the SSESR have been set or the OWSM bits in the GISR have been cleared, then the same will be reflected in the message stored in the corresponding RAM location as well. The overwrite occurs when any unread SMC message in a particular SMC slot register gets overwritten by a new SMC message of that particular slot. Even if the SMC message has a CRC error, still if it is unread and is overwritten, the overwrite bit gets set.</ipxact:description>
+            <ipxact:bitOffset>4</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CER</ipxact:name>
+            <ipxact:description>CRC Error 0 The present data has no CRC error. 1 The present data has a CRC error.</ipxact:description>
+            <ipxact:bitOffset>3</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SLOT_NO</ipxact:name>
+            <ipxact:description>This indicates in which slot this SMC frame was received. Note that here the slot number refers to the slot in which all the re-arranged PSI5 messages (from which the M0,M1 bits have been extracted) are supposed to have occurred after the correct PSI5 message placement and Timing corrections have been performed. For SFR[1], slot_no = 1; For SFR[2], slot_no = 2; For SFR[3], slot_no = 3; For SFR[4], slot_no = 4; For SFR[5], slot_no = 5; For SFR[6], slot_no = 6; Note: In the normal mode, it is auto updated by hardware and not writable by any other sources. It is writable in configuration mode (for test purposes).</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR2</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 2 (PSI5_CH0_SFR2)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x0140</ipxact:description>
+          <ipxact:addressOffset>0x0140</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR3</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 3 (PSI5_CH0_SFR3)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x0144</ipxact:description>
+          <ipxact:addressOffset>0x0144</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR4</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 4 (PSI5_CH0_SFR4)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x0148</ipxact:description>
+          <ipxact:addressOffset>0x0148</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR5</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 5 (PSI5_CH0_SFR5)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x014C</ipxact:description>
+          <ipxact:addressOffset>0x014C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SFR6</ipxact:name>
+          <ipxact:displayName>SMC Frame RX Register 6 (PSI5_CH0_SFR6)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.17 - Offset 0x0150</ipxact:description>
+          <ipxact:addressOffset>0x0150</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_NDSR</ipxact:name>
+          <ipxact:displayName>New Data Status Register (PSI5_CH0_NDSR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0154</ipxact:description>
+          <ipxact:addressOffset>0x0154</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>NDS</ipxact:name>
+            <ipxact:description>New Data Status flags for PSI5 Messages corresponding to each PSI5 MB locations. These bits are set when a new Message arrives, that is, faulty or non faulty in corresponding PSI5 MB location. These bits can be cleared by w1c or the fast clearing. Refer to PCCR, DCR and DSR registers for more information. Also, these bits can be set independently by writing in SNDR.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_OWSR</ipxact:name>
+          <ipxact:displayName>Over Write Status Register (PSI5_CH0_OWSR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0158</ipxact:description>
+          <ipxact:addressOffset>0x0158</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>OWS</ipxact:name>
+            <ipxact:description>Over Write Status flags for PSI5 Messages corresponding to each PSI5 location in the RAM registers. These bits are set when any unread receive PSI5 message is overwritten by a newly arrived message. These bits can be cleared by w1c or the fast clearing. Refer to PCCR, DCR and DSR registers for more information. Also, these bits can be set independently by writing in SOWSR.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_EISR</ipxact:name>
+          <ipxact:displayName>Error Status Register (PSI5_CH0_EISR)</ipxact:displayName>
+          <ipxact:description>Offset 0x015C</ipxact:description>
+          <ipxact:addressOffset>0x015C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>ERROR</ipxact:name>
+            <ipxact:description>Error Status flags for PSI5 Messages corresponding to each PSI5 MB locations. These bits are set when any of the five selectable (by ERROR_SELECT) bits (C, E, EM, T or F) is set for the corresponding PSI5 Message. These bits can be cleared by w1c or the fast clearing. Refer to PCCR, DCR and DSR registers for more information. Also, these bits can be set independently by writing in SEISR. 53.3.2.22 Set Overwrite Status Register (PSI5_CH0_SOWSR) Figure 1559 shows the Set Overwrite Status Register.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SNDSR</ipxact:name>
+          <ipxact:displayName>Set New Data Status Register (PSI5_CH0_SNDSR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0160</ipxact:description>
+          <ipxact:addressOffset>0x0160</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SNDS</ipxact:name>
+            <ipxact:description>Sets New Data Status flags for PSI5 Messages corresponding to each PSI5 MB locations. The corresponding NDS Flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can SET the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as ’0’. Note: This field is writable in Config and Normal modes. This field is w1s.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SOWSR</ipxact:name>
+          <ipxact:displayName>Set Overwrite Status Register (PSI5_CH0_SOWSR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0164</ipxact:description>
+          <ipxact:addressOffset>0x0164</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SOWS</ipxact:name>
+            <ipxact:description>Sets overwrite status flags for PSI5 messages corresponding to each PSI5 MB locations. The corresponding OWS flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can set the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as 0. Note: These bits are writable in Config and Normal modes. This field is w1s.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SEISR</ipxact:name>
+          <ipxact:displayName>Set Error Status Register (PSI5_CH0_SEISR)</ipxact:displayName>
+          <ipxact:description>Offset 0x0168</ipxact:description>
+          <ipxact:addressOffset>0x0168</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SERROR</ipxact:name>
+            <ipxact:description>Sets Error Status flags for PSI5 messages corresponding to each PSI5 MB locations. The corresponding ERROR flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can set the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as 0. Note: These bits are writable in Config and Normal modes. This field is w1s. 53.3.2.25 Sync Time Stamp Read Register (PSI5_CH0_STSRR) Figure 1562 shows the Sync Time Stamp Read Register.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SSESR</ipxact:name>
+          <ipxact:displayName>Set SMC Error Status Register (PSI5_CH0_SSESR)</ipxact:displayName>
+          <ipxact:description>Offset 0x016C</ipxact:description>
+          <ipxact:addressOffset>0x016C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SNVSM[6:1]</ipxact:name>
+            <ipxact:description>Sets IS_NVSM Status flags for SMC Messages corresponding to each SMC MB locations. The corresponding IS_NVSM Flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can SET the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as ’0’ (w1s). Note: This bit is writable in Config and Normal modes. 53.3.2.26 Data Time Stamp Read Register (PSI5_CH0_DTSRR) Figure 1563 shows the Data Time Stamp Read Register.</ipxact:description>
+            <ipxact:bitOffset>26</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SOWSM[6:1]</ipxact:name>
+            <ipxact:description>Sets IS_OWSM Status flags for SMC Messages corresponding to each SMC MB locations. The corresponding IS_OWSM Flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can SET the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as ’0’ (w1s). Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>18</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SCESM[6:1]</ipxact:name>
+            <ipxact:description>Sets IS_CESM Status flags for SMC Messages corresponding to each SMC MB locations. The corresponding IS_CESM Flags can be set by writing to corresponding bits in this registers. This register is required for IP testing purposes (testing of Error Conditions through software). These bits can SET the status flags in parallel to the hardware events and are used for test purpose. These registers are one-shot and would always be read as ’0’ (w1s). Note: These bits are writable in Config and Normal modes.</ipxact:description>
+            <ipxact:bitOffset>2</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_STSRR</ipxact:name>
+          <ipxact:displayName>Sync Pulse Start Time Stamp Read Register (PSI5_CH0_STSRR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.25 - Offset 0x0170</ipxact:description>
+          <ipxact:addressOffset>0x0170</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>STSV</ipxact:name>
+            <ipxact:description>Sync Time Stamp Value[23:0] This bitfield provides the value of the free-running 24-bit time stamp counter triggered (captured) at last sync pulse.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>24</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DTSRR</ipxact:name>
+          <ipxact:displayName>Data Reception Time Stamp Read Register (PSI5_CH0_DTSRR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.26 - Offset 0x0174</ipxact:description>
+          <ipxact:addressOffset>0x0174</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DTSV</ipxact:name>
+            <ipxact:description>Data Time Stamp Value[23:0] Whenever a valid sequence of the start bits (S0,S1) is detected, the value of the Time Stamp counter captured at the rising edge of the S0 is stored in this register at the rising edge of S1.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>24</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SLOT_COUNTER</ipxact:name>
+            <ipxact:description>3-bit Slot Counter, which corresponds to the slot for which the DTSRR contains the Time Stamp. The slot_counter contains the slot in which the start bits of this frame was captured (after successful detection of S1). If the start bits get detected before the start boundary of Slot1, then the slot counter has a value of “0”. The slot counter is automatically incremented at each slot boundary irrespective of whether a message is received or not. In case of asynchronous mode, the slot counter has a fixed value of “1”.</ipxact:description>
+            <ipxact:bitOffset>5</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S1FCR</ipxact:name>
+          <ipxact:displayName>Slot 1 Frame Configuration Register (PSI5_CH0_S1FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x0178</ipxact:description>
+          <ipxact:addressOffset>0x0178</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>CRCP</ipxact:name>
+            <ipxact:description>0 3 bit CRC[2:0] present on Rx Message during Time Slot ’n’ 1 1 bit Parity field present on Rx Message during Time Slot ’n’</ipxact:description>
+            <ipxact:bitOffset>31</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DRL</ipxact:name>
+            <ipxact:description>Data Region Length[4:0] This field represents Length of Data region (including Frame Control, Status, Data payload1&amp;2 regions and optional messaging bits M0, M1) in Rx Message during Time Slot ‘n’ 00000 invalid ... 00111 Invalid 01000 8 bit long data region 01001 9 bit long data region .... 11011 27 bit long data region 11100 28 bit long data region 11101 invalid 11111 Invalid</ipxact:description>
+            <ipxact:bitOffset>26</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>5</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SMCL</ipxact:name>
+            <ipxact:description>Serial Messaging Channel field 0 Serial Messaging Channel (optional) not present on Rx Message during Time Slot ‘n’ 1 2-bit{M1,M0} Serial Messaging Channel present on Rx Message during Time Slot ’n’ This field is used to enable the detection of start sequence of SMC frame on particular slot. Detection is not done if this field is ’0’.</ipxact:description>
+            <ipxact:bitOffset>16</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SnSBT</ipxact:name>
+            <ipxact:description>Slot n Start Boundary Time This field specifies the time in intervals of 1 µs, occurring after the rising edge of the timing sync pulse, at which the slot n should start. n = 1 to 6 dedicated for each of the six slots.</ipxact:description>
+            <ipxact:bitOffset>1</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x8</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>15</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>TS_CAPT</ipxact:name>
+            <ipxact:description>0 Time stamp value captured at rising edge of S0 and stored Start sequence first edge. 1 Time stamp value captured at corresponding Tsync pulse (posedge) and stored with corresponding slot PSI5 message. Note: In Asynchronous mode, the PSI5_S1FCR register has to be programmed for controlling the various parameters pertaining to the message received. The other registers PSI5_S[2- 6]FCR have no effect in the asynchronous mode. 53.3.2.28 Slot n Start Boundary Register (PSI5_CH0_SnSBR) Figure 1565 shows the Slot n Start Boundary Register (PSI5_SnSBR). Total of six registers for each of the six slots. These are S1SBR, S2SBR, S3SBR, S4SBR, S5SBR, and S6SBR. Here n = 1 to 6 corresponding to each of the six slots.</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SLOT_EN</ipxact:name>
+            <ipxact:description>0 This particular slot is disabled, that is, not in use and corresponding configuration bits (as defined by other bits of this PSI5_SnFCR) have no effect. 1 This particular slot is enabled, that is, in use and corresponding configuration bits (as defined by other bits of this PSI5_SnFCR) are applicable.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S2FCR</ipxact:name>
+          <ipxact:displayName>Slot 2 Frame Configuration Register (PSI5_CH0_S2FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x017C</ipxact:description>
+          <ipxact:addressOffset>0x017C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S3FCR</ipxact:name>
+          <ipxact:displayName>Slot 3 Frame Configuration Register (PSI5_CH0_S3FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x0180</ipxact:description>
+          <ipxact:addressOffset>0x0180</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S4FCR</ipxact:name>
+          <ipxact:displayName>Slot 4 Frame Configuration Register (PSI5_CH0_S4FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x0184</ipxact:description>
+          <ipxact:addressOffset>0x0184</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S5FCR</ipxact:name>
+          <ipxact:displayName>Slot 5 Frame Configuration Register (PSI5_CH0_S5FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x0188</ipxact:description>
+          <ipxact:addressOffset>0x0188</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S6FCR</ipxact:name>
+          <ipxact:displayName>Slot 6 Frame Configuration Register (PSI5_CH0_S6FCR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.27 - Offset 0x018C</ipxact:description>
+          <ipxact:addressOffset>0x018C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S1SBR</ipxact:name>
+          <ipxact:displayName>Slot 1 Start Boundary Register (PSI5_CH0_S1SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x0190</ipxact:description>
+          <ipxact:addressOffset>0x0190</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S2SBR</ipxact:name>
+          <ipxact:displayName>Slot 2 Start Boundary Register (PSI5_CH0_S2SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x0192</ipxact:description>
+          <ipxact:addressOffset>0x0192</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S3SBR</ipxact:name>
+          <ipxact:displayName>Slot 3 Start Boundary Register (PSI5_CH0_S3SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x0194</ipxact:description>
+          <ipxact:addressOffset>0x0194</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S4SBR</ipxact:name>
+          <ipxact:displayName>Slot 4 Start Boundary Register (PSI5_CH0_S4SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x0196</ipxact:description>
+          <ipxact:addressOffset>0x0196</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S5SBR</ipxact:name>
+          <ipxact:displayName>Slot 5 Start Boundary Register (PSI5_CH0_S5SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x0198</ipxact:description>
+          <ipxact:addressOffset>0x0198</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_S6SBR</ipxact:name>
+          <ipxact:displayName>Slot 6 Start Boundary Register (PSI5_CH0_S6SBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.28 - Offset 0x019A</ipxact:description>
+          <ipxact:addressOffset>0x019A</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_SNEBR</ipxact:name>
+          <ipxact:displayName>Slot n End Boundary Register (PSI5_CH0_SNEBR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.29 - Offset 0x019C</ipxact:description>
+          <ipxact:addressOffset>0x019C</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SNEBT</ipxact:name>
+            <ipxact:description>Slot n End Boundary Time This field specifies the time in intervals of 1 µs, occurring after the rising edge of timing sync pulse, at which the slot n should end.</ipxact:description>
+            <ipxact:bitOffset>17</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>15</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SLOT_NO</ipxact:name>
+            <ipxact:description>The field indicates the Slot number{1–6} for which Slot End Boundary Time is defined. Any value other than 1–6 is defaulted to 0. A value 0 here would mean that the Manchester decoder would not sample any slots. This slot number also defines the number of slots that the IP assumes to exist between 2 sync pulses.</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DOBCR</ipxact:name>
+          <ipxact:displayName>Data Output Block Configuration Register (PSI5_CH0_DOBCR)</ipxact:displayName>
+          <ipxact:description>Offset 0x01A0</ipxact:description>
+          <ipxact:addressOffset>0x01A0</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>SW_READY</ipxact:name>
+            <ipxact:description>When this bit is written to 1 the transfer from DBR to DSR automatically happens as soon as DSR_RDY becomes 1. When this bit is kept to 0 then the transfer from DBR to DSR will remain pending. Once the software makes this bit as “1” and DSR_RDY also goes as “1” the transfer to DSR takes place. However, note that when this bit is 0, and the DSR_RDY becomes 1, still the transfer to the DSR will NOT happen. Only when this bit is a 1, will the transfer happen. This bit can be written in CONFIG and the Normal modes.</ipxact:description>
+            <ipxact:bitOffset>15</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>OP_SEL</ipxact:name>
+            <ipxact:description>This bit selects the driving source of the “ipp_do_psi5_sdout” port. 0 Reserved 1 PWM output</ipxact:description>
+            <ipxact:bitOffset>14</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>SP_PULSE_SEL</ipxact:name>
+            <ipxact:description>Selects the source for the short pulse PWM module: 1 Reserved 0 SP module gets the data from the DSR</ipxact:description>
+            <ipxact:bitOffset>13</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DEFAULT_SYNC</ipxact:name>
+            <ipxact:description>When this bit is set to “0” then the default value of DSR and DBR registers are all “0s”; when this bit is set to 1 then the default value of DBR and DSR registers are all “1s”. This value is used as the value of the default sync pulses shifted at the output path when the DSR_RDY == 1.</ipxact:description>
+            <ipxact:bitOffset>11</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>CMD_TYPE</ipxact:name>
+            <ipxact:description>These 3 bits indicate the type of command that needs to be transmitted during the ECU to sensor communication. Table 1644 is a brief description of the same.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>3</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DSR_RST</ipxact:name>
+            <ipxact:description>This is to reset and reject current content to Data Shift Register. When this bit is written as “1” then the contents of the DSR are reset to all “0s” (if DEFAULT_SYNC= = 0) or all “1s” (if DEFAULT_SYNC == 1). As soon as content is reset the DSR would be ready for new data. Reading this bit would always return a “0” (w1s). Writable to 1 in one shot. This bit is writable in the CONFIG and the Normal modes.</ipxact:description>
+            <ipxact:bitOffset>7</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DBR_RST</ipxact:name>
+            <ipxact:description>This is to reset and reject current content to Data Buffer Register. When this bit is written as “1” then the contents of the DBR are reset to all “0s” (if DEFAULT_SYNC= = 0) or all “1s” (if DEFAULT_SYNC == 1). As soon as content is reset the DBR would be ready for new data. Reading this bit would always return a “0” (w1s). Writable to 1 in one shot. This bit is writable in the CONFIG and the Normal modes.</ipxact:description>
+            <ipxact:bitOffset>6</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>1</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+          <ipxact:field>
+            <ipxact:name>DATA_LENGTH</ipxact:name>
+            <ipxact:description>Can take on values from 0 to 63 corresponding to 1bit to 64bit non standard length commands. When PSI5_DOBCR[CMD_TYPE] == 7(Non Standard), then this field controls the length of command that can be written to the DBR and the DSR registers, else the value in this field is ignored. This when DATA_LENGTH = 0 then the length of the command that can be written to DSR and the DBR is 1, when DATA_LENGTH=1 then the length of the command that can be written to DSR and the DBR is 2 and so on until a maximum of 64-bit length command when DATA_LENGTH = 63. Note that the length of the command that is programmed by using this field, is also equal to the length of the command that shifts out of the DSR register. In other words, it is equal to the number of bits, that shift out of DSR register once the DSR_RDY goes low. After these many shifts have happened, then the value corresponding to “DEFAULT_SYNC” starts getting shifted out and DSR_RDY goes as “1”.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>6</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_MDDIS_OFF</ipxact:name>
+          <ipxact:displayName>Manchestor Decoder Disable Offset (PSI5_CH0_MDDIS_OFF)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.31 - Offset 0x01A2</ipxact:description>
+          <ipxact:addressOffset>0x01A2</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>MDDIS_OFF</ipxact:name>
+            <ipxact:description>These 7 bits can be used to program the time for which the Manchester decoder remains disabled. This offset is added AFTER the falling edge of the sync pulse. Thus the total time for which the Manchester decoder remains disabled = TsyncH + MDDIS_OFF where TsyncH is the high time for the sync pulse. Thus TsyncH = Pulse_Width0 or Pulse_Width1 as the case maybe, depending on whether a “0” is being pulse modulated or a “1”. Note that the Manchester decoder will ALWAYS remain disabled during the high time of the Sync Pulse. Using this register it is possible to disable the Manchester decoder BEYOND the Sync Pulse High Time as well. Figure 1606 shows the “MDDIS_OFF” definition. 53.3.2.33 Pulse Width for Data Bit 1 Register (PSI5_CH0_PW1D) Figure 1570 shows the Pulse Width for Data Bit 1 Register. Note: When using the “tooth gap method” of PSI5 command transmission, the pulse width is NOT disabled. In this case, PSI5_PW0D has to be programmed as 0. PSI5_PW1D has to have the value of the length of the pulse desired when a 1 has to be transferred. 53.3.2.34 Counter Target Pulse Register (PSI5_CH0_CTPR) Figure 1571 shows the Counter Target Pulse Register.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>7</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_PW0D</ipxact:name>
+          <ipxact:displayName>Pulse Width for Data Bit Value 0 (PSI5_CH0_PW0D)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.32 - Offset 0x01A4</ipxact:description>
+          <ipxact:addressOffset>0x01A4</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>Pulse_Width0</ipxact:name>
+            <ipxact:description>This defines the width (in µs) of data value ’0’ to be sent from Data Output Register. It is the number of clock cycles (1µs clock) counted up to width “Pulse_Width0”; starting as soon as trigger appears from the ISPG (Internal Sync Pulse Generator). Can take max value of 127. When, intending to use the” tooth gap method” of PSI5 command transmission, the Pulse_Width0 should be configured to 0. Figure 1606 shows the definition of “Pulse_Width0”.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>7</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_PW1D</ipxact:name>
+          <ipxact:displayName>Pulse Width for Data Bit Value 1 (PSI5_CH0_PW1D)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.33 - Offset 0x01A6</ipxact:description>
+          <ipxact:addressOffset>0x01A6</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>Pulse_Width1</ipxact:name>
+            <ipxact:description>This defines the width (in µs) of data value ’1’ to be sent from Data Output Register. It is the number of clock cycles (1µs clock) counted up to width “Pulse_Width1”; starting as soon as trigger appears from the ISPG(Internal Sync Pulse Generator). Can take max value of 127. Figure 1606 shows the definition of “Pulse_Width1”. Note: Refer to Section 53.8.1 for details about the Sync Pulse generation and coordination. 53.3.2.35 Counter Initialize Pulse Register (PSI5_CH0_CIPR) Figure 1572 shows the Counter Initialize Pulse Register.</ipxact:description>
+            <ipxact:bitOffset>9</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>7</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_CTPR</ipxact:name>
+          <ipxact:displayName>Counter target Pulse Register (PSI5_CH0_CTPR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.34 - Offset 0x01A8</ipxact:description>
+          <ipxact:addressOffset>0x01A8</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>CTPR</ipxact:name>
+            <ipxact:description>Counter Target Pulse Register This is the target counter value. Once the CTC (channel target counter) reaches the value of CTPR this CTC is reset. CTC is a 16-bit free running counter that starts/stops depending on the CTC_GED (in GCR) bit or the CTC_ED bit (in PCCR). It gets reset initially when its value reaches CIPR and subsequently when its value reaches CTPR. The fact that which out of CTC_GED or the CTC_ED bit enables/disables it, is dependent on the CTC_GED_SEL bit in the PCCR. When CTC_GED/CTC_ED == 0 then the CTC is reset. The minimum value of CTPR is 6. Values less than 6 will be defaulted to 0 and the CTPR counter will not start. The value in CTPR indicates the time period of the internally generated sync pulses. The un-modulated (No PWM) internally generated sync pulses have a high time of 4- sp_ts_clk cycles, that is, the duty cycle of the un-modulated internally generated sync pulses is (4/|CTPR| *100). The 4 sp_ts_clk cycles is just the nascent value of the pulse that, actually triggers the PWD counters Note that this gives one more possible state, in addition to the states shown in Section 53.8.2: Valid states for integrated sync pulse generator. This additional state allows the output of the internal sync pulse generator to be made directly available at the output, without being pulse modulated. The CTPR describes ONLY the SYNC pulse period and not the sync pulse length, which is governed by the PWD registers.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_CIPR</ipxact:name>
+          <ipxact:displayName>Counter Initialize Pulse Register (PSI5_CH0_CIPR)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.35 - Offset 0x01AA</ipxact:description>
+          <ipxact:addressOffset>0x01AA</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>CIPR</ipxact:name>
+            <ipxact:description>Counter initialization pulse register This is the value at which the CTC gets reset the first time, after which it is enabled using CTC_GED (in GCR) or the CTC_ED bit (in PCCR). All subsequent resets are done when the CTC value reaches CTPR. The CIPR is used to set the offset time between the start of sync pulses between two different PSI5 channels, when the CTC of both of these channels are started simultaneously using CTC_GED. The offset between any two PSI5 channels would be |CIPR_channel1 - CIPR_channel2| sp_ts_clk cycles. Thus if channel 1 has a CIPR = 0 while channel2 has CIPR = 10, then the offset would be 10 sp_ts_clk cycles.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>16</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DPRL</ipxact:name>
+          <ipxact:displayName>Data Preparation Register Low Word (PSI5_CH0_DPRL)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.36 - Offset 0x01AC</ipxact:description>
+          <ipxact:addressOffset>0x01AC</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DPR</ipxact:name>
+            <ipxact:description>DPR[23:0] are the 24-bits of the DPR register used for writing the variable length, standard ECU-to-Sensor commands, comprising of the address, data and other fields. Note that the IP is transparent to the arrangement of the address, data and other fields and it treats the bits in these fields identically for the purpose of CRC calculation and transmission. This register is writable only when using the standard length PSI5 frames. For details about CRC calculation refer to Section 53.4.3.4: Data transmission. The writable bits in this register are governed by the PSI5_DOBCR[CMD_TYPE] bit fields as per Table 1652. Note that the unwritable bits in this register field are always read as “0s”. This register has to be written by the CPU. These bits can be written only in the Normal mode.</ipxact:description>
+            <ipxact:bitOffset>8</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>24</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DPRH</ipxact:name>
+          <ipxact:displayName>Data Preparation Register High Word (PSI5_CH0_DPRH)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.37 - Offset 0x01B0</ipxact:description>
+          <ipxact:addressOffset>0x01B0</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-only</ipxact:access>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DBRL</ipxact:name>
+          <ipxact:displayName>Data Buffer Register Low Word (PSI5_CH0_DBRL)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.38 - Offset 0x01B4</ipxact:description>
+          <ipxact:addressOffset>0x01B4</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DBR</ipxact:name>
+            <ipxact:description>This register contains the Lower 32 bits(DBR[31:0]) of the max-64 bit length command (DBR[63:0]). The higher bits, DBR[63:32] are contained in the DBRH register. These fields can automatically be updated by the hardware (when the CRC/stuff/start bits are appended to the data in DPRL) or these fields can be written by the CPU (when PSI5_GISR[DBR_RDY] == 1 in the Normal mode). Hardware update occurs when PSI5_GISR[DPR_RDY]== 0 and PSI5_GISR[DBR_RDY] == 1. It cannot be written in Config mode. Depending on the PSI5_DOBCR[CMD_TYPE] value this register can have different data assignments as describe in Table 1655. The tables (except when PSI5_DOBCR[CMD_TYPE] = “7”) show the bit assignment of the DBR[31:0] when these bits are automatically updated by the hardware. When PSI5_DOBCR[CMD_TYPE] == “7”), then only the CPU can write to these registers.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DBRH</ipxact:name>
+          <ipxact:displayName>Data Buffer Register (High Word (PSI5_CH0_DBRH)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.39 - Offset 0x01B8</ipxact:description>
+          <ipxact:addressOffset>0x01B8</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DBR</ipxact:name>
+            <ipxact:description>This register contains the Upper 32 bits (DBR[63:32]) of the max-64 bit length command (DBR[63:0]). The lower bits, DBR[31:0] are contained in the DBRL register. These fields can automatically be updated by the hardware (when the CRC/stuff/start bits are appended to the data in DPRL) or these fields can be written by the CPU (when PSI5_GISR[DBR_RDY] == 1 in the Normal mode). Hardware update occurs when PSI5_GISR[DPR_RDY]== 0 and PSI5_GISR[DBR_RDY] == 1. It cannot be written in Config mode. Depending on the PSI5_DOBCR[CMD_TYPE] value this register can have different data assignments as described in the below tables. Note that when PSI5_DOBCR[CMD_TYPE] == “7”), then only the CPU can write to these registers.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DSRL</ipxact:name>
+          <ipxact:displayName>Data Shift Register Low Word (PSI5_CH0_DSRL)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.40 - Offset 0x01BC</ipxact:description>
+          <ipxact:addressOffset>0x01BC</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DSR</ipxact:name>
+            <ipxact:description>These bits can be updated by the hardware or can be written by the CPU. The number of accessible bits in DSR are always equal to the number of accessible bits in DBR, which in turn depend on the value of PSI5_DOBCR[CMD_TYPE] register bits. When these bits are updated by the hardware then there is a one to one correspondence between the bit positions in this register and the bit positions in the DBRL. Thus when updated by the hardware, then DSR[31:0] = DBR[31:0]. Hardware update occurs when PSI5_GISR[DSR_RDY]== 1 and PSI5_GISR[DBR_RDY] == 0 and PSI5_DOBCR[SW_READY] == 1. Note that if PSI5_DOBCR[SW_READY] == 0 then the update of the data from the DBR to DSR will NOT happen even though PSI5_GISR[DSR_RDY] == 1. These bits can be written by the CPU in the Normal mode, when PSI5_GISR[DSR_RDY] == 1’b1. It cannot be written in Config mode.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+        <ipxact:register>
+          <ipxact:name>PSI5_CH0_DSRH</ipxact:name>
+          <ipxact:displayName>Data Shift Register High Word (PSI5_CH0_DSRH)</ipxact:displayName>
+          <ipxact:description>Section 53.3.2.41 - Offset 0x01C0</ipxact:description>
+          <ipxact:addressOffset>0x01C0</ipxact:addressOffset>
+          <ipxact:size>32</ipxact:size>
+          <ipxact:access>read-write</ipxact:access>
+          <ipxact:field>
+            <ipxact:name>DSR</ipxact:name>
+            <ipxact:description>These bits can be updated by the hardware or can be written by the CPU. The number of accessible bits in DSR are always equal to the number of accessible bits in DBR, which in turn depend on the value of PSI5_DOBCR[CMD_TYPE] register bits. When these bits are updated by the hardware then there is a one to one correspondence between the bit positions in this register and the bit positions in the DBRH. Thus when updated by the hardware, then DSR[63:32]] = DBR[63:32]. Hardware update occurs when PSI5_GISR[DSR_RDY]== 1 and PSI5_GISR[DBR_RDY] == 0 and PSI5_DOBCR[SW_READY] == 1. Note that if PSI5_DOBCR[SW_READY] == 0 then the update of the data from the DBR to DSR will NOT happen even though PSI5_GISR[DSR_RDY] == 1. These bits can be written by the CPU in the Normal mode, when PSI5_GISR[DSR_RDY] == 1’b1. It cannot be written in Config mode.</ipxact:description>
+            <ipxact:bitOffset>0</ipxact:bitOffset>
+            <ipxact:resets>
+              <ipxact:reset>
+                <ipxact:value>0x0</ipxact:value>
+              </ipxact:reset>
+            </ipxact:resets>
+            <ipxact:bitWidth>32</ipxact:bitWidth>
+            <ipxact:access>read-write</ipxact:access>
+          </ipxact:field>
+        </ipxact:register>
+      </ipxact:addressBlock>
+    </ipxact:memoryMap>
+  </ipxact:memoryMaps>
+</ipxact:component>
